@@ -18,12 +18,12 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
 
         const program = info.project['program'] as ts.Program|undefined
 
-        if(!program) {
-            return prior
-        }
+        if(!program) return prior
 
         const typeChecker = program.getTypeChecker()
         const sourceFile = program.getSourceFile(fileName)
+
+        if(!sourceFile) return prior
 
         // @ts-expect-error
         const node: ts.Node = ts.getTouchingPropertyName(sourceFile, position);
@@ -33,23 +33,32 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
         }
         
         const symbol = typeChecker.getSymbolAtLocation(node)
-        if(!symbol) {
-          return prior
-        }
+        if(!symbol) return prior
 
         const type = getTypeOrDeclaredType(typeChecker, symbol, node)
         const expandedType = recursiveMergeIntersection(typeChecker, type)
 
-        prior?.displayParts?.push({
-          kind: 'lineBreak',
-          text: "\n"
-        })
+        if(!prior?.displayParts) return prior
 
-        const typeString = resolvedTypeToString(typeChecker, expandedType)
+        prior.displayParts.push({ kind: 'lineBreak', text: "\n\n" })
 
-        prior?.displayParts?.push({
-          kind: 'punctuation',
-          text: typeString
+        prior.displayParts.push({ kind: 'punctuation', text: '(' })
+        prior.displayParts.push({ kind: 'text', text: 'type' })
+        prior.displayParts.push({ kind: 'punctuation', text: ')' })
+        prior.displayParts.push({ kind: 'space', text: ' ' })
+        
+        const typeString = resolvedTypeToString(typeChecker, sourceFile, expandedType, undefined, ts.TypeFormatFlags.MultilineObjectLiterals)
+
+        typeString.split("\n").forEach(line => {
+          prior.displayParts!.push({
+            kind: 'punctuation',
+            text: line,
+          })
+
+          prior.displayParts!.push({
+            kind: 'lineBreak',
+            text: "\n"
+          })
         })
 
         return prior

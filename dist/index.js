@@ -12,14 +12,14 @@ function init(modules) {
             proxy[k] = (...args) => x.apply(info.languageService, args);
         }
         proxy.getQuickInfoAtPosition = (fileName, position) => {
-            var _a, _b;
             const prior = info.languageService.getQuickInfoAtPosition(fileName, position);
             const program = info.project['program'];
-            if (!program) {
+            if (!program)
                 return prior;
-            }
             const typeChecker = program.getTypeChecker();
             const sourceFile = program.getSourceFile(fileName);
+            if (!sourceFile)
+                return prior;
             // @ts-expect-error
             const node = ts.getTouchingPropertyName(sourceFile, position);
             if (!node || node === sourceFile) {
@@ -27,19 +27,27 @@ function init(modules) {
                 return prior;
             }
             const symbol = typeChecker.getSymbolAtLocation(node);
-            if (!symbol) {
+            if (!symbol)
                 return prior;
-            }
             const type = (0, util_1.getTypeOrDeclaredType)(typeChecker, symbol, node);
             const expandedType = (0, merge_1.recursiveMergeIntersection)(typeChecker, type);
-            (_a = prior === null || prior === void 0 ? void 0 : prior.displayParts) === null || _a === void 0 ? void 0 : _a.push({
-                kind: 'lineBreak',
-                text: "\n"
-            });
-            const typeString = (0, util_1.resolvedTypeToString)(typeChecker, expandedType);
-            (_b = prior === null || prior === void 0 ? void 0 : prior.displayParts) === null || _b === void 0 ? void 0 : _b.push({
-                kind: 'punctuation',
-                text: typeString
+            if (!(prior === null || prior === void 0 ? void 0 : prior.displayParts))
+                return prior;
+            prior.displayParts.push({ kind: 'lineBreak', text: "\n\n" });
+            prior.displayParts.push({ kind: 'punctuation', text: '(' });
+            prior.displayParts.push({ kind: 'text', text: 'type' });
+            prior.displayParts.push({ kind: 'punctuation', text: ')' });
+            prior.displayParts.push({ kind: 'space', text: ' ' });
+            const typeString = (0, util_1.resolvedTypeToString)(typeChecker, sourceFile, expandedType, undefined, ts.TypeFormatFlags.MultilineObjectLiterals);
+            typeString.split("\n").forEach(line => {
+                prior.displayParts.push({
+                    kind: 'punctuation',
+                    text: line,
+                });
+                prior.displayParts.push({
+                    kind: 'lineBreak',
+                    text: "\n"
+                });
             });
             return prior;
         };
@@ -48,3 +56,4 @@ function init(modules) {
     return { create };
 }
 module.exports = init;
+//# sourceMappingURL=index.js.map
