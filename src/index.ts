@@ -85,7 +85,7 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
 }
 
 function getConfig(config: any) {
-  const includeOriginal = config.includeOriginal ?? true
+  const includeOriginal = config.includeOriginal ?? false
 
   return {
     multilineObjectLiterals: config.multilineObjectLiterals ?? true,
