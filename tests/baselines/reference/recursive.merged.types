@@ -1,0 +1,14 @@
+=== recursive.ts ===
+
+type Recursive = { a: { b: Recursive } }
+> Recursive --- { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { ...
+> { a: { b: Recursive } }
+> a: { b: Recursive }
+> a: { b: Recursive }
+> a --- { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { ...
+> { b: Recursive }
+> b: Recursive
+> b: Recursive
+> b --- { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { ...
+> Recursive
+> Recursive --- { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { b: { a: { ...

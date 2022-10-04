@@ -1,0 +1,1 @@
+type Recursive = { a: { b: Recursive } }

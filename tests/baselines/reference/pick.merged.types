@@ -1,0 +1,58 @@
+=== pick.ts ===
+
+type t = { a: "b", c: "d", d: { a: "b" } }
+> t --- { a: "b"; c: "d"; d: { a: "b"; }; }
+> { a: "b", c: "d", d: { a: "b" } }
+> a: "b", c: "d", d: { a: "b" }
+> a: "b",
+> a --- "b"
+> c: "d",
+> c --- "d"
+> d: { a: "b" }
+> d --- { a: "b"; }
+> { a: "b" }
+> a: "b"
+> a: "b"
+> a --- "b"
+
+type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
+> p --- { d: { a: "b"; b: "c"; }; a: "b"; b: "asd"; }
+> Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
+> Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
+> Pick<t, "a"|"d">
+> Pick --- {}
+> t, "a"|"d"
+> t
+> t --- { a: "b"; c: "d"; d: { a: "b"; }; }
+> {b: "asd", d: { b: "c" }}
+> b: "asd", d: { b: "c" }
+> b: "asd",
+> b --- "asd"
+> d: { b: "c" }
+> d --- { b: "c"; }
+> { b: "c" }
+> b: "c"
+> b: "c"
+> b --- "c"
+
+const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
+> const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
+> test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
+> test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
+> test3 --- { d: { a: "b"; b: "c"; }; a: "b"; b: "asd"; }
+> p
+> p --- { d: { a: "b"; b: "c"; }; a: "b"; b: "asd"; }
+> {a: "b", b: "asd", d: { a: "b", b: "c" }}
+> a: "b", b: "asd", d: { a: "b", b: "c" }
+> a: "b"
+> a --- "b"
+> b: "asd"
+> b --- "asd"
+> d: { a: "b", b: "c" }
+> d --- { a: "b"; b: "c"; }
+> { a: "b", b: "c" }
+> a: "b", b: "c"
+> a: "b"
+> a --- "b"
+> b: "c"
+> b --- "c"
