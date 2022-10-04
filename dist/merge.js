@@ -16,7 +16,6 @@ function _recursiveMergeIntersection(typeChecker, types, seen) {
     }
     const objectTypes = [];
     const otherTypes = [];
-    let res;
     for (const type of types) {
         if (type.flags & typescript_1.default.TypeFlags.Intersection) {
             ;
@@ -44,9 +43,9 @@ function _recursiveMergeIntersection(typeChecker, types, seen) {
         }
     }
     if (otherTypes.length === 1 && objectTypes.length === 0) {
-        if (types.length === 1)
-            seen.set(types[0], otherTypes[0]);
-        return otherTypes[0];
+        const newType = cloneTypeWithoutAlias(otherTypes[0]);
+        seen.set(otherTypes[0], newType);
+        return newType;
     }
     else if (otherTypes.length === 0 && objectTypes.length > 0) {
         const newType = createAnonymousObjectType();
@@ -89,5 +88,17 @@ function _recursiveMergeIntersection(typeChecker, types, seen) {
         symbol.type = _recursiveMergeIntersection(typeChecker, types, seen);
         return symbol;
     }
+    function cloneTypeWithoutAlias(type) {
+        type = cloneClassInstance(type);
+        const symbol = type.getSymbol();
+        if (type.aliasSymbol && symbol) {
+            // remove type alias
+            type.aliasSymbol = undefined;
+        }
+        return type;
+    }
+}
+function cloneClassInstance(orig) {
+    return Object.assign(Object.create(Object.getPrototypeOf(orig)), orig);
 }
 //# sourceMappingURL=merge.js.map

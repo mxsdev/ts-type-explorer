@@ -69,7 +69,7 @@ function init(modules) {
 }
 function getConfig(config) {
     var _a, _b, _c;
-    const includeOriginal = (_a = config.includeOriginal) !== null && _a !== void 0 ? _a : true;
+    const includeOriginal = (_a = config.includeOriginal) !== null && _a !== void 0 ? _a : false;
     return {
         multilineObjectLiterals: (_b = config.multilineObjectLiterals) !== null && _b !== void 0 ? _b : true,
         includeOriginal,
