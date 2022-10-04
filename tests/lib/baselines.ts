@@ -86,21 +86,21 @@ export function generateMergeBaseline(sourceFile: ts.SourceFile, typeChecker: ts
     return sourceFile
         .getChildren()[0]!
         .getChildren()
-        .map(c => generateMergeBaselineRecursive(c, typeChecker))
+        .map(c => generateMergeBaselineRecursive(c, typeChecker, sourceFile))
         .join("\n\n")
 }
 
-function generateMergeBaselineRecursive(node: ts.Node, typeChecker: ts.TypeChecker, depth: number = 0): string {
+function generateMergeBaselineRecursive(node: ts.Node, typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, depth: number = 0): string {
     const symbol = typeChecker.getSymbolAtLocation(node)
     
     let line: string = `${node.getText()}`
     if(symbol) {
         const type = getTypeOrDeclaredType(typeChecker, symbol, node)
-        line += ` --- ${resolvedTypeToString(typeChecker, recursiveMergeIntersection(typeChecker, type))}`
+        line += ` --- ${resolvedTypeToString(typeChecker, sourceFile, recursiveMergeIntersection(typeChecker, type))}`
     }
 
     const childLines = node.getChildren()
-        .map(node => generateMergeBaselineRecursive(node, typeChecker, depth + 1))
+        .map(node => generateMergeBaselineRecursive(node, typeChecker, sourceFile, depth + 1))
         .flatMap(text => text.split("\n"))
         .filter(text => !!text)
         .map(text => depth === 0 ? `> ${text}` : text)

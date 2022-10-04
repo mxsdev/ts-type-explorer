@@ -90,3 +90,4 @@ function _recursiveMergeIntersection(typeChecker, types, seen) {
         return symbol;
     }
 }
+//# sourceMappingURL=merge.js.map
