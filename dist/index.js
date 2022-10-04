@@ -1,6 +1,7 @@
-import { recursiveMergeIntersection } from "./merge.js";
-import { getTypeOrDeclaredType, resolvedTypeToString } from "./util.js";
-export default function init(modules) {
+"use strict";
+const merge_1 = require("./merge");
+const util_1 = require("./util");
+function init(modules) {
     const ts = modules.typescript;
     function create(info) {
         // Set up decorator object
@@ -29,13 +30,13 @@ export default function init(modules) {
             if (!symbol) {
                 return prior;
             }
-            const type = getTypeOrDeclaredType(typeChecker, symbol, node);
-            const expandedType = recursiveMergeIntersection(typeChecker, type);
+            const type = (0, util_1.getTypeOrDeclaredType)(typeChecker, symbol, node);
+            const expandedType = (0, merge_1.recursiveMergeIntersection)(typeChecker, type);
             (_a = prior === null || prior === void 0 ? void 0 : prior.displayParts) === null || _a === void 0 ? void 0 : _a.push({
                 kind: 'lineBreak',
                 text: "\n"
             });
-            const typeString = resolvedTypeToString(typeChecker, expandedType);
+            const typeString = (0, util_1.resolvedTypeToString)(typeChecker, expandedType);
             (_b = prior === null || prior === void 0 ? void 0 : prior.displayParts) === null || _b === void 0 ? void 0 : _b.push({
                 kind: 'punctuation',
                 text: typeString
@@ -46,3 +47,4 @@ export default function init(modules) {
     }
     return { create };
 }
+module.exports = init;

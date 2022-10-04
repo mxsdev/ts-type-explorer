@@ -1,7 +1,7 @@
-import { recursiveMergeIntersection } from "./merge.js";
-import { getTypeOrDeclaredType, resolvedTypeToString } from "./util.js";
+import { recursiveMergeIntersection } from "./merge";
+import { getTypeOrDeclaredType, resolvedTypeToString } from "./util";
 
-export default function init(modules: { typescript: typeof import("typescript/lib/tsserverlibrary") }) {
+function init(modules: { typescript: typeof import("typescript/lib/tsserverlibrary") }) {
     const ts = modules.typescript;
   
     function create(info: ts.server.PluginCreateInfo) {
@@ -60,3 +60,5 @@ export default function init(modules: { typescript: typeof import("typescript/li
 
     return { create };
 }
+
+export = init;

@@ -1,3 +1,3 @@
-import { generateBaselineTests } from "./baselines.js"
+import { generateBaselineTests, getTestCases } from "./baselines"
 
-await generateBaselineTests()
+describe("baselines", generateBaselineTests)

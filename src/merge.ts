@@ -1,5 +1,5 @@
 import ts from "typescript"
-import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType } from "./util.js"
+import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType } from "./util"
 
 export function recursiveMergeIntersection(typeChecker: ts.TypeChecker, type: ts.Type) {
     return _recursiveMergeIntersection(typeChecker, [type], new WeakMap())

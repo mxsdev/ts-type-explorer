@@ -1,3 +1,3 @@
-import { acceptBaselines } from "../tests/lib/baselines.js";
+import { acceptBaselines } from "../tests/lib/baselines";
 
-await acceptBaselines()
+acceptBaselines()

@@ -1,22 +1,26 @@
 {
   "name": "ts-expand-type",
-  "type": "module",
+  "version": "0.0.1",
+  "type": "commonjs",
   "main": "./dist",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
     "test": "mocha",
-    "baseline-accept": "ts-node-esm ./scripts/acceptBaselines.ts"
+    "baseline-accept": "ts-node ./scripts/acceptBaselines.ts"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
+    "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.8.0",
     "@types/typescript": "^2.0.0",
     "fs-extra": "^10.1.0",
-    "globby": "^13.1.2",
+    "glob": "^8.0.3",
     "mocha": "^10.0.0",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
     "typescript": "^4.8.4"
   }
 }

@@ -1,11 +1,11 @@
 import ts from "typescript"
-import { recursiveMergeIntersection } from "../../src/merge.js"
-import { getTypeOrDeclaredType, resolvedTypeToString } from "../../src/util.js"
-import { globby } from "globby"
+import { recursiveMergeIntersection } from "../../src/merge"
+import { getTypeOrDeclaredType, resolvedTypeToString } from "../../src/util"
 import path from "path"
 import fs from "fs-extra"
-import { dirname } from "./files.js"
+import { dirname } from "./files"
 import assert from "assert"
+import glob from "glob"
 
 function getTestGlob(): string|undefined { return process.env["TESTS"] }
 
@@ -14,9 +14,14 @@ const baselinesPath = path.join(dirname, "../baselines")
 const baselinesLocalPath = path.join(baselinesPath, "local")
 const baselinesReferencePath = path.join(baselinesPath, "reference")
 
-async function getTestCases(): Promise<string[]> {
-    const globbed = await globby([ getTestGlob() ?? "*"], {
-        cwd: testCasePath,
+export async function getTestCases(): Promise<string[]> {
+    const globbed = await new Promise<string[]>((resolve, reject) => {
+        const res = glob(getTestGlob() ?? "*", { cwd: testCasePath }, (err, files) => {
+            if(err) {
+                reject(err)
+            }
+            resolve(files)
+        })
     })
 
     return globbed.filter(name => path.parse(name).ext.toLowerCase() === ".ts")
