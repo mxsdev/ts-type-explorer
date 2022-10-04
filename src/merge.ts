@@ -12,15 +12,8 @@ function _recursiveMergeIntersection(typeChecker: ts.TypeChecker, types: ts.Type
 
     const objectTypes: ts.ObjectType[] = []
     const otherTypes: ts.Type[] = []
-    const functionTypes: ts.ObjectType[] = []
-    let res: ts.Type
 
     for(const type of types) {
-        const signatures = [
-            ...typeChecker.getSignaturesOfType(type, ts.SignatureKind.Call),
-            ...typeChecker.getSignaturesOfType(type, ts.SignatureKind.Construct),
-        ]
-
         if(type.flags & ts.TypeFlags.Intersection) {
             ;(type as ts.IntersectionType).types.forEach((type) => {
                 if(type.flags & ts.TypeFlags.Object) {
@@ -37,28 +30,13 @@ function _recursiveMergeIntersection(typeChecker: ts.TypeChecker, types: ts.Type
             const unionTypeMembers = (type as ts.UnionType).types.map(t => _recursiveMergeIntersection(typeChecker, [t], seen))
             newType.types = unionTypeMembers
         } else if(type.flags & ts.TypeFlags.Object) {
-            if(signatures.length > 0) {
-                // function type
-                otherTypes.push(type)
-                functionTypes.push(type as ts.ObjectType)
-            } else {
-                objectTypes.push(type as ts.ObjectType)
-            }
+            objectTypes.push(type as ts.ObjectType)
         } else {
             otherTypes.push(type)
         }
     }
 
     if(otherTypes.length === 1 && objectTypes.length === 0) {
-        // if(functionTypes.length === 1) {
-        //     // generate new function ?
-        //     if(types.length === 1) seen.set(types[0], otherTypes[0])
-        //     return otherTypes[0]
-        // } else {
-        //     if(types.length === 1) seen.set(types[0], otherTypes[0])
-        //     return otherTypes[0]
-        // }
-
         const newType = cloneTypeWithoutAlias(otherTypes[0])
         seen.set(otherTypes[0], newType)
 

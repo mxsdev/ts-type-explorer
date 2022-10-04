@@ -1,0 +1,22 @@
+=== lambda.ts ===
+
+type f = (arg1: string, arg2: boolean) => void
+> f --- {}
+> (arg1: string, arg2: boolean) => void
+> arg1: string, arg2: boolean
+> arg1: string
+> arg1 --- string
+> arg2: boolean
+> arg2 --- boolean
+> => --- any
+
+type t = { a: string } | f
+> t --- {} | { a: string; }
+> { a: string } | f
+> { a: string } | f
+> { a: string }
+> a: string
+> a: string
+> a --- string
+> f
+> f --- {}
