@@ -60,10 +60,9 @@ function getTypeOrDeclaredType(typeChecker, symbol, location) {
     return type;
 }
 exports.getTypeOrDeclaredType = getTypeOrDeclaredType;
-function resolvedTypeToString(typeChecker, sourceFile, ...args) {
-    let [type, enclosingDeclaration, flags = 0] = args;
-    flags |= typescript_1.default.TypeFormatFlags.InTypeAlias;
-    const typeNode = typeChecker.typeToTypeNode(type, undefined, typescript_1.default.NodeBuilderFlags.MultilineObjectLiterals);
+function resolvedTypeToString(typeChecker, sourceFile, type, enclosingDeclaration, flags = 0) {
+    flags |= typescript_1.default.NodeBuilderFlags.InTypeAlias;
+    const typeNode = typeChecker.typeToTypeNode(type, enclosingDeclaration, flags);
     if (!typeNode)
         return "";
     const printer = typescript_1.default.createPrinter();

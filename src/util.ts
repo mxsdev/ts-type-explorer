@@ -86,9 +86,8 @@ export function getTypeOrDeclaredType(typeChecker: ts.TypeChecker, symbol: ts.Sy
     return type
 }
 
-export function resolvedTypeToString(typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, ...args: (Parameters<ts.TypeChecker['typeToString']>)) {
-    let [ type, enclosingDeclaration, flags = 0 ] = args
-    flags |= ts.TypeFormatFlags.InTypeAlias
+export function resolvedTypeToString(typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, type: ts.Type, enclosingDeclaration?: ts.Node, flags: ts.NodeBuilderFlags = 0) {
+    flags |= ts.NodeBuilderFlags.InTypeAlias
 
     const typeNode = typeChecker.typeToTypeNode(type, enclosingDeclaration, flags)
     if(!typeNode) return ""

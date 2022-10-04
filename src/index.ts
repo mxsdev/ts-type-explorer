@@ -3,8 +3,10 @@ import { getTypeOrDeclaredType, resolvedTypeToString } from "./util";
 
 function init(modules: { typescript: typeof import("typescript/lib/tsserverlibrary") }) {
     const ts = modules.typescript;
-  
+
     function create(info: ts.server.PluginCreateInfo) {
+      const config = getConfig(info.config)
+
       // Set up decorator object
       const proxy: ts.LanguageService = Object.create(null);
       for (let k of Object.keys(info.languageService) as Array<keyof ts.LanguageService>) {
@@ -40,14 +42,26 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
 
         if(!prior?.displayParts) return prior
 
-        prior.displayParts.push({ kind: 'lineBreak', text: "\n\n" })
+        if(!config.includeOriginal) {
+          prior.displayParts = []
+        } else {
+          prior.displayParts.push({ kind: 'lineBreak', text: "\n\n" })
+        }
 
-        prior.displayParts.push({ kind: 'punctuation', text: '(' })
-        prior.displayParts.push({ kind: 'text', text: 'type' })
-        prior.displayParts.push({ kind: 'punctuation', text: ')' })
-        prior.displayParts.push({ kind: 'space', text: ' ' })
+        if(config.typePrefix) {
+          prior.displayParts.push({ kind: 'punctuation', text: '(' })
+          prior.displayParts.push({ kind: 'text', text: 'type' })
+          prior.displayParts.push({ kind: 'punctuation', text: ')' })
+          prior.displayParts.push({ kind: 'space', text: ' ' })
+        }
+
+        let typeFormatFlags = 0
+
+        if(config.multilineObjectLiterals) {
+          typeFormatFlags |= ts.NodeBuilderFlags.MultilineObjectLiterals
+        }
         
-        const typeString = resolvedTypeToString(typeChecker, sourceFile, expandedType, undefined, ts.TypeFormatFlags.MultilineObjectLiterals)
+        const typeString = resolvedTypeToString(typeChecker, sourceFile, expandedType, undefined, typeFormatFlags)
 
         typeString.split("\n").forEach(line => {
           prior.displayParts!.push({
@@ -68,6 +82,16 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
     }
 
     return { create };
+}
+
+function getConfig(config: any) {
+  const includeOriginal = config.includeOriginal ?? true
+
+  return {
+    multilineObjectLiterals: config.multilineObjectLiterals ?? true,
+    includeOriginal,
+    typePrefix: config.typePrefix ?? includeOriginal,
+  }
 }
 
 export = init;

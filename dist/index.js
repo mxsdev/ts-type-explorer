@@ -4,6 +4,7 @@ const util_1 = require("./util");
 function init(modules) {
     const ts = modules.typescript;
     function create(info) {
+        const config = getConfig(info.config);
         // Set up decorator object
         const proxy = Object.create(null);
         for (let k of Object.keys(info.languageService)) {
@@ -33,12 +34,23 @@ function init(modules) {
             const expandedType = (0, merge_1.recursiveMergeIntersection)(typeChecker, type);
             if (!(prior === null || prior === void 0 ? void 0 : prior.displayParts))
                 return prior;
-            prior.displayParts.push({ kind: 'lineBreak', text: "\n\n" });
-            prior.displayParts.push({ kind: 'punctuation', text: '(' });
-            prior.displayParts.push({ kind: 'text', text: 'type' });
-            prior.displayParts.push({ kind: 'punctuation', text: ')' });
-            prior.displayParts.push({ kind: 'space', text: ' ' });
-            const typeString = (0, util_1.resolvedTypeToString)(typeChecker, sourceFile, expandedType, undefined, ts.TypeFormatFlags.MultilineObjectLiterals);
+            if (!config.includeOriginal) {
+                prior.displayParts = [];
+            }
+            else {
+                prior.displayParts.push({ kind: 'lineBreak', text: "\n\n" });
+            }
+            if (config.typePrefix) {
+                prior.displayParts.push({ kind: 'punctuation', text: '(' });
+                prior.displayParts.push({ kind: 'text', text: 'type' });
+                prior.displayParts.push({ kind: 'punctuation', text: ')' });
+                prior.displayParts.push({ kind: 'space', text: ' ' });
+            }
+            let typeFormatFlags = 0;
+            if (config.multilineObjectLiterals) {
+                typeFormatFlags |= ts.NodeBuilderFlags.MultilineObjectLiterals;
+            }
+            const typeString = (0, util_1.resolvedTypeToString)(typeChecker, sourceFile, expandedType, undefined, typeFormatFlags);
             typeString.split("\n").forEach(line => {
                 prior.displayParts.push({
                     kind: 'punctuation',
@@ -54,6 +66,15 @@ function init(modules) {
         return proxy;
     }
     return { create };
+}
+function getConfig(config) {
+    var _a, _b, _c;
+    const includeOriginal = (_a = config.includeOriginal) !== null && _a !== void 0 ? _a : true;
+    return {
+        multilineObjectLiterals: (_b = config.multilineObjectLiterals) !== null && _b !== void 0 ? _b : true,
+        includeOriginal,
+        typePrefix: (_c = config.typePrefix) !== null && _c !== void 0 ? _c : includeOriginal,
+    };
 }
 module.exports = init;
 //# sourceMappingURL=index.js.map

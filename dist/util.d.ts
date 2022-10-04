@@ -25,4 +25,4 @@ export declare function createUnionType(typeChecker: ts.TypeChecker, types?: ts.
 export declare function createIntersectionType(typeChecker: ts.TypeChecker, types?: ts.Type[], flags?: ts.TypeFlags): IntersectionType;
 export declare function createSymbol(flags: ts.SymbolFlags, name: SymbolName, checkFlags?: number): TSSymbol;
 export declare function getTypeOrDeclaredType(typeChecker: ts.TypeChecker, symbol: ts.Symbol, location?: ts.Node): ts.Type;
-export declare function resolvedTypeToString(typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, ...args: (Parameters<ts.TypeChecker['typeToString']>)): string;
+export declare function resolvedTypeToString(typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, type: ts.Type, enclosingDeclaration?: ts.Node, flags?: ts.NodeBuilderFlags): string;
