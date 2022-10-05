@@ -1,11 +1,11 @@
 import ts from "typescript"
 import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos } from "./util"
 
-export function recursiveMergeIntersection(typeChecker: ts.TypeChecker, type: ts.Type) {
-    return _recursiveMergeIntersection(typeChecker, [type], new WeakMap())
+export function recursivelyExpandType(typeChecker: ts.TypeChecker, type: ts.Type) {
+    return _recursivelyExpandType(typeChecker, [type], new WeakMap())
 }
 
-function _recursiveMergeIntersection(typeChecker: ts.TypeChecker, types: ts.Type[], seen: WeakMap<ts.Type, ts.Type>): ts.Type {
+function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], seen: WeakMap<ts.Type, ts.Type>): ts.Type {
     if(types.length === 1 && seen.has(types[0])) {
         return seen.get(types[0])!
     }
@@ -27,7 +27,7 @@ function _recursiveMergeIntersection(typeChecker: ts.TypeChecker, types: ts.Type
             otherTypes.push(newType)
             seen.set(type, newType)
 
-            const unionTypeMembers = (type as ts.UnionType).types.map(t => _recursiveMergeIntersection(typeChecker, [t], seen))
+            const unionTypeMembers = (type as ts.UnionType).types.map(t => _recursivelyExpandType(typeChecker, [t], seen))
             newType.types = unionTypeMembers
         } else if(type.flags & ts.TypeFlags.Object) {
             if(getSignaturesOfType(typeChecker, type).length > 0) {
@@ -98,7 +98,7 @@ function _recursiveMergeIntersection(typeChecker: ts.TypeChecker, types: ts.Type
 
         const types = symbols.map(s => getSymbolType(typeChecker, s))
         
-        propertySymbol.type = _recursiveMergeIntersection(typeChecker, types, seen)
+        propertySymbol.type = _recursivelyExpandType(typeChecker, types, seen)
 
         return propertySymbol
     }

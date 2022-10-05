@@ -48,6 +48,14 @@ export function getSymbolDeclaration(
 };
 
 export function getSymbolType(typeChecker: ts.TypeChecker, symbol: ts.Symbol, location?: ts.Node) {
+    if(location) {
+        const type = typeChecker.getTypeOfSymbolAtLocation(symbol, location)
+
+        if(isValidType(type)) {
+            return type
+        }
+    }
+
     const declaration = getSymbolDeclaration(symbol);
     if (declaration) {
       const type = typeChecker.getTypeOfSymbolAtLocation(symbol, declaration);
@@ -113,24 +121,10 @@ export function createSymbol(flags: ts.SymbolFlags, name: SymbolName, checkFlags
     return symbol;
 }
 
-export function getTypeOrDeclaredType(typeChecker: ts.TypeChecker, symbol: ts.Symbol, location?: ts.Node) {
-    const type = getSymbolType(typeChecker, symbol, location)
-
-    if(type.flags & ts.TypeFlags.Any) {
-        return typeChecker.getDeclaredTypeOfSymbol(symbol)
-    }
-
-    return type
-}
-
-export function resolvedTypeToString(typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, type: ts.Type, enclosingDeclaration?: ts.Node, flags: ts.NodeBuilderFlags = 0) {
-    flags |= ts.NodeBuilderFlags.InTypeAlias
-
+export function multilineTypeToString(typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, type: ts.Type, enclosingDeclaration?: ts.Node, flags: ts.NodeBuilderFlags = 0) {
     const typeNode = typeChecker.typeToTypeNode(type, enclosingDeclaration, flags)
     if(!typeNode) return ""
 
     const printer = ts.createPrinter()
     return printer.printNode(ts.EmitHint.Unspecified, typeNode, sourceFile)
-
-    // return typeChecker.typeToString(type, enclosingDeclaration, flags | ts.TypeFormatFlags.InTypeAlias)
 }

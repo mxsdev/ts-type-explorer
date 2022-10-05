@@ -1,5 +1,4 @@
-import { recursiveMergeIntersection } from "./merge";
-import { getTypeOrDeclaredType, resolvedTypeToString } from "./util";
+import { getSymbolType, multilineTypeToString, recursivelyExpandType } from "@ts-expand-type/api";
 
 function init(modules: { typescript: typeof import("typescript/lib/tsserverlibrary") }) {
     const ts = modules.typescript;
@@ -37,8 +36,8 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
         const symbol = typeChecker.getSymbolAtLocation(node)
         if(!symbol) return prior
 
-        const type = getTypeOrDeclaredType(typeChecker, symbol, node)
-        const expandedType = recursiveMergeIntersection(typeChecker, type)
+        const type = getSymbolType(typeChecker, symbol, node)
+        const expandedType = recursivelyExpandType(typeChecker, type)
 
         if(!prior?.displayParts) return prior
 
@@ -61,7 +60,7 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
           typeFormatFlags |= ts.NodeBuilderFlags.MultilineObjectLiterals
         }
         
-        const typeString = resolvedTypeToString(typeChecker, sourceFile, expandedType, undefined, typeFormatFlags)
+        const typeString = multilineTypeToString(typeChecker, sourceFile, expandedType, undefined, typeFormatFlags)
 
         typeString.split("\n").forEach(line => {
           prior.displayParts!.push({

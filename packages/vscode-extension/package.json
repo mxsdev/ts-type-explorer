@@ -1,0 +1,10 @@
+{
+    "name": "@ts-expand-type/vscode-extension",
+    "version": "0.0.1",
+    "type": "commonjs",
+    "license": "MIT",
+    "dependencies": {
+        "typescript": "^4.8.4",
+        "@ts-expand-type/api": "*"
+    }
+}

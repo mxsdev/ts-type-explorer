@@ -1,0 +1,9 @@
+{
+    "name": "@ts-expand-type/api",
+    "version": "0.0.1",
+    "type": "commonjs",
+    "license": "MIT",
+    "dependencies": {
+        "typescript": "^4.8.4"
+    }
+}

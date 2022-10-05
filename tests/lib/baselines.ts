@@ -1,6 +1,5 @@
 import ts from "typescript"
-import { recursiveMergeIntersection } from "../../src/merge"
-import { getTypeOrDeclaredType, resolvedTypeToString } from "../../src/util"
+import { getSymbolType, multilineTypeToString, recursivelyExpandType } from "@ts-expand-type/api";
 import path from "path"
 import fs from "fs-extra"
 import { dirname } from "./files"
@@ -97,8 +96,8 @@ function generateMergeBaselineRecursive(node: ts.Node, typeChecker: ts.TypeCheck
     
     let line: string = `${node.getText()}`
     if(symbol) {
-        const type = getTypeOrDeclaredType(typeChecker, symbol, node)
-        line += ` --- ${resolvedTypeToString(typeChecker, sourceFile, recursiveMergeIntersection(typeChecker, type))}`
+        const type = getSymbolType(typeChecker, symbol, node)
+        line += ` --- ${multilineTypeToString(typeChecker, sourceFile, recursivelyExpandType(typeChecker, type))}`
     }
 
     const childLines = node.getChildren()
