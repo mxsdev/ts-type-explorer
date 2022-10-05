@@ -32,10 +32,47 @@ export type TSSymbol = ts.Symbol & {
     type?: ts.Type,
 }
 
+export function isValidType(type: ts.Type): boolean {
+    return (
+        !('intrinsicName' in type) ||
+        (type as unknown as { intrinsicName: string }).intrinsicName !== 'error'
+    );
+};
+
+export function getSymbolDeclaration(
+    symbol?: ts.Symbol,
+): ts.Declaration | undefined {
+    return symbol
+        ? symbol.valueDeclaration || symbol.declarations?.[0]
+        : undefined;
+};
+
 export function getSymbolType(typeChecker: ts.TypeChecker, symbol: ts.Symbol, location?: ts.Node) {
-    // @ts-expect-error
-    location ||= { parent: {} }
-    return typeChecker.getTypeOfSymbolAtLocation(symbol, location!)
+    const declaration = getSymbolDeclaration(symbol);
+    if (declaration) {
+      const type = typeChecker.getTypeOfSymbolAtLocation(symbol, declaration);
+      if (isValidType(type)) {
+        return type
+      }
+    }
+
+    const symbolType = typeChecker.getDeclaredTypeOfSymbol(symbol);
+    if (isValidType(symbolType)) {
+      return symbolType;
+    }
+
+    return typeChecker.getTypeOfSymbolAtLocation(symbol, { parent: {} } as unknown as ts.Node)
+}
+
+export function getSignaturesOfType(typeChecker: ts.TypeChecker, type: ts.Type) {
+    return [
+        ...typeChecker.getSignaturesOfType(type, ts.SignatureKind.Call),
+        ...typeChecker.getSignaturesOfType(type, ts.SignatureKind.Construct),
+    ]
+}
+
+export function getIndexInfos(typeChecker: ts.TypeChecker, type: ts.Type) {
+    return typeChecker.getIndexInfosOfType(type)
 }
 
 export function createType(checker: ts.TypeChecker, flags: ts.TypeFlags) {

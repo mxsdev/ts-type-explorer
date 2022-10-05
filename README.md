@@ -41,7 +41,7 @@ Configuration options are set in the `plugins` options - see above. Available co
 
 Planned features:
 
- - [ ] Support for mapped types
+ - [x] Support for mapped types
  - [ ] Union merging ([#1](https://github.com/mxsdev/ts-expand-type/issues/1))
  - [ ] Support for function types
 

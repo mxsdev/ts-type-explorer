@@ -1,0 +1,12 @@
+=== function.ts ===
+
+function func(a: string, b: number) {
+    return "asd"
+}
+> function --- (a: string, b: number) => string
+> func --- (a: string, b: number) => string
+> a: string, b: number
+> a: string
+> a --- string
+> b: number
+> b --- number

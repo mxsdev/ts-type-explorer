@@ -1,5 +1,5 @@
 import ts from "typescript"
-import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType } from "./util"
+import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos } from "./util"
 
 export function recursiveMergeIntersection(typeChecker: ts.TypeChecker, type: ts.Type) {
     return _recursiveMergeIntersection(typeChecker, [type], new WeakMap())
@@ -30,7 +30,15 @@ function _recursiveMergeIntersection(typeChecker: ts.TypeChecker, types: ts.Type
             const unionTypeMembers = (type as ts.UnionType).types.map(t => _recursiveMergeIntersection(typeChecker, [t], seen))
             newType.types = unionTypeMembers
         } else if(type.flags & ts.TypeFlags.Object) {
-            objectTypes.push(type as ts.ObjectType)
+            if(getSignaturesOfType(typeChecker, type).length > 0) {
+                // function type
+                otherTypes.push(type)
+            } else if(getIndexInfos(typeChecker, type)) {
+                // mapped type
+                otherTypes.push(type)
+            } else {
+                objectTypes.push(type as ts.ObjectType)
+            }
         } else {
             otherTypes.push(type)
         }
@@ -86,13 +94,13 @@ function _recursiveMergeIntersection(typeChecker: ts.TypeChecker, types: ts.Type
     }
 
     function mergeIntersectedPropertySymbols(symbols: TSSymbol[], name: SymbolName): TSSymbol {
-        const symbol = createSymbol(ts.SymbolFlags.Property, name, 1 << 18)
+        const propertySymbol = createSymbol(ts.SymbolFlags.Property, name, 1 << 18)
 
         const types = symbols.map(s => getSymbolType(typeChecker, s))
         
-        symbol.type = _recursiveMergeIntersection(typeChecker, types, seen)
+        propertySymbol.type = _recursiveMergeIntersection(typeChecker, types, seen)
 
-        return symbol
+        return propertySymbol
     }
 
     function cloneTypeWithoutAlias(type: ts.Type) {
