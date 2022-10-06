@@ -41,8 +41,6 @@ export async function acceptBaselines() {
 }
 
 export async function generateBaselineTests() {
-    
-
     const allTestCases = await getTestCases()
 
     describe("baselines", () => {
