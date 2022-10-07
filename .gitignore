@@ -1,6 +1,10 @@
 ### Tests ###
 tests/baselines/local
 
+## Build ##
+out
+dist
+
 ### Node ###
 # Logs
 logs
