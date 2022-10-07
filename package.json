@@ -5,7 +5,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -b",
+    "watch": "tsc -b --watch",
     "test": "mocha",
     "baseline-accept": "ts-node ./scripts/acceptBaselines.ts"
   },

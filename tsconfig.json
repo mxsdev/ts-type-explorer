@@ -1,12 +1,11 @@
 {
-    "compilerOptions": {
-        "esModuleInterop": true,
-        "target": "es2017",
-        "module": "CommonJS",
-        "moduleResolution": "node",
-        "strict": true,
-        "noImplicitAny": true,
-        "declaration": true,
-        "sourceMap": true
-    },
+    "references": [
+        { "path": "./packages/api" },
+        { "path": "./packages/tsserver-plugin" },
+        { "path": "./packages/typescript-explorer" },
+        { "path": "./packages/typescript-explorer-tsserver" },
+    ],
+    "files": [],
+    "include": [],
+    "exclude": ["**/node_modules"],
 }

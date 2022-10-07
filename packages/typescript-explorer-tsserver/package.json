@@ -1,5 +1,5 @@
 {
-    "name": "@ts-expand-type/tsserver-plugin",
+    "name": "@ts-expand-type/typescript-explorer-tsserver",
     "version": "0.0.1",
     "main": "./dist",
     "type": "commonjs",

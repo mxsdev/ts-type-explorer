@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resolvedTypeToString = exports.getTypeOrDeclaredType = exports.createSymbol = exports.createIntersectionType = exports.createUnionType = exports.createObjectType = exports.createType = exports.getSymbolType = void 0;
+exports.multilineTypeToString = exports.createSymbol = exports.createIntersectionType = exports.createUnionType = exports.createObjectType = exports.createType = exports.getIndexInfos = exports.getSignaturesOfType = exports.getSymbolType = exports.getSymbolDeclaration = exports.isValidType = void 0;
 const typescript_1 = __importDefault(require("typescript"));
 function getTypeConstructor() {
     // @ts-expect-error
@@ -13,12 +13,52 @@ function getSymbolConstructor() {
     // @ts-expect-error
     return typescript_1.default.objectAllocator.getSymbolConstructor();
 }
+function isValidType(type) {
+    return (!('intrinsicName' in type) ||
+        type.intrinsicName !== 'error');
+}
+exports.isValidType = isValidType;
+;
+function getSymbolDeclaration(symbol) {
+    var _a;
+    return symbol
+        ? symbol.valueDeclaration || ((_a = symbol.declarations) === null || _a === void 0 ? void 0 : _a[0])
+        : undefined;
+}
+exports.getSymbolDeclaration = getSymbolDeclaration;
+;
 function getSymbolType(typeChecker, symbol, location) {
-    // @ts-expect-error
-    location || (location = { parent: {} });
-    return typeChecker.getTypeOfSymbolAtLocation(symbol, location);
+    if (location) {
+        const type = typeChecker.getTypeOfSymbolAtLocation(symbol, location);
+        if (isValidType(type)) {
+            return type;
+        }
+    }
+    const declaration = getSymbolDeclaration(symbol);
+    if (declaration) {
+        const type = typeChecker.getTypeOfSymbolAtLocation(symbol, declaration);
+        if (isValidType(type)) {
+            return type;
+        }
+    }
+    const symbolType = typeChecker.getDeclaredTypeOfSymbol(symbol);
+    if (isValidType(symbolType)) {
+        return symbolType;
+    }
+    return typeChecker.getTypeOfSymbolAtLocation(symbol, { parent: {} });
 }
 exports.getSymbolType = getSymbolType;
+function getSignaturesOfType(typeChecker, type) {
+    return [
+        ...typeChecker.getSignaturesOfType(type, typescript_1.default.SignatureKind.Call),
+        ...typeChecker.getSignaturesOfType(type, typescript_1.default.SignatureKind.Construct),
+    ];
+}
+exports.getSignaturesOfType = getSignaturesOfType;
+function getIndexInfos(typeChecker, type) {
+    return typeChecker.getIndexInfosOfType(type);
+}
+exports.getIndexInfos = getIndexInfos;
 function createType(checker, flags) {
     return new (getTypeConstructor())(checker, flags);
 }
@@ -52,22 +92,12 @@ function createSymbol(flags, name, checkFlags) {
     return symbol;
 }
 exports.createSymbol = createSymbol;
-function getTypeOrDeclaredType(typeChecker, symbol, location) {
-    const type = getSymbolType(typeChecker, symbol, location);
-    if (type.flags & typescript_1.default.TypeFlags.Any) {
-        return typeChecker.getDeclaredTypeOfSymbol(symbol);
-    }
-    return type;
-}
-exports.getTypeOrDeclaredType = getTypeOrDeclaredType;
-function resolvedTypeToString(typeChecker, sourceFile, type, enclosingDeclaration, flags = 0) {
-    flags |= typescript_1.default.NodeBuilderFlags.InTypeAlias;
+function multilineTypeToString(typeChecker, sourceFile, type, enclosingDeclaration, flags = 0) {
     const typeNode = typeChecker.typeToTypeNode(type, enclosingDeclaration, flags);
     if (!typeNode)
         return "";
     const printer = typescript_1.default.createPrinter();
     return printer.printNode(typescript_1.default.EmitHint.Unspecified, typeNode, sourceFile);
-    // return typeChecker.typeToString(type, enclosingDeclaration, flags | ts.TypeFormatFlags.InTypeAlias)
 }
-exports.resolvedTypeToString = resolvedTypeToString;
+exports.multilineTypeToString = multilineTypeToString;
 //# sourceMappingURL=util.js.map

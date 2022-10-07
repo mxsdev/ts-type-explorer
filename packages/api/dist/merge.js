@@ -3,14 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.recursiveMergeIntersection = void 0;
+exports.recursivelyExpandType = void 0;
 const typescript_1 = __importDefault(require("typescript"));
 const util_1 = require("./util");
-function recursiveMergeIntersection(typeChecker, type) {
-    return _recursiveMergeIntersection(typeChecker, [type], new WeakMap());
+function recursivelyExpandType(typeChecker, type) {
+    return _recursivelyExpandType(typeChecker, [type], new WeakMap());
 }
-exports.recursiveMergeIntersection = recursiveMergeIntersection;
-function _recursiveMergeIntersection(typeChecker, types, seen) {
+exports.recursivelyExpandType = recursivelyExpandType;
+function _recursivelyExpandType(typeChecker, types, seen) {
     if (types.length === 1 && seen.has(types[0])) {
         return seen.get(types[0]);
     }
@@ -32,11 +32,21 @@ function _recursiveMergeIntersection(typeChecker, types, seen) {
             const newType = (0, util_1.createUnionType)(typeChecker);
             otherTypes.push(newType);
             seen.set(type, newType);
-            const unionTypeMembers = type.types.map(t => _recursiveMergeIntersection(typeChecker, [t], seen));
+            const unionTypeMembers = type.types.map(t => _recursivelyExpandType(typeChecker, [t], seen));
             newType.types = unionTypeMembers;
         }
         else if (type.flags & typescript_1.default.TypeFlags.Object) {
-            objectTypes.push(type);
+            if ((0, util_1.getSignaturesOfType)(typeChecker, type).length > 0) {
+                // function type
+                otherTypes.push(type);
+            }
+            else if ((0, util_1.getIndexInfos)(typeChecker, type)) {
+                // mapped type
+                otherTypes.push(type);
+            }
+            else {
+                objectTypes.push(type);
+            }
         }
         else {
             otherTypes.push(type);
@@ -83,10 +93,10 @@ function _recursiveMergeIntersection(typeChecker, types, seen) {
         return newType;
     }
     function mergeIntersectedPropertySymbols(symbols, name) {
-        const symbol = (0, util_1.createSymbol)(typescript_1.default.SymbolFlags.Property, name, 1 << 18);
+        const propertySymbol = (0, util_1.createSymbol)(typescript_1.default.SymbolFlags.Property, name, 1 << 18);
         const types = symbols.map(s => (0, util_1.getSymbolType)(typeChecker, s));
-        symbol.type = _recursiveMergeIntersection(typeChecker, types, seen);
-        return symbol;
+        propertySymbol.type = _recursivelyExpandType(typeChecker, types, seen);
+        return propertySymbol;
     }
     function cloneTypeWithoutAlias(type) {
         type = cloneClassInstance(type);

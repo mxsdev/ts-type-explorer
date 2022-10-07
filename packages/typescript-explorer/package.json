@@ -2,6 +2,7 @@
   "name": "typescript-explorer",
   "displayName": "Typescript Explorer",
   "description": "Explore typescript types",
+  "publisher": "mxsdev",
   "version": "0.0.1",
   "private": true,
   "engines": {
@@ -11,14 +12,32 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:typescript-explorer.helloWorld"
+    "onLanguage:typescript"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "TypeScript Explorer",
+      "properties": {
+        "typescript-explorer.expandedHover": {
+          "title": "Expanded Hover",
+          "type": "boolean",
+          "default": false,
+          "description": "Show entire expanded type on hovering"
+        }
+      }
+    },
     "commands": [
       {
-        "command": "typescript-explorer.helloWorld",
-        "title": "Hello World"
+        "title": "Toggle Expanded Type on Hover",
+        "command": "typescript-explorer.toggleExpandedHover",
+        "category": "TypeScript Explorer"
+      }
+    ],
+    "typescriptServerPlugins": [
+      {
+        "name": "@ts-expand-type/typescript-explorer-tsserver",
+        "enableForWorkspaceTypeScriptVersions": true
       }
     ]
   },
@@ -29,6 +48,10 @@
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
+  },
+  "dependencies": {
+    "@ts-expand-type/typescript-explorer-tsserver": "*",
+    "@ts-expand-type/api": "*"
   },
   "devDependencies": {
     "@types/vscode": "^1.71.0",

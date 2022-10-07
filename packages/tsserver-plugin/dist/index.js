@@ -1,6 +1,5 @@
 "use strict";
-const merge_1 = require("./merge");
-const util_1 = require("./util");
+const api_1 = require("@ts-expand-type/api");
 function init(modules) {
     const ts = modules.typescript;
     function create(info) {
@@ -30,8 +29,8 @@ function init(modules) {
             const symbol = typeChecker.getSymbolAtLocation(node);
             if (!symbol)
                 return prior;
-            const type = (0, util_1.getTypeOrDeclaredType)(typeChecker, symbol, node);
-            const expandedType = (0, merge_1.recursiveMergeIntersection)(typeChecker, type);
+            const type = (0, api_1.getSymbolType)(typeChecker, symbol, node);
+            const expandedType = (0, api_1.recursivelyExpandType)(typeChecker, type);
             if (!(prior === null || prior === void 0 ? void 0 : prior.displayParts))
                 return prior;
             if (!config.includeOriginal) {
@@ -50,7 +49,7 @@ function init(modules) {
             if (config.multilineObjectLiterals) {
                 typeFormatFlags |= ts.NodeBuilderFlags.MultilineObjectLiterals;
             }
-            const typeString = (0, util_1.resolvedTypeToString)(typeChecker, sourceFile, expandedType, undefined, typeFormatFlags);
+            const typeString = (0, api_1.multilineTypeToString)(typeChecker, sourceFile, expandedType, undefined, typeFormatFlags);
             typeString.split("\n").forEach(line => {
                 prior.displayParts.push({
                     kind: 'punctuation',

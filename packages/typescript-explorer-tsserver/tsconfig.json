@@ -6,9 +6,9 @@
         "moduleResolution": "node",
         "strict": true,
         "noImplicitAny": true,
-        "declaration": true,
-        "sourceMap": true,
         "rootDir": "./src",
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "sourceMap": true,
+        "declaration": true
     },
 }
