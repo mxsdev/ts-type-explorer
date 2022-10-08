@@ -34,6 +34,23 @@
         "category": "TypeScript Explorer"
       }
     ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "typescript-explorer",
+          "title": "TypeScript Explorer",
+          "icon": "resources/typescript.svg"
+        }
+      ]
+    },
+    "views": {
+      "typescript-explorer": [
+        {
+          "id": "type-tree",
+          "name": "Type Tree"
+        }
+      ]
+    },
     "typescriptServerPlugins": [
       {
         "name": "@ts-expand-type/typescript-explorer-tsserver",

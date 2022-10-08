@@ -20,7 +20,9 @@ export type TypeParameterInfo = {
     name: string,
 }
 
-export type TypeInfoNode = 
+export type TypeInfo = TypeInfoNoId & { id: TypeId }
+
+export type TypeInfoNoId = 
     ({
         symbolMeta?: SymbolInfo,
     } & (
@@ -89,7 +91,6 @@ export type TypeInfoNode =
     }
     ))
 
-export type TypeInfo = TypeInfoNode & {id: number} | TypeId
 export type TypeId = number
 
-export type TypeInfoKind<K extends Exclude<TypeInfo, TypeId>['kind']> = Extract<TypeInfo, { kind: K }>
+export type TypeInfoKind<K extends TypeInfo['kind']> = Extract<TypeInfo, { kind: K }>

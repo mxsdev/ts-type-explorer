@@ -1,4 +1,4 @@
-import { multilineTypeToString, getSymbolType, recursivelyExpandType } from "@ts-expand-type/api";
+import { multilineTypeToString, getSymbolType, recursivelyExpandType, generateTypeTree } from "@ts-expand-type/api";
 import type { ExpandedQuickInfo } from "./types";
 import * as ts_orig from "typescript"
 
@@ -36,6 +36,7 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
         if(prior) {
             prior.__displayString = prior.displayParts?.map(({ text }) => text).join("")
             prior.__displayType = getDisplayType(typeChecker, sourceFile, node)
+            prior.__displayTree = getDisplayTree(typeChecker, node)
 
             prior.displayParts = undefined
         }
@@ -47,6 +48,16 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
     }
 
     return { create }
+}
+
+function getDisplayTree(typeChecker: ts.TypeChecker, node: ts.Node) {
+  const symbol = typeChecker.getSymbolAtLocation(node)
+
+  if(symbol) {
+    return generateTypeTree({ symbol }, { typeChecker })
+  }
+
+  return undefined
 }
 
 function getDisplayType(typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, node: ts.Node): string|undefined {

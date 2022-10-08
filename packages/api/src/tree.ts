@@ -1,7 +1,9 @@
 import assert from "assert";
 import ts from "typescript";
-import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNode, TypeParameterInfo } from "./types";
+import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId, TypeParameterInfo } from "./types";
 import { getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, isPureObject, wrapSafe } from "./util";
+
+// TODO: need to add max depth
 
 type TypeTreeContext = {
     typeChecker: ts.TypeChecker,
@@ -22,7 +24,7 @@ export function generateTypeTree({ symbol, type }: {symbol: ts.Symbol, type?: un
         symbol = type.getSymbol()
     }
     
-    let typeInfo: TypeInfoNode
+    let typeInfo: TypeInfoNoId
     if(!ctx.seen?.has(getTypeId(type))) {
         ctx.seen?.add(getTypeId(type))
         typeInfo = _generateTypeTree(typeChecker, type, ctx)
@@ -30,7 +32,7 @@ export function generateTypeTree({ symbol, type }: {symbol: ts.Symbol, type?: un
         typeInfo = { kind: 'reference' }
     }
 
-    const typeInfoId = typeInfo as TypeInfoNode & { id: number }
+    const typeInfoId = typeInfo as TypeInfo
 
     typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(symbol)
     typeInfoId.id = getTypeId(type)
@@ -38,7 +40,7 @@ export function generateTypeTree({ symbol, type }: {symbol: ts.Symbol, type?: un
     return typeInfoId
 }
 
-function _generateTypeTree(typeChecker: ts.TypeChecker, type: ts.Type, ctx: TypeTreeContext): TypeInfoNode {
+function _generateTypeTree(typeChecker: ts.TypeChecker, type: ts.Type, ctx: TypeTreeContext): TypeInfoNoId {
     const flags = type.getFlags()
 
     if(flags & ts.TypeFlags.Any) { return { kind: 'primitive', primitive: 'any' }}
@@ -157,4 +159,51 @@ function getSymbolInfo(symbol: ts.Symbol): SymbolInfo {
     return {
         name: symbol.getName(),
     }
+}
+
+export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
+    switch(info.kind) {
+        case 'object': {
+            return [
+                ...info.properties,
+                ...info.signatures?.flatMap(s => [...s.parameters, s.returnType]) ?? [],
+                ...info.indexInfos?.map(x => x.type) ?? [],
+                // TODO: array
+            ]
+        }
+
+        case "intersection": {
+            return [...info.types, ...info.properties]
+        }
+
+        case "union": {
+            return info.types
+        }
+
+        case "index": {
+            return [info.indexOf]
+        }
+
+        case "indexed_access": {
+            return [info.indexType, info.objectType]
+        }
+
+        case "conditional": {
+            return [ 
+                info.checkType, info.extendsType,  
+                ...info.falseType ? [info.falseType] : [],
+                ...info.trueType ? [info.trueType] : [],
+            ]
+        }
+
+        case "substitution": {
+            return [info.baseType, info.substitute]
+        }
+
+        case "template_literal": {
+            return info.types
+        }
+    }
+
+    return []
 }

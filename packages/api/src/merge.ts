@@ -1,6 +1,8 @@
 import ts from "typescript"
 import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos, getIntersectionTypesFlat } from "./util"
 
+// TODO: need to add max depth
+
 export function recursivelyExpandType(typeChecker: ts.TypeChecker, type: ts.Type) {
     return _recursivelyExpandType(typeChecker, [type], new WeakMap())
 }
