@@ -94,15 +94,17 @@ interface MappedType extends ts.Type {
 export function getIndexInfos(typeChecker: ts.TypeChecker, type: ts.Type) {
     const indexInfos: TSIndexInfoMerged[] = [ ...typeChecker.getIndexInfosOfType(type) ]
 
-    if((type.flags & ts.TypeFlags.Object) && ((type as ObjectType).objectFlags & ts.ObjectFlags.Mapped)) {
+    if((type.flags & ts.TypeFlags.Object) && ((type as ObjectType).objectFlags & ts.ObjectFlags.Mapped) && !((type as ObjectType).objectFlags & ts.ObjectFlags.Instantiated)) {
         const mappedType = type as MappedType
 
-        indexInfos.push({
-            keyType: mappedType.constraintType,
-             type: mappedType.templateType,
-              parameterType: mappedType.typeParameter,
-               declaration: mappedType.declaration
-        })
+        if(mappedType.typeParameter) {
+            indexInfos.push({ keyType: mappedType.constraintType,
+                type: mappedType.templateType,
+                parameterType: mappedType.typeParameter,
+                declaration: mappedType.declaration
+            })
+        }
+
     }
 
     return indexInfos
