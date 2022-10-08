@@ -128,3 +128,23 @@ export function multilineTypeToString(typeChecker: ts.TypeChecker, sourceFile: t
     const printer = ts.createPrinter()
     return printer.printNode(ts.EmitHint.Unspecified, typeNode, sourceFile)
 }
+
+export function wrapSafe<T, Args extends Array<any>, Return>(wrapped: (arg1: T, ...args: Args) => Return): (arg1: T|undefined, ...args: Args) => Return|undefined {
+    return (arg1, ...args) => arg1 === undefined ? arg1 as undefined : wrapped(arg1, ...args)
+  }
+
+export function getTypeId(type: ts.Type) {
+    return (type as ts.Type & {id: number}).id
+}
+
+// TODO: test for array type, tuple type
+export function isPureObject(typeChecker: ts.TypeChecker, type: ts.Type): boolean {
+    return (!!(type.flags & ts.TypeFlags.Object) 
+        && (getSignaturesOfType(typeChecker, type).length === 0) 
+        && (getIndexInfos(typeChecker, type).length === 0))
+        || (!!(type.flags & ts.TypeFlags.Intersection) && (type as ts.IntersectionType).types.every(t => isPureObject(typeChecker, t)))
+}
+
+export function getIntersectionTypesFlat(...types: ts.Type[]): ts.Type[] {
+    return types.flatMap((type) => (type.flags & ts.TypeFlags.Intersection) ? (type as ts.IntersectionType).types : [type])
+}

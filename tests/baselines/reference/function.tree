@@ -1,0 +1,12 @@
+=== function.ts ===
+
+function func(a: string, b: number) {
+    return "asd"
+}
+> function --- {"kind":"object","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a"},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b"},"id":16}],"returnType":{"kind":"reference","id":15}}],"properties":[],"indexInfos":[],"symbolMeta":{"name":"func"},"id":86}
+> func --- {"kind":"object","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a"},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b"},"id":16}],"returnType":{"kind":"reference","id":15}}],"properties":[],"indexInfos":[],"symbolMeta":{"name":"func"},"id":86}
+> a: string, b: number
+> a: string
+> a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a"},"id":15}
+> b: number
+> b --- {"kind":"primitive","primitive":"number","symbolMeta":{"name":"b"},"id":16}
