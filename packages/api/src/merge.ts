@@ -66,6 +66,7 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], s
         return createObjectType(typeChecker, ts.ObjectFlags.Anonymous)
     }
 
+    // TODO: move to type.getProperties()
     function recursiveMergeObjectIntersection(types: ts.ObjectType[], newType?: ObjectType) {
         newType ||= createAnonymousObjectType()
         const nameToSymbols = new Map<SymbolName, TSSymbol[]>()
