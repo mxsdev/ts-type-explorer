@@ -1,4 +1,4 @@
-import { TypeInfo, TypeId, getTypeInfoChildren } from '@ts-expand-type/api'
+import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
 import * as ts from 'typescript'
@@ -34,7 +34,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
 
             this.populateCache(typeInfo)
 
-            return [new TypeNode(this.resolveTypeReference(typeInfo), this)]
+            return [new TypeNode(typeInfo, this)]
         } else {
             return element.getChildren()
         }
@@ -46,7 +46,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
         getTypeInfoChildren(tree).forEach(c => this.populateCache(c))
     }
 
-    private resolveTypeReference(typeInfo: TypeInfo): ResolvedTypeInfo {
+    resolveTypeReference(typeInfo: TypeInfo): ResolvedTypeInfo {
         if(typeInfo.kind === 'reference') {
             const resolvedTypeInfo = this.itemCache.get(typeInfo.id)
             assert(resolvedTypeInfo, "Encountered invalid type reference!")
@@ -57,19 +57,27 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     }
 
     createTypeNode(typeInfo: TypeInfo) {
-        return new TypeNode(this.resolveTypeReference(typeInfo), this)
+        return new TypeNode(typeInfo, this)
     }
 }
 
 type TypeTreeItem = TypeNode | TypeNodeGroup
 
 class TypeNode extends vscode.TreeItem {
+    typeTree: ResolvedTypeInfo
+
     constructor(
-        public readonly typeTree: ResolvedTypeInfo,
+        typeTree: TypeInfo,
         private provider: TypeTreeProvider
     ) {
-        const { label, description, collapsibleState } = generateTypeNodeMeta(typeTree)
+        const resolvedTypeTree: ResolvedTypeInfo = typeTree.kind === 'reference' ? { 
+            ...provider.resolveTypeReference(typeTree),
+            symbolMeta: typeTree.symbolMeta
+        } : typeTree
+        
+        const { label, description, collapsibleState } = generateTypeNodeMeta(resolvedTypeTree)
         super(label, collapsibleState)
+        this.typeTree = resolvedTypeTree
 
         this.description = description
     }
@@ -149,7 +157,7 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo) {
     }
 
     return {
-        label: info.symbolMeta?.name ?? "<anonymous>",
+        label: !info.symbolMeta?.anonymous ? (info.symbolMeta?.name ?? "") : "",
         description,
         // TODO: open root level node by default...
         collapsibleState: kindHasChildren(info.kind) ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None

@@ -19,9 +19,15 @@ export function generateTypeTree({ symbol, type }: {symbol: ts.Symbol, type?: un
     }
     
     ctx.seen ||= new Set()
+    let isAnonymousSymbol = !symbol
     
     if(!symbol) {
-        symbol = type.getSymbol()
+        const associatedSymbol = type.getSymbol()
+
+        if(associatedSymbol) {
+            isAnonymousSymbol = associatedSymbol.name === "__type"
+            symbol = associatedSymbol
+        }
     }
     
     let typeInfo: TypeInfoNoId
@@ -34,7 +40,7 @@ export function generateTypeTree({ symbol, type }: {symbol: ts.Symbol, type?: un
 
     const typeInfoId = typeInfo as TypeInfo
 
-    typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(symbol)
+    typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(symbol, isAnonymousSymbol)
     typeInfoId.id = getTypeId(type)
 
     return typeInfoId
@@ -155,10 +161,11 @@ function getIndexInfo(indexInfo: TSIndexInfoMerged, ctx: TypeTreeContext): Index
     }
 }
 
-function getSymbolInfo(symbol: ts.Symbol): SymbolInfo {
+function getSymbolInfo(symbol: ts.Symbol, isAnonymous: boolean = false): SymbolInfo {
     return {
         name: symbol.getName(),
-        flags: symbol.getFlags()
+        flags: symbol.getFlags(),
+        ...isAnonymous && { anonymous: true }
     }
 }
 
