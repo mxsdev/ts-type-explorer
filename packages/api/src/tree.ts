@@ -1,7 +1,7 @@
 import assert from "assert";
 import ts from "typescript";
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId, TypeParameterInfo } from "./types";
-import { getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, isPureObject, wrapSafe } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe } from "./util";
 
 // TODO: need to add max depth
 
@@ -43,7 +43,9 @@ export function generateTypeTree({ symbol, type }: {symbol: ts.Symbol, type?: un
 function _generateTypeTree(typeChecker: ts.TypeChecker, type: ts.Type, ctx: TypeTreeContext): TypeInfoNoId {
     const flags = type.getFlags()
 
-    if(flags & ts.TypeFlags.Any) { return { kind: 'primitive', primitive: 'any' }}
+    if(flags & ts.TypeFlags.TypeParameter) {
+        return { kind: 'type_parameter'}
+    } else if(flags & ts.TypeFlags.Any) { return { kind: 'primitive', primitive: 'any' }}
     else if(flags & ts.TypeFlags.Unknown) { return { kind: 'primitive', primitive: 'unknown' }}
     else if(flags & ts.TypeFlags.Undefined) { return { kind: 'primitive', primitive: 'undefined' }}
     else if(flags & ts.TypeFlags.Null) { return { kind: 'primitive', primitive: 'null' }}
@@ -64,16 +66,13 @@ function _generateTypeTree(typeChecker: ts.TypeChecker, type: ts.Type, ctx: Type
     // TODO: add enum info???
     else if(flags & ts.TypeFlags.BigIntLiteral) { return { kind: 'bigint_literal', value: (type as ts.BigIntLiteralType).value }}
     // TODO: add type param info
-    else if(flags & ts.TypeFlags.TypeParameter) {
-
-    }
     else if(flags & ts.TypeFlags.Object) {
         // TODO: arrays
         return {
             kind: 'object',
             signatures: getSignaturesOfType(typeChecker, type).map(sig => getSignatureInfo(sig, ctx)),
             properties: type.getProperties().map(typeTreeSymb),
-            indexInfos: typeChecker.getIndexInfosOfType(type).map(indexInfo => getIndexInfo(indexInfo, ctx))
+            indexInfos: getIndexInfos(typeChecker, type).map(indexInfo => getIndexInfo(indexInfo, ctx))
         }
     } else if(flags & ts.TypeFlags.Union) {
         return {
@@ -145,13 +144,14 @@ function getSignatureInfo(signature: ts.Signature, ctx: TypeTreeContext): Signat
     }
 }
 
-function getIndexInfo(indexInfo: ts.IndexInfo, ctx: TypeTreeContext): IndexInfo {
+function getIndexInfo(indexInfo: TSIndexInfoMerged, ctx: TypeTreeContext): IndexInfo {
     const { typeChecker } = ctx
     
     return {
-        keyType: generateTypeTree({ type: indexInfo.keyType }, ctx),
-        type: generateTypeTree({ type: indexInfo.type }, ctx),
-        parameterSymbol: wrapSafe(getSymbolInfo)(wrapSafe(typeChecker.getSymbolAtLocation)(indexInfo.declaration?.parameters[0]))
+        ...indexInfo.keyType ? { keyType: generateTypeTree({ type: indexInfo.keyType }, ctx) } : { },
+        ...indexInfo.type ? { type: generateTypeTree({ type: indexInfo.type }, ctx) } : { },
+        // @ts-expect-error
+        parameterSymbol: wrapSafe(getSymbolInfo)(wrapSafe(typeChecker.getSymbolAtLocation)(indexInfo?.declaration?.parameters?.[0]))
     }
 }
 
@@ -168,7 +168,10 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
             return [
                 ...info.properties,
                 ...info.signatures?.flatMap(s => [...s.parameters, s.returnType]) ?? [],
-                ...info.indexInfos?.map(x => x.type) ?? [],
+                ...info.indexInfos?.flatMap(x => [
+                    ...(x.type ? [x.type] : []),
+                    ...(x.keyType ? [x.keyType] : []),
+                ]) ?? [],
                 // TODO: array
             ]
         }

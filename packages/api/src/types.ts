@@ -6,8 +6,8 @@ export type SymbolInfo = {
 }
 
 export type IndexInfo = {
-    keyType: TypeInfo,
-    type: TypeInfo,
+    keyType?: TypeInfo,
+    type?: TypeInfo,
     parameterSymbol?: SymbolInfo
 }
 

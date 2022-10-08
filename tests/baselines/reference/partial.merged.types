@@ -3,7 +3,7 @@
 type partialUnion = Partial<{a: string}|{b: string}>
 > partialUnion --- { a?: string; } | { b?: string; }
 > Partial<{a: string}|{b: string}>
-> Partial --- {}
+> Partial --- { [P in keyof T]?: T[P]; }
 > {a: string}|{b: string}
 > {a: string}|{b: string}
 > {a: string}|{b: string}

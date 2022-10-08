@@ -16,11 +16,11 @@ type t = { a: "b", c: "d", d: { a: "b" } }
 > a --- "b"
 
 type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
-> p --- { d: { a: "b"; b: "c"; }; a: "b"; b: "asd"; }
+> p --- { b: "asd"; d: { b: "c"; }; } & Pick<t, "d" | "a">
 > Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > Pick<t, "a"|"d">
-> Pick --- {}
+> Pick --- { [P in K]: T[P]; }
 > t, "a"|"d"
 > t
 > t --- { a: "b"; c: "d"; d: { a: "b"; }; }
@@ -39,9 +39,9 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
-> test3 --- { d: { a: "b"; b: "c"; }; a: "b"; b: "asd"; }
+> test3 --- { b: "asd"; d: { b: "c"; }; } & Pick<t, "d" | "a">
 > p
-> p --- { d: { a: "b"; b: "c"; }; a: "b"; b: "asd"; }
+> p --- { b: "asd"; d: { b: "c"; }; } & Pick<t, "d" | "a">
 > {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > a: "b", b: "asd", d: { a: "b", b: "c" }
 > a: "b"

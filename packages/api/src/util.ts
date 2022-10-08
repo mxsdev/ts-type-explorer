@@ -79,8 +79,33 @@ export function getSignaturesOfType(typeChecker: ts.TypeChecker, type: ts.Type) 
     ]
 }
 
+export type TSIndexInfoMerged = { declaration?: ts.MappedTypeNode|ts.IndexSignatureDeclaration, keyType?: ts.Type, type?: ts.Type, parameterType?: ts.Type }
+interface MappedType extends ts.Type {
+    declaration: ts.MappedTypeNode;
+    typeParameter?: ts.TypeParameter;
+    constraintType?: ts.Type;
+    // nameType?: ts.Type;
+    templateType?: ts.Type;
+    modifiersType?: ts.Type;
+    // resolvedApparentType?: ts.Type;
+    // containsError?: boolean;
+}
+
 export function getIndexInfos(typeChecker: ts.TypeChecker, type: ts.Type) {
-    return typeChecker.getIndexInfosOfType(type)
+    const indexInfos: TSIndexInfoMerged[] = [ ...typeChecker.getIndexInfosOfType(type) ]
+
+    if((type.flags & ts.TypeFlags.Object) && ((type as ObjectType).objectFlags & ts.ObjectFlags.Mapped)) {
+        const mappedType = type as MappedType
+
+        indexInfos.push({
+            keyType: mappedType.constraintType,
+             type: mappedType.templateType,
+              parameterType: mappedType.typeParameter,
+               declaration: mappedType.declaration
+        })
+    }
+
+    return indexInfos
 }
 
 export function createType(checker: ts.TypeChecker, flags: ts.TypeFlags) {
