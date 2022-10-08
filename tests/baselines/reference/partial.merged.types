@@ -1,0 +1,17 @@
+=== partial.ts ===
+
+type partialUnion = Partial<{a: string}|{b: string}>
+> partialUnion --- { a?: string; } | { b?: string; }
+> Partial<{a: string}|{b: string}>
+> Partial --- {}
+> {a: string}|{b: string}
+> {a: string}|{b: string}
+> {a: string}|{b: string}
+> {a: string}
+> a: string
+> a: string
+> a --- string
+> {b: string}
+> b: string
+> b: string
+> b --- string

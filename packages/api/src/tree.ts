@@ -158,6 +158,7 @@ function getIndexInfo(indexInfo: ts.IndexInfo, ctx: TypeTreeContext): IndexInfo 
 function getSymbolInfo(symbol: ts.Symbol): SymbolInfo {
     return {
         name: symbol.getName(),
+        flags: symbol.getFlags()
     }
 }
 

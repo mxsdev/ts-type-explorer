@@ -1,7 +1,8 @@
 import ts from "typescript"
 
 export type SymbolInfo = {
-    name?: string,
+    name: string,
+    flags: number
 }
 
 export type IndexInfo = {

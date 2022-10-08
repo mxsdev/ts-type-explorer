@@ -68,7 +68,7 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], s
         return createObjectType(typeChecker, ts.ObjectFlags.Anonymous)
     }
 
-    // TODO: move to type.getProperties()
+    // TODO: move to using type.getProperties() on the intersection type
     function recursiveMergeObjectIntersection(types: ts.ObjectType[], newType?: ObjectType) {
         newType ||= createAnonymousObjectType()
         const nameToSymbols = new Map<SymbolName, TSSymbol[]>()
@@ -93,7 +93,13 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], s
     }
 
     function mergeIntersectedPropertySymbols(symbols: TSSymbol[], name: SymbolName): TSSymbol {
-        const propertySymbol = createSymbol(ts.SymbolFlags.Property, name, 1 << 18)
+        let symbolFlags = ts.SymbolFlags.Property
+
+        if(symbols.every(s => s.flags & ts.SymbolFlags.Optional)) {
+            symbolFlags |= ts.SymbolFlags.Optional
+        }
+
+        const propertySymbol = createSymbol(symbolFlags, name, 1 << 18)
 
         const types = symbols.map(s => getSymbolType(typeChecker, s))
         
