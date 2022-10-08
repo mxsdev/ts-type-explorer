@@ -1,5 +1,5 @@
 import ts from "typescript"
-import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos } from "./util"
+import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos, getIntersectionTypesFlat } from "./util"
 
 export function recursivelyExpandType(typeChecker: ts.TypeChecker, type: ts.Type) {
     return _recursivelyExpandType(typeChecker, [type], new WeakMap())
@@ -13,36 +13,32 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], s
     const objectTypes: ts.ObjectType[] = []
     const otherTypes: ts.Type[] = []
 
-    for(const type of types) {
+    function pushType(type: ts.Type) {
         if(type.flags & ts.TypeFlags.Intersection) {
-            ;(type as ts.IntersectionType).types.forEach((type) => {
-                if(type.flags & ts.TypeFlags.Object) {
-                    objectTypes.push(type as ts.ObjectType)
-                } else {
-                    otherTypes.push(type)
-                }
-            })
+            getIntersectionTypesFlat(type).forEach(pushType)
         } else if(type.flags & ts.TypeFlags.Union) {
             const newType = createUnionType(typeChecker) 
             otherTypes.push(newType)
             seen.set(type, newType)
-
+    
             const unionTypeMembers = (type as ts.UnionType).types.map(t => _recursivelyExpandType(typeChecker, [t], seen))
             newType.types = unionTypeMembers
         } else if(type.flags & ts.TypeFlags.Object) {
             if(getSignaturesOfType(typeChecker, type).length > 0) {
                 // function type
                 otherTypes.push(type)
-            } else if(getIndexInfos(typeChecker, type)) {
+            } else if(getIndexInfos(typeChecker, type).length > 0) {
                 // mapped type
                 otherTypes.push(type)
-            } else {
+            } else { // TODO: array types
                 objectTypes.push(type as ts.ObjectType)
             }
         } else {
             otherTypes.push(type)
         }
     }
+
+    types.forEach(pushType)
 
     if(otherTypes.length === 1 && objectTypes.length === 0) {
         const newType = cloneTypeWithoutAlias(otherTypes[0])
