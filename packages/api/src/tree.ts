@@ -72,7 +72,7 @@ function _generateTypeTree(typeChecker: ts.TypeChecker, type: ts.Type, ctx: Type
             kind: 'object',
             signatures: getSignaturesOfType(typeChecker, type).map(sig => getSignatureInfo(sig, ctx)),
             properties: type.getProperties().map(typeTreeSymb),
-            indexInfos: getIndexInfos(typeChecker, type).map(indexInfo => getIndexInfo(indexInfo, ctx))
+            indexInfos: getIndexInfos(typeChecker, type).map(indexInfo => getIndexInfo(indexInfo, ctx)),
         }
     } else if(flags & ts.TypeFlags.Union) {
         return {
@@ -87,7 +87,7 @@ function _generateTypeTree(typeChecker: ts.TypeChecker, type: ts.Type, ctx: Type
         if(types.length === 0) {
             return {
                 kind: 'object',
-                properties
+                properties,
             }
         } else {
             return {

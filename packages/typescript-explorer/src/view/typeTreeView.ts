@@ -1,10 +1,10 @@
 import { TypeInfo, TypeId, getTypeInfoChildren } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
+import * as ts from 'typescript'
 import { getKindText, getPrimitiveKindText } from '../localization';
 import { StateManager } from '../state/stateManager';
 
-// TODO: partials
 // TODO: anonymous types have the name '__type'
 
 type ResolvedTypeInfo = Exclude<TypeInfo, {kind: 'reference'}>
@@ -68,7 +68,7 @@ class TypeNode extends vscode.TreeItem {
         public readonly typeTree: ResolvedTypeInfo,
         private provider: TypeTreeProvider
     ) {
-        const { label, description, collapsibleState } = generateTypeNodeInfo(typeTree)
+        const { label, description, collapsibleState } = generateTypeNodeMeta(typeTree)
         super(label, collapsibleState)
 
         this.description = description
@@ -120,16 +120,13 @@ class TypeNodeGroup extends vscode.TreeItem {
     }
 }
 
-function generateTypeNodeInfo(info: ResolvedTypeInfo) {
-    return {
-        label: info.symbolMeta?.name ?? "<anonymous>",
-        description: (info.kind === 'primitive') ? getPrimitiveKindText(info.primitive) : getDescription(info),
-        // TODO: open root level node by default...
-        collapsibleState: kindHasChildren(info.kind) ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None
-    }
-
-    function getDescription(info: ResolvedTypeInfo) {
+function generateTypeNodeMeta(info: ResolvedTypeInfo) {
+    const baseDescription = (function () {
         switch(info.kind) {
+            case "primitive": {
+                return getPrimitiveKindText(info.primitive)
+            }
+
             case "bigint_literal":
             case "boolean_literal":
             case "enum_literal":
@@ -142,6 +139,20 @@ function generateTypeNodeInfo(info: ResolvedTypeInfo) {
                 return getKindText(info.kind)
             }
         }
+    })()
+
+    const isOptional = (info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional
+
+    let description = baseDescription
+    if(isOptional) {
+        description += '?'
+    }
+
+    return {
+        label: info.symbolMeta?.name ?? "<anonymous>",
+        description,
+        // TODO: open root level node by default...
+        collapsibleState: kindHasChildren(info.kind) ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None
     }
 }
 

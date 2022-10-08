@@ -44,7 +44,8 @@ export type TypeInfoNoId =
         kind: 'object',
         properties: TypeInfo[],
         indexInfos?: IndexInfo[],
-        signatures?: SignatureInfo[]
+        signatures?: SignatureInfo[],
+        // objectFlags: number
         // TODO: array types
     }
     |{
