@@ -61,11 +61,6 @@ export async function generateBaselineTests() {
     
             const test = getTestName(filePath)
     
-            const program = ts.createProgram([filePath], { })
-            const sourceFile = program.getSourceFile(filePath)!
-    
-            const typeChecker = program.getTypeChecker()
-    
             describe(`${testName} baselines`, async () => {
                 ;([
                     {
@@ -80,6 +75,11 @@ export async function generateBaselineTests() {
                     const testFileName = `${test}${baseline.extension}`
 
                     it(`Baseline ${testFileName}`, async () => {
+                        const program = ts.createProgram([filePath], { })
+                        const sourceFile = program.getSourceFile(filePath)!
+                
+                        const typeChecker = program.getTypeChecker()
+
                         const correct = [`=== ${testName} ===`, "", generateBaseline(baseline.generator, sourceFile, typeChecker)].join("\n")
                         const against = (await fs.readFile(
                             path.join(baselinesReferencePath, testFileName)

@@ -16,7 +16,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
 > a --- {"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":87}
 
 type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
-> p --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":106}],"symbolMeta":{"name":"d"},"id":110},{"kind":"reference","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":108}],"symbolMeta":{"name":"p"},"id":103}
+> p --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":107}],"symbolMeta":{"name":"d"},"id":106},{"kind":"reference","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":109}],"symbolMeta":{"name":"p"},"id":103}
 > Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > Pick<t, "a"|"d">
@@ -27,32 +27,32 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > {b: "asd", d: { b: "c" }}
 > b: "asd", d: { b: "c" }
 > b: "asd",
-> b --- {"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":108}
+> b --- {"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":109}
 > d: { b: "c" }
-> d --- {"kind":"object","signatures":[],"properties":[{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":106}],"indexInfos":[],"symbolMeta":{"name":"d"},"id":105}
+> d --- {"kind":"object","signatures":[],"properties":[{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":107}],"indexInfos":[],"symbolMeta":{"name":"d"},"id":105}
 > { b: "c" }
 > b: "c"
 > b: "c"
-> b --- {"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":106}
+> b --- {"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":107}
 
 const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
-> test3 --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":106}],"symbolMeta":{"name":"d"},"id":110},{"kind":"reference","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":108}],"symbolMeta":{"name":"test3"},"id":103}
+> test3 --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":107}],"symbolMeta":{"name":"d"},"id":106},{"kind":"reference","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":109}],"symbolMeta":{"name":"test3"},"id":103}
 > p
-> p --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":106}],"symbolMeta":{"name":"d"},"id":110},{"kind":"reference","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":108}],"symbolMeta":{"name":"p"},"id":103}
+> p --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":107}],"symbolMeta":{"name":"d"},"id":106},{"kind":"reference","symbolMeta":{"name":"a"},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":109}],"symbolMeta":{"name":"p"},"id":103}
 > {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > a: "b", b: "asd", d: { a: "b", b: "c" }
 > a: "b"
 > a --- {"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":88}
 > b: "asd"
-> b --- {"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":109}
+> b --- {"kind":"string_literal","value":"asd","symbolMeta":{"name":"b"},"id":110}
 > d: { a: "b", b: "c" }
-> d --- {"kind":"object","signatures":[],"properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":88},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":107}],"indexInfos":[],"symbolMeta":{"name":"d"},"id":111}
+> d --- {"kind":"object","signatures":[],"properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":88},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":108}],"indexInfos":[],"symbolMeta":{"name":"d"},"id":111}
 > { a: "b", b: "c" }
 > a: "b", b: "c"
 > a: "b"
 > a --- {"kind":"string_literal","value":"b","symbolMeta":{"name":"a"},"id":88}
 > b: "c"
-> b --- {"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":107}
+> b --- {"kind":"string_literal","value":"c","symbolMeta":{"name":"b"},"id":108}
