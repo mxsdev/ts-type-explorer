@@ -1,3 +1,4 @@
+export { APIConfig } from './config'
 export { getSymbolType, multilineTypeToString } from "./util"
 export { recursivelyExpandType } from "./merge"
 export { generateTypeTree, getTypeInfoChildren } from "./tree"

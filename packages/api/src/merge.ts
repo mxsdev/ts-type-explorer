@@ -1,67 +1,92 @@
 import ts from "typescript"
+import { APIConfig } from "./config"
 import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos, getIntersectionTypesFlat } from "./util"
 
-// TODO: need to add max depth
+export function recursivelyExpandType(typeChecker: ts.TypeChecker, type: ts.Type, config?: APIConfig) {
+    config ??= new APIConfig()
 
-export function recursivelyExpandType(typeChecker: ts.TypeChecker, type: ts.Type) {
-    return _recursivelyExpandType(typeChecker, [type], new WeakMap())
+    return _recursivelyExpandType(typeChecker, [type], {
+        seen: new WeakMap(),
+        maxDepth: config.maxDepth,
+        depth: 0,
+    })
 }
 
-function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], seen: WeakMap<ts.Type, ts.Type>): ts.Type {
-    if(types.length === 1 && seen.has(types[0])) {
-        return seen.get(types[0])!
-    }
+type RecursiveExpandContext = {
+    seen: WeakMap<ts.Type, ts.Type>,
+    depth: number,
+    maxDepth: number
+}
 
-    const objectTypes: ts.ObjectType[] = []
-    const otherTypes: ts.Type[] = []
-
-    function pushType(type: ts.Type) {
-        if(type.flags & ts.TypeFlags.Intersection) {
-            getIntersectionTypesFlat(type).forEach(pushType)
-        } else if(type.flags & ts.TypeFlags.Union) {
-            const newType = createUnionType(typeChecker) 
-            otherTypes.push(newType)
-            seen.set(type, newType)
+function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], ctx: RecursiveExpandContext): ts.Type {
+    const { seen } = ctx
     
-            const unionTypeMembers = (type as ts.UnionType).types.map(t => _recursivelyExpandType(typeChecker, [t], seen))
-            newType.types = unionTypeMembers
-        } else if(type.flags & ts.TypeFlags.Object) {
-            if(getSignaturesOfType(typeChecker, type).length > 0) {
-                // function type
-                otherTypes.push(type)
-            } else if(getIndexInfos(typeChecker, type).length > 0) {
-                // mapped type
-                otherTypes.push(type)
-            } else { // TODO: array types
-                objectTypes.push(type as ts.ObjectType)
-            }
-        } else {
-            otherTypes.push(type)
+    ctx.depth++
+    const res = expandType()
+    ctx.depth--
+
+    return res
+
+    function expandType() {
+        if(types.length > 0 && ctx.depth > ctx.maxDepth) {
+            return types[0]
         }
-    }
-
-    types.forEach(pushType)
-
-    if(otherTypes.length === 1 && objectTypes.length === 0) {
-        const newType = cloneTypeWithoutAlias(otherTypes[0])
-        seen.set(otherTypes[0], newType)
-
-        return newType
-    } else if(otherTypes.length === 0 && objectTypes.length > 0) {
-        const newType = createAnonymousObjectType()
-        if(types.length === 1) seen.set(types[0], newType)
-
-        recursiveMergeObjectIntersection(objectTypes, newType)
-
-        return newType
-    } else {
-        const newType = createIntersectionType(typeChecker)
-        if(types.length === 1) seen.set(types[0], newType)
+    
+        if(types.length === 1 && seen.has(types[0])) {
+            return seen.get(types[0])!
+        }
+    
+        const objectTypes: ts.ObjectType[] = []
+        const otherTypes: ts.Type[] = []
+    
+        function pushType(type: ts.Type) {
+            if(type.flags & ts.TypeFlags.Intersection) {
+                getIntersectionTypesFlat(type).forEach(pushType)
+            } else if(type.flags & ts.TypeFlags.Union) {
+                const newType = createUnionType(typeChecker) 
+                otherTypes.push(newType)
+                seen.set(type, newType)
         
-        const objectType = recursiveMergeObjectIntersection(objectTypes)
-        newType.types = [...(objectType ? [objectType] : []), ...otherTypes]
-
-        return newType
+                const unionTypeMembers = (type as ts.UnionType).types.map(t => _recursivelyExpandType(typeChecker, [t], ctx))
+                newType.types = unionTypeMembers
+            } else if(type.flags & ts.TypeFlags.Object) {
+                if(getSignaturesOfType(typeChecker, type).length > 0) {
+                    // function type
+                    otherTypes.push(type)
+                } else if(getIndexInfos(typeChecker, type).length > 0) {
+                    // mapped type
+                    otherTypes.push(type)
+                } else { // TODO: array types
+                    objectTypes.push(type as ts.ObjectType)
+                }
+            } else {
+                otherTypes.push(type)
+            }
+        }
+    
+        types.forEach(pushType)
+    
+        if(otherTypes.length === 1 && objectTypes.length === 0) {
+            const newType = cloneTypeWithoutAlias(otherTypes[0])
+            seen.set(otherTypes[0], newType)
+    
+            return newType
+        } else if(otherTypes.length === 0 && objectTypes.length > 0) {
+            const newType = createAnonymousObjectType()
+            if(types.length === 1) seen.set(types[0], newType)
+    
+            recursiveMergeObjectIntersection(objectTypes, newType)
+    
+            return newType
+        } else {
+            const newType = createIntersectionType(typeChecker)
+            if(types.length === 1) seen.set(types[0], newType)
+            
+            const objectType = recursiveMergeObjectIntersection(objectTypes)
+            newType.types = [...(objectType ? [objectType] : []), ...otherTypes]
+    
+            return newType
+        }
     }
 
     function createAnonymousObjectType() {
@@ -103,7 +128,7 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], s
 
         const types = symbols.map(s => getSymbolType(typeChecker, s))
         
-        propertySymbol.type = _recursivelyExpandType(typeChecker, types, seen)
+        propertySymbol.type = _recursivelyExpandType(typeChecker, types, ctx)
 
         return propertySymbol
     }

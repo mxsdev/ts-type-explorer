@@ -5,7 +5,8 @@ import * as ts from 'typescript'
 import { getKindText, getPrimitiveKindText } from '../localization';
 import { StateManager } from '../state/stateManager';
 
-// TODO: anonymous types have the name '__type'
+// TODO: array types
+// TODO: mapped types, function types
 
 type ResolvedTypeInfo = Exclude<TypeInfo, {kind: 'reference'}>
 type TreeCache = Map<TypeId, ResolvedTypeInfo>
@@ -34,7 +35,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
 
             this.populateCache(typeInfo)
 
-            return [new TypeNode(typeInfo, this)]
+            return [this.createTypeNode(typeInfo)]
         } else {
             return element.getChildren()
         }

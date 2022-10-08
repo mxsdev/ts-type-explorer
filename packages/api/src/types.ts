@@ -24,6 +24,8 @@ export type TypeParameterInfo = {
 
 export type TypeInfo = TypeInfoNoId & { id: TypeId }
 
+// TODO: "purpose" property for e.g. return types, subtypes of conditional_type/indexed access, etc
+
 export type TypeInfoNoId = 
     ({
         symbolMeta?: SymbolInfo,
@@ -91,6 +93,9 @@ export type TypeInfoNoId =
     |{
         kind: 'string_mapping',
         symbol: SymbolInfo,
+    }
+    |{
+        kind: 'max_depth'
     }
     ))
 

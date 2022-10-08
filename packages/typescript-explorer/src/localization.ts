@@ -36,7 +36,8 @@ export const KindText: Record<Kind, string> = {
     "type_parameter": "Type Parameter",
     "primitive": "Primitive",
     "substitution": "Substitution",
-    "template_literal": "Template Literal"
+    "template_literal": "Template Literal",
+    "max_depth": "..."
 }
 
 export function getKindText(kind: Kind, ...args: {toString(): string}[]) {

@@ -2,6 +2,8 @@ import { multilineTypeToString, getSymbolType, recursivelyExpandType, generateTy
 import type { ExpandedQuickInfo } from "./types";
 import * as ts_orig from "typescript"
 
+// TODO: add config for e.g. max depth
+
 function init(modules: { typescript: typeof import("typescript/lib/tsserverlibrary") }) {
     const ts = modules.typescript
 
@@ -54,7 +56,7 @@ function getDisplayTree(typeChecker: ts.TypeChecker, node: ts.Node) {
   const symbol = typeChecker.getSymbolAtLocation(node)
 
   if(symbol) {
-    return generateTypeTree({ symbol }, { typeChecker })
+    return generateTypeTree({ symbol }, typeChecker)
   }
 
   return undefined

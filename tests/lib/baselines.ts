@@ -48,7 +48,7 @@ const mergeBaselineGenerator = typeBaselineGenerator(
 const treeBaselineGenerator = symbolBaselineGenerator(
     (typeChecker, sourceFile, symbol) =>
         JSON.stringify(
-            generateTypeTree({ symbol }, { typeChecker })
+            generateTypeTree({ symbol }, typeChecker)
         )
 )
 

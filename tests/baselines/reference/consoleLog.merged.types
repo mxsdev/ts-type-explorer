@@ -1,0 +1,7 @@
+=== consoleLog.ts ===
+
+console.log("hello world")
+> console.log("hello world")
+> console.log --- { (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }
+> console --- { assert: { (condition?: boolean, ...data: any[]): void; (value: any, message?: string, ...optionalParams: any[]): void; }; clear: { (): void; (): void; }; count: { (label?: string): void; (label?: string): void; }; ... 19 more ...; profileEnd: (label?: string) => void; }
+> log --- { (...data: any[]): void; (message?: any, ...optionalParams: any[]): void; }
