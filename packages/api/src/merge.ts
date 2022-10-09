@@ -1,6 +1,6 @@
 import ts from "typescript"
 import { APIConfig } from "./config"
-import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos, getIntersectionTypesFlat, isArrayType, isTupleType, TypeReferenceInternal } from "./util"
+import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos, getIntersectionTypesFlat, isArrayType, isTupleType, TypeReferenceInternal, isPureObject } from "./util"
 
 export function recursivelyExpandType(typeChecker: ts.TypeChecker, type: ts.Type, config?: APIConfig) {
     config ??= new APIConfig()
@@ -36,23 +36,21 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], c
             return seen.get(types[0])!
         }
     
-        const objectTypes: ts.ObjectType[] = []
-        const otherTypes: ts.Type[] = []
-    
-        function pushType(type: ts.Type) {
+        function processType(type: ts.Type): ts.Type[] {
             if(type.flags & ts.TypeFlags.Intersection) {
-                getIntersectionTypesFlat(type).forEach(pushType)
+                return getIntersectionTypesFlat(type).flatMap(processType)
             } else if(type.flags & ts.TypeFlags.Union) {
                 const newType = createUnionType(typeChecker) 
-                otherTypes.push(newType)
                 seen.set(type, newType)
         
                 const unionTypeMembers = (type as ts.UnionType).types.map(t => _recursivelyExpandType(typeChecker, [t], ctx))
                 newType.types = unionTypeMembers
+
+                return [newType]
             } else if(type.flags & ts.TypeFlags.Object) {
                 if(getSignaturesOfType(typeChecker, type).length > 0) {
                     // function type
-                    otherTypes.push(type)
+                    return [type]
                 } else if(isTupleType(type)) {
                     const expandedTuple = createTupleType(type)
                     seen.set(type, expandedTuple)
@@ -60,48 +58,58 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], c
                         arg => _recursivelyExpandType(typeChecker, [arg], ctx)
                     )
 
-                    otherTypes.push(expandedTuple)
+                    return [expandedTuple]
                 } else if(isArrayType(type)) {
                     const expandedArray = createArrayType(type)
                     seen.set(type, expandedArray)
                     expandedArray.resolvedTypeArguments = [_recursivelyExpandType(typeChecker, [typeChecker.getTypeArguments(type)[0]], ctx)]
 
-                    otherTypes.push(expandedArray)
+                    return [expandedArray]
                 } else if(getIndexInfos(typeChecker, type).length > 0) {
                     // mapped type
-                    otherTypes.push(type)
-                } else { // TODO: array types
-                    objectTypes.push(type as ts.ObjectType)
+                    return [type]
+                } else {
+                    const objectType = createAnonymousObjectType()
+                    seen.set(type, objectType)
+    
+                    recursiveMergeObjectIntersection([type as ts.ObjectType], objectType)
+
+                    return [objectType]
                 }
             } else {
-                otherTypes.push(type)
+                return [type]
             }
         }
     
-        types.forEach(pushType)
-    
-        // TODO: refactor this to be more flexible
-        //       this process should probably be merged with up above instead
-        if(otherTypes.length === 1 && objectTypes.length === 0) {
-            const newType = cloneTypeWithoutAlias(otherTypes[0])
-            seen.set(otherTypes[0], newType)
-    
-            return newType
-        } else if(otherTypes.length === 0 && objectTypes.length > 0) {
-            const newType = createAnonymousObjectType()
-            if(types.length === 1) seen.set(types[0], newType)
-    
-            recursiveMergeObjectIntersection(objectTypes, newType)
-    
-            return newType
+        const processedTypes = types.flatMap(processType).map(removeTypeAlias)
+        
+        if(processedTypes.length === 1) {
+            if(types.length === 1) seen.set(types[0], processedTypes[0])
+            return processedTypes[0]
         } else {
-            const newType = createIntersectionType(typeChecker)
-            if(types.length === 1) seen.set(types[0], newType)
-            
-            const objectType = recursiveMergeObjectIntersection(objectTypes)
-            newType.types = [...(objectType ? [objectType] : []), ...otherTypes]
-    
-            return newType
+            const objectTypes: ts.ObjectType[] = []
+            const nonObjectTypes: ts.Type[] = []
+
+            processedTypes.forEach((t) => isPureObject(typeChecker, t) ? objectTypes.push(t) : nonObjectTypes.push(t))
+
+            let objectType: ObjectType|undefined
+            if(objectTypes.length > 0) {
+                objectType = createAnonymousObjectType()
+                if(nonObjectTypes.length === 0) seen.set(types[0], objectType)
+
+                recursiveMergeObjectIntersection(objectTypes, objectType)
+            }
+
+            if(nonObjectTypes.length === 0 && objectType) {
+                return objectType
+            } else {
+                const newType = createIntersectionType(typeChecker)
+                if(types.length === 1) seen.set(types[0], newType)
+
+                newType.types = [...(objectType ? [objectType] : []), ...nonObjectTypes]
+
+                return newType
+            }
         }
     }
 
@@ -161,12 +169,11 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], c
         return propertySymbol
     }
 
-    function cloneTypeWithoutAlias(type: ts.Type) {
-        type = cloneClassInstance(type)
-
+    function removeTypeAlias(type: ts.Type) {
         const symbol = type.getSymbol()
-
+        
         if(type.aliasSymbol && symbol) {
+            type = cloneClassInstance(type)
             // remove type alias
             type.aliasSymbol = undefined
         }

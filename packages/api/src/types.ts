@@ -24,7 +24,7 @@ export type TypeParameterInfo = {
 
 export type TypeInfo = TypeInfoNoId & { id: TypeId }
 
-// TODO: "purpose" property for e.g. return types, subtypes of conditional_type/indexed access, etc
+// TODO: support ambient type parameters
 
 export type TypeInfoNoId = 
     ({

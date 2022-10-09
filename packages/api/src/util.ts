@@ -166,7 +166,7 @@ export function getTypeId(type: ts.Type) {
 }
 
 // TODO: test for array type, tuple type
-export function isPureObject(typeChecker: ts.TypeChecker, type: ts.Type): boolean {
+export function isPureObject(typeChecker: ts.TypeChecker, type: ts.Type): type is ts.ObjectType {
     return (!!(type.flags & ts.TypeFlags.Object) 
         && (getSignaturesOfType(typeChecker, type).length === 0) 
         && (getIndexInfos(typeChecker, type).length === 0))
