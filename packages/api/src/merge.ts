@@ -81,7 +81,7 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], c
         types.forEach(pushType)
     
         // TODO: refactor this to be more flexible
-        //       this process should probably be done up above instead
+        //       this process should probably be merged with up above instead
         if(otherTypes.length === 1 && objectTypes.length === 0) {
             const newType = cloneTypeWithoutAlias(otherTypes[0])
             seen.set(otherTypes[0], newType)
