@@ -10,6 +10,12 @@
         "declaration": true,
         "sourceMap": true,
         "rootDir": "./src",
-        "outDir": "./dist"
+        "outDir": "./dist",
     },
+    "exclude": [
+        "node_modules", "dist"
+    ],
+    "include": [
+        "src"
+    ]
 }

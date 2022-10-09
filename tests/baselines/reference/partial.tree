@@ -1,9 +1,9 @@
 === partial.ts ===
 
 type partialUnion = Partial<{a: string}|{b: string}>
-> partialUnion --- {"kind":"union","types":[{"kind":"object","signatures":[],"properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":50331652},"id":15}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":93},{"kind":"object","signatures":[],"properties":[{"kind":"reference","symbolMeta":{"name":"b","flags":50331652},"id":15}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":95}],"symbolMeta":{"name":"partialUnion","flags":524288},"id":97}
+> partialUnion --- {"kind":"union","types":[{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":50331652},"id":15}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":93},{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"b","flags":50331652},"id":15}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":95}],"symbolMeta":{"name":"partialUnion","flags":524288},"id":97}
 > Partial<{a: string}|{b: string}>
-> Partial --- {"kind":"object","signatures":[],"properties":[],"indexInfos":[{"keyType":{"kind":"index","indexOf":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":87},"id":89},"type":{"kind":"indexed_access","indexType":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":88},"objectType":{"kind":"reference","symbolMeta":{"name":"T","flags":262144},"id":87},"id":99}}],"symbolMeta":{"name":"Partial","flags":524288},"id":86}
+> Partial --- {"kind":"object","properties":[],"indexInfos":[{"keyType":{"kind":"index","indexOf":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":87},"id":89},"type":{"kind":"indexed_access","indexType":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":88},"objectType":{"kind":"reference","symbolMeta":{"name":"T","flags":262144},"id":87},"id":99}}],"symbolMeta":{"name":"Partial","flags":524288},"id":86}
 > {a: string}|{b: string}
 > {a: string}|{b: string}
 > {a: string}|{b: string}

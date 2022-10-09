@@ -1,8 +1,8 @@
 import assert from "assert";
-import ts, { TypeChecker } from "typescript";
+import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId, TypeParameterInfo } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: -1}
 
@@ -90,18 +90,35 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext)
         else if(flags & ts.TypeFlags.Never) { return { kind: 'primitive', primitive: 'never' }}
         else if(flags & ts.TypeFlags.StringLiteral) { return { kind: 'string_literal', value: (type as ts.StringLiteralType).value }}
         else if(flags & ts.TypeFlags.NumberLiteral) { return { kind: 'number_literal', value: (type as ts.NumberLiteralType).value }}
+        // TODO: boolean literal
         // else if(flags & ts.TypeFlags.BooleanLiteral) { return { kind: 'boolean_literal', value: (type as ts.BooleanLiteral).value }}
+        // TODO: enum literal
         // else if(flags & ts.TypeFlags.EnumLiteral) { return { kind: 'enum_literal', value: (type as ts.StringLiteralType).value }}
         // TODO: add enum info???
         else if(flags & ts.TypeFlags.BigIntLiteral) { return { kind: 'bigint_literal', value: (type as ts.BigIntLiteralType).value }}
         // TODO: add type param info
         else if(flags & ts.TypeFlags.Object) {
-            // TODO: arrays
-            return {
-                kind: 'object',
-                signatures: getSignaturesOfType(typeChecker, type).map(sig => getSignatureInfo(sig)),
-                properties: parseSymbols(type.getProperties()),
-                indexInfos: getIndexInfos(typeChecker, type).map(indexInfo => getIndexInfo(indexInfo)),
+            const signatures = getSignaturesOfType(typeChecker, type).map(getSignatureInfo)
+
+            if(signatures.length > 0) {
+                return { kind: 'function', signatures }
+            } else if(isArrayType(type)) {
+                return {
+                    kind: 'array',
+                    type: parseType(getTypeArguments(typeChecker, type)[0])
+                }
+            } else if(isTupleType(type)) {
+                // TODO: support named tuples
+                return {
+                    kind: 'tuple',
+                    types: parseTypes(getTypeArguments(typeChecker, type))
+                }
+            } else {
+                return {
+                    kind: 'object',
+                    properties: parseSymbols(type.getProperties()),
+                    indexInfos: getIndexInfos(typeChecker, type).map(indexInfo => getIndexInfo(indexInfo)),
+                }
             }
         } else if(flags & ts.TypeFlags.Union) {
             return {
@@ -199,12 +216,10 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
         case 'object': {
             return [
                 ...info.properties,
-                ...info.signatures?.flatMap(s => [...s.parameters, s.returnType]) ?? [],
                 ...info.indexInfos?.flatMap(x => [
                     ...(x.type ? [x.type] : []),
                     ...(x.keyType ? [x.keyType] : []),
                 ]) ?? [],
-                // TODO: array
             ]
         }
 
@@ -238,6 +253,18 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
 
         case "template_literal": {
             return info.types
+        }
+
+        case "array": {
+            return [info.type]
+        }
+
+        case "tuple": {
+            return info.types
+        }
+
+        case "function": {
+            return info.signatures.flatMap(s => [...s.parameters, s.returnType])
         }
     }
 

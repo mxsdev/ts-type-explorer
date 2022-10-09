@@ -1,0 +1,16 @@
+=== arrayObjectAlias.ts ===
+
+type Obj = { a: string, b: number }
+> Obj --- { a: string; b: number; }
+> { a: string, b: number }
+> a: string, b: number
+> a: string,
+> a --- string
+> b: number
+> b --- number
+
+type arrObj = Obj[]
+> arrObj --- { a: string; b: number; }[]
+> Obj[]
+> Obj
+> Obj --- { a: string; b: number; }

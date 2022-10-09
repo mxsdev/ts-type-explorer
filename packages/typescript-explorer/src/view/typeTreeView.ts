@@ -93,12 +93,21 @@ class TypeNode extends TypeTreeItem {
         provider: TypeTreeProvider,
         parent: TypeTreeItem|undefined,
     ) {
-        const resolvedTypeTree: ResolvedTypeInfo = typeTree.kind === 'reference' ? { 
-            ...provider.resolveTypeReference(typeTree),
-            symbolMeta: typeTree.symbolMeta
-        } : typeTree
-        
-        const { label, description, isCollapsible } = generateTypeNodeMeta(resolvedTypeTree)
+        const symbolMeta = typeTree.symbolMeta
+        let dimension = 0
+
+        while(typeTree.kind === 'array' || typeTree.kind === 'reference') {
+            if(typeTree.kind === 'array') {
+                dimension++
+                typeTree = typeTree.type
+            } else {
+                typeTree = provider.resolveTypeReference(typeTree)
+            }
+        }
+
+        const resolvedTypeTree = {...typeTree, symbolMeta} as ResolvedTypeInfo
+
+        const { label, description, isCollapsible } = generateTypeNodeMeta(resolvedTypeTree, dimension)
         super(label, vscode.TreeItemCollapsibleState.None, provider, parent)
 
         if(isCollapsible) {
@@ -116,8 +125,17 @@ class TypeNode extends TypeTreeItem {
 
         switch(kind) {
             case "object": {
-                const { properties, signatures, indexInfos } = this.typeTree
+                const { properties, indexInfos } = this.typeTree
                 return properties.map(toTreeNode)
+            }
+
+            case "array": {
+                throw new Error("Tried to get children for array type")
+            }
+
+            case "tuple": {
+                const { types } = this.typeTree
+                return types.map(toTreeNode)
             }
 
             // TODO: intersection properties
@@ -155,10 +173,12 @@ class TypeNodeGroup extends TypeTreeItem {
     }
 }
 
-function generateTypeNodeMeta(info: ResolvedTypeInfo) {
+function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number) {
     const isOptional = (info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional
 
     let description = getBaseDescription()
+    description += "[]".repeat(dimension)
+
     if(isOptional) {
         description += '?'
     }
@@ -200,4 +220,5 @@ function kindHasChildren(kind: TypeInfoKind) {
            || kind === 'substitution'      
            || kind === 'union'      
            || kind === 'intersection'
+           || kind === 'tuple'
 }

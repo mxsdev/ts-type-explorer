@@ -1,7 +1,7 @@
 === pick.ts ===
 
 type t = { a: "b", c: "d", d: { a: "b" } }
-> t --- {"kind":"object","signatures":[],"properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"d","symbolMeta":{"name":"c","flags":4},"id":89},{"kind":"object","signatures":[],"properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}],"indexInfos":[],"symbolMeta":{"name":"t","flags":524288},"id":86}
+> t --- {"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"d","symbolMeta":{"name":"c","flags":4},"id":89},{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}],"indexInfos":[],"symbolMeta":{"name":"t","flags":524288},"id":86}
 > { a: "b", c: "d", d: { a: "b" } }
 > a: "b", c: "d", d: { a: "b" }
 > a: "b",
@@ -9,7 +9,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
 > c: "d",
 > c --- {"kind":"string_literal","value":"d","symbolMeta":{"name":"c","flags":4},"id":89}
 > d: { a: "b" }
-> d --- {"kind":"object","signatures":[],"properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}
+> d --- {"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}
 > { a: "b" }
 > a: "b"
 > a: "b"
@@ -20,16 +20,16 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > Pick<t, "a"|"d">
-> Pick --- {"kind":"object","signatures":[],"properties":[],"indexInfos":[{"keyType":{"kind":"type_parameter","symbolMeta":{"name":"K","flags":262144},"id":94},"type":{"kind":"indexed_access","indexType":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":95},"objectType":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":93},"id":104}}],"symbolMeta":{"name":"Pick","flags":524288},"id":92}
+> Pick --- {"kind":"object","properties":[],"indexInfos":[{"keyType":{"kind":"type_parameter","symbolMeta":{"name":"K","flags":262144},"id":94},"type":{"kind":"indexed_access","indexType":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":95},"objectType":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":93},"id":104}}],"symbolMeta":{"name":"Pick","flags":524288},"id":92}
 > t, "a"|"d"
 > t
-> t --- {"kind":"object","signatures":[],"properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"d","symbolMeta":{"name":"c","flags":4},"id":89},{"kind":"object","signatures":[],"properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}],"indexInfos":[],"symbolMeta":{"name":"t","flags":524288},"id":86}
+> t --- {"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"d","symbolMeta":{"name":"c","flags":4},"id":89},{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}],"indexInfos":[],"symbolMeta":{"name":"t","flags":524288},"id":86}
 > {b: "asd", d: { b: "c" }}
 > b: "asd", d: { b: "c" }
 > b: "asd",
 > b --- {"kind":"string_literal","value":"asd","symbolMeta":{"name":"b","flags":4},"id":109}
 > d: { b: "c" }
-> d --- {"kind":"object","signatures":[],"properties":[{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":4},"id":107}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":105}
+> d --- {"kind":"object","properties":[{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":4},"id":107}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":105}
 > { b: "c" }
 > b: "c"
 > b: "c"
@@ -49,7 +49,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > b: "asd"
 > b --- {"kind":"string_literal","value":"asd","symbolMeta":{"name":"b","flags":4},"id":110}
 > d: { a: "b", b: "c" }
-> d --- {"kind":"object","signatures":[],"properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":33554436},"id":88},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":33554436},"id":108}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":111}
+> d --- {"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":33554436},"id":88},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":33554436},"id":108}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":111}
 > { a: "b", b: "c" }
 > a: "b", b: "c"
 > a: "b"

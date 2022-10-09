@@ -47,10 +47,13 @@ export type TypeInfoNoId =
         kind: 'object',
         properties: TypeInfo[],
         indexInfos?: IndexInfo[],
-        signatures?: SignatureInfo[],
+        // signatures?: SignatureInfo[],
         // objectFlags: number
         // TODO: array types
     }
+    |{ kind: 'function', signatures: SignatureInfo[] }
+    |{ kind: 'array', type: TypeInfo }
+    |{ kind: 'tuple', types: TypeInfo[] }
     |{
         kind: 'union',
         types: TypeInfo[],

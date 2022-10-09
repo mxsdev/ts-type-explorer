@@ -24,8 +24,9 @@ export type ObjectType = ts.ObjectType & {
     callSignatures: ts.Signature[],
 }
 
-export type UnionType = ts.UnionType & { id: number }
-export type IntersectionType = ts.IntersectionType & { id: number }
+export type UnionTypeInternal = ts.UnionType & { id: number }
+export type IntersectionTypeInternal = ts.IntersectionType & { id: number }
+export type TypeReferenceInternal = ts.TypeReference & { resolvedTypeArguments?: ts.Type[] }
 
 export type TSSymbol = ts.Symbol & {
     checkFlags: number,
@@ -126,16 +127,16 @@ export function createObjectType(typeChecker: ts.TypeChecker, objectFlags: ts.Ob
     return type
 }
 
-export function createUnionType(typeChecker: ts.TypeChecker, types: ts.Type[] = [], flags: ts.TypeFlags = 0): UnionType { 
-    const type = createType(typeChecker, flags | ts.TypeFlags.Union) as UnionType
+export function createUnionType(typeChecker: ts.TypeChecker, types: ts.Type[] = [], flags: ts.TypeFlags = 0): UnionTypeInternal { 
+    const type = createType(typeChecker, flags | ts.TypeFlags.Union) as UnionTypeInternal
 
     type.types = types
 
     return type
 }
 
-export function createIntersectionType(typeChecker: ts.TypeChecker, types: ts.Type[] = [], flags: ts.TypeFlags = 0): IntersectionType { 
-    const type = createType(typeChecker, flags | ts.TypeFlags.Intersection) as IntersectionType
+export function createIntersectionType(typeChecker: ts.TypeChecker, types: ts.Type[] = [], flags: ts.TypeFlags = 0): IntersectionTypeInternal { 
+    const type = createType(typeChecker, flags | ts.TypeFlags.Intersection) as IntersectionTypeInternal
 
     type.types = types
 
@@ -174,4 +175,22 @@ export function isPureObject(typeChecker: ts.TypeChecker, type: ts.Type): boolea
 
 export function getIntersectionTypesFlat(...types: ts.Type[]): ts.Type[] {
     return types.flatMap((type) => (type.flags & ts.TypeFlags.Intersection) ? (type as ts.IntersectionType).types : [type])
+}
+
+export function isArrayType(type: ts.Type): type is ts.TypeReference {
+    return !!(getObjectFlags(type) & ts.ObjectFlags.Reference) 
+        && ((type as ts.TypeReference).target.getSymbol()?.getName() === "Array")
+        // && getTypeArguments(typeChecker, type).length >= 1
+}
+
+export function isTupleType(type: ts.Type): type is ts.TypeReference {
+    return !!((getObjectFlags(type) & ts.ObjectFlags.Reference) && ((type as ts.TypeReference).target.objectFlags & ts.ObjectFlags.Tuple))
+}
+
+export function getTypeArguments(typeChecker: ts.TypeChecker, type: ts.TypeReference) {
+    return typeChecker.getTypeArguments(type)
+}
+
+export function getObjectFlags(type: ts.Type): number {
+    return (type.flags & ts.TypeFlags.Object) && (type as ObjectType).objectFlags
 }

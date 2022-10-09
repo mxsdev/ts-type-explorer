@@ -1,0 +1,1 @@
+type tupleOfStuff = ["a", string, number]

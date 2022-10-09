@@ -7,7 +7,7 @@
     ],
     "files": [],
     "include": [],
-    "exclude": ["**/node_modules"],
+    "exclude": ["**/node_modules", "**/dist"],
     "compilerOptions": {
         "esModuleInterop": true
     }

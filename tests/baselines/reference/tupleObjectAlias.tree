@@ -1,0 +1,19 @@
+=== tupleObjectAlias.ts ===
+
+type Obj2 = { a: string, b: number }
+> Obj2 --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"Obj2","flags":524288},"id":86}
+> { a: string, b: number }
+> a: string, b: number
+> a: string,
+> a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15}
+> b: number
+> b --- {"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}
+
+type tupleObj = [Obj2, Obj2]
+> tupleObj --- {"kind":"tuple","types":[{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":86},{"kind":"reference","symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":86}],"symbolMeta":{"name":"tupleObj","flags":524288},"id":92}
+> [Obj2, Obj2]
+> Obj2, Obj2
+> Obj2
+> Obj2 --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"Obj2","flags":524288},"id":86}
+> Obj2
+> Obj2 --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"Obj2","flags":524288},"id":86}
