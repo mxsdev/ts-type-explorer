@@ -1,0 +1,1 @@
+type Conditional<T> = T extends string ? "a" : "b"

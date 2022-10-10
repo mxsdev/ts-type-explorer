@@ -1,0 +1,10 @@
+=== conditional.ts ===
+
+type Conditional<T> = T extends string ? "a" : "b"
+> Conditional --- Conditional<T>
+> T
+> T
+> T --- T
+> T extends string ? "a" : "b"
+> T
+> T --- T

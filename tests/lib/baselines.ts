@@ -38,6 +38,8 @@ export async function acceptBaselines() {
             overwrite: true,
         }
     )
+
+    await clearLocalBaselines()
 }
 
 const mergeBaselineGenerator = typeBaselineGenerator(
@@ -142,4 +144,9 @@ function generateBaselineRecursive(generator: BaselineGenerator, node: ts.Node, 
     }
 
     return ``
+}
+
+export async function clearLocalBaselines() {
+    await fs.remove(baselinesLocalPath)
+    await fs.mkdir(baselinesLocalPath)
 }

@@ -201,19 +201,19 @@ export function getObjectFlags(type: ts.Type): number {
 type ParameterInfo = {
     optional?: boolean,
     isRest?: boolean
-}
+}    
 
 export function getParameterInfo(typeChecker: ts.TypeChecker, parameter: ts.Symbol, signature?: ts.Signature): ParameterInfo {
     const parameterDeclaration = typeChecker.symbolToParameterDeclaration(parameter, signature?.getDeclaration(), undefined)
     const baseParameterDeclaration = parameter.getDeclarations()?.find((x) => x.kind && ts.SyntaxKind.Parameter) as ts.ParameterDeclaration|undefined
-
+    
     if(parameterDeclaration) {
         return {
             optional: !!parameterDeclaration.questionToken,
             isRest: !!parameterDeclaration.dotDotDotToken
         }
     }
-
+    
     return {
         optional: !!(baseParameterDeclaration && typeChecker.isOptionalParameter(baseParameterDeclaration) || getCheckFlags(parameter) & CheckFlags.OptionalParameter),
         isRest: !!(baseParameterDeclaration && baseParameterDeclaration.dotDotDotToken || getCheckFlags(parameter) & CheckFlags.RestParameter),

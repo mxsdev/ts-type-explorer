@@ -155,7 +155,16 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                 objectType: parseType((type as ts.IndexedAccessType).objectType),
             }
         } else if(flags & ts.TypeFlags.Conditional) {
-            // TODO: conditional types
+            // force resolution of true/false types
+            typeChecker.typeToString(type, undefined, ts.TypeFormatFlags.InTypeAlias)
+
+            return {
+                kind: 'conditional',
+                checkType: parseType((type as ts.ConditionalType).checkType),
+                extendsType: parseType((type as ts.ConditionalType).extendsType),
+                trueType: wrapSafe(parseType)((type as ts.ConditionalType).resolvedTrueType),
+                falseType: wrapSafe(parseType)((type as ts.ConditionalType).resolvedFalseType),
+            }
         } else if(flags & ts.TypeFlags.Substitution) {
             return {
                 kind: 'substitution',
