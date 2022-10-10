@@ -9,4 +9,4 @@ function func(a: string, b?: number) {
 > a: string
 > a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":1},"id":15}
 > b?: number
-> b --- {"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":1},"id":16}
+> b --- {"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":1,"optional":true},"id":16}

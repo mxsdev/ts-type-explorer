@@ -2,7 +2,7 @@ import assert from "assert";
 import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId, TypeParameterInfo } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, isFunctionParameterOptional } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, isParameterOptional } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: -1}
 
@@ -200,7 +200,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
 
     function getFunctionParameterInfo(parameter: ts.Symbol, signature: ts.Signature, index: number): TypeInfo {
         return parseSymbol(parameter, {
-            optional: isFunctionParameterOptional(typeChecker, parameter, signature)
+            optional: isParameterOptional(typeChecker, parameter, signature)
         })
     }
     
@@ -215,12 +215,14 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         }
     }
     
-    function getSymbolInfo(symbol: ts.Symbol, isAnonymous: boolean = false, options?: TypeTreeOptions): SymbolInfo {
+    function getSymbolInfo(symbol: ts.Symbol, isAnonymous: boolean = false, options: TypeTreeOptions = {}): SymbolInfo {
+        let optional = options.optional ?? isParameterOptional(typeChecker, symbol)
+
         return {
             name: symbol.getName(),
             flags: symbol.getFlags(),
             ...isAnonymous && { anonymous: true },
-            ...options?.optional && { optional: true },
+            ...optional && { optional: true },
         }
     }
 }

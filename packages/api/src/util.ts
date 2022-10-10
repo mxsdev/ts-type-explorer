@@ -198,8 +198,8 @@ export function getObjectFlags(type: ts.Type): number {
     return (type.flags & ts.TypeFlags.Object) && (type as ObjectType).objectFlags
 }
 
-export function isFunctionParameterOptional(typeChecker: ts.TypeChecker, parameter: ts.Symbol, signature: ts.Signature) {
-    const parameterDeclaration = typeChecker.symbolToParameterDeclaration(parameter, signature.getDeclaration(), undefined)
+export function isParameterOptional(typeChecker: ts.TypeChecker, parameter: ts.Symbol, signature?: ts.Signature) {
+    const parameterDeclaration = typeChecker.symbolToParameterDeclaration(parameter, signature?.getDeclaration(), undefined)
     const baseParameterDeclaration = parameter.getDeclarations()?.find((x) => x.kind && ts.SyntaxKind.Parameter) as ts.ParameterDeclaration|undefined
     
     if(parameterDeclaration) {
