@@ -206,12 +206,17 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     
     function getIndexInfo(indexInfo: TSIndexInfoMerged): IndexInfo {
         const { typeChecker } = ctx
+
+        const parameterSymbol =
+            // @ts-expect-error
+            indexInfo?.declaration?.parameters?.[0]?.symbol
+         ?? indexInfo?.parameterType?.getSymbol()
         
         return {
             ...indexInfo.keyType && { keyType: parseType(indexInfo.keyType) },
             ...indexInfo.type && { type: parseType(indexInfo.type) },
-            // @ts-expect-error
-            parameterSymbol: wrapSafe(getSymbolInfo)(wrapSafe(typeChecker.getSymbolAtLocation)(indexInfo?.declaration?.parameters?.[0]))
+            // parameterSymbol: wrapSafe(getSymbolInfo)(wrapSafe(typeChecker.getSymbolAtLocation)(indexInfo?.declaration?.parameters?.[0]))
+            parameterSymbol: wrapSafe(getSymbolInfo)(parameterSymbol),
         }
     }
     

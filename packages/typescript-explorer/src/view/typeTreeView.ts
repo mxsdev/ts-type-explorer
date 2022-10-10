@@ -1,4 +1,4 @@
-import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo } from '@ts-expand-type/api'
+import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
 import * as ts from 'typescript'
@@ -87,6 +87,10 @@ abstract class TypeTreeItem extends vscode.TreeItem {
         return new SignatureNode(signature, this.provider, this)
     }
 
+    createIndexNode(indexInfo: IndexInfo) {
+        return new IndexNode(indexInfo, this.provider, this)
+    }
+
     getSignatureChildren(signature: SignatureInfo): TypeNode[] {
         return [
             ...signature.parameters.map(param => this.createChildTypeNode(param)),
@@ -136,8 +140,11 @@ class TypeNode extends TypeTreeItem {
 
         switch(kind) {
             case "object": {
-                const { properties, indexInfos } = this.typeTree
-                return properties.map(toTreeNode)
+                const { properties, indexInfos = [] } = this.typeTree
+                return [
+                    ...indexInfos.map(info => this.createIndexNode(info)),
+                    ...properties.map(toTreeNode),
+                ]
             }
 
             case "function": {
@@ -194,9 +201,27 @@ class SignatureNode extends TypeTreeItem {
     }
 }
 
+class IndexNode extends TypeTreeItem {
+    constructor(
+        private indexInfo: IndexInfo,
+        provider: TypeTreeProvider,
+        parent: TypeTreeItem|undefined
+    ) {
+        super(indexInfo.parameterSymbol?.name ?? "", vscode.TreeItemCollapsibleState.Collapsed, provider, parent)
+        this.description = "index"
+    }
+
+    getChildren() {
+        return [
+            ...this.indexInfo.keyType ? [this.createChildTypeNode(this.indexInfo.keyType, { purpose: 'index_type'})] : [],
+            ...this.indexInfo.type ? [this.createChildTypeNode(this.indexInfo.type, { purpose: 'index_value_type'})] : [],
+        ]
+    }
+}
+
 type TypeNodeArgs = {
-    purpose?: 'return',
-    optional?: boolean
+    purpose?: 'return'|'index_type'|'index_value_type',
+    optional?: boolean,
 }
 
 class TypeNodeGroup extends TypeTreeItem {
@@ -214,8 +239,8 @@ class TypeNodeGroup extends TypeTreeItem {
     }
 }
 
-function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, args?: TypeNodeArgs) {
-    const isOptional = info.symbolMeta?.optional || args?.optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
+function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpose, optional}: TypeNodeArgs = {}) {
+    const isOptional = info.symbolMeta?.optional || optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
 
     let description = getBaseDescription()
     description += "[]".repeat(dimension)
@@ -232,8 +257,14 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, args?: 
     }
 
     function getLabel() {
-        if(args?.purpose === 'return') {
-            return "<return>"
+        const nameByPurpose: Partial<Record<NonNullable<TypeNodeArgs['purpose']>, string>> = {
+            return: "<return>",
+            index_type: "<index type>",
+            index_value_type: "<type>",
+        }
+
+        if(purpose && purpose in nameByPurpose) {
+            return nameByPurpose[purpose]!
         }
 
         return !info.symbolMeta?.anonymous ? (info.symbolMeta?.name ?? "") : ""

@@ -25,7 +25,7 @@ export const KindText: Record<Kind, string> = {
     "enum_literal": "$1",
     "number_literal": "$1",
     "conditional": "conditional",
-    "index": "Index",
+    "index": "keyof",
     "indexed_access": "access",
     "intersection": "intersection",
     "union": "union",

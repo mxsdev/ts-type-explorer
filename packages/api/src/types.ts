@@ -11,6 +11,7 @@ export type IndexInfo = {
     keyType?: TypeInfo,
     type?: TypeInfo,
     parameterSymbol?: SymbolInfo
+    // parameterName?: string
 }
 
 // export type FunctionParameterInfo = {
