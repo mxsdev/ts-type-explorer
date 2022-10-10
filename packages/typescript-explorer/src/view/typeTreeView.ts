@@ -257,7 +257,6 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
     return {
         label: getLabel(),
         description,
-        // TODO: open root level node by default...
         isCollapsible: kindHasChildren(info.kind)
     }
 
