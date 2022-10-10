@@ -216,8 +216,6 @@ class TypeNodeGroup extends TypeTreeItem {
 }
 
 function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, args?: TypeNodeArgs) {
-    console.log(info.symbolMeta)
-
     const isOptional = info.symbolMeta?.optional || args?.optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
 
     let description = getBaseDescription()
