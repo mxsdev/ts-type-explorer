@@ -134,7 +134,8 @@ class TypeNode extends TypeTreeItem {
     getChildren(): TypeTreeItem[] {
         const { kind } = this.typeTree
 
-        const toTreeNode = (info: TypeInfo) => this.createChildTypeNode(info)
+        const toTreeNodeArgs = (info: TypeInfo, args?: TypeNodeArgs) => this.createChildTypeNode(info, args)
+        const toTreeNode = (info: TypeInfo) => toTreeNodeArgs(info)
 
         switch(kind) {
             case "object": {
@@ -162,6 +163,17 @@ class TypeNode extends TypeTreeItem {
             case "tuple": {
                 const { types } = this.typeTree
                 return types.map(toTreeNode)
+            }
+
+            case "conditional": {
+                const { checkType, extendsType, trueType, falseType } = this.typeTree
+
+                return [
+                    toTreeNodeArgs(checkType, { purpose: 'conditional_check' }),
+                    toTreeNodeArgs(extendsType, { purpose: 'conditional_extends'}),
+                    ...trueType ? [toTreeNodeArgs(trueType, { purpose: 'conditional_true' })] : [],
+                    ...falseType ? [toTreeNodeArgs(falseType, { purpose: 'conditional_false' })] : [],
+                ]
             }
 
             // TODO: intersection properties
@@ -218,7 +230,7 @@ class IndexNode extends TypeTreeItem {
 }
 
 type TypeNodeArgs = {
-    purpose?: 'return'|'index_type'|'index_value_type',
+    purpose?: 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false',
     optional?: boolean,
 }
 
@@ -260,13 +272,17 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
 
     function getLabel() {
         const nameByPurpose: Partial<Record<NonNullable<TypeNodeArgs['purpose']>, string>> = {
-            return: "<return>",
-            index_type: "<constraint>",
-            index_value_type: "<value>",
+            return: "return",
+            index_type: "constraint",
+            index_value_type: "value",
+            conditional_check: "check",
+            conditional_extends: "extends",
+            conditional_true: "true",
+            conditional_false: "false",
         }
 
         if(purpose && purpose in nameByPurpose) {
-            return nameByPurpose[purpose]!
+            return `<${nameByPurpose[purpose]!}>`
         }
 
         return !info.symbolMeta?.anonymous ? (info.symbolMeta?.name ?? "") : ""
