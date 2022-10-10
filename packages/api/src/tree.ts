@@ -2,7 +2,7 @@ import assert from "assert";
 import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId, TypeParameterInfo } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, isParameterOptional } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: -1}
 
@@ -27,7 +27,8 @@ export function generateTypeTree(symbolOrType: SymbolOrType, typeChecker: TypeCh
 }
 
 type TypeTreeOptions = {
-    optional?: boolean
+    optional?: boolean,
+    isRest?: boolean
 }
 
 function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext, options?: TypeTreeOptions): TypeInfo {
@@ -199,8 +200,10 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     }
 
     function getFunctionParameterInfo(parameter: ts.Symbol, signature: ts.Signature, index: number): TypeInfo {
+        const { optional, isRest } = getParameterInfo(typeChecker, parameter, signature)
+
         return parseSymbol(parameter, {
-            optional: isParameterOptional(typeChecker, parameter, signature)
+            optional, isRest
         })
     }
     
@@ -221,13 +224,17 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     }
     
     function getSymbolInfo(symbol: ts.Symbol, isAnonymous: boolean = false, options: TypeTreeOptions = {}): SymbolInfo {
-        let optional = options.optional ?? isParameterOptional(typeChecker, symbol)
+        const parameterInfo = getParameterInfo(typeChecker, symbol)
+
+        const optional = options.optional ?? parameterInfo.optional
+        const rest = options.isRest ?? parameterInfo.isRest
 
         return {
             name: symbol.getName(),
             flags: symbol.getFlags(),
             ...isAnonymous && { anonymous: true },
             ...optional && { optional: true },
+            ...rest && { rest: true },
         }
     }
 }

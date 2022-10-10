@@ -241,12 +241,17 @@ class TypeNodeGroup extends TypeTreeItem {
 
 function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpose, optional}: TypeNodeArgs = {}) {
     const isOptional = info.symbolMeta?.optional || optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
+    const isRest = info.symbolMeta?.rest
 
     let description = getBaseDescription()
     description += "[]".repeat(dimension)
-
+    
     if(isOptional) {
         description += '?'
+    }
+
+    if(isRest) {
+        description = "..." + description
     }
 
     return {

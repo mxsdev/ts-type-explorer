@@ -4,7 +4,8 @@ export type SymbolInfo = {
     name: string,
     flags: number,
     optional?: boolean,
-    anonymous?: boolean
+    anonymous?: boolean,
+    rest?: boolean
 }
 
 export type IndexInfo = {
