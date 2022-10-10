@@ -3,6 +3,7 @@ import ts from "typescript"
 export type SymbolInfo = {
     name: string,
     flags: number,
+    optional?: boolean,
     anonymous?: boolean
 }
 
@@ -12,10 +13,16 @@ export type IndexInfo = {
     parameterSymbol?: SymbolInfo
 }
 
+// export type FunctionParameterInfo = {
+//     type: TypeInfo,
+//     optional?: boolean
+// }
+
 export type SignatureInfo = {
     symbolMeta?: SymbolInfo,
     parameters: TypeInfo[],
-    returnType: TypeInfo
+    returnType: TypeInfo,
+    // minArgumentCount: number,
 }
 
 export type TypeParameterInfo = {

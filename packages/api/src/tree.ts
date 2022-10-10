@@ -2,7 +2,7 @@ import assert from "assert";
 import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId, TypeParameterInfo } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, isFunctionParameterOptional } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: -1}
 
@@ -26,7 +26,11 @@ export function generateTypeTree(symbolOrType: SymbolOrType, typeChecker: TypeCh
     )
 }
 
-function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext): TypeInfo {
+type TypeTreeOptions = {
+    optional?: boolean
+}
+
+function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext, options?: TypeTreeOptions): TypeInfo {
     assert(symbol || type, "Must provide either symbol or type")
     ctx.depth++
 
@@ -63,7 +67,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext)
 
     const typeInfoId = typeInfo as TypeInfo
 
-    typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(symbol, isAnonymousSymbol)
+    typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(symbol, isAnonymousSymbol, options)
     typeInfoId.id = getTypeId(type)
 
     ctx.depth--
@@ -175,20 +179,29 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext)
         }
     }
 
-    function parseTypes(types: readonly ts.Type[]): TypeInfo[] { return ctx.depth + 1 > maxDepth ? [maxDepthExceeded] : types.map(parseType)  }
-    function parseType(type: ts.Type): TypeInfo { return _generateTypeTree({type}, ctx) }
+    function parseTypes(types: readonly ts.Type[]): TypeInfo[] { return ctx.depth + 1 > maxDepth ? [maxDepthExceeded] : types.map(t => parseType(t))  }
+    function parseType(type: ts.Type, options?: TypeTreeOptions): TypeInfo { return _generateTypeTree({type}, ctx, options) }
 
-    function parseSymbols(symbols: readonly ts.Symbol[]): TypeInfo[] { return ctx.depth + 1 > maxDepth ? [maxDepthExceeded] : symbols.map(parseSymbol) }
-    function parseSymbol(symbol: ts.Symbol): TypeInfo { return _generateTypeTree({symbol}, ctx) }
+    function parseSymbols(symbols: readonly ts.Symbol[]): TypeInfo[] { return ctx.depth + 1 > maxDepth ? [maxDepthExceeded] : symbols.map(t => parseSymbol(t)) }
+    function parseSymbol(symbol: ts.Symbol, options?: TypeTreeOptions): TypeInfo { return _generateTypeTree({symbol}, ctx, options) }
 
     function getSignatureInfo(signature: ts.Signature): SignatureInfo {
         const { typeChecker } = ctx
-    
+
+        const internalSignature = signature as SignatureInternal
+
         return {
             symbolMeta: wrapSafe(getSymbolInfo)(typeChecker.getSymbolAtLocation(signature.getDeclaration())),
-            parameters: parseSymbols(signature.getParameters()),
+            parameters: signature.getParameters().map((parameter, index) => getFunctionParameterInfo(parameter, signature, index)),
             returnType: parseType(typeChecker.getReturnTypeOfSignature(signature)),
+            // minArgumentCount: internalSignature.resolvedMinArgumentCount ?? internalSignature.minArgumentCount
         }
+    }
+
+    function getFunctionParameterInfo(parameter: ts.Symbol, signature: ts.Signature, index: number): TypeInfo {
+        return parseSymbol(parameter, {
+            optional: isFunctionParameterOptional(typeChecker, parameter, signature)
+        })
     }
     
     function getIndexInfo(indexInfo: TSIndexInfoMerged): IndexInfo {
@@ -202,11 +215,12 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext)
         }
     }
     
-    function getSymbolInfo(symbol: ts.Symbol, isAnonymous: boolean = false): SymbolInfo {
+    function getSymbolInfo(symbol: ts.Symbol, isAnonymous: boolean = false, options?: TypeTreeOptions): SymbolInfo {
         return {
             name: symbol.getName(),
             flags: symbol.getFlags(),
-            ...isAnonymous && { anonymous: true }
+            ...isAnonymous && { anonymous: true },
+            ...options?.optional && { optional: true },
         }
     }
 }

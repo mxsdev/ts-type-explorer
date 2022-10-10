@@ -1,3 +1,3 @@
-function func(a: string, b: number) {
+function func(a: string, b?: number) {
     return "asd"
 }

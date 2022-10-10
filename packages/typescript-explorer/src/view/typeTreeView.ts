@@ -1,4 +1,4 @@
-import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo } from '@ts-expand-type/api'
+import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
 import * as ts from 'typescript'
@@ -57,8 +57,8 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
         return typeInfo
     }
 
-    createTypeNode(typeInfo: TypeInfo, parent: TypeTreeItem|undefined) {
-        return new TypeNode(typeInfo, this, parent)
+    createTypeNode(typeInfo: TypeInfo, parent: TypeTreeItem|undefined, args?: TypeNodeArgs) {
+        return new TypeNode(typeInfo, this, parent, args)
     }
 }
 
@@ -80,8 +80,19 @@ abstract class TypeTreeItem extends vscode.TreeItem {
         return this.collapsibleState !== vscode.TreeItemCollapsibleState.None
     }
 
-    createChildTypeNode(typeInfo: TypeInfo) {
-        return this.provider.createTypeNode(typeInfo, this)
+    createChildTypeNode(typeInfo: TypeInfo, args?: TypeNodeArgs) {
+        return this.provider.createTypeNode(typeInfo, this, args)
+    }
+
+    createSigatureNode(signature: SignatureInfo) {
+        return new SignatureNode(signature, this.provider, this)
+    }
+
+    getSignatureChildren(signature: SignatureInfo): TypeNode[] {
+        return [
+            ...signature.parameters.map(param => this.createChildTypeNode(param)),
+            this.createChildTypeNode(signature.returnType, { purpose: 'return' }),
+        ]
     }
 }
 
@@ -92,6 +103,7 @@ class TypeNode extends TypeTreeItem {
         typeTree: TypeInfo,
         provider: TypeTreeProvider,
         parent: TypeTreeItem|undefined,
+        private args?: TypeNodeArgs,
     ) {
         const symbolMeta = typeTree.symbolMeta
         let dimension = 0
@@ -107,7 +119,7 @@ class TypeNode extends TypeTreeItem {
 
         const resolvedTypeTree = {...typeTree, symbolMeta} as ResolvedTypeInfo
 
-        const { label, description, isCollapsible } = generateTypeNodeMeta(resolvedTypeTree, dimension)
+        const { label, description, isCollapsible } = generateTypeNodeMeta(resolvedTypeTree, dimension, args)
         super(label, vscode.TreeItemCollapsibleState.None, provider, parent)
 
         if(isCollapsible) {
@@ -127,6 +139,16 @@ class TypeNode extends TypeTreeItem {
             case "object": {
                 const { properties, indexInfos } = this.typeTree
                 return properties.map(toTreeNode)
+            }
+
+            case "function": {
+                const { signatures } = this.typeTree
+                
+                if(signatures.length === 1) {
+                    return this.getSignatureChildren(signatures[0])
+                } else {
+                    return signatures.map(sig => this.createSigatureNode(sig))
+                }
             }
 
             case "array": {
@@ -158,6 +180,26 @@ class TypeNode extends TypeTreeItem {
     }
 }
 
+class SignatureNode extends TypeTreeItem {
+    constructor(
+        private signature: SignatureInfo,
+        provider: TypeTreeProvider,
+        parent: TypeTreeItem|undefined,
+    ) {
+        super(signature.symbolMeta?.name ?? "", vscode.TreeItemCollapsibleState.Collapsed, provider, parent)
+        this.description = "signature"
+    }
+
+    getChildren() {
+        return this.getSignatureChildren(this.signature)
+    }
+}
+
+type TypeNodeArgs = {
+    purpose?: 'return',
+    optional?: boolean
+}
+
 class TypeNodeGroup extends TypeTreeItem {
     constructor(
         label: string,
@@ -173,8 +215,10 @@ class TypeNodeGroup extends TypeTreeItem {
     }
 }
 
-function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number) {
-    const isOptional = (info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional
+function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, args?: TypeNodeArgs) {
+    console.log(info.symbolMeta)
+
+    const isOptional = info.symbolMeta?.optional || args?.optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
 
     let description = getBaseDescription()
     description += "[]".repeat(dimension)
@@ -184,10 +228,18 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number) {
     }
 
     return {
-        label: !info.symbolMeta?.anonymous ? (info.symbolMeta?.name ?? "") : "",
+        label: getLabel(),
         description,
         // TODO: open root level node by default...
         isCollapsible: kindHasChildren(info.kind)
+    }
+
+    function getLabel() {
+        if(args?.purpose === 'return') {
+            return "<return>"
+        }
+
+        return !info.symbolMeta?.anonymous ? (info.symbolMeta?.name ?? "") : ""
     }
 
     function getBaseDescription() {
@@ -221,4 +273,5 @@ function kindHasChildren(kind: TypeInfoKind) {
            || kind === 'union'      
            || kind === 'intersection'
            || kind === 'tuple'
+           || kind === 'function'
 }

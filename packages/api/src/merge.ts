@@ -1,6 +1,6 @@
 import ts from "typescript"
 import { APIConfig } from "./config"
-import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos, getIntersectionTypesFlat, isArrayType, isTupleType, TypeReferenceInternal, isPureObject } from "./util"
+import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos, getIntersectionTypesFlat, isArrayType, isTupleType, TypeReferenceInternal, isPureObject, CheckFlags } from "./util"
 
 export function recursivelyExpandType(typeChecker: ts.TypeChecker, type: ts.Type, config?: APIConfig) {
     config ??= new APIConfig()
@@ -160,7 +160,7 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], c
             symbolFlags |= ts.SymbolFlags.Optional
         }
 
-        const propertySymbol = createSymbol(symbolFlags, name, 1 << 18)
+        const propertySymbol = createSymbol(symbolFlags, name, CheckFlags.Mapped)
 
         const types = symbols.map(s => getSymbolType(typeChecker, s))
         
