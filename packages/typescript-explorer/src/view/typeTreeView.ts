@@ -5,8 +5,7 @@ import * as ts from 'typescript'
 import { getKindText, getPrimitiveKindText } from '../localization';
 import { StateManager } from '../state/stateManager';
 
-// TODO: array types
-// TODO: mapped types, function types
+// TODO: mapped types
 
 type ResolvedTypeInfo = Exclude<TypeInfo, {kind: 'reference'}>
 type TreeCache = Map<TypeId, ResolvedTypeInfo>
