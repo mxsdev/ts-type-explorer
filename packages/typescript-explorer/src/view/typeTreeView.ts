@@ -259,8 +259,8 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
     function getLabel() {
         const nameByPurpose: Partial<Record<NonNullable<TypeNodeArgs['purpose']>, string>> = {
             return: "<return>",
-            index_type: "<index type>",
-            index_value_type: "<type>",
+            index_type: "<constraint>",
+            index_value_type: "<value>",
         }
 
         if(purpose && purpose in nameByPurpose) {
@@ -272,6 +272,13 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
 
     function getBaseDescription() {
         switch(info.kind) {
+            case "type_parameter": {
+                const name = info.symbolMeta?.name
+                const kindText = getKindText('type_parameter')
+
+                return name ? `${name} (${kindText})` : kindText
+            }
+
             case "primitive": {
                 return getPrimitiveKindText(info.primitive)
             }

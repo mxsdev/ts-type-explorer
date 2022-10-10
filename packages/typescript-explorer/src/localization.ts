@@ -33,7 +33,7 @@ export const KindText: Record<Kind, string> = {
     "object": "object",
     "string_literal": "\"$1\"",
     "string_mapping": "string mapping",
-    "type_parameter": "parameter",
+    "type_parameter": "type parameter",
     "primitive": "primitive",
     "substitution": "substitution",
     "template_literal": "template",
