@@ -1,0 +1,1 @@
+type IndexedAccess<P, T extends keyof P> = P[T]

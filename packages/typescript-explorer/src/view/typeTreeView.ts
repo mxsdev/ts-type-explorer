@@ -176,6 +176,23 @@ class TypeNode extends TypeTreeItem {
                 ]
             }
 
+            case "index": {
+                const { keyOf } = this.typeTree
+
+                return [
+                    toTreeNodeArgs(keyOf, { purpose: 'keyof' })
+                ]
+            }
+
+            case "indexed_access": {
+                const { indexType, objectType } = this.typeTree
+
+                return [
+                    toTreeNodeArgs(objectType, { purpose: 'indexed_access_base' }),
+                    toTreeNodeArgs(indexType, { purpose: 'indexed_access_index' }),
+                ]
+            }
+
             // TODO: intersection properties
             case "intersection":
             case "union": {
@@ -230,7 +247,7 @@ class IndexNode extends TypeTreeItem {
 }
 
 type TypeNodeArgs = {
-    purpose?: 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false',
+    purpose?: 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base',
     optional?: boolean,
 }
 
@@ -279,6 +296,9 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
             conditional_extends: "extends",
             conditional_true: "true",
             conditional_false: "false",
+            keyof: "keyof",
+            indexed_access_base: "base",
+            indexed_access_index: "index"
         }
 
         if(purpose && purpose in nameByPurpose) {

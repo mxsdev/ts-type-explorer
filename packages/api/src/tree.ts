@@ -147,7 +147,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                 }
             }
         } else if(flags & ts.TypeFlags.Index) {
-            return { kind: 'index', indexOf: parseType((type as ts.IndexType).type) }
+            return { kind: 'index', keyOf: parseType((type as ts.IndexType).type) }
         } else if(flags & ts.TypeFlags.IndexedAccess) {
             return { 
                 kind: 'indexed_access',
@@ -269,7 +269,7 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
         }
 
         case "index": {
-            return [info.indexOf]
+            return [info.keyOf]
         }
 
         case "indexed_access": {

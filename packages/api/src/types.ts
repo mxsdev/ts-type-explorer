@@ -71,7 +71,7 @@ export type TypeInfoNoId =
     }
     |{
         kind: 'index',
-        indexOf: TypeInfo
+        keyOf: TypeInfo
     }
     |{
         kind: 'indexed_access',

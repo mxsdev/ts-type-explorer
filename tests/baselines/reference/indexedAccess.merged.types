@@ -1,0 +1,17 @@
+=== indexedAccess.ts ===
+
+type IndexedAccess<P, T extends keyof P> = P[T]
+> IndexedAccess --- IndexedAccess<P, T>
+> P, T extends keyof P
+> P
+> P --- P
+> T extends keyof P
+> T --- T
+> keyof P
+> P
+> P --- P
+> P[T]
+> P
+> P --- P
+> T
+> T --- T

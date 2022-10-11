@@ -1,0 +1,17 @@
+=== indexedAccess.ts ===
+
+type IndexedAccess<P, T extends keyof P> = P[T]
+> IndexedAccess --- {"kind":"indexed_access","indexType":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":87},"objectType":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":86},"symbolMeta":{"name":"IndexedAccess","flags":524288},"id":88}
+> P, T extends keyof P
+> P
+> P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":86}
+> T extends keyof P
+> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":87}
+> keyof P
+> P
+> P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":86}
+> P[T]
+> P
+> P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":86}
+> T
+> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":87}
