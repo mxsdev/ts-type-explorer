@@ -205,6 +205,34 @@ class TypeNode extends TypeTreeItem {
                 return [toTreeNode(type)]
             }
 
+            case "template_literal": {
+                const { types, texts } = this.typeTree
+                const res: TypeTreeItem[] = []
+
+                let i = 0, j = 0
+
+                while(i < texts.length || j < types.length) {
+                    if(i < texts.length) {
+                        const text = texts[i]
+                        if(text) {
+                            // TODO: this should probably be its own treenode type
+                            res.push(
+                                toTreeNode({ kind: 'string_literal', id: -1, value: text })
+                            )
+                        }
+                        i++
+                    }
+
+                    if(j < types.length) {
+                        const type = types[j]
+                        res.push(toTreeNode(type))
+                        j++
+                    }
+                }
+
+                return res
+            }
+
             case "primitive":
             case "bigint_literal":
             case "boolean_literal":
@@ -359,4 +387,5 @@ function kindHasChildren(kind: TypeInfoKind) {
            || kind === 'tuple'
            || kind === 'function'
            || kind === 'string_mapping'
+           || kind === 'template_literal'
 }

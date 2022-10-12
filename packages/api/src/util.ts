@@ -163,7 +163,7 @@ export function multilineTypeToString(typeChecker: ts.TypeChecker, sourceFile: t
 
 export function wrapSafe<T, Args extends Array<any>, Return>(wrapped: (arg1: T, ...args: Args) => Return): (arg1: T|undefined, ...args: Args) => Return|undefined {
     return (arg1, ...args) => arg1 === undefined ? arg1 as undefined : wrapped(arg1, ...args)
-  }
+}
 
 export function getTypeId(type: ts.Type) {
     return (type as ts.Type & {id: number}).id
