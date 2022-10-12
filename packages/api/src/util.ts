@@ -30,6 +30,7 @@ export type UnionTypeInternal = ts.UnionType & { id: number }
 export type IntersectionTypeInternal = ts.IntersectionType & { id: number }
 export type TypeReferenceInternal = ts.TypeReference & { resolvedTypeArguments?: ts.Type[] }
 export type SignatureInternal = ts.Signature & { minArgumentCount: number, resolvedMinArgumentCount?: number }
+export type IntrinsicTypeInternal = ts.Type & { intrinsicName: string, objectFlags: ts.ObjectFlags }
 
 export type TSSymbol = ts.Symbol & {
     checkFlags: number,

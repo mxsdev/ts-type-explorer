@@ -200,6 +200,11 @@ class TypeNode extends TypeTreeItem {
                 return types.map(toTreeNode)
             }
 
+            case "string_mapping": {
+                const { type } = this.typeTree
+                return [toTreeNode(type)]
+            }
+
             case "primitive":
             case "bigint_literal":
             case "boolean_literal":
@@ -317,6 +322,11 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
                 return name ? `${name} (${kindText})` : kindText
             }
 
+            case "string_mapping": {
+                const { symbol } = info
+                return symbol.name
+            }
+
             case "primitive": {
                 return getPrimitiveKindText(info.primitive)
             }
@@ -347,4 +357,5 @@ function kindHasChildren(kind: TypeInfoKind) {
            || kind === 'intersection'
            || kind === 'tuple'
            || kind === 'function'
+           || kind === 'string_mapping'
 }

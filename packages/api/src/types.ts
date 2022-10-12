@@ -49,9 +49,7 @@ export type TypeInfoNoId =
     |{ kind: 'boolean_literal', value: boolean }
     |{ kind: 'enum_literal', value: string }
     |{ kind: 'bigint_literal', value: ts.PseudoBigInt }
-    |{
-        kind: 'type_parameter',
-    }
+    |{ kind: 'type_parameter', }
     |{
         kind: 'object',
         properties: TypeInfo[],
@@ -90,10 +88,8 @@ export type TypeInfoNoId =
         baseType: TypeInfo,
         substitute: TypeInfo,
     }
-    |{
-        kind: 'non_primitive',
-        symbol: SymbolInfo,
-    }
+    |{ kind: 'non_primitive', }
+    |{ kind: 'intrinsic' }
     |{
         kind: 'template_literal',
         texts: readonly string[],
@@ -102,6 +98,7 @@ export type TypeInfoNoId =
     |{
         kind: 'string_mapping',
         symbol: SymbolInfo,
+        type: TypeInfo,
     }
     |{
         kind: 'max_depth'

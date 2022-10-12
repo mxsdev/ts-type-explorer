@@ -2,7 +2,7 @@ import assert from "assert";
 import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId, TypeParameterInfo } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: -1}
 
@@ -79,7 +79,13 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     
         if(flags & ts.TypeFlags.TypeParameter) {
             return { kind: 'type_parameter'}
-        } else if(flags & ts.TypeFlags.Any) { return { kind: 'primitive', primitive: 'any' }}
+        } else if(flags & ts.TypeFlags.Any) { 
+            if((type as IntrinsicTypeInternal).intrinsicName === "intrinsic") {
+                return { kind: 'intrinsic' }
+            }
+
+            return { kind: 'primitive', primitive: 'any' }
+        }
         else if(flags & ts.TypeFlags.Unknown) { return { kind: 'primitive', primitive: 'unknown' }}
         else if(flags & ts.TypeFlags.Undefined) { return { kind: 'primitive', primitive: 'undefined' }}
         else if(flags & ts.TypeFlags.Null) { return { kind: 'primitive', primitive: 'null' }}
@@ -173,6 +179,9 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
             }
         } else if(flags & ts.TypeFlags.NonPrimitive) {
             // TODO: non primitive types ???
+            return {
+                kind: 'non_primitive'
+            }
         } else if(flags & ts.TypeFlags.TemplateLiteral) {
             return {
                 kind: 'template_literal',
@@ -180,7 +189,11 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                 types: parseTypes((type as ts.TemplateLiteralType).types)
             }
         } else if(flags & ts.TypeFlags.StringMapping) {
-            // TODO: string mapping
+            return {
+                kind: 'string_mapping',
+                symbol: getSymbolInfo((type as ts.StringMappingType).symbol),
+                type: parseType((type as ts.StringMappingType).type),
+            }
         }
         
         return {

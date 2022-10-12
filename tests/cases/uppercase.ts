@@ -1,0 +1,1 @@
+type U<T extends string> = Uppercase<T>

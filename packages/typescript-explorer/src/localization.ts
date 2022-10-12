@@ -41,6 +41,7 @@ export const KindText: Record<Kind, string> = {
     "array": "array",
     "tuple": "tuple",
     "function": "function",
+    "intrinsic": "intrinsic",
 }
 
 export function getKindText(kind: Kind, ...args: {toString(): string}[]) {
