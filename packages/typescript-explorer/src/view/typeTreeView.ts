@@ -271,6 +271,7 @@ class TypeNodeGroup extends TypeTreeItem {
     }
 }
 
+// TODO: include type aliases; e.g.: <label> Alias (kind)
 function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpose, optional}: TypeNodeArgs = {}) {
     const isOptional = info.symbolMeta?.optional || optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
     const isRest = info.symbolMeta?.rest
