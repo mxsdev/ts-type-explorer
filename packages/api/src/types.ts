@@ -1,5 +1,7 @@
 import ts from "typescript"
 
+// TODO: support class instances with generics, like Map<string, number>
+
 export type SymbolInfo = {
     name: string,
     flags: number,
