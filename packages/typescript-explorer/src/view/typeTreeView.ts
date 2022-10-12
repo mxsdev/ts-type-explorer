@@ -1,4 +1,4 @@
-import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo } from '@ts-expand-type/api'
+import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo, pseudoBigIntToString } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
 import * as ts from 'typescript'
@@ -360,12 +360,24 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
                 return getPrimitiveKindText(info.primitive)
             }
 
-            case "bigint_literal":
-            case "boolean_literal":
-            case "enum_literal":
-            case "string_literal":
-            case "number_literal": {
+            case "bigint_literal": {
+                return getKindText(info.kind, pseudoBigIntToString(info.value))
+            }
+
+            case "boolean_literal": {
+                return getKindText(info.kind, info.value.toString())
+            }
+
+            case "enum_literal": {
                 return getKindText(info.kind, info.value)
+            }
+
+            case "string_literal": {
+                return getKindText(info.kind, info.value)
+            }
+
+            case "number_literal": {
+                return getKindText(info.kind, info.value.toString())
             }
 
             default: {

@@ -93,6 +93,8 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         else if(flags & ts.TypeFlags.String) { return { kind: 'primitive', primitive: 'string' }}
         else if(flags & ts.TypeFlags.Number) { return { kind: 'primitive', primitive: 'number' }}
         else if(flags & ts.TypeFlags.Void) { return { kind: 'primitive', primitive: 'void' }}
+        // TODO: enum literal
+        else if(flags & ts.TypeFlags.EnumLiteral) { return { kind: 'enum_literal', value: (type as ts.StringLiteralType).value }}
         // TODO: add enum info ?
         else if(flags & ts.TypeFlags.Enum) { return { kind: 'primitive', primitive: 'enum' }}
         else if(flags & ts.TypeFlags.BigInt) { return { kind: 'primitive', primitive: 'bigint' }}
@@ -102,9 +104,6 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         else if(flags & ts.TypeFlags.StringLiteral) { return { kind: 'string_literal', value: (type as ts.StringLiteralType).value }}
         else if(flags & ts.TypeFlags.NumberLiteral) { return { kind: 'number_literal', value: (type as ts.NumberLiteralType).value }}
         else if(flags & ts.TypeFlags.BooleanLiteral) { return { kind: 'boolean_literal', value: (type as IntrinsicTypeInternal).intrinsicName === "true" }}
-        // TODO: enum literal
-        // else if(flags & ts.TypeFlags.EnumLiteral) { return { kind: 'enum_literal', value: (type as ts.StringLiteralType).value }}
-        // TODO: add enum info???
         else if(flags & ts.TypeFlags.BigIntLiteral) { return { kind: 'bigint_literal', value: (type as ts.BigIntLiteralType).value }}
         // TODO: add type param info
         else if(flags & ts.TypeFlags.Object) {

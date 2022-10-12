@@ -225,6 +225,10 @@ export function getCheckFlags(symbol: ts.Symbol): CheckFlags {
     return symbol.flags & ts.SymbolFlags.Transient ? (symbol as TransientSymbol).checkFlags : 0;
 }
 
+export function pseudoBigIntToString(value: ts.PseudoBigInt) {
+    return (value.negative ? "-" : "") + value.base10Value
+}
+
 export const enum CheckFlags {
     Instantiated      = 1 << 0,         // Instantiated symbol
     SyntheticProperty = 1 << 1,         // Property in union or intersection type

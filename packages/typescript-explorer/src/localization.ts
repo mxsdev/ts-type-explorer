@@ -20,7 +20,7 @@ export const PrimitiveKindText: Record<PrimitiveKind, string> = {
 
 type Kind = Exclude<TypeInfo['kind'], 'reference'>
 export const KindText: Record<Kind, string> = {
-    "bigint_literal": "$1L",
+    "bigint_literal": "$1n",
     "boolean_literal": "$1",
     "enum_literal": "$1",
     "number_literal": "$1",
@@ -44,9 +44,9 @@ export const KindText: Record<Kind, string> = {
     "intrinsic": "intrinsic",
 }
 
-export function getKindText(kind: Kind, ...args: {toString(): string}[]) {
+export function getKindText<K extends Kind>(kind: K, ...args: string[]) {
     return args.reduce<string>((prev, curr, i) => {
-        return prev.replace(new RegExp(`\\\$${i+1}`, "g"), curr.toString())
+        return prev.replace(new RegExp(`\\\$${i+1}`, "g"), curr)
     }, KindText[kind])
 }
 
