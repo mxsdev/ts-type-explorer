@@ -101,8 +101,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         else if(flags & ts.TypeFlags.Never) { return { kind: 'primitive', primitive: 'never' }}
         else if(flags & ts.TypeFlags.StringLiteral) { return { kind: 'string_literal', value: (type as ts.StringLiteralType).value }}
         else if(flags & ts.TypeFlags.NumberLiteral) { return { kind: 'number_literal', value: (type as ts.NumberLiteralType).value }}
-        // TODO: boolean literal
-        // else if(flags & ts.TypeFlags.BooleanLiteral) { return { kind: 'boolean_literal', value: (type as ts.BooleanLiteral).value }}
+        else if(flags & ts.TypeFlags.BooleanLiteral) { return { kind: 'boolean_literal', value: (type as IntrinsicTypeInternal).intrinsicName === "true" }}
         // TODO: enum literal
         // else if(flags & ts.TypeFlags.EnumLiteral) { return { kind: 'enum_literal', value: (type as ts.StringLiteralType).value }}
         // TODO: add enum info???
