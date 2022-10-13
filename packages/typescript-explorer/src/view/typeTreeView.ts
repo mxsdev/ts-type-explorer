@@ -166,8 +166,8 @@ class TypeNode extends TypeTreeItem {
             }
 
             case "tuple": {
-                const { types } = this.typeTree
-                return types.map(toTreeNode)
+                const { types, names } = this.typeTree
+                return types.map((t, i) => toTreeNodeArgs(t, { name: names?.[i] }))
             }
 
             case "conditional": {
@@ -295,6 +295,7 @@ class IndexNode extends TypeTreeItem {
 type TypeNodeArgs = {
     purpose?: 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint',
     optional?: boolean,
+    name?: string,
 }
 
 class TypeNodeGroup extends TypeTreeItem {
@@ -312,8 +313,7 @@ class TypeNodeGroup extends TypeTreeItem {
     }
 }
 
-// TODO: include type aliases; e.g.: <label> Alias (kind)
-function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpose, optional}: TypeNodeArgs = {}) {
+function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpose, optional, name: forceName}: TypeNodeArgs = {}) {
     const isOptional = info.symbolMeta?.optional || optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
     const isRest = info.symbolMeta?.rest
 
@@ -326,6 +326,10 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
     }
 
     function getLabel() {
+        if(forceName !== undefined) {
+            return forceName
+        }
+
         const nameByPurpose: Partial<Record<NonNullable<TypeNodeArgs['purpose']>, string>> = {
             return: "return",
             index_type: "constraint",

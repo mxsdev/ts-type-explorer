@@ -66,7 +66,7 @@ export type TypeInfoNoId =
     }
     |{ kind: 'function', signatures: SignatureInfo[] }
     |{ kind: 'array', type: TypeInfo }
-    |{ kind: 'tuple', types: TypeInfo[] }
+    |{ kind: 'tuple', types: TypeInfo[], names?: string[] }
     |{
         kind: 'union',
         types: TypeInfo[],

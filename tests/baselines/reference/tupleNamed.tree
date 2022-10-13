@@ -1,0 +1,4 @@
+=== tupleNamed.ts ===
+
+type namedTuple = [param: "a", param2: string, param3: number]
+> namedTuple --- {"kind":"tuple","types":[{"kind":"string_literal","value":"a","id":93},{"kind":"primitive","primitive":"string","id":15},{"kind":"primitive","primitive":"number","id":16}],"names":["param","param2","param3"],"symbolMeta":{"name":"namedTuple","flags":524288},"aliasSymbolMeta":{"name":"namedTuple","flags":524288},"id":92}

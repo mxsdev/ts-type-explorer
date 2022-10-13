@@ -69,6 +69,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     const typeInfoId = typeInfo as TypeInfo
 
     typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(symbol, isAnonymousSymbol, options)
+    // TODO: only do this if alias symbol is different than normal symbol
     typeInfoId.aliasSymbolMeta = wrapSafe(getSymbolInfo)(type.aliasSymbol)
 
     typeInfoId.id = getTypeId(type)
@@ -139,7 +140,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                 return {
                     kind: 'tuple',
                     types: parseTypes(getTypeArguments(typeChecker, type)),
-                    // names: (type as ts.TupleType).labeledElementDeclarations?.map(s => s.name.getText()),
+                    names: (type.target as ts.TupleType).labeledElementDeclarations?.map(s => s.name.getText()),
                 }
             } else {
                 return {
