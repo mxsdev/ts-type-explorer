@@ -1,7 +1,7 @@
 === mappedParam.ts ===
 
 type mappedType2 = { [P in 'a'|'b'|'c']: P}
-> mappedType2 --- {"kind":"object","properties":[{"kind":"string_literal","value":"a","symbolMeta":{"name":"a","flags":33554436},"id":88},{"kind":"string_literal","value":"b","symbolMeta":{"name":"b","flags":33554436},"id":90},{"kind":"string_literal","value":"c","symbolMeta":{"name":"c","flags":33554436},"id":92}],"indexInfos":[{"keyType":{"kind":"union","types":[{"kind":"reference","id":88},{"kind":"reference","id":90},{"kind":"reference","id":92}],"id":94},"type":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":87},"parameterSymbol":{"name":"P","flags":262144}}],"symbolMeta":{"name":"mappedType2","flags":524288},"id":86}
+> mappedType2 --- {"kind":"object","properties":[{"kind":"string_literal","value":"a","symbolMeta":{"name":"a","flags":33554436},"id":88},{"kind":"string_literal","value":"b","symbolMeta":{"name":"b","flags":33554436},"id":90},{"kind":"string_literal","value":"c","symbolMeta":{"name":"c","flags":33554436},"id":92}],"indexInfos":[{"keyType":{"kind":"union","types":[{"kind":"reference","id":88},{"kind":"reference","id":90},{"kind":"reference","id":92}],"id":94},"type":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":87},"parameterSymbol":{"name":"P","flags":262144}}],"symbolMeta":{"name":"mappedType2","flags":524288},"aliasSymbolMeta":{"name":"mappedType2","flags":524288},"id":86}
 > { [P in 'a'|'b'|'c']: P}
 > P in 'a'|'b'|'c'
 > P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":87}

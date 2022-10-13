@@ -1,14 +1,14 @@
 === recursive.ts ===
 
 type Recursive = { a: { b: Recursive } }
-> Recursive --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"b","flags":4},"id":86}],"indexInfos":[],"symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"Recursive","flags":524288},"id":86}
+> Recursive --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"b","flags":4},"aliasSymbolMeta":{"name":"Recursive","flags":524288},"id":86}],"indexInfos":[],"symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"Recursive","flags":524288},"aliasSymbolMeta":{"name":"Recursive","flags":524288},"id":86}
 > { a: { b: Recursive } }
 > a: { b: Recursive }
 > a: { b: Recursive }
-> a --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"b","flags":4},"id":86}],"indexInfos":[],"symbolMeta":{"name":"a","flags":4},"id":87}
+> a --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"b","flags":4},"aliasSymbolMeta":{"name":"Recursive","flags":524288},"id":86}],"indexInfos":[],"symbolMeta":{"name":"a","flags":4},"id":87}
 > { b: Recursive }
 > b: Recursive
 > b: Recursive
-> b --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"b","flags":4},"id":86}],"indexInfos":[],"symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"b","flags":4},"id":86}
+> b --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"b","flags":4},"aliasSymbolMeta":{"name":"Recursive","flags":524288},"id":86}],"indexInfos":[],"symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"b","flags":4},"aliasSymbolMeta":{"name":"Recursive","flags":524288},"id":86}
 > Recursive
-> Recursive --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"b","flags":4},"id":86}],"indexInfos":[],"symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"Recursive","flags":524288},"id":86}
+> Recursive --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"b","flags":4},"aliasSymbolMeta":{"name":"Recursive","flags":524288},"id":86}],"indexInfos":[],"symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"Recursive","flags":524288},"aliasSymbolMeta":{"name":"Recursive","flags":524288},"id":86}

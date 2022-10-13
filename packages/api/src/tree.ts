@@ -69,6 +69,8 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     const typeInfoId = typeInfo as TypeInfo
 
     typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(symbol, isAnonymousSymbol, options)
+    typeInfoId.aliasSymbolMeta = wrapSafe(getSymbolInfo)(type.aliasSymbol)
+
     typeInfoId.id = getTypeId(type)
 
     ctx.depth--

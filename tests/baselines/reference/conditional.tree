@@ -1,7 +1,7 @@
 === conditional.ts ===
 
 type Conditional<T> = T extends string ? "a" : "b"
-> Conditional --- {"kind":"conditional","checkType":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":86},"extendsType":{"kind":"primitive","primitive":"string","id":15},"trueType":{"kind":"string_literal","value":"a","id":88},"falseType":{"kind":"string_literal","value":"b","id":90},"symbolMeta":{"name":"Conditional","flags":524288},"id":87}
+> Conditional --- {"kind":"conditional","checkType":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":86},"extendsType":{"kind":"primitive","primitive":"string","id":15},"trueType":{"kind":"string_literal","value":"a","id":88},"falseType":{"kind":"string_literal","value":"b","id":90},"symbolMeta":{"name":"Conditional","flags":524288},"aliasSymbolMeta":{"name":"Conditional","flags":524288},"id":87}
 > T
 > T
 > T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":86}

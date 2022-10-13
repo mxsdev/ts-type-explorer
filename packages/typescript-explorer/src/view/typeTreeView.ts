@@ -309,20 +309,11 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
     const isOptional = info.symbolMeta?.optional || optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
     const isRest = info.symbolMeta?.rest
 
-    let description = getBaseDescription()
-    description += "[]".repeat(dimension)
-    
-    if(isOptional) {
-        description += '?'
-    }
-
-    if(isRest) {
-        description = "..." + description
-    }
+    const label = getLabel()
+    const description = getDescription(label)
 
     return {
-        label: getLabel(),
-        description,
+        label, description,
         isCollapsible: kindHasChildren(info.kind)
     }
 
@@ -347,15 +338,58 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
         return !info.symbolMeta?.anonymous ? (info.symbolMeta?.name ?? "") : ""
     }
 
-    function getBaseDescription() {
-        switch(info.kind) {
-            case "type_parameter": {
-                const name = info.symbolMeta?.name
-                const kindText = getKindText('type_parameter')
+    function getDescription(label: string) {
+        const baseDescription = getDescriptionFromBase(getBaseDescription())
 
-                return name ? `${name} (${kindText})` : kindText
+        const aliasDescriptionBase = getAliasDescription()
+        const aliasDescription = (aliasDescriptionBase && aliasDescriptionBase !== label) && getDescriptionFromBase(aliasDescriptionBase, false)
+
+        return aliasDescription ? `${aliasDescription} (${baseDescription})` : baseDescription
+
+        function getDescriptionFromBase(base: string, includeRest = true) {
+            base += "[]".repeat(dimension)
+            
+            if(isOptional) {
+                base += '?'
             }
 
+            if(isRest && includeRest) {
+                base = "..." + base
+            }
+
+            return base
+        }
+    }
+
+    function getAliasDescription(): string|undefined {
+        switch(info.kind) {
+            case "type_parameter": {
+                return info.symbolMeta?.name
+            }
+
+            case "bigint_literal":
+            case "number_literal":
+            case "string_literal":
+            case "boolean_literal": {
+                return undefined
+            }
+
+            case "enum_literal": {
+                let text = info.symbol.name
+                if(info.parentSymbol) {
+                    text = `${info.parentSymbol.name}.${text}`
+                }
+                return text
+            }
+
+            default: {
+                return info.aliasSymbolMeta?.name
+            }
+        }
+    }
+
+    function getBaseDescription(): string {
+        switch(info.kind) {
             case "string_mapping": {
                 const { symbol } = info
                 return symbol.name
@@ -371,14 +405,6 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
 
             case "boolean_literal": {
                 return getKindText(info.kind, info.value.toString())
-            }
-
-            case "enum_literal": {
-                let text = info.symbol.name
-                if(info.parentSymbol) {
-                    text = `${info.parentSymbol.name}.${text}`
-                }
-                return text
             }
 
             case "string_literal": {

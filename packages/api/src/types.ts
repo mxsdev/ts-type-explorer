@@ -1,6 +1,7 @@
 import ts from "typescript"
 
 // TODO: support class instances with generics, like Map<string, number>
+// TODO: support classes in general as separate tree types
 
 export type SymbolInfo = {
     name: string,
@@ -40,6 +41,7 @@ export type TypeInfo = TypeInfoNoId & { id: TypeId }
 export type TypeInfoNoId = 
     ({
         symbolMeta?: SymbolInfo,
+        aliasSymbolMeta?: SymbolInfo,
     } & (
     |{
         kind: 'primitive',

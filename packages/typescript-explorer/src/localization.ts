@@ -21,7 +21,7 @@ type Kind = Exclude<TypeInfo['kind'], 'reference'>
 export const KindText: Record<Kind, string> = {
     "bigint_literal": "$1n",
     "boolean_literal": "$1",
-    "enum_literal": "$1",
+    "enum_literal": "enum",
     "number_literal": "$1",
     "conditional": "conditional",
     "index": "keyof",

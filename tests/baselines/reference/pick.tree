@@ -1,7 +1,7 @@
 === pick.ts ===
 
 type t = { a: "b", c: "d", d: { a: "b" } }
-> t --- {"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"d","symbolMeta":{"name":"c","flags":4},"id":89},{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}],"indexInfos":[],"symbolMeta":{"name":"t","flags":524288},"id":86}
+> t --- {"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"d","symbolMeta":{"name":"c","flags":4},"id":89},{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}],"indexInfos":[],"symbolMeta":{"name":"t","flags":524288},"aliasSymbolMeta":{"name":"t","flags":524288},"id":86}
 > { a: "b", c: "d", d: { a: "b" } }
 > a: "b", c: "d", d: { a: "b" }
 > a: "b",
@@ -16,14 +16,14 @@ type t = { a: "b", c: "d", d: { a: "b" } }
 > a --- {"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87}
 
 type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
-> p --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":4},"id":107}],"symbolMeta":{"name":"d","flags":33554436},"id":106},{"kind":"reference","symbolMeta":{"name":"a","flags":33554436},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b","flags":4},"id":109}],"symbolMeta":{"name":"p","flags":524288},"id":103}
+> p --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":4},"id":107}],"symbolMeta":{"name":"d","flags":33554436},"id":106},{"kind":"reference","symbolMeta":{"name":"a","flags":33554436},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b","flags":4},"id":109}],"symbolMeta":{"name":"p","flags":524288},"aliasSymbolMeta":{"name":"p","flags":524288},"id":103}
 > Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
 > Pick<t, "a"|"d">
-> Pick --- {"kind":"object","properties":[],"indexInfos":[{"keyType":{"kind":"type_parameter","symbolMeta":{"name":"K","flags":262144},"id":94},"type":{"kind":"indexed_access","indexType":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":95},"objectType":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":93},"id":104},"parameterSymbol":{"name":"P","flags":262144}}],"symbolMeta":{"name":"Pick","flags":524288},"id":92}
+> Pick --- {"kind":"object","properties":[],"indexInfos":[{"keyType":{"kind":"type_parameter","symbolMeta":{"name":"K","flags":262144},"id":94},"type":{"kind":"indexed_access","indexType":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":95},"objectType":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":93},"id":104},"parameterSymbol":{"name":"P","flags":262144}}],"symbolMeta":{"name":"Pick","flags":524288},"aliasSymbolMeta":{"name":"Pick","flags":524288},"id":92}
 > t, "a"|"d"
 > t
-> t --- {"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"d","symbolMeta":{"name":"c","flags":4},"id":89},{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}],"indexInfos":[],"symbolMeta":{"name":"t","flags":524288},"id":86}
+> t --- {"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"d","symbolMeta":{"name":"c","flags":4},"id":89},{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":87}],"indexInfos":[],"symbolMeta":{"name":"d","flags":4},"id":91}],"indexInfos":[],"symbolMeta":{"name":"t","flags":524288},"aliasSymbolMeta":{"name":"t","flags":524288},"id":86}
 > {b: "asd", d: { b: "c" }}
 > b: "asd", d: { b: "c" }
 > b: "asd",
@@ -39,9 +39,9 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
-> test3 --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":4},"id":107}],"symbolMeta":{"name":"d","flags":33554436},"id":106},{"kind":"reference","symbolMeta":{"name":"a","flags":33554436},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b","flags":4},"id":109}],"symbolMeta":{"name":"test3","flags":2},"id":103}
+> test3 --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":4},"id":107}],"symbolMeta":{"name":"d","flags":33554436},"id":106},{"kind":"reference","symbolMeta":{"name":"a","flags":33554436},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b","flags":4},"id":109}],"symbolMeta":{"name":"test3","flags":2},"aliasSymbolMeta":{"name":"p","flags":524288},"id":103}
 > p
-> p --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":4},"id":107}],"symbolMeta":{"name":"d","flags":33554436},"id":106},{"kind":"reference","symbolMeta":{"name":"a","flags":33554436},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b","flags":4},"id":109}],"symbolMeta":{"name":"p","flags":524288},"id":103}
+> p --- {"kind":"object","properties":[{"kind":"object","properties":[{"kind":"string_literal","value":"b","symbolMeta":{"name":"a","flags":4},"id":87},{"kind":"string_literal","value":"c","symbolMeta":{"name":"b","flags":4},"id":107}],"symbolMeta":{"name":"d","flags":33554436},"id":106},{"kind":"reference","symbolMeta":{"name":"a","flags":33554436},"id":87},{"kind":"string_literal","value":"asd","symbolMeta":{"name":"b","flags":4},"id":109}],"symbolMeta":{"name":"p","flags":524288},"aliasSymbolMeta":{"name":"p","flags":524288},"id":103}
 > {a: "b", b: "asd", d: { a: "b", b: "c" }}
 > a: "b", b: "asd", d: { a: "b", b: "c" }
 > a: "b"
