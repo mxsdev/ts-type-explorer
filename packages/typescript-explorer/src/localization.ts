@@ -17,8 +17,8 @@ export const PrimitiveKindText: Record<PrimitiveKind, string> = {
     "unknown": "unknown"
 }
 
-type Kind = Exclude<TypeInfo['kind'], 'reference'>
-export const KindText: Record<Kind, string> = {
+export type LocalizableKind = Exclude<TypeInfo['kind'], 'reference'>
+export const KindText: Record<LocalizableKind|'method', string> = {
     "bigint_literal": "$1n",
     "boolean_literal": "$1",
     "enum_literal": "enum",
@@ -42,12 +42,15 @@ export const KindText: Record<Kind, string> = {
     "function": "function",
     "intrinsic": "intrinsic",
     "enum": "enum",
+    "class": "class",
+    "interface": "interface",
+    "method": "method",
 }
 
-export function getKindText(kind: Kind, ...args: string[]) {
+export function getKindText(kind: LocalizableKind, { insideClassOrInterface }: { insideClassOrInterface?: boolean } = {}, ...args: string[]) {
     return args.reduce<string>((prev, curr, i) => {
         return prev.replace(new RegExp(`\\\$${i+1}`, "g"), curr)
-    }, KindText[kind])
+    }, KindText[(kind === 'function' && insideClassOrInterface) ? 'method' : kind])
 }
 
 export function getPrimitiveKindText(kind: PrimitiveKind) {

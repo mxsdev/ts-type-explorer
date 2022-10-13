@@ -8,7 +8,8 @@ export type SymbolInfo = {
     flags: number,
     optional?: boolean,
     anonymous?: boolean,
-    rest?: boolean
+    rest?: boolean,
+    insideClassOrInterface?: boolean,
 }
 
 export type IndexInfo = {
@@ -63,6 +64,14 @@ export type TypeInfoNoId =
         kind: 'object',
         properties: TypeInfo[],
         indexInfos?: IndexInfo[],
+    }
+    |{
+        kind: 'interface'|'class',
+        properties: TypeInfo[],
+        baseType?: TypeInfo,
+        implementsTypes?: TypeInfo[],
+        typeParameters?: TypeInfo[],
+        constructSignatures?: SignatureInfo[],
     }
     |{ kind: 'function', signatures: SignatureInfo[] }
     |{ kind: 'array', type: TypeInfo }
