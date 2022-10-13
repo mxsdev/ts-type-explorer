@@ -43,13 +43,14 @@ export type TypeInfoNoId =
     } & (
     |{
         kind: 'primitive',
-        primitive: 'any'|'unknown'|'string'|'number'|'boolean'|'enum'|'bigint'|'essymbol'|'unique_symbol'|'null'|'never'|'undefined'|'void'
+        primitive: 'any'|'unknown'|'string'|'number'|'boolean'|'bigint'|'essymbol'|'unique_symbol'|'null'|'never'|'undefined'|'void'
     }
+    |{ kind: 'enum', properties?: TypeInfo[] }
     |{ kind: 'reference' }
     |{ kind: 'string_literal', value: string, }
     |{ kind: 'number_literal', value: number, }
     |{ kind: 'boolean_literal', value: boolean }
-    |{ kind: 'enum_literal', value: string }
+    |{ kind: 'enum_literal', symbol: SymbolInfo, parentSymbol?: SymbolInfo, value: string }
     |{ kind: 'bigint_literal', value: ts.PseudoBigInt }
     |{ kind: 'type_parameter', }
     |{

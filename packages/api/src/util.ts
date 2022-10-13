@@ -35,6 +35,7 @@ export type IntrinsicTypeInternal = ts.Type & { intrinsicName: string, objectFla
 export type TSSymbol = ts.Symbol & {
     checkFlags: number,
     type?: ts.Type,
+    parent?: TSSymbol,
 }
 
 export function isValidType(type: ts.Type): boolean {

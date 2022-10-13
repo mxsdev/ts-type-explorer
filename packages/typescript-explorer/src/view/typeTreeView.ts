@@ -146,6 +146,11 @@ class TypeNode extends TypeTreeItem {
                 ]
             }
 
+            case "enum": {
+                const { properties = [] } = this.typeTree
+                return properties.map(toTreeNode)
+            }
+
             case "function": {
                 const { signatures } = this.typeTree
                 
@@ -369,7 +374,11 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
             }
 
             case "enum_literal": {
-                return getKindText(info.kind, info.value)
+                let text = info.symbol.name
+                if(info.parentSymbol) {
+                    text = `${info.parentSymbol.name}.${text}`
+                }
+                return text
             }
 
             case "string_literal": {
@@ -400,4 +409,5 @@ function kindHasChildren(kind: TypeInfoKind) {
            || kind === 'function'
            || kind === 'string_mapping'
            || kind === 'template_literal'
+           || kind === 'enum'
 }

@@ -6,7 +6,6 @@ export const PrimitiveKindText: Record<PrimitiveKind, string> = {
     "any": "any",
     "bigint": "BigInt",
     "boolean": "boolean",
-    "enum": "enum",
     "essymbol": "ESSymbol",
     "unique_symbol": "ESSymbol",
     "never": "never",
@@ -42,9 +41,10 @@ export const KindText: Record<Kind, string> = {
     "tuple": "tuple",
     "function": "function",
     "intrinsic": "intrinsic",
+    "enum": "enum",
 }
 
-export function getKindText<K extends Kind>(kind: K, ...args: string[]) {
+export function getKindText(kind: Kind, ...args: string[]) {
     return args.reduce<string>((prev, curr, i) => {
         return prev.replace(new RegExp(`\\\$${i+1}`, "g"), curr)
     }, KindText[kind])

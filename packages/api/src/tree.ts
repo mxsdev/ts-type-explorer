@@ -2,7 +2,7 @@ import assert from "assert";
 import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId, TypeParameterInfo } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: -1}
 
@@ -93,10 +93,15 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         else if(flags & ts.TypeFlags.String) { return { kind: 'primitive', primitive: 'string' }}
         else if(flags & ts.TypeFlags.Number) { return { kind: 'primitive', primitive: 'number' }}
         else if(flags & ts.TypeFlags.Void) { return { kind: 'primitive', primitive: 'void' }}
-        // TODO: enum literal
-        else if(flags & ts.TypeFlags.EnumLiteral) { return { kind: 'enum_literal', value: (type as ts.StringLiteralType).value }}
-        // TODO: add enum info ?
-        else if(flags & ts.TypeFlags.Enum) { return { kind: 'primitive', primitive: 'enum' }}
+        else if(flags & ts.TypeFlags.EnumLiteral) { 
+            return { 
+                kind: 'enum_literal',
+                value: (type as ts.StringLiteralType).value,
+                symbol: getSymbolInfo(type.symbol),
+                parentSymbol: wrapSafe(getSymbolInfo)((type.symbol as TSSymbol).parent),
+            }
+        }
+        else if(flags & ts.TypeFlags.Enum) { return { kind: 'enum' }}
         else if(flags & ts.TypeFlags.BigInt) { return { kind: 'primitive', primitive: 'bigint' }}
         else if(flags & ts.TypeFlags.ESSymbol || flags & ts.TypeFlags.ESSymbolLike) { return { kind: 'primitive', primitive: 'essymbol' }}
         else if(flags & ts.TypeFlags.UniqueESSymbol) { return { kind: 'primitive', primitive: 'unique_symbol' }}
@@ -107,6 +112,14 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         else if(flags & ts.TypeFlags.BigIntLiteral) { return { kind: 'bigint_literal', value: (type as ts.BigIntLiteralType).value }}
         // TODO: add type param info
         else if(flags & ts.TypeFlags.Object) {
+            const { symbol } = type
+            if(symbol && symbol.flags & ts.SymbolFlags.Enum) {
+                return {
+                    kind: 'enum',
+                    properties: parseSymbols(type.getProperties()),
+                }
+            }
+
             const signatures = getSignaturesOfType(typeChecker, type).map(getSignatureInfo)
 
             if(signatures.length > 0) {
@@ -176,7 +189,6 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                 substitute: parseType((type as ts.SubstitutionType).substitute),
             }
         } else if(flags & ts.TypeFlags.NonPrimitive) {
-            // TODO: non primitive types ???
             return {
                 kind: 'non_primitive'
             }
