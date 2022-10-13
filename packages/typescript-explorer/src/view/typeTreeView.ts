@@ -238,6 +238,14 @@ class TypeNode extends TypeTreeItem {
                 return res
             }
 
+            case "type_parameter": {
+                const { defaultType, baseConstraint } = this.typeTree
+                return [
+                    ...defaultType ? [toTreeNodeArgs(defaultType, { purpose: 'parameter_default' })] : [],
+                    ...baseConstraint ? [toTreeNodeArgs(baseConstraint, { purpose: 'parameter_base_constraint' })] : [],
+                ]
+            }
+
             case "primitive":
             case "bigint_literal":
             case "boolean_literal":
@@ -285,7 +293,7 @@ class IndexNode extends TypeTreeItem {
 }
 
 type TypeNodeArgs = {
-    purpose?: 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base',
+    purpose?: 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint',
     optional?: boolean,
 }
 
@@ -328,7 +336,9 @@ function generateTypeNodeMeta(info: ResolvedTypeInfo, dimension: number, {purpos
             conditional_false: "false",
             keyof: "keyof",
             indexed_access_base: "base",
-            indexed_access_index: "index"
+            indexed_access_index: "index",
+            parameter_base_constraint: "extends",
+            parameter_default: "default"
         }
 
         if(purpose && purpose in nameByPurpose) {
@@ -436,4 +446,5 @@ function kindHasChildren(kind: TypeInfoKind) {
            || kind === 'string_mapping'
            || kind === 'template_literal'
            || kind === 'enum'
+           || kind === 'type_parameter'
 }

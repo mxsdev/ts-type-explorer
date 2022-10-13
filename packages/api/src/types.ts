@@ -54,7 +54,11 @@ export type TypeInfoNoId =
     |{ kind: 'boolean_literal', value: boolean }
     |{ kind: 'enum_literal', symbol: SymbolInfo, parentSymbol?: SymbolInfo, value: string }
     |{ kind: 'bigint_literal', value: ts.PseudoBigInt }
-    |{ kind: 'type_parameter', }
+    |{ 
+        kind: 'type_parameter',
+        baseConstraint?: TypeInfo,
+        defaultType?: TypeInfo,
+    }
     |{
         kind: 'object',
         properties: TypeInfo[],

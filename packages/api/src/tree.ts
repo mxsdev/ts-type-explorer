@@ -80,7 +80,11 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         const flags = type.getFlags()
     
         if(flags & ts.TypeFlags.TypeParameter) {
-            return { kind: 'type_parameter'}
+            return {
+                kind: 'type_parameter',
+                baseConstraint: wrapSafe(parseType)(typeChecker.getBaseConstraintOfType(type)),
+                defaultType: wrapSafe(parseType)(typeChecker.getDefaultFromTypeParameter(type)),
+            }
         } else if(flags & ts.TypeFlags.Any) { 
             if((type as IntrinsicTypeInternal).intrinsicName === "intrinsic") {
                 return { kind: 'intrinsic' }
@@ -132,10 +136,10 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                     type: parseType(getTypeArguments(typeChecker, type)[0])
                 }
             } else if(isTupleType(type)) {
-                // TODO: support named tuples
                 return {
                     kind: 'tuple',
-                    types: parseTypes(getTypeArguments(typeChecker, type))
+                    types: parseTypes(getTypeArguments(typeChecker, type)),
+                    // names: (type as ts.TupleType).labeledElementDeclarations?.map(s => s.name.getText()),
                 }
             } else {
                 return {
@@ -327,6 +331,19 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
 
         case "function": {
             return info.signatures.flatMap(s => [...s.parameters, s.returnType])
+        }
+
+        case "enum": {
+            return [
+                ...info.properties ?? []
+            ]
+        }
+
+        case "type_parameter": {
+            return [
+                ...info.defaultType ? [info.defaultType] : [],
+                ...info.baseConstraint ? [info.baseConstraint] : [],
+            ]
         }
     }
 

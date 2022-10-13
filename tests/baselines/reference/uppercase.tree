@@ -1,12 +1,12 @@
 === uppercase.ts ===
 
 type U<T extends string> = Uppercase<T>
-> U --- {"kind":"string_mapping","symbol":{"name":"Uppercase","flags":524288},"type":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":87},"symbolMeta":{"name":"U","flags":524288},"id":88}
+> U --- {"kind":"string_mapping","symbol":{"name":"Uppercase","flags":524288},"type":{"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":15},"symbolMeta":{"name":"T","flags":262144},"id":87},"symbolMeta":{"name":"U","flags":524288},"id":88}
 > T extends string
 > T extends string
-> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":87}
+> T --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":15},"symbolMeta":{"name":"T","flags":262144},"id":87}
 > Uppercase<T>
 > Uppercase --- {"kind":"intrinsic","symbolMeta":{"name":"Uppercase","flags":524288},"id":7}
 > T
 > T
-> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":87}
+> T --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":15},"symbolMeta":{"name":"T","flags":262144},"id":87}
