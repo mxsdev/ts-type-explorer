@@ -1,0 +1,45 @@
+=== class.ts ===
+
+interface TestInterface {
+    getThing(): string
+}
+> TestInterface --- {"kind":"interface","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":15}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":87}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64},"id":86}
+> getThing(): string
+> getThing(): string
+> getThing --- {"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":15}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":87}
+
+class TestClass implements TestInterface {
+    constructor(param: string) { }
+
+    getThing() {
+        return "as"
+    }
+}
+> class --- {"kind":"class","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":15}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"id":92}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"reference","id":15}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":87}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64},"id":86}],"constructSignatures":[{"parameters":[{"kind":"reference","symbolMeta":{"name":"param","flags":1},"id":15}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"TestClass","flags":32},"id":89}
+> TestClass --- {"kind":"class","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":15}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"id":92}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"reference","id":15}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":87}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64},"id":86}],"constructSignatures":[{"parameters":[{"kind":"reference","symbolMeta":{"name":"param","flags":1},"id":15}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"TestClass","flags":32},"id":89}
+> implements TestInterface
+> implements TestInterface
+> TestInterface
+> TestInterface
+> TestInterface --- {"kind":"interface","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":15}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":87}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64},"id":86}
+> constructor(param: string) { }
+>     getThing() {
+>         return "as"
+>     }
+> constructor(param: string) { }
+> constructor --- {"kind":"class","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":15}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"id":92}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"reference","id":15}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":87}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64},"id":86}],"constructSignatures":[{"parameters":[{"kind":"reference","symbolMeta":{"name":"param","flags":1},"id":15}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"TestClass","flags":32},"id":89}
+> param: string
+> param: string
+> param --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":1},"id":15}
+> getThing() {
+>         return "as"
+>     }
+> getThing --- {"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":15}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":91}
+
+const _a = new TestClass("param")
+> const _a = new TestClass("param")
+> _a = new TestClass("param")
+> _a = new TestClass("param")
+> _a --- {"kind":"class","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":15}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"id":92}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"reference","id":15}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":87}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64},"id":86}],"constructSignatures":[{"parameters":[{"kind":"reference","symbolMeta":{"name":"param","flags":1},"id":15}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"_a","flags":2},"id":89}
+> new TestClass("param")
+> TestClass --- {"kind":"class","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":15}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"id":92}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"parameters":[],"returnType":{"kind":"reference","id":15}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":87}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64},"id":86}],"constructSignatures":[{"parameters":[{"kind":"reference","symbolMeta":{"name":"param","flags":1},"id":15}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"TestClass","flags":32},"id":89}

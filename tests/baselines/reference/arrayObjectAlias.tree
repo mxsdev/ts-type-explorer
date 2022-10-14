@@ -1,7 +1,7 @@
 === arrayObjectAlias.ts ===
 
 type Obj = { a: string, b: number }
-> Obj --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"Obj","flags":524288},"aliasSymbolMeta":{"name":"Obj","flags":524288},"id":86}
+> Obj --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"Obj","flags":524288},"id":86}
 > { a: string, b: number }
 > a: string, b: number
 > a: string,
@@ -10,7 +10,7 @@ type Obj = { a: string, b: number }
 > b --- {"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}
 
 type arrObj = Obj[]
-> arrObj --- {"kind":"array","type":{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj","flags":524288},"id":86},"symbolMeta":{"name":"arrObj","flags":524288},"aliasSymbolMeta":{"name":"arrObj","flags":524288},"id":87}
+> arrObj --- {"kind":"array","type":{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj","flags":524288},"id":86},"symbolMeta":{"name":"arrObj","flags":524288},"id":87}
 > Obj[]
 > Obj
-> Obj --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"Obj","flags":524288},"aliasSymbolMeta":{"name":"Obj","flags":524288},"id":86}
+> Obj --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":16}],"indexInfos":[],"symbolMeta":{"name":"Obj","flags":524288},"id":86}

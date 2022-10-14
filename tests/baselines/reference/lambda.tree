@@ -1,7 +1,7 @@
 === lambda.ts ===
 
 type f = (arg1: string, arg2: boolean) => void
-> f --- {"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":15},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":22}],"returnType":{"kind":"primitive","primitive":"void","id":24}}],"symbolMeta":{"name":"f","flags":524288},"aliasSymbolMeta":{"name":"f","flags":524288},"id":86}
+> f --- {"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":15},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":22}],"returnType":{"kind":"primitive","primitive":"void","id":24}}],"symbolMeta":{"name":"f","flags":524288},"id":86}
 > (arg1: string, arg2: boolean) => void
 > arg1: string, arg2: boolean
 > arg1: string
@@ -11,7 +11,7 @@ type f = (arg1: string, arg2: boolean) => void
 > => --- {"kind":"primitive","primitive":"any","symbolMeta":{"name":"__type","flags":2048},"id":4}
 
 type t = { a: string } | f
-> t --- {"kind":"union","types":[{"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":15},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":22}],"returnType":{"kind":"primitive","primitive":"void","id":24}}],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"f","flags":524288},"id":86},{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":15}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":87}],"symbolMeta":{"name":"t","flags":524288},"aliasSymbolMeta":{"name":"t","flags":524288},"id":88}
+> t --- {"kind":"union","types":[{"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":15},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":22}],"returnType":{"kind":"primitive","primitive":"void","id":24}}],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"f","flags":524288},"id":86},{"kind":"object","properties":[{"kind":"reference","symbolMeta":{"name":"a","flags":4},"id":15}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":87}],"symbolMeta":{"name":"t","flags":524288},"id":88}
 > { a: string } | f
 > { a: string } | f
 > { a: string }
@@ -19,4 +19,4 @@ type t = { a: string } | f
 > a: string
 > a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":15}
 > f
-> f --- {"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":15},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":22}],"returnType":{"kind":"primitive","primitive":"void","id":24}}],"symbolMeta":{"name":"f","flags":524288},"aliasSymbolMeta":{"name":"f","flags":524288},"id":86}
+> f --- {"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":15},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":22}],"returnType":{"kind":"primitive","primitive":"void","id":24}}],"symbolMeta":{"name":"f","flags":524288},"id":86}
