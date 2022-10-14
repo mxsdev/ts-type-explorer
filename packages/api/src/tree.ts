@@ -88,8 +88,10 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     const typeInfoId = typeInfo as TypeInfo
 
     typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(symbol, isAnonymousSymbol, options)
-    // TODO: only do this if alias symbol is different than normal symbol
-    typeInfoId.aliasSymbolMeta = wrapSafe(getSymbolInfo)(type.aliasSymbol)
+
+    if(type.aliasSymbol && type.aliasSymbol !== symbol) {
+        typeInfoId.aliasSymbolMeta = getSymbolInfo(type.aliasSymbol)
+    }
 
     typeInfoId.id = getTypeId(type)
 
@@ -258,13 +260,10 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     function getSignatureInfo(signature: ts.Signature, includeReturnType = true): SignatureInfo {
         const { typeChecker } = ctx
 
-        const internalSignature = signature as SignatureInternal
-
         return {
             symbolMeta: wrapSafe(getSymbolInfo)(typeChecker.getSymbolAtLocation(signature.getDeclaration())),
             parameters: signature.getParameters().map((parameter, index) => getFunctionParameterInfo(parameter, signature, index)),
             ...includeReturnType && { returnType: parseType(typeChecker.getReturnTypeOfSignature(signature)) },
-            // minArgumentCount: internalSignature.resolvedMinArgumentCount ?? internalSignature.minArgumentCount
         }
     }
 

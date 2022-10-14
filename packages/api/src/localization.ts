@@ -1,13 +1,13 @@
-import { TypeInfoKind, TypeInfo } from "@ts-expand-type/api"
+import { TypeInfoKind, TypeInfo } from "./types"
 
 type PrimitiveKind = TypeInfoKind<'primitive'>['primitive']
 
 export const PrimitiveKindText: Record<PrimitiveKind, string> = {
     "any": "any",
-    "bigint": "BigInt",
+    "bigint": "bigint",
     "boolean": "boolean",
-    "essymbol": "ESSymbol",
-    "unique_symbol": "ESSymbol",
+    "essymbol": "symbol",
+    "unique_symbol": "unique symbol",
     "never": "never",
     "null": "null",
     "number": "number",
