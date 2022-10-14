@@ -100,7 +100,7 @@ function getChildren(info: ResolvedTypeInfo, data: LocalizeData): TypeInfoChildr
                 // TODO: type parameters
                 // ...typeParameters ? [this.createNodeGroup(typeParameters, "Type Parameters")] : [],
                 ...baseType ? [localizeOpts(baseType, { purpose: 'class_base_type'})] : [],
-                ...(implementsTypes && implementsTypes.length > 0) ? [createChild({ purpose: localizePurpose('class_implementations') })] : [],
+                ...(implementsTypes && implementsTypes.length > 0) ? [createChild({ purpose: localizePurpose('class_implementations'), children: implementsTypes.map(localize) })] : [],
                 ...(constructSignatures && constructSignatures.length > 0) ? [localizeOpts({ kind: 'function', id: -1, signatures: constructSignatures }, { purpose: 'class_constructor' })] : [],
                 ...properties.map(localize),
             ]
