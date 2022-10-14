@@ -166,6 +166,10 @@ export function wrapSafe<T, Args extends Array<any>, Return>(wrapped: (arg1: T, 
     return (arg1, ...args) => arg1 === undefined ? arg1 as undefined : wrapped(arg1, ...args)
 }
 
+export function filterUndefined<T>(arr: T[]): Exclude<T, undefined>[] {
+    return arr.filter(x => x !== undefined) as Exclude<T, undefined>[]
+}
+
 export function getTypeId(type: ts.Type) {
     return (type as ts.Type & {id: number}).id
 }
@@ -180,6 +184,18 @@ export function isPureObject(typeChecker: ts.TypeChecker, type: ts.Type): type i
 
 export function getIntersectionTypesFlat(...types: ts.Type[]): ts.Type[] {
     return types.flatMap((type) => (type.flags & ts.TypeFlags.Intersection) ? (type as ts.IntersectionType).types : [type])
+}
+
+export function isInterfaceType(type: ts.Type): type is ts.InterfaceType {
+    return !!(getObjectFlags(type) & ts.ObjectFlags.Interface)
+}
+
+export function isClassType(type: ts.Type): type is ts.InterfaceType {
+    return !!(getObjectFlags(type) & ts.ObjectFlags.Class)
+}
+
+export function isClassOrInterfaceType(type: ts.Type): type is ts.InterfaceType {
+    return !!(getObjectFlags(type) & ts.ObjectFlags.ClassOrInterface)
 }
 
 export function isArrayType(type: ts.Type): type is ts.TypeReference {
@@ -228,6 +244,68 @@ export function getCheckFlags(symbol: ts.Symbol): CheckFlags {
 
 export function pseudoBigIntToString(value: ts.PseudoBigInt) {
     return (value.negative ? "-" : "") + value.base10Value
+}
+
+export function getImplementsTypes(typeChecker: ts.TypeChecker, type: ts.InterfaceType): ts.BaseType[] {
+    let resolvedImplementsTypes: ts.BaseType[] = []
+    if (type.symbol?.declarations) {
+        for (const declaration of type.symbol.declarations) {
+            const implementsTypeNodes = getEffectiveImplementsTypeNodes(declaration as ts.ClassLikeDeclaration);
+            if (!implementsTypeNodes) continue;
+            for (const node of implementsTypeNodes) {
+                const implementsType = typeChecker.getTypeFromTypeNode(node);
+                if (isValidType(implementsType)) {
+                    resolvedImplementsTypes.push(implementsType);
+                }
+            }
+        }
+    }
+    return resolvedImplementsTypes;
+}
+
+function isInJSFile(node: ts.Node | undefined): boolean {
+    return !!node && !!(node.flags & ts.NodeFlags.JavaScriptFile);
+}
+
+function getEffectiveImplementsTypeNodes(node: ts.ClassLikeDeclaration): undefined | readonly ts.ExpressionWithTypeArguments[]{
+    if (isInJSFile(node)) {
+        return getJSDocImplementsTags(node).map(n => n.class);
+    }
+    else {
+        const heritageClause = getHeritageClause(node.heritageClauses, ts.SyntaxKind.ImplementsKeyword);
+        return heritageClause?.types;
+    }
+}
+
+function getJSDocImplementsTags(node: ts.Node): readonly ts.JSDocImplementsTag[] {
+    return ts.getAllJSDocTags(node, isJSDocImplementsTag);
+}
+
+function isJSDocImplementsTag(node: ts.Node): node is ts.JSDocImplementsTag {
+    return node.kind === ts.SyntaxKind.JSDocImplementsTag;
+}
+
+function getHeritageClause(clauses: ts.NodeArray<ts.HeritageClause> | undefined, kind: ts.SyntaxKind) {
+    if (clauses) {
+        for (const clause of clauses) {
+            if (clause.token === kind) {
+                return clause;
+            }
+        }
+    }
+
+    return undefined;
+}
+
+export function getConstructSignatures(typeChecker: ts.TypeChecker, type: ts.InterfaceType): readonly ts.Signature[] {
+    const symbol = type.getSymbol()
+
+    if(symbol && symbol.flags & ts.SymbolFlags.Class) {
+        const classType = getSymbolType(typeChecker, symbol)
+        return classType.getConstructSignatures()
+    }
+
+    return []
 }
 
 export const enum CheckFlags {

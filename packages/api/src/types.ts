@@ -1,14 +1,14 @@
 import ts from "typescript"
 
 // TODO: support class instances with generics, like Map<string, number>
-// TODO: support classes in general as separate tree types
 
 export type SymbolInfo = {
     name: string,
     flags: number,
     optional?: boolean,
     anonymous?: boolean,
-    rest?: boolean
+    rest?: boolean,
+    insideClassOrInterface?: boolean,
 }
 
 export type IndexInfo = {
@@ -18,15 +18,10 @@ export type IndexInfo = {
     // parameterName?: string
 }
 
-// export type FunctionParameterInfo = {
-//     type: TypeInfo,
-//     optional?: boolean
-// }
-
 export type SignatureInfo = {
     symbolMeta?: SymbolInfo,
     parameters: TypeInfo[],
-    returnType: TypeInfo,
+    returnType?: TypeInfo,
     // minArgumentCount: number,
 }
 
@@ -52,7 +47,7 @@ export type TypeInfoNoId =
     |{ kind: 'string_literal', value: string, }
     |{ kind: 'number_literal', value: number, }
     |{ kind: 'boolean_literal', value: boolean }
-    |{ kind: 'enum_literal', symbol: SymbolInfo, parentSymbol?: SymbolInfo, value: string }
+    |{ kind: 'enum_literal', literalSymbol: SymbolInfo, parentSymbol?: SymbolInfo, value: string }
     |{ kind: 'bigint_literal', value: ts.PseudoBigInt }
     |{ 
         kind: 'type_parameter',
@@ -63,6 +58,15 @@ export type TypeInfoNoId =
         kind: 'object',
         properties: TypeInfo[],
         indexInfos?: IndexInfo[],
+    }
+    |{
+        kind: 'interface'|'class',
+        properties: TypeInfo[],
+        baseType?: TypeInfo,
+        implementsTypes?: TypeInfo[],
+        typeParameters?: TypeInfo[],
+        constructSignatures?: SignatureInfo[],
+        classSymbol?: SymbolInfo,
     }
     |{ kind: 'function', signatures: SignatureInfo[] }
     |{ kind: 'array', type: TypeInfo }
@@ -106,7 +110,7 @@ export type TypeInfoNoId =
     }
     |{
         kind: 'string_mapping',
-        symbol: SymbolInfo,
+        typeSymbol: SymbolInfo,
         type: TypeInfo,
     }
     |{

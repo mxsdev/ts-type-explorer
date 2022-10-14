@@ -1,8 +1,8 @@
 import assert from "assert";
 import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
-import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId, TypeParameterInfo } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol } from "./util";
+import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId } from "./types";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol, isClassType, isClassOrInterfaceType, isInterfaceType, getImplementsTypes, filterUndefined, createSymbol, getConstructSignatures } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: -1}
 
@@ -28,7 +28,8 @@ export function generateTypeTree(symbolOrType: SymbolOrType, typeChecker: TypeCh
 
 type TypeTreeOptions = {
     optional?: boolean,
-    isRest?: boolean
+    isRest?: boolean,
+    insideClassOrInterface?: boolean,
 }
 
 function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext, options?: TypeTreeOptions): TypeInfo {
@@ -55,6 +56,24 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         if(associatedSymbol) {
             isAnonymousSymbol = associatedSymbol.name === "__type"
             symbol = associatedSymbol
+        }
+    }
+
+    let classSymbol: ts.Symbol|undefined
+
+    if(type.symbol) {
+        if(type.symbol.flags & ts.SymbolFlags.Class) {
+            const classDefinition = type.symbol.declarations?.[0] as ts.NamedDeclaration|undefined
+            if(classDefinition && classDefinition.name) {
+                classSymbol = type.symbol
+            }
+            
+            if(symbol && symbol.flags & ts.SymbolFlags.Class) {
+                const signatures = typeChecker.getSignaturesOfType(type, ts.SignatureKind.Construct)
+                const returnType = wrapSafe(typeChecker.getReturnTypeOfSignature)(signatures[0])
+
+                type = returnType ?? type
+            }
         }
     }
     
@@ -104,7 +123,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
             return { 
                 kind: 'enum_literal',
                 value: (type as ts.StringLiteralType).value,
-                symbol: getSymbolInfo(type.symbol),
+                literalSymbol: getSymbolInfo(type.symbol),
                 parentSymbol: wrapSafe(getSymbolInfo)((type.symbol as TSSymbol).parent),
             }
         }
@@ -127,11 +146,9 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                 }
             }
 
-            const signatures = getSignaturesOfType(typeChecker, type).map(getSignatureInfo)
+            const signatures = getSignaturesOfType(typeChecker, type)
 
-            if(signatures.length > 0) {
-                return { kind: 'function', signatures }
-            } else if(isArrayType(type)) {
+            if(isArrayType(type)) {
                 return {
                     kind: 'array',
                     type: parseType(getTypeArguments(typeChecker, type)[0])
@@ -142,6 +159,19 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                     types: parseTypes(getTypeArguments(typeChecker, type)),
                     names: (type.target as ts.TupleType).labeledElementDeclarations?.map(s => s.name.getText()),
                 }
+            } else if(isClassOrInterfaceType(type)) {
+                // TODO: class instances instantiated with generics are treated as objects, not classes
+                return {
+                    kind: isClassType(type) ? 'class' : isInterfaceType(type) ? 'interface' : assert(false, "Should be class or interface type") as never,
+                    properties: parseSymbols(type.getProperties(), { insideClassOrInterface: true }),
+                    baseType: wrapSafe(parseType)(type.getBaseTypes()?.[0]),
+                    implementsTypes: wrapSafe(parseTypes)(getImplementsTypes(typeChecker, type)),
+                    typeParameters: wrapSafe(parseTypes)(type.typeParameters),
+                    constructSignatures: getConstructSignatures(typeChecker, type).map(s => getSignatureInfo(s, false)),
+                    classSymbol: wrapSafe(getSymbolInfo)(classSymbol),
+                }
+            } else if(signatures.length > 0) {
+                return { kind: 'function', signatures: signatures.map(s => getSignatureInfo(s)) }
             } else {
                 return {
                     kind: 'object',
@@ -208,7 +238,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         } else if(flags & ts.TypeFlags.StringMapping) {
             return {
                 kind: 'string_mapping',
-                symbol: getSymbolInfo((type as ts.StringMappingType).symbol),
+                typeSymbol: getSymbolInfo((type as ts.StringMappingType).symbol),
                 type: parseType((type as ts.StringMappingType).type),
             }
         }
@@ -222,10 +252,10 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     function parseTypes(types: readonly ts.Type[]): TypeInfo[] { return ctx.depth + 1 > maxDepth ? [maxDepthExceeded] : types.map(t => parseType(t))  }
     function parseType(type: ts.Type, options?: TypeTreeOptions): TypeInfo { return _generateTypeTree({type}, ctx, options) }
 
-    function parseSymbols(symbols: readonly ts.Symbol[]): TypeInfo[] { return ctx.depth + 1 > maxDepth ? [maxDepthExceeded] : symbols.map(t => parseSymbol(t)) }
+    function parseSymbols(symbols: readonly ts.Symbol[], options?: TypeTreeOptions): TypeInfo[] { return ctx.depth + 1 > maxDepth ? [maxDepthExceeded] : symbols.map(t => parseSymbol(t, options)) }
     function parseSymbol(symbol: ts.Symbol, options?: TypeTreeOptions): TypeInfo { return _generateTypeTree({symbol}, ctx, options) }
 
-    function getSignatureInfo(signature: ts.Signature): SignatureInfo {
+    function getSignatureInfo(signature: ts.Signature, includeReturnType = true): SignatureInfo {
         const { typeChecker } = ctx
 
         const internalSignature = signature as SignatureInternal
@@ -233,7 +263,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         return {
             symbolMeta: wrapSafe(getSymbolInfo)(typeChecker.getSymbolAtLocation(signature.getDeclaration())),
             parameters: signature.getParameters().map((parameter, index) => getFunctionParameterInfo(parameter, signature, index)),
-            returnType: parseType(typeChecker.getReturnTypeOfSignature(signature)),
+            ...includeReturnType && { returnType: parseType(typeChecker.getReturnTypeOfSignature(signature)) },
             // minArgumentCount: internalSignature.resolvedMinArgumentCount ?? internalSignature.minArgumentCount
         }
     }
@@ -268,85 +298,101 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         const optional = options.optional ?? parameterInfo.optional
         const rest = options.isRest ?? parameterInfo.isRest
 
+        const parent = (symbol as TSSymbol).parent
+        const insideClassOrInterface = options.insideClassOrInterface ?? (parent && parent.flags & (ts.SymbolFlags.Class | ts.SymbolFlags.Interface))
+
         return {
             name: symbol.getName(),
             flags: symbol.getFlags(),
             ...isAnonymous && { anonymous: true },
             ...optional && { optional: true },
             ...rest && { rest: true },
+            ...insideClassOrInterface && { insideClassOrInterface: true }
         }
     }
 }
 
 export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
-    switch(info.kind) {
-        case 'object': {
-            return [
-                ...info.properties,
-                ...info.indexInfos?.flatMap(x => [
-                    ...(x.type ? [x.type] : []),
-                    ...(x.keyType ? [x.keyType] : []),
-                ]) ?? [],
-            ]
+    const mapSignatureInfo = (signature: SignatureInfo) => [...signature.parameters, signature.returnType]
+
+    return filterUndefined(_getTypeInfoChildren(info))
+
+    function _getTypeInfoChildren(info: TypeInfo): (TypeInfo|undefined)[] {
+        switch(info.kind) {
+            case 'object': {
+                return [
+                    ...info.properties,
+                    ...info.indexInfos?.flatMap(x => [ x.type, x.keyType ]) ?? [],
+                ]
+            }
+    
+            case "intersection": {
+                return [...info.types, ...info.properties]
+            }
+    
+            case "union": {
+                return info.types
+            }
+    
+            case "index": {
+                return [info.keyOf]
+            }
+    
+            case "indexed_access": {
+                return [info.indexType, info.objectType]
+            }
+    
+            case "conditional": {
+                return [ 
+                    info.checkType, info.extendsType,  
+                    info.falseType, info.trueType
+                ]
+            }
+    
+            case "substitution": {
+                return [info.baseType, info.substitute]
+            }
+    
+            case "template_literal": {
+                return info.types
+            }
+    
+            case "array": {
+                return [info.type]
+            }
+    
+            case "tuple": {
+                return info.types
+            }
+    
+            case "function": {
+                return info.signatures.flatMap(mapSignatureInfo)
+            }
+    
+            case "enum": {
+                return [
+                    ...info.properties ?? []
+                ]
+            }
+    
+            case "type_parameter": {
+                return [
+                    info.defaultType, info.baseConstraint,
+                ]
+            }
+    
+            case "interface":
+            case "class": {
+                return [
+                    ...info.properties,
+                    ...info.typeParameters ?? [],
+                    ...info.constructSignatures?.flatMap(mapSignatureInfo) ?? [],
+                    info.baseType,
+                    ...info.implementsTypes ?? [],
+                ]
+            }
         }
 
-        case "intersection": {
-            return [...info.types, ...info.properties]
-        }
-
-        case "union": {
-            return info.types
-        }
-
-        case "index": {
-            return [info.keyOf]
-        }
-
-        case "indexed_access": {
-            return [info.indexType, info.objectType]
-        }
-
-        case "conditional": {
-            return [ 
-                info.checkType, info.extendsType,  
-                ...info.falseType ? [info.falseType] : [],
-                ...info.trueType ? [info.trueType] : [],
-            ]
-        }
-
-        case "substitution": {
-            return [info.baseType, info.substitute]
-        }
-
-        case "template_literal": {
-            return info.types
-        }
-
-        case "array": {
-            return [info.type]
-        }
-
-        case "tuple": {
-            return info.types
-        }
-
-        case "function": {
-            return info.signatures.flatMap(s => [...s.parameters, s.returnType])
-        }
-
-        case "enum": {
-            return [
-                ...info.properties ?? []
-            ]
-        }
-
-        case "type_parameter": {
-            return [
-                ...info.defaultType ? [info.defaultType] : [],
-                ...info.baseConstraint ? [info.baseConstraint] : [],
-            ]
-        }
+        return []
     }
-
-    return []
 }
