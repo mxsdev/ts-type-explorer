@@ -39,7 +39,7 @@
         {
           "id": "typescript-explorer",
           "title": "TypeScript Explorer",
-          "icon": "resources/typescript.svg"
+          "icon": "resources/logo.svg"
         }
       ]
     },
