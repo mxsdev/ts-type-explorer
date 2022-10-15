@@ -2,9 +2,9 @@ import assert from "assert";
 import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol, isClassType, isClassOrInterfaceType, isInterfaceType, getImplementsTypes, filterUndefined, createSymbol, getConstructSignatures } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol, isClassType, isClassOrInterfaceType, isInterfaceType, getImplementsTypes, filterUndefined, createSymbol, getConstructSignatures, getEmptyTypeId } from "./util";
 
-const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: -1}
+const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: getEmptyTypeId()}
 
 type TypeTreeContext = {
     typeChecker: ts.TypeChecker,
@@ -78,8 +78,10 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     }
     
     let typeInfo: TypeInfoNoId
-    if(!ctx.seen?.has(getTypeId(type))) {
-        ctx.seen?.add(getTypeId(type))
+    const id = getTypeId(type, symbol)
+
+    if(!ctx.seen?.has(id)) {
+        ctx.seen?.add(id)
         typeInfo = createNode(type)
     } else {
         typeInfo = { kind: 'reference' }
@@ -93,7 +95,11 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         typeInfoId.aliasSymbolMeta = getSymbolInfo(type.aliasSymbol)
     }
 
-    typeInfoId.id = getTypeId(type)
+    if(type.symbol && type.symbol !== type.aliasSymbol && type.symbol !== symbol) {
+        typeInfoId.typeSymbolMeta = getSymbolInfo(type.symbol)
+    }
+
+    typeInfoId.id = id
 
     ctx.depth--
     return typeInfoId
@@ -140,8 +146,8 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
         else if(flags & ts.TypeFlags.BigIntLiteral) { return { kind: 'bigint_literal', value: (type as ts.BigIntLiteralType).value }}
         // TODO: add type param info
         else if(flags & ts.TypeFlags.Object) {
-            const { symbol } = type
-            if(symbol && symbol.flags & ts.SymbolFlags.Enum) {
+            const { symbol: typeSymbol } = type
+            if(typeSymbol && typeSymbol.flags & ts.SymbolFlags.Enum) {
                 return {
                     kind: 'enum',
                     properties: parseSymbols(type.getProperties()),
@@ -161,7 +167,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                     types: parseTypes(getTypeArguments(typeChecker, type)),
                     names: (type.target as ts.TupleType).labeledElementDeclarations?.map(s => s.name.getText()),
                 }
-            } else if(isClassOrInterfaceType(type)) {
+            } else if(isInterfaceType(type) || (isClassType(type) && symbol && symbol.flags & ts.SymbolFlags.Class)) {
                 // TODO: class instances instantiated with generics are treated as objects, not classes
                 return {
                     kind: isClassType(type) ? 'class' : isInterfaceType(type) ? 'interface' : assert(false, "Should be class or interface type") as never,
@@ -179,6 +185,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                     kind: 'object',
                     properties: parseSymbols(type.getProperties()),
                     indexInfos: getIndexInfos(typeChecker, type).map(indexInfo => getIndexInfo(indexInfo)),
+                    objectClass: wrapSafe(parseSymbol)(classSymbol),
                 }
             }
         } else if(flags & ts.TypeFlags.Union) {

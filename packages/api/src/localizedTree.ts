@@ -3,7 +3,7 @@ import * as ts from "typescript"
 import { getKindText, getPrimitiveKindText, LocalizableKind } from "./localization"
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoKind } from "./types"
 import { getTypeInfoChildren } from "./tree"
-import { pseudoBigIntToString, wrapSafe } from "./util"
+import { getEmptyTypeId, pseudoBigIntToString, wrapSafe } from "./util"
 
 export function localizeTypeInfo(info: TypeInfo, typeInfoMap: TypeInfoMap): LocalizedTypeInfo {
     return _localizeTypeInfo(info, { typeInfoMap })
@@ -23,7 +23,7 @@ export function getLocalizedTypeInfoChildren(info: LocalizedTypeInfo, typeInfoMa
     ) ?? []
 }
 
-type TypePurpose = 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'
+type TypePurpose = 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'|'object_class'
 
 type ResolvedTypeInfo = Exclude<TypeInfo, {kind: 'reference'}>
 type LocalizedSymbolInfo = { name: string, anonymous?: boolean }
@@ -86,8 +86,9 @@ function getChildren(info: ResolvedTypeInfo, data: LocalizeData): TypeInfoChildr
 
     switch(info.kind) {
         case "object": {
-            const { properties, indexInfos = [] } = info
+            const { properties, indexInfos = [], objectClass } = info
             return [
+                ...objectClass ? [ localizeOpts(objectClass, { purpose: 'object_class' }) ] : [],
                 ...indexInfos.map(info => getLocalizedIndex(info)),
                 ...properties.map(localize),
             ]
@@ -101,7 +102,7 @@ function getChildren(info: ResolvedTypeInfo, data: LocalizeData): TypeInfoChildr
                 // ...typeParameters ? [this.createNodeGroup(typeParameters, "Type Parameters")] : [],
                 ...baseType ? [localizeOpts(baseType, { purpose: 'class_base_type'})] : [],
                 ...(implementsTypes && implementsTypes.length > 0) ? [createChild({ purpose: localizePurpose('class_implementations'), children: implementsTypes.map(localize) })] : [],
-                ...(constructSignatures && constructSignatures.length > 0) ? [localizeOpts({ kind: 'function', id: -1, signatures: constructSignatures }, { purpose: 'class_constructor' })] : [],
+                ...(constructSignatures && constructSignatures.length > 0) ? [localizeOpts({ kind: 'function', id: getEmptyTypeId(), signatures: constructSignatures }, { purpose: 'class_constructor' })] : [],
                 ...properties.map(localize),
             ]
         }
@@ -182,7 +183,7 @@ function getChildren(info: ResolvedTypeInfo, data: LocalizeData): TypeInfoChildr
                     if(text) {
                         // TODO: this should probably be its own treenode type
                         res.push(
-                            localize({ kind: 'string_literal', id: -1, value: text })
+                            localize({ kind: 'string_literal', id: getEmptyTypeId(), value: text })
                         )
                     }
                     i++
@@ -276,7 +277,7 @@ function getAlias(info: ResolvedTypeInfo): string|undefined {
 
     switch(info.kind) {
         case "type_parameter": {
-            return defaultValue
+            return defaultValue ?? info.typeSymbolMeta?.name
         }
 
         case "class": {
@@ -366,6 +367,7 @@ function localizePurpose(purpose: TypePurpose): string {
         class_constructor: "constructor",
         class_base_type: "extends",
         class_implementations: "implements",
+        object_class: "class",
     }
 
     return nameByPurpose[purpose]

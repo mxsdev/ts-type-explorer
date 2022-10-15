@@ -1,4 +1,5 @@
 import ts from "typescript"
+import { TypeId } from "./types"
 
 export type SymbolName = ts.__String
 
@@ -170,8 +171,24 @@ export function filterUndefined<T>(arr: T[]): Exclude<T, undefined>[] {
     return arr.filter(x => x !== undefined) as Exclude<T, undefined>[]
 }
 
-export function getTypeId(type: ts.Type) {
-    return (type as ts.Type & {id: number}).id
+export function getTypeId(type: ts.Type, symbol?: ts.Symbol): TypeId {
+    let res = ""
+
+    const typeId = (type as ts.Type & { id: number }).id
+    res += typeId.toString()
+
+    if(symbol) {
+        const symbolId = (symbol as ts.Symbol & { id?: number }).id
+        if(symbolId) {
+            res += `,${symbolId.toString()}`
+        }
+    }
+
+    return res
+}
+
+export function getEmptyTypeId(): TypeId {
+    return ""
 }
 
 // TODO: test for array type, tuple type

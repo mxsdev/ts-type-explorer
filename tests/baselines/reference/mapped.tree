@@ -1,10 +1,10 @@
 === mapped.ts ===
 
 type mapped = { [index: string]: number }
-> mapped --- {"kind":"object","properties":[],"indexInfos":[{"keyType":{"kind":"primitive","primitive":"string","id":15},"type":{"kind":"primitive","primitive":"number","id":16},"parameterSymbol":{"name":"index","flags":1}}],"symbolMeta":{"name":"mapped","flags":524288},"id":86}
+> mapped --- {"kind":"object","properties":[],"indexInfos":[{"keyType":{"kind":"primitive","primitive":"string","id":"15"},"type":{"kind":"primitive","primitive":"number","id":"16"},"parameterSymbol":{"name":"index","flags":1}}],"symbolMeta":{"name":"mapped","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1278"}
 > { [index: string]: number }
 > [index: string]: number
 > [index: string]: number
 > index: string
 > index: string
-> index --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"index","flags":1},"id":15}
+> index --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"index","flags":1},"id":"15,1280"}

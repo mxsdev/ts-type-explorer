@@ -37,6 +37,7 @@ export type TypeInfoNoId =
     ({
         symbolMeta?: SymbolInfo,
         aliasSymbolMeta?: SymbolInfo,
+        typeSymbolMeta?: SymbolInfo,
     } & (
     |{
         kind: 'primitive',
@@ -58,6 +59,7 @@ export type TypeInfoNoId =
         kind: 'object',
         properties: TypeInfo[],
         indexInfos?: IndexInfo[],
+        objectClass?: TypeInfo,
     }
     |{
         kind: 'interface'|'class',
@@ -118,6 +120,6 @@ export type TypeInfoNoId =
     }
     ))
 
-export type TypeId = number
+export type TypeId = string
 
 export type TypeInfoKind<K extends TypeInfo['kind']> = Extract<TypeInfo, { kind: K }>
