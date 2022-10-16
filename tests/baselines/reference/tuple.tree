@@ -1,4 +1,4 @@
 === tuple.ts ===
 
 type tupleOfStuff = ["a", string, number]
-> tupleOfStuff --- {"kind":"tuple","types":[{"kind":"string_literal","value":"a","id":"93"},{"kind":"primitive","primitive":"string","id":"15"},{"kind":"primitive","primitive":"number","id":"16"}],"symbolMeta":{"name":"tupleOfStuff","flags":524288},"typeArguments":[{"kind":"reference","id":"93"},{"kind":"reference","id":"15"},{"kind":"reference","id":"16"}],"id":"92,1519"}
+> tupleOfStuff --- {"kind":"tuple","types":[{"kind":"string_literal","value":"a","id":"93,,"},{"kind":"primitive","primitive":"string","id":"15,,"},{"kind":"primitive","primitive":"number","id":"16,,"}],"symbolMeta":{"name":"tupleOfStuff","flags":524288},"id":"92,1767,"}

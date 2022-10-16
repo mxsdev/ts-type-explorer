@@ -1,17 +1,17 @@
 === indexedAccess.ts ===
 
 type IndexedAccess<P, T extends keyof P> = P[T]
-> IndexedAccess --- {"kind":"indexed_access","indexType":{"kind":"type_parameter","baseConstraint":{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"15"},{"kind":"primitive","primitive":"number","id":"16"},{"kind":"primitive","primitive":"essymbol","id":"23"}],"id":"31"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1278"},"objectType":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":"86,1277"},"symbolMeta":{"name":"IndexedAccess","flags":524288},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"P","flags":262144},"id":"86,1277"},{"kind":"reference","symbolMeta":{"name":"T","flags":262144},"id":"87,1278"}],"id":"88,1276"}
+> IndexedAccess --- {"kind":"indexed_access","indexType":{"kind":"type_parameter","baseConstraint":{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"15,,"},{"kind":"primitive","primitive":"number","id":"16,,"},{"kind":"primitive","primitive":"essymbol","id":"23,,"}],"id":"31,,"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1447,"},"objectType":{"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":"86,1446,"},"symbolMeta":{"name":"IndexedAccess","flags":524288},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"P","flags":262144},"id":"86,1446,"},{"kind":"reference","symbolMeta":{"name":"T","flags":262144},"id":"87,1447,"}],"id":"88,1445,"}
 > P, T extends keyof P
 > P
-> P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":"86,1277"}
+> P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":"86,1446,"}
 > T extends keyof P
-> T --- {"kind":"type_parameter","baseConstraint":{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"15"},{"kind":"primitive","primitive":"number","id":"16"},{"kind":"primitive","primitive":"essymbol","id":"23"}],"id":"31"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1278"}
+> T --- {"kind":"type_parameter","baseConstraint":{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"15,,"},{"kind":"primitive","primitive":"number","id":"16,,"},{"kind":"primitive","primitive":"essymbol","id":"23,,"}],"id":"31,,"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1447,"}
 > keyof P
 > P
-> P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":"86,1277"}
+> P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":"86,1446,"}
 > P[T]
 > P
-> P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":"86,1277"}
+> P --- {"kind":"type_parameter","symbolMeta":{"name":"P","flags":262144},"id":"86,1446,"}
 > T
-> T --- {"kind":"type_parameter","baseConstraint":{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"15"},{"kind":"primitive","primitive":"number","id":"16"},{"kind":"primitive","primitive":"essymbol","id":"23"}],"id":"31"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1278"}
+> T --- {"kind":"type_parameter","baseConstraint":{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"15,,"},{"kind":"primitive","primitive":"number","id":"16,,"},{"kind":"primitive","primitive":"essymbol","id":"23,,"}],"id":"31,,"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1447,"}

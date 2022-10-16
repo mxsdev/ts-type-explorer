@@ -90,9 +90,11 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
     const typeArguments = info.typeArguments ?? contextualTypeArguments
 
     let passTypeArguments: TypeInfo[]|undefined
-    let parameterChildren: TypeInfoChildren
+    let parameterChildren: TypeInfoChildren|undefined
 
-    if(info.kind === 'object' && info.objectClass) {
+    if(info.kind === 'function') {
+        passTypeArguments = typeArguments
+    } else if(info.kind === 'object' && info.objectClass) {
         passTypeArguments = typeArguments
         parameterChildren = getTypeParameterAndArgumentList(typeParameters, undefined)
     } else {
@@ -102,7 +104,7 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
     const baseChildren = getBaseChildren(passTypeArguments) 
     
     const children = [
-        ...parameterChildren,
+        ...parameterChildren ?? [],
         ...baseChildren ?? [],
     ]
 
@@ -139,9 +141,9 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
                 const { signatures } = info
                 
                 if(signatures.length === 1) {
-                    return getLocalizedSignatureChildren(signatures[0])
+                    return getLocalizedSignatureChildren(signatures[0], typeArguments)
                 } else {
-                    return signatures.map(getLocalizedSignature)
+                    return signatures.map(sig => getLocalizedSignature(sig, typeParameters))
                 }
             }
     
@@ -279,16 +281,17 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
         })
     }
 
-    function getLocalizedSignature(signature: SignatureInfo){
+    function getLocalizedSignature(signature: SignatureInfo, typeArguments?: TypeInfo[]){
         return createChild({
             kindText: "signature",
             symbol: wrapSafe(localizeSymbol)(signature.symbolMeta),
-            children: getLocalizedSignatureChildren(signature),
+            children: getLocalizedSignatureChildren(signature, typeArguments),
         })
     }
 
-    function getLocalizedSignatureChildren(signature: SignatureInfo) {
+    function getLocalizedSignatureChildren(signature: SignatureInfo, typeArguments?: TypeInfo[]) {
         return [
+            ...getTypeParameterAndArgumentList(signature.typeParameters, typeArguments),
             ...signature.parameters.map(localize),
             ...signature.returnType ? [ localizeOpts(signature.returnType, { purpose: 'return' }) ] : [],
         ]

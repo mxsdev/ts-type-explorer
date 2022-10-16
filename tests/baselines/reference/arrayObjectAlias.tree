@@ -1,16 +1,16 @@
 === arrayObjectAlias.ts ===
 
 type Obj = { a: string, b: number }
-> Obj --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,734"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,735"}],"indexInfos":[],"symbolMeta":{"name":"Obj","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,732"}
+> Obj --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,741,"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,751,"}],"indexInfos":[],"symbolMeta":{"name":"Obj","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,739,"}
 > { a: string, b: number }
 > a: string, b: number
 > a: string,
-> a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,734"}
+> a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,741,"}
 > b: number
-> b --- {"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,735"}
+> b --- {"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,751,"}
 
 type arrObj = Obj[]
-> arrObj --- {"kind":"array","type":{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,734"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,735"}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj","flags":524288},"id":"86,733"},"symbolMeta":{"name":"arrObj","flags":524288},"typeSymbolMeta":{"name":"Array","flags":33554497},"typeArguments":[{"kind":"reference","symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj","flags":524288},"id":"86,733"}],"id":"87,736"}
+> arrObj --- {"kind":"array","type":{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,741,"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,751,"}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj","flags":524288},"id":"86,740,"},"symbolMeta":{"name":"arrObj","flags":524288},"typeSymbolMeta":{"name":"Array","flags":33554497},"id":"91,752,"}
 > Obj[]
 > Obj
-> Obj --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,734"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,735"}],"indexInfos":[],"symbolMeta":{"name":"Obj","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,732"}
+> Obj --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,741,"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,751,"}],"indexInfos":[],"symbolMeta":{"name":"Obj","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,739,"}

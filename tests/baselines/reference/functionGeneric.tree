@@ -1,0 +1,29 @@
+=== functionGeneric.ts ===
+
+function sig1<T extends string>(arg: T, ...arg2: any[]): string { 
+    return arg + arg2
+}
+> function --- {"kind":"function","signatures":[{"parameters":[{"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"15,,"},"symbolMeta":{"name":"arg","flags":1},"typeSymbolMeta":{"name":"T","flags":262144},"id":"87,1353,"},{"kind":"array","type":{"kind":"primitive","primitive":"any","id":"1,,"},"symbolMeta":{"name":"arg2","flags":1,"rest":true},"typeSymbolMeta":{"name":"Array","flags":33554497},"id":"77,1363,"}],"returnType":{"kind":"reference","id":"15,,"},"typeParameters":[{"kind":"type_parameter","baseConstraint":{"kind":"reference","id":"15,,"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1352,"}]}],"symbolMeta":{"name":"sig1","flags":16},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144},"id":"87,1352,"}],"id":"86,1351,"}
+> sig1 --- {"kind":"function","signatures":[{"parameters":[{"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"15,,"},"symbolMeta":{"name":"arg","flags":1},"typeSymbolMeta":{"name":"T","flags":262144},"id":"87,1353,"},{"kind":"array","type":{"kind":"primitive","primitive":"any","id":"1,,"},"symbolMeta":{"name":"arg2","flags":1,"rest":true},"typeSymbolMeta":{"name":"Array","flags":33554497},"id":"77,1363,"}],"returnType":{"kind":"reference","id":"15,,"},"typeParameters":[{"kind":"type_parameter","baseConstraint":{"kind":"reference","id":"15,,"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1352,"}]}],"symbolMeta":{"name":"sig1","flags":16},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144},"id":"87,1352,"}],"id":"86,1351,"}
+> T extends string
+> T extends string
+> T --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"15,,"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1352,"}
+> arg: T, ...arg2: any[]
+> arg: T
+> arg --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"15,,"},"symbolMeta":{"name":"arg","flags":1},"typeSymbolMeta":{"name":"T","flags":262144},"id":"87,1353,"}
+> T
+> T --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"15,,"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1352,"}
+> ...arg2: any[]
+> arg2 --- {"kind":"array","type":{"kind":"primitive","primitive":"any","id":"1,,"},"symbolMeta":{"name":"arg2","flags":1,"rest":true},"typeSymbolMeta":{"name":"Array","flags":33554497},"id":"77,1363,"}
+> { 
+>     return arg + arg2
+> }
+> return arg + arg2
+> return arg + arg2
+> arg + arg2
+> arg --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"15,,"},"symbolMeta":{"name":"arg","flags":1},"typeSymbolMeta":{"name":"T","flags":262144},"id":"87,1353,"}
+> arg2 --- {"kind":"array","type":{"kind":"primitive","primitive":"any","id":"1,,"},"symbolMeta":{"name":"arg2","flags":1,"rest":true},"typeSymbolMeta":{"name":"Array","flags":33554497},"id":"77,1363,"}
+
+sig1("asd", 3, 4)
+> sig1("asd", 3, 4)
+> sig1 --- {"kind":"function","signatures":[{"parameters":[{"kind":"string_literal","value":"asd","symbolMeta":{"name":"arg","flags":33554433},"id":"97,,"},{"kind":"array","type":{"kind":"primitive","primitive":"any","id":"1,,"},"symbolMeta":{"name":"arg2","flags":1,"rest":true},"typeSymbolMeta":{"name":"Array","flags":33554497},"id":"77,1363,"}],"returnType":{"kind":"primitive","primitive":"string","id":"15,,"},"typeParameters":[{"kind":"type_parameter","baseConstraint":{"kind":"reference","id":"15,,"},"symbolMeta":{"name":"T","flags":262144},"id":"87,1352,"}]}],"symbolMeta":{"name":"sig1","flags":16},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144},"id":"87,1352,"}],"typeArguments":[{"kind":"reference","id":"97,,"}],"id":"86,1351,12214"}

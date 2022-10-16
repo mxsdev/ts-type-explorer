@@ -1,3 +1,4 @@
+import { deepStrictEqual } from "assert"
 import ts from "typescript"
 import { TypeId } from "./types"
 
@@ -31,7 +32,7 @@ type NodeWithTypeArguments = ts.Node & { typeArguments?: ts.NodeArray<ts.TypeNod
 export type UnionTypeInternal = ts.UnionType & { id: number }
 export type IntersectionTypeInternal = ts.IntersectionType & { id: number }
 export type TypeReferenceInternal = ts.TypeReference & { resolvedTypeArguments?: ts.Type[] }
-export type SignatureInternal = ts.Signature & { minArgumentCount: number, resolvedMinArgumentCount?: number }
+export type SignatureInternal = ts.Signature & { minArgumentCount: number, resolvedMinArgumentCount?: number, target?: SignatureInternal }
 export type IntrinsicTypeInternal = ts.Type & { intrinsicName: string, objectFlags: ts.ObjectFlags }
 
 export type TSSymbol = ts.Symbol & {
@@ -232,20 +233,14 @@ export function filterUndefined<T>(arr: T[]): Exclude<T, undefined>[] {
     return arr.filter(x => x !== undefined) as Exclude<T, undefined>[]
 }
 
-export function getTypeId(type: ts.Type, symbol?: ts.Symbol): TypeId {
-    let res = ""
+export function getTypeId(type: ts.Type, symbol?: ts.Symbol, node?: ts.Node): TypeId {
+    const ids: (number|undefined)[] = [
+        (type as ts.Type & { id: number })?.id,
+        (symbol as ts.Symbol & { id?: number })?.id,
+        (node as ts.Node & { id?: number })?.id
+    ]
 
-    const typeId = (type as ts.Type & { id: number }).id
-    res += typeId.toString()
-
-    if(symbol) {
-        const symbolId = (symbol as ts.Symbol & { id?: number }).id
-        if(symbolId) {
-            res += `,${symbolId.toString()}`
-        }
-    }
-
-    return res
+    return ids.map(x => x === undefined ? "" : x.toString()).join(",")
 }
 
 export function getEmptyTypeId(): TypeId {
@@ -290,12 +285,22 @@ export function isObjectReference(type: ts.Type): type is ts.TypeReference {
     return !!(getObjectFlags(type) & ts.ObjectFlags.Reference)
 }
 
+export function getTypeFromTypeNode(typeChecker: ts.TypeChecker, node: ts.TypeNode) {
+    if(!(node.flags & ts.NodeFlags.Synthesized)) {
+        return typeChecker.getTypeFromTypeNode(node)
+    } else {
+        return typeChecker.getTypeFromTypeNode({
+            ...node, flags: node.flags & ~ts.NodeFlags.Synthesized, parent: node.parent ?? { kind: ts.SyntaxKind.VariableStatement } as ts.Node
+        })
+    }
+}
+
 export function getTypeArguments<T extends ts.Type>(typeChecker: ts.TypeChecker, type: T, node?: ts.Node): (readonly ts.Type[])|undefined  {
     const typeArgumentsOfType = isObjectReference(type) ? typeChecker.getTypeArguments(type) : undefined
 
     if(node && isEmpty(typeArgumentsOfType)) {
         const typeArgumentDefinitions = (node as NodeWithTypeArguments).typeArguments ?? (node.parent as NodeWithTypeArguments)?.typeArguments
-        const typeArgumentsOfNode = wrapSafe(filterUndefined)(typeArgumentDefinitions?.map((node) => typeChecker.getTypeFromTypeNode(node)))
+        const typeArgumentsOfNode = wrapSafe(filterUndefined)(typeArgumentDefinitions?.map((node) => getTypeFromTypeNode(typeChecker, node)))
 
         if(typeArgumentsOfNode?.length === typeArgumentDefinitions?.length) {
             return typeArgumentsOfNode
@@ -365,7 +370,7 @@ export function getImplementsTypes(typeChecker: ts.TypeChecker, type: ts.Interfa
             const implementsTypeNodes = getEffectiveImplementsTypeNodes(declaration as ts.ClassLikeDeclaration);
             if (!implementsTypeNodes) continue;
             for (const node of implementsTypeNodes) {
-                const implementsType = typeChecker.getTypeFromTypeNode(node);
+                const implementsType = getTypeFromTypeNode(typeChecker, node);
                 if (isValidType(implementsType)) {
                     resolvedImplementsTypes.push(implementsType);
                 }
@@ -418,6 +423,23 @@ export function getConstructSignatures(typeChecker: ts.TypeChecker, type: ts.Int
     }
 
     return []
+}
+
+export function getCallLikeExpression(node: ts.Node) {
+    return ts.isCallLikeExpression(node) ? node : ts.isCallLikeExpression(node.parent) ? node.parent : undefined
+}
+
+export function getResolvedSignature(typeChecker: ts.TypeChecker, node?: ts.Node): SignatureInternal|undefined {
+    if(!node) return undefined
+
+    const callExpression = getCallLikeExpression(node)
+
+    return callExpression ? typeChecker.getResolvedSignature(callExpression) as SignatureInternal : undefined
+}
+
+export function getSignatureTypeArguments(typeChecker: ts.TypeChecker, signature: ts.Signature, enclosingDeclaration?: ts.Node) {
+    return typeChecker.signatureToSignatureDeclaration(signature, ts.SyntaxKind.CallSignature, enclosingDeclaration, ts.NodeBuilderFlags.WriteTypeArgumentsOfSignature)
+        ?.typeArguments?.map(t => getTypeFromTypeNode(typeChecker, t))
 }
 
 export const enum CheckFlags {
