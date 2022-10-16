@@ -23,6 +23,7 @@ export type SignatureInfo = {
     parameters: TypeInfo[],
     returnType?: TypeInfo,
     // minArgumentCount: number,
+    typeParameters?: TypeInfo[],
 }
 
 export type TypeParameterInfo = {
@@ -38,6 +39,8 @@ export type TypeInfoNoId =
         symbolMeta?: SymbolInfo,
         aliasSymbolMeta?: SymbolInfo,
         typeSymbolMeta?: SymbolInfo,
+        typeArguments?: TypeInfo[],
+        typeParameters?: TypeInfo[],
     } & (
     |{
         kind: 'primitive',
@@ -66,7 +69,7 @@ export type TypeInfoNoId =
         properties: TypeInfo[],
         baseType?: TypeInfo,
         implementsTypes?: TypeInfo[],
-        typeParameters?: TypeInfo[],
+        // typeParameters?: TypeInfo[],
         constructSignatures?: SignatureInfo[],
         classSymbol?: SymbolInfo,
     }

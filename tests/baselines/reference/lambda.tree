@@ -1,22 +1,22 @@
 === lambda.ts ===
 
 type f = (arg1: string, arg2: boolean) => void
-> f --- {"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":"15,1258"},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":"22,1259"}],"returnType":{"kind":"primitive","primitive":"void","id":"24"}}],"symbolMeta":{"name":"f","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1256"}
+> f --- {"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":"15,1316"},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":"22,1317"}],"returnType":{"kind":"primitive","primitive":"void","id":"24"}}],"symbolMeta":{"name":"f","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1314"}
 > (arg1: string, arg2: boolean) => void
 > arg1: string, arg2: boolean
 > arg1: string
-> arg1 --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":"15,1258"}
+> arg1 --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":"15,1316"}
 > arg2: boolean
-> arg2 --- {"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":"22,1259"}
-> => --- {"kind":"primitive","primitive":"any","symbolMeta":{"name":"__type","flags":2048},"id":"4,1257"}
+> arg2 --- {"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":"22,1317"}
+> => --- {"kind":"primitive","primitive":"any","symbolMeta":{"name":"__type","flags":2048},"id":"4,1315"}
 
 type t = { a: string } | f
-> t --- {"kind":"union","types":[{"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":"15,1258"},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":"22,1259"}],"returnType":{"kind":"primitive","primitive":"void","id":"24"}}],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"f","flags":524288},"id":"86,1257"},{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1262"}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":"87,1261"}],"symbolMeta":{"name":"t","flags":524288},"id":"88,1260"}
+> t --- {"kind":"union","types":[{"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":"15,1316"},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":"22,1317"}],"returnType":{"kind":"primitive","primitive":"void","id":"24"}}],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"f","flags":524288},"id":"86,1315"},{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1320"}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"id":"87,1319"}],"symbolMeta":{"name":"t","flags":524288},"id":"88,1318"}
 > { a: string } | f
 > { a: string } | f
 > { a: string }
 > a: string
 > a: string
-> a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1262"}
+> a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1320"}
 > f
-> f --- {"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":"15,1258"},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":"22,1259"}],"returnType":{"kind":"primitive","primitive":"void","id":"24"}}],"symbolMeta":{"name":"f","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1256"}
+> f --- {"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"arg1","flags":1},"id":"15,1316"},{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"arg2","flags":1},"id":"22,1317"}],"returnType":{"kind":"primitive","primitive":"void","id":"24"}}],"symbolMeta":{"name":"f","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1314"}

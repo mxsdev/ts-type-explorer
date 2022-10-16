@@ -2,7 +2,7 @@ import assert from "assert";
 import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
 import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol, isClassType, isClassOrInterfaceType, isInterfaceType, getImplementsTypes, filterUndefined, createSymbol, getConstructSignatures, getEmptyTypeId } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol, isClassType, isClassOrInterfaceType, isInterfaceType, getImplementsTypes, filterUndefined, createSymbol, getConstructSignatures, getEmptyTypeId, getTypeParameters, isNonEmpty, arrayContentsEqual } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: getEmptyTypeId()}
 
@@ -13,7 +13,7 @@ type TypeTreeContext = {
     depth: number,
 }
 
-type SymbolOrType = {symbol: ts.Symbol, type?: undefined} | {type: ts.Type, symbol?: undefined}
+type SymbolOrType = ({symbol: ts.Symbol, type?: undefined} | {type: ts.Type, symbol?: undefined}) & { node?: ts.Node }
 
 export function generateTypeTree(symbolOrType: SymbolOrType, typeChecker: TypeChecker, config?: APIConfig) {
     return _generateTypeTree(
@@ -32,7 +32,7 @@ type TypeTreeOptions = {
     insideClassOrInterface?: boolean,
 }
 
-function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext, options?: TypeTreeOptions): TypeInfo {
+function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeContext, options?: TypeTreeOptions): TypeInfo {
     assert(symbol || type, "Must provide either symbol or type")
     ctx.depth++
 
@@ -98,7 +98,17 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
     if(type.symbol && type.symbol !== type.aliasSymbol && type.symbol !== symbol) {
         typeInfoId.typeSymbolMeta = getSymbolInfo(type.symbol)
     }
-
+    
+    const typeParameters = getTypeParameters(typeChecker, type, symbol) 
+    if(isNonEmpty(typeParameters)) {
+        typeInfoId.typeParameters = parseTypes(typeParameters)
+    }
+    
+    const typeArguments = getTypeArguments(typeChecker, type, node)
+    if(isNonEmpty(typeArguments) && (!typeParameters || !arrayContentsEqual(typeArguments, typeParameters))) {
+        typeInfoId.typeArguments = parseTypes(typeArguments)
+    }
+    
     typeInfoId.id = id
 
     ctx.depth--
@@ -159,12 +169,12 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
             if(isArrayType(type)) {
                 return {
                     kind: 'array',
-                    type: parseType(getTypeArguments(typeChecker, type)[0])
+                    type: parseType(getTypeArguments(typeChecker, type)![0])
                 }
             } else if(isTupleType(type)) {
                 return {
                     kind: 'tuple',
-                    types: parseTypes(getTypeArguments(typeChecker, type)),
+                    types: parseTypes(getTypeArguments(typeChecker, type)!),
                     names: (type.target as ts.TupleType).labeledElementDeclarations?.map(s => s.name.getText()),
                 }
             } else if(isInterfaceType(type) || (isClassType(type) && symbol && symbol.flags & ts.SymbolFlags.Class)) {
@@ -174,7 +184,6 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
                     properties: parseSymbols(type.getProperties(), { insideClassOrInterface: true }),
                     baseType: wrapSafe(parseType)(type.getBaseTypes()?.[0]),
                     implementsTypes: wrapSafe(parseTypes)(getImplementsTypes(typeChecker, type)),
-                    typeParameters: wrapSafe(parseTypes)(type.typeParameters),
                     constructSignatures: getConstructSignatures(typeChecker, type).map(s => getSignatureInfo(s, false)),
                     classSymbol: wrapSafe(getSymbolInfo)(classSymbol),
                 }
@@ -271,6 +280,7 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
             symbolMeta: wrapSafe(getSymbolInfo)(typeChecker.getSymbolAtLocation(signature.getDeclaration())),
             parameters: signature.getParameters().map((parameter, index) => getFunctionParameterInfo(parameter, signature, index)),
             ...includeReturnType && { returnType: parseType(typeChecker.getReturnTypeOfSignature(signature)) },
+            ...signature.typeParameters && { typeParameters: parseTypes(signature.typeParameters) },
         }
     }
 
@@ -319,9 +329,13 @@ function _generateTypeTree({ symbol, type }: SymbolOrType, ctx: TypeTreeContext,
 }
 
 export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
-    const mapSignatureInfo = (signature: SignatureInfo) => [...signature.parameters, signature.returnType]
+    const mapSignatureInfo = (signature: SignatureInfo) => [ ...signature.parameters, signature.returnType, ...signature.typeParameters ?? [] ]
 
-    return filterUndefined(_getTypeInfoChildren(info))
+    return [
+        ...info.typeParameters ?? [],
+        ...info.typeArguments ?? [],
+        ...filterUndefined(_getTypeInfoChildren(info)),
+    ]
 
     function _getTypeInfoChildren(info: TypeInfo): (TypeInfo|undefined)[] {
         switch(info.kind) {
@@ -329,6 +343,7 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
                 return [
                     ...info.properties,
                     ...info.indexInfos?.flatMap(x => [ x.type, x.keyType ]) ?? [],
+                    ...wrapSafe(getTypeInfoChildren)(info.objectClass) ?? [],
                 ]
             }
     
@@ -391,7 +406,6 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
             case "class": {
                 return [
                     ...info.properties,
-                    ...info.typeParameters ?? [],
                     ...info.constructSignatures?.flatMap(mapSignatureInfo) ?? [],
                     info.baseType,
                     ...info.implementsTypes ?? [],

@@ -1,0 +1,22 @@
+=== genericTypeDef.ts ===
+
+type TypeWithGenerics<T, K> = T
+> TypeWithGenerics --- {"kind":"type_parameter","symbolMeta":{"name":"TypeWithGenerics","flags":524288},"typeSymbolMeta":{"name":"T","flags":262144},"typeParameters":[{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":"86,1257"},{"kind":"type_parameter","symbolMeta":{"name":"K","flags":262144},"id":"87,1258"}],"id":"86,1256"}
+> T, K
+> T
+> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":"86,1257"}
+> K
+> K --- {"kind":"type_parameter","symbolMeta":{"name":"K","flags":262144},"id":"87,1258"}
+> T
+> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":"86,1257"}
+
+type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
+> InstantiatedGeneric --- {"kind":"type_parameter","symbolMeta":{"name":"InstantiatedGeneric","flags":524288},"typeSymbolMeta":{"name":"J","flags":262144},"typeParameters":[{"kind":"type_parameter","symbolMeta":{"name":"J","flags":262144},"id":"88,1260"}],"id":"88,1259"}
+> J
+> J
+> J --- {"kind":"type_parameter","symbolMeta":{"name":"J","flags":262144},"id":"88,1260"}
+> TypeWithGenerics<J, "asd">
+> TypeWithGenerics --- {"kind":"type_parameter","symbolMeta":{"name":"TypeWithGenerics","flags":524288},"typeSymbolMeta":{"name":"T","flags":262144},"typeParameters":[{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":"86,1257"},{"kind":"type_parameter","symbolMeta":{"name":"K","flags":262144},"id":"87,1258"}],"typeArguments":[{"kind":"type_parameter","symbolMeta":{"name":"J","flags":262144},"id":"88,1260"},{"kind":"string_literal","value":"asd","id":"89"}],"id":"86,1256"}
+> J, "asd"
+> J
+> J --- {"kind":"type_parameter","symbolMeta":{"name":"J","flags":262144},"id":"88,1260"}

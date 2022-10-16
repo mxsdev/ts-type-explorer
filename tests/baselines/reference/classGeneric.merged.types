@@ -1,0 +1,73 @@
+=== classGeneric.ts ===
+
+class TestBaseClass { }
+> class --- typeof TestBaseClass
+> TestBaseClass --- typeof TestBaseClass
+
+class TestClass<T> extends TestBaseClass {
+    constructor(thing: boolean, param: string|number) { 
+        super()
+    }
+
+    param: string = "a"
+    param2: string = "b"
+
+    getThing(param: T) {
+        return "as"
+    }
+}
+> class --- typeof TestClass
+> TestClass --- typeof TestClass
+> T
+> T
+> T --- T
+> extends TestBaseClass
+> extends TestBaseClass
+> TestBaseClass
+> TestBaseClass
+> TestBaseClass --- typeof TestBaseClass
+> constructor(thing: boolean, param: string|number) { 
+>         super()
+>     }
+>     param: string = "a"
+>     param2: string = "b"
+>     getThing(param: T) {
+>         return "as"
+>     }
+> constructor(thing: boolean, param: string|number) { 
+>         super()
+>     }
+> constructor --- typeof TestClass
+> thing: boolean, param: string|number
+> thing: boolean
+> thing --- boolean
+> param: string|number
+> param --- string | number
+> { 
+>         super()
+>     }
+> super()
+> super()
+> super()
+> super --- typeof TestBaseClass
+> param: string = "a"
+> param --- string
+> param2: string = "b"
+> param2 --- string
+> getThing(param: T) {
+>         return "as"
+>     }
+> getThing --- (param: T) => string
+> param: T
+> param: T
+> param --- T
+> T
+> T --- T
+
+const _a = new TestClass<string>(false, 4)
+> const _a = new TestClass<string>(false, 4)
+> _a = new TestClass<string>(false, 4)
+> _a = new TestClass<string>(false, 4)
+> _a --- { param: string; param2: string; getThing: (param: string) => string; }
+> new TestClass<string>(false, 4)
+> TestClass --- typeof TestClass

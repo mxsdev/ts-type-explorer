@@ -1,11 +1,11 @@
 === enum.ts ===
 
 enum Test { A, B, C }
-> Test --- {"kind":"enum","properties":[{"kind":"enum_literal","value":0,"literalSymbol":{"name":"A","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"A","flags":8},"id":"88,1182"},{"kind":"enum_literal","value":1,"literalSymbol":{"name":"B","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"B","flags":8},"id":"90,1183"},{"kind":"enum_literal","value":2,"literalSymbol":{"name":"C","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"C","flags":8},"id":"92,1184"}],"symbolMeta":{"name":"Test","flags":256},"id":"86,1181"}
+> Test --- {"kind":"enum","properties":[{"kind":"enum_literal","value":0,"literalSymbol":{"name":"A","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"A","flags":8},"id":"88,1218"},{"kind":"enum_literal","value":1,"literalSymbol":{"name":"B","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"B","flags":8},"id":"90,1219"},{"kind":"enum_literal","value":2,"literalSymbol":{"name":"C","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"C","flags":8},"id":"92,1220"}],"symbolMeta":{"name":"Test","flags":256},"id":"86,1217"}
 > A, B, C
 > A
-> A --- {"kind":"enum_literal","value":0,"literalSymbol":{"name":"A","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"A","flags":8},"id":"88,1182"}
+> A --- {"kind":"enum_literal","value":0,"literalSymbol":{"name":"A","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"A","flags":8},"id":"88,1218"}
 > B
-> B --- {"kind":"enum_literal","value":1,"literalSymbol":{"name":"B","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"B","flags":8},"id":"90,1183"}
+> B --- {"kind":"enum_literal","value":1,"literalSymbol":{"name":"B","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"B","flags":8},"id":"90,1219"}
 > C
-> C --- {"kind":"enum_literal","value":2,"literalSymbol":{"name":"C","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"C","flags":8},"id":"92,1184"}
+> C --- {"kind":"enum_literal","value":2,"literalSymbol":{"name":"C","flags":8},"parentSymbol":{"name":"Test","flags":256},"symbolMeta":{"name":"C","flags":8},"id":"92,1220"}

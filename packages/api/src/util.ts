@@ -26,6 +26,7 @@ export type ObjectType = ts.ObjectType & {
 }
 
 type TransientSymbol = ts.Symbol & { checkFlags: number }
+type NodeWithTypeArguments = ts.Node & { typeArguments?: ts.NodeArray<ts.TypeNode> }
 
 export type UnionTypeInternal = ts.UnionType & { id: number }
 export type IntersectionTypeInternal = ts.IntersectionType & { id: number }
@@ -77,6 +78,54 @@ export function getSymbolType(typeChecker: ts.TypeChecker, symbol: ts.Symbol, lo
     }
 
     return typeChecker.getTypeOfSymbolAtLocation(symbol, { parent: {} } as unknown as ts.Node)
+}
+
+export function getNodeSymbol(typeChecker: ts.TypeChecker, node: ts.Node): ts.Symbol|undefined {
+    return (node as ts.Node & { symbol?: TSSymbol }).symbol ?? typeChecker.getSymbolAtLocation(node)
+}
+
+export function getNodeType(typeChecker: ts.TypeChecker, node: ts.Node) {
+    const symbolType = wrapSafe((symbol: ts.Symbol) => getSymbolType(typeChecker, symbol, node))(getNodeSymbol(typeChecker, node))
+    if(symbolType && isValidType(symbolType)) return symbolType
+
+    if(ts.isTypeNode(node)) {
+        const typeNodeType = typeChecker.getTypeFromTypeNode(node)
+        if(isValidType(typeNodeType)) return typeNodeType
+    }
+
+    if(ts.isExpressionStatement(node)) {
+        const expressionType = checkExpression(typeChecker, node)
+        if(expressionType && isValidType(expressionType)) return expressionType
+    }
+
+    return undefined
+}
+
+/**
+ * Hack to call typeChecker.checkExpression externally
+ */
+export function checkExpression(typeChecker: ts.TypeChecker, node: ts.Node) {
+    const symbol = createSymbol(ts.SymbolFlags.BlockScopedVariable, "type" as ts.__String)
+    const declaration = {
+        kind: ts.SyntaxKind.VariableDeclaration,
+        flags: ts.NodeFlags.JavaScriptFile,
+        type: {
+            kind: ts.SyntaxKind.LiteralType,
+            literal: node,
+            parent: {
+                kind: ts.SyntaxKind.VariableStatement,
+            },
+        },
+        parent: {
+            parent: {
+                kind: 0
+            }
+        }
+    } as unknown as ts.Declaration
+    symbol.valueDeclaration = declaration
+
+    const type = typeChecker.getTypeOfSymbolAtLocation(symbol, { parent: {} } as unknown as ts.Node)
+    return isValidType(type) ? type : undefined
 }
 
 export function getSignaturesOfType(typeChecker: ts.TypeChecker, type: ts.Type) {
@@ -167,6 +216,18 @@ export function wrapSafe<T, Args extends Array<any>, Return>(wrapped: (arg1: T, 
     return (arg1, ...args) => arg1 === undefined ? arg1 as undefined : wrapped(arg1, ...args)
 }
 
+export function isNonEmpty<T>(arr: readonly T[]|undefined): arr is readonly T[] {
+    return !!arr && arr.length > 0
+}
+
+export function isEmpty<T>(arr: readonly T[]|undefined): arr is undefined {
+    return !isNonEmpty<T>(arr)
+}
+
+export function arrayContentsEqual(x: readonly any[], y: readonly any[]) {
+    return (x.length === y.length && x.every((el, i) => y[i] == el))
+}
+
 export function filterUndefined<T>(arr: T[]): Exclude<T, undefined>[] {
     return arr.filter(x => x !== undefined) as Exclude<T, undefined>[]
 }
@@ -216,17 +277,51 @@ export function isClassOrInterfaceType(type: ts.Type): type is ts.InterfaceType 
 }
 
 export function isArrayType(type: ts.Type): type is ts.TypeReference {
-    return !!(getObjectFlags(type) & ts.ObjectFlags.Reference) 
+    return !!(isObjectReference(type)) 
         && ((type as ts.TypeReference).target.getSymbol()?.getName() === "Array")
         // && getTypeArguments(typeChecker, type).length >= 1
 }
 
 export function isTupleType(type: ts.Type): type is ts.TypeReference {
-    return !!((getObjectFlags(type) & ts.ObjectFlags.Reference) && ((type as ts.TypeReference).target.objectFlags & ts.ObjectFlags.Tuple))
+    return !!(isObjectReference(type) && ((type as ts.TypeReference).target.objectFlags & ts.ObjectFlags.Tuple))
 }
 
-export function getTypeArguments(typeChecker: ts.TypeChecker, type: ts.TypeReference) {
-    return typeChecker.getTypeArguments(type)
+export function isObjectReference(type: ts.Type): type is ts.TypeReference {
+    return !!(getObjectFlags(type) & ts.ObjectFlags.Reference)
+}
+
+export function getTypeArguments<T extends ts.Type>(typeChecker: ts.TypeChecker, type: T, node?: ts.Node): (readonly ts.Type[])|undefined  {
+    const typeArgumentsOfType = isObjectReference(type) ? typeChecker.getTypeArguments(type) : undefined
+
+    if(node && isEmpty(typeArgumentsOfType)) {
+        const typeArgumentDefinitions = (node as NodeWithTypeArguments).typeArguments ?? (node.parent as NodeWithTypeArguments)?.typeArguments
+        const typeArgumentsOfNode = wrapSafe(filterUndefined)(typeArgumentDefinitions?.map((node) => typeChecker.getTypeFromTypeNode(node)))
+
+        if(typeArgumentsOfNode?.length === typeArgumentDefinitions?.length) {
+            return typeArgumentsOfNode
+        }
+    }
+
+    return typeArgumentsOfType
+}
+
+export function getTypeParameters(typeChecker: ts.TypeChecker, type: ts.Type, symbol?: ts.Symbol): (readonly ts.Type[])|undefined {
+    if(isClassOrInterfaceType(type)) {
+        return type.typeParameters
+    } else if(symbol && symbol.declarations && symbol.declarations.length === 1) {
+        const typeParameterDeclarations = (symbol.declarations[0] as ts.Declaration & { typeParameters?: ts.NodeArray<ts.TypeParameterDeclaration> }).typeParameters ?? typeChecker.symbolToTypeParameterDeclarations(symbol, undefined, undefined)
+        if(isEmpty(typeParameterDeclarations)) return undefined
+
+        const typeParameterTypes: ts.Type[] = filterUndefined(
+            typeParameterDeclarations.map(decl => getNodeType(typeChecker, decl))
+        )
+
+        if(typeParameterDeclarations.length === typeParameterTypes.length) {
+            return typeParameterTypes
+        }
+    }
+
+    return undefined
 }
 
 export function getObjectFlags(type: ts.Type): number {

@@ -1,4 +1,4 @@
 === array.ts ===
 
 type arrayOfStrings = string[]
-> arrayOfStrings --- {"kind":"array","type":{"kind":"primitive","primitive":"string","id":"15"},"symbolMeta":{"name":"arrayOfStrings","flags":524288},"typeSymbolMeta":{"name":"Array","flags":33554497},"id":"86,636"}
+> arrayOfStrings --- {"kind":"array","type":{"kind":"primitive","primitive":"string","id":"15"},"symbolMeta":{"name":"arrayOfStrings","flags":524288},"typeSymbolMeta":{"name":"Array","flags":33554497},"typeArguments":[{"kind":"reference","id":"15"}],"id":"86,640"}

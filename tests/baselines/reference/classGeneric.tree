@@ -1,0 +1,73 @@
+=== classGeneric.ts ===
+
+class TestBaseClass { }
+> class --- {"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32},"symbolMeta":{"name":"TestBaseClass","flags":32},"id":"87,820"}
+> TestBaseClass --- {"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32},"symbolMeta":{"name":"TestBaseClass","flags":32},"id":"87,820"}
+
+class TestClass<T> extends TestBaseClass {
+    constructor(thing: boolean, param: string|number) { 
+        super()
+    }
+
+    param: string = "a"
+    param2: string = "b"
+
+    getThing(param: T) {
+        return "as"
+    }
+}
+> class --- {"kind":"class","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"function","signatures":[{"parameters":[{"kind":"type_parameter","symbolMeta":{"name":"param","flags":33554433},"typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91"}],"returnType":{"kind":"reference","id":"15"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"typeSymbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":"95"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32},"symbolMeta":{"name":"TestBaseClass","flags":32},"id":"87,820"},"implementsTypes":[],"constructSignatures":[{"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1},"id":"22,827"},{"kind":"union","types":[{"kind":"reference","id":"15"},{"kind":"primitive","primitive":"number","id":"16"}],"symbolMeta":{"name":"param","flags":1},"id":"30,828"}],"typeParameters":[{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"TestClass","flags":32},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}],"id":"90,821"}
+> TestClass --- {"kind":"class","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"function","signatures":[{"parameters":[{"kind":"type_parameter","symbolMeta":{"name":"param","flags":33554433},"typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91"}],"returnType":{"kind":"reference","id":"15"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"typeSymbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":"95"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32},"symbolMeta":{"name":"TestBaseClass","flags":32},"id":"87,820"},"implementsTypes":[],"constructSignatures":[{"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1},"id":"22,827"},{"kind":"union","types":[{"kind":"reference","id":"15"},{"kind":"primitive","primitive":"number","id":"16"}],"symbolMeta":{"name":"param","flags":1},"id":"30,828"}],"typeParameters":[{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"TestClass","flags":32},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}],"id":"90,821"}
+> T
+> T
+> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}
+> extends TestBaseClass
+> extends TestBaseClass
+> TestBaseClass
+> TestBaseClass
+> TestBaseClass --- {"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32},"symbolMeta":{"name":"TestBaseClass","flags":32},"id":"87,820"}
+> constructor(thing: boolean, param: string|number) { 
+>         super()
+>     }
+>     param: string = "a"
+>     param2: string = "b"
+>     getThing(param: T) {
+>         return "as"
+>     }
+> constructor(thing: boolean, param: string|number) { 
+>         super()
+>     }
+> constructor --- {"kind":"class","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"function","signatures":[{"parameters":[{"kind":"type_parameter","symbolMeta":{"name":"param","flags":33554433},"typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91"}],"returnType":{"kind":"reference","id":"15"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"typeSymbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":"95"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32},"symbolMeta":{"name":"TestBaseClass","flags":32},"id":"87,820"},"implementsTypes":[],"constructSignatures":[{"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1},"id":"22,827"},{"kind":"union","types":[{"kind":"reference","id":"15"},{"kind":"primitive","primitive":"number","id":"16"}],"symbolMeta":{"name":"param","flags":1},"id":"30,828"}],"typeParameters":[{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"TestClass","flags":32},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}],"id":"90,821"}
+> thing: boolean, param: string|number
+> thing: boolean
+> thing --- {"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1},"id":"22,827"}
+> param: string|number
+> param --- {"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"15"},{"kind":"primitive","primitive":"number","id":"16"}],"symbolMeta":{"name":"param","flags":1},"id":"30,828"}
+> { 
+>         super()
+>     }
+> super()
+> super()
+> super()
+> super --- {"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32},"symbolMeta":{"name":"TestBaseClass","flags":32},"id":"87,820"}
+> param: string = "a"
+> param --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":4,"insideClassOrInterface":true},"id":"15,823"}
+> param2: string = "b"
+> param2 --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"param2","flags":4,"insideClassOrInterface":true},"id":"15,824"}
+> getThing(param: T) {
+>         return "as"
+>     }
+> getThing --- {"kind":"function","signatures":[{"parameters":[{"kind":"type_parameter","symbolMeta":{"name":"param","flags":1},"typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,826"}],"returnType":{"kind":"primitive","primitive":"string","id":"15"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":"94,825"}
+> param: T
+> param: T
+> param --- {"kind":"type_parameter","symbolMeta":{"name":"param","flags":1},"typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,826"}
+> T
+> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}
+
+const _a = new TestClass<string>(false, 4)
+> const _a = new TestClass<string>(false, 4)
+> _a = new TestClass<string>(false, 4)
+> _a = new TestClass<string>(false, 4)
+> _a --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":4,"insideClassOrInterface":true},"id":"15,823"},{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param2","flags":4,"insideClassOrInterface":true},"id":"15,824"},{"kind":"function","signatures":[{"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":33554433},"id":"15"}],"returnType":{"kind":"reference","id":"15"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"typeSymbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":"102"}],"indexInfos":[],"objectClass":{"kind":"class","properties":[{"kind":"reference","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"function","signatures":[{"parameters":[{"kind":"type_parameter","symbolMeta":{"name":"param","flags":33554433},"typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91"}],"returnType":{"kind":"reference","id":"15"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"typeSymbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":"95"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32},"symbolMeta":{"name":"TestBaseClass","flags":32},"id":"87,820"},"implementsTypes":[],"constructSignatures":[{"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1},"id":"22,827"},{"kind":"union","types":[{"kind":"reference","id":"15"},{"kind":"primitive","primitive":"number","id":"16"}],"symbolMeta":{"name":"param","flags":1},"id":"30,828"}],"typeParameters":[{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"TestClass","flags":32},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}],"id":"90,821"},"symbolMeta":{"name":"_a","flags":2},"typeSymbolMeta":{"name":"TestClass","flags":32},"typeArguments":[{"kind":"reference","id":"15"}],"id":"100,829"}
+> new TestClass<string>(false, 4)
+> TestClass --- {"kind":"class","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true},"id":"15"},{"kind":"function","signatures":[{"parameters":[{"kind":"type_parameter","symbolMeta":{"name":"param","flags":33554433},"typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91"}],"returnType":{"kind":"reference","id":"15"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true},"typeSymbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true},"id":"95"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32},"symbolMeta":{"name":"TestBaseClass","flags":32},"id":"87,820"},"implementsTypes":[],"constructSignatures":[{"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1},"id":"22,827"},{"kind":"union","types":[{"kind":"reference","id":"15"},{"kind":"primitive","primitive":"number","id":"16"}],"symbolMeta":{"name":"param","flags":1},"id":"30,828"}],"typeParameters":[{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}]}],"classSymbol":{"name":"TestClass","flags":32},"symbolMeta":{"name":"TestClass","flags":32},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true},"id":"91,822"}],"id":"90,821"}

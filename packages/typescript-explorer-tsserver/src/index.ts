@@ -1,6 +1,7 @@
-import { multilineTypeToString, getSymbolType, recursivelyExpandType, generateTypeTree } from "@ts-expand-type/api";
+import { multilineTypeToString, getSymbolType, recursivelyExpandType, generateTypeTree, getNodeType, getNodeSymbol } from "@ts-expand-type/api";
 import type { ExpandedQuickInfo } from "./types";
 import * as ts_orig from "typescript"
+import { TypeChecker, Node } from "typescript/lib/tsserverlibrary";
 
 // TODO: add config for e.g. max depth
 
@@ -53,10 +54,16 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
 }
 
 function getDisplayTree(typeChecker: ts.TypeChecker, node: ts.Node) {
-  const symbol = typeChecker.getSymbolAtLocation(node)
+  const symbol = typeChecker.getSymbolAtLocation(node) ?? getNodeSymbol(typeChecker, node)
 
   if(symbol) {
-    return generateTypeTree({ symbol }, typeChecker)
+    return generateTypeTree({ symbol, node }, typeChecker)
+  }
+
+  const type = getNodeType(typeChecker, node)
+
+  if(type) {
+    return generateTypeTree({ type, node }, typeChecker)
   }
 
   return undefined
@@ -72,6 +79,15 @@ function getDisplayType(typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, 
     const typeString = multilineTypeToString(typeChecker, sourceFile, expandedType, undefined, ts_orig.NodeBuilderFlags.MultilineObjectLiterals | ts_orig.NodeBuilderFlags.InTypeAlias)
 
     return typeString
+}
+
+function getTypeNode(typeChecker: TypeChecker, node: Node): ts_orig.TypeNode | undefined {
+  const symbol = typeChecker.getSymbolAtLocation(node)
+  if(!symbol) return undefined
+
+  const type = getSymbolType(typeChecker, symbol, node)
+
+  return typeChecker.typeToTypeNode(type, node, undefined)
 }
 
 export = init

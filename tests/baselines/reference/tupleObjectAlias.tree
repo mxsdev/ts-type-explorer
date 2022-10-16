@@ -1,19 +1,19 @@
 === tupleObjectAlias.ts ===
 
 type Obj2 = { a: string, b: number }
-> Obj2 --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1643"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1644"}],"indexInfos":[],"symbolMeta":{"name":"Obj2","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1641"}
+> Obj2 --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1701"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1702"}],"indexInfos":[],"symbolMeta":{"name":"Obj2","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1699"}
 > { a: string, b: number }
 > a: string, b: number
 > a: string,
-> a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1643"}
+> a --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1701"}
 > b: number
-> b --- {"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1644"}
+> b --- {"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1702"}
 
 type tupleObj = [Obj2, Obj2]
-> tupleObj --- {"kind":"tuple","types":[{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1643"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1644"}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj2","flags":524288},"id":"86,1642"},{"kind":"reference","symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj2","flags":524288},"id":"86,1642"}],"symbolMeta":{"name":"tupleObj","flags":524288},"id":"92,1645"}
+> tupleObj --- {"kind":"tuple","types":[{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1701"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1702"}],"indexInfos":[],"symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj2","flags":524288},"id":"86,1700"},{"kind":"reference","symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj2","flags":524288},"id":"86,1700"}],"symbolMeta":{"name":"tupleObj","flags":524288},"typeArguments":[{"kind":"reference","symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj2","flags":524288},"id":"86,1700"},{"kind":"reference","symbolMeta":{"name":"__type","flags":2048,"anonymous":true},"aliasSymbolMeta":{"name":"Obj2","flags":524288},"id":"86,1700"}],"id":"92,1703"}
 > [Obj2, Obj2]
 > Obj2, Obj2
 > Obj2
-> Obj2 --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1643"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1644"}],"indexInfos":[],"symbolMeta":{"name":"Obj2","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1641"}
+> Obj2 --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1701"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1702"}],"indexInfos":[],"symbolMeta":{"name":"Obj2","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1699"}
 > Obj2
-> Obj2 --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1643"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1644"}],"indexInfos":[],"symbolMeta":{"name":"Obj2","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1641"}
+> Obj2 --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"a","flags":4},"id":"15,1701"},{"kind":"primitive","primitive":"number","symbolMeta":{"name":"b","flags":4},"id":"16,1702"}],"indexInfos":[],"symbolMeta":{"name":"Obj2","flags":524288},"typeSymbolMeta":{"name":"__type","flags":2048},"id":"86,1699"}
