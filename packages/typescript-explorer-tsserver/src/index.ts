@@ -1,7 +1,8 @@
-import { multilineTypeToString, getSymbolType, recursivelyExpandType, generateTypeTree, getNodeType, getNodeSymbol } from "@ts-expand-type/api";
+import { multilineTypeToString, getSymbolType, recursivelyExpandType, generateTypeTree, getNodeType, getNodeSymbol, getDescendantAtPosition } from "@ts-expand-type/api";
 import type { ExpandedQuickInfo } from "./types";
 import * as ts_orig from "typescript"
 import { TypeChecker, Node } from "typescript/lib/tsserverlibrary";
+import { isValidType } from "@ts-expand-type/api/dist/util";
 
 // TODO: add config for e.g. max depth
 
@@ -18,7 +19,7 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
       }
 
       proxy.getQuickInfoAtPosition = function (fileName, position) {
-        const prior = info.languageService.getQuickInfoAtPosition(fileName, position) as ExpandedQuickInfo
+        let prior = info.languageService.getQuickInfoAtPosition(fileName, position) as ExpandedQuickInfo
 
         const program = info.project['program'] as ts.Program|undefined
 
@@ -29,11 +30,15 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
 
         if(!sourceFile) return prior
 
-        // @ts-expect-error
-        const node: ts.Node = ts.getTouchingPropertyName(sourceFile, position);
+        // const node: ts.Node = ts.getTouchingPropertyName(sourceFile, position);
+        const node = getDescendantAtPosition(sourceFile, position)
         if (!node || node === sourceFile) {
             // Avoid giving quickInfo for the sourceFile as a whole.
             return prior
+        }
+
+        if(!prior) {
+          prior = { } as ExpandedQuickInfo
         }
 
         if(prior) {
@@ -57,7 +62,11 @@ function getDisplayTree(typeChecker: ts.TypeChecker, node: ts.Node) {
   const symbol = typeChecker.getSymbolAtLocation(node) ?? getNodeSymbol(typeChecker, node)
 
   if(symbol) {
-    return generateTypeTree({ symbol, node }, typeChecker)
+    const symbolType = getSymbolType(typeChecker, symbol, node)
+
+    if(isValidType(symbolType)) {
+      return generateTypeTree({ symbol, node }, typeChecker)
+    }
   }
 
   const type = getNodeType(typeChecker, node)

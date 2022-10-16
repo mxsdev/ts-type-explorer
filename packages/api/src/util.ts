@@ -78,7 +78,8 @@ export function getSymbolType(typeChecker: ts.TypeChecker, symbol: ts.Symbol, lo
       return symbolType;
     }
 
-    return typeChecker.getTypeOfSymbolAtLocation(symbol, { parent: {} } as unknown as ts.Node)
+    const fallbackType = typeChecker.getTypeOfSymbolAtLocation(symbol, { parent: {} } as unknown as ts.Node)
+    return fallbackType
 }
 
 export function getNodeSymbol(typeChecker: ts.TypeChecker, node: ts.Node): ts.Symbol|undefined {
@@ -86,15 +87,20 @@ export function getNodeSymbol(typeChecker: ts.TypeChecker, node: ts.Node): ts.Sy
 }
 
 export function getNodeType(typeChecker: ts.TypeChecker, node: ts.Node) {
+    const nodeType = typeChecker.getTypeAtLocation(node)
+    if(isValidType(nodeType)) return nodeType
+
     const symbolType = wrapSafe((symbol: ts.Symbol) => getSymbolType(typeChecker, symbol, node))(getNodeSymbol(typeChecker, node))
     if(symbolType && isValidType(symbolType)) return symbolType
 
-    if(ts.isTypeNode(node)) {
-        const typeNodeType = typeChecker.getTypeFromTypeNode(node)
+    if(ts.isTypeNode(node) || ts.isTypeNode(node.parent)) {
+        const typeNode = ts.isTypeNode(node) ? node : ts.isTypeNode(node.parent) ? node.parent : undefined as never
+
+        const typeNodeType = getTypeFromTypeNode(typeChecker, typeNode)
         if(isValidType(typeNodeType)) return typeNodeType
     }
 
-    if(ts.isExpressionStatement(node)) {
+    if((ts as (typeof ts & { isExpression(node: ts.Node): node is ts.Expression })).isExpression(node)) {
         const expressionType = checkExpression(typeChecker, node)
         if(expressionType && isValidType(expressionType)) return expressionType
     }
@@ -441,6 +447,62 @@ export function getSignatureTypeArguments(typeChecker: ts.TypeChecker, signature
     return typeChecker.signatureToSignatureDeclaration(signature, ts.SyntaxKind.CallSignature, enclosingDeclaration, ts.NodeBuilderFlags.WriteTypeArgumentsOfSignature)
         ?.typeArguments?.map(t => getTypeFromTypeNode(typeChecker, t))
 }
+
+export function getDescendantAtPosition(sourceFile: ts.SourceFile, position: number) {
+    return getDescendantAtRange(sourceFile, [position, position])
+}
+
+export function getDescendantAtRange(sourceFile: ts.SourceFile, range: [number, number]) {
+    let bestMatch: { node: ts.Node; start: number } = { node: sourceFile, start: sourceFile.getStart(sourceFile) };
+    searchDescendants(sourceFile);
+    return bestMatch.node;
+  
+    function searchDescendants(node: ts.Node) {
+      const children: ts.Node[] = []
+      node.forEachChild(child => { children.push(child); return undefined })
+    // const children = node.getChildren(sourcefile)
+
+      for (const child of children) {
+        if (child.kind !== ts.SyntaxKind.SyntaxList) {
+          if (isBeforeRange(child.end)) {
+            continue;
+          }
+  
+          const childStart = getStartSafe(child, sourceFile);
+  
+          if (isAfterRange(childStart)) {
+            return;
+          }
+  
+          const isEndOfFileToken = child.kind === ts.SyntaxKind.EndOfFileToken;
+          const hasSameStart = bestMatch.start === childStart && range[0] === childStart;
+          if (!isEndOfFileToken && !hasSameStart) {
+            bestMatch = { node: child, start: childStart };
+          }
+        }
+  
+        searchDescendants(child);
+      }
+    }
+  
+    function isBeforeRange(pos: number) {
+        return pos < range[0];
+    }
+  
+    function isAfterRange(nodeEnd: number) {
+        return nodeEnd >= range[0] && nodeEnd > range[1];
+    }
+}
+
+function getStartSafe(node: ts.Node, sourceFile: ts.SourceFile) {
+    // workaround for compiler api bug with getStart(sourceFile, true) (see PR #35029 in typescript repo)
+    const jsDocs = ((node as any).jsDoc) as ts.Node[] | undefined;
+    if (jsDocs && jsDocs.length > 0) {
+      return jsDocs[0].getStart(sourceFile);
+    }
+    return node.getStart(sourceFile);
+  }
+
 
 export const enum CheckFlags {
     Instantiated      = 1 << 0,         // Instantiated symbol
