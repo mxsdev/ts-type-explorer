@@ -48,6 +48,7 @@ type namedTuple = [param: "a", param2: string, param3: number]
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "name": "param2",
             "children": [],
             "_id": "2"
@@ -55,6 +56,7 @@ type namedTuple = [param: "a", param2: string, param3: number]
         {
             "kindText": "number",
             "kind": "primitive",
+            "primitiveKind": "number",
             "name": "param3",
             "children": [],
             "_id": "3"

@@ -41,6 +41,7 @@ type Obj2 = { a: string, b: number }
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "a",
                 "locations": [
@@ -80,6 +81,7 @@ type Obj2 = { a: string, b: number }
         {
             "kindText": "number",
             "kind": "primitive",
+            "primitiveKind": "number",
             "symbol": {
                 "name": "b",
                 "locations": [
@@ -125,6 +127,7 @@ type Obj2 = { a: string, b: number }
 > a --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "a",
         "locations": [
@@ -165,6 +168,7 @@ type Obj2 = { a: string, b: number }
 > b --- {
     "kindText": "number",
     "kind": "primitive",
+    "primitiveKind": "number",
     "symbol": {
         "name": "b",
         "locations": [
@@ -282,6 +286,7 @@ type tupleObj = [Obj2, Obj2]
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "symbol": {
                         "name": "a",
                         "locations": [
@@ -321,6 +326,7 @@ type tupleObj = [Obj2, Obj2]
                 {
                     "kindText": "number",
                     "kind": "primitive",
+                    "primitiveKind": "number",
                     "symbol": {
                         "name": "b",
                         "locations": [
@@ -409,6 +415,7 @@ type tupleObj = [Obj2, Obj2]
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "a",
                 "locations": [
@@ -448,6 +455,7 @@ type tupleObj = [Obj2, Obj2]
         {
             "kindText": "number",
             "kind": "primitive",
+            "primitiveKind": "number",
             "symbol": {
                 "name": "b",
                 "locations": [
@@ -528,6 +536,7 @@ type tupleObj = [Obj2, Obj2]
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "a",
                 "locations": [
@@ -567,6 +576,7 @@ type tupleObj = [Obj2, Obj2]
         {
             "kindText": "number",
             "kind": "primitive",
+            "primitiveKind": "number",
             "symbol": {
                 "name": "b",
                 "locations": [

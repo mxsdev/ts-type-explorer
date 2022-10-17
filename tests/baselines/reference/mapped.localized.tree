@@ -62,6 +62,7 @@ type mapped = { [index: string]: number }
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "purpose": "index_type",
                     "children": [],
                     "_id": "2"
@@ -69,6 +70,7 @@ type mapped = { [index: string]: number }
                 {
                     "kindText": "number",
                     "kind": "primitive",
+                    "primitiveKind": "number",
                     "purpose": "index_value_type",
                     "children": [],
                     "_id": "1"
@@ -86,6 +88,7 @@ type mapped = { [index: string]: number }
 > index --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "index",
         "locations": [

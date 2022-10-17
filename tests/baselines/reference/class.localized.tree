@@ -80,6 +80,7 @@ interface TestInterface {
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "purpose": "return",
                     "children": [],
                     "_id": "2"
@@ -132,6 +133,7 @@ interface TestInterface {
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "purpose": "return",
             "children": [],
             "_id": "1"
@@ -265,6 +267,7 @@ class TestClass implements TestInterface {
                                 {
                                     "kindText": "string",
                                     "kind": "primitive",
+                                    "primitiveKind": "string",
                                     "purpose": "return",
                                     "children": [],
                                     "_id": "2"
@@ -300,6 +303,7 @@ class TestClass implements TestInterface {
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "symbol": {
                         "name": "param",
                         "locations": [
@@ -503,6 +507,7 @@ class TestClass implements TestInterface {
                                 {
                                     "kindText": "string",
                                     "kind": "primitive",
+                                    "primitiveKind": "string",
                                     "purpose": "return",
                                     "children": [],
                                     "_id": "2"
@@ -538,6 +543,7 @@ class TestClass implements TestInterface {
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "symbol": {
                         "name": "param",
                         "locations": [
@@ -704,6 +710,7 @@ class TestClass implements TestInterface {
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "purpose": "return",
                     "children": [],
                     "_id": "2"
@@ -838,6 +845,7 @@ class TestClass implements TestInterface {
                                 {
                                     "kindText": "string",
                                     "kind": "primitive",
+                                    "primitiveKind": "string",
                                     "purpose": "return",
                                     "children": [],
                                     "_id": "2"
@@ -873,6 +881,7 @@ class TestClass implements TestInterface {
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "symbol": {
                         "name": "param",
                         "locations": [
@@ -963,6 +972,7 @@ class TestClass implements TestInterface {
 > param --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "param",
         "locations": [
@@ -1042,6 +1052,7 @@ class TestClass implements TestInterface {
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "purpose": "return",
             "children": [],
             "_id": "1"
@@ -1210,6 +1221,7 @@ const _a = new TestClass("param")
                                         {
                                             "kindText": "string",
                                             "kind": "primitive",
+                                            "primitiveKind": "string",
                                             "purpose": "return",
                                             "children": [],
                                             "_id": "2"
@@ -1245,6 +1257,7 @@ const _a = new TestClass("param")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "param",
                                 "locations": [
@@ -1377,6 +1390,7 @@ const _a = new TestClass("param")
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "param",
                 "locations": [
@@ -1532,6 +1546,7 @@ const _a = new TestClass("param")
                                         {
                                             "kindText": "string",
                                             "kind": "primitive",
+                                            "primitiveKind": "string",
                                             "purpose": "return",
                                             "children": [],
                                             "_id": "4"

@@ -1016,18 +1016,21 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                 {
                                     "kindText": "string",
                                     "kind": "primitive",
+                                    "primitiveKind": "string",
                                     "children": [],
                                     "_id": "14"
                                 },
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
+                                    "primitiveKind": "number",
                                     "children": [],
                                     "_id": "15"
                                 },
                                 {
                                     "kindText": "symbol",
                                     "kind": "primitive",
+                                    "primitiveKind": "essymbol",
                                     "children": [],
                                     "_id": "16"
                                 }

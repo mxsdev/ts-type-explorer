@@ -273,6 +273,7 @@ class TestClass<T> extends TestBaseClass {
                 {
                     "kindText": "boolean",
                     "kind": "primitive",
+                    "primitiveKind": "boolean",
                     "symbol": {
                         "name": "thing",
                         "locations": [
@@ -349,12 +350,14 @@ class TestClass<T> extends TestBaseClass {
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "children": [],
                             "_id": "2"
                         },
                         {
                             "kindText": "number",
                             "kind": "primitive",
+                            "primitiveKind": "number",
                             "children": [],
                             "_id": "7"
                         }
@@ -619,6 +622,7 @@ class TestClass<T> extends TestBaseClass {
                 {
                     "kindText": "boolean",
                     "kind": "primitive",
+                    "primitiveKind": "boolean",
                     "symbol": {
                         "name": "thing",
                         "locations": [
@@ -695,12 +699,14 @@ class TestClass<T> extends TestBaseClass {
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "children": [],
                             "_id": "2"
                         },
                         {
                             "kindText": "number",
                             "kind": "primitive",
+                            "primitiveKind": "number",
                             "children": [],
                             "_id": "7"
                         }
@@ -1072,6 +1078,7 @@ class TestClass<T> extends TestBaseClass {
                 {
                     "kindText": "boolean",
                     "kind": "primitive",
+                    "primitiveKind": "boolean",
                     "symbol": {
                         "name": "thing",
                         "locations": [
@@ -1148,12 +1155,14 @@ class TestClass<T> extends TestBaseClass {
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "children": [],
                             "_id": "2"
                         },
                         {
                             "kindText": "number",
                             "kind": "primitive",
+                            "primitiveKind": "number",
                             "children": [],
                             "_id": "7"
                         }
@@ -1260,6 +1269,7 @@ class TestClass<T> extends TestBaseClass {
 > thing --- {
     "kindText": "boolean",
     "kind": "primitive",
+    "primitiveKind": "boolean",
     "symbol": {
         "name": "thing",
         "locations": [
@@ -1337,12 +1347,14 @@ class TestClass<T> extends TestBaseClass {
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "children": [],
             "_id": "1"
         },
         {
             "kindText": "number",
             "kind": "primitive",
+            "primitiveKind": "number",
             "children": [],
             "_id": "2"
         }
@@ -1407,6 +1419,7 @@ class TestClass<T> extends TestBaseClass {
 > param --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "param",
         "locations": [
@@ -1447,6 +1460,7 @@ class TestClass<T> extends TestBaseClass {
 > param2 --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "param2",
         "locations": [
@@ -1566,6 +1580,7 @@ class TestClass<T> extends TestBaseClass {
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "purpose": "return",
             "children": [],
             "_id": "2"
@@ -1781,6 +1796,7 @@ const _a = new TestClass<string>(false, 4)
                                 {
                                     "kindText": "string",
                                     "kind": "primitive",
+                                    "primitiveKind": "string",
                                     "purpose": "parameter_value",
                                     "children": [],
                                     "_id": "1"
@@ -1870,6 +1886,7 @@ const _a = new TestClass<string>(false, 4)
                         {
                             "kindText": "boolean",
                             "kind": "primitive",
+                            "primitiveKind": "boolean",
                             "symbol": {
                                 "name": "thing",
                                 "locations": [
@@ -1949,6 +1966,7 @@ const _a = new TestClass<string>(false, 4)
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
+                                    "primitiveKind": "number",
                                     "children": [],
                                     "_id": "11"
                                 }
@@ -2053,6 +2071,7 @@ const _a = new TestClass<string>(false, 4)
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "param",
                 "locations": [
@@ -2092,6 +2111,7 @@ const _a = new TestClass<string>(false, 4)
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "param2",
                 "locations": [
@@ -2259,6 +2279,7 @@ const _a = new TestClass<string>(false, 4)
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "purpose": "parameter_value",
                             "children": [],
                             "_id": "2"
@@ -2271,6 +2292,7 @@ const _a = new TestClass<string>(false, 4)
         {
             "kindText": "boolean",
             "kind": "primitive",
+            "primitiveKind": "boolean",
             "symbol": {
                 "name": "thing",
                 "locations": [
@@ -2350,6 +2372,7 @@ const _a = new TestClass<string>(false, 4)
                 {
                     "kindText": "number",
                     "kind": "primitive",
+                    "primitiveKind": "number",
                     "children": [],
                     "_id": "5"
                 }
@@ -2630,6 +2653,7 @@ const _a = new TestClass<string>(false, 4)
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "symbol": {
                         "name": "param",
                         "locations": [
@@ -2669,6 +2693,7 @@ const _a = new TestClass<string>(false, 4)
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "symbol": {
                         "name": "param2",
                         "locations": [

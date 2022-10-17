@@ -80,6 +80,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "symbol": {
                         "name": "a",
                         "locations": [
@@ -293,6 +294,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                                         {
                                             "kindText": "string",
                                             "kind": "primitive",
+                                            "primitiveKind": "string",
                                             "symbol": {
                                                 "name": "a",
                                                 "locations": [
@@ -373,6 +375,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                                         {
                                             "kindText": "string",
                                             "kind": "primitive",
+                                            "primitiveKind": "string",
                                             "symbol": {
                                                 "name": "b",
                                                 "locations": [
@@ -507,18 +510,21 @@ type partialUnion = Partial<{a: string}|{b: string}>
                                         {
                                             "kindText": "string",
                                             "kind": "primitive",
+                                            "primitiveKind": "string",
                                             "children": [],
                                             "_id": "10"
                                         },
                                         {
                                             "kindText": "number",
                                             "kind": "primitive",
+                                            "primitiveKind": "number",
                                             "children": [],
                                             "_id": "11"
                                         },
                                         {
                                             "kindText": "symbol",
                                             "kind": "primitive",
+                                            "primitiveKind": "essymbol",
                                             "children": [],
                                             "_id": "12"
                                         }
@@ -545,6 +551,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
 > a --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "a",
         "locations": [
@@ -587,6 +594,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
 > b --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "b",
         "locations": [

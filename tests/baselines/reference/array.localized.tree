@@ -4,6 +4,7 @@ type arrayOfStrings = string[]
 > arrayOfStrings --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "arrayOfStrings",
         "locations": [

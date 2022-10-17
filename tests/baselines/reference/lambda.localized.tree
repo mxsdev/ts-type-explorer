@@ -41,6 +41,7 @@ type f = (arg1: string, arg2: boolean) => void
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "arg1",
                 "locations": [
@@ -80,6 +81,7 @@ type f = (arg1: string, arg2: boolean) => void
         {
             "kindText": "boolean",
             "kind": "primitive",
+            "primitiveKind": "boolean",
             "symbol": {
                 "name": "arg2",
                 "locations": [
@@ -119,6 +121,7 @@ type f = (arg1: string, arg2: boolean) => void
         {
             "kindText": "void",
             "kind": "primitive",
+            "primitiveKind": "void",
             "purpose": "return",
             "children": [],
             "_id": "3"
@@ -132,6 +135,7 @@ type f = (arg1: string, arg2: boolean) => void
 > arg1 --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "arg1",
         "locations": [
@@ -172,6 +176,7 @@ type f = (arg1: string, arg2: boolean) => void
 > arg2 --- {
     "kindText": "boolean",
     "kind": "primitive",
+    "primitiveKind": "boolean",
     "symbol": {
         "name": "arg2",
         "locations": [
@@ -211,6 +216,7 @@ type f = (arg1: string, arg2: boolean) => void
 > => --- {
     "kindText": "any",
     "kind": "primitive",
+    "primitiveKind": "any",
     "symbol": {
         "name": "__type",
         "locations": [
@@ -328,6 +334,7 @@ type t = { a: string } | f
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "symbol": {
                         "name": "arg1",
                         "locations": [
@@ -367,6 +374,7 @@ type t = { a: string } | f
                 {
                     "kindText": "boolean",
                     "kind": "primitive",
+                    "primitiveKind": "boolean",
                     "symbol": {
                         "name": "arg2",
                         "locations": [
@@ -406,6 +414,7 @@ type t = { a: string } | f
                 {
                     "kindText": "void",
                     "kind": "primitive",
+                    "primitiveKind": "void",
                     "purpose": "return",
                     "children": [],
                     "_id": "4"
@@ -454,6 +463,7 @@ type t = { a: string } | f
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "symbol": {
                         "name": "a",
                         "locations": [
@@ -504,6 +514,7 @@ type t = { a: string } | f
 > a --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "a",
         "locations": [
@@ -581,6 +592,7 @@ type t = { a: string } | f
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "arg1",
                 "locations": [
@@ -620,6 +632,7 @@ type t = { a: string } | f
         {
             "kindText": "boolean",
             "kind": "primitive",
+            "primitiveKind": "boolean",
             "symbol": {
                 "name": "arg2",
                 "locations": [
@@ -659,6 +672,7 @@ type t = { a: string } | f
         {
             "kindText": "void",
             "kind": "primitive",
+            "primitiveKind": "void",
             "purpose": "return",
             "children": [],
             "_id": "3"

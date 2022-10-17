@@ -41,6 +41,7 @@ type Obj = { a: string, b: number }
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "a",
                 "locations": [
@@ -80,6 +81,7 @@ type Obj = { a: string, b: number }
         {
             "kindText": "number",
             "kind": "primitive",
+            "primitiveKind": "number",
             "symbol": {
                 "name": "b",
                 "locations": [
@@ -125,6 +127,7 @@ type Obj = { a: string, b: number }
 > a --- {
     "kindText": "string",
     "kind": "primitive",
+    "primitiveKind": "string",
     "symbol": {
         "name": "a",
         "locations": [
@@ -165,6 +168,7 @@ type Obj = { a: string, b: number }
 > b --- {
     "kindText": "number",
     "kind": "primitive",
+    "primitiveKind": "number",
     "symbol": {
         "name": "b",
         "locations": [
@@ -245,6 +249,7 @@ type arrObj = Obj[]
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "a",
                 "locations": [
@@ -284,6 +289,7 @@ type arrObj = Obj[]
         {
             "kindText": "number",
             "kind": "primitive",
+            "primitiveKind": "number",
             "symbol": {
                 "name": "b",
                 "locations": [
@@ -365,6 +371,7 @@ type arrObj = Obj[]
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "symbol": {
                 "name": "a",
                 "locations": [
@@ -404,6 +411,7 @@ type arrObj = Obj[]
         {
             "kindText": "number",
             "kind": "primitive",
+            "primitiveKind": "number",
             "symbol": {
                 "name": "b",
                 "locations": [

@@ -82,6 +82,7 @@ type U<T extends string> = Uppercase<T>
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "purpose": "parameter_base_constraint",
                             "children": [],
                             "_id": "2"
@@ -140,6 +141,7 @@ type U<T extends string> = Uppercase<T>
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "purpose": "parameter_base_constraint",
             "children": [],
             "_id": "1"
@@ -268,6 +270,7 @@ type U<T extends string> = Uppercase<T>
                                 {
                                     "kindText": "string",
                                     "kind": "primitive",
+                                    "primitiveKind": "string",
                                     "purpose": "parameter_base_constraint",
                                     "children": [],
                                     "_id": "2"
@@ -329,6 +332,7 @@ type U<T extends string> = Uppercase<T>
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "purpose": "parameter_base_constraint",
             "children": [],
             "_id": "1"

@@ -68,6 +68,7 @@ console.log("hello world")
         {
             "kindText": "any",
             "kind": "primitive",
+            "primitiveKind": "any",
             "symbol": {
                 "name": "message",
                 "locations": [
@@ -108,6 +109,7 @@ console.log("hello world")
         {
             "kindText": "any",
             "kind": "primitive",
+            "primitiveKind": "any",
             "symbol": {
                 "name": "optionalParams",
                 "locations": [
@@ -149,6 +151,7 @@ console.log("hello world")
         {
             "kindText": "void",
             "kind": "primitive",
+            "primitiveKind": "void",
             "purpose": "return",
             "children": [],
             "_id": "4"
@@ -373,6 +376,7 @@ console.log("hello world")
                         {
                             "kindText": "boolean",
                             "kind": "primitive",
+                            "primitiveKind": "boolean",
                             "symbol": {
                                 "name": "condition",
                                 "locations": [
@@ -413,6 +417,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -454,6 +459,7 @@ console.log("hello world")
                         {
                             "kindText": "void",
                             "kind": "primitive",
+                            "primitiveKind": "void",
                             "purpose": "return",
                             "children": [],
                             "_id": "5"
@@ -499,6 +505,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "value",
                                 "locations": [
@@ -538,6 +545,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "message",
                                 "locations": [
@@ -578,6 +586,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
                                 "locations": [
@@ -874,6 +883,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -955,6 +965,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -1102,6 +1113,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -1183,6 +1195,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -1330,6 +1343,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -1412,6 +1426,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
                                 "locations": [
@@ -1452,6 +1467,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
                                 "locations": [
@@ -1600,6 +1616,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "item",
                                 "locations": [
@@ -1640,6 +1657,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "options",
                                 "locations": [
@@ -1721,6 +1739,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "obj",
                                 "locations": [
@@ -1863,6 +1882,7 @@ console.log("hello world")
                                 {
                                     "kindText": "boolean",
                                     "kind": "primitive",
+                                    "primitiveKind": "boolean",
                                     "symbol": {
                                         "name": "showHidden",
                                         "locations": [
@@ -1903,6 +1923,7 @@ console.log("hello world")
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
+                                    "primitiveKind": "number",
                                     "symbol": {
                                         "name": "depth",
                                         "locations": [
@@ -1943,6 +1964,7 @@ console.log("hello world")
                                 {
                                     "kindText": "boolean",
                                     "kind": "primitive",
+                                    "primitiveKind": "boolean",
                                     "symbol": {
                                         "name": "colors",
                                         "locations": [
@@ -1983,6 +2005,7 @@ console.log("hello world")
                                 {
                                     "kindText": "boolean",
                                     "kind": "primitive",
+                                    "primitiveKind": "boolean",
                                     "symbol": {
                                         "name": "customInspect",
                                         "locations": [
@@ -2023,6 +2046,7 @@ console.log("hello world")
                                 {
                                     "kindText": "boolean",
                                     "kind": "primitive",
+                                    "primitiveKind": "boolean",
                                     "symbol": {
                                         "name": "showProxy",
                                         "locations": [
@@ -2063,6 +2087,7 @@ console.log("hello world")
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
+                                    "primitiveKind": "number",
                                     "symbol": {
                                         "name": "maxArrayLength",
                                         "locations": [
@@ -2103,6 +2128,7 @@ console.log("hello world")
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
+                                    "primitiveKind": "number",
                                     "symbol": {
                                         "name": "maxStringLength",
                                         "locations": [
@@ -2143,6 +2169,7 @@ console.log("hello world")
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
+                                    "primitiveKind": "number",
                                     "symbol": {
                                         "name": "breakLength",
                                         "locations": [
@@ -2221,6 +2248,7 @@ console.log("hello world")
                                         {
                                             "kindText": "number",
                                             "kind": "primitive",
+                                            "primitiveKind": "number",
                                             "children": [],
                                             "_id": "39"
                                         },
@@ -2318,6 +2346,7 @@ console.log("hello world")
                                                 {
                                                     "kindText": "string",
                                                     "kind": "primitive",
+                                                    "primitiveKind": "string",
                                                     "symbol": {
                                                         "name": "a",
                                                         "locations": [
@@ -2357,6 +2386,7 @@ console.log("hello world")
                                                 {
                                                     "kindText": "string",
                                                     "kind": "primitive",
+                                                    "primitiveKind": "string",
                                                     "symbol": {
                                                         "name": "b",
                                                         "locations": [
@@ -2515,6 +2545,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -2597,6 +2628,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -2745,6 +2777,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -2827,6 +2860,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
                                 "locations": [
@@ -2867,6 +2901,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
                                 "locations": [
@@ -3015,6 +3050,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -3097,6 +3133,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -3245,6 +3282,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -3327,6 +3365,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -3623,6 +3662,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -3705,6 +3745,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
                                 "locations": [
@@ -3745,6 +3786,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
                                 "locations": [
@@ -3893,6 +3935,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -3975,6 +4018,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
                                 "locations": [
@@ -4015,6 +4059,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
                                 "locations": [
@@ -4163,6 +4208,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "tabularData",
                                 "locations": [
@@ -4203,6 +4249,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "properties",
                                 "locations": [
@@ -4285,6 +4332,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "tabularData",
                                 "locations": [
@@ -4365,6 +4413,7 @@ console.log("hello world")
                                         {
                                             "kindText": "string",
                                             "kind": "primitive",
+                                            "primitiveKind": "string",
                                             "children": [],
                                             "_id": "69"
                                         }
@@ -4701,6 +4750,7 @@ console.log("hello world")
                                                 {
                                                     "kindText": "string",
                                                     "kind": "primitive",
+                                                    "primitiveKind": "string",
                                                     "symbol": {
                                                         "name": "Array",
                                                         "locations": [
@@ -5448,6 +5498,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
                                                                 "locations": [
@@ -5567,6 +5618,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "boolean",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "boolean",
                                                             "purpose": "return",
                                                             "children": [],
                                                             "_id": "98"
@@ -5577,6 +5629,7 @@ console.log("hello world")
                                                 {
                                                     "kindText": "any",
                                                     "kind": "primitive",
+                                                    "primitiveKind": "any",
                                                     "symbol": {
                                                         "name": "thisArg",
                                                         "locations": [
@@ -5724,6 +5777,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
                                                                 "locations": [
@@ -5766,6 +5820,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "unknown",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "unknown",
                                                             "purpose": "return",
                                                             "children": [],
                                                             "_id": "103"
@@ -5864,6 +5919,7 @@ console.log("hello world")
                                                 {
                                                     "kindText": "number",
                                                     "kind": "primitive",
+                                                    "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
                                                         "locations": [
@@ -5998,6 +6054,7 @@ console.log("hello world")
                                                 {
                                                     "kindText": "number",
                                                     "kind": "primitive",
+                                                    "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
                                                         "locations": [
@@ -6177,6 +6234,7 @@ console.log("hello world")
                                                 {
                                                     "kindText": "number",
                                                     "kind": "primitive",
+                                                    "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
                                                         "locations": [
@@ -6669,6 +6727,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
                                                                 "locations": [
@@ -7052,6 +7111,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
                                                                 "locations": [
@@ -7331,6 +7391,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
                                                                 "locations": [
@@ -7515,6 +7576,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
                                                                 "locations": [
@@ -7784,6 +7846,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
                                                                 "locations": [
@@ -8063,6 +8126,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
                                                                 "locations": [
@@ -8247,6 +8311,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
                                                                 "locations": [
@@ -8516,6 +8581,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
                                                                 "locations": [
@@ -8789,6 +8855,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
                                                                 "locations": [
@@ -8947,6 +9014,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "number",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
                                                                 "locations": [
@@ -9083,6 +9151,7 @@ console.log("hello world")
                                                 {
                                                     "kindText": "number",
                                                     "kind": "primitive",
+                                                    "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
                                                         "locations": [
@@ -9273,7 +9342,7 @@ console.log("hello world")
                                                     "kindText": "method",
                                                     "kind": "function",
                                                     "symbol": {
-                                                        "name": "__@iterator@1574",
+                                                        "name": "__@iterator@1585",
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9545,7 +9614,7 @@ console.log("hello world")
                                                     "kindText": "method",
                                                     "kind": "function",
                                                     "symbol": {
-                                                        "name": "__@iterator@1574",
+                                                        "name": "__@iterator@1585",
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9817,7 +9886,7 @@ console.log("hello world")
                                                     "kindText": "method",
                                                     "kind": "function",
                                                     "symbol": {
-                                                        "name": "__@iterator@1574",
+                                                        "name": "__@iterator@1585",
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -10172,6 +10241,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "undefined",
                                                             "kind": "primitive",
+                                                            "primitiveKind": "undefined",
                                                             "purpose": "parameter_default",
                                                             "children": [],
                                                             "_id": "211"
@@ -10224,6 +10294,7 @@ console.log("hello world")
                                                 {
                                                     "kindText": "number",
                                                     "kind": "primitive",
+                                                    "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
                                                         "locations": [
@@ -10877,7 +10948,7 @@ console.log("hello world")
                                     "kindText": "method",
                                     "kind": "function",
                                     "symbol": {
-                                        "name": "__@iterator@1574",
+                                        "name": "__@iterator@1585",
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -11029,6 +11100,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -11110,6 +11182,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -11257,6 +11330,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -11338,6 +11412,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -11485,6 +11560,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -11525,6 +11601,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -11607,6 +11684,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -11647,6 +11725,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -11795,6 +11874,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -11876,6 +11956,7 @@ console.log("hello world")
                         {
                             "kindText": "string",
                             "kind": "primitive",
+                            "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
                                 "locations": [
@@ -12023,6 +12104,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -12105,6 +12187,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
                                 "locations": [
@@ -12145,6 +12228,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
                                 "locations": [
@@ -12293,6 +12377,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
                                 "locations": [
@@ -12375,6 +12460,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
                                 "locations": [
@@ -12415,6 +12501,7 @@ console.log("hello world")
                         {
                             "kindText": "any",
                             "kind": "primitive",
+                            "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
                                 "locations": [
@@ -15537,6 +15624,7 @@ console.log("hello world")
                                 {
                                     "kindText": "string",
                                     "kind": "primitive",
+                                    "primitiveKind": "string",
                                     "symbol": {
                                         "name": "label",
                                         "locations": [
@@ -15620,6 +15708,7 @@ console.log("hello world")
                                 {
                                     "kindText": "string",
                                     "kind": "primitive",
+                                    "primitiveKind": "string",
                                     "symbol": {
                                         "name": "label",
                                         "locations": [
@@ -15780,6 +15869,7 @@ console.log("hello world")
                 {
                     "kindText": "any",
                     "kind": "primitive",
+                    "primitiveKind": "any",
                     "symbol": {
                         "name": "data",
                         "locations": [
@@ -15821,6 +15911,7 @@ console.log("hello world")
                 {
                     "kindText": "void",
                     "kind": "primitive",
+                    "primitiveKind": "void",
                     "purpose": "return",
                     "children": [],
                     "_id": "3"
@@ -15866,6 +15957,7 @@ console.log("hello world")
                 {
                     "kindText": "any",
                     "kind": "primitive",
+                    "primitiveKind": "any",
                     "symbol": {
                         "name": "message",
                         "locations": [
@@ -15906,6 +15998,7 @@ console.log("hello world")
                 {
                     "kindText": "any",
                     "kind": "primitive",
+                    "primitiveKind": "any",
                     "symbol": {
                         "name": "optionalParams",
                         "locations": [

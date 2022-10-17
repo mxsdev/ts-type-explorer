@@ -127,18 +127,21 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                                 {
                                     "kindText": "string",
                                     "kind": "primitive",
+                                    "primitiveKind": "string",
                                     "children": [],
                                     "_id": "4"
                                 },
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
+                                    "primitiveKind": "number",
                                     "children": [],
                                     "_id": "5"
                                 },
                                 {
                                     "kindText": "symbol",
                                     "kind": "primitive",
+                                    "primitiveKind": "essymbol",
                                     "children": [],
                                     "_id": "6"
                                 }
@@ -248,18 +251,21 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "children": [],
                     "_id": "2"
                 },
                 {
                     "kindText": "number",
                     "kind": "primitive",
+                    "primitiveKind": "number",
                     "children": [],
                     "_id": "3"
                 },
                 {
                     "kindText": "symbol",
                     "kind": "primitive",
+                    "primitiveKind": "essymbol",
                     "children": [],
                     "_id": "4"
                 }
@@ -400,18 +406,21 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                 {
                     "kindText": "string",
                     "kind": "primitive",
+                    "primitiveKind": "string",
                     "children": [],
                     "_id": "2"
                 },
                 {
                     "kindText": "number",
                     "kind": "primitive",
+                    "primitiveKind": "number",
                     "children": [],
                     "_id": "3"
                 },
                 {
                     "kindText": "symbol",
                     "kind": "primitive",
+                    "primitiveKind": "essymbol",
                     "children": [],
                     "_id": "4"
                 }

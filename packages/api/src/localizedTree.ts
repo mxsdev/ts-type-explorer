@@ -70,6 +70,7 @@ type TypeInfoChildren = ({ info?: TypeInfo, localizedInfo?: LocalizedTypeInfo, o
 export type LocalizedTypeInfo = {
     kindText?: string,
     kind?: ResolvedTypeInfo['kind'],
+    primitiveKind?: TypeInfoKind<'primitive'>['primitive'],
     alias?: string,
     symbol?: LocalizedSymbolInfo,
     name?: string,
@@ -113,6 +114,7 @@ function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpt
     const res: LocalizedTypeInfo = {
         kindText: getKind(info),
         kind: info.kind,
+        ...info.kind === "primitive" && { primitiveKind: info.primitive },
         alias: getAlias(info),
         symbol, 
         purpose,

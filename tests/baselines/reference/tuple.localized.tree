@@ -47,12 +47,14 @@ type tupleOfStuff = ["a", string, number]
         {
             "kindText": "string",
             "kind": "primitive",
+            "primitiveKind": "string",
             "children": [],
             "_id": "2"
         },
         {
             "kindText": "number",
             "kind": "primitive",
+            "primitiveKind": "number",
             "children": [],
             "_id": "3"
         }
