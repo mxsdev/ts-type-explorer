@@ -6,22 +6,41 @@ import { getTypeInfoChildren } from "./tree"
 import { getEmptyTypeId, isEmpty, isNonEmpty, pseudoBigIntToString, wrapSafe } from "./util"
 import { unwatchFile } from "fs"
 
-export function localizeTypeInfo(info: TypeInfo, typeInfoMap: TypeInfoMap): LocalizedTypeInfo {
-    return _localizeTypeInfo(info, { typeInfoMap })
+export class TypeInfoLocalizer {
+    typeInfoMap: TypeInfoMap
+
+    constructor(private typeInfo: TypeInfo) {
+        this.typeInfoMap = generateTypeInfoMap(typeInfo)
+    }
+
+    localize(info: TypeInfo) {
+        return _localizeTypeInfo(info, { typeInfoMap: this.typeInfoMap })
+    }
+
+    localizeChildren(info: LocalizedTypeInfo): LocalizedTypeInfo[] {
+        return info.children?.map(
+            ({info, localizedInfo, opts}) => {
+                assert(info || localizedInfo, "Either info or localized info must be provided")
+    
+                if(localizedInfo) {
+                    return localizedInfo
+                }
+    
+                return _localizeTypeInfo(info!, { typeInfoMap: this.typeInfoMap }, opts)
+            }
+        ) ?? []
+    }
 }
 
-export function getLocalizedTypeInfoChildren(info: LocalizedTypeInfo, typeInfoMap: TypeInfoMap): LocalizedTypeInfo[] {
-    return info.children?.map(
-        ({info, localizedInfo, opts}) => {
-            assert(info || localizedInfo, "Either info or localized info must be provided")
 
-            if(localizedInfo) {
-                return localizedInfo
-            }
+function generateTypeInfoMap(tree: TypeInfo, cache?: TypeInfoMap): TypeInfoMap {
+    cache ??= new Map()
 
-            return _localizeTypeInfo(info!, { typeInfoMap }, opts)
-        }
-    ) ?? []
+    if(tree.kind === 'reference') { return cache }
+    cache.set(tree.id, tree)
+    getTypeInfoChildren(tree).forEach(c => generateTypeInfoMap(c, cache))
+
+    return cache
 }
 
 type TypePurpose = 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'|'object_class'|'type_parameter_list'|'type_argument_list'|'parameter_value'
@@ -443,16 +462,6 @@ function localizePurpose(purpose: TypePurpose): string {
     }
 
     return nameByPurpose[purpose]
-}
-
-export function generateTypeInfoMap(tree: TypeInfo, cache?: TypeInfoMap): TypeInfoMap {
-    cache ??= new Map()
-
-    if(tree.kind === 'reference') { return cache }
-    cache.set(tree.id, tree)
-    getTypeInfoChildren(tree).forEach(c => generateTypeInfoMap(c, cache))
-
-    return cache
 }
 
 function getTypeLocations(info: TypeInfo): SourceFileLocation[]|undefined {

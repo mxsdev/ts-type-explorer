@@ -18,8 +18,6 @@ export class StateManager {
                 return
             }
 
-            console.log("change selection", e)
-
             getQuickInfoAtPosition(e.textEditor.document.fileName, e.selections[0].start)
                 .then((body) => {
                     const { __displayTree } = body ?? {}

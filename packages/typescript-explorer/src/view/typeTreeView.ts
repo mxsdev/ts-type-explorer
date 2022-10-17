@@ -1,4 +1,4 @@
-import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo, pseudoBigIntToString, LocalizedTypeInfo, localizeTypeInfo, TypeInfoMap, generateTypeInfoMap, getLocalizedTypeInfoChildren, SourceFileLocation } from '@ts-expand-type/api'
+import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo, pseudoBigIntToString, LocalizedTypeInfo, TypeInfoMap, SourceFileLocation, TypeInfoLocalizer } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
 import { StateManager } from '../state/stateManager';
@@ -9,14 +9,15 @@ const { None: NoChildren, Expanded, Collapsed } = vscode.TreeItemCollapsibleStat
 export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     constructor(private stateManager: StateManager) { }
 
-    private typeInfoMap: TypeInfoMap = new Map()
+    // private typeInfoMap: TypeInfoMap = new Map()
+    private typeInfoLocalizer: TypeInfoLocalizer|undefined
 
     private _onDidChangeTreeData: vscode.EventEmitter<TypeTreeItem | undefined | null | void> = new vscode.EventEmitter<TypeTreeItem | undefined | null | void>()
     readonly onDidChangeTreeData: vscode.Event<TypeTreeItem | undefined | null | void> = this._onDidChangeTreeData.event
 
     refresh(): void {
-        this.typeInfoMap.clear()
-        this._onDidChangeTreeData.fire();
+        this.typeInfoLocalizer = undefined
+        this._onDidChangeTreeData.fire()
     }
 
     getTreeItem(element: TypeTreeItem) {
@@ -28,12 +29,12 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
             const typeInfo = this.stateManager.getTypeTree()
             if(!typeInfo) { return [] }
 
-            this.typeInfoMap = generateTypeInfoMap(typeInfo)
-            const localizedTypeInfo = localizeTypeInfo(typeInfo, this.typeInfoMap)
+            this.typeInfoLocalizer = new TypeInfoLocalizer(typeInfo)
+            const localizedTypeInfo = this.typeInfoLocalizer.localize(typeInfo)
 
             return [this.createTypeNode(localizedTypeInfo, /* root */ undefined)]
         } else {
-            return getLocalizedTypeInfoChildren(element.typeInfo, this.typeInfoMap).map(info => this.createTypeNode(info, element))
+            return this.typeInfoLocalizer!.localizeChildren(element.typeInfo).map(info => this.createTypeNode(info, element))
         }
     }
 
