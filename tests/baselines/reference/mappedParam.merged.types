@@ -1,9 +1,0 @@
-=== mappedParam.ts ===
-
-type mappedType2 = { [P in 'a'|'b'|'c']: P}
-> mappedType2 --- { a: "a"; b: "b"; c: "c"; }
-> { [P in 'a'|'b'|'c']: P}
-> P in 'a'|'b'|'c'
-> P --- P
-> P
-> P --- P

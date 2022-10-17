@@ -51,10 +51,6 @@ export async function generateBaselineTests() {
             const test = getTestName(filePath)
 
             describe(`${testName} baselines`, async () => {
-                it(`Run type checker`, () => {
-                    getProgram(filePath)
-                })
-
                 BaselineGenerators.forEach((baseline) => {
                     const testFileName = `${test}${baseline.extension}`
                     
@@ -82,20 +78,12 @@ export async function generateBaselineTests() {
     })
 }
 
-
 export async function clearLocalBaselines() {
     await fs.remove(baselinesLocalPath)
     await fs.mkdir(baselinesLocalPath)
 }
 
-const programCache = new Map<string, ts.Program>()
-
 function getProgram(filePath: string): ts.Program {
-    if(programCache.has(filePath)) {
-        return programCache.get(filePath)!
-    }
-
     const program = ts.createProgram([filePath], { })
-    programCache.set(filePath, program)
     return program
 }

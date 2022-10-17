@@ -1,4 +1,0 @@
-=== tuple.ts ===
-
-type tupleOfStuff = ["a", string, number]
-> tupleOfStuff --- ["a", string, number]

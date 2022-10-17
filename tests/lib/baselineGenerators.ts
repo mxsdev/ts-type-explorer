@@ -35,10 +35,10 @@ const localizedTreeBaselineGenerator = symbolBaselineGenerator(
 )
 
 export const BaselineGenerators: BaselineGenerator[] = [
-    {
-        extension: '.merged.types',
-        generator: mergeBaselineGenerator
-    },
+    // {
+    //     extension: '.merged.types',
+    //     generator: mergeBaselineGenerator
+    // },
     {
         extension: '.tree',
         generator: treeBaselineGenerator

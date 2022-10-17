@@ -1,4 +1,0 @@
-=== array.ts ===
-
-type arrayOfStrings = string[]
-> arrayOfStrings --- string[]
