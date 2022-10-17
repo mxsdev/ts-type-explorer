@@ -168,26 +168,3 @@ function addDecorations(text: string, decorations: { rest?: boolean, optional?: 
 
     return text
 }
-
-function getOpenCommand(location: SourceFileLocation): vscode.Command {
-    // TODO: bail if file does not exist
-
-    const range = {
-        start: (location.range.start),
-        end: (location.range.end),
-    }
-
-    const args: [ vscode.Uri, vscode.TextDocumentShowOptions] = [
-        vscode.Uri.file(location.fileName),
-        {
-            selection: rangeFromLineAndCharacters(range.start, range.end)
-        }
-    ]
-
-    return {
-        // command: "typescript-explorer.goToTypeInTypeTreeView",
-        command: "vscode.open",
-        title: "Go To Type",
-        arguments: args,
-    }
-}
