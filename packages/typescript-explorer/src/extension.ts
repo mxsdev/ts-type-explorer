@@ -7,15 +7,16 @@ import { StateManager } from './state/stateManager';
 // TODO: add config for e.g. max depth
 
 export function activate(context: vscode.ExtensionContext) {
-	registerCommands(context)
-	registerTypeInfoHoverProvider(context)
-
 	const stateManager = new StateManager()
-
-	const { typeTreeProvider } = createAndRegisterViews(context, stateManager)
-
+	
+	const viewProviders = createAndRegisterViews(context, stateManager)
+	
+	registerCommands(context, viewProviders)
+	registerTypeInfoHoverProvider(context)
+	
 	stateManager.init(
-		typeTreeProvider
+		context,
+		viewProviders
 	)
 }
 

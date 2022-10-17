@@ -1,6 +1,18 @@
 import ts from "typescript"
 
-// TODO: support class instances with generics, like Map<string, number>
+export type TextRange = {
+    start: ts.LineAndCharacter,
+    end: ts.LineAndCharacter,
+}
+
+export type SourceFileLocation = {
+    range: TextRange,
+    fileName: string,
+}
+
+export type DeclarationInfo = {
+    location: SourceFileLocation,
+}
 
 export type SymbolInfo = {
     name: string,
@@ -9,6 +21,7 @@ export type SymbolInfo = {
     anonymous?: boolean,
     rest?: boolean,
     insideClassOrInterface?: boolean,
+    declarations?: DeclarationInfo[],
 }
 
 export type IndexInfo = {

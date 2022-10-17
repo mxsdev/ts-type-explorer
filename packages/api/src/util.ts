@@ -1,6 +1,6 @@
 import { deepStrictEqual } from "assert"
 import ts from "typescript"
-import { TypeId } from "./types"
+import { SourceFileLocation, TypeId } from "./types"
 
 export type SymbolName = ts.__String
 
@@ -82,8 +82,8 @@ export function getSymbolType(typeChecker: ts.TypeChecker, symbol: ts.Symbol, lo
     return fallbackType
 }
 
-export function getNodeSymbol(typeChecker: ts.TypeChecker, node: ts.Node): ts.Symbol|undefined {
-    return (node as ts.Node & { symbol?: TSSymbol }).symbol ?? typeChecker.getSymbolAtLocation(node)
+export function getNodeSymbol(typeChecker: ts.TypeChecker, node?: ts.Node): ts.Symbol|undefined {
+    return node ? ((node as ts.Node & { symbol?: TSSymbol }).symbol ?? typeChecker.getSymbolAtLocation(node)) : undefined
 }
 
 export function getNodeType(typeChecker: ts.TypeChecker, node: ts.Node) {
@@ -502,6 +502,25 @@ function getStartSafe(node: ts.Node, sourceFile: ts.SourceFile) {
     }
     return node.getStart(sourceFile);
   }
+
+export function getSourceFileLocation(sourceFile: ts.SourceFile, node: ts.Node): SourceFileLocation|undefined {
+    const startPos = node.getStart()
+    const endPos = node.getEnd()
+
+    if(startPos < 0 || endPos < 0) {
+        return undefined
+    }
+
+    const start = sourceFile.getLineAndCharacterOfPosition(startPos)
+    const end   = sourceFile.getLineAndCharacterOfPosition(endPos)
+
+    return {
+        fileName: sourceFile.fileName,
+        range: {
+            start, end
+        }
+    }
+}
 
 
 export const enum CheckFlags {

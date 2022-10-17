@@ -32,6 +32,17 @@
         "title": "Toggle Expanded Type on Hover",
         "command": "typescript-explorer.toggleExpandedHover",
         "category": "TypeScript Explorer"
+      },
+      {
+        "title": "Refresh Type Tree",
+        "command": "typescript-explorer.refreshTypeTreeView",
+        "category": "TypeScript Explorer",
+        "icon": "$(extensions-refresh)"
+      },
+      {
+        "title": "Go To Type",
+        "command": "typescript-explorer.goToTypeInTypeTreeView",
+        "category": "Typescript Explorer"
       }
     ],
     "viewsContainers": {
@@ -49,6 +60,18 @@
           "id": "type-tree",
           "name": "Type Tree"
         }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "typescript-explorer.refreshTypeTreeView",
+          "when": "view == type-tree",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+
       ]
     },
     "typescriptServerPlugins": [

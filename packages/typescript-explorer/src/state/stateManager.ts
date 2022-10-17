@@ -2,6 +2,7 @@ import { TypeInfo } from '@ts-expand-type/api'
 import * as vscode from 'vscode'
 import { getQuickInfoAtPosition } from '../util'
 import { TypeTreeProvider } from '../view/typeTreeView'
+import { ViewProviders } from '../view/views'
 
 export class StateManager {
     constructor() { }
@@ -9,13 +10,15 @@ export class StateManager {
     private typeTree: TypeInfo|undefined
     private typeTreeProvider?: TypeTreeProvider
 
-    init(typeTreeProvider: TypeTreeProvider) {
+    init(context: vscode.ExtensionContext, { typeTreeProvider }: ViewProviders) {
         this.typeTreeProvider = typeTreeProvider
 
         vscode.window.onDidChangeTextEditorSelection((e) => {
-            if(e.selections.length === 0) {
+            if(e.selections.length === 0 || e.kind === vscode.TextEditorSelectionChangeKind.Command || !e.kind) {
                 return
             }
+
+            console.log("change selection", e)
 
             getQuickInfoAtPosition(e.textEditor.document.fileName, e.selections[0].start)
                 .then((body) => {
@@ -23,6 +26,13 @@ export class StateManager {
                     this.setTypeTree(__displayTree)
                 })
         })
+
+        context.subscriptions.push(
+            vscode.commands.registerCommand(
+                "typescript-explorer.refreshTypeTreeView",
+                 () => typeTreeProvider.refresh()
+            )
+        )
     }
 
     setTypeTree(typeTree: TypeInfo|undefined) {

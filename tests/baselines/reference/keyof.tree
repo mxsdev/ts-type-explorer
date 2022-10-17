@@ -1,10 +1,10 @@
 === keyof.ts ===
 
 type KeyOf<T> = keyof T
-> KeyOf --- {"kind":"index","keyOf":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":"86,1476,"},"symbolMeta":{"name":"KeyOf","flags":524288},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144},"id":"86,1476,"}],"id":"87,1475,"}
+> KeyOf --- {"kind":"index","keyOf":{"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"/Users/maxstoumen/Projects/ts-expand-type/tests/cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}}]},"id":"86,1516,"},"symbolMeta":{"name":"KeyOf","flags":524288,"declarations":[{"location":{"fileName":"/Users/maxstoumen/Projects/ts-expand-type/tests/cases/keyof.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"/Users/maxstoumen/Projects/ts-expand-type/tests/cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}}]},"id":"86,1516,"}],"id":"87,1515,"}
 > T
 > T
-> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":"86,1476,"}
+> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"/Users/maxstoumen/Projects/ts-expand-type/tests/cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}}]},"id":"86,1516,"}
 > keyof T
 > T
-> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144},"id":"86,1476,"}
+> T --- {"kind":"type_parameter","symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"/Users/maxstoumen/Projects/ts-expand-type/tests/cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}}]},"id":"86,1516,"}

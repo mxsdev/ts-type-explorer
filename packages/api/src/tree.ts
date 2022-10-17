@@ -1,8 +1,8 @@
 import assert from "assert";
 import ts, { createProgram, TypeChecker } from "typescript";
 import { APIConfig } from "./config";
-import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol, isClassType, isClassOrInterfaceType, isInterfaceType, getImplementsTypes, filterUndefined, createSymbol, getConstructSignatures, getEmptyTypeId, getTypeParameters, isNonEmpty, arrayContentsEqual, getResolvedSignature, getSignatureTypeArguments, getCallLikeExpression } from "./util";
+import { DeclarationInfo, IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId } from "./types";
+import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol, isClassType, isClassOrInterfaceType, isInterfaceType, getImplementsTypes, filterUndefined, createSymbol, getConstructSignatures, getEmptyTypeId, getTypeParameters, isNonEmpty, arrayContentsEqual, getResolvedSignature, getSignatureTypeArguments, getCallLikeExpression, getSourceFileLocation, getNodeSymbol } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: getEmptyTypeId()}
 
@@ -47,7 +47,7 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
     if(!type) {
         type = getSymbolType(typeChecker, symbol!)
     }
-    
+
     let isAnonymousSymbol = !symbol
     
     if(!symbol) {
@@ -281,7 +281,7 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
         typeParameters = signature.typeParameters ?? typeParameters
 
         return {
-            symbolMeta: wrapSafe(getSymbolInfo)(typeChecker.getSymbolAtLocation(signature.getDeclaration())),
+            symbolMeta: wrapSafe(getSymbolInfo)(getNodeSymbol(typeChecker, signature.getDeclaration())),
             parameters: signature.getParameters().map((parameter, index) => getFunctionParameterInfo(parameter, signature, index)),
             ...includeReturnType && { returnType: parseType(typeChecker.getReturnTypeOfSignature(signature)) },
             ...typeParameters && { typeParameters: parseTypes(typeParameters) },
@@ -321,16 +321,31 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
         const parent = (symbol as TSSymbol).parent
         const insideClassOrInterface = options.insideClassOrInterface ?? (parent && parent.flags & (ts.SymbolFlags.Class | ts.SymbolFlags.Interface))
 
+        const declarations = wrapSafe(filterUndefined)(symbol.getDeclarations()?.map(getDeclarationInfo))
+
         return {
             name: symbol.getName(),
             flags: symbol.getFlags(),
             ...isAnonymous && { anonymous: true },
             ...optional && { optional: true },
             ...rest && { rest: true },
-            ...insideClassOrInterface && { insideClassOrInterface: true }
+            ...insideClassOrInterface && { insideClassOrInterface: true },
+            ...declarations && { declarations },
         }
     }
 
+    function getDeclarationInfo(declaration: ts.Declaration): DeclarationInfo|undefined {
+        const sourceFile = declaration.getSourceFile()
+        const location = getSourceFileLocation(sourceFile, declaration)
+
+        if(!location) {
+            return undefined
+        }
+
+        return {
+            location
+        }
+    }
 }
 
 function resolveSignature(typeChecker: ts.TypeChecker, type: ts.Type, node?: ts.Node) {

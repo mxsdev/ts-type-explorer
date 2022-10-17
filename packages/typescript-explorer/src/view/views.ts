@@ -2,7 +2,11 @@ import * as vscode from "vscode"
 import { StateManager } from "../state/stateManager"
 import { TypeTreeProvider } from "./typeTreeView"
 
-export function createAndRegisterViews(context: vscode.ExtensionContext, stateManager: StateManager) {
+export type ViewProviders = {
+    typeTreeProvider: TypeTreeProvider,
+}
+
+export function createAndRegisterViews(context: vscode.ExtensionContext, stateManager: StateManager): ViewProviders {
     const typeTreeProvider = new TypeTreeProvider(stateManager)
 
     context.subscriptions.push(

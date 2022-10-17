@@ -1,7 +1,8 @@
-import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo, pseudoBigIntToString, LocalizedTypeInfo, localizeTypeInfo, TypeInfoMap, generateTypeInfoMap, getLocalizedTypeInfoChildren } from '@ts-expand-type/api'
+import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo, pseudoBigIntToString, LocalizedTypeInfo, localizeTypeInfo, TypeInfoMap, generateTypeInfoMap, getLocalizedTypeInfoChildren, SourceFileLocation } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
 import { StateManager } from '../state/stateManager';
+import { fromFileLocationRequestArgs, rangeFromLineAndCharacters } from '../util';
 
 const { None: NoChildren, Expanded, Collapsed } = vscode.TreeItemCollapsibleState
 
@@ -41,7 +42,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     }
 }
 
-class TypeTreeItem extends vscode.TreeItem {
+export class TypeTreeItem extends vscode.TreeItem {
     protected depth: number
 
     constructor(
@@ -58,6 +59,10 @@ class TypeTreeItem extends vscode.TreeItem {
 
         this.depth = depth
         this.description = description
+
+        if(typeInfo.locations && typeInfo.locations && typeInfo.locations.length > 0) {
+            this.command = getOpenCommand(typeInfo.locations[0])
+        }
     }
 
     createTypeNode(typeInfo: LocalizedTypeInfo) {
@@ -130,4 +135,27 @@ function addDecorations(text: string, decorations: { rest?: boolean, optional?: 
     }
 
     return text
+}
+
+function getOpenCommand(location: SourceFileLocation): vscode.Command {
+    // TODO: bail if file does not exist
+
+    const range = {
+        start: (location.range.start),
+        end: (location.range.end),
+    }
+
+    const args: [ vscode.Uri, vscode.TextDocumentShowOptions] = [
+        vscode.Uri.file(location.fileName),
+        {
+            selection: rangeFromLineAndCharacters(range.start, range.end)
+        }
+    ]
+
+    return {
+        // command: "typescript-explorer.goToTypeInTypeTreeView",
+        command: "vscode.open",
+        title: "Go To Type",
+        arguments: args,
+    }
 }

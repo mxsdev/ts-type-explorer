@@ -1,9 +1,10 @@
 import assert from "assert"
 import * as ts from "typescript"
 import { getKindText, getPrimitiveKindText, LocalizableKind } from "./localization"
-import { IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoKind } from "./types"
+import { IndexInfo, SignatureInfo, SourceFileLocation, SymbolInfo, TypeId, TypeInfo, TypeInfoKind } from "./types"
 import { getTypeInfoChildren } from "./tree"
 import { getEmptyTypeId, isEmpty, isNonEmpty, pseudoBigIntToString, wrapSafe } from "./util"
+import { unwatchFile } from "fs"
 
 export function localizeTypeInfo(info: TypeInfo, typeInfoMap: TypeInfoMap): LocalizedTypeInfo {
     return _localizeTypeInfo(info, { typeInfoMap })
@@ -26,7 +27,7 @@ export function getLocalizedTypeInfoChildren(info: LocalizedTypeInfo, typeInfoMa
 type TypePurpose = 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'|'object_class'|'type_parameter_list'|'type_argument_list'|'parameter_value'
 
 type ResolvedTypeInfo = Exclude<TypeInfo, {kind: 'reference'}>
-type LocalizedSymbolInfo = { name: string, anonymous?: boolean }
+type LocalizedSymbolInfo = { name: string, anonymous?: boolean, locations?: SourceFileLocation[] }
 
 type TypeInfoChildren = ({ info?: TypeInfo, localizedInfo?: LocalizedTypeInfo, opts?: LocalizeOpts })[]
 
@@ -41,6 +42,7 @@ export type LocalizedTypeInfo = {
     dimension?: number,
     rest?: boolean,
     children?: TypeInfoChildren,
+    locations?: SourceFileLocation[],
 }
 
 export type TypeInfoMap = Map<TypeId, ResolvedTypeInfo>
@@ -65,6 +67,8 @@ function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpt
     const isOptional = info.symbolMeta?.optional || optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
     const isRest = info.symbolMeta?.rest
 
+    const locations = getTypeLocations(info)
+
     const res: LocalizedTypeInfo = {
         kindText: getKind(info),
         kind: info.kind,
@@ -74,6 +78,7 @@ function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpt
         ...isRest && { rest: true },
         ...dimension && { dimension },
         ...(name !== undefined) && { name },
+        locations,
     }
 
     res.children = getChildren(info, opts)
@@ -282,9 +287,11 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
     }
 
     function getLocalizedSignature(signature: SignatureInfo, typeArguments?: TypeInfo[]){
+        const symbol = wrapSafe(localizeSymbol)(signature.symbolMeta)
+
         return createChild({
             kindText: "signature",
-            symbol: wrapSafe(localizeSymbol)(signature.symbolMeta),
+            symbol, locations: symbol?.locations,
             children: getLocalizedSignatureChildren(signature, typeArguments),
         })
     }
@@ -299,9 +306,12 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
 }
 
 function localizeSymbol(symbolInfo: SymbolInfo): LocalizedSymbolInfo {
+    const locations = getLocations(symbolInfo)
+
     return {
         name: symbolInfo.name,
         ...symbolInfo.anonymous && { anonymous: symbolInfo.anonymous },
+        locations,
     }
 }
 
@@ -443,4 +453,20 @@ export function generateTypeInfoMap(tree: TypeInfo, cache?: TypeInfoMap): TypeIn
     getTypeInfoChildren(tree).forEach(c => generateTypeInfoMap(c, cache))
 
     return cache
+}
+
+function getTypeLocations(info: TypeInfo): SourceFileLocation[]|undefined {
+    const baseLocations = wrapSafe(getLocations)(info.typeSymbolMeta ?? info.aliasSymbolMeta ?? info.symbolMeta)
+
+    if(!baseLocations) {
+        if(info.kind === 'function' && info.signatures.length === 1) {
+            return wrapSafe(getLocations)(info.signatures[0].symbolMeta)
+        }
+    }
+
+    return baseLocations
+}
+
+function getLocations(info: SymbolInfo): SourceFileLocation[]|undefined {
+    return info.declarations?.map(({ location }) => location)
 }
