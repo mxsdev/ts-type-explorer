@@ -40,7 +40,7 @@ type TypeWithGenerics<T, K> = T
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",
@@ -292,7 +292,7 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",
@@ -421,7 +421,7 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",
@@ -483,7 +483,7 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
                                     }
                                 ]
                             },
-                            "purpose": "value",
+                            "purpose": "parameter_value",
                             "locations": [
                                 {
                                     "fileName": "cases/genericTypeDef.ts",
@@ -546,7 +546,7 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
                         {
                             "kindText": "\"asd\"",
                             "kind": "string_literal",
-                            "purpose": "value",
+                            "purpose": "parameter_value",
                             "children": [],
                             "_id": "4"
                         }

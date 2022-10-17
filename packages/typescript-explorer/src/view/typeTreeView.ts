@@ -1,4 +1,4 @@
-import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo, pseudoBigIntToString, LocalizedTypeInfo, TypeInfoMap, SourceFileLocation, TypeInfoLocalizer } from '@ts-expand-type/api'
+import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo, pseudoBigIntToString, LocalizedTypeInfo, TypeInfoMap, SourceFileLocation, TypeInfoLocalizer, localizePurpose } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
 import { StateManager } from '../state/stateManager';
@@ -125,7 +125,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
             }
     
             if(info.purpose) {
-                return `<${info.purpose}>`
+                return `<${localizePurpose(info.purpose)}>`
             }
     
             nameOverridden = false

@@ -707,7 +707,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",
@@ -770,7 +770,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     }
                                 ]
                             },
-                            "purpose": "value",
+                            "purpose": "parameter_value",
                             "locations": [
                                 {
                                     "fileName": "cases/pick.ts",
@@ -991,7 +991,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         {
                             "kindText": "union",
                             "kind": "union",
-                            "purpose": "value",
+                            "purpose": "parameter_value",
                             "children": [
                                 {
                                     "kindText": "\"d\"",
@@ -1011,7 +1011,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         {
                             "kindText": "union",
                             "kind": "union",
-                            "purpose": "extends",
+                            "purpose": "parameter_base_constraint",
                             "children": [
                                 {
                                     "kindText": "string",
@@ -1066,7 +1066,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 {
                     "kindText": "access",
                     "kind": "indexed_access",
-                    "purpose": "value",
+                    "purpose": "index_value_type",
                     "children": [
                         {
                             "reference": "1"
@@ -1093,7 +1093,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     }
                                 ]
                             },
-                            "purpose": "index",
+                            "purpose": "indexed_access_index",
                             "locations": [
                                 {
                                     "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",

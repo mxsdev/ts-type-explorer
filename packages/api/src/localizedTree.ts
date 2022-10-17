@@ -60,7 +60,7 @@ function generateTypeInfoMap(tree: TypeInfo, cache?: TypeInfoMap): TypeInfoMap {
     return cache
 }
 
-type TypePurpose = 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'|'object_class'|'type_parameter_list'|'type_argument_list'|'parameter_value'
+export type TypePurpose = 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'|'object_class'|'type_parameter_list'|'type_argument_list'|'parameter_value'
 
 type ResolvedTypeInfo = Exclude<TypeInfo, {kind: 'reference'}>
 type LocalizedSymbolInfo = { name: string, anonymous?: boolean, locations?: SourceFileLocation[] }
@@ -73,7 +73,7 @@ export type LocalizedTypeInfo = {
     alias?: string,
     symbol?: LocalizedSymbolInfo,
     name?: string,
-    purpose?: string,
+    purpose?: TypePurpose,
     optional?: boolean,
     dimension?: number,
     rest?: boolean,
@@ -95,10 +95,10 @@ function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpt
     const resolveInfo = (typeInfo: TypeInfo) => resolveTypeReferenceOrArray(typeInfo, typeInfoMap)
 
     const { typeInfoMap } = data
-    const { purpose: purposeKind, optional, name, includeIds } = opts
+    const { purpose, optional, name, includeIds } = opts
 
     const symbol = wrapSafe(localizeSymbol)(info.symbolMeta)
-    const purpose = wrapSafe(localizePurpose)(purposeKind)
+    // const purpose = wrapSafe(localizePurpose)(purposeKind)
 
     const resolved = resolveInfo(info)
     
@@ -114,7 +114,8 @@ function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpt
         kindText: getKind(info),
         kind: info.kind,
         alias: getAlias(info),
-        symbol, purpose,
+        symbol, 
+        purpose,
         ...isOptional && { optional: true },
         ...isRest && { rest: true },
         ...dimension && { dimension },
@@ -176,7 +177,7 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
                 const { properties, baseType, implementsTypes, constructSignatures } = info
                 return [ 
                     ...baseType ? [localizeOpts(baseType, { purpose: 'class_base_type'})] : [],
-                    ...isNonEmpty(implementsTypes) ? [createChild({ purpose: localizePurpose('class_implementations'), children: implementsTypes.map(localize) })] : [],
+                    ...isNonEmpty(implementsTypes) ? [createChild({ purpose: 'class_implementations', children: implementsTypes.map(localize) })] : [],
                     ...isNonEmpty(constructSignatures) ? [localizeOpts({ kind: 'function', id: getEmptyTypeId(), signatures: constructSignatures }, { purpose: 'class_constructor' })] : [],
                     ...properties.map(localize),
                 ]
@@ -308,14 +309,14 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
 
     function getTypeArgumentList(info: TypeInfo[]) {
         return createChild({
-            purpose: localizePurpose("type_argument_list"),
+            purpose: "type_argument_list",
             children: info.map(localize),
         })
     }
 
     function getTypeParameterList(typeParameters: TypeInfo[], typeArguments?: TypeInfo[]) {
         return createChild({
-            purpose: localizePurpose("type_parameter_list"),
+            purpose: "type_parameter_list",
             children: typeParameters.map((param, i) => localizeOpts(param, { typeArgument: typeArguments?.[i] })),
         })
     }
@@ -462,32 +463,6 @@ function resolveTypeReference(typeInfo: TypeInfo, typeInfoMap: TypeInfoMap): Res
     }
 
     return typeInfo
-}
-
-function localizePurpose(purpose: TypePurpose): string {
-    const nameByPurpose = {
-        return: "return",
-        index_type: "constraint",
-        index_value_type: "value",
-        conditional_check: "check",
-        conditional_extends: "extends",
-        conditional_true: "true",
-        conditional_false: "false",
-        keyof: "keyof",
-        indexed_access_base: "base",
-        indexed_access_index: "index",
-        parameter_base_constraint: "extends",
-        parameter_default: "default",
-        parameter_value: "value",
-        class_constructor: "constructor",
-        class_base_type: "extends",
-        class_implementations: "implements",
-        object_class: "class",
-        type_parameter_list: "type parameters",
-        type_argument_list: "type arguments",
-    }
-
-    return nameByPurpose[purpose]
 }
 
 function getTypeLocations(info: TypeInfo): SourceFileLocation[]|undefined {

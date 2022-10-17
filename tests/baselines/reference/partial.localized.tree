@@ -207,7 +207,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",
@@ -250,7 +250,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                         {
                             "kindText": "union",
                             "kind": "union",
-                            "purpose": "value",
+                            "purpose": "parameter_value",
                             "children": [
                                 {
                                     "kindText": "object",
@@ -444,7 +444,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                 {
                     "kindText": "keyof",
                     "kind": "index",
-                    "purpose": "constraint",
+                    "purpose": "index_type",
                     "children": [
                         {
                             "reference": "1"
@@ -455,7 +455,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                 {
                     "kindText": "access",
                     "kind": "indexed_access",
-                    "purpose": "value",
+                    "purpose": "index_value_type",
                     "children": [
                         {
                             "reference": "1"
@@ -482,7 +482,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                                     }
                                 ]
                             },
-                            "purpose": "index",
+                            "purpose": "indexed_access_index",
                             "locations": [
                                 {
                                     "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -502,7 +502,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                                 {
                                     "kindText": "union",
                                     "kind": "union",
-                                    "purpose": "extends",
+                                    "purpose": "parameter_base_constraint",
                                     "children": [
                                         {
                                             "kindText": "string",

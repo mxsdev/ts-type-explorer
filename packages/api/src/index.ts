@@ -3,4 +3,5 @@ export { getSymbolType, multilineTypeToString, pseudoBigIntToString, getNodeType
 export { recursivelyExpandType } from "./merge"
 export { generateTypeTree, getTypeInfoChildren, getTypeInfoSymbols } from "./tree"
 export { TypeInfo, SymbolInfo, SignatureInfo, TypeId, IndexInfo, TypeInfoKind, TypeParameterInfo, SourceFileLocation } from "./types"
-export { TypeInfoLocalizer, LocalizedTypeInfo, TypeInfoMap } from "./localizedTree"
+export { TypeInfoLocalizer, LocalizedTypeInfo, TypeInfoMap, TypePurpose } from "./localizedTree"
+export { localizePurpose } from "./localization"

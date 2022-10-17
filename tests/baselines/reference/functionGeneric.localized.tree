@@ -41,7 +41,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",
@@ -84,7 +84,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                         {
                             "kindText": "string",
                             "kind": "primitive",
-                            "purpose": "extends",
+                            "purpose": "parameter_base_constraint",
                             "children": [],
                             "_id": "3"
                         }
@@ -222,7 +222,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",
@@ -265,7 +265,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                         {
                             "kindText": "string",
                             "kind": "primitive",
-                            "purpose": "extends",
+                            "purpose": "parameter_base_constraint",
                             "children": [],
                             "_id": "3"
                         }
@@ -408,7 +408,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         {
             "kindText": "string",
             "kind": "primitive",
-            "purpose": "extends",
+            "purpose": "parameter_base_constraint",
             "children": [],
             "_id": "1"
         }
@@ -458,7 +458,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         {
             "kindText": "string",
             "kind": "primitive",
-            "purpose": "extends",
+            "purpose": "parameter_base_constraint",
             "children": [],
             "_id": "1"
         }
@@ -507,7 +507,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         {
             "kindText": "string",
             "kind": "primitive",
-            "purpose": "extends",
+            "purpose": "parameter_base_constraint",
             "children": [],
             "_id": "1"
         }
@@ -603,7 +603,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         {
             "kindText": "string",
             "kind": "primitive",
-            "purpose": "extends",
+            "purpose": "parameter_base_constraint",
             "children": [],
             "_id": "1"
         }
@@ -692,7 +692,7 @@ sig1("asd", 3, 4)
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",
@@ -735,14 +735,14 @@ sig1("asd", 3, 4)
                         {
                             "kindText": "\"asd\"",
                             "kind": "string_literal",
-                            "purpose": "value",
+                            "purpose": "parameter_value",
                             "children": [],
                             "_id": "2"
                         },
                         {
                             "kindText": "string",
                             "kind": "primitive",
-                            "purpose": "extends",
+                            "purpose": "parameter_base_constraint",
                             "children": [],
                             "_id": "5"
                         }

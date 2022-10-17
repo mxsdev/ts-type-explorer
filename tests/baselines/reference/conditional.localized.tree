@@ -39,7 +39,7 @@ type Conditional<T> = T extends string ? "a" : "b"
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",
@@ -89,21 +89,21 @@ type Conditional<T> = T extends string ? "a" : "b"
         {
             "kindText": "string",
             "kind": "primitive",
-            "purpose": "extends",
+            "purpose": "conditional_extends",
             "children": [],
             "_id": "2"
         },
         {
             "kindText": "\"a\"",
             "kind": "string_literal",
-            "purpose": "true",
+            "purpose": "conditional_true",
             "children": [],
             "_id": "4"
         },
         {
             "kindText": "\"b\"",
             "kind": "string_literal",
-            "purpose": "false",
+            "purpose": "conditional_false",
             "children": [],
             "_id": "3"
         }

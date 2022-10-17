@@ -186,7 +186,7 @@ class TestClass implements TestInterface {
     ],
     "children": [
         {
-            "purpose": "implements",
+            "purpose": "class_implementations",
             "children": [
                 {
                     "kindText": "interface",
@@ -280,7 +280,7 @@ class TestClass implements TestInterface {
         {
             "kindText": "function",
             "kind": "function",
-            "purpose": "constructor",
+            "purpose": "class_constructor",
             "locations": [
                 {
                     "fileName": "cases/class.ts",
@@ -424,7 +424,7 @@ class TestClass implements TestInterface {
     ],
     "children": [
         {
-            "purpose": "implements",
+            "purpose": "class_implementations",
             "children": [
                 {
                     "kindText": "interface",
@@ -518,7 +518,7 @@ class TestClass implements TestInterface {
         {
             "kindText": "function",
             "kind": "function",
-            "purpose": "constructor",
+            "purpose": "class_constructor",
             "locations": [
                 {
                     "fileName": "cases/class.ts",
@@ -759,7 +759,7 @@ class TestClass implements TestInterface {
     ],
     "children": [
         {
-            "purpose": "implements",
+            "purpose": "class_implementations",
             "children": [
                 {
                     "kindText": "interface",
@@ -853,7 +853,7 @@ class TestClass implements TestInterface {
         {
             "kindText": "function",
             "kind": "function",
-            "purpose": "constructor",
+            "purpose": "class_constructor",
             "locations": [
                 {
                     "fileName": "cases/class.ts",
@@ -1113,7 +1113,7 @@ const _a = new TestClass("param")
                     }
                 ]
             },
-            "purpose": "class",
+            "purpose": "object_class",
             "locations": [
                 {
                     "fileName": "cases/class.ts",
@@ -1131,7 +1131,7 @@ const _a = new TestClass("param")
             ],
             "children": [
                 {
-                    "purpose": "implements",
+                    "purpose": "class_implementations",
                     "children": [
                         {
                             "kindText": "interface",
@@ -1225,7 +1225,7 @@ const _a = new TestClass("param")
                 {
                     "kindText": "function",
                     "kind": "function",
-                    "purpose": "constructor",
+                    "purpose": "class_constructor",
                     "locations": [
                         {
                             "fileName": "cases/class.ts",
@@ -1453,7 +1453,7 @@ const _a = new TestClass("param")
             ],
             "children": [
                 {
-                    "purpose": "implements",
+                    "purpose": "class_implementations",
                     "children": [
                         {
                             "kindText": "interface",
@@ -1547,7 +1547,7 @@ const _a = new TestClass("param")
                 {
                     "kindText": "function",
                     "kind": "function",
-                    "purpose": "constructor",
+                    "purpose": "class_constructor",
                     "locations": [
                         {
                             "fileName": "cases/class.ts",

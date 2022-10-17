@@ -1,3 +1,4 @@
+import { TypePurpose } from "./localizedTree"
 import { TypeInfoKind, TypeInfo } from "./types"
 
 type PrimitiveKind = TypeInfoKind<'primitive'>['primitive']
@@ -55,4 +56,30 @@ export function getKindText(kind: LocalizableKind, { insideClassOrInterface }: {
 
 export function getPrimitiveKindText(kind: PrimitiveKind) {
     return PrimitiveKindText[kind]
+}
+
+export function localizePurpose(purpose: TypePurpose): string {
+    const nameByPurpose = {
+        return: "return",
+        index_type: "constraint",
+        index_value_type: "value",
+        conditional_check: "check",
+        conditional_extends: "extends",
+        conditional_true: "true",
+        conditional_false: "false",
+        keyof: "keyof",
+        indexed_access_base: "base",
+        indexed_access_index: "index",
+        parameter_base_constraint: "extends",
+        parameter_default: "default",
+        parameter_value: "value",
+        class_constructor: "constructor",
+        class_base_type: "extends",
+        class_implementations: "implements",
+        object_class: "class",
+        type_parameter_list: "type parameters",
+        type_argument_list: "type arguments",
+    }
+
+    return nameByPurpose[purpose]
 }

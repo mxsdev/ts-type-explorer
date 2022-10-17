@@ -39,7 +39,7 @@ type KeyOf<T> = keyof T
     ],
     "children": [
         {
-            "purpose": "type parameters",
+            "purpose": "type_parameter_list",
             "children": [
                 {
                     "kindText": "type parameter",

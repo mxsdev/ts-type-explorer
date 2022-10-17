@@ -4360,7 +4360,7 @@ console.log("hello world")
                             ],
                             "children": [
                                 {
-                                    "purpose": "type arguments",
+                                    "purpose": "type_argument_list",
                                     "children": [
                                         {
                                             "kindText": "string",
@@ -4653,7 +4653,7 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "purpose": "type parameters",
+                                                            "purpose": "type_parameter_list",
                                                             "children": [
                                                                 {
                                                                     "kindText": "...",
@@ -5357,7 +5357,7 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "purpose": "type parameters",
+                                                    "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
                                                             "kindText": "type parameter",
@@ -5522,7 +5522,7 @@ console.log("hello world")
                                                             ],
                                                             "children": [
                                                                 {
-                                                                    "purpose": "type arguments",
+                                                                    "purpose": "type_argument_list",
                                                                     "children": [
                                                                         {
                                                                             "reference": "228"
@@ -6090,7 +6090,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "purpose": "type parameters",
+                                            "purpose": "type_parameter_list",
                                             "children": [
                                                 {
                                                     "kindText": "type parameter",
@@ -6578,7 +6578,7 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "purpose": "type parameters",
+                                                    "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
                                                             "kindText": "type parameter",
@@ -7657,7 +7657,7 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "purpose": "type parameters",
+                                                    "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
                                                             "kindText": "type parameter",
@@ -8389,7 +8389,7 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "purpose": "type parameters",
+                                                    "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
                                                             "kindText": "type parameter",
@@ -8698,7 +8698,7 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "purpose": "type parameters",
+                                                    "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
                                                             "kindText": "type parameter",
@@ -9213,7 +9213,7 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "purpose": "type parameters",
+                                                    "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
                                                             "kindText": "type parameter",
@@ -9256,7 +9256,7 @@ console.log("hello world")
                                                                 {
                                                                     "kindText": "tuple",
                                                                     "kind": "tuple",
-                                                                    "purpose": "value",
+                                                                    "purpose": "parameter_value",
                                                                     "children": [
                                                                         {
                                                                             "reference": "228"
@@ -9273,7 +9273,7 @@ console.log("hello world")
                                                     "kindText": "method",
                                                     "kind": "function",
                                                     "symbol": {
-                                                        "name": "__@iterator@1573",
+                                                        "name": "__@iterator@1574",
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9534,7 +9534,7 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "purpose": "type parameters",
+                                                    "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
                                                             "reference": "167"
@@ -9545,7 +9545,7 @@ console.log("hello world")
                                                     "kindText": "method",
                                                     "kind": "function",
                                                     "symbol": {
-                                                        "name": "__@iterator@1573",
+                                                        "name": "__@iterator@1574",
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9806,7 +9806,7 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "purpose": "type parameters",
+                                                    "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
                                                             "reference": "167"
@@ -9817,7 +9817,7 @@ console.log("hello world")
                                                     "kindText": "method",
                                                     "kind": "function",
                                                     "symbol": {
-                                                        "name": "__@iterator@1573",
+                                                        "name": "__@iterator@1574",
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -10089,7 +10089,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "purpose": "type parameters",
+                                            "purpose": "type_parameter_list",
                                             "children": [
                                                 {
                                                     "kindText": "type parameter",
@@ -10172,7 +10172,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "undefined",
                                                             "kind": "primitive",
-                                                            "purpose": "default",
+                                                            "purpose": "parameter_default",
                                                             "children": [],
                                                             "_id": "211"
                                                         }
@@ -10587,7 +10587,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "purpose": "type parameters",
+                                            "purpose": "type_parameter_list",
                                             "children": [
                                                 {
                                                     "kindText": "type parameter",
@@ -10670,7 +10670,7 @@ console.log("hello world")
                                                         {
                                                             "kindText": "1",
                                                             "kind": "number_literal",
-                                                            "purpose": "default",
+                                                            "purpose": "parameter_default",
                                                             "children": [],
                                                             "_id": "223"
                                                         },
@@ -10877,7 +10877,7 @@ console.log("hello world")
                                     "kindText": "method",
                                     "kind": "function",
                                     "symbol": {
-                                        "name": "__@iterator@1573",
+                                        "name": "__@iterator@1574",
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",

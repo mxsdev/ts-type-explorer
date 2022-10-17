@@ -62,7 +62,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                 {
                     "kindText": "union",
                     "kind": "union",
-                    "purpose": "constraint",
+                    "purpose": "index_type",
                     "children": [
                         {
                             "kindText": "\"a\"",
@@ -107,7 +107,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                             }
                         ]
                     },
-                    "purpose": "value",
+                    "purpose": "index_value_type",
                     "locations": [
                         {
                             "fileName": "cases/mappedParam.ts",
@@ -187,7 +187,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
         {
             "kindText": "union",
             "kind": "union",
-            "purpose": "extends",
+            "purpose": "parameter_base_constraint",
             "children": [
                 {
                     "kindText": "\"a\"",
@@ -255,7 +255,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
         {
             "kindText": "union",
             "kind": "union",
-            "purpose": "extends",
+            "purpose": "parameter_base_constraint",
             "children": [
                 {
                     "kindText": "\"a\"",
