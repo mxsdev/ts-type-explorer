@@ -465,7 +465,7 @@ function localizePurpose(purpose: TypePurpose): string {
 }
 
 function getTypeLocations(info: TypeInfo): SourceFileLocation[]|undefined {
-    const baseLocations = wrapSafe(getLocations)(info.typeSymbolMeta ?? info.aliasSymbolMeta ?? info.symbolMeta)
+    const baseLocations = wrapSafe(getLocations)(info.aliasSymbolMeta ?? info.symbolMeta ?? info.typeSymbolMeta)
 
     if(!baseLocations) {
         if(info.kind === 'function' && info.signatures.length === 1) {
