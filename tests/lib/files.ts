@@ -6,3 +6,9 @@ import path from "path"
 // export const dirname = path.dirname(filename)
 
 export const dirname = __dirname
+
+export const rootPath = path.join(dirname, "../")
+export const testCasePath = path.join(dirname, "../cases")
+export const baselinesPath = path.join(dirname, "../baselines")
+export const baselinesLocalPath = path.join(baselinesPath, "local")
+export const baselinesReferencePath = path.join(baselinesPath, "reference")

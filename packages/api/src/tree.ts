@@ -97,9 +97,9 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
         typeInfoId.aliasSymbolMeta = getSymbolInfo(type.aliasSymbol)
     }
 
-    if(type.symbol && type.symbol !== type.aliasSymbol && type.symbol !== symbol) {
-        typeInfoId.typeSymbolMeta = getSymbolInfo(type.symbol)
-    }
+    // if(type.symbol && type.symbol !== type.aliasSymbol && type.symbol !== symbol) {
+    //     typeInfoId.typeSymbolMeta = getSymbolInfo(type.symbol)
+    // }
     
     const typeParameters = getTypeParameters(typeChecker, type, symbol) 
     if(isNonEmpty(typeParameters)) {
@@ -124,6 +124,7 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
                 kind: 'type_parameter',
                 baseConstraint: wrapSafe(parseType)(typeChecker.getBaseConstraintOfType(type)),
                 defaultType: wrapSafe(parseType)(typeChecker.getDefaultFromTypeParameter(type)),
+                typeSymbolMeta: wrapSafe(getSymbolInfo)(type.symbol)
             }
         } else if(flags & ts.TypeFlags.Any) { 
             if((type as IntrinsicTypeInternal).intrinsicName === "intrinsic") {
@@ -393,7 +394,8 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
                 return [
                     ...info.properties,
                     ...info.indexInfos?.flatMap(x => [ x.type, x.keyType ]) ?? [],
-                    ...wrapSafe(getTypeInfoChildren)(info.objectClass) ?? [],
+                    // ...wrapSafe(getTypeInfoChildren)(info.objectClass) ?? [],
+                    info.objectClass,
                 ]
             }
     
@@ -461,8 +463,75 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
                     ...info.implementsTypes ?? [],
                 ]
             }
+
+            case "string_mapping": {
+                return [
+                    info.type
+                ]
+            }
         }
 
         return []
+    }
+}
+
+export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
+    return filterUndefined([
+        info.symbolMeta,
+        info.aliasSymbolMeta,
+        ..._getTypeInfoSymbols(info),
+    ])
+    
+    function _getTypeInfoSymbols(info: TypeInfo): (SymbolInfo|undefined)[] {
+        switch(info.kind) {
+            case "object": {
+                return [
+                    ...info.indexInfos?.map(({ parameterSymbol }) => parameterSymbol) ?? [],
+                ]
+            }
+
+            case "class": {
+                return [
+                    ...info.constructSignatures?.flatMap(mapSignature) ?? [],
+                    info.classSymbol,
+                ]
+            }
+
+            case "enum_literal": {
+                return [
+                    info.literalSymbol,
+                    info.parentSymbol,
+                ]
+            }
+
+            case "function": {
+                return [
+                    ...info.signatures.flatMap(mapSignature) ?? [],
+                    info.symbolMeta
+                ]
+            }
+
+            case "string_mapping": {
+                return [
+                    info.typeSymbol,
+                ]
+            }
+
+            case "type_parameter": {
+                return [
+                    info.typeSymbolMeta
+                ]
+            }
+
+            default: {
+                return []
+            }
+        }
+
+        function mapSignature(signature: SignatureInfo) {
+            return [
+                signature.symbolMeta,
+            ]
+        }
     }
 }

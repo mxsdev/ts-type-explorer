@@ -7,6 +7,7 @@ import { getEmptyTypeId, isEmpty, isNonEmpty, pseudoBigIntToString, wrapSafe } f
 import { unwatchFile } from "fs"
 
 export class TypeInfoLocalizer {
+    private includeIds = false
     typeInfoMap: TypeInfoMap
 
     constructor(private typeInfo: TypeInfo) {
@@ -14,7 +15,7 @@ export class TypeInfoLocalizer {
     }
 
     localize(info: TypeInfo) {
-        return _localizeTypeInfo(info, { typeInfoMap: this.typeInfoMap })
+        return _localizeTypeInfo(info, { typeInfoMap: this.typeInfoMap }, { includeIds: this.includeIds })
     }
 
     localizeChildren(info: LocalizedTypeInfo): LocalizedTypeInfo[] {
@@ -25,10 +26,26 @@ export class TypeInfoLocalizer {
                 if(localizedInfo) {
                     return localizedInfo
                 }
+
+                if(this.includeIds) {
+                    opts ??= {}
+                    opts.includeIds = true
+                }
     
                 return _localizeTypeInfo(info!, { typeInfoMap: this.typeInfoMap }, opts)
             }
         ) ?? []
+    }
+
+    /**
+     * Sets localizer to debug mode, which will include id information in
+     * resultant localized type info.
+     * 
+     * This is used by the test runner to identify circular paths.
+     */
+    debug(): this {
+        this.includeIds = true
+        return this
     }
 }
 
@@ -62,18 +79,23 @@ export type LocalizedTypeInfo = {
     rest?: boolean,
     children?: TypeInfoChildren,
     locations?: SourceFileLocation[],
+    /**
+     * Debug id information, used by test runner
+     * to identify and remove cycles
+     */
+    _id?: TypeId,
 }
 
 export type TypeInfoMap = Map<TypeId, ResolvedTypeInfo>
 
-type LocalizeOpts = { optional?: boolean, purpose?: TypePurpose, name?: string, typeArguments?: TypeInfo[], typeArgument?: TypeInfo }
+type LocalizeOpts = { optional?: boolean, purpose?: TypePurpose, name?: string, typeArguments?: TypeInfo[], typeArgument?: TypeInfo, includeIds?: boolean }
 type LocalizeData = { typeInfoMap: TypeInfoMap }
 
 function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpts = {}): LocalizedTypeInfo {
     const resolveInfo = (typeInfo: TypeInfo) => resolveTypeReferenceOrArray(typeInfo, typeInfoMap)
 
     const { typeInfoMap } = data
-    const { purpose: purposeKind, optional, name } = opts
+    const { purpose: purposeKind, optional, name, includeIds } = opts
 
     const symbol = wrapSafe(localizeSymbol)(info.symbolMeta)
     const purpose = wrapSafe(localizePurpose)(purposeKind)
@@ -101,6 +123,10 @@ function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpt
     }
 
     res.children = getChildren(info, opts)
+
+    if(includeIds) {
+        res._id = info.id
+    }
 
     return res
 }
@@ -465,7 +491,7 @@ function localizePurpose(purpose: TypePurpose): string {
 }
 
 function getTypeLocations(info: TypeInfo): SourceFileLocation[]|undefined {
-    const baseLocations = wrapSafe(getLocations)(info.aliasSymbolMeta ?? info.symbolMeta ?? info.typeSymbolMeta)
+    const baseLocations = wrapSafe(getLocations)(info.aliasSymbolMeta ?? info.symbolMeta)
 
     if(!baseLocations) {
         if(info.kind === 'function' && info.signatures.length === 1) {

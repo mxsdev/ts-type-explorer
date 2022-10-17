@@ -1,0 +1,10 @@
+=== keyof.ts ===
+
+type KeyOf<T> = keyof T
+> KeyOf --- {"kindText":"keyof","kind":"index","symbol":{"name":"KeyOf","locations":[{"fileName":"cases/keyof.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}]},"locations":[{"fileName":"cases/keyof.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}]},"locations":[{"fileName":"cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}],"children":[],"_id":"1"}]},{"reference":"1"}],"_id":"0"}
+> T
+> T
+> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}]},"locations":[{"fileName":"cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}],"children":[],"_id":"0"}
+> keyof T
+> T
+> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}]},"locations":[{"fileName":"cases/keyof.ts","range":{"start":{"line":0,"character":11},"end":{"line":0,"character":12}}}],"children":[],"_id":"0"}

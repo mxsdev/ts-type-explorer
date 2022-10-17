@@ -51,7 +51,6 @@ export type TypeInfoNoId =
     ({
         symbolMeta?: SymbolInfo,
         aliasSymbolMeta?: SymbolInfo,
-        typeSymbolMeta?: SymbolInfo,
         typeArguments?: TypeInfo[],
         typeParameters?: TypeInfo[],
     } & (
@@ -70,6 +69,7 @@ export type TypeInfoNoId =
         kind: 'type_parameter',
         baseConstraint?: TypeInfo,
         defaultType?: TypeInfo,
+        typeSymbolMeta?: SymbolInfo,
     }
     |{
         kind: 'object',
