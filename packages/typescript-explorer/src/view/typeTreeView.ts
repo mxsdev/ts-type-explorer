@@ -67,11 +67,14 @@ export class TypeTreeItem extends vscode.TreeItem {
     protected createTypeNode(typeInfo: LocalizedTypeInfo) {
         return this.provider.createTypeNode(typeInfo, this)
     }
+
+    private definitionIndex = 0
     
     goToDefinition() {
         assert(this.typeInfo.locations && this.typeInfo.locations.length > 0, "Type has no locations!")
 
-        const location = this.typeInfo.locations[0]
+        const location = this.typeInfo.locations[this.definitionIndex]
+        this.definitionIndex = (this.definitionIndex + 1) % this.typeInfo.locations.length
 
         const range = {
             start: (location.range.start),
