@@ -1,4 +1,61 @@
 === tuple.ts ===
 
 type tupleOfStuff = ["a", string, number]
-> tupleOfStuff --- {"kindText":"tuple","kind":"tuple","symbol":{"name":"tupleOfStuff","locations":[{"fileName":"cases/tuple.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":41}}}]},"locations":[{"fileName":"cases/tuple.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":41}}}],"children":[{"kindText":"\"a\"","kind":"string_literal","children":[],"_id":"1"},{"kindText":"string","kind":"primitive","children":[],"_id":"2"},{"kindText":"number","kind":"primitive","children":[],"_id":"3"}],"_id":"0"}
+> tupleOfStuff --- {
+    "kindText": "tuple",
+    "kind": "tuple",
+    "symbol": {
+        "name": "tupleOfStuff",
+        "locations": [
+            {
+                "fileName": "cases/tuple.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 41
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/tuple.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 41
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "\"a\"",
+            "kind": "string_literal",
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "children": [],
+            "_id": "2"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "children": [],
+            "_id": "3"
+        }
+    ],
+    "_id": "0"
+}

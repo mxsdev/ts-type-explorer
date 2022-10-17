@@ -1,4 +1,50 @@
 === tupleNamed.ts ===
 
 type namedTuple = [param: "a", param2: string, param3: number]
-> namedTuple --- {"kind":"tuple","types":[{"kind":"string_literal","value":"a","id":"1"},{"kind":"primitive","primitive":"string","id":"2"},{"kind":"primitive","primitive":"number","id":"3"}],"names":["param","param2","param3"],"symbolMeta":{"name":"namedTuple","flags":524288,"declarations":[{"location":{"fileName":"cases/tupleNamed.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":62}}}}]},"id":"0"}
+> namedTuple --- {
+    "kind": "tuple",
+    "types": [
+        {
+            "kind": "string_literal",
+            "value": "a",
+            "id": "1"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "id": "2"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "number",
+            "id": "3"
+        }
+    ],
+    "names": [
+        "param",
+        "param2",
+        "param3"
+    ],
+    "symbolMeta": {
+        "name": "namedTuple",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/tupleNamed.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 62
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

@@ -1,10 +1,196 @@
 === conditional.ts ===
 
 type Conditional<T> = T extends string ? "a" : "b"
-> Conditional --- {"kindText":"conditional","kind":"conditional","symbol":{"name":"Conditional","locations":[{"fileName":"cases/conditional.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":50}}}]},"locations":[{"fileName":"cases/conditional.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":50}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/conditional.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":18}}}]},"locations":[{"fileName":"cases/conditional.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":18}}}],"children":[],"_id":"1"}]},{"reference":"1"},{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"2"},{"kindText":"\"a\"","kind":"string_literal","purpose":"true","children":[],"_id":"4"},{"kindText":"\"b\"","kind":"string_literal","purpose":"false","children":[],"_id":"3"}],"_id":"0"}
+> Conditional --- {
+    "kindText": "conditional",
+    "kind": "conditional",
+    "symbol": {
+        "name": "Conditional",
+        "locations": [
+            {
+                "fileName": "cases/conditional.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 50
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/conditional.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 50
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "T",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/conditional.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 17
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 18
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/conditional.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 17
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 18
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "reference": "1"
+        },
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "purpose": "extends",
+            "children": [],
+            "_id": "2"
+        },
+        {
+            "kindText": "\"a\"",
+            "kind": "string_literal",
+            "purpose": "true",
+            "children": [],
+            "_id": "4"
+        },
+        {
+            "kindText": "\"b\"",
+            "kind": "string_literal",
+            "purpose": "false",
+            "children": [],
+            "_id": "3"
+        }
+    ],
+    "_id": "0"
+}
 > T
 > T
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/conditional.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":18}}}]},"locations":[{"fileName":"cases/conditional.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":18}}}],"children":[],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/conditional.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 17
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 18
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/conditional.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 17
+                },
+                "end": {
+                    "line": 0,
+                    "character": 18
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > T extends string ? "a" : "b"
 > T
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/conditional.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":18}}}]},"locations":[{"fileName":"cases/conditional.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":18}}}],"children":[],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/conditional.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 17
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 18
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/conditional.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 17
+                },
+                "end": {
+                    "line": 0,
+                    "character": 18
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

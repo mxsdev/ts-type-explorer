@@ -1,17 +1,473 @@
 === indexedAccess.ts ===
 
 type IndexedAccess<P, T extends keyof P> = P[T]
-> IndexedAccess --- {"kind":"indexed_access","indexType":{"kind":"type_parameter","baseConstraint":{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"4"},{"kind":"primitive","primitive":"number","id":"5"},{"kind":"primitive","primitive":"essymbol","id":"6"}],"id":"3"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}}]},"symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}}]},"id":"2"},"objectType":{"kind":"type_parameter","typeSymbolMeta":{"name":"P","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}}]},"symbolMeta":{"name":"P","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}}]},"id":"1"},"symbolMeta":{"name":"IndexedAccess","flags":524288,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":47}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"P","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}}]},"id":"1"},{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}}]},"id":"2"}],"id":"0"}
+> IndexedAccess --- {
+    "kind": "indexed_access",
+    "indexType": {
+        "kind": "type_parameter",
+        "baseConstraint": {
+            "kind": "union",
+            "types": [
+                {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "id": "4"
+                },
+                {
+                    "kind": "primitive",
+                    "primitive": "number",
+                    "id": "5"
+                },
+                {
+                    "kind": "primitive",
+                    "primitive": "essymbol",
+                    "id": "6"
+                }
+            ],
+            "id": "3"
+        },
+        "typeSymbolMeta": {
+            "name": "T",
+            "flags": 262144,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/indexedAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 22
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 39
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "symbolMeta": {
+            "name": "T",
+            "flags": 262144,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/indexedAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 22
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 39
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "2"
+    },
+    "objectType": {
+        "kind": "type_parameter",
+        "typeSymbolMeta": {
+            "name": "P",
+            "flags": 262144,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/indexedAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 19
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 20
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "symbolMeta": {
+            "name": "P",
+            "flags": 262144,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/indexedAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 19
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 20
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "IndexedAccess",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 47
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "P",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/indexedAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 19
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 20
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/indexedAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 22
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 39
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        }
+    ],
+    "id": "0"
+}
 > P, T extends keyof P
 > P
-> P --- {"kind":"type_parameter","typeSymbolMeta":{"name":"P","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}}]},"symbolMeta":{"name":"P","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}}]},"id":"0"}
+> P --- {
+    "kind": "type_parameter",
+    "typeSymbolMeta": {
+        "name": "P",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 19
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 20
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "P",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 19
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 20
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > T extends keyof P
-> T --- {"kind":"type_parameter","baseConstraint":{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"2"},{"kind":"primitive","primitive":"number","id":"3"},{"kind":"primitive","primitive":"essymbol","id":"4"}],"id":"1"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}}]},"symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}}]},"id":"0"}
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "union",
+        "types": [
+            {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            {
+                "kind": "primitive",
+                "primitive": "number",
+                "id": "3"
+            },
+            {
+                "kind": "primitive",
+                "primitive": "essymbol",
+                "id": "4"
+            }
+        ],
+        "id": "1"
+    },
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 22
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 39
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 22
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 39
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > keyof P
 > P
-> P --- {"kind":"type_parameter","typeSymbolMeta":{"name":"P","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}}]},"symbolMeta":{"name":"P","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}}]},"id":"0"}
+> P --- {
+    "kind": "type_parameter",
+    "typeSymbolMeta": {
+        "name": "P",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 19
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 20
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "P",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 19
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 20
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > P[T]
 > P
-> P --- {"kind":"type_parameter","typeSymbolMeta":{"name":"P","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}}]},"symbolMeta":{"name":"P","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}}]},"id":"0"}
+> P --- {
+    "kind": "type_parameter",
+    "typeSymbolMeta": {
+        "name": "P",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 19
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 20
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "P",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 19
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 20
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > T
-> T --- {"kind":"type_parameter","baseConstraint":{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"2"},{"kind":"primitive","primitive":"number","id":"3"},{"kind":"primitive","primitive":"essymbol","id":"4"}],"id":"1"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}}]},"symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}}]},"id":"0"}
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "union",
+        "types": [
+            {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            {
+                "kind": "primitive",
+                "primitive": "number",
+                "id": "3"
+            },
+            {
+                "kind": "primitive",
+                "primitive": "essymbol",
+                "id": "4"
+            }
+        ],
+        "id": "1"
+    },
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 22
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 39
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/indexedAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 22
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 39
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

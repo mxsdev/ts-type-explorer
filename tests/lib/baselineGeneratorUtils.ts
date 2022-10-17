@@ -26,11 +26,11 @@ export function generateBaseline(generator: BaselineGeneratorFunction, sourceFil
     return sourceFile
         .getChildren()[0]!
         .getChildren()
-        .map(c => generateBaselineRecursive(generator, c, typeChecker, sourceFile))
+        .map(c => generateBaselineRecursive(generator, c, typeChecker, sourceFile).join("\n"))
         .join("\n\n")
 }
 
-function generateBaselineRecursive(generator: BaselineGeneratorFunction, node: ts.Node, typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, depth: number = 0): string {
+function generateBaselineRecursive(generator: BaselineGeneratorFunction, node: ts.Node, typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, depth: number = 0): string[] {
     let line: string = `${node.getText()}`
     const generated = generator(typeChecker, sourceFile, node)
     if(generated) {
@@ -39,14 +39,16 @@ function generateBaselineRecursive(generator: BaselineGeneratorFunction, node: t
 
     const childLines = node.getChildren()
         .map(node => generateBaselineRecursive(generator, node, typeChecker, sourceFile, depth + 1))
-        .flatMap(text => text.split("\n"))
-        .filter(text => !!text)
+        .filter(lines => lines.length > 0)
+        .flatMap(x => x)
         .map(text => depth === 0 ? `> ${text}` : text)
-        .join("\n")
 
-    if(childLines || generated !== undefined) {
-        return line + "\n" + childLines
+    if((childLines && childLines.length > 0) || generated !== undefined) {
+        return [
+            line,
+            ...childLines
+        ]
     }
 
-    return ``
+    return []
 }

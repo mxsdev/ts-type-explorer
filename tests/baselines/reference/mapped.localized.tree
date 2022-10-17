@@ -1,10 +1,124 @@
 === mapped.ts ===
 
 type mapped = { [index: string]: number }
-> mapped --- {"kindText":"object","kind":"object","symbol":{"name":"mapped","locations":[{"fileName":"cases/mapped.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":41}}}]},"locations":[{"fileName":"cases/mapped.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":41}}}],"children":[{"kindText":"index","symbol":{"name":"index","locations":[{"fileName":"cases/mapped.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":30}}}]},"children":[{"kindText":"string","kind":"primitive","purpose":"constraint","children":[],"_id":"2"},{"kindText":"number","kind":"primitive","purpose":"value","children":[],"_id":"1"}]}],"_id":"0"}
+> mapped --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "mapped",
+        "locations": [
+            {
+                "fileName": "cases/mapped.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 41
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapped.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 41
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "index",
+            "symbol": {
+                "name": "index",
+                "locations": [
+                    {
+                        "fileName": "cases/mapped.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 17
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 30
+                            }
+                        }
+                    }
+                ]
+            },
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "purpose": "constraint",
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "purpose": "value",
+                    "children": [],
+                    "_id": "1"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
 > { [index: string]: number }
 > [index: string]: number
 > [index: string]: number
 > index: string
 > index: string
-> index --- {"kindText":"string","kind":"primitive","symbol":{"name":"index","locations":[{"fileName":"cases/mapped.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":30}}}]},"locations":[{"fileName":"cases/mapped.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":30}}}],"children":[],"_id":"0"}
+> index --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "symbol": {
+        "name": "index",
+        "locations": [
+            {
+                "fileName": "cases/mapped.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 17
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 30
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapped.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 17
+                },
+                "end": {
+                    "line": 0,
+                    "character": 30
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

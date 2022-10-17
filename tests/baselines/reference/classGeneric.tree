@@ -1,8 +1,112 @@
 === classGeneric.ts ===
 
 class TestBaseClass { }
-> class --- {"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"symbolMeta":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"id":"0"}
-> TestBaseClass --- {"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"symbolMeta":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"id":"0"}
+> class --- {
+    "kind": "class",
+    "properties": [],
+    "implementsTypes": [],
+    "constructSignatures": [
+        {
+            "parameters": []
+        }
+    ],
+    "classSymbol": {
+        "name": "TestBaseClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 23
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestBaseClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 23
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> TestBaseClass --- {
+    "kind": "class",
+    "properties": [],
+    "implementsTypes": [],
+    "constructSignatures": [
+        {
+            "parameters": []
+        }
+    ],
+    "classSymbol": {
+        "name": "TestBaseClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 23
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestBaseClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 23
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 
 class TestClass<T> extends TestBaseClass {
     constructor(thing: boolean, param: string|number) { 
@@ -16,58 +120,3192 @@ class TestClass<T> extends TestBaseClass {
         return "as"
     }
 }
-> class --- {"kind":"class","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":7,"character":4},"end":{"line":7,"character":23}}}}]},"id":"2"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":8,"character":4},"end":{"line":8,"character":24}}}}]},"id":"2"},{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"parameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"param","flags":33554433,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":13},"end":{"line":10,"character":21}}}}]},"id":"4"}],"returnType":{"kind":"reference","id":"2"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"id":"3"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"symbolMeta":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"id":"8"},"implementsTypes":[],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":4},"end":{"line":5,"character":5}}}}]},"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":16},"end":{"line":3,"character":30}}}}]},"id":"5"},{"kind":"union","types":[{"kind":"reference","id":"2"},{"kind":"primitive","primitive":"number","id":"7"}],"symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":32},"end":{"line":3,"character":52}}}}]},"id":"6"}],"typeParameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}],"id":"0"}
-> TestClass --- {"kind":"class","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":7,"character":4},"end":{"line":7,"character":23}}}}]},"id":"2"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":8,"character":4},"end":{"line":8,"character":24}}}}]},"id":"2"},{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"parameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"param","flags":33554433,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":13},"end":{"line":10,"character":21}}}}]},"id":"4"}],"returnType":{"kind":"reference","id":"2"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"id":"3"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"symbolMeta":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"id":"8"},"implementsTypes":[],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":4},"end":{"line":5,"character":5}}}}]},"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":16},"end":{"line":3,"character":30}}}}]},"id":"5"},{"kind":"union","types":[{"kind":"reference","id":"2"},{"kind":"primitive","primitive":"number","id":"7"}],"symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":32},"end":{"line":3,"character":52}}}}]},"id":"6"}],"typeParameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}],"id":"0"}
+> class --- {
+    "kind": "class",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "param",
+                "flags": 33554436,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 23
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        },
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "param2",
+                "flags": 33554436,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 8,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 8,
+                                    "character": 24
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        },
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 10,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "character": 5
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [
+                        {
+                            "kind": "type_parameter",
+                            "typeSymbolMeta": {
+                                "name": "T",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 2,
+                                                    "character": 16
+                                                },
+                                                "end": {
+                                                    "line": 2,
+                                                    "character": 17
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "symbolMeta": {
+                                "name": "param",
+                                "flags": 33554433,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 10,
+                                                    "character": 13
+                                                },
+                                                "end": {
+                                                    "line": 10,
+                                                    "character": 21
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "4"
+                        }
+                    ],
+                    "returnType": {
+                        "kind": "reference",
+                        "id": "2"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 33562624,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 10,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 12,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "3"
+        }
+    ],
+    "baseType": {
+        "kind": "class",
+        "properties": [],
+        "implementsTypes": [],
+        "constructSignatures": [
+            {
+                "parameters": []
+            }
+        ],
+        "classSymbol": {
+            "name": "TestBaseClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 23
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "symbolMeta": {
+            "name": "TestBaseClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 23
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "8"
+    },
+    "implementsTypes": [],
+    "constructSignatures": [
+        {
+            "symbolMeta": {
+                "name": "__constructor",
+                "flags": 16384,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 3,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "boolean",
+                    "symbolMeta": {
+                        "name": "thing",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 3,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "5"
+                },
+                {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "reference",
+                            "id": "2"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "id": "7"
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "param",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 3,
+                                            "character": 32
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "character": 52
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "6"
+                }
+            ],
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "classSymbol": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 16
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 17
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
+> TestClass --- {
+    "kind": "class",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "param",
+                "flags": 33554436,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 23
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        },
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "param2",
+                "flags": 33554436,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 8,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 8,
+                                    "character": 24
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        },
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 10,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "character": 5
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [
+                        {
+                            "kind": "type_parameter",
+                            "typeSymbolMeta": {
+                                "name": "T",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 2,
+                                                    "character": 16
+                                                },
+                                                "end": {
+                                                    "line": 2,
+                                                    "character": 17
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "symbolMeta": {
+                                "name": "param",
+                                "flags": 33554433,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 10,
+                                                    "character": 13
+                                                },
+                                                "end": {
+                                                    "line": 10,
+                                                    "character": 21
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "4"
+                        }
+                    ],
+                    "returnType": {
+                        "kind": "reference",
+                        "id": "2"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 33562624,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 10,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 12,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "3"
+        }
+    ],
+    "baseType": {
+        "kind": "class",
+        "properties": [],
+        "implementsTypes": [],
+        "constructSignatures": [
+            {
+                "parameters": []
+            }
+        ],
+        "classSymbol": {
+            "name": "TestBaseClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 23
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "symbolMeta": {
+            "name": "TestBaseClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 23
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "8"
+    },
+    "implementsTypes": [],
+    "constructSignatures": [
+        {
+            "symbolMeta": {
+                "name": "__constructor",
+                "flags": 16384,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 3,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "boolean",
+                    "symbolMeta": {
+                        "name": "thing",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 3,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "5"
+                },
+                {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "reference",
+                            "id": "2"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "id": "7"
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "param",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 3,
+                                            "character": 32
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "character": 52
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "6"
+                }
+            ],
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "classSymbol": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 16
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 17
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
 > T
 > T
-> T --- {"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"0"}
+> T --- {
+    "kind": "type_parameter",
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 17
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 17
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > extends TestBaseClass
 > extends TestBaseClass
 > TestBaseClass
 > TestBaseClass
-> TestBaseClass --- {"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"symbolMeta":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"id":"0"}
+> TestBaseClass --- {
+    "kind": "class",
+    "properties": [],
+    "implementsTypes": [],
+    "constructSignatures": [
+        {
+            "parameters": []
+        }
+    ],
+    "classSymbol": {
+        "name": "TestBaseClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 23
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestBaseClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 23
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > constructor(thing: boolean, param: string|number) { 
->         super()
->     }
->     param: string = "a"
->     param2: string = "b"
->     getThing(param: T) {
->         return "as"
->     }
+        super()
+    }
+
+    param: string = "a"
+    param2: string = "b"
+
+    getThing(param: T) {
+        return "as"
+    }
 > constructor(thing: boolean, param: string|number) { 
->         super()
->     }
-> constructor --- {"kind":"class","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":7,"character":4},"end":{"line":7,"character":23}}}}]},"id":"2"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":8,"character":4},"end":{"line":8,"character":24}}}}]},"id":"2"},{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"parameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"param","flags":33554433,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":13},"end":{"line":10,"character":21}}}}]},"id":"4"}],"returnType":{"kind":"reference","id":"2"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"id":"3"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"symbolMeta":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"id":"8"},"implementsTypes":[],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":4},"end":{"line":5,"character":5}}}}]},"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":16},"end":{"line":3,"character":30}}}}]},"id":"5"},{"kind":"union","types":[{"kind":"reference","id":"2"},{"kind":"primitive","primitive":"number","id":"7"}],"symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":32},"end":{"line":3,"character":52}}}}]},"id":"6"}],"typeParameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}],"id":"0"}
+        super()
+    }
+> constructor --- {
+    "kind": "class",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "param",
+                "flags": 33554436,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 23
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        },
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "param2",
+                "flags": 33554436,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 8,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 8,
+                                    "character": 24
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        },
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 10,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "character": 5
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [
+                        {
+                            "kind": "type_parameter",
+                            "typeSymbolMeta": {
+                                "name": "T",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 2,
+                                                    "character": 16
+                                                },
+                                                "end": {
+                                                    "line": 2,
+                                                    "character": 17
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "symbolMeta": {
+                                "name": "param",
+                                "flags": 33554433,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 10,
+                                                    "character": 13
+                                                },
+                                                "end": {
+                                                    "line": 10,
+                                                    "character": 21
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "4"
+                        }
+                    ],
+                    "returnType": {
+                        "kind": "reference",
+                        "id": "2"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 33562624,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 10,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 12,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "3"
+        }
+    ],
+    "baseType": {
+        "kind": "class",
+        "properties": [],
+        "implementsTypes": [],
+        "constructSignatures": [
+            {
+                "parameters": []
+            }
+        ],
+        "classSymbol": {
+            "name": "TestBaseClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 23
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "symbolMeta": {
+            "name": "TestBaseClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 23
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "8"
+    },
+    "implementsTypes": [],
+    "constructSignatures": [
+        {
+            "symbolMeta": {
+                "name": "__constructor",
+                "flags": 16384,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 3,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "boolean",
+                    "symbolMeta": {
+                        "name": "thing",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 3,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "5"
+                },
+                {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "reference",
+                            "id": "2"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "id": "7"
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "param",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 3,
+                                            "character": 32
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "character": 52
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "6"
+                }
+            ],
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "classSymbol": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 16
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 17
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
 > thing: boolean, param: string|number
 > thing: boolean
-> thing --- {"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":16},"end":{"line":3,"character":30}}}}]},"id":"0"}
+> thing --- {
+    "kind": "primitive",
+    "primitive": "boolean",
+    "symbolMeta": {
+        "name": "thing",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 3,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 3,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > param: string|number
-> param --- {"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"1"},{"kind":"primitive","primitive":"number","id":"2"}],"symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":32},"end":{"line":3,"character":52}}}}]},"id":"0"}
+> param --- {
+    "kind": "union",
+    "types": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "id": "1"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "number",
+            "id": "2"
+        }
+    ],
+    "symbolMeta": {
+        "name": "param",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 3,
+                            "character": 32
+                        },
+                        "end": {
+                            "line": 3,
+                            "character": 52
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > { 
->         super()
->     }
+        super()
+    }
 > super()
 > super()
 > super()
-> super --- {"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"symbolMeta":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"id":"0"}
+> super --- {
+    "kind": "class",
+    "properties": [],
+    "implementsTypes": [],
+    "constructSignatures": [
+        {
+            "parameters": []
+        }
+    ],
+    "classSymbol": {
+        "name": "TestBaseClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 23
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestBaseClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 23
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > param: string = "a"
-> param --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":4,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":7,"character":4},"end":{"line":7,"character":23}}}}]},"id":"0"}
+> param --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "param",
+        "flags": 4,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 23
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > param2: string = "b"
-> param2 --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"param2","flags":4,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":8,"character":4},"end":{"line":8,"character":24}}}}]},"id":"0"}
+> param2 --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "param2",
+        "flags": 4,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 8,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 8,
+                            "character": 24
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > getThing(param: T) {
->         return "as"
->     }
-> getThing --- {"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"parameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":13},"end":{"line":10,"character":21}}}}]},"id":"1"}],"returnType":{"kind":"primitive","primitive":"string","id":"2"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"id":"0"}
+        return "as"
+    }
+> getThing --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 10,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 12,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "type_parameter",
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "param",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 10,
+                                            "character": 13
+                                        },
+                                        "end": {
+                                            "line": 10,
+                                            "character": 21
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ],
+            "returnType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "getThing",
+        "flags": 8192,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 10,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 12,
+                            "character": 5
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > param: T
 > param: T
-> param --- {"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":13},"end":{"line":10,"character":21}}}}]},"id":"0"}
+> param --- {
+    "kind": "type_parameter",
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 17
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "param",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 10,
+                            "character": 13
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 21
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > T
-> T --- {"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"0"}
+> T --- {
+    "kind": "type_parameter",
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 17
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 17
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 
 const _a = new TestClass<string>(false, 4)
 > const _a = new TestClass<string>(false, 4)
 > _a = new TestClass<string>(false, 4)
 > _a = new TestClass<string>(false, 4)
-> _a --- {"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":4,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":7,"character":4},"end":{"line":7,"character":23}}}}]},"id":"2"},{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param2","flags":4,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":8,"character":4},"end":{"line":8,"character":24}}}}]},"id":"3"},{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":33554433,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":13},"end":{"line":10,"character":21}}}}]},"id":"1"}],"returnType":{"kind":"reference","id":"1"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"id":"4"}],"indexInfos":[],"objectClass":{"kind":"class","properties":[{"kind":"reference","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":7,"character":4},"end":{"line":7,"character":23}}}}]},"id":"1"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":8,"character":4},"end":{"line":8,"character":24}}}}]},"id":"1"},{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"parameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"param","flags":33554433,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":13},"end":{"line":10,"character":21}}}}]},"id":"8"}],"returnType":{"kind":"reference","id":"1"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"id":"7"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"symbolMeta":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"id":"12"},"implementsTypes":[],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":4},"end":{"line":5,"character":5}}}}]},"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":16},"end":{"line":3,"character":30}}}}]},"id":"9"},{"kind":"union","types":[{"kind":"reference","id":"1"},{"kind":"primitive","primitive":"number","id":"11"}],"symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":32},"end":{"line":3,"character":52}}}}]},"id":"10"}],"typeParameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"6"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"6"}],"id":"5"},"symbolMeta":{"name":"_a","flags":2,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":15,"character":6},"end":{"line":15,"character":42}}}}]},"typeArguments":[{"kind":"reference","id":"1"}],"id":"0"}
+> _a --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "param",
+                "flags": 4,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 23
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "param2",
+                "flags": 4,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 8,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 8,
+                                    "character": 24
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "3"
+        },
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 10,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "character": 5
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [
+                        {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "symbolMeta": {
+                                "name": "param",
+                                "flags": 33554433,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 10,
+                                                    "character": 13
+                                                },
+                                                "end": {
+                                                    "line": 10,
+                                                    "character": 21
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "1"
+                        }
+                    ],
+                    "returnType": {
+                        "kind": "reference",
+                        "id": "1"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 33562624,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 10,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 12,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "4"
+        }
+    ],
+    "indexInfos": [],
+    "objectClass": {
+        "kind": "class",
+        "properties": [
+            {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "param",
+                    "flags": 33554436,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/classGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 7,
+                                        "character": 23
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "1"
+            },
+            {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "param2",
+                    "flags": 33554436,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/classGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 8,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 8,
+                                        "character": 24
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "1"
+            },
+            {
+                "kind": "function",
+                "signatures": [
+                    {
+                        "symbolMeta": {
+                            "name": "getThing",
+                            "flags": 8192,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 10,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 12,
+                                                "character": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "parameters": [
+                            {
+                                "kind": "type_parameter",
+                                "typeSymbolMeta": {
+                                    "name": "T",
+                                    "flags": 262144,
+                                    "insideClassOrInterface": true,
+                                    "declarations": [
+                                        {
+                                            "location": {
+                                                "fileName": "cases/classGeneric.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 2,
+                                                        "character": 16
+                                                    },
+                                                    "end": {
+                                                        "line": 2,
+                                                        "character": 17
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "symbolMeta": {
+                                    "name": "param",
+                                    "flags": 33554433,
+                                    "declarations": [
+                                        {
+                                            "location": {
+                                                "fileName": "cases/classGeneric.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 10,
+                                                        "character": 13
+                                                    },
+                                                    "end": {
+                                                        "line": 10,
+                                                        "character": 21
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "id": "8"
+                            }
+                        ],
+                        "returnType": {
+                            "kind": "reference",
+                            "id": "1"
+                        }
+                    }
+                ],
+                "symbolMeta": {
+                    "name": "getThing",
+                    "flags": 33562624,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../cases/classGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 10,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "character": 5
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "7"
+            }
+        ],
+        "baseType": {
+            "kind": "class",
+            "properties": [],
+            "implementsTypes": [],
+            "constructSignatures": [
+                {
+                    "parameters": []
+                }
+            ],
+            "classSymbol": {
+                "name": "TestBaseClass",
+                "flags": 32,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 23
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "symbolMeta": {
+                "name": "TestBaseClass",
+                "flags": 32,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 23
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "12"
+        },
+        "implementsTypes": [],
+        "constructSignatures": [
+            {
+                "symbolMeta": {
+                    "name": "__constructor",
+                    "flags": 16384,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/classGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 3,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 5,
+                                        "character": 5
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "parameters": [
+                    {
+                        "kind": "primitive",
+                        "primitive": "boolean",
+                        "symbolMeta": {
+                            "name": "thing",
+                            "flags": 1,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 3,
+                                                "character": 16
+                                            },
+                                            "end": {
+                                                "line": 3,
+                                                "character": 30
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "9"
+                    },
+                    {
+                        "kind": "union",
+                        "types": [
+                            {
+                                "kind": "reference",
+                                "id": "1"
+                            },
+                            {
+                                "kind": "primitive",
+                                "primitive": "number",
+                                "id": "11"
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "param",
+                            "flags": 1,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 3,
+                                                "character": 32
+                                            },
+                                            "end": {
+                                                "line": 3,
+                                                "character": 52
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "10"
+                    }
+                ],
+                "typeParameters": [
+                    {
+                        "kind": "type_parameter",
+                        "typeSymbolMeta": {
+                            "name": "T",
+                            "flags": 262144,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 2,
+                                                "character": 16
+                                            },
+                                            "end": {
+                                                "line": 2,
+                                                "character": 17
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "symbolMeta": {
+                            "name": "T",
+                            "flags": 262144,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 2,
+                                                "character": 16
+                                            },
+                                            "end": {
+                                                "line": 2,
+                                                "character": 17
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "6"
+                    }
+                ]
+            }
+        ],
+        "classSymbol": {
+            "name": "TestClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 2,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 13,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "symbolMeta": {
+            "name": "TestClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 2,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 13,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "typeParameters": [
+            {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "T",
+                    "flags": 262144,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/classGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 2,
+                                        "character": 16
+                                    },
+                                    "end": {
+                                        "line": 2,
+                                        "character": 17
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "6"
+            }
+        ],
+        "id": "5"
+    },
+    "symbolMeta": {
+        "name": "_a",
+        "flags": 2,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 15,
+                            "character": 6
+                        },
+                        "end": {
+                            "line": 15,
+                            "character": 42
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeArguments": [
+        {
+            "kind": "reference",
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
 > new TestClass<string>(false, 4)
-> TestClass --- {"kind":"function","signatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":4},"end":{"line":5,"character":5}}}}]},"parameters":[{"kind":"primitive","primitive":"boolean","symbolMeta":{"name":"thing","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":16},"end":{"line":3,"character":30}}}}]},"id":"3"},{"kind":"union","types":[{"kind":"primitive","primitive":"string","id":"2"},{"kind":"primitive","primitive":"number","id":"5"}],"symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":32},"end":{"line":3,"character":52}}}}]},"id":"4"}],"returnType":{"kind":"object","properties":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":4,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":7,"character":4},"end":{"line":7,"character":23}}}}]},"id":"7"},{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param2","flags":4,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":8,"character":4},"end":{"line":8,"character":24}}}}]},"id":"8"},{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"parameters":[{"kind":"reference","symbolMeta":{"name":"param","flags":33554433,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":13},"end":{"line":10,"character":21}}}}]},"id":"2"}],"returnType":{"kind":"reference","id":"2"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"id":"9"}],"indexInfos":[],"objectClass":{"kind":"class","properties":[{"kind":"reference","symbolMeta":{"name":"param","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":7,"character":4},"end":{"line":7,"character":23}}}}]},"id":"2"},{"kind":"reference","symbolMeta":{"name":"param2","flags":33554436,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":8,"character":4},"end":{"line":8,"character":24}}}}]},"id":"2"},{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"parameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"param","flags":33554433,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":10,"character":13},"end":{"line":10,"character":21}}}}]},"id":"12"}],"returnType":{"kind":"reference","id":"2"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/classGeneric.ts","range":{"start":{"line":10,"character":4},"end":{"line":12,"character":5}}}}]},"id":"11"}],"baseType":{"kind":"class","properties":[],"implementsTypes":[],"constructSignatures":[{"parameters":[]}],"classSymbol":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"symbolMeta":{"name":"TestBaseClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":23}}}}]},"id":"13"},"implementsTypes":[],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":4},"end":{"line":5,"character":5}}}}]},"parameters":[{"kind":"reference","symbolMeta":{"name":"thing","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":16},"end":{"line":3,"character":30}}}}]},"id":"3"},{"kind":"reference","symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":3,"character":32},"end":{"line":3,"character":52}}}}]},"id":"4"}],"typeParameters":[{"kind":"type_parameter","typeSymbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}],"id":"10"},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}],"typeArguments":[{"kind":"reference","id":"2"}],"id":"6"},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}]}],"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"../cases/classGeneric.ts","range":{"start":{"line":2,"character":0},"end":{"line":13,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/classGeneric.ts","range":{"start":{"line":2,"character":16},"end":{"line":2,"character":17}}}}]},"id":"1"}],"typeArguments":[{"kind":"reference","id":"2"}],"id":"0"}
+> TestClass --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "__constructor",
+                "flags": 16384,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 3,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "boolean",
+                    "symbolMeta": {
+                        "name": "thing",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 3,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "3"
+                },
+                {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "id": "2"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "id": "5"
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "param",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 3,
+                                            "character": 32
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "character": 52
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "4"
+                }
+            ],
+            "returnType": {
+                "kind": "object",
+                "properties": [
+                    {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "symbolMeta": {
+                            "name": "param",
+                            "flags": 4,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 7,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 7,
+                                                "character": 23
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "7"
+                    },
+                    {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "symbolMeta": {
+                            "name": "param2",
+                            "flags": 4,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 8,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 8,
+                                                "character": 24
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "8"
+                    },
+                    {
+                        "kind": "function",
+                        "signatures": [
+                            {
+                                "symbolMeta": {
+                                    "name": "getThing",
+                                    "flags": 8192,
+                                    "insideClassOrInterface": true,
+                                    "declarations": [
+                                        {
+                                            "location": {
+                                                "fileName": "cases/classGeneric.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 10,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 12,
+                                                        "character": 5
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "parameters": [
+                                    {
+                                        "kind": "reference",
+                                        "symbolMeta": {
+                                            "name": "param",
+                                            "flags": 33554433,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "cases/classGeneric.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 10,
+                                                                "character": 13
+                                                            },
+                                                            "end": {
+                                                                "line": 10,
+                                                                "character": 21
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "2"
+                                    }
+                                ],
+                                "returnType": {
+                                    "kind": "reference",
+                                    "id": "2"
+                                }
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "getThing",
+                            "flags": 33562624,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 10,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 12,
+                                                "character": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "9"
+                    }
+                ],
+                "indexInfos": [],
+                "objectClass": {
+                    "kind": "class",
+                    "properties": [
+                        {
+                            "kind": "reference",
+                            "symbolMeta": {
+                                "name": "param",
+                                "flags": 33554436,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 7,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 7,
+                                                    "character": 23
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "2"
+                        },
+                        {
+                            "kind": "reference",
+                            "symbolMeta": {
+                                "name": "param2",
+                                "flags": 33554436,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 8,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 8,
+                                                    "character": 24
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "2"
+                        },
+                        {
+                            "kind": "function",
+                            "signatures": [
+                                {
+                                    "symbolMeta": {
+                                        "name": "getThing",
+                                        "flags": 8192,
+                                        "insideClassOrInterface": true,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/classGeneric.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 10,
+                                                            "character": 4
+                                                        },
+                                                        "end": {
+                                                            "line": 12,
+                                                            "character": 5
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "parameters": [
+                                        {
+                                            "kind": "type_parameter",
+                                            "typeSymbolMeta": {
+                                                "name": "T",
+                                                "flags": 262144,
+                                                "insideClassOrInterface": true,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/classGeneric.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 2,
+                                                                    "character": 16
+                                                                },
+                                                                "end": {
+                                                                    "line": 2,
+                                                                    "character": 17
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "symbolMeta": {
+                                                "name": "param",
+                                                "flags": 33554433,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/classGeneric.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 10,
+                                                                    "character": 13
+                                                                },
+                                                                "end": {
+                                                                    "line": 10,
+                                                                    "character": 21
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "12"
+                                        }
+                                    ],
+                                    "returnType": {
+                                        "kind": "reference",
+                                        "id": "2"
+                                    }
+                                }
+                            ],
+                            "symbolMeta": {
+                                "name": "getThing",
+                                "flags": 33562624,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 10,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 12,
+                                                    "character": 5
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "11"
+                        }
+                    ],
+                    "baseType": {
+                        "kind": "class",
+                        "properties": [],
+                        "implementsTypes": [],
+                        "constructSignatures": [
+                            {
+                                "parameters": []
+                            }
+                        ],
+                        "classSymbol": {
+                            "name": "TestBaseClass",
+                            "flags": 32,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 0,
+                                                "character": 0
+                                            },
+                                            "end": {
+                                                "line": 0,
+                                                "character": 23
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "symbolMeta": {
+                            "name": "TestBaseClass",
+                            "flags": 32,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 0,
+                                                "character": 0
+                                            },
+                                            "end": {
+                                                "line": 0,
+                                                "character": 23
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "13"
+                    },
+                    "implementsTypes": [],
+                    "constructSignatures": [
+                        {
+                            "symbolMeta": {
+                                "name": "__constructor",
+                                "flags": 16384,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 3,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 5,
+                                                    "character": 5
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "parameters": [
+                                {
+                                    "kind": "reference",
+                                    "symbolMeta": {
+                                        "name": "thing",
+                                        "flags": 1,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/classGeneric.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 3,
+                                                            "character": 16
+                                                        },
+                                                        "end": {
+                                                            "line": 3,
+                                                            "character": 30
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "3"
+                                },
+                                {
+                                    "kind": "reference",
+                                    "symbolMeta": {
+                                        "name": "param",
+                                        "flags": 1,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/classGeneric.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 3,
+                                                            "character": 32
+                                                        },
+                                                        "end": {
+                                                            "line": 3,
+                                                            "character": 52
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "typeParameters": [
+                                {
+                                    "kind": "type_parameter",
+                                    "typeSymbolMeta": {
+                                        "name": "T",
+                                        "flags": 262144,
+                                        "insideClassOrInterface": true,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/classGeneric.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 2,
+                                                            "character": 16
+                                                        },
+                                                        "end": {
+                                                            "line": 2,
+                                                            "character": 17
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "symbolMeta": {
+                                        "name": "T",
+                                        "flags": 262144,
+                                        "insideClassOrInterface": true,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/classGeneric.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 2,
+                                                            "character": 16
+                                                        },
+                                                        "end": {
+                                                            "line": 2,
+                                                            "character": 17
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "1"
+                                }
+                            ]
+                        }
+                    ],
+                    "classSymbol": {
+                        "name": "TestClass",
+                        "flags": 32,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 0
+                                        },
+                                        "end": {
+                                            "line": 13,
+                                            "character": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "TestClass",
+                        "flags": 32,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 0
+                                        },
+                                        "end": {
+                                            "line": 13,
+                                            "character": 1
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "typeParameters": [
+                        {
+                            "kind": "reference",
+                            "symbolMeta": {
+                                "name": "T",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/classGeneric.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 2,
+                                                    "character": 16
+                                                },
+                                                "end": {
+                                                    "line": 2,
+                                                    "character": 17
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "1"
+                        }
+                    ],
+                    "id": "10"
+                },
+                "symbolMeta": {
+                    "name": "TestClass",
+                    "flags": 32,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/classGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 2,
+                                        "character": 0
+                                    },
+                                    "end": {
+                                        "line": 13,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "typeParameters": [
+                    {
+                        "kind": "reference",
+                        "symbolMeta": {
+                            "name": "T",
+                            "flags": 262144,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 2,
+                                                "character": 16
+                                            },
+                                            "end": {
+                                                "line": 2,
+                                                "character": 17
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "1"
+                    }
+                ],
+                "typeArguments": [
+                    {
+                        "kind": "reference",
+                        "id": "2"
+                    }
+                ],
+                "id": "6"
+            },
+            "typeParameters": [
+                {
+                    "kind": "reference",
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 16
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 17
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "typeArguments": [
+        {
+            "kind": "reference",
+            "id": "2"
+        }
+    ],
+    "id": "0"
+}

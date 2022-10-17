@@ -1,12 +1,338 @@
 === uppercase.ts ===
 
 type U<T extends string> = Uppercase<T>
-> U --- {"kindText":"Uppercase","kind":"string_mapping","symbol":{"name":"U","locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":39}}}]},"locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":39}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":7},"end":{"line":0,"character":23}}}]},"locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":7},"end":{"line":0,"character":23}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"2"}],"_id":"1"}]},{"reference":"1"}],"_id":"0"}
+> U --- {
+    "kindText": "Uppercase",
+    "kind": "string_mapping",
+    "symbol": {
+        "name": "U",
+        "locations": [
+            {
+                "fileName": "cases/uppercase.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 39
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/uppercase.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 39
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "T",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/uppercase.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 7
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 23
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/uppercase.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 7
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 23
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "purpose": "extends",
+                            "children": [],
+                            "_id": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "reference": "1"
+        }
+    ],
+    "_id": "0"
+}
 > T extends string
 > T extends string
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":7},"end":{"line":0,"character":23}}}]},"locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":7},"end":{"line":0,"character":23}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"1"}],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/uppercase.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 7
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 23
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/uppercase.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 7
+                },
+                "end": {
+                    "line": 0,
+                    "character": 23
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "purpose": "extends",
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > Uppercase<T>
-> Uppercase --- {"kindText":"intrinsic","kind":"intrinsic","symbol":{"name":"Uppercase","locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1623,"character":0},"end":{"line":1623,"character":45}}}]},"locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1623,"character":0},"end":{"line":1623,"character":45}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"S","symbol":{"name":"S","locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1623,"character":15},"end":{"line":1623,"character":31}}}]},"locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1623,"character":15},"end":{"line":1623,"character":31}}}],"children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":7},"end":{"line":0,"character":23}}}]},"purpose":"value","locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":7},"end":{"line":0,"character":23}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"2"}],"_id":"3"},{"reference":"2"}],"_id":"1"}]}],"_id":"0"}
+> Uppercase --- {
+    "kindText": "intrinsic",
+    "kind": "intrinsic",
+    "symbol": {
+        "name": "Uppercase",
+        "locations": [
+            {
+                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                "range": {
+                    "start": {
+                        "line": 1623,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 1623,
+                        "character": 45
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+            "range": {
+                "start": {
+                    "line": 1623,
+                    "character": 0
+                },
+                "end": {
+                    "line": 1623,
+                    "character": 45
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "S",
+                    "symbol": {
+                        "name": "S",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1623,
+                                        "character": 15
+                                    },
+                                    "end": {
+                                        "line": 1623,
+                                        "character": 31
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1623,
+                                    "character": 15
+                                },
+                                "end": {
+                                    "line": 1623,
+                                    "character": 31
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "type parameter",
+                            "kind": "type_parameter",
+                            "alias": "T",
+                            "symbol": {
+                                "name": "T",
+                                "locations": [
+                                    {
+                                        "fileName": "cases/uppercase.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 0,
+                                                "character": 7
+                                            },
+                                            "end": {
+                                                "line": 0,
+                                                "character": 23
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "purpose": "value",
+                            "locations": [
+                                {
+                                    "fileName": "cases/uppercase.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 7
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 23
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "string",
+                                    "kind": "primitive",
+                                    "purpose": "extends",
+                                    "children": [],
+                                    "_id": "2"
+                                }
+                            ],
+                            "_id": "3"
+                        },
+                        {
+                            "reference": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
 > T
 > T
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":7},"end":{"line":0,"character":23}}}]},"locations":[{"fileName":"cases/uppercase.ts","range":{"start":{"line":0,"character":7},"end":{"line":0,"character":23}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"1"}],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/uppercase.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 7
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 23
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/uppercase.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 7
+                },
+                "end": {
+                    "line": 0,
+                    "character": 23
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "purpose": "extends",
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}

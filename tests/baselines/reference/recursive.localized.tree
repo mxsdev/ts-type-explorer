@@ -1,14 +1,426 @@
 === recursive.ts ===
 
 type Recursive = { a: { b: Recursive } }
-> Recursive --- {"kindText":"object","kind":"object","symbol":{"name":"Recursive","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":40}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":40}}}],"children":[{"kindText":"object","kind":"object","symbol":{"name":"a","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":38}}}],"children":[{"kindText":"object","kind":"object","alias":"Recursive","symbol":{"name":"b","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":36}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":40}}}],"children":[{"reference":"1"}],"_id":"2"}],"_id":"1"}],"_id":"0"}
+> Recursive --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "Recursive",
+        "locations": [
+            {
+                "fileName": "cases/recursive.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 40
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/recursive.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 40
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "symbol": {
+                "name": "a",
+                "locations": [
+                    {
+                        "fileName": "cases/recursive.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 19
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 38
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/recursive.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 19
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 38
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "object",
+                    "kind": "object",
+                    "alias": "Recursive",
+                    "symbol": {
+                        "name": "b",
+                        "locations": [
+                            {
+                                "fileName": "cases/recursive.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 24
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 36
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/recursive.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 40
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "1"
+                        }
+                    ],
+                    "_id": "2"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > { a: { b: Recursive } }
 > a: { b: Recursive }
 > a: { b: Recursive }
-> a --- {"kindText":"object","kind":"object","symbol":{"name":"a","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":38}}}],"children":[{"kindText":"object","kind":"object","alias":"Recursive","symbol":{"name":"b","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":36}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":40}}}],"children":[{"reference":"0"}],"_id":"1"}],"_id":"0"}
+> a --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "a",
+        "locations": [
+            {
+                "fileName": "cases/recursive.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 19
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 38
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/recursive.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 19
+                },
+                "end": {
+                    "line": 0,
+                    "character": 38
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "Recursive",
+            "symbol": {
+                "name": "b",
+                "locations": [
+                    {
+                        "fileName": "cases/recursive.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 24
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 36
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/recursive.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 40
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "0"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > { b: Recursive }
 > b: Recursive
 > b: Recursive
-> b --- {"kindText":"object","kind":"object","alias":"Recursive","symbol":{"name":"b","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":36}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":40}}}],"children":[{"kindText":"object","kind":"object","symbol":{"name":"a","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":38}}}],"children":[{"reference":"0"}],"_id":"1"}],"_id":"0"}
+> b --- {
+    "kindText": "object",
+    "kind": "object",
+    "alias": "Recursive",
+    "symbol": {
+        "name": "b",
+        "locations": [
+            {
+                "fileName": "cases/recursive.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 24
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 36
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/recursive.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 40
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "symbol": {
+                "name": "a",
+                "locations": [
+                    {
+                        "fileName": "cases/recursive.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 19
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 38
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/recursive.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 19
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 38
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "0"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > Recursive
-> Recursive --- {"kindText":"object","kind":"object","symbol":{"name":"Recursive","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":40}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":40}}}],"children":[{"kindText":"object","kind":"object","symbol":{"name":"a","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":38}}}],"children":[{"kindText":"object","kind":"object","alias":"Recursive","symbol":{"name":"b","locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":36}}}]},"locations":[{"fileName":"cases/recursive.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":40}}}],"children":[{"reference":"1"}],"_id":"2"}],"_id":"1"}],"_id":"0"}
+> Recursive --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "Recursive",
+        "locations": [
+            {
+                "fileName": "cases/recursive.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 40
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/recursive.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 40
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "symbol": {
+                "name": "a",
+                "locations": [
+                    {
+                        "fileName": "cases/recursive.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 19
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 38
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/recursive.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 19
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 38
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "object",
+                    "kind": "object",
+                    "alias": "Recursive",
+                    "symbol": {
+                        "name": "b",
+                        "locations": [
+                            {
+                                "fileName": "cases/recursive.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 24
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 36
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/recursive.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 40
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "1"
+                        }
+                    ],
+                    "_id": "2"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}

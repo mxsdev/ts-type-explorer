@@ -1,22 +1,668 @@
 === lambda.ts ===
 
 type f = (arg1: string, arg2: boolean) => void
-> f --- {"kindText":"function","kind":"function","symbol":{"name":"f","locations":[{"fileName":"../cases/lambda.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":46}}}]},"locations":[{"fileName":"../cases/lambda.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":46}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"arg1","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":10},"end":{"line":0,"character":22}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":10},"end":{"line":0,"character":22}}}],"children":[],"_id":"1"},{"kindText":"boolean","kind":"primitive","symbol":{"name":"arg2","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":37}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":37}}}],"children":[],"_id":"2"},{"kindText":"void","kind":"primitive","purpose":"return","children":[],"_id":"3"}],"_id":"0"}
+> f --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "f",
+        "locations": [
+            {
+                "fileName": "../cases/lambda.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 46
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../cases/lambda.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 46
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "symbol": {
+                "name": "arg1",
+                "locations": [
+                    {
+                        "fileName": "cases/lambda.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 10
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 22
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/lambda.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 10
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 22
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "boolean",
+            "kind": "primitive",
+            "symbol": {
+                "name": "arg2",
+                "locations": [
+                    {
+                        "fileName": "cases/lambda.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 24
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 37
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/lambda.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 24
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 37
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        },
+        {
+            "kindText": "void",
+            "kind": "primitive",
+            "purpose": "return",
+            "children": [],
+            "_id": "3"
+        }
+    ],
+    "_id": "0"
+}
 > (arg1: string, arg2: boolean) => void
 > arg1: string, arg2: boolean
 > arg1: string
-> arg1 --- {"kindText":"string","kind":"primitive","symbol":{"name":"arg1","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":10},"end":{"line":0,"character":22}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":10},"end":{"line":0,"character":22}}}],"children":[],"_id":"0"}
+> arg1 --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "symbol": {
+        "name": "arg1",
+        "locations": [
+            {
+                "fileName": "cases/lambda.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 10
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 22
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/lambda.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 10
+                },
+                "end": {
+                    "line": 0,
+                    "character": 22
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > arg2: boolean
-> arg2 --- {"kindText":"boolean","kind":"primitive","symbol":{"name":"arg2","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":37}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":37}}}],"children":[],"_id":"0"}
-> => --- {"kindText":"any","kind":"primitive","symbol":{"name":"__type","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":9},"end":{"line":0,"character":46}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":9},"end":{"line":0,"character":46}}}],"children":[],"_id":"0"}
+> arg2 --- {
+    "kindText": "boolean",
+    "kind": "primitive",
+    "symbol": {
+        "name": "arg2",
+        "locations": [
+            {
+                "fileName": "cases/lambda.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 24
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 37
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/lambda.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 24
+                },
+                "end": {
+                    "line": 0,
+                    "character": 37
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> => --- {
+    "kindText": "any",
+    "kind": "primitive",
+    "symbol": {
+        "name": "__type",
+        "locations": [
+            {
+                "fileName": "cases/lambda.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 9
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 46
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/lambda.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 9
+                },
+                "end": {
+                    "line": 0,
+                    "character": 46
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 
 type t = { a: string } | f
-> t --- {"kindText":"union","kind":"union","symbol":{"name":"t","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":1,"character":0},"end":{"line":1,"character":26}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":1,"character":0},"end":{"line":1,"character":26}}}],"children":[{"kindText":"function","kind":"function","alias":"f","symbol":{"name":"__type","anonymous":true,"locations":[{"fileName":"../cases/lambda.ts","range":{"start":{"line":0,"character":9},"end":{"line":0,"character":46}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":46}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"arg1","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":10},"end":{"line":0,"character":22}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":10},"end":{"line":0,"character":22}}}],"children":[],"_id":"2"},{"kindText":"boolean","kind":"primitive","symbol":{"name":"arg2","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":37}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":37}}}],"children":[],"_id":"3"},{"kindText":"void","kind":"primitive","purpose":"return","children":[],"_id":"4"}],"_id":"1"},{"kindText":"object","kind":"object","symbol":{"name":"__type","anonymous":true,"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":1,"character":9},"end":{"line":1,"character":22}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":1,"character":9},"end":{"line":1,"character":22}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":1,"character":11},"end":{"line":1,"character":20}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":1,"character":11},"end":{"line":1,"character":20}}}],"children":[],"_id":"6"}],"_id":"5"}],"_id":"0"}
+> t --- {
+    "kindText": "union",
+    "kind": "union",
+    "symbol": {
+        "name": "t",
+        "locations": [
+            {
+                "fileName": "cases/lambda.ts",
+                "range": {
+                    "start": {
+                        "line": 1,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "character": 26
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/lambda.ts",
+            "range": {
+                "start": {
+                    "line": 1,
+                    "character": 0
+                },
+                "end": {
+                    "line": 1,
+                    "character": 26
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "function",
+            "kind": "function",
+            "alias": "f",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../cases/lambda.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 9
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 46
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/lambda.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 46
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "symbol": {
+                        "name": "arg1",
+                        "locations": [
+                            {
+                                "fileName": "cases/lambda.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 10
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 22
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/lambda.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 10
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 22
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "boolean",
+                    "kind": "primitive",
+                    "symbol": {
+                        "name": "arg2",
+                        "locations": [
+                            {
+                                "fileName": "cases/lambda.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 24
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 37
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/lambda.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 24
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 37
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "3"
+                },
+                {
+                    "kindText": "void",
+                    "kind": "primitive",
+                    "purpose": "return",
+                    "children": [],
+                    "_id": "4"
+                }
+            ],
+            "_id": "1"
+        },
+        {
+            "kindText": "object",
+            "kind": "object",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "cases/lambda.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 9
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 22
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/lambda.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 9
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 22
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "symbol": {
+                        "name": "a",
+                        "locations": [
+                            {
+                                "fileName": "cases/lambda.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1,
+                                        "character": 11
+                                    },
+                                    "end": {
+                                        "line": 1,
+                                        "character": 20
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/lambda.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 11
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 20
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "6"
+                }
+            ],
+            "_id": "5"
+        }
+    ],
+    "_id": "0"
+}
 > { a: string } | f
 > { a: string } | f
 > { a: string }
 > a: string
 > a: string
-> a --- {"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":1,"character":11},"end":{"line":1,"character":20}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":1,"character":11},"end":{"line":1,"character":20}}}],"children":[],"_id":"0"}
+> a --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "symbol": {
+        "name": "a",
+        "locations": [
+            {
+                "fileName": "cases/lambda.ts",
+                "range": {
+                    "start": {
+                        "line": 1,
+                        "character": 11
+                    },
+                    "end": {
+                        "line": 1,
+                        "character": 20
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/lambda.ts",
+            "range": {
+                "start": {
+                    "line": 1,
+                    "character": 11
+                },
+                "end": {
+                    "line": 1,
+                    "character": 20
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > f
-> f --- {"kindText":"function","kind":"function","symbol":{"name":"f","locations":[{"fileName":"../cases/lambda.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":46}}}]},"locations":[{"fileName":"../cases/lambda.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":46}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"arg1","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":10},"end":{"line":0,"character":22}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":10},"end":{"line":0,"character":22}}}],"children":[],"_id":"1"},{"kindText":"boolean","kind":"primitive","symbol":{"name":"arg2","locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":37}}}]},"locations":[{"fileName":"cases/lambda.ts","range":{"start":{"line":0,"character":24},"end":{"line":0,"character":37}}}],"children":[],"_id":"2"},{"kindText":"void","kind":"primitive","purpose":"return","children":[],"_id":"3"}],"_id":"0"}
+> f --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "f",
+        "locations": [
+            {
+                "fileName": "../cases/lambda.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 46
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../cases/lambda.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 46
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "symbol": {
+                "name": "arg1",
+                "locations": [
+                    {
+                        "fileName": "cases/lambda.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 10
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 22
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/lambda.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 10
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 22
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "boolean",
+            "kind": "primitive",
+            "symbol": {
+                "name": "arg2",
+                "locations": [
+                    {
+                        "fileName": "cases/lambda.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 24
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 37
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/lambda.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 24
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 37
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        },
+        {
+            "kindText": "void",
+            "kind": "primitive",
+            "purpose": "return",
+            "children": [],
+            "_id": "3"
+        }
+    ],
+    "_id": "0"
+}

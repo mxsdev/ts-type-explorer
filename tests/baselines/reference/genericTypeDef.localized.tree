@@ -1,22 +1,602 @@
 === genericTypeDef.ts ===
 
 type TypeWithGenerics<T, K> = T
-> TypeWithGenerics --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"TypeWithGenerics","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":31}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":31}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":23}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":23}}}],"children":[],"_id":"1"},{"kindText":"type parameter","kind":"type_parameter","alias":"K","symbol":{"name":"K","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":26}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":26}}}],"children":[],"_id":"2"}]}],"_id":"0"}
+> TypeWithGenerics --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "TypeWithGenerics",
+        "locations": [
+            {
+                "fileName": "cases/genericTypeDef.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 31
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/genericTypeDef.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 31
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "T",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/genericTypeDef.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 22
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 23
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/genericTypeDef.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 22
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 23
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "K",
+                    "symbol": {
+                        "name": "K",
+                        "locations": [
+                            {
+                                "fileName": "cases/genericTypeDef.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 25
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 26
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/genericTypeDef.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 25
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "2"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
 > T, K
 > T
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":23}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":23}}}],"children":[],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/genericTypeDef.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 22
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 23
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/genericTypeDef.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 22
+                },
+                "end": {
+                    "line": 0,
+                    "character": 23
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > K
-> K --- {"kindText":"type parameter","kind":"type_parameter","alias":"K","symbol":{"name":"K","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":26}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":26}}}],"children":[],"_id":"0"}
+> K --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "K",
+    "symbol": {
+        "name": "K",
+        "locations": [
+            {
+                "fileName": "cases/genericTypeDef.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 25
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 26
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/genericTypeDef.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 25
+                },
+                "end": {
+                    "line": 0,
+                    "character": 26
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > T
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":23}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":23}}}],"children":[],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/genericTypeDef.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 22
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 23
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/genericTypeDef.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 22
+                },
+                "end": {
+                    "line": 0,
+                    "character": 23
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 
 type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
-> InstantiatedGeneric --- {"kindText":"type parameter","kind":"type_parameter","alias":"J","symbol":{"name":"InstantiatedGeneric","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":0},"end":{"line":2,"character":56}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":0},"end":{"line":2,"character":56}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"J","symbol":{"name":"J","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":25},"end":{"line":2,"character":26}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":25},"end":{"line":2,"character":26}}}],"children":[],"_id":"1"}]}],"_id":"0"}
+> InstantiatedGeneric --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "J",
+    "symbol": {
+        "name": "InstantiatedGeneric",
+        "locations": [
+            {
+                "fileName": "cases/genericTypeDef.ts",
+                "range": {
+                    "start": {
+                        "line": 2,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 56
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/genericTypeDef.ts",
+            "range": {
+                "start": {
+                    "line": 2,
+                    "character": 0
+                },
+                "end": {
+                    "line": 2,
+                    "character": 56
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "J",
+                    "symbol": {
+                        "name": "J",
+                        "locations": [
+                            {
+                                "fileName": "cases/genericTypeDef.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 2,
+                                        "character": 25
+                                    },
+                                    "end": {
+                                        "line": 2,
+                                        "character": 26
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/genericTypeDef.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 25
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "1"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
 > J
 > J
-> J --- {"kindText":"type parameter","kind":"type_parameter","alias":"J","symbol":{"name":"J","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":25},"end":{"line":2,"character":26}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":25},"end":{"line":2,"character":26}}}],"children":[],"_id":"0"}
+> J --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "J",
+    "symbol": {
+        "name": "J",
+        "locations": [
+            {
+                "fileName": "cases/genericTypeDef.ts",
+                "range": {
+                    "start": {
+                        "line": 2,
+                        "character": 25
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 26
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/genericTypeDef.ts",
+            "range": {
+                "start": {
+                    "line": 2,
+                    "character": 25
+                },
+                "end": {
+                    "line": 2,
+                    "character": 26
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > TypeWithGenerics<J, "asd">
-> TypeWithGenerics --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"TypeWithGenerics","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":31}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":31}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":23}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":23}}}],"children":[{"kindText":"type parameter","kind":"type_parameter","alias":"J","symbol":{"name":"J","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":25},"end":{"line":2,"character":26}}}]},"purpose":"value","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":25},"end":{"line":2,"character":26}}}],"children":[],"_id":"3"}],"_id":"1"},{"kindText":"type parameter","kind":"type_parameter","alias":"K","symbol":{"name":"K","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":26}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":26}}}],"children":[{"kindText":"\"asd\"","kind":"string_literal","purpose":"value","children":[],"_id":"4"}],"_id":"2"}]}],"_id":"0"}
+> TypeWithGenerics --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "TypeWithGenerics",
+        "locations": [
+            {
+                "fileName": "cases/genericTypeDef.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 31
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/genericTypeDef.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 31
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "T",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/genericTypeDef.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 22
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 23
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/genericTypeDef.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 22
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 23
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "type parameter",
+                            "kind": "type_parameter",
+                            "alias": "J",
+                            "symbol": {
+                                "name": "J",
+                                "locations": [
+                                    {
+                                        "fileName": "cases/genericTypeDef.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 2,
+                                                "character": 25
+                                            },
+                                            "end": {
+                                                "line": 2,
+                                                "character": 26
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "purpose": "value",
+                            "locations": [
+                                {
+                                    "fileName": "cases/genericTypeDef.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 25
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 26
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [],
+                            "_id": "3"
+                        }
+                    ],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "K",
+                    "symbol": {
+                        "name": "K",
+                        "locations": [
+                            {
+                                "fileName": "cases/genericTypeDef.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 25
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 26
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/genericTypeDef.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 25
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "\"asd\"",
+                            "kind": "string_literal",
+                            "purpose": "value",
+                            "children": [],
+                            "_id": "4"
+                        }
+                    ],
+                    "_id": "2"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
 > J, "asd"
 > J
-> J --- {"kindText":"type parameter","kind":"type_parameter","alias":"J","symbol":{"name":"J","locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":25},"end":{"line":2,"character":26}}}]},"locations":[{"fileName":"cases/genericTypeDef.ts","range":{"start":{"line":2,"character":25},"end":{"line":2,"character":26}}}],"children":[],"_id":"0"}
+> J --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "J",
+    "symbol": {
+        "name": "J",
+        "locations": [
+            {
+                "fileName": "cases/genericTypeDef.ts",
+                "range": {
+                    "start": {
+                        "line": 2,
+                        "character": 25
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 26
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/genericTypeDef.ts",
+            "range": {
+                "start": {
+                    "line": 2,
+                    "character": 25
+                },
+                "end": {
+                    "line": 2,
+                    "character": 26
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

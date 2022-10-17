@@ -1,11 +1,442 @@
 === enum.ts ===
 
 enum Test { A, B, C }
-> Test --- {"kind":"enum","properties":[{"kind":"enum_literal","value":0,"literalSymbol":{"name":"A","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":12},"end":{"line":0,"character":13}}}}]},"parentSymbol":{"name":"Test","flags":256,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":21}}}}]},"symbolMeta":{"name":"A","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":12},"end":{"line":0,"character":13}}}}]},"id":"1"},{"kind":"enum_literal","value":1,"literalSymbol":{"name":"B","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":15},"end":{"line":0,"character":16}}}}]},"parentSymbol":{"name":"Test","flags":256,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":21}}}}]},"symbolMeta":{"name":"B","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":15},"end":{"line":0,"character":16}}}}]},"id":"2"},{"kind":"enum_literal","value":2,"literalSymbol":{"name":"C","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":18},"end":{"line":0,"character":19}}}}]},"parentSymbol":{"name":"Test","flags":256,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":21}}}}]},"symbolMeta":{"name":"C","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":18},"end":{"line":0,"character":19}}}}]},"id":"3"}],"symbolMeta":{"name":"Test","flags":256,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":21}}}}]},"id":"0"}
+> Test --- {
+    "kind": "enum",
+    "properties": [
+        {
+            "kind": "enum_literal",
+            "value": 0,
+            "literalSymbol": {
+                "name": "A",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enum.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 12
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parentSymbol": {
+                "name": "Test",
+                "flags": 256,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enum.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 21
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "symbolMeta": {
+                "name": "A",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enum.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 12
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "enum_literal",
+            "value": 1,
+            "literalSymbol": {
+                "name": "B",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enum.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 15
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 16
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parentSymbol": {
+                "name": "Test",
+                "flags": 256,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enum.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 21
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "symbolMeta": {
+                "name": "B",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enum.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 15
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 16
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        },
+        {
+            "kind": "enum_literal",
+            "value": 2,
+            "literalSymbol": {
+                "name": "C",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enum.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 18
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 19
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parentSymbol": {
+                "name": "Test",
+                "flags": 256,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enum.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 21
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "symbolMeta": {
+                "name": "C",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enum.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 18
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 19
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "3"
+        }
+    ],
+    "symbolMeta": {
+        "name": "Test",
+        "flags": 256,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 21
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > A, B, C
 > A
-> A --- {"kind":"enum_literal","value":0,"literalSymbol":{"name":"A","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":12},"end":{"line":0,"character":13}}}}]},"parentSymbol":{"name":"Test","flags":256,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":21}}}}]},"symbolMeta":{"name":"A","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":12},"end":{"line":0,"character":13}}}}]},"id":"0"}
+> A --- {
+    "kind": "enum_literal",
+    "value": 0,
+    "literalSymbol": {
+        "name": "A",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 12
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "parentSymbol": {
+        "name": "Test",
+        "flags": 256,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 21
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "A",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 12
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > B
-> B --- {"kind":"enum_literal","value":1,"literalSymbol":{"name":"B","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":15},"end":{"line":0,"character":16}}}}]},"parentSymbol":{"name":"Test","flags":256,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":21}}}}]},"symbolMeta":{"name":"B","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":15},"end":{"line":0,"character":16}}}}]},"id":"0"}
+> B --- {
+    "kind": "enum_literal",
+    "value": 1,
+    "literalSymbol": {
+        "name": "B",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 15
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 16
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "parentSymbol": {
+        "name": "Test",
+        "flags": 256,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 21
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "B",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 15
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 16
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > C
-> C --- {"kind":"enum_literal","value":2,"literalSymbol":{"name":"C","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":18},"end":{"line":0,"character":19}}}}]},"parentSymbol":{"name":"Test","flags":256,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":21}}}}]},"symbolMeta":{"name":"C","flags":8,"declarations":[{"location":{"fileName":"cases/enum.ts","range":{"start":{"line":0,"character":18},"end":{"line":0,"character":19}}}}]},"id":"0"}
+> C --- {
+    "kind": "enum_literal",
+    "value": 2,
+    "literalSymbol": {
+        "name": "C",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 18
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "parentSymbol": {
+        "name": "Test",
+        "flags": 256,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 21
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "C",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enum.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 18
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

@@ -2,7 +2,7 @@ import { multilineTypeToString, recursivelyExpandType, generateTypeTree, TypeInf
 import { typeBaselineGenerator, symbolBaselineGenerator, BaselineGenerator } from "./baselineGeneratorUtils"
 import { normalizeTypeTree, normalizeLocalizedTypeTree } from "./normalize";
 
-const stringify = (obj: any) => JSON.stringify(obj);
+const stringify = (obj: any) => JSON.stringify(obj, undefined, 4);
 
 const mergeBaselineGenerator = typeBaselineGenerator(
     (typeChecker, sourceFile, type) => 

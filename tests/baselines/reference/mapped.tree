@@ -1,10 +1,95 @@
 === mapped.ts ===
 
 type mapped = { [index: string]: number }
-> mapped --- {"kind":"object","properties":[],"indexInfos":[{"keyType":{"kind":"primitive","primitive":"string","id":"2"},"type":{"kind":"primitive","primitive":"number","id":"1"},"parameterSymbol":{"name":"index","flags":1,"declarations":[{"location":{"fileName":"cases/mapped.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":30}}}}]}}],"symbolMeta":{"name":"mapped","flags":524288,"declarations":[{"location":{"fileName":"cases/mapped.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":41}}}}]},"id":"0"}
+> mapped --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            "type": {
+                "kind": "primitive",
+                "primitive": "number",
+                "id": "1"
+            },
+            "parameterSymbol": {
+                "name": "index",
+                "flags": 1,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mapped.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 17
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "mapped",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapped.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 41
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > { [index: string]: number }
 > [index: string]: number
 > [index: string]: number
 > index: string
 > index: string
-> index --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"index","flags":1,"declarations":[{"location":{"fileName":"cases/mapped.ts","range":{"start":{"line":0,"character":17},"end":{"line":0,"character":30}}}}]},"id":"0"}
+> index --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "index",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapped.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 17
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

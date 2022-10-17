@@ -1,4 +1,43 @@
 === array.ts ===
 
 type arrayOfStrings = string[]
-> arrayOfStrings --- {"kindText":"string","kind":"primitive","symbol":{"name":"arrayOfStrings","locations":[{"fileName":"cases/array.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":30}}}]},"dimension":1,"locations":[{"fileName":"cases/array.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":30}}}],"children":[],"_id":"0"}
+> arrayOfStrings --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "symbol": {
+        "name": "arrayOfStrings",
+        "locations": [
+            {
+                "fileName": "cases/array.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 30
+                    }
+                }
+            }
+        ]
+    },
+    "dimension": 1,
+    "locations": [
+        {
+            "fileName": "cases/array.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 30
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

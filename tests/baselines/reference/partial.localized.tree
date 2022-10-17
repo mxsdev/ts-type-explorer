@@ -1,17 +1,625 @@
 === partial.ts ===
 
 type partialUnion = Partial<{a: string}|{b: string}>
-> partialUnion --- {"kindText":"union","kind":"union","symbol":{"name":"partialUnion","locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":52}}}]},"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":52}}}],"children":[{"kindText":"object","kind":"object","alias":"Partial","symbol":{"name":"__type","anonymous":true,"locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1548,"character":18},"end":{"line":1550,"character":1}}}]},"locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1548,"character":0},"end":{"line":1550,"character":2}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":29},"end":{"line":0,"character":38}}}]},"optional":true,"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":29},"end":{"line":0,"character":38}}}],"children":[],"_id":"2"}],"_id":"1"},{"kindText":"object","kind":"object","alias":"Partial","symbol":{"name":"__type","anonymous":true,"locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1548,"character":18},"end":{"line":1550,"character":1}}}]},"locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1548,"character":0},"end":{"line":1550,"character":2}}}],"children":[{"reference":"2"}],"_id":"3"}],"_id":"0"}
+> partialUnion --- {
+    "kindText": "union",
+    "kind": "union",
+    "symbol": {
+        "name": "partialUnion",
+        "locations": [
+            {
+                "fileName": "cases/partial.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 52
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/partial.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 52
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "Partial",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1548,
+                                "character": 18
+                            },
+                            "end": {
+                                "line": 1550,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1548,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 1550,
+                            "character": 2
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "symbol": {
+                        "name": "a",
+                        "locations": [
+                            {
+                                "fileName": "cases/partial.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 29
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 38
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "optional": true,
+                    "locations": [
+                        {
+                            "fileName": "cases/partial.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 29
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 38
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "2"
+                }
+            ],
+            "_id": "1"
+        },
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "Partial",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1548,
+                                "character": 18
+                            },
+                            "end": {
+                                "line": 1550,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1548,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 1550,
+                            "character": 2
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "2"
+                }
+            ],
+            "_id": "3"
+        }
+    ],
+    "_id": "0"
+}
 > Partial<{a: string}|{b: string}>
-> Partial --- {"kindText":"object","kind":"object","symbol":{"name":"Partial","locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1548,"character":0},"end":{"line":1550,"character":2}}}]},"locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1548,"character":0},"end":{"line":1550,"character":2}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1548,"character":13},"end":{"line":1548,"character":14}}}]},"locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1548,"character":13},"end":{"line":1548,"character":14}}}],"children":[{"kindText":"union","kind":"union","purpose":"value","children":[{"kindText":"object","kind":"object","symbol":{"name":"__type","anonymous":true,"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":28},"end":{"line":0,"character":39}}}]},"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":28},"end":{"line":0,"character":39}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":29},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":29},"end":{"line":0,"character":38}}}],"children":[],"_id":"4"}],"_id":"3"},{"kindText":"object","kind":"object","symbol":{"name":"__type","anonymous":true,"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":51}}}]},"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":51}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"b","locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":41},"end":{"line":0,"character":50}}}]},"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":41},"end":{"line":0,"character":50}}}],"children":[],"_id":"6"}],"_id":"5"}],"_id":"2"}],"_id":"1"}]},{"kindText":"index","symbol":{"name":"P","locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1549,"character":5},"end":{"line":1549,"character":17}}}]},"children":[{"kindText":"keyof","kind":"index","purpose":"constraint","children":[{"reference":"1"}],"_id":"13"},{"kindText":"access","kind":"indexed_access","purpose":"value","children":[{"reference":"1"},{"kindText":"type parameter","kind":"type_parameter","alias":"P","symbol":{"name":"P","locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1549,"character":5},"end":{"line":1549,"character":17}}}]},"purpose":"index","locations":[{"fileName":"../node_modules/typescript/lib/lib.es5.d.ts","range":{"start":{"line":1549,"character":5},"end":{"line":1549,"character":17}}}],"children":[{"kindText":"union","kind":"union","purpose":"extends","children":[{"kindText":"string","kind":"primitive","children":[],"_id":"10"},{"kindText":"number","kind":"primitive","children":[],"_id":"11"},{"kindText":"symbol","kind":"primitive","children":[],"_id":"12"}],"_id":"9"}],"_id":"8"}],"_id":"7"}]}],"_id":"0"}
+> Partial --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "Partial",
+        "locations": [
+            {
+                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                "range": {
+                    "start": {
+                        "line": 1548,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 1550,
+                        "character": 2
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+            "range": {
+                "start": {
+                    "line": 1548,
+                    "character": 0
+                },
+                "end": {
+                    "line": 1550,
+                    "character": 2
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "T",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1548,
+                                        "character": 13
+                                    },
+                                    "end": {
+                                        "line": 1548,
+                                        "character": 14
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1548,
+                                    "character": 13
+                                },
+                                "end": {
+                                    "line": 1548,
+                                    "character": 14
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "value",
+                            "children": [
+                                {
+                                    "kindText": "object",
+                                    "kind": "object",
+                                    "symbol": {
+                                        "name": "__type",
+                                        "anonymous": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "cases/partial.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 0,
+                                                        "character": 28
+                                                    },
+                                                    "end": {
+                                                        "line": 0,
+                                                        "character": 39
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/partial.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 28
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 39
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "symbol": {
+                                                "name": "a",
+                                                "locations": [
+                                                    {
+                                                        "fileName": "cases/partial.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 0,
+                                                                "character": 29
+                                                            },
+                                                            "end": {
+                                                                "line": 0,
+                                                                "character": 38
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "locations": [
+                                                {
+                                                    "fileName": "cases/partial.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 0,
+                                                            "character": 29
+                                                        },
+                                                        "end": {
+                                                            "line": 0,
+                                                            "character": 38
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "children": [],
+                                            "_id": "4"
+                                        }
+                                    ],
+                                    "_id": "3"
+                                },
+                                {
+                                    "kindText": "object",
+                                    "kind": "object",
+                                    "symbol": {
+                                        "name": "__type",
+                                        "anonymous": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "cases/partial.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 0,
+                                                        "character": 40
+                                                    },
+                                                    "end": {
+                                                        "line": 0,
+                                                        "character": 51
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/partial.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 40
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 51
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "symbol": {
+                                                "name": "b",
+                                                "locations": [
+                                                    {
+                                                        "fileName": "cases/partial.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 0,
+                                                                "character": 41
+                                                            },
+                                                            "end": {
+                                                                "line": 0,
+                                                                "character": 50
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "locations": [
+                                                {
+                                                    "fileName": "cases/partial.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 0,
+                                                            "character": 41
+                                                        },
+                                                        "end": {
+                                                            "line": 0,
+                                                            "character": 50
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "children": [],
+                                            "_id": "6"
+                                        }
+                                    ],
+                                    "_id": "5"
+                                }
+                            ],
+                            "_id": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "index",
+            "symbol": {
+                "name": "P",
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1549,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 1549,
+                                "character": 17
+                            }
+                        }
+                    }
+                ]
+            },
+            "children": [
+                {
+                    "kindText": "keyof",
+                    "kind": "index",
+                    "purpose": "constraint",
+                    "children": [
+                        {
+                            "reference": "1"
+                        }
+                    ],
+                    "_id": "13"
+                },
+                {
+                    "kindText": "access",
+                    "kind": "indexed_access",
+                    "purpose": "value",
+                    "children": [
+                        {
+                            "reference": "1"
+                        },
+                        {
+                            "kindText": "type parameter",
+                            "kind": "type_parameter",
+                            "alias": "P",
+                            "symbol": {
+                                "name": "P",
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1549,
+                                                "character": 5
+                                            },
+                                            "end": {
+                                                "line": 1549,
+                                                "character": 17
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "purpose": "index",
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1549,
+                                            "character": 5
+                                        },
+                                        "end": {
+                                            "line": 1549,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "union",
+                                    "kind": "union",
+                                    "purpose": "extends",
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "children": [],
+                                            "_id": "10"
+                                        },
+                                        {
+                                            "kindText": "number",
+                                            "kind": "primitive",
+                                            "children": [],
+                                            "_id": "11"
+                                        },
+                                        {
+                                            "kindText": "symbol",
+                                            "kind": "primitive",
+                                            "children": [],
+                                            "_id": "12"
+                                        }
+                                    ],
+                                    "_id": "9"
+                                }
+                            ],
+                            "_id": "8"
+                        }
+                    ],
+                    "_id": "7"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
 > {a: string}|{b: string}
 > {a: string}|{b: string}
 > {a: string}|{b: string}
 > {a: string}
 > a: string
 > a: string
-> a --- {"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":29},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":29},"end":{"line":0,"character":38}}}],"children":[],"_id":"0"}
+> a --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "symbol": {
+        "name": "a",
+        "locations": [
+            {
+                "fileName": "cases/partial.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 29
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 38
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/partial.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 29
+                },
+                "end": {
+                    "line": 0,
+                    "character": 38
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > {b: string}
 > b: string
 > b: string
-> b --- {"kindText":"string","kind":"primitive","symbol":{"name":"b","locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":41},"end":{"line":0,"character":50}}}]},"locations":[{"fileName":"cases/partial.ts","range":{"start":{"line":0,"character":41},"end":{"line":0,"character":50}}}],"children":[],"_id":"0"}
+> b --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "symbol": {
+        "name": "b",
+        "locations": [
+            {
+                "fileName": "cases/partial.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 41
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 50
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/partial.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 41
+                },
+                "end": {
+                    "line": 0,
+                    "character": 50
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

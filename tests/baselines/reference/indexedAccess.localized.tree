@@ -1,17 +1,423 @@
 === indexedAccess.ts ===
 
 type IndexedAccess<P, T extends keyof P> = P[T]
-> IndexedAccess --- {"kindText":"access","kind":"indexed_access","symbol":{"name":"IndexedAccess","locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":47}}}]},"locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":47}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"P","symbol":{"name":"P","locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}]},"locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}],"children":[],"_id":"1"},{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}]},"locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}],"children":[{"kindText":"union","kind":"union","purpose":"extends","children":[{"kindText":"string","kind":"primitive","children":[],"_id":"4"},{"kindText":"number","kind":"primitive","children":[],"_id":"5"},{"kindText":"symbol","kind":"primitive","children":[],"_id":"6"}],"_id":"3"}],"_id":"2"}]},{"reference":"1"},{"reference":"2"}],"_id":"0"}
+> IndexedAccess --- {
+    "kindText": "access",
+    "kind": "indexed_access",
+    "symbol": {
+        "name": "IndexedAccess",
+        "locations": [
+            {
+                "fileName": "cases/indexedAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 47
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/indexedAccess.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 47
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "P",
+                    "symbol": {
+                        "name": "P",
+                        "locations": [
+                            {
+                                "fileName": "cases/indexedAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 19
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 20
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/indexedAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 19
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 20
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "T",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/indexedAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 22
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 39
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/indexedAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 22
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 39
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "extends",
+                            "children": [
+                                {
+                                    "kindText": "string",
+                                    "kind": "primitive",
+                                    "children": [],
+                                    "_id": "4"
+                                },
+                                {
+                                    "kindText": "number",
+                                    "kind": "primitive",
+                                    "children": [],
+                                    "_id": "5"
+                                },
+                                {
+                                    "kindText": "symbol",
+                                    "kind": "primitive",
+                                    "children": [],
+                                    "_id": "6"
+                                }
+                            ],
+                            "_id": "3"
+                        }
+                    ],
+                    "_id": "2"
+                }
+            ]
+        },
+        {
+            "reference": "1"
+        },
+        {
+            "reference": "2"
+        }
+    ],
+    "_id": "0"
+}
 > P, T extends keyof P
 > P
-> P --- {"kindText":"type parameter","kind":"type_parameter","alias":"P","symbol":{"name":"P","locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}]},"locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}],"children":[],"_id":"0"}
+> P --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "P",
+    "symbol": {
+        "name": "P",
+        "locations": [
+            {
+                "fileName": "cases/indexedAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 19
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 20
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/indexedAccess.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 19
+                },
+                "end": {
+                    "line": 0,
+                    "character": 20
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > T extends keyof P
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}]},"locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}],"children":[{"kindText":"union","kind":"union","purpose":"extends","children":[{"kindText":"string","kind":"primitive","children":[],"_id":"2"},{"kindText":"number","kind":"primitive","children":[],"_id":"3"},{"kindText":"symbol","kind":"primitive","children":[],"_id":"4"}],"_id":"1"}],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/indexedAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 22
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 39
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/indexedAccess.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 22
+                },
+                "end": {
+                    "line": 0,
+                    "character": 39
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "union",
+            "kind": "union",
+            "purpose": "extends",
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "children": [],
+                    "_id": "3"
+                },
+                {
+                    "kindText": "symbol",
+                    "kind": "primitive",
+                    "children": [],
+                    "_id": "4"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > keyof P
 > P
-> P --- {"kindText":"type parameter","kind":"type_parameter","alias":"P","symbol":{"name":"P","locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}]},"locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}],"children":[],"_id":"0"}
+> P --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "P",
+    "symbol": {
+        "name": "P",
+        "locations": [
+            {
+                "fileName": "cases/indexedAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 19
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 20
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/indexedAccess.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 19
+                },
+                "end": {
+                    "line": 0,
+                    "character": 20
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > P[T]
 > P
-> P --- {"kindText":"type parameter","kind":"type_parameter","alias":"P","symbol":{"name":"P","locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}]},"locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":19},"end":{"line":0,"character":20}}}],"children":[],"_id":"0"}
+> P --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "P",
+    "symbol": {
+        "name": "P",
+        "locations": [
+            {
+                "fileName": "cases/indexedAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 19
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 20
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/indexedAccess.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 19
+                },
+                "end": {
+                    "line": 0,
+                    "character": 20
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > T
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}]},"locations":[{"fileName":"cases/indexedAccess.ts","range":{"start":{"line":0,"character":22},"end":{"line":0,"character":39}}}],"children":[{"kindText":"union","kind":"union","purpose":"extends","children":[{"kindText":"string","kind":"primitive","children":[],"_id":"2"},{"kindText":"number","kind":"primitive","children":[],"_id":"3"},{"kindText":"symbol","kind":"primitive","children":[],"_id":"4"}],"_id":"1"}],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/indexedAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 22
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 39
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/indexedAccess.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 22
+                },
+                "end": {
+                    "line": 0,
+                    "character": 39
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "union",
+            "kind": "union",
+            "purpose": "extends",
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "children": [],
+                    "_id": "3"
+                },
+                {
+                    "kindText": "symbol",
+                    "kind": "primitive",
+                    "children": [],
+                    "_id": "4"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}

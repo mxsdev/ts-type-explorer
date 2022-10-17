@@ -3,10 +3,153 @@
 interface TestInterface {
     getThing(): string
 }
-> TestInterface --- {"kind":"interface","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":"2"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"id":"1"}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"id":"0"}
+> TestInterface --- {
+    "kind": "interface",
+    "properties": [
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "character": 22
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [],
+                    "returnType": {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "id": "2"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 22
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "implementsTypes": [],
+    "constructSignatures": [],
+    "symbolMeta": {
+        "name": "TestInterface",
+        "flags": 64,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > getThing(): string
 > getThing(): string
-> getThing --- {"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":"1"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"id":"0"}
+> getThing --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 22
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [],
+            "returnType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "1"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "getThing",
+        "flags": 8192,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 22
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 
 class TestClass implements TestInterface {
     constructor(param: string) { }
@@ -15,31 +158,1567 @@ class TestClass implements TestInterface {
         return "as"
     }
 }
-> class --- {"kind":"class","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":"2"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"id":"1"}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"parameters":[],"returnType":{"kind":"reference","id":"2"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"id":"5"}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"id":"4"}],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}}]},"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}}]},"id":"3"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"id":"0"}
-> TestClass --- {"kind":"class","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":"2"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"id":"1"}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"parameters":[],"returnType":{"kind":"reference","id":"2"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"id":"5"}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"id":"4"}],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}}]},"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}}]},"id":"3"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"id":"0"}
+> class --- {
+    "kind": "class",
+    "properties": [
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 7,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 9,
+                                            "character": 5
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [],
+                    "returnType": {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "id": "2"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 33562624,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 9,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "implementsTypes": [
+        {
+            "kind": "interface",
+            "properties": [
+                {
+                    "kind": "function",
+                    "signatures": [
+                        {
+                            "symbolMeta": {
+                                "name": "getThing",
+                                "flags": 8192,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/class.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "character": 22
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "parameters": [],
+                            "returnType": {
+                                "kind": "reference",
+                                "id": "2"
+                            }
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "character": 22
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "5"
+                }
+            ],
+            "implementsTypes": [],
+            "constructSignatures": [],
+            "symbolMeta": {
+                "name": "TestInterface",
+                "flags": 64,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 1
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "4"
+        }
+    ],
+    "constructSignatures": [
+        {
+            "symbolMeta": {
+                "name": "__constructor",
+                "flags": 16384,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 34
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "symbolMeta": {
+                        "name": "param",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 29
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "3"
+                }
+            ]
+        }
+    ],
+    "classSymbol": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> TestClass --- {
+    "kind": "class",
+    "properties": [
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 7,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 9,
+                                            "character": 5
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [],
+                    "returnType": {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "id": "2"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 33562624,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 9,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "implementsTypes": [
+        {
+            "kind": "interface",
+            "properties": [
+                {
+                    "kind": "function",
+                    "signatures": [
+                        {
+                            "symbolMeta": {
+                                "name": "getThing",
+                                "flags": 8192,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/class.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "character": 22
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "parameters": [],
+                            "returnType": {
+                                "kind": "reference",
+                                "id": "2"
+                            }
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "character": 22
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "5"
+                }
+            ],
+            "implementsTypes": [],
+            "constructSignatures": [],
+            "symbolMeta": {
+                "name": "TestInterface",
+                "flags": 64,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 1
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "4"
+        }
+    ],
+    "constructSignatures": [
+        {
+            "symbolMeta": {
+                "name": "__constructor",
+                "flags": 16384,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 34
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "symbolMeta": {
+                        "name": "param",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 29
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "3"
+                }
+            ]
+        }
+    ],
+    "classSymbol": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > implements TestInterface
 > implements TestInterface
 > TestInterface
 > TestInterface
-> TestInterface --- {"kind":"interface","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":"2"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"id":"1"}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"id":"0"}
+> TestInterface --- {
+    "kind": "interface",
+    "properties": [
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "character": 22
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [],
+                    "returnType": {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "id": "2"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 22
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "implementsTypes": [],
+    "constructSignatures": [],
+    "symbolMeta": {
+        "name": "TestInterface",
+        "flags": 64,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > constructor(param: string) { }
->     getThing() {
->         return "as"
->     }
+
+    getThing() {
+        return "as"
+    }
 > constructor(param: string) { }
-> constructor --- {"kind":"class","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":"2"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"id":"1"}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"parameters":[],"returnType":{"kind":"reference","id":"2"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"id":"5"}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"id":"4"}],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}}]},"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}}]},"id":"3"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"id":"0"}
+> constructor --- {
+    "kind": "class",
+    "properties": [
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 7,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 9,
+                                            "character": 5
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [],
+                    "returnType": {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "id": "2"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 33562624,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 9,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "implementsTypes": [
+        {
+            "kind": "interface",
+            "properties": [
+                {
+                    "kind": "function",
+                    "signatures": [
+                        {
+                            "symbolMeta": {
+                                "name": "getThing",
+                                "flags": 8192,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/class.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "character": 22
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "parameters": [],
+                            "returnType": {
+                                "kind": "reference",
+                                "id": "2"
+                            }
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "character": 22
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "5"
+                }
+            ],
+            "implementsTypes": [],
+            "constructSignatures": [],
+            "symbolMeta": {
+                "name": "TestInterface",
+                "flags": 64,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 1
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "4"
+        }
+    ],
+    "constructSignatures": [
+        {
+            "symbolMeta": {
+                "name": "__constructor",
+                "flags": 16384,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 34
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "symbolMeta": {
+                        "name": "param",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 29
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "3"
+                }
+            ]
+        }
+    ],
+    "classSymbol": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > param: string
 > param: string
-> param --- {"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}}]},"id":"0"}
+> param --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "param",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 29
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > getThing() {
->         return "as"
->     }
-> getThing --- {"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":"1"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"id":"0"}
+        return "as"
+    }
+> getThing --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 9,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [],
+            "returnType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "1"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "getThing",
+        "flags": 8192,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 9,
+                            "character": 5
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 
 const _a = new TestClass("param")
 > const _a = new TestClass("param")
 > _a = new TestClass("param")
 > _a = new TestClass("param")
-> _a --- {"kind":"object","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":"2"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"id":"1"}],"indexInfos":[],"objectClass":{"kind":"class","properties":[{"kind":"reference","symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"id":"1"}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"parameters":[],"returnType":{"kind":"reference","id":"2"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"id":"6"}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"id":"5"}],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}}]},"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}}]},"id":"4"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"id":"3"},"symbolMeta":{"name":"_a","flags":2,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":12,"character":6},"end":{"line":12,"character":33}}}}]},"id":"0"}
+> _a --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "function",
+            "signatures": [
+                {
+                    "symbolMeta": {
+                        "name": "getThing",
+                        "flags": 8192,
+                        "insideClassOrInterface": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 7,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 9,
+                                            "character": 5
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "parameters": [],
+                    "returnType": {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "id": "2"
+                    }
+                }
+            ],
+            "symbolMeta": {
+                "name": "getThing",
+                "flags": 33562624,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 9,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "objectClass": {
+        "kind": "class",
+        "properties": [
+            {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "getThing",
+                    "flags": 33562624,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 9,
+                                        "character": 5
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "1"
+            }
+        ],
+        "implementsTypes": [
+            {
+                "kind": "interface",
+                "properties": [
+                    {
+                        "kind": "function",
+                        "signatures": [
+                            {
+                                "symbolMeta": {
+                                    "name": "getThing",
+                                    "flags": 8192,
+                                    "insideClassOrInterface": true,
+                                    "declarations": [
+                                        {
+                                            "location": {
+                                                "fileName": "cases/class.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 1,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 1,
+                                                        "character": 22
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "parameters": [],
+                                "returnType": {
+                                    "kind": "reference",
+                                    "id": "2"
+                                }
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "getThing",
+                            "flags": 8192,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 1,
+                                                "character": 22
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "6"
+                    }
+                ],
+                "implementsTypes": [],
+                "constructSignatures": [],
+                "symbolMeta": {
+                    "name": "TestInterface",
+                    "flags": 64,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 0
+                                    },
+                                    "end": {
+                                        "line": 2,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "5"
+            }
+        ],
+        "constructSignatures": [
+            {
+                "symbolMeta": {
+                    "name": "__constructor",
+                    "flags": 16384,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 5,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 5,
+                                        "character": 34
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "parameters": [
+                    {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "symbolMeta": {
+                            "name": "param",
+                            "flags": 1,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 5,
+                                                "character": 16
+                                            },
+                                            "end": {
+                                                "line": 5,
+                                                "character": 29
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "4"
+                    }
+                ]
+            }
+        ],
+        "classSymbol": {
+            "name": "TestClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 4,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 10,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "symbolMeta": {
+            "name": "TestClass",
+            "flags": 32,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 4,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 10,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "3"
+    },
+    "symbolMeta": {
+        "name": "_a",
+        "flags": 2,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 12,
+                            "character": 6
+                        },
+                        "end": {
+                            "line": 12,
+                            "character": 33
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > new TestClass("param")
-> TestClass --- {"kind":"function","signatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}}]},"parameters":[{"kind":"primitive","primitive":"string","symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}}]},"id":"1"}],"returnType":{"kind":"class","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"parameters":[],"returnType":{"kind":"primitive","primitive":"string","id":"4"}}],"symbolMeta":{"name":"getThing","flags":33562624,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}}]},"id":"3"}],"implementsTypes":[{"kind":"interface","properties":[{"kind":"function","signatures":[{"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"parameters":[],"returnType":{"kind":"reference","id":"4"}}],"symbolMeta":{"name":"getThing","flags":8192,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}}]},"id":"6"}],"implementsTypes":[],"constructSignatures":[],"symbolMeta":{"name":"TestInterface","flags":64,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"id":"5"}],"constructSignatures":[{"symbolMeta":{"name":"__constructor","flags":16384,"insideClassOrInterface":true,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}}]},"parameters":[{"kind":"reference","symbolMeta":{"name":"param","flags":1,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}}]},"id":"1"}]}],"classSymbol":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"id":"2"}}],"symbolMeta":{"name":"TestClass","flags":32,"declarations":[{"location":{"fileName":"../cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}}]},"id":"0"}
+> TestClass --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "__constructor",
+                "flags": 16384,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 34
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "symbolMeta": {
+                        "name": "param",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 29
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ],
+            "returnType": {
+                "kind": "class",
+                "properties": [
+                    {
+                        "kind": "function",
+                        "signatures": [
+                            {
+                                "symbolMeta": {
+                                    "name": "getThing",
+                                    "flags": 8192,
+                                    "insideClassOrInterface": true,
+                                    "declarations": [
+                                        {
+                                            "location": {
+                                                "fileName": "cases/class.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 7,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 9,
+                                                        "character": 5
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "parameters": [],
+                                "returnType": {
+                                    "kind": "primitive",
+                                    "primitive": "string",
+                                    "id": "4"
+                                }
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "getThing",
+                            "flags": 33562624,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 7,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 9,
+                                                "character": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "3"
+                    }
+                ],
+                "implementsTypes": [
+                    {
+                        "kind": "interface",
+                        "properties": [
+                            {
+                                "kind": "function",
+                                "signatures": [
+                                    {
+                                        "symbolMeta": {
+                                            "name": "getThing",
+                                            "flags": 8192,
+                                            "insideClassOrInterface": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "cases/class.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 1,
+                                                                "character": 4
+                                                            },
+                                                            "end": {
+                                                                "line": 1,
+                                                                "character": 22
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "parameters": [],
+                                        "returnType": {
+                                            "kind": "reference",
+                                            "id": "4"
+                                        }
+                                    }
+                                ],
+                                "symbolMeta": {
+                                    "name": "getThing",
+                                    "flags": 8192,
+                                    "insideClassOrInterface": true,
+                                    "declarations": [
+                                        {
+                                            "location": {
+                                                "fileName": "../cases/class.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 1,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 1,
+                                                        "character": 22
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "id": "6"
+                            }
+                        ],
+                        "implementsTypes": [],
+                        "constructSignatures": [],
+                        "symbolMeta": {
+                            "name": "TestInterface",
+                            "flags": 64,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 0,
+                                                "character": 0
+                                            },
+                                            "end": {
+                                                "line": 2,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "5"
+                    }
+                ],
+                "constructSignatures": [
+                    {
+                        "symbolMeta": {
+                            "name": "__constructor",
+                            "flags": 16384,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 5,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 5,
+                                                "character": 34
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "parameters": [
+                            {
+                                "kind": "reference",
+                                "symbolMeta": {
+                                    "name": "param",
+                                    "flags": 1,
+                                    "declarations": [
+                                        {
+                                            "location": {
+                                                "fileName": "cases/class.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 5,
+                                                        "character": 16
+                                                    },
+                                                    "end": {
+                                                        "line": 5,
+                                                        "character": 29
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "id": "1"
+                            }
+                        ]
+                    }
+                ],
+                "classSymbol": {
+                    "name": "TestClass",
+                    "flags": 32,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 4,
+                                        "character": 0
+                                    },
+                                    "end": {
+                                        "line": 10,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "symbolMeta": {
+                    "name": "TestClass",
+                    "flags": 32,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 4,
+                                        "character": 0
+                                    },
+                                    "end": {
+                                        "line": 10,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "2"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "TestClass",
+        "flags": 32,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

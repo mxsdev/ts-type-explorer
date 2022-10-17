@@ -1,19 +1,608 @@
 === tupleObjectAlias.ts ===
 
 type Obj2 = { a: string, b: number }
-> Obj2 --- {"kindText":"object","kind":"object","symbol":{"name":"Obj2","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":36}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":36}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}],"children":[],"_id":"1"},{"kindText":"number","kind":"primitive","symbol":{"name":"b","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}],"children":[],"_id":"2"}],"_id":"0"}
+> Obj2 --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "Obj2",
+        "locations": [
+            {
+                "fileName": "cases/tupleObjectAlias.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 36
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/tupleObjectAlias.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 36
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "symbol": {
+                "name": "a",
+                "locations": [
+                    {
+                        "fileName": "cases/tupleObjectAlias.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 14
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 24
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/tupleObjectAlias.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 24
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "symbol": {
+                "name": "b",
+                "locations": [
+                    {
+                        "fileName": "cases/tupleObjectAlias.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 25
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 34
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/tupleObjectAlias.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 25
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 34
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
 > { a: string, b: number }
 > a: string, b: number
 > a: string,
-> a --- {"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}],"children":[],"_id":"0"}
+> a --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "symbol": {
+        "name": "a",
+        "locations": [
+            {
+                "fileName": "cases/tupleObjectAlias.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 14
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 24
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/tupleObjectAlias.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 14
+                },
+                "end": {
+                    "line": 0,
+                    "character": 24
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > b: number
-> b --- {"kindText":"number","kind":"primitive","symbol":{"name":"b","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}],"children":[],"_id":"0"}
+> b --- {
+    "kindText": "number",
+    "kind": "primitive",
+    "symbol": {
+        "name": "b",
+        "locations": [
+            {
+                "fileName": "cases/tupleObjectAlias.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 25
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 34
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/tupleObjectAlias.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 25
+                },
+                "end": {
+                    "line": 0,
+                    "character": 34
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 
 type tupleObj = [Obj2, Obj2]
-> tupleObj --- {"kindText":"tuple","kind":"tuple","symbol":{"name":"tupleObj","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":1,"character":0},"end":{"line":1,"character":28}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":1,"character":0},"end":{"line":1,"character":28}}}],"children":[{"kindText":"object","kind":"object","alias":"Obj2","symbol":{"name":"__type","anonymous":true,"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":12},"end":{"line":0,"character":36}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":36}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}],"children":[],"_id":"2"},{"kindText":"number","kind":"primitive","symbol":{"name":"b","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}],"children":[],"_id":"3"}],"_id":"1"},{"reference":"1"}],"_id":"0"}
+> tupleObj --- {
+    "kindText": "tuple",
+    "kind": "tuple",
+    "symbol": {
+        "name": "tupleObj",
+        "locations": [
+            {
+                "fileName": "cases/tupleObjectAlias.ts",
+                "range": {
+                    "start": {
+                        "line": 1,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 1,
+                        "character": 28
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/tupleObjectAlias.ts",
+            "range": {
+                "start": {
+                    "line": 1,
+                    "character": 0
+                },
+                "end": {
+                    "line": 1,
+                    "character": 28
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "Obj2",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "cases/tupleObjectAlias.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 12
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 36
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/tupleObjectAlias.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 36
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "symbol": {
+                        "name": "a",
+                        "locations": [
+                            {
+                                "fileName": "cases/tupleObjectAlias.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 14
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 24
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/tupleObjectAlias.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 24
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "symbol": {
+                        "name": "b",
+                        "locations": [
+                            {
+                                "fileName": "cases/tupleObjectAlias.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 25
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 34
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/tupleObjectAlias.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 25
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 34
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "3"
+                }
+            ],
+            "_id": "1"
+        },
+        {
+            "reference": "1"
+        }
+    ],
+    "_id": "0"
+}
 > [Obj2, Obj2]
 > Obj2, Obj2
 > Obj2
-> Obj2 --- {"kindText":"object","kind":"object","symbol":{"name":"Obj2","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":36}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":36}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}],"children":[],"_id":"1"},{"kindText":"number","kind":"primitive","symbol":{"name":"b","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}],"children":[],"_id":"2"}],"_id":"0"}
+> Obj2 --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "Obj2",
+        "locations": [
+            {
+                "fileName": "cases/tupleObjectAlias.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 36
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/tupleObjectAlias.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 36
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "symbol": {
+                "name": "a",
+                "locations": [
+                    {
+                        "fileName": "cases/tupleObjectAlias.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 14
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 24
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/tupleObjectAlias.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 24
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "symbol": {
+                "name": "b",
+                "locations": [
+                    {
+                        "fileName": "cases/tupleObjectAlias.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 25
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 34
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/tupleObjectAlias.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 25
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 34
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
 > Obj2
-> Obj2 --- {"kindText":"object","kind":"object","symbol":{"name":"Obj2","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":36}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":36}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"a","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":24}}}],"children":[],"_id":"1"},{"kindText":"number","kind":"primitive","symbol":{"name":"b","locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}]},"locations":[{"fileName":"cases/tupleObjectAlias.ts","range":{"start":{"line":0,"character":25},"end":{"line":0,"character":34}}}],"children":[],"_id":"2"}],"_id":"0"}
+> Obj2 --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "Obj2",
+        "locations": [
+            {
+                "fileName": "cases/tupleObjectAlias.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 36
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/tupleObjectAlias.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 0,
+                    "character": 36
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "symbol": {
+                "name": "a",
+                "locations": [
+                    {
+                        "fileName": "cases/tupleObjectAlias.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 14
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 24
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/tupleObjectAlias.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 24
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "symbol": {
+                "name": "b",
+                "locations": [
+                    {
+                        "fileName": "cases/tupleObjectAlias.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 25
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 34
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/tupleObjectAlias.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 25
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 34
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}

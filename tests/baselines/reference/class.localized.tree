@@ -3,10 +3,142 @@
 interface TestInterface {
     getThing(): string
 }
-> TestInterface --- {"kindText":"interface","kind":"interface","symbol":{"name":"TestInterface","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"return","children":[],"_id":"2"}],"_id":"1"}],"_id":"0"}
+> TestInterface --- {
+    "kindText": "interface",
+    "kind": "interface",
+    "symbol": {
+        "name": "TestInterface",
+        "locations": [
+            {
+                "fileName": "cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 2,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "method",
+            "kind": "function",
+            "symbol": {
+                "name": "getThing",
+                "locations": [
+                    {
+                        "fileName": "../cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 22
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 22
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "purpose": "return",
+                    "children": [],
+                    "_id": "2"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > getThing(): string
 > getThing(): string
-> getThing --- {"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"return","children":[],"_id":"1"}],"_id":"0"}
+> getThing --- {
+    "kindText": "method",
+    "kind": "function",
+    "symbol": {
+        "name": "getThing",
+        "locations": [
+            {
+                "fileName": "../cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 1,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 1,
+                        "character": 22
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 1,
+                    "character": 4
+                },
+                "end": {
+                    "line": 1,
+                    "character": 22
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "purpose": "return",
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 
 class TestClass implements TestInterface {
     constructor(param: string) { }
@@ -15,31 +147,1475 @@ class TestClass implements TestInterface {
         return "as"
     }
 }
-> class --- {"kindText":"class","kind":"class","alias":"TestClass","symbol":{"name":"TestClass","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}],"children":[{"purpose":"implements","children":[{"kindText":"interface","kind":"interface","symbol":{"name":"TestInterface","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"return","children":[],"_id":"2"}],"_id":"5"}],"_id":"4"}]},{"kindText":"function","kind":"function","purpose":"constructor","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"param","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}],"children":[],"_id":"3"}],"_id":""},{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}],"children":[{"reference":"2"}],"_id":"1"}],"_id":"0"}
-> TestClass --- {"kindText":"class","kind":"class","alias":"TestClass","symbol":{"name":"TestClass","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}],"children":[{"purpose":"implements","children":[{"kindText":"interface","kind":"interface","symbol":{"name":"TestInterface","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"return","children":[],"_id":"2"}],"_id":"5"}],"_id":"4"}]},{"kindText":"function","kind":"function","purpose":"constructor","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"param","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}],"children":[],"_id":"3"}],"_id":""},{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}],"children":[{"reference":"2"}],"_id":"1"}],"_id":"0"}
+> class --- {
+    "kindText": "class",
+    "kind": "class",
+    "alias": "TestClass",
+    "symbol": {
+        "name": "TestClass",
+        "locations": [
+            {
+                "fileName": "cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 4,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 10,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 4,
+                    "character": 0
+                },
+                "end": {
+                    "line": 10,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "implements",
+            "children": [
+                {
+                    "kindText": "interface",
+                    "kind": "interface",
+                    "symbol": {
+                        "name": "TestInterface",
+                        "locations": [
+                            {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 0
+                                    },
+                                    "end": {
+                                        "line": 2,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 1
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "method",
+                            "kind": "function",
+                            "symbol": {
+                                "name": "getThing",
+                                "locations": [
+                                    {
+                                        "fileName": "../cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 1,
+                                                "character": 22
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "character": 22
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "string",
+                                    "kind": "primitive",
+                                    "purpose": "return",
+                                    "children": [],
+                                    "_id": "2"
+                                }
+                            ],
+                            "_id": "5"
+                        }
+                    ],
+                    "_id": "4"
+                }
+            ]
+        },
+        {
+            "kindText": "function",
+            "kind": "function",
+            "purpose": "constructor",
+            "locations": [
+                {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 34
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "symbol": {
+                        "name": "param",
+                        "locations": [
+                            {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 5,
+                                        "character": 16
+                                    },
+                                    "end": {
+                                        "line": 5,
+                                        "character": 29
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 16
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "3"
+                }
+            ],
+            "_id": ""
+        },
+        {
+            "kindText": "method",
+            "kind": "function",
+            "symbol": {
+                "name": "getThing",
+                "locations": [
+                    {
+                        "fileName": "../cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 7,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 9,
+                                "character": 5
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 9,
+                            "character": 5
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "2"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> TestClass --- {
+    "kindText": "class",
+    "kind": "class",
+    "alias": "TestClass",
+    "symbol": {
+        "name": "TestClass",
+        "locations": [
+            {
+                "fileName": "cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 4,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 10,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 4,
+                    "character": 0
+                },
+                "end": {
+                    "line": 10,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "implements",
+            "children": [
+                {
+                    "kindText": "interface",
+                    "kind": "interface",
+                    "symbol": {
+                        "name": "TestInterface",
+                        "locations": [
+                            {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 0
+                                    },
+                                    "end": {
+                                        "line": 2,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 1
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "method",
+                            "kind": "function",
+                            "symbol": {
+                                "name": "getThing",
+                                "locations": [
+                                    {
+                                        "fileName": "../cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 1,
+                                                "character": 22
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "character": 22
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "string",
+                                    "kind": "primitive",
+                                    "purpose": "return",
+                                    "children": [],
+                                    "_id": "2"
+                                }
+                            ],
+                            "_id": "5"
+                        }
+                    ],
+                    "_id": "4"
+                }
+            ]
+        },
+        {
+            "kindText": "function",
+            "kind": "function",
+            "purpose": "constructor",
+            "locations": [
+                {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 34
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "symbol": {
+                        "name": "param",
+                        "locations": [
+                            {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 5,
+                                        "character": 16
+                                    },
+                                    "end": {
+                                        "line": 5,
+                                        "character": 29
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 16
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "3"
+                }
+            ],
+            "_id": ""
+        },
+        {
+            "kindText": "method",
+            "kind": "function",
+            "symbol": {
+                "name": "getThing",
+                "locations": [
+                    {
+                        "fileName": "../cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 7,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 9,
+                                "character": 5
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 9,
+                            "character": 5
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "2"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > implements TestInterface
 > implements TestInterface
 > TestInterface
 > TestInterface
-> TestInterface --- {"kindText":"interface","kind":"interface","symbol":{"name":"TestInterface","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"return","children":[],"_id":"2"}],"_id":"1"}],"_id":"0"}
+> TestInterface --- {
+    "kindText": "interface",
+    "kind": "interface",
+    "symbol": {
+        "name": "TestInterface",
+        "locations": [
+            {
+                "fileName": "cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 2,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "method",
+            "kind": "function",
+            "symbol": {
+                "name": "getThing",
+                "locations": [
+                    {
+                        "fileName": "../cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 22
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 22
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "purpose": "return",
+                    "children": [],
+                    "_id": "2"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > constructor(param: string) { }
->     getThing() {
->         return "as"
->     }
+
+    getThing() {
+        return "as"
+    }
 > constructor(param: string) { }
-> constructor --- {"kindText":"class","kind":"class","alias":"TestClass","symbol":{"name":"TestClass","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}],"children":[{"purpose":"implements","children":[{"kindText":"interface","kind":"interface","symbol":{"name":"TestInterface","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"return","children":[],"_id":"2"}],"_id":"5"}],"_id":"4"}]},{"kindText":"function","kind":"function","purpose":"constructor","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"param","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}],"children":[],"_id":"3"}],"_id":""},{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}],"children":[{"reference":"2"}],"_id":"1"}],"_id":"0"}
+> constructor --- {
+    "kindText": "class",
+    "kind": "class",
+    "alias": "TestClass",
+    "symbol": {
+        "name": "TestClass",
+        "locations": [
+            {
+                "fileName": "cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 4,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 10,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 4,
+                    "character": 0
+                },
+                "end": {
+                    "line": 10,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "implements",
+            "children": [
+                {
+                    "kindText": "interface",
+                    "kind": "interface",
+                    "symbol": {
+                        "name": "TestInterface",
+                        "locations": [
+                            {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 0
+                                    },
+                                    "end": {
+                                        "line": 2,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 1
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "method",
+                            "kind": "function",
+                            "symbol": {
+                                "name": "getThing",
+                                "locations": [
+                                    {
+                                        "fileName": "../cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 1,
+                                                "character": 22
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 1,
+                                            "character": 22
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "string",
+                                    "kind": "primitive",
+                                    "purpose": "return",
+                                    "children": [],
+                                    "_id": "2"
+                                }
+                            ],
+                            "_id": "5"
+                        }
+                    ],
+                    "_id": "4"
+                }
+            ]
+        },
+        {
+            "kindText": "function",
+            "kind": "function",
+            "purpose": "constructor",
+            "locations": [
+                {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 34
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "symbol": {
+                        "name": "param",
+                        "locations": [
+                            {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 5,
+                                        "character": 16
+                                    },
+                                    "end": {
+                                        "line": 5,
+                                        "character": 29
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 16
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "3"
+                }
+            ],
+            "_id": ""
+        },
+        {
+            "kindText": "method",
+            "kind": "function",
+            "symbol": {
+                "name": "getThing",
+                "locations": [
+                    {
+                        "fileName": "../cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 7,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 9,
+                                "character": 5
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 9,
+                            "character": 5
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "2"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > param: string
 > param: string
-> param --- {"kindText":"string","kind":"primitive","symbol":{"name":"param","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}],"children":[],"_id":"0"}
+> param --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "symbol": {
+        "name": "param",
+        "locations": [
+            {
+                "fileName": "cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 5,
+                        "character": 16
+                    },
+                    "end": {
+                        "line": 5,
+                        "character": 29
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 5,
+                    "character": 16
+                },
+                "end": {
+                    "line": 5,
+                    "character": 29
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > getThing() {
->         return "as"
->     }
-> getThing --- {"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"return","children":[],"_id":"1"}],"_id":"0"}
+        return "as"
+    }
+> getThing --- {
+    "kindText": "method",
+    "kind": "function",
+    "symbol": {
+        "name": "getThing",
+        "locations": [
+            {
+                "fileName": "../cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 7,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 9,
+                        "character": 5
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 7,
+                    "character": 4
+                },
+                "end": {
+                    "line": 9,
+                    "character": 5
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "purpose": "return",
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 
 const _a = new TestClass("param")
 > const _a = new TestClass("param")
 > _a = new TestClass("param")
 > _a = new TestClass("param")
-> _a --- {"kindText":"object","kind":"object","symbol":{"name":"_a","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":12,"character":6},"end":{"line":12,"character":33}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":12,"character":6},"end":{"line":12,"character":33}}}],"children":[{"kindText":"class","kind":"class","alias":"TestClass","symbol":{"name":"TestClass","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}]},"purpose":"class","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}],"children":[{"purpose":"implements","children":[{"kindText":"interface","kind":"interface","symbol":{"name":"TestInterface","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"return","children":[],"_id":"2"}],"_id":"6"}],"_id":"5"}]},{"kindText":"function","kind":"function","purpose":"constructor","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"param","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}],"children":[],"_id":"4"}],"_id":""},{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}],"children":[{"reference":"2"}],"_id":"1"}],"_id":"3"},{"reference":"1"}],"_id":"0"}
+> _a --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "_a",
+        "locations": [
+            {
+                "fileName": "cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 12,
+                        "character": 6
+                    },
+                    "end": {
+                        "line": 12,
+                        "character": 33
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 12,
+                    "character": 6
+                },
+                "end": {
+                    "line": 12,
+                    "character": 33
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "class",
+            "kind": "class",
+            "alias": "TestClass",
+            "symbol": {
+                "name": "TestClass",
+                "locations": [
+                    {
+                        "fileName": "cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 4,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 10,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "class",
+            "locations": [
+                {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 1
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "purpose": "implements",
+                    "children": [
+                        {
+                            "kindText": "interface",
+                            "kind": "interface",
+                            "symbol": {
+                                "name": "TestInterface",
+                                "locations": [
+                                    {
+                                        "fileName": "cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 0,
+                                                "character": 0
+                                            },
+                                            "end": {
+                                                "line": 2,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 0
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 1
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "method",
+                                    "kind": "function",
+                                    "symbol": {
+                                        "name": "getThing",
+                                        "locations": [
+                                            {
+                                                "fileName": "../cases/class.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 1,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 1,
+                                                        "character": 22
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "../cases/class.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "character": 22
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "purpose": "return",
+                                            "children": [],
+                                            "_id": "2"
+                                        }
+                                    ],
+                                    "_id": "6"
+                                }
+                            ],
+                            "_id": "5"
+                        }
+                    ]
+                },
+                {
+                    "kindText": "function",
+                    "kind": "function",
+                    "purpose": "constructor",
+                    "locations": [
+                        {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 34
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "symbol": {
+                                "name": "param",
+                                "locations": [
+                                    {
+                                        "fileName": "cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 5,
+                                                "character": 16
+                                            },
+                                            "end": {
+                                                "line": 5,
+                                                "character": 29
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 29
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [],
+                            "_id": "4"
+                        }
+                    ],
+                    "_id": ""
+                },
+                {
+                    "kindText": "method",
+                    "kind": "function",
+                    "symbol": {
+                        "name": "getThing",
+                        "locations": [
+                            {
+                                "fileName": "cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 9,
+                                        "character": 5
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 9,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ],
+            "_id": "3"
+        },
+        {
+            "reference": "1"
+        }
+    ],
+    "_id": "0"
+}
 > new TestClass("param")
-> TestClass --- {"kindText":"function","kind":"function","symbol":{"name":"TestClass","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}],"children":[{"kindText":"string","kind":"primitive","symbol":{"name":"param","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":16},"end":{"line":5,"character":29}}}],"children":[],"_id":"1"},{"kindText":"class","kind":"class","alias":"TestClass","symbol":{"name":"TestClass","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}]},"purpose":"return","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":4,"character":0},"end":{"line":10,"character":1}}}],"children":[{"purpose":"implements","children":[{"kindText":"interface","kind":"interface","symbol":{"name":"TestInterface","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"cases/class.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":1,"character":4},"end":{"line":1,"character":22}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"return","children":[],"_id":"4"}],"_id":"6"}],"_id":"5"}]},{"kindText":"function","kind":"function","purpose":"constructor","locations":[{"fileName":"cases/class.ts","range":{"start":{"line":5,"character":4},"end":{"line":5,"character":34}}}],"children":[{"reference":"1"}],"_id":""},{"kindText":"method","kind":"function","symbol":{"name":"getThing","locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}]},"locations":[{"fileName":"../cases/class.ts","range":{"start":{"line":7,"character":4},"end":{"line":9,"character":5}}}],"children":[{"reference":"4"}],"_id":"3"}],"_id":"2"}],"_id":"0"}
+> TestClass --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "TestClass",
+        "locations": [
+            {
+                "fileName": "../cases/class.ts",
+                "range": {
+                    "start": {
+                        "line": 4,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 10,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../cases/class.ts",
+            "range": {
+                "start": {
+                    "line": 4,
+                    "character": 0
+                },
+                "end": {
+                    "line": 10,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "symbol": {
+                "name": "param",
+                "locations": [
+                    {
+                        "fileName": "cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 5,
+                                "character": 16
+                            },
+                            "end": {
+                                "line": 5,
+                                "character": 29
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 29
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "class",
+            "kind": "class",
+            "alias": "TestClass",
+            "symbol": {
+                "name": "TestClass",
+                "locations": [
+                    {
+                        "fileName": "cases/class.ts",
+                        "range": {
+                            "start": {
+                                "line": 4,
+                                "character": 0
+                            },
+                            "end": {
+                                "line": 10,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "return",
+            "locations": [
+                {
+                    "fileName": "cases/class.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 1
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "purpose": "implements",
+                    "children": [
+                        {
+                            "kindText": "interface",
+                            "kind": "interface",
+                            "symbol": {
+                                "name": "TestInterface",
+                                "locations": [
+                                    {
+                                        "fileName": "cases/class.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 0,
+                                                "character": 0
+                                            },
+                                            "end": {
+                                                "line": 2,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "cases/class.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 0
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 1
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "method",
+                                    "kind": "function",
+                                    "symbol": {
+                                        "name": "getThing",
+                                        "locations": [
+                                            {
+                                                "fileName": "../cases/class.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 1,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 1,
+                                                        "character": 22
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "../cases/class.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "character": 22
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "purpose": "return",
+                                            "children": [],
+                                            "_id": "4"
+                                        }
+                                    ],
+                                    "_id": "6"
+                                }
+                            ],
+                            "_id": "5"
+                        }
+                    ]
+                },
+                {
+                    "kindText": "function",
+                    "kind": "function",
+                    "purpose": "constructor",
+                    "locations": [
+                        {
+                            "fileName": "cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 34
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "1"
+                        }
+                    ],
+                    "_id": ""
+                },
+                {
+                    "kindText": "method",
+                    "kind": "function",
+                    "symbol": {
+                        "name": "getThing",
+                        "locations": [
+                            {
+                                "fileName": "../cases/class.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 9,
+                                        "character": 5
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../cases/class.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 9,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "4"
+                        }
+                    ],
+                    "_id": "3"
+                }
+            ],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}

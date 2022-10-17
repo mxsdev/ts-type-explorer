@@ -3,27 +3,801 @@
 function sig1<T extends string>(arg: T, ...arg2: any[]): string { 
     return arg + arg2
 }
-> function --- {"kindText":"function","kind":"function","symbol":{"name":"sig1","locations":[{"fileName":"../cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"../cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}]},"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"3"}],"_id":"1"}]},{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"arg","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}],"children":[{"reference":"3"}],"_id":"2"},{"kindText":"any","kind":"primitive","symbol":{"name":"arg2","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}]},"rest":true,"dimension":1,"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}],"children":[],"_id":"4"},{"reference":"3"}],"_id":"0"}
-> sig1 --- {"kindText":"function","kind":"function","symbol":{"name":"sig1","locations":[{"fileName":"../cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"../cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}]},"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"3"}],"_id":"1"}]},{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"arg","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}],"children":[{"reference":"3"}],"_id":"2"},{"kindText":"any","kind":"primitive","symbol":{"name":"arg2","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}]},"rest":true,"dimension":1,"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}],"children":[],"_id":"4"},{"reference":"3"}],"_id":"0"}
+> function --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "sig1",
+        "locations": [
+            {
+                "fileName": "../cases/functionGeneric.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../cases/functionGeneric.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 2,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "T",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/functionGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 14
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 30
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/functionGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "purpose": "extends",
+                            "children": [],
+                            "_id": "3"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "type parameter",
+            "kind": "type_parameter",
+            "alias": "T",
+            "symbol": {
+                "name": "arg",
+                "locations": [
+                    {
+                        "fileName": "cases/functionGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 32
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 38
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 32
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 38
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "3"
+                }
+            ],
+            "_id": "2"
+        },
+        {
+            "kindText": "any",
+            "kind": "primitive",
+            "symbol": {
+                "name": "arg2",
+                "locations": [
+                    {
+                        "fileName": "cases/functionGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 40
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 54
+                            }
+                        }
+                    }
+                ]
+            },
+            "rest": true,
+            "dimension": 1,
+            "locations": [
+                {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 40
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 54
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "4"
+        },
+        {
+            "reference": "3"
+        }
+    ],
+    "_id": "0"
+}
+> sig1 --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "sig1",
+        "locations": [
+            {
+                "fileName": "../cases/functionGeneric.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../cases/functionGeneric.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 2,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "T",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/functionGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 14
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 30
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/functionGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "purpose": "extends",
+                            "children": [],
+                            "_id": "3"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "type parameter",
+            "kind": "type_parameter",
+            "alias": "T",
+            "symbol": {
+                "name": "arg",
+                "locations": [
+                    {
+                        "fileName": "cases/functionGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 32
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 38
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 32
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 38
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "3"
+                }
+            ],
+            "_id": "2"
+        },
+        {
+            "kindText": "any",
+            "kind": "primitive",
+            "symbol": {
+                "name": "arg2",
+                "locations": [
+                    {
+                        "fileName": "cases/functionGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 40
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 54
+                            }
+                        }
+                    }
+                ]
+            },
+            "rest": true,
+            "dimension": 1,
+            "locations": [
+                {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 40
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 54
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "4"
+        },
+        {
+            "reference": "3"
+        }
+    ],
+    "_id": "0"
+}
 > T extends string
 > T extends string
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}]},"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"1"}],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/functionGeneric.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 14
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 30
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/functionGeneric.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 14
+                },
+                "end": {
+                    "line": 0,
+                    "character": 30
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "purpose": "extends",
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > arg: T, ...arg2: any[]
 > arg: T
-> arg --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"arg","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"1"}],"_id":"0"}
+> arg --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "arg",
+        "locations": [
+            {
+                "fileName": "cases/functionGeneric.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 32
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 38
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/functionGeneric.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 32
+                },
+                "end": {
+                    "line": 0,
+                    "character": 38
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "purpose": "extends",
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > T
-> T --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}]},"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"1"}],"_id":"0"}
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/functionGeneric.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 14
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 30
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/functionGeneric.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 14
+                },
+                "end": {
+                    "line": 0,
+                    "character": 30
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "purpose": "extends",
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
 > ...arg2: any[]
-> arg2 --- {"kindText":"any","kind":"primitive","symbol":{"name":"arg2","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}]},"rest":true,"dimension":1,"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}],"children":[],"_id":"0"}
+> arg2 --- {
+    "kindText": "any",
+    "kind": "primitive",
+    "symbol": {
+        "name": "arg2",
+        "locations": [
+            {
+                "fileName": "cases/functionGeneric.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 40
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 54
+                    }
+                }
+            }
+        ]
+    },
+    "rest": true,
+    "dimension": 1,
+    "locations": [
+        {
+            "fileName": "cases/functionGeneric.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 40
+                },
+                "end": {
+                    "line": 0,
+                    "character": 54
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 > { 
->     return arg + arg2
-> }
+    return arg + arg2
+}
 > return arg + arg2
 > return arg + arg2
 > arg + arg2
-> arg --- {"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"arg","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}]},"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}],"children":[{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"1"}],"_id":"0"}
-> arg2 --- {"kindText":"any","kind":"primitive","symbol":{"name":"arg2","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}]},"rest":true,"dimension":1,"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}],"children":[],"_id":"0"}
+> arg --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "arg",
+        "locations": [
+            {
+                "fileName": "cases/functionGeneric.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 32
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 38
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/functionGeneric.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 32
+                },
+                "end": {
+                    "line": 0,
+                    "character": 38
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "purpose": "extends",
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> arg2 --- {
+    "kindText": "any",
+    "kind": "primitive",
+    "symbol": {
+        "name": "arg2",
+        "locations": [
+            {
+                "fileName": "cases/functionGeneric.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 40
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 54
+                    }
+                }
+            }
+        ]
+    },
+    "rest": true,
+    "dimension": 1,
+    "locations": [
+        {
+            "fileName": "cases/functionGeneric.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 40
+                },
+                "end": {
+                    "line": 0,
+                    "character": 54
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
 
 sig1("asd", 3, 4)
 > sig1("asd", 3, 4)
-> sig1 --- {"kindText":"function","kind":"function","symbol":{"name":"sig1","locations":[{"fileName":"../cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}]},"locations":[{"fileName":"../cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}],"children":[{"purpose":"type parameters","children":[{"kindText":"type parameter","kind":"type_parameter","alias":"T","symbol":{"name":"T","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}]},"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}],"children":[{"kindText":"\"asd\"","kind":"string_literal","purpose":"value","children":[],"_id":"2"},{"kindText":"string","kind":"primitive","purpose":"extends","children":[],"_id":"5"}],"_id":"1"}]},{"reference":"2"},{"kindText":"any","kind":"primitive","symbol":{"name":"arg2","locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}]},"rest":true,"dimension":1,"locations":[{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}],"children":[],"_id":"3"},{"reference":"5"}],"_id":"0"}
+> sig1 --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "sig1",
+        "locations": [
+            {
+                "fileName": "../cases/functionGeneric.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../cases/functionGeneric.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 2,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type parameters",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "alias": "T",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/functionGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 14
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 30
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/functionGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "\"asd\"",
+                            "kind": "string_literal",
+                            "purpose": "value",
+                            "children": [],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "purpose": "extends",
+                            "children": [],
+                            "_id": "5"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "reference": "2"
+        },
+        {
+            "kindText": "any",
+            "kind": "primitive",
+            "symbol": {
+                "name": "arg2",
+                "locations": [
+                    {
+                        "fileName": "cases/functionGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 40
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 54
+                            }
+                        }
+                    }
+                ]
+            },
+            "rest": true,
+            "dimension": 1,
+            "locations": [
+                {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 40
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 54
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "3"
+        },
+        {
+            "reference": "5"
+        }
+    ],
+    "_id": "0"
+}

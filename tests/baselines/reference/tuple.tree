@@ -1,4 +1,45 @@
 === tuple.ts ===
 
 type tupleOfStuff = ["a", string, number]
-> tupleOfStuff --- {"kind":"tuple","types":[{"kind":"string_literal","value":"a","id":"1"},{"kind":"primitive","primitive":"string","id":"2"},{"kind":"primitive","primitive":"number","id":"3"}],"symbolMeta":{"name":"tupleOfStuff","flags":524288,"declarations":[{"location":{"fileName":"cases/tuple.ts","range":{"start":{"line":0,"character":0},"end":{"line":0,"character":41}}}}]},"id":"0"}
+> tupleOfStuff --- {
+    "kind": "tuple",
+    "types": [
+        {
+            "kind": "string_literal",
+            "value": "a",
+            "id": "1"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "id": "2"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "number",
+            "id": "3"
+        }
+    ],
+    "symbolMeta": {
+        "name": "tupleOfStuff",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/tuple.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 41
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

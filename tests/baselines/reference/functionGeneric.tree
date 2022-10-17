@@ -3,27 +3,917 @@
 function sig1<T extends string>(arg: T, ...arg2: any[]): string { 
     return arg + arg2
 }
-> function --- {"kind":"function","signatures":[{"symbolMeta":{"name":"sig1","flags":16,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"parameters":[{"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"3"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"symbolMeta":{"name":"arg","flags":1,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}}]},"id":"2"},{"kind":"array","type":{"kind":"primitive","primitive":"any","id":"5"},"symbolMeta":{"name":"arg2","flags":1,"rest":true,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}}]},"id":"4"}],"returnType":{"kind":"reference","id":"3"},"typeParameters":[{"kind":"type_parameter","baseConstraint":{"kind":"reference","id":"3"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"id":"1"}]}],"symbolMeta":{"name":"sig1","flags":16,"declarations":[{"location":{"fileName":"../cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"id":"1"}],"id":"0"}
-> sig1 --- {"kind":"function","signatures":[{"symbolMeta":{"name":"sig1","flags":16,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"parameters":[{"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"3"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"symbolMeta":{"name":"arg","flags":1,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}}]},"id":"2"},{"kind":"array","type":{"kind":"primitive","primitive":"any","id":"5"},"symbolMeta":{"name":"arg2","flags":1,"rest":true,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}}]},"id":"4"}],"returnType":{"kind":"reference","id":"3"},"typeParameters":[{"kind":"type_parameter","baseConstraint":{"kind":"reference","id":"3"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"id":"1"}]}],"symbolMeta":{"name":"sig1","flags":16,"declarations":[{"location":{"fileName":"../cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"id":"1"}],"id":"0"}
+> function --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "sig1",
+                "flags": 16,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/functionGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 1
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "id": "3"
+                    },
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "arg",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 32
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 38
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                },
+                {
+                    "kind": "array",
+                    "type": {
+                        "kind": "primitive",
+                        "primitive": "any",
+                        "id": "5"
+                    },
+                    "symbolMeta": {
+                        "name": "arg2",
+                        "flags": 1,
+                        "rest": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 40
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 54
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "4"
+                }
+            ],
+            "returnType": {
+                "kind": "reference",
+                "id": "3"
+            },
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "reference",
+                        "id": "3"
+                    },
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "sig1",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/functionGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
+> sig1 --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "sig1",
+                "flags": 16,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/functionGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 1
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "id": "3"
+                    },
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "arg",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 32
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 38
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                },
+                {
+                    "kind": "array",
+                    "type": {
+                        "kind": "primitive",
+                        "primitive": "any",
+                        "id": "5"
+                    },
+                    "symbolMeta": {
+                        "name": "arg2",
+                        "flags": 1,
+                        "rest": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 40
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 54
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "4"
+                }
+            ],
+            "returnType": {
+                "kind": "reference",
+                "id": "3"
+            },
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "reference",
+                        "id": "3"
+                    },
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "sig1",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/functionGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
 > T extends string
 > T extends string
-> T --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"1"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"id":"0"}
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "primitive",
+        "primitive": "string",
+        "id": "1"
+    },
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > arg: T, ...arg2: any[]
 > arg: T
-> arg --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"1"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"symbolMeta":{"name":"arg","flags":1,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}}]},"id":"0"}
+> arg --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "primitive",
+        "primitive": "string",
+        "id": "1"
+    },
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "arg",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 32
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 38
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > T
-> T --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"1"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"id":"0"}
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "primitive",
+        "primitive": "string",
+        "id": "1"
+    },
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > ...arg2: any[]
-> arg2 --- {"kind":"array","type":{"kind":"primitive","primitive":"any","id":"1"},"symbolMeta":{"name":"arg2","flags":1,"rest":true,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}}]},"id":"0"}
+> arg2 --- {
+    "kind": "array",
+    "type": {
+        "kind": "primitive",
+        "primitive": "any",
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "arg2",
+        "flags": 1,
+        "rest": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 40
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 54
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 > { 
->     return arg + arg2
-> }
+    return arg + arg2
+}
 > return arg + arg2
 > return arg + arg2
 > arg + arg2
-> arg --- {"kind":"type_parameter","baseConstraint":{"kind":"primitive","primitive":"string","id":"1"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"symbolMeta":{"name":"arg","flags":1,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}}]},"id":"0"}
-> arg2 --- {"kind":"array","type":{"kind":"primitive","primitive":"any","id":"1"},"symbolMeta":{"name":"arg2","flags":1,"rest":true,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}}]},"id":"0"}
+> arg --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "primitive",
+        "primitive": "string",
+        "id": "1"
+    },
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "arg",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 32
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 38
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> arg2 --- {
+    "kind": "array",
+    "type": {
+        "kind": "primitive",
+        "primitive": "any",
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "arg2",
+        "flags": 1,
+        "rest": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 40
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 54
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
 
 sig1("asd", 3, 4)
 > sig1("asd", 3, 4)
-> sig1 --- {"kind":"function","signatures":[{"symbolMeta":{"name":"sig1","flags":16,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"parameters":[{"kind":"string_literal","value":"asd","symbolMeta":{"name":"arg","flags":33554433,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":32},"end":{"line":0,"character":38}}}}]},"id":"2"},{"kind":"array","type":{"kind":"primitive","primitive":"any","id":"4"},"symbolMeta":{"name":"arg2","flags":1,"rest":true,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":40},"end":{"line":0,"character":54}}}}]},"id":"3"}],"returnType":{"kind":"primitive","primitive":"string","id":"5"},"typeParameters":[{"kind":"type_parameter","baseConstraint":{"kind":"reference","id":"5"},"typeSymbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"id":"1"}]}],"symbolMeta":{"name":"sig1","flags":16,"declarations":[{"location":{"fileName":"../cases/functionGeneric.ts","range":{"start":{"line":0,"character":0},"end":{"line":2,"character":1}}}}]},"typeParameters":[{"kind":"reference","symbolMeta":{"name":"T","flags":262144,"declarations":[{"location":{"fileName":"cases/functionGeneric.ts","range":{"start":{"line":0,"character":14},"end":{"line":0,"character":30}}}}]},"id":"1"}],"typeArguments":[{"kind":"reference","id":"2"}],"id":"0"}
+> sig1 --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "sig1",
+                "flags": 16,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/functionGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 0
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 1
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "string_literal",
+                    "value": "asd",
+                    "symbolMeta": {
+                        "name": "arg",
+                        "flags": 33554433,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 32
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 38
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                },
+                {
+                    "kind": "array",
+                    "type": {
+                        "kind": "primitive",
+                        "primitive": "any",
+                        "id": "4"
+                    },
+                    "symbolMeta": {
+                        "name": "arg2",
+                        "flags": 1,
+                        "rest": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 40
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 54
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "3"
+                }
+            ],
+            "returnType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "5"
+            },
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "reference",
+                        "id": "5"
+                    },
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/functionGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "sig1",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../cases/functionGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 1
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/functionGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "typeArguments": [
+        {
+            "kind": "reference",
+            "id": "2"
+        }
+    ],
+    "id": "0"
+}
