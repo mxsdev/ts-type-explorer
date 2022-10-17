@@ -257,7 +257,6 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
                     if(i < texts.length) {
                         const text = texts[i]
                         if(text) {
-                            // TODO: this should probably be its own treenode type
                             res.push(
                                 localize({ kind: 'string_literal', id: getEmptyTypeId(), value: text })
                             )

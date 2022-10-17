@@ -253,12 +253,14 @@ export function getEmptyTypeId(): TypeId {
     return ""
 }
 
-// TODO: test for array type, tuple type
 export function isPureObject(typeChecker: ts.TypeChecker, type: ts.Type): type is ts.ObjectType {
-    return (!!(type.flags & ts.TypeFlags.Object) 
-        && (getSignaturesOfType(typeChecker, type).length === 0) 
-        && (getIndexInfos(typeChecker, type).length === 0))
-        || (!!(type.flags & ts.TypeFlags.Intersection) && (type as ts.IntersectionType).types.every(t => isPureObject(typeChecker, t)))
+    return (
+            !!(type.flags & ts.TypeFlags.Object) 
+            && (getSignaturesOfType(typeChecker, type).length === 0) 
+            && (getIndexInfos(typeChecker, type).length === 0)
+            && !(isArrayType(type))
+            && !(isTupleType(type))
+        ) || (!!(type.flags & ts.TypeFlags.Intersection) && (type as ts.IntersectionType).types.every(t => isPureObject(typeChecker, t)))
 }
 
 export function getIntersectionTypesFlat(...types: ts.Type[]): ts.Type[] {

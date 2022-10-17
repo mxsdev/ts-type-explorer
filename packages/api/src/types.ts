@@ -45,8 +45,6 @@ export type TypeParameterInfo = {
 
 export type TypeInfo = TypeInfoNoId & { id: TypeId }
 
-// TODO: support ambient type parameters
-
 export type TypeInfoNoId = 
     ({
         symbolMeta?: SymbolInfo,

@@ -157,7 +157,6 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
         else if(flags & ts.TypeFlags.NumberLiteral) { return { kind: 'number_literal', value: (type as ts.NumberLiteralType).value }}
         else if(flags & ts.TypeFlags.BooleanLiteral) { return { kind: 'boolean_literal', value: (type as IntrinsicTypeInternal).intrinsicName === "true" }}
         else if(flags & ts.TypeFlags.BigIntLiteral) { return { kind: 'bigint_literal', value: (type as ts.BigIntLiteralType).value }}
-        // TODO: add type param info
         else if(flags & ts.TypeFlags.Object) {
             const { symbol: typeSymbol } = type
             if(typeSymbol && typeSymbol.flags & ts.SymbolFlags.Enum) {

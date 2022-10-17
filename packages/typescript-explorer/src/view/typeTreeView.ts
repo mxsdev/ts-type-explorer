@@ -9,7 +9,6 @@ const { None: NoChildren, Expanded, Collapsed } = vscode.TreeItemCollapsibleStat
 export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     constructor(private stateManager: StateManager) { }
 
-    // private typeInfoMap: TypeInfoMap = new Map()
     private typeInfoLocalizer: TypeInfoLocalizer|undefined
 
     private _onDidChangeTreeData: vscode.EventEmitter<TypeTreeItem | undefined | null | void> = new vscode.EventEmitter<TypeTreeItem | undefined | null | void>()
