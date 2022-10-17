@@ -42,7 +42,9 @@
       {
         "title": "Go To Type",
         "command": "typescript-explorer.goToTypeInTypeTreeView",
-        "category": "Typescript Explorer"
+        "category": "Typescript Explorer",
+        "icon": "$(arrow-right)",
+        "enablement": "view == type-tree"
       }
     ],
     "viewsContainers": {
@@ -71,7 +73,11 @@
         }
       ],
       "view/item/context": [
-
+        {
+          "command": "typescript-explorer.goToTypeInTypeTreeView",
+          "when": "view == type-tree && viewItem == declared",
+          "group": "inline"
+        }
       ]
     },
     "typescriptServerPlugins": [

@@ -43,6 +43,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     }
 }
 
+type TypeTreeItemContextValue = "declared"
 export class TypeTreeItem extends vscode.TreeItem {
     protected depth: number
 
@@ -51,7 +52,7 @@ export class TypeTreeItem extends vscode.TreeItem {
         private provider: TypeTreeProvider,
         protected parent?: TypeTreeItem
     ) {
-        const { label, description } = getMeta(typeInfo)
+        const { label, description, contextValue } = getMeta(typeInfo)
 
         const depth = (parent?.depth ?? 0) + 1
         const collapsibleState = (typeInfo.children?.length ?? 0) === 0 ? NoChildren : depth === 1 ? Expanded : Collapsed
@@ -60,25 +61,48 @@ export class TypeTreeItem extends vscode.TreeItem {
 
         this.depth = depth
         this.description = description
-
-        if(typeInfo.locations && typeInfo.locations && typeInfo.locations.length > 0) {
-            this.command = getOpenCommand(typeInfo.locations[0])
-        }
+        this.contextValue = contextValue
     }
 
-    createTypeNode(typeInfo: LocalizedTypeInfo) {
+    protected createTypeNode(typeInfo: LocalizedTypeInfo) {
         return this.provider.createTypeNode(typeInfo, this)
+    }
+    
+    goToDefinition() {
+        assert(this.typeInfo.locations && this.typeInfo.locations.length > 0, "Type has no locations!")
+
+        const location = this.typeInfo.locations[0]
+
+        const range = {
+            start: (location.range.start),
+            end: (location.range.end),
+        }
+
+        const args: [ vscode.Uri, vscode.TextDocumentShowOptions] = [
+            vscode.Uri.file(location.fileName),
+            {
+                selection: rangeFromLineAndCharacters(range.start, range.end)
+            }
+        ]
+
+        vscode.commands.executeCommand("vscode.open", ...args)
     }
 }
 
-function getMeta(info: LocalizedTypeInfo) {
+type TypeTreeItemMeta = {
+    label: string,
+    description?: string,
+    contextValue?: TypeTreeItemContextValue,
+}
+
+function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
     let nameOverridden = false
 
     const label = getLabel()
     const description = getDescription()
 
     return {
-        label, description
+        label, description, contextValue: getContextValue()
     }
 
     function getLabel() {
@@ -119,6 +143,10 @@ function getMeta(info: LocalizedTypeInfo) {
         const aliasDescription = (aliasDescriptionBase) && decorate(aliasDescriptionBase)
 
         return aliasDescription ? `${aliasDescription} (${baseDescription})` : baseDescription
+    }
+
+    function getContextValue(): TypeTreeItemContextValue|undefined {
+        return info.locations && info.locations.length > 0 ? "declared" : undefined
     }
 }
 

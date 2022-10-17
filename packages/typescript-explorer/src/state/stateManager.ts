@@ -1,7 +1,7 @@
 import { TypeInfo } from '@ts-expand-type/api'
 import * as vscode from 'vscode'
 import { getQuickInfoAtPosition } from '../util'
-import { TypeTreeProvider } from '../view/typeTreeView'
+import { TypeTreeItem, TypeTreeProvider } from '../view/typeTreeView'
 import { ViewProviders } from '../view/views'
 
 export class StateManager {
@@ -29,6 +29,14 @@ export class StateManager {
             vscode.commands.registerCommand(
                 "typescript-explorer.refreshTypeTreeView",
                  () => typeTreeProvider.refresh()
+            )
+        )
+
+        context.subscriptions.push(
+            vscode.commands.registerCommand(
+                "typescript-explorer.goToTypeInTypeTreeView",
+                (item: TypeTreeItem) => item.goToDefinition()
+                
             )
         )
     }
