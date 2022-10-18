@@ -51,7 +51,7 @@ export class TypeTreeItem extends vscode.TreeItem {
         private provider: TypeTreeProvider,
         protected parent?: TypeTreeItem
     ) {
-        const { label, description, contextValue } = getMeta(typeInfo)
+        const { label, description, contextValue, icon } = getMeta(typeInfo)
 
         const depth = (parent?.depth ?? 0) + 1
         const collapsibleState = (typeInfo.children?.length ?? 0) === 0 ? NoChildren : depth === 1 ? Expanded : Collapsed
@@ -61,6 +61,7 @@ export class TypeTreeItem extends vscode.TreeItem {
         this.depth = depth
         this.description = description
         this.contextValue = contextValue
+        this.iconPath = icon
     }
 
     protected createTypeNode(typeInfo: LocalizedTypeInfo) {
@@ -95,6 +96,7 @@ type TypeTreeItemMeta = {
     label: string,
     description?: string,
     contextValue?: TypeTreeItemContextValue,
+    icon?: vscode.ThemeIcon,
 }
 
 function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
@@ -104,7 +106,10 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
     const description = getDescription()
 
     return {
-        label, description, contextValue: getContextValue()
+        label,
+        description, 
+        contextValue: getContextValue(),
+        icon: getIcon(),
     }
 
     function getLabel() {
@@ -149,6 +154,151 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
 
     function getContextValue(): TypeTreeItemContextValue|undefined {
         return info.locations && info.locations.length > 0 ? "declared" : undefined
+    }
+
+    type IconId = [id: string, colorId?: string]
+
+    function getIcon(): vscode.ThemeIcon|undefined {
+        const iconIds = _getIcon()
+        if(!iconIds) {
+            return undefined
+        }
+
+        let [ id, colorId ] = iconIds
+
+        // TODO: config option for no color, in which case set colorId to "icon.foreground"
+
+        return !colorId ? new vscode.ThemeIcon(id) : new vscode.ThemeIcon(id, new vscode.ThemeColor(colorId))
+
+        function _getIcon(): IconId|undefined {
+            if(info.symbol?.property) {
+                return ["symbol-field"]
+            }
+
+            if(info.symbol?.isArgument) {
+                return ["symbol-property"]
+            }
+
+            switch(info.purpose) {
+                case "class_constructor": {
+                    return ["symbol-constructor"]
+                }
+            }
+
+            switch(info.kind) {
+                case "primitive": {
+                    switch(info.primitiveKind) {
+                        case "essymbol":
+                        case "unique_symbol":
+                        case "string": {
+                            return ["symbol-string"]
+                        }
+
+                        case "bigint":
+                        case "number": {
+                            return ["symbol-numeric"]
+                        }
+
+                        case "boolean": {
+                            return ["symbol-boolean"]
+                        }
+
+                        case "unknown":
+                        case "any":
+                        case "void":
+                        case "undefined":
+                        case "null": {
+                            return ["symbol-null"]
+                        }
+
+                        case "never": {
+                            return ["error", "symbolIcon.nullForeground"]
+                        }
+
+                        default: {
+                            throw new Error("Unhandled primitive case")
+                        }
+                    }
+                }
+
+                case "object": {
+                    return ["symbol-object"]
+                }    
+
+                case "type_parameter": {
+                    return ["symbol-type-parameter"]
+                }
+
+                case "string_mapping":
+                case "template_literal":
+                case "string_literal": {
+                    return ["symbol-text"]
+                }
+
+                case "bigint_literal":
+                case "number_literal": {
+                    return ["symbol-number"]
+                }
+
+                case "enum": {
+                    return ["symbol-enum"]
+                }
+
+                case "enum_literal": {
+                    return ["symbol-enum-member"]
+                }
+
+                case "tuple":
+                case "array": {
+                    return ["symbol-array"]
+                }
+
+                case "intrinsic": {
+                    return ["symbol-keyword"]
+                }
+
+                case "conditional": {
+                    return ["question", "symbolIcon.keywordForeground"]
+                }
+
+                /* case "max_depth": {
+                    return [ "ellipsis" ]
+                } */
+
+                case "substitution":
+                case "non_primitive": {
+                    return ["symbol-misc"]
+                }
+
+                case "union":
+                case "intersection": {
+                    return ["symbol-struct"]
+                }
+
+                case "function": {
+                    if(info.symbol?.insideClassOrInterface) {
+                        return ["symbol-method"]
+                    }
+
+                    return ["symbol-function"]
+                }
+
+                case "interface": {
+                    return ["symbol-interface"]
+                }
+
+                case "class": {
+                    return ["symbol-class"]
+                }
+
+                case "indexed_access":
+                case "index": {
+                    return ["key", "symbolIcon.keyForeground"]
+                }
+            }
+
+            return undefined
+        }
     }
 }
 
