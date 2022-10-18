@@ -69,7 +69,7 @@ type TypeInfoChildren = ({ info?: TypeInfo, localizedInfo?: LocalizedTypeInfo, o
 
 export type LocalizedTypeInfo = {
     kindText?: string,
-    kind?: ResolvedTypeInfo['kind'],
+    kind?: ResolvedTypeInfo['kind']|'signature'|'index_info',
     primitiveKind?: TypeInfoKind<'primitive'>['primitive'],
     alias?: string,
     symbol?: LocalizedSymbolInfo,
@@ -324,6 +324,7 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
     function getLocalizedIndex(indexInfo: IndexInfo) {
         return createChild({
             kindText: "index",
+            kind: "index_info",
             symbol: wrapSafe(localizeSymbol)(indexInfo.parameterSymbol),
             children: [
                 ...indexInfo.keyType ? [localizeOpts(indexInfo.keyType, { purpose: 'index_type'})] : [],
@@ -337,6 +338,7 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
 
         return createChild({
             kindText: "signature",
+            kind: "signature",
             symbol, locations: symbol?.locations,
             children: getLocalizedSignatureChildren(signature, typeArguments),
         })

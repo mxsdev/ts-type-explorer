@@ -285,6 +285,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
                     return ["symbol-struct"]
                 }
 
+                case "signature":
                 case "function": {
                     if(info.symbol?.insideClassOrInterface) {
                         return ["symbol-method"]
@@ -301,6 +302,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
                     return ["symbol-class"]
                 }
 
+                case "index_info":
                 case "indexed_access":
                 case "index": {
                     return ["key", "symbolIcon.keyForeground"]
