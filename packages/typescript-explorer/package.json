@@ -79,7 +79,7 @@
         {
           "id": "typescript-explorer",
           "title": "TypeScript Explorer",
-          "icon": "resources/logo.svg"
+          "icon": "$(symbol-type-parameter)"
         }
       ]
     },
