@@ -34,7 +34,9 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
 
             return [this.createTypeNode(localizedTypeInfo, /* root */ undefined)]
         } else {
-            return this.typeInfoLocalizer!.localizeChildren(element.typeInfo).map(info => this.createTypeNode(info, element))
+            return this.typeInfoLocalizer!
+                .localizeChildren(element.typeInfo).map(info => this.createTypeNode(info, element))
+                .filter(({ typeInfo: { purpose }}) => TSExplorer.Config.TypeTreeView.showTypeParameterInfo() || !(purpose === 'type_argument_list' || purpose === 'type_parameter_list'))
         }
     }
 
@@ -304,7 +306,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
                 }
             }
 
-            return undefined
+            return ["symbol-misc"]
         }
     }
 }

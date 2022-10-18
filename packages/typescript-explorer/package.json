@@ -34,6 +34,11 @@
           "title": "Enable Colors",
           "type": "boolean",
           "default": true
+        },
+        "typescript-explorer.typeTree.view.typeParameters.info.show": {
+          "title": "Show Type Parameter Info",
+          "type": "boolean",
+          "default": true
         }
       }
     },
@@ -64,14 +69,19 @@
         "enablement": "view == type-tree"
       },
       {
-        "title": "Toggle Type Tree Icons",
+        "title": "Toggle Icons",
         "command": "typescript-explorer.typeTree.view.icons.enabled.toggle",
-        "category": "Typescript Explorer"
+        "category": "Type Tree"
       },
       {
-        "title": "Toggle Type Tree Icon Colors",
+        "title": "Toggle Icon Colors",
         "command": "typescript-explorer.typeTree.view.icons.colors.enabled.toggle",
-        "category": "Typescript Explorer"
+        "category": "Type Tree"
+      },
+      {
+        "title": "Toggle Type Parameter Info",
+        "command": "typescript-explorer.typeTree.view.typeParameters.info.show.toggle",
+        "category": "Type Tree"
       }
     ],
     "viewsContainers": {
@@ -106,12 +116,17 @@
         {
           "command": "typescript-explorer.typeTree.view.icons.enabled.toggle",
           "when": "view == type-tree",
-          "group": "icons@1"
+          "group": "2_icons@1"
         },
         {
           "command": "typescript-explorer.typeTree.view.icons.colors.enabled.toggle",
           "when": "view == type-tree",
-          "group": "icons@2"
+          "group": "2_icons@2"
+        },
+        {
+          "command": "typescript-explorer.typeTree.view.typeParameters.info.show.toggle",
+          "when": "view == type-tree",
+          "group": "1_info@1"
         }
       ],
       "view/item/context": [

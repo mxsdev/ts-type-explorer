@@ -9,6 +9,7 @@ export namespace TSExplorer {
         export namespace TypeTreeView {
             export const { get: iconsEnabled, toggle: toggleIconsEnabled } = configBoolean("typescript-explorer.typeTree.view.icons.enable")
             export const { get: iconColorsEnabled, toggle: toggleIconColorsEnabled } = configBoolean("typescript-explorer.typeTree.view.icons.colors.enable")
+            export const { get: showTypeParameterInfo, toggle: toggleShowTypeParameterInfo } = configBoolean("typescript-explorer.typeTree.view.typeParameters.info.show")
         }
 
         export function toggleExpandedHover() {
