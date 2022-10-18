@@ -45,6 +45,13 @@
         "category": "Typescript Explorer",
         "icon": "$(arrow-right)",
         "enablement": "view == type-tree"
+      },
+      {
+        "title": "Search",
+        "command": "typescript-explorer.findInTypeTreeView",
+        "category": "TypeScript Explorer",
+        "icon": "$(search-view-icon)",
+        "enablement": "view == type-tree"
       }
     ],
     "viewsContainers": {
@@ -66,6 +73,11 @@
     },
     "menus": {
       "view/title": [
+        {
+          "command": "typescript-explorer.findInTypeTreeView",
+          "when": "view == type-tree",
+          "group": "navigation"
+        },
         {
           "command": "typescript-explorer.refreshTypeTreeView",
           "when": "view == type-tree",

@@ -39,6 +39,13 @@ export class StateManager {
                 
             )
         )
+
+        context.subscriptions.push(
+            vscode.commands.registerCommand(
+                "typescript-explorer.findInTypeTreeView",
+                () => vscode.commands.executeCommand("list.find")
+            )
+        )
     }
 
     setTypeTree(typeTree: TypeInfo|undefined) {
