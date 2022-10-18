@@ -1,6 +1,7 @@
 import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo, pseudoBigIntToString, LocalizedTypeInfo, TypeInfoMap, SourceFileLocation, TypeInfoLocalizer, localizePurpose } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
+import { TSExplorer } from '../config';
 import { StateManager } from '../state/stateManager';
 import { fromFileLocationRequestArgs, rangeFromLineAndCharacters } from '../util';
 
@@ -159,6 +160,10 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
     type IconId = [id: string, colorId?: string]
 
     function getIcon(): vscode.ThemeIcon|undefined {
+        if(!TSExplorer.Config.TypeTreeView.iconsEnabled()) {
+            return undefined
+        }
+
         const iconIds = _getIcon()
         if(!iconIds) {
             return undefined
@@ -166,7 +171,9 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
 
         let [ id, colorId ] = iconIds
 
-        // TODO: config option for no color, in which case set colorId to "icon.foreground"
+        if(!TSExplorer.Config.TypeTreeView.iconColorsEnabled()) {
+            colorId = "icon.foreground"
+        }
 
         return !colorId ? new vscode.ThemeIcon(id) : new vscode.ThemeIcon(id, new vscode.ThemeColor(colorId))
 

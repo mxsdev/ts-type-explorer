@@ -24,6 +24,16 @@
           "type": "boolean",
           "default": false,
           "description": "Show entire expanded type on hovering"
+        },
+        "typescript-explorer.typeTree.view.icons.enable": {
+          "title": "Show Icons",
+          "type": "boolean",
+          "default": true
+        },
+        "typescript-explorer.typeTree.view.icons.colors.enable": {
+          "title": "Enable Colors",
+          "type": "boolean",
+          "default": true
         }
       }
     },
@@ -52,6 +62,16 @@
         "category": "TypeScript Explorer",
         "icon": "$(search-view-icon)",
         "enablement": "view == type-tree"
+      },
+      {
+        "title": "Toggle Type Tree Icons",
+        "command": "typescript-explorer.typeTree.view.icons.enabled.toggle",
+        "category": "Typescript Explorer"
+      },
+      {
+        "title": "Toggle Type Tree Icon Colors",
+        "command": "typescript-explorer.typeTree.view.icons.colors.enabled.toggle",
+        "category": "Typescript Explorer"
       }
     ],
     "viewsContainers": {
@@ -82,6 +102,16 @@
           "command": "typescript-explorer.refreshTypeTreeView",
           "when": "view == type-tree",
           "group": "navigation"
+        },
+        {
+          "command": "typescript-explorer.typeTree.view.icons.enabled.toggle",
+          "when": "view == type-tree",
+          "group": "icons@1"
+        },
+        {
+          "command": "typescript-explorer.typeTree.view.icons.colors.enabled.toggle",
+          "when": "view == type-tree",
+          "group": "icons@2"
         }
       ],
       "view/item/context": [
