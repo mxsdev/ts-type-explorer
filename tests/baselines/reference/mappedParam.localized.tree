@@ -88,7 +88,6 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "P",
                     "symbol": {
                         "name": "P",
                         "locations": [
@@ -149,7 +148,6 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
 > P --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "P",
     "symbol": {
         "name": "P",
         "locations": [
@@ -217,7 +215,6 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
 > P --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "P",
     "symbol": {
         "name": "P",
         "locations": [

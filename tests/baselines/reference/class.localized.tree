@@ -45,6 +45,7 @@ interface TestInterface {
             "kind": "function",
             "symbol": {
                 "name": "getThing",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../cases/class.ts",
@@ -98,6 +99,7 @@ interface TestInterface {
     "kind": "function",
     "symbol": {
         "name": "getThing",
+        "insideClassOrInterface": true,
         "locations": [
             {
                 "fileName": "../cases/class.ts",
@@ -232,6 +234,7 @@ class TestClass implements TestInterface {
                             "kind": "function",
                             "symbol": {
                                 "name": "getThing",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../cases/class.ts",
@@ -306,6 +309,7 @@ class TestClass implements TestInterface {
                     "primitiveKind": "string",
                     "symbol": {
                         "name": "param",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/class.ts",
@@ -348,6 +352,7 @@ class TestClass implements TestInterface {
             "kind": "function",
             "symbol": {
                 "name": "getThing",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../cases/class.ts",
@@ -472,6 +477,7 @@ class TestClass implements TestInterface {
                             "kind": "function",
                             "symbol": {
                                 "name": "getThing",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../cases/class.ts",
@@ -546,6 +552,7 @@ class TestClass implements TestInterface {
                     "primitiveKind": "string",
                     "symbol": {
                         "name": "param",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/class.ts",
@@ -588,6 +595,7 @@ class TestClass implements TestInterface {
             "kind": "function",
             "symbol": {
                 "name": "getThing",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../cases/class.ts",
@@ -675,6 +683,7 @@ class TestClass implements TestInterface {
             "kind": "function",
             "symbol": {
                 "name": "getThing",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../cases/class.ts",
@@ -810,6 +819,7 @@ class TestClass implements TestInterface {
                             "kind": "function",
                             "symbol": {
                                 "name": "getThing",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../cases/class.ts",
@@ -884,6 +894,7 @@ class TestClass implements TestInterface {
                     "primitiveKind": "string",
                     "symbol": {
                         "name": "param",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/class.ts",
@@ -926,6 +937,7 @@ class TestClass implements TestInterface {
             "kind": "function",
             "symbol": {
                 "name": "getThing",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../cases/class.ts",
@@ -975,6 +987,7 @@ class TestClass implements TestInterface {
     "primitiveKind": "string",
     "symbol": {
         "name": "param",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/class.ts",
@@ -1017,6 +1030,7 @@ class TestClass implements TestInterface {
     "kind": "function",
     "symbol": {
         "name": "getThing",
+        "insideClassOrInterface": true,
         "locations": [
             {
                 "fileName": "../cases/class.ts",
@@ -1186,6 +1200,7 @@ const _a = new TestClass("param")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "getThing",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../cases/class.ts",
@@ -1260,6 +1275,7 @@ const _a = new TestClass("param")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "param",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "cases/class.ts",
@@ -1302,6 +1318,7 @@ const _a = new TestClass("param")
                     "kind": "function",
                     "symbol": {
                         "name": "getThing",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "cases/class.ts",
@@ -1393,6 +1410,7 @@ const _a = new TestClass("param")
             "primitiveKind": "string",
             "symbol": {
                 "name": "param",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/class.ts",
@@ -1511,6 +1529,7 @@ const _a = new TestClass("param")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "getThing",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../cases/class.ts",
@@ -1590,6 +1609,7 @@ const _a = new TestClass("param")
                     "kind": "function",
                     "symbol": {
                         "name": "getThing",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../cases/class.ts",

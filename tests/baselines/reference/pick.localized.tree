@@ -43,6 +43,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
             "kind": "string_literal",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -82,6 +83,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
             "kind": "string_literal",
             "symbol": {
                 "name": "c",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -121,6 +123,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
             "kind": "object",
             "symbol": {
                 "name": "d",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -158,6 +161,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                     "kind": "string_literal",
                     "symbol": {
                         "name": "a",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/pick.ts",
@@ -206,6 +210,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
     "kind": "string_literal",
     "symbol": {
         "name": "a",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -246,6 +251,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
     "kind": "string_literal",
     "symbol": {
         "name": "c",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -286,6 +292,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
     "kind": "object",
     "symbol": {
         "name": "d",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -323,6 +330,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
             "kind": "string_literal",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -368,6 +376,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
     "kind": "string_literal",
     "symbol": {
         "name": "a",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -446,6 +455,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "kind": "object",
             "symbol": {
                 "name": "d",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -509,6 +519,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     "kind": "string_literal",
                     "symbol": {
                         "name": "a",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/pick.ts",
@@ -548,6 +559,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     "kind": "string_literal",
                     "symbol": {
                         "name": "b",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/pick.ts",
@@ -590,6 +602,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -629,6 +642,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "b",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -712,7 +726,6 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -792,6 +805,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     "kind": "string_literal",
                                     "symbol": {
                                         "name": "a",
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "cases/pick.ts",
@@ -831,6 +845,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     "kind": "string_literal",
                                     "symbol": {
                                         "name": "c",
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "cases/pick.ts",
@@ -870,6 +885,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     "kind": "object",
                                     "symbol": {
                                         "name": "d",
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "cases/pick.ts",
@@ -907,6 +923,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                             "kind": "string_literal",
                                             "symbol": {
                                                 "name": "a",
+                                                "property": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "cases/pick.ts",
@@ -953,7 +970,6 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "K",
                     "symbol": {
                         "name": "K",
                         "locations": [
@@ -1077,7 +1093,6 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         {
                             "kindText": "type parameter",
                             "kind": "type_parameter",
-                            "alias": "P",
                             "symbol": {
                                 "name": "P",
                                 "locations": [
@@ -1171,6 +1186,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -1210,6 +1226,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "c",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -1249,6 +1266,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "kind": "object",
             "symbol": {
                 "name": "d",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -1286,6 +1304,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     "kind": "string_literal",
                     "symbol": {
                         "name": "a",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/pick.ts",
@@ -1334,6 +1353,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
     "kind": "string_literal",
     "symbol": {
         "name": "b",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -1374,6 +1394,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
     "kind": "object",
     "symbol": {
         "name": "d",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -1411,6 +1432,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "b",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -1456,6 +1478,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
     "kind": "string_literal",
     "symbol": {
         "name": "b",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -1538,6 +1561,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "kind": "object",
             "symbol": {
                 "name": "d",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -1601,6 +1625,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     "kind": "string_literal",
                     "symbol": {
                         "name": "a",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/pick.ts",
@@ -1640,6 +1665,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     "kind": "string_literal",
                     "symbol": {
                         "name": "b",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/pick.ts",
@@ -1682,6 +1708,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -1721,6 +1748,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "b",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -1801,6 +1829,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "kind": "object",
             "symbol": {
                 "name": "d",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -1864,6 +1893,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     "kind": "string_literal",
                     "symbol": {
                         "name": "a",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/pick.ts",
@@ -1903,6 +1933,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     "kind": "string_literal",
                     "symbol": {
                         "name": "b",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/pick.ts",
@@ -1945,6 +1976,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -1984,6 +2016,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "b",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -2029,6 +2062,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
     "kind": "string_literal",
     "symbol": {
         "name": "a",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -2069,6 +2103,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
     "kind": "string_literal",
     "symbol": {
         "name": "b",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -2109,6 +2144,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
     "kind": "object",
     "symbol": {
         "name": "d",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -2146,6 +2182,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -2185,6 +2222,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "kind": "string_literal",
             "symbol": {
                 "name": "b",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/pick.ts",
@@ -2230,6 +2268,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
     "kind": "string_literal",
     "symbol": {
         "name": "a",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",
@@ -2270,6 +2309,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
     "kind": "string_literal",
     "symbol": {
         "name": "b",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/pick.ts",

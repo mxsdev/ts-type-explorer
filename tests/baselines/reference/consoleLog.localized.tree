@@ -7,6 +7,7 @@ console.log("hello world")
     "kind": "function",
     "symbol": {
         "name": "log",
+        "insideClassOrInterface": true,
         "locations": [
             {
                 "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -71,6 +72,7 @@ console.log("hello world")
             "primitiveKind": "any",
             "symbol": {
                 "name": "message",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -112,6 +114,7 @@ console.log("hello world")
             "primitiveKind": "any",
             "symbol": {
                 "name": "optionalParams",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -164,6 +167,7 @@ console.log("hello world")
     "kind": "interface",
     "symbol": {
         "name": "console",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -279,6 +283,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "assert",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -341,6 +346,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "assert",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -379,6 +385,7 @@ console.log("hello world")
                             "primitiveKind": "boolean",
                             "symbol": {
                                 "name": "condition",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -420,6 +427,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -470,6 +478,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "assert",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -508,6 +517,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "value",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -548,6 +558,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "message",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -589,6 +600,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -638,6 +650,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "clear",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -700,6 +713,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "clear",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -741,6 +755,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "clear",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -786,6 +801,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "count",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -848,6 +864,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "count",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -886,6 +903,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -930,6 +948,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "count",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -968,6 +987,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -1016,6 +1036,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "countReset",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1078,6 +1099,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "countReset",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1116,6 +1138,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1160,6 +1183,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "countReset",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -1198,6 +1222,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -1246,6 +1271,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "debug",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1308,6 +1334,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "debug",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1346,6 +1373,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1391,6 +1419,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "debug",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -1429,6 +1458,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -1470,6 +1500,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -1519,6 +1550,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "dir",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1581,6 +1613,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "dir",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1619,6 +1652,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "item",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1660,6 +1694,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "options",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -1704,6 +1739,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "dir",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -1742,6 +1778,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "obj",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -1781,6 +1818,7 @@ console.log("hello world")
                             "kind": "interface",
                             "symbol": {
                                 "name": "options",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -1819,6 +1857,8 @@ console.log("hello world")
                                     "kind": "union",
                                     "symbol": {
                                         "name": "getters",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -1885,6 +1925,8 @@ console.log("hello world")
                                     "primitiveKind": "boolean",
                                     "symbol": {
                                         "name": "showHidden",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -1926,6 +1968,8 @@ console.log("hello world")
                                     "primitiveKind": "number",
                                     "symbol": {
                                         "name": "depth",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -1967,6 +2011,8 @@ console.log("hello world")
                                     "primitiveKind": "boolean",
                                     "symbol": {
                                         "name": "colors",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2008,6 +2054,8 @@ console.log("hello world")
                                     "primitiveKind": "boolean",
                                     "symbol": {
                                         "name": "customInspect",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2049,6 +2097,8 @@ console.log("hello world")
                                     "primitiveKind": "boolean",
                                     "symbol": {
                                         "name": "showProxy",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2090,6 +2140,8 @@ console.log("hello world")
                                     "primitiveKind": "number",
                                     "symbol": {
                                         "name": "maxArrayLength",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2131,6 +2183,8 @@ console.log("hello world")
                                     "primitiveKind": "number",
                                     "symbol": {
                                         "name": "maxStringLength",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2172,6 +2226,8 @@ console.log("hello world")
                                     "primitiveKind": "number",
                                     "symbol": {
                                         "name": "breakLength",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2212,6 +2268,8 @@ console.log("hello world")
                                     "kind": "union",
                                     "symbol": {
                                         "name": "compact",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2266,6 +2324,8 @@ console.log("hello world")
                                     "kind": "union",
                                     "symbol": {
                                         "name": "sorted",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2349,6 +2409,7 @@ console.log("hello world")
                                                     "primitiveKind": "string",
                                                     "symbol": {
                                                         "name": "a",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2389,6 +2450,7 @@ console.log("hello world")
                                                     "primitiveKind": "string",
                                                     "symbol": {
                                                         "name": "b",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
@@ -2448,6 +2510,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "dirxml",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -2510,6 +2573,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "dirxml",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -2548,6 +2612,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -2593,6 +2658,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "dirxml",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -2631,6 +2697,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -2680,6 +2747,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "error",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -2742,6 +2810,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "error",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -2780,6 +2849,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -2825,6 +2895,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "error",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -2863,6 +2934,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -2904,6 +2976,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -2953,6 +3026,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "group",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3015,6 +3089,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "group",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3053,6 +3128,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3098,6 +3174,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "group",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -3136,6 +3213,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -3185,6 +3263,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "groupCollapsed",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3247,6 +3326,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "groupCollapsed",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3285,6 +3365,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3330,6 +3411,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "groupCollapsed",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -3368,6 +3450,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -3417,6 +3500,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "groupEnd",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3479,6 +3563,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "groupEnd",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3520,6 +3605,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "groupEnd",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -3565,6 +3651,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "info",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3627,6 +3714,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "info",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3665,6 +3753,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3710,6 +3799,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "info",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -3748,6 +3838,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -3789,6 +3880,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -3838,6 +3930,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "log",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3900,6 +3993,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "log",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3938,6 +4032,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -3983,6 +4078,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "log",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -4021,6 +4117,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -4062,6 +4159,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -4111,6 +4209,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "table",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -4173,6 +4272,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "table",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -4211,6 +4311,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "tabularData",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -4252,6 +4353,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "properties",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -4297,6 +4399,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "table",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -4335,6 +4438,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "tabularData",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -4374,6 +4478,7 @@ console.log("hello world")
                             "kind": "object",
                             "symbol": {
                                 "name": "properties",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -4423,6 +4528,7 @@ console.log("hello world")
                                     "kindText": "index",
                                     "symbol": {
                                         "name": "n",
+                                        "isArgument": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -4456,6 +4562,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "toString",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -4499,6 +4606,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "toLocaleString",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -4542,6 +4650,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "concat",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -4604,6 +4713,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "concat",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -4667,6 +4777,7 @@ console.log("hello world")
                                                     "kind": "object",
                                                     "symbol": {
                                                         "name": "items",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -4716,6 +4827,7 @@ console.log("hello world")
                                                             "kindText": "index",
                                                             "symbol": {
                                                                 "name": "n",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -4753,6 +4865,7 @@ console.log("hello world")
                                                     "primitiveKind": "string",
                                                     "symbol": {
                                                         "name": "Array",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -4977,6 +5090,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "concat",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5040,6 +5154,7 @@ console.log("hello world")
                                                     "kind": "union",
                                                     "symbol": {
                                                         "name": "items",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5093,6 +5208,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "join",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5139,6 +5255,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "slice",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5188,6 +5305,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "indexOf",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5237,6 +5355,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "lastIndexOf",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5286,6 +5405,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "every",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5348,6 +5468,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "every",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5412,7 +5533,6 @@ console.log("hello world")
                                                         {
                                                             "kindText": "type parameter",
                                                             "kind": "type_parameter",
-                                                            "alias": "S",
                                                             "symbol": {
                                                                 "name": "S",
                                                                 "locations": [
@@ -5460,6 +5580,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "predicate",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5501,6 +5622,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5540,6 +5662,7 @@ console.log("hello world")
                                                             "kind": "object",
                                                             "symbol": {
                                                                 "name": "array",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5584,6 +5707,7 @@ console.log("hello world")
                                                                     "kindText": "index",
                                                                     "symbol": {
                                                                         "name": "n",
+                                                                        "isArgument": true,
                                                                         "locations": [
                                                                             {
                                                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5632,6 +5756,7 @@ console.log("hello world")
                                                     "primitiveKind": "any",
                                                     "symbol": {
                                                         "name": "thisArg",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5676,6 +5801,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "every",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5739,6 +5865,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "predicate",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5780,6 +5907,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5844,6 +5972,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "some",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5881,6 +6010,7 @@ console.log("hello world")
                                             "kind": "function",
                                             "symbol": {
                                                 "name": "predicate",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5922,6 +6052,7 @@ console.log("hello world")
                                                     "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -5979,6 +6110,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "forEach",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6016,6 +6148,7 @@ console.log("hello world")
                                             "kind": "function",
                                             "symbol": {
                                                 "name": "callbackfn",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6057,6 +6190,7 @@ console.log("hello world")
                                                     "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6114,6 +6248,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "map",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6152,7 +6287,6 @@ console.log("hello world")
                                                 {
                                                     "kindText": "type parameter",
                                                     "kind": "type_parameter",
-                                                    "alias": "U",
                                                     "symbol": {
                                                         "name": "U",
                                                         "locations": [
@@ -6196,6 +6330,7 @@ console.log("hello world")
                                             "kind": "function",
                                             "symbol": {
                                                 "name": "callbackfn",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6237,6 +6372,7 @@ console.log("hello world")
                                                     "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6286,9 +6422,9 @@ console.log("hello world")
                                         {
                                             "kindText": "type parameter",
                                             "kind": "type_parameter",
-                                            "alias": "U",
                                             "symbol": {
                                                 "name": "Array",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6515,6 +6651,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "filter",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6577,6 +6714,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "filter",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6641,7 +6779,6 @@ console.log("hello world")
                                                         {
                                                             "kindText": "type parameter",
                                                             "kind": "type_parameter",
-                                                            "alias": "S",
                                                             "symbol": {
                                                                 "name": "S",
                                                                 "locations": [
@@ -6689,6 +6826,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "predicate",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6730,6 +6868,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -6779,9 +6918,9 @@ console.log("hello world")
                                                 {
                                                     "kindText": "type parameter",
                                                     "kind": "type_parameter",
-                                                    "alias": "S",
                                                     "symbol": {
                                                         "name": "Array",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7010,6 +7149,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "filter",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7073,6 +7213,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "predicate",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7114,6 +7255,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7173,6 +7315,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "reduce",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7261,6 +7404,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "reduce",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7350,6 +7494,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "callbackfn",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7394,6 +7539,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7446,6 +7592,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "reduce",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7535,6 +7682,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "callbackfn",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7579,6 +7727,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7634,6 +7783,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "reduce",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7724,7 +7874,6 @@ console.log("hello world")
                                                         {
                                                             "kindText": "type parameter",
                                                             "kind": "type_parameter",
-                                                            "alias": "U",
                                                             "symbol": {
                                                                 "name": "U",
                                                                 "locations": [
@@ -7768,6 +7917,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "callbackfn",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7806,6 +7956,7 @@ console.log("hello world")
                                                             "alias": "U",
                                                             "symbol": {
                                                                 "name": "previousValue",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7849,6 +8000,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7908,6 +8060,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "reduceRight",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -7996,6 +8149,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "reduceRight",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8085,6 +8239,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "callbackfn",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8129,6 +8284,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8181,6 +8337,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "reduceRight",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8270,6 +8427,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "callbackfn",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8314,6 +8472,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8369,6 +8528,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "reduceRight",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8459,7 +8619,6 @@ console.log("hello world")
                                                         {
                                                             "kindText": "type parameter",
                                                             "kind": "type_parameter",
-                                                            "alias": "U",
                                                             "symbol": {
                                                                 "name": "U",
                                                                 "locations": [
@@ -8503,6 +8662,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "callbackfn",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8541,6 +8701,7 @@ console.log("hello world")
                                                             "alias": "U",
                                                             "symbol": {
                                                                 "name": "previousValue",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8584,6 +8745,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "currentIndex",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -8643,6 +8805,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "find",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -8705,6 +8868,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "find",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -8769,7 +8933,6 @@ console.log("hello world")
                                                         {
                                                             "kindText": "type parameter",
                                                             "kind": "type_parameter",
-                                                            "alias": "S",
                                                             "symbol": {
                                                                 "name": "S",
                                                                 "locations": [
@@ -8817,6 +8980,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "predicate",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -8858,6 +9022,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -8913,6 +9078,7 @@ console.log("hello world")
                                             "kindText": "signature",
                                             "symbol": {
                                                 "name": "find",
+                                                "insideClassOrInterface": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -8976,6 +9142,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "predicate",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -9017,6 +9184,7 @@ console.log("hello world")
                                                             "primitiveKind": "number",
                                                             "symbol": {
                                                                 "name": "index",
+                                                                "isArgument": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -9076,6 +9244,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "findIndex",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -9113,6 +9282,7 @@ console.log("hello world")
                                             "kind": "function",
                                             "symbol": {
                                                 "name": "predicate",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -9154,6 +9324,7 @@ console.log("hello world")
                                                     "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es2015.core.d.ts",
@@ -9211,6 +9382,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "entries",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9287,9 +9459,9 @@ console.log("hello world")
                                                         {
                                                             "kindText": "type parameter",
                                                             "kind": "type_parameter",
-                                                            "alias": "T",
                                                             "symbol": {
                                                                 "name": "T",
+                                                                "insideClassOrInterface": true,
                                                                 "locations": [
                                                                     {
                                                                         "fileName": "../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9343,6 +9515,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "__@iterator@1585",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9386,6 +9559,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "next",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9432,6 +9606,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "return",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9479,6 +9654,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "throw",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9532,6 +9708,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "keys",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9615,6 +9792,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "__@iterator@1585",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9658,6 +9836,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "next",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9704,6 +9883,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "return",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9751,6 +9931,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "throw",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9804,6 +9985,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "values",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9887,6 +10069,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "__@iterator@1585",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9930,6 +10113,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "next",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -9976,6 +10160,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "return",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -10023,6 +10208,7 @@ console.log("hello world")
                                                     "kind": "function",
                                                     "symbol": {
                                                         "name": "throw",
+                                                        "insideClassOrInterface": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -10076,6 +10262,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "includes",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2016.array.include.d.ts",
@@ -10125,6 +10312,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "flatMap",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2019.array.d.ts",
@@ -10163,7 +10351,6 @@ console.log("hello world")
                                                 {
                                                     "kindText": "type parameter",
                                                     "kind": "type_parameter",
-                                                    "alias": "U",
                                                     "symbol": {
                                                         "name": "U",
                                                         "locations": [
@@ -10203,7 +10390,6 @@ console.log("hello world")
                                                 {
                                                     "kindText": "type parameter",
                                                     "kind": "type_parameter",
-                                                    "alias": "This",
                                                     "symbol": {
                                                         "name": "This",
                                                         "locations": [
@@ -10256,6 +10442,7 @@ console.log("hello world")
                                             "kind": "function",
                                             "symbol": {
                                                 "name": "callback",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../../node_modules/typescript/lib/lib.es2019.array.d.ts",
@@ -10297,6 +10484,7 @@ console.log("hello world")
                                                     "primitiveKind": "number",
                                                     "symbol": {
                                                         "name": "index",
+                                                        "isArgument": true,
                                                         "locations": [
                                                             {
                                                                 "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
@@ -10354,6 +10542,7 @@ console.log("hello world")
                                             "alias": "This",
                                             "symbol": {
                                                 "name": "thisArg",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
@@ -10396,9 +10585,9 @@ console.log("hello world")
                                         {
                                             "kindText": "type parameter",
                                             "kind": "type_parameter",
-                                            "alias": "U",
                                             "symbol": {
                                                 "name": "Array",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -10625,6 +10814,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "flat",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2019.array.d.ts",
@@ -10663,7 +10853,6 @@ console.log("hello world")
                                                 {
                                                     "kindText": "type parameter",
                                                     "kind": "type_parameter",
-                                                    "alias": "A",
                                                     "symbol": {
                                                         "name": "A",
                                                         "locations": [
@@ -10703,7 +10892,6 @@ console.log("hello world")
                                                 {
                                                     "kindText": "type parameter",
                                                     "kind": "type_parameter",
-                                                    "alias": "D",
                                                     "symbol": {
                                                         "name": "D",
                                                         "locations": [
@@ -10759,6 +10947,7 @@ console.log("hello world")
                                             "alias": "D",
                                             "symbol": {
                                                 "name": "depth",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
@@ -10807,6 +10996,7 @@ console.log("hello world")
                                             "alias": "FlatArray",
                                             "symbol": {
                                                 "name": "Array",
+                                                "isArgument": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
@@ -10949,6 +11139,7 @@ console.log("hello world")
                                     "kind": "function",
                                     "symbol": {
                                         "name": "__@iterator@1585",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
@@ -11003,6 +11194,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "time",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11065,6 +11257,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "time",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11103,6 +11296,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11147,6 +11341,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "time",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -11185,6 +11380,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -11233,6 +11429,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "timeEnd",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11295,6 +11492,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "timeEnd",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11333,6 +11531,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11377,6 +11576,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "timeEnd",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -11415,6 +11615,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -11463,6 +11664,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "timeLog",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11525,6 +11727,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "timeLog",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11563,6 +11766,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11604,6 +11808,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11649,6 +11854,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "timeLog",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -11687,6 +11893,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -11728,6 +11935,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -11777,6 +11985,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "timeStamp",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11839,6 +12048,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "timeStamp",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11877,6 +12087,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -11921,6 +12132,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "timeStamp",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -11959,6 +12171,7 @@ console.log("hello world")
                             "primitiveKind": "string",
                             "symbol": {
                                 "name": "label",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12007,6 +12220,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "trace",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12069,6 +12283,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "trace",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12107,6 +12322,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12152,6 +12368,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "trace",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12190,6 +12407,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12231,6 +12449,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12280,6 +12499,7 @@ console.log("hello world")
             "kind": "function",
             "symbol": {
                 "name": "warn",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12342,6 +12562,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "warn",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12380,6 +12601,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "data",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12425,6 +12647,7 @@ console.log("hello world")
                     "kindText": "signature",
                     "symbol": {
                         "name": "warn",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12463,6 +12686,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "message",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12504,6 +12728,7 @@ console.log("hello world")
                             "primitiveKind": "any",
                             "symbol": {
                                 "name": "optionalParams",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12553,6 +12778,8 @@ console.log("hello world")
             "kind": "interface",
             "symbol": {
                 "name": "Console",
+                "insideClassOrInterface": true,
+                "property": true,
                 "locations": [
                     {
                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12590,6 +12817,8 @@ console.log("hello world")
                     "kind": "interface",
                     "symbol": {
                         "name": "prototype",
+                        "insideClassOrInterface": true,
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12627,6 +12856,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "assert",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12689,6 +12919,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "assert",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12736,6 +12967,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "assert",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12790,6 +13022,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "clear",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12852,6 +13085,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "clear",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -12893,6 +13127,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "clear",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -12938,6 +13173,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "count",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13000,6 +13236,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "count",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13044,6 +13281,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "count",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -13092,6 +13330,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "countReset",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13154,6 +13393,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "countReset",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13198,6 +13438,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "countReset",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -13246,6 +13487,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "debug",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13308,6 +13550,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "debug",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13352,6 +13595,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "debug",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -13403,6 +13647,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "dir",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13465,6 +13710,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "dir",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13512,6 +13758,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "dir",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -13563,6 +13810,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "dirxml",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13625,6 +13873,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "dirxml",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13669,6 +13918,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "dirxml",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -13717,6 +13967,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "error",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13779,6 +14030,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "error",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13823,6 +14075,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "error",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -13874,6 +14127,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "group",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13936,6 +14190,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "group",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -13980,6 +14235,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "group",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -14028,6 +14284,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "groupCollapsed",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14090,6 +14347,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "groupCollapsed",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14134,6 +14392,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "groupCollapsed",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -14182,6 +14441,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "groupEnd",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14244,6 +14504,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "groupEnd",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14285,6 +14546,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "groupEnd",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -14330,6 +14592,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "info",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14392,6 +14655,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "info",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14436,6 +14700,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "info",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -14490,6 +14755,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "table",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14552,6 +14818,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "table",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14599,6 +14866,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "table",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -14650,6 +14918,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "time",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14712,6 +14981,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "time",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14756,6 +15026,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "time",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -14804,6 +15075,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "timeEnd",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14866,6 +15138,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "timeEnd",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -14910,6 +15183,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "timeEnd",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -14958,6 +15232,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "timeLog",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15020,6 +15295,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "timeLog",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15067,6 +15343,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "timeLog",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -15118,6 +15395,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "timeStamp",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15180,6 +15458,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "timeStamp",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15224,6 +15503,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "timeStamp",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -15272,6 +15552,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "trace",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15334,6 +15615,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "trace",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15378,6 +15660,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "trace",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -15429,6 +15712,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "warn",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15491,6 +15775,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "warn",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15535,6 +15820,7 @@ console.log("hello world")
                                     "kindText": "signature",
                                     "symbol": {
                                         "name": "warn",
+                                        "insideClassOrInterface": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -15589,6 +15875,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "profile",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/@types/node/ts4.8/console.d.ts",
@@ -15627,6 +15914,7 @@ console.log("hello world")
                                     "primitiveKind": "string",
                                     "symbol": {
                                         "name": "label",
+                                        "isArgument": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -15673,6 +15961,7 @@ console.log("hello world")
                             "kind": "function",
                             "symbol": {
                                 "name": "profileEnd",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../../node_modules/@types/node/ts4.8/console.d.ts",
@@ -15711,6 +16000,7 @@ console.log("hello world")
                                     "primitiveKind": "string",
                                     "symbol": {
                                         "name": "label",
+                                        "isArgument": true,
                                         "locations": [
                                             {
                                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -15772,6 +16062,7 @@ console.log("hello world")
     "kind": "function",
     "symbol": {
         "name": "log",
+        "insideClassOrInterface": true,
         "locations": [
             {
                 "fileName": "../../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15834,6 +16125,7 @@ console.log("hello world")
             "kindText": "signature",
             "symbol": {
                 "name": "log",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15872,6 +16164,7 @@ console.log("hello world")
                     "primitiveKind": "any",
                     "symbol": {
                         "name": "data",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
@@ -15922,6 +16215,7 @@ console.log("hello world")
             "kindText": "signature",
             "symbol": {
                 "name": "log",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -15960,6 +16254,7 @@ console.log("hello world")
                     "primitiveKind": "any",
                     "symbol": {
                         "name": "message",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
@@ -16001,6 +16296,7 @@ console.log("hello world")
                     "primitiveKind": "any",
                     "symbol": {
                         "name": "optionalParams",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",

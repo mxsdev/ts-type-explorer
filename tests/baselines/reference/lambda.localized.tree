@@ -44,6 +44,7 @@ type f = (arg1: string, arg2: boolean) => void
             "primitiveKind": "string",
             "symbol": {
                 "name": "arg1",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/lambda.ts",
@@ -84,6 +85,7 @@ type f = (arg1: string, arg2: boolean) => void
             "primitiveKind": "boolean",
             "symbol": {
                 "name": "arg2",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/lambda.ts",
@@ -138,6 +140,7 @@ type f = (arg1: string, arg2: boolean) => void
     "primitiveKind": "string",
     "symbol": {
         "name": "arg1",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/lambda.ts",
@@ -179,6 +182,7 @@ type f = (arg1: string, arg2: boolean) => void
     "primitiveKind": "boolean",
     "symbol": {
         "name": "arg2",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/lambda.ts",
@@ -337,6 +341,7 @@ type t = { a: string } | f
                     "primitiveKind": "string",
                     "symbol": {
                         "name": "arg1",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/lambda.ts",
@@ -377,6 +382,7 @@ type t = { a: string } | f
                     "primitiveKind": "boolean",
                     "symbol": {
                         "name": "arg2",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/lambda.ts",
@@ -466,6 +472,7 @@ type t = { a: string } | f
                     "primitiveKind": "string",
                     "symbol": {
                         "name": "a",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/lambda.ts",
@@ -517,6 +524,7 @@ type t = { a: string } | f
     "primitiveKind": "string",
     "symbol": {
         "name": "a",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/lambda.ts",
@@ -595,6 +603,7 @@ type t = { a: string } | f
             "primitiveKind": "string",
             "symbol": {
                 "name": "arg1",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/lambda.ts",
@@ -635,6 +644,7 @@ type t = { a: string } | f
             "primitiveKind": "boolean",
             "symbol": {
                 "name": "arg2",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/lambda.ts",

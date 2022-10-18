@@ -154,9 +154,9 @@ class TestClass<T> extends TestBaseClass {
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -276,6 +276,7 @@ class TestClass<T> extends TestBaseClass {
                     "primitiveKind": "boolean",
                     "symbol": {
                         "name": "thing",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -315,6 +316,7 @@ class TestClass<T> extends TestBaseClass {
                     "kind": "union",
                     "symbol": {
                         "name": "param",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -378,6 +380,7 @@ class TestClass<T> extends TestBaseClass {
             "kind": "function",
             "symbol": {
                 "name": "getThing",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../cases/classGeneric.ts",
@@ -416,6 +419,7 @@ class TestClass<T> extends TestBaseClass {
                     "alias": "T",
                     "symbol": {
                         "name": "param",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -503,9 +507,9 @@ class TestClass<T> extends TestBaseClass {
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -625,6 +629,7 @@ class TestClass<T> extends TestBaseClass {
                     "primitiveKind": "boolean",
                     "symbol": {
                         "name": "thing",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -664,6 +669,7 @@ class TestClass<T> extends TestBaseClass {
                     "kind": "union",
                     "symbol": {
                         "name": "param",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -727,6 +733,7 @@ class TestClass<T> extends TestBaseClass {
             "kind": "function",
             "symbol": {
                 "name": "getThing",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../cases/classGeneric.ts",
@@ -765,6 +772,7 @@ class TestClass<T> extends TestBaseClass {
                     "alias": "T",
                     "symbol": {
                         "name": "param",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -813,9 +821,9 @@ class TestClass<T> extends TestBaseClass {
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
+        "insideClassOrInterface": true,
         "locations": [
             {
                 "fileName": "cases/classGeneric.ts",
@@ -959,9 +967,9 @@ class TestClass<T> extends TestBaseClass {
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -1081,6 +1089,7 @@ class TestClass<T> extends TestBaseClass {
                     "primitiveKind": "boolean",
                     "symbol": {
                         "name": "thing",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -1120,6 +1129,7 @@ class TestClass<T> extends TestBaseClass {
                     "kind": "union",
                     "symbol": {
                         "name": "param",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -1183,6 +1193,7 @@ class TestClass<T> extends TestBaseClass {
             "kind": "function",
             "symbol": {
                 "name": "getThing",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../cases/classGeneric.ts",
@@ -1221,6 +1232,7 @@ class TestClass<T> extends TestBaseClass {
                     "alias": "T",
                     "symbol": {
                         "name": "param",
+                        "isArgument": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -1272,6 +1284,7 @@ class TestClass<T> extends TestBaseClass {
     "primitiveKind": "boolean",
     "symbol": {
         "name": "thing",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/classGeneric.ts",
@@ -1312,6 +1325,7 @@ class TestClass<T> extends TestBaseClass {
     "kind": "union",
     "symbol": {
         "name": "param",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/classGeneric.ts",
@@ -1422,6 +1436,8 @@ class TestClass<T> extends TestBaseClass {
     "primitiveKind": "string",
     "symbol": {
         "name": "param",
+        "insideClassOrInterface": true,
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/classGeneric.ts",
@@ -1463,6 +1479,8 @@ class TestClass<T> extends TestBaseClass {
     "primitiveKind": "string",
     "symbol": {
         "name": "param2",
+        "insideClassOrInterface": true,
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/classGeneric.ts",
@@ -1505,6 +1523,7 @@ class TestClass<T> extends TestBaseClass {
     "kind": "function",
     "symbol": {
         "name": "getThing",
+        "insideClassOrInterface": true,
         "locations": [
             {
                 "fileName": "../cases/classGeneric.ts",
@@ -1543,6 +1562,7 @@ class TestClass<T> extends TestBaseClass {
             "alias": "T",
             "symbol": {
                 "name": "param",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/classGeneric.ts",
@@ -1596,6 +1616,7 @@ class TestClass<T> extends TestBaseClass {
     "alias": "T",
     "symbol": {
         "name": "param",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/classGeneric.ts",
@@ -1634,9 +1655,9 @@ class TestClass<T> extends TestBaseClass {
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
+        "insideClassOrInterface": true,
         "locations": [
             {
                 "fileName": "cases/classGeneric.ts",
@@ -1758,9 +1779,9 @@ const _a = new TestClass<string>(false, 4)
                         {
                             "kindText": "type parameter",
                             "kind": "type_parameter",
-                            "alias": "T",
                             "symbol": {
                                 "name": "T",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "cases/classGeneric.ts",
@@ -1889,6 +1910,7 @@ const _a = new TestClass<string>(false, 4)
                             "primitiveKind": "boolean",
                             "symbol": {
                                 "name": "thing",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "cases/classGeneric.ts",
@@ -1928,6 +1950,7 @@ const _a = new TestClass<string>(false, 4)
                             "kind": "union",
                             "symbol": {
                                 "name": "param",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "cases/classGeneric.ts",
@@ -1987,6 +2010,7 @@ const _a = new TestClass<string>(false, 4)
                     "kind": "function",
                     "symbol": {
                         "name": "getThing",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../cases/classGeneric.ts",
@@ -2025,6 +2049,7 @@ const _a = new TestClass<string>(false, 4)
                             "alias": "T",
                             "symbol": {
                                 "name": "param",
+                                "isArgument": true,
                                 "locations": [
                                     {
                                         "fileName": "cases/classGeneric.ts",
@@ -2074,6 +2099,8 @@ const _a = new TestClass<string>(false, 4)
             "primitiveKind": "string",
             "symbol": {
                 "name": "param",
+                "insideClassOrInterface": true,
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/classGeneric.ts",
@@ -2114,6 +2141,8 @@ const _a = new TestClass<string>(false, 4)
             "primitiveKind": "string",
             "symbol": {
                 "name": "param2",
+                "insideClassOrInterface": true,
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/classGeneric.ts",
@@ -2153,6 +2182,7 @@ const _a = new TestClass<string>(false, 4)
             "kind": "function",
             "symbol": {
                 "name": "getThing",
+                "insideClassOrInterface": true,
                 "locations": [
                     {
                         "fileName": "../cases/classGeneric.ts",
@@ -2241,9 +2271,9 @@ const _a = new TestClass<string>(false, 4)
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -2295,6 +2325,7 @@ const _a = new TestClass<string>(false, 4)
             "primitiveKind": "boolean",
             "symbol": {
                 "name": "thing",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/classGeneric.ts",
@@ -2334,6 +2365,7 @@ const _a = new TestClass<string>(false, 4)
             "kind": "union",
             "symbol": {
                 "name": "param",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/classGeneric.ts",
@@ -2569,6 +2601,7 @@ const _a = new TestClass<string>(false, 4)
                             "kind": "function",
                             "symbol": {
                                 "name": "getThing",
+                                "insideClassOrInterface": true,
                                 "locations": [
                                     {
                                         "fileName": "../cases/classGeneric.ts",
@@ -2607,6 +2640,7 @@ const _a = new TestClass<string>(false, 4)
                                     "alias": "T",
                                     "symbol": {
                                         "name": "param",
+                                        "isArgument": true,
                                         "locations": [
                                             {
                                                 "fileName": "cases/classGeneric.ts",
@@ -2656,6 +2690,8 @@ const _a = new TestClass<string>(false, 4)
                     "primitiveKind": "string",
                     "symbol": {
                         "name": "param",
+                        "insideClassOrInterface": true,
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -2696,6 +2732,8 @@ const _a = new TestClass<string>(false, 4)
                     "primitiveKind": "string",
                     "symbol": {
                         "name": "param2",
+                        "insideClassOrInterface": true,
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/classGeneric.ts",
@@ -2735,6 +2773,7 @@ const _a = new TestClass<string>(false, 4)
                     "kind": "function",
                     "symbol": {
                         "name": "getThing",
+                        "insideClassOrInterface": true,
                         "locations": [
                             {
                                 "fileName": "../cases/classGeneric.ts",

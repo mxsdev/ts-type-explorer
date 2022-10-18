@@ -5,27 +5,6 @@ type Conditional<T> = T extends string ? "a" : "b"
     "kind": "conditional",
     "checkType": {
         "kind": "type_parameter",
-        "typeSymbolMeta": {
-            "name": "T",
-            "flags": 262144,
-            "declarations": [
-                {
-                    "location": {
-                        "fileName": "cases/conditional.ts",
-                        "range": {
-                            "start": {
-                                "line": 0,
-                                "character": 17
-                            },
-                            "end": {
-                                "line": 0,
-                                "character": 18
-                            }
-                        }
-                    }
-                }
-            ]
-        },
         "symbolMeta": {
             "name": "T",
             "flags": 262144,
@@ -118,27 +97,6 @@ type Conditional<T> = T extends string ? "a" : "b"
 > T
 > T --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/conditional.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 17
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 18
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,
@@ -166,27 +124,6 @@ type Conditional<T> = T extends string ? "a" : "b"
 > T
 > T --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/conditional.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 17
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 18
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,

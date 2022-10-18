@@ -46,7 +46,6 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -100,6 +99,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "alias": "T",
             "symbol": {
                 "name": "arg",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/functionGeneric.ts",
@@ -144,6 +144,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "primitiveKind": "any",
             "symbol": {
                 "name": "arg2",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/functionGeneric.ts",
@@ -229,7 +230,6 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -283,6 +283,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "alias": "T",
             "symbol": {
                 "name": "arg",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/functionGeneric.ts",
@@ -327,6 +328,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "primitiveKind": "any",
             "symbol": {
                 "name": "arg2",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/functionGeneric.ts",
@@ -374,7 +376,6 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [
@@ -428,6 +429,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
     "alias": "T",
     "symbol": {
         "name": "arg",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/functionGeneric.ts",
@@ -475,7 +477,6 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [
@@ -528,6 +529,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
     "primitiveKind": "any",
     "symbol": {
         "name": "arg2",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/functionGeneric.ts",
@@ -576,6 +578,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
     "alias": "T",
     "symbol": {
         "name": "arg",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/functionGeneric.ts",
@@ -625,6 +628,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
     "primitiveKind": "any",
     "symbol": {
         "name": "arg2",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/functionGeneric.ts",
@@ -707,7 +711,6 @@ sig1("asd", 3, 4)
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -771,6 +774,7 @@ sig1("asd", 3, 4)
             "primitiveKind": "any",
             "symbol": {
                 "name": "arg2",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/functionGeneric.ts",

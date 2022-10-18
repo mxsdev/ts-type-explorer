@@ -124,7 +124,7 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
                 kind: 'type_parameter',
                 baseConstraint: wrapSafe(parseType)(typeChecker.getBaseConstraintOfType(type)),
                 defaultType: wrapSafe(parseType)(typeChecker.getDefaultFromTypeParameter(type)),
-                typeSymbolMeta: wrapSafe(getSymbolInfo)(type.symbol)
+                ...type.symbol && type.symbol !== symbol && type.symbol !== type.aliasSymbol && { typeSymbolMeta: getSymbolInfo(type.symbol) }
             }
         } else if(flags & ts.TypeFlags.Any) { 
             if((type as IntrinsicTypeInternal).intrinsicName === "intrinsic") {

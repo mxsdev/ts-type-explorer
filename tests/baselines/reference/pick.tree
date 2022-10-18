@@ -481,27 +481,6 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     ],
                     "id": "13"
                 },
-                "typeSymbolMeta": {
-                    "name": "K",
-                    "flags": 262144,
-                    "declarations": [
-                        {
-                            "location": {
-                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                "range": {
-                                    "start": {
-                                        "line": 1569,
-                                        "character": 13
-                                    },
-                                    "end": {
-                                        "line": 1569,
-                                        "character": 30
-                                    }
-                                }
-                            }
-                        }
-                    ]
-                },
                 "symbolMeta": {
                     "name": "K",
                     "flags": 262144,
@@ -533,27 +512,6 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         "kind": "reference",
                         "id": "13"
                     },
-                    "typeSymbolMeta": {
-                        "name": "P",
-                        "flags": 262144,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 1570,
-                                            "character": 5
-                                        },
-                                        "end": {
-                                            "line": 1570,
-                                            "character": 11
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
                     "symbolMeta": {
                         "name": "P",
                         "flags": 262144,
@@ -579,27 +537,6 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 },
                 "objectType": {
                     "kind": "type_parameter",
-                    "typeSymbolMeta": {
-                        "name": "T",
-                        "flags": 262144,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 1569,
-                                            "character": 10
-                                        },
-                                        "end": {
-                                            "line": 1569,
-                                            "character": 11
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,

@@ -83,6 +83,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                     "primitiveKind": "string",
                     "symbol": {
                         "name": "a",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/partial.ts",
@@ -213,7 +214,6 @@ type partialUnion = Partial<{a: string}|{b: string}>
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -297,6 +297,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                                             "primitiveKind": "string",
                                             "symbol": {
                                                 "name": "a",
+                                                "property": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "cases/partial.ts",
@@ -378,6 +379,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                                             "primitiveKind": "string",
                                             "symbol": {
                                                 "name": "b",
+                                                "property": true,
                                                 "locations": [
                                                     {
                                                         "fileName": "cases/partial.ts",
@@ -466,7 +468,6 @@ type partialUnion = Partial<{a: string}|{b: string}>
                         {
                             "kindText": "type parameter",
                             "kind": "type_parameter",
-                            "alias": "P",
                             "symbol": {
                                 "name": "P",
                                 "locations": [
@@ -554,6 +555,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
     "primitiveKind": "string",
     "symbol": {
         "name": "a",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/partial.ts",
@@ -597,6 +599,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
     "primitiveKind": "string",
     "symbol": {
         "name": "b",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/partial.ts",

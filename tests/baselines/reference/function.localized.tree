@@ -46,6 +46,7 @@ function func(a: string, b?: number) {
             "primitiveKind": "string",
             "symbol": {
                 "name": "a",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/function.ts",
@@ -86,6 +87,7 @@ function func(a: string, b?: number) {
             "primitiveKind": "number",
             "symbol": {
                 "name": "b",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/function.ts",
@@ -175,6 +177,7 @@ function func(a: string, b?: number) {
             "primitiveKind": "string",
             "symbol": {
                 "name": "a",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/function.ts",
@@ -215,6 +218,7 @@ function func(a: string, b?: number) {
             "primitiveKind": "number",
             "symbol": {
                 "name": "b",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/function.ts",
@@ -269,6 +273,7 @@ function func(a: string, b?: number) {
     "primitiveKind": "string",
     "symbol": {
         "name": "a",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/function.ts",
@@ -310,6 +315,7 @@ function func(a: string, b?: number) {
     "primitiveKind": "number",
     "symbol": {
         "name": "b",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/function.ts",

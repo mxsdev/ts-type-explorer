@@ -4417,27 +4417,6 @@ console.log("hello world")
                                                         "kind": "reference",
                                                         "id": "69"
                                                     },
-                                                    "typeSymbolMeta": {
-                                                        "name": "S",
-                                                        "flags": 262144,
-                                                        "declarations": [
-                                                            {
-                                                                "location": {
-                                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                                                    "range": {
-                                                                        "start": {
-                                                                            "line": 1206,
-                                                                            "character": 10
-                                                                        },
-                                                                        "end": {
-                                                                            "line": 1206,
-                                                                            "character": 21
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
                                                     "symbolMeta": {
                                                         "name": "S",
                                                         "flags": 262144,
@@ -5295,27 +5274,6 @@ console.log("hello world")
                                                             ],
                                                             "returnType": {
                                                                 "kind": "type_parameter",
-                                                                "typeSymbolMeta": {
-                                                                    "name": "U",
-                                                                    "flags": 262144,
-                                                                    "declarations": [
-                                                                        {
-                                                                            "location": {
-                                                                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                                                                "range": {
-                                                                                    "start": {
-                                                                                        "line": 1236,
-                                                                                        "character": 8
-                                                                                    },
-                                                                                    "end": {
-                                                                                        "line": 1236,
-                                                                                        "character": 9
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    ]
-                                                                },
                                                                 "symbolMeta": {
                                                                     "name": "U",
                                                                     "flags": 262144,
@@ -5600,27 +5558,6 @@ console.log("hello world")
                                     "typeParameters": [
                                         {
                                             "kind": "type_parameter",
-                                            "typeSymbolMeta": {
-                                                "name": "U",
-                                                "flags": 262144,
-                                                "declarations": [
-                                                    {
-                                                        "location": {
-                                                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                                            "range": {
-                                                                "start": {
-                                                                    "line": 1236,
-                                                                    "character": 8
-                                                                },
-                                                                "end": {
-                                                                    "line": 1236,
-                                                                    "character": 9
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                ]
-                                            },
                                             "symbolMeta": {
                                                 "name": "U",
                                                 "flags": 262144,
@@ -5861,27 +5798,6 @@ console.log("hello world")
                                                     "baseConstraint": {
                                                         "kind": "max_depth",
                                                         "id": "228"
-                                                    },
-                                                    "typeSymbolMeta": {
-                                                        "name": "S",
-                                                        "flags": 262144,
-                                                        "declarations": [
-                                                            {
-                                                                "location": {
-                                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                                                    "range": {
-                                                                        "start": {
-                                                                            "line": 1242,
-                                                                            "character": 11
-                                                                        },
-                                                                        "end": {
-                                                                            "line": 1242,
-                                                                            "character": 22
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        ]
                                                     },
                                                     "symbolMeta": {
                                                         "name": "S",
@@ -7122,27 +7038,6 @@ console.log("hello world")
                                                             ],
                                                             "returnType": {
                                                                 "kind": "type_parameter",
-                                                                "typeSymbolMeta": {
-                                                                    "name": "U",
-                                                                    "flags": 262144,
-                                                                    "declarations": [
-                                                                        {
-                                                                            "location": {
-                                                                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                                                                "range": {
-                                                                                    "start": {
-                                                                                        "line": 1261,
-                                                                                        "character": 11
-                                                                                    },
-                                                                                    "end": {
-                                                                                        "line": 1261,
-                                                                                        "character": 12
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    ]
-                                                                },
                                                                 "symbolMeta": {
                                                                     "name": "U",
                                                                     "flags": 262144,
@@ -8010,27 +7905,6 @@ console.log("hello world")
                                                             ],
                                                             "returnType": {
                                                                 "kind": "type_parameter",
-                                                                "typeSymbolMeta": {
-                                                                    "name": "U",
-                                                                    "flags": 262144,
-                                                                    "declarations": [
-                                                                        {
-                                                                            "location": {
-                                                                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                                                                "range": {
-                                                                                    "start": {
-                                                                                        "line": 1274,
-                                                                                        "character": 16
-                                                                                    },
-                                                                                    "end": {
-                                                                                        "line": 1274,
-                                                                                        "character": 17
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    ]
-                                                                },
                                                                 "symbolMeta": {
                                                                     "name": "U",
                                                                     "flags": 262144,
@@ -8425,27 +8299,6 @@ console.log("hello world")
                                                 "baseConstraint": {
                                                     "kind": "reference",
                                                     "id": "69"
-                                                },
-                                                "typeSymbolMeta": {
-                                                    "name": "S",
-                                                    "flags": 262144,
-                                                    "declarations": [
-                                                        {
-                                                            "location": {
-                                                                "fileName": "../node_modules/typescript/lib/lib.es2015.core.d.ts",
-                                                                "range": {
-                                                                    "start": {
-                                                                        "line": 351,
-                                                                        "character": 9
-                                                                    },
-                                                                    "end": {
-                                                                        "line": 351,
-                                                                        "character": 20
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    ]
                                                 },
                                                 "symbolMeta": {
                                                     "name": "S",
@@ -9268,28 +9121,6 @@ console.log("hello world")
                                                 "typeParameters": [
                                                     {
                                                         "kind": "type_parameter",
-                                                        "typeSymbolMeta": {
-                                                            "name": "T",
-                                                            "flags": 262144,
-                                                            "insideClassOrInterface": true,
-                                                            "declarations": [
-                                                                {
-                                                                    "location": {
-                                                                        "fileName": "../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
-                                                                        "range": {
-                                                                            "start": {
-                                                                                "line": 53,
-                                                                                "character": 27
-                                                                            },
-                                                                            "end": {
-                                                                                "line": 53,
-                                                                                "character": 28
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
                                                         "symbolMeta": {
                                                             "name": "T",
                                                             "flags": 262144,
@@ -10402,27 +10233,6 @@ console.log("hello world")
                                                 "kind": "array",
                                                 "type": {
                                                     "kind": "type_parameter",
-                                                    "typeSymbolMeta": {
-                                                        "name": "U",
-                                                        "flags": 262144,
-                                                        "declarations": [
-                                                            {
-                                                                "location": {
-                                                                    "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
-                                                                    "range": {
-                                                                        "start": {
-                                                                            "line": 39,
-                                                                            "character": 12
-                                                                        },
-                                                                        "end": {
-                                                                            "line": 39,
-                                                                            "character": 13
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
                                                     "symbolMeta": {
                                                         "name": "U",
                                                         "flags": 262144,
@@ -10606,27 +10416,6 @@ console.log("hello world")
                                                         "kind": "reference",
                                                         "id": "211"
                                                     },
-                                                    "typeSymbolMeta": {
-                                                        "name": "This",
-                                                        "flags": 262144,
-                                                        "declarations": [
-                                                            {
-                                                                "location": {
-                                                                    "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
-                                                                    "range": {
-                                                                        "start": {
-                                                                            "line": 39,
-                                                                            "character": 15
-                                                                        },
-                                                                        "end": {
-                                                                            "line": 39,
-                                                                            "character": 31
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
                                                     "symbolMeta": {
                                                         "name": "This",
                                                         "flags": 262144,
@@ -10678,27 +10467,6 @@ console.log("hello world")
                                     "typeParameters": [
                                         {
                                             "kind": "type_parameter",
-                                            "typeSymbolMeta": {
-                                                "name": "U",
-                                                "flags": 262144,
-                                                "declarations": [
-                                                    {
-                                                        "location": {
-                                                            "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
-                                                            "range": {
-                                                                "start": {
-                                                                    "line": 39,
-                                                                    "character": 12
-                                                                },
-                                                                "end": {
-                                                                    "line": 39,
-                                                                    "character": 13
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                ]
-                                            },
                                             "symbolMeta": {
                                                 "name": "U",
                                                 "flags": 262144,
@@ -10727,27 +10495,6 @@ console.log("hello world")
                                             "defaultType": {
                                                 "kind": "reference",
                                                 "id": "211"
-                                            },
-                                            "typeSymbolMeta": {
-                                                "name": "This",
-                                                "flags": 262144,
-                                                "declarations": [
-                                                    {
-                                                        "location": {
-                                                            "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
-                                                            "range": {
-                                                                "start": {
-                                                                    "line": 39,
-                                                                    "character": 15
-                                                                },
-                                                                "end": {
-                                                                    "line": 39,
-                                                                    "character": 31
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                ]
                                             },
                                             "symbolMeta": {
                                                 "name": "This",
@@ -11025,27 +10772,6 @@ console.log("hello world")
                                             "typeParameters": [
                                                 {
                                                     "kind": "type_parameter",
-                                                    "typeSymbolMeta": {
-                                                        "name": "A",
-                                                        "flags": 262144,
-                                                        "declarations": [
-                                                            {
-                                                                "location": {
-                                                                    "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
-                                                                    "range": {
-                                                                        "start": {
-                                                                            "line": 51,
-                                                                            "character": 9
-                                                                        },
-                                                                        "end": {
-                                                                            "line": 51,
-                                                                            "character": 10
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
                                                     "symbolMeta": {
                                                         "name": "A",
                                                         "flags": 262144,
@@ -11078,27 +10804,6 @@ console.log("hello world")
                                                     "defaultType": {
                                                         "kind": "reference",
                                                         "id": "223"
-                                                    },
-                                                    "typeSymbolMeta": {
-                                                        "name": "D",
-                                                        "flags": 262144,
-                                                        "declarations": [
-                                                            {
-                                                                "location": {
-                                                                    "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
-                                                                    "range": {
-                                                                        "start": {
-                                                                            "line": 51,
-                                                                            "character": 12
-                                                                        },
-                                                                        "end": {
-                                                                            "line": 51,
-                                                                            "character": 32
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        ]
                                                     },
                                                     "symbolMeta": {
                                                         "name": "D",
@@ -11151,27 +10856,6 @@ console.log("hello world")
                                     "typeParameters": [
                                         {
                                             "kind": "type_parameter",
-                                            "typeSymbolMeta": {
-                                                "name": "A",
-                                                "flags": 262144,
-                                                "declarations": [
-                                                    {
-                                                        "location": {
-                                                            "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
-                                                            "range": {
-                                                                "start": {
-                                                                    "line": 51,
-                                                                    "character": 9
-                                                                },
-                                                                "end": {
-                                                                    "line": 51,
-                                                                    "character": 10
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                ]
-                                            },
                                             "symbolMeta": {
                                                 "name": "A",
                                                 "flags": 262144,
@@ -11204,27 +10888,6 @@ console.log("hello world")
                                             "defaultType": {
                                                 "kind": "reference",
                                                 "id": "223"
-                                            },
-                                            "typeSymbolMeta": {
-                                                "name": "D",
-                                                "flags": 262144,
-                                                "declarations": [
-                                                    {
-                                                        "location": {
-                                                            "fileName": "../node_modules/typescript/lib/lib.es2019.array.d.ts",
-                                                            "range": {
-                                                                "start": {
-                                                                    "line": 51,
-                                                                    "character": 12
-                                                                },
-                                                                "end": {
-                                                                    "line": 51,
-                                                                    "character": 32
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                ]
                                             },
                                             "symbolMeta": {
                                                 "name": "D",

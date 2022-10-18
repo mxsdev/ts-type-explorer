@@ -123,27 +123,6 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                         "kind": "reference",
                         "id": "3"
                     },
-                    "typeSymbolMeta": {
-                        "name": "T",
-                        "flags": 262144,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "cases/functionGeneric.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 0,
-                                            "character": 14
-                                        },
-                                        "end": {
-                                            "line": 0,
-                                            "character": 30
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,
@@ -340,27 +319,6 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                         "kind": "reference",
                         "id": "3"
                     },
-                    "typeSymbolMeta": {
-                        "name": "T",
-                        "flags": 262144,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "cases/functionGeneric.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 0,
-                                            "character": 14
-                                        },
-                                        "end": {
-                                            "line": 0,
-                                            "character": 30
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,
@@ -446,27 +404,6 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         "primitive": "string",
         "id": "1"
     },
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/functionGeneric.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 14
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 30
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,
@@ -550,27 +487,6 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         "kind": "primitive",
         "primitive": "string",
         "id": "1"
-    },
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/functionGeneric.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 14
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 30
-                        }
-                    }
-                }
-            }
-        ]
     },
     "symbolMeta": {
         "name": "T",
@@ -813,27 +729,6 @@ sig1("asd", 3, 4)
                     "baseConstraint": {
                         "kind": "reference",
                         "id": "5"
-                    },
-                    "typeSymbolMeta": {
-                        "name": "T",
-                        "flags": 262144,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "cases/functionGeneric.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 0,
-                                            "character": 14
-                                        },
-                                        "end": {
-                                            "line": 0,
-                                            "character": 30
-                                        }
-                                    }
-                                }
-                            }
-                        ]
                     },
                     "symbolMeta": {
                         "name": "T",

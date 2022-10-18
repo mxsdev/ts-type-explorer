@@ -26,27 +26,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
             ],
             "id": "3"
         },
-        "typeSymbolMeta": {
-            "name": "T",
-            "flags": 262144,
-            "declarations": [
-                {
-                    "location": {
-                        "fileName": "cases/indexedAccess.ts",
-                        "range": {
-                            "start": {
-                                "line": 0,
-                                "character": 22
-                            },
-                            "end": {
-                                "line": 0,
-                                "character": 39
-                            }
-                        }
-                    }
-                }
-            ]
-        },
         "symbolMeta": {
             "name": "T",
             "flags": 262144,
@@ -72,27 +51,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
     },
     "objectType": {
         "kind": "type_parameter",
-        "typeSymbolMeta": {
-            "name": "P",
-            "flags": 262144,
-            "declarations": [
-                {
-                    "location": {
-                        "fileName": "cases/indexedAccess.ts",
-                        "range": {
-                            "start": {
-                                "line": 0,
-                                "character": 19
-                            },
-                            "end": {
-                                "line": 0,
-                                "character": 20
-                            }
-                        }
-                    }
-                }
-            ]
-        },
         "symbolMeta": {
             "name": "P",
             "flags": 262144,
@@ -195,27 +153,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
 > P
 > P --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "P",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/indexedAccess.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 19
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 20
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "P",
         "flags": 262144,
@@ -263,27 +200,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
         ],
         "id": "1"
     },
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/indexedAccess.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 22
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 39
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,
@@ -311,27 +227,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
 > P
 > P --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "P",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/indexedAccess.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 19
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 20
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "P",
         "flags": 262144,
@@ -359,27 +254,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
 > P
 > P --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "P",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/indexedAccess.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 19
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 20
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "P",
         "flags": 262144,
@@ -426,27 +300,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
             }
         ],
         "id": "1"
-    },
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/indexedAccess.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 22
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 39
-                        }
-                    }
-                }
-            }
-        ]
     },
     "symbolMeta": {
         "name": "T",

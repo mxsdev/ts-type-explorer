@@ -45,7 +45,6 @@ type TypeWithGenerics<T, K> = T
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -85,7 +84,6 @@ type TypeWithGenerics<T, K> = T
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "K",
                     "symbol": {
                         "name": "K",
                         "locations": [
@@ -132,7 +130,6 @@ type TypeWithGenerics<T, K> = T
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [
@@ -173,7 +170,6 @@ type TypeWithGenerics<T, K> = T
 > K --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "K",
     "symbol": {
         "name": "K",
         "locations": [
@@ -214,7 +210,6 @@ type TypeWithGenerics<T, K> = T
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [
@@ -297,7 +292,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "J",
                     "symbol": {
                         "name": "J",
                         "locations": [
@@ -344,7 +338,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
 > J --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "J",
     "symbol": {
         "name": "J",
         "locations": [
@@ -426,7 +419,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -464,7 +456,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
                         {
                             "kindText": "type parameter",
                             "kind": "type_parameter",
-                            "alias": "J",
                             "symbol": {
                                 "name": "J",
                                 "locations": [
@@ -508,7 +499,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "K",
                     "symbol": {
                         "name": "K",
                         "locations": [
@@ -563,7 +553,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
 > J --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "J",
     "symbol": {
         "name": "J",
         "locations": [

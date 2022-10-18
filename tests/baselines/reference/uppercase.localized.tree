@@ -44,7 +44,6 @@ type U<T extends string> = Uppercase<T>
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -103,7 +102,6 @@ type U<T extends string> = Uppercase<T>
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [
@@ -193,7 +191,6 @@ type U<T extends string> = Uppercase<T>
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "S",
                     "symbol": {
                         "name": "S",
                         "locations": [
@@ -231,7 +228,6 @@ type U<T extends string> = Uppercase<T>
                         {
                             "kindText": "type parameter",
                             "kind": "type_parameter",
-                            "alias": "T",
                             "symbol": {
                                 "name": "T",
                                 "locations": [
@@ -294,7 +290,6 @@ type U<T extends string> = Uppercase<T>
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [

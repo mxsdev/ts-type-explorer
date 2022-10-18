@@ -427,28 +427,6 @@ class TestClass<T> extends TestBaseClass {
             "typeParameters": [
                 {
                     "kind": "type_parameter",
-                    "typeSymbolMeta": {
-                        "name": "T",
-                        "flags": 262144,
-                        "insideClassOrInterface": true,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "cases/classGeneric.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 2,
-                                            "character": 16
-                                        },
-                                        "end": {
-                                            "line": 2,
-                                            "character": 17
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,
@@ -855,28 +833,6 @@ class TestClass<T> extends TestBaseClass {
             "typeParameters": [
                 {
                     "kind": "type_parameter",
-                    "typeSymbolMeta": {
-                        "name": "T",
-                        "flags": 262144,
-                        "insideClassOrInterface": true,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "cases/classGeneric.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 2,
-                                            "character": 16
-                                        },
-                                        "end": {
-                                            "line": 2,
-                                            "character": 17
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,
@@ -980,28 +936,6 @@ class TestClass<T> extends TestBaseClass {
 > T
 > T --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "insideClassOrInterface": true,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/classGeneric.ts",
-                    "range": {
-                        "start": {
-                            "line": 2,
-                            "character": 16
-                        },
-                        "end": {
-                            "line": 2,
-                            "character": 17
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,
@@ -1403,28 +1337,6 @@ class TestClass<T> extends TestBaseClass {
             "typeParameters": [
                 {
                     "kind": "type_parameter",
-                    "typeSymbolMeta": {
-                        "name": "T",
-                        "flags": 262144,
-                        "insideClassOrInterface": true,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "cases/classGeneric.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 2,
-                                            "character": 16
-                                        },
-                                        "end": {
-                                            "line": 2,
-                                            "character": 17
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,
@@ -1866,28 +1778,6 @@ class TestClass<T> extends TestBaseClass {
 > T
 > T --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "insideClassOrInterface": true,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/classGeneric.ts",
-                    "range": {
-                        "start": {
-                            "line": 2,
-                            "character": 16
-                        },
-                        "end": {
-                            "line": 2,
-                            "character": 17
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,
@@ -2366,28 +2256,6 @@ const _a = new TestClass<string>(false, 4)
                 "typeParameters": [
                     {
                         "kind": "type_parameter",
-                        "typeSymbolMeta": {
-                            "name": "T",
-                            "flags": 262144,
-                            "insideClassOrInterface": true,
-                            "declarations": [
-                                {
-                                    "location": {
-                                        "fileName": "cases/classGeneric.ts",
-                                        "range": {
-                                            "start": {
-                                                "line": 2,
-                                                "character": 16
-                                            },
-                                            "end": {
-                                                "line": 2,
-                                                "character": 17
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        },
                         "symbolMeta": {
                             "name": "T",
                             "flags": 262144,
@@ -3044,28 +2912,6 @@ const _a = new TestClass<string>(false, 4)
                             "typeParameters": [
                                 {
                                     "kind": "type_parameter",
-                                    "typeSymbolMeta": {
-                                        "name": "T",
-                                        "flags": 262144,
-                                        "insideClassOrInterface": true,
-                                        "declarations": [
-                                            {
-                                                "location": {
-                                                    "fileName": "cases/classGeneric.ts",
-                                                    "range": {
-                                                        "start": {
-                                                            "line": 2,
-                                                            "character": 16
-                                                        },
-                                                        "end": {
-                                                            "line": 2,
-                                                            "character": 17
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        ]
-                                    },
                                     "symbolMeta": {
                                         "name": "T",
                                         "flags": 262144,

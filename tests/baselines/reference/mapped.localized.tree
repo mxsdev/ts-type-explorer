@@ -42,6 +42,7 @@ type mapped = { [index: string]: number }
             "kindText": "index",
             "symbol": {
                 "name": "index",
+                "isArgument": true,
                 "locations": [
                     {
                         "fileName": "cases/mapped.ts",
@@ -91,6 +92,7 @@ type mapped = { [index: string]: number }
     "primitiveKind": "string",
     "symbol": {
         "name": "index",
+        "isArgument": true,
         "locations": [
             {
                 "fileName": "cases/mapped.ts",

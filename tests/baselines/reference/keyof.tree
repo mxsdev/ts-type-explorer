@@ -5,27 +5,6 @@ type KeyOf<T> = keyof T
     "kind": "index",
     "keyOf": {
         "kind": "type_parameter",
-        "typeSymbolMeta": {
-            "name": "T",
-            "flags": 262144,
-            "declarations": [
-                {
-                    "location": {
-                        "fileName": "cases/keyof.ts",
-                        "range": {
-                            "start": {
-                                "line": 0,
-                                "character": 11
-                            },
-                            "end": {
-                                "line": 0,
-                                "character": 12
-                            }
-                        }
-                    }
-                }
-            ]
-        },
         "symbolMeta": {
             "name": "T",
             "flags": 262144,
@@ -103,27 +82,6 @@ type KeyOf<T> = keyof T
 > T
 > T --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/keyof.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 11
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 12
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,
@@ -151,27 +109,6 @@ type KeyOf<T> = keyof T
 > T
 > T --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/keyof.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 11
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 12
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,

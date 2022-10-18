@@ -189,27 +189,6 @@ type partialUnion = Partial<{a: string}|{b: string}>
                 "kind": "index",
                 "keyOf": {
                     "kind": "type_parameter",
-                    "typeSymbolMeta": {
-                        "name": "T",
-                        "flags": 262144,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 1548,
-                                            "character": 13
-                                        },
-                                        "end": {
-                                            "line": 1548,
-                                            "character": 14
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,
@@ -259,27 +238,6 @@ type partialUnion = Partial<{a: string}|{b: string}>
                             }
                         ],
                         "id": "9"
-                    },
-                    "typeSymbolMeta": {
-                        "name": "P",
-                        "flags": 262144,
-                        "declarations": [
-                            {
-                                "location": {
-                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 1549,
-                                            "character": 5
-                                        },
-                                        "end": {
-                                            "line": 1549,
-                                            "character": 17
-                                        }
-                                    }
-                                }
-                            }
-                        ]
                     },
                     "symbolMeta": {
                         "name": "P",

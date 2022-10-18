@@ -44,7 +44,6 @@ type KeyOf<T> = keyof T
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -94,7 +93,6 @@ type KeyOf<T> = keyof T
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [
@@ -136,7 +134,6 @@ type KeyOf<T> = keyof T
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [

@@ -43,6 +43,7 @@ type Recursive = { a: { b: Recursive } }
             "kind": "object",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/recursive.ts",
@@ -81,6 +82,7 @@ type Recursive = { a: { b: Recursive } }
                     "alias": "Recursive",
                     "symbol": {
                         "name": "b",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/recursive.ts",
@@ -133,6 +135,7 @@ type Recursive = { a: { b: Recursive } }
     "kind": "object",
     "symbol": {
         "name": "a",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/recursive.ts",
@@ -171,6 +174,7 @@ type Recursive = { a: { b: Recursive } }
             "alias": "Recursive",
             "symbol": {
                 "name": "b",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/recursive.ts",
@@ -221,6 +225,7 @@ type Recursive = { a: { b: Recursive } }
     "alias": "Recursive",
     "symbol": {
         "name": "b",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/recursive.ts",
@@ -258,6 +263,7 @@ type Recursive = { a: { b: Recursive } }
             "kind": "object",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/recursive.ts",
@@ -342,6 +348,7 @@ type Recursive = { a: { b: Recursive } }
             "kind": "object",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/recursive.ts",
@@ -380,6 +387,7 @@ type Recursive = { a: { b: Recursive } }
                     "alias": "Recursive",
                     "symbol": {
                         "name": "b",
+                        "property": true,
                         "locations": [
                             {
                                 "fileName": "cases/recursive.ts",

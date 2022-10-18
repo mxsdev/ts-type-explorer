@@ -63,7 +63,7 @@ function generateTypeInfoMap(tree: TypeInfo, cache?: TypeInfoMap): TypeInfoMap {
 export type TypePurpose = 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'|'object_class'|'type_parameter_list'|'type_argument_list'|'parameter_value'
 
 type ResolvedTypeInfo = Exclude<TypeInfo, {kind: 'reference'}>
-type LocalizedSymbolInfo = { name: string, anonymous?: boolean, locations?: SourceFileLocation[] }
+type LocalizedSymbolInfo = { name: string, anonymous?: boolean, insideClassOrInterface?: boolean, property?: boolean, locations?: SourceFileLocation[], isArgument?: boolean }
 
 type TypeInfoChildren = ({ info?: TypeInfo, localizedInfo?: LocalizedTypeInfo, opts?: LocalizeOpts })[]
 
@@ -99,7 +99,6 @@ function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpt
     const { purpose, optional, name, includeIds } = opts
 
     const symbol = wrapSafe(localizeSymbol)(info.symbolMeta)
-    // const purpose = wrapSafe(localizePurpose)(purposeKind)
 
     const resolved = resolveInfo(info)
     
@@ -355,9 +354,15 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
 function localizeSymbol(symbolInfo: SymbolInfo): LocalizedSymbolInfo {
     const locations = getLocations(symbolInfo)
 
+    const property = symbolInfo.flags & ts.SymbolFlags.Property 
+    const isArgument = symbolInfo.flags & ts.SymbolFlags.FunctionScopedVariable
+
     return {
         name: symbolInfo.name,
         ...symbolInfo.anonymous && { anonymous: symbolInfo.anonymous },
+        ...symbolInfo.insideClassOrInterface && { insideClassOrInterface: symbolInfo.insideClassOrInterface },
+        ...property && { property: true },
+        ...isArgument && { isArgument: true },
         locations,
     }
 }

@@ -58,27 +58,6 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                     "kind": "reference",
                     "id": "5"
                 },
-                "typeSymbolMeta": {
-                    "name": "P",
-                    "flags": 262144,
-                    "declarations": [
-                        {
-                            "location": {
-                                "fileName": "cases/mappedParam.ts",
-                                "range": {
-                                    "start": {
-                                        "line": 0,
-                                        "character": 22
-                                    },
-                                    "end": {
-                                        "line": 0,
-                                        "character": 38
-                                    }
-                                }
-                            }
-                        }
-                    ]
-                },
                 "symbolMeta": {
                     "name": "P",
                     "flags": 262144,
@@ -173,27 +152,6 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
         ],
         "id": "1"
     },
-    "typeSymbolMeta": {
-        "name": "P",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/mappedParam.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 22
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 38
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "P",
         "flags": 262144,
@@ -240,27 +198,6 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
             }
         ],
         "id": "1"
-    },
-    "typeSymbolMeta": {
-        "name": "P",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/mappedParam.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 22
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 38
-                        }
-                    }
-                }
-            }
-        ]
     },
     "symbolMeta": {
         "name": "P",

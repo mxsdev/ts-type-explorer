@@ -44,6 +44,7 @@ type Obj = { a: string, b: number }
             "primitiveKind": "string",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/arrayObjectAlias.ts",
@@ -84,6 +85,7 @@ type Obj = { a: string, b: number }
             "primitiveKind": "number",
             "symbol": {
                 "name": "b",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/arrayObjectAlias.ts",
@@ -130,6 +132,7 @@ type Obj = { a: string, b: number }
     "primitiveKind": "string",
     "symbol": {
         "name": "a",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/arrayObjectAlias.ts",
@@ -171,6 +174,7 @@ type Obj = { a: string, b: number }
     "primitiveKind": "number",
     "symbol": {
         "name": "b",
+        "property": true,
         "locations": [
             {
                 "fileName": "cases/arrayObjectAlias.ts",
@@ -252,6 +256,7 @@ type arrObj = Obj[]
             "primitiveKind": "string",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/arrayObjectAlias.ts",
@@ -292,6 +297,7 @@ type arrObj = Obj[]
             "primitiveKind": "number",
             "symbol": {
                 "name": "b",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/arrayObjectAlias.ts",
@@ -374,6 +380,7 @@ type arrObj = Obj[]
             "primitiveKind": "string",
             "symbol": {
                 "name": "a",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/arrayObjectAlias.ts",
@@ -414,6 +421,7 @@ type arrObj = Obj[]
             "primitiveKind": "number",
             "symbol": {
                 "name": "b",
+                "property": true,
                 "locations": [
                     {
                         "fileName": "cases/arrayObjectAlias.ts",

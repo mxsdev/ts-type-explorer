@@ -48,27 +48,6 @@ type TypeWithGenerics<T, K> = T
     "typeParameters": [
         {
             "kind": "type_parameter",
-            "typeSymbolMeta": {
-                "name": "T",
-                "flags": 262144,
-                "declarations": [
-                    {
-                        "location": {
-                            "fileName": "cases/genericTypeDef.ts",
-                            "range": {
-                                "start": {
-                                    "line": 0,
-                                    "character": 22
-                                },
-                                "end": {
-                                    "line": 0,
-                                    "character": 23
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
             "symbolMeta": {
                 "name": "T",
                 "flags": 262144,
@@ -94,27 +73,6 @@ type TypeWithGenerics<T, K> = T
         },
         {
             "kind": "type_parameter",
-            "typeSymbolMeta": {
-                "name": "K",
-                "flags": 262144,
-                "declarations": [
-                    {
-                        "location": {
-                            "fileName": "cases/genericTypeDef.ts",
-                            "range": {
-                                "start": {
-                                    "line": 0,
-                                    "character": 25
-                                },
-                                "end": {
-                                    "line": 0,
-                                    "character": 26
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
             "symbolMeta": {
                 "name": "K",
                 "flags": 262144,
@@ -145,27 +103,6 @@ type TypeWithGenerics<T, K> = T
 > T
 > T --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/genericTypeDef.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 22
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 23
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,
@@ -192,27 +129,6 @@ type TypeWithGenerics<T, K> = T
 > K
 > K --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "K",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/genericTypeDef.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 25
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 26
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "K",
         "flags": 262144,
@@ -239,27 +155,6 @@ type TypeWithGenerics<T, K> = T
 > T
 > T --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "T",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/genericTypeDef.ts",
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 22
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 23
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "T",
         "flags": 262144,
@@ -332,27 +227,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
     "typeParameters": [
         {
             "kind": "type_parameter",
-            "typeSymbolMeta": {
-                "name": "J",
-                "flags": 262144,
-                "declarations": [
-                    {
-                        "location": {
-                            "fileName": "cases/genericTypeDef.ts",
-                            "range": {
-                                "start": {
-                                    "line": 2,
-                                    "character": 25
-                                },
-                                "end": {
-                                    "line": 2,
-                                    "character": 26
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
             "symbolMeta": {
                 "name": "J",
                 "flags": 262144,
@@ -383,27 +257,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
 > J
 > J --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "J",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/genericTypeDef.ts",
-                    "range": {
-                        "start": {
-                            "line": 2,
-                            "character": 25
-                        },
-                        "end": {
-                            "line": 2,
-                            "character": 26
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "J",
         "flags": 262144,
@@ -475,27 +328,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
     "typeParameters": [
         {
             "kind": "type_parameter",
-            "typeSymbolMeta": {
-                "name": "T",
-                "flags": 262144,
-                "declarations": [
-                    {
-                        "location": {
-                            "fileName": "cases/genericTypeDef.ts",
-                            "range": {
-                                "start": {
-                                    "line": 0,
-                                    "character": 22
-                                },
-                                "end": {
-                                    "line": 0,
-                                    "character": 23
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
             "symbolMeta": {
                 "name": "T",
                 "flags": 262144,
@@ -521,27 +353,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
         },
         {
             "kind": "type_parameter",
-            "typeSymbolMeta": {
-                "name": "K",
-                "flags": 262144,
-                "declarations": [
-                    {
-                        "location": {
-                            "fileName": "cases/genericTypeDef.ts",
-                            "range": {
-                                "start": {
-                                    "line": 0,
-                                    "character": 25
-                                },
-                                "end": {
-                                    "line": 0,
-                                    "character": 26
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
             "symbolMeta": {
                 "name": "K",
                 "flags": 262144,
@@ -569,27 +380,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
     "typeArguments": [
         {
             "kind": "type_parameter",
-            "typeSymbolMeta": {
-                "name": "J",
-                "flags": 262144,
-                "declarations": [
-                    {
-                        "location": {
-                            "fileName": "cases/genericTypeDef.ts",
-                            "range": {
-                                "start": {
-                                    "line": 2,
-                                    "character": 25
-                                },
-                                "end": {
-                                    "line": 2,
-                                    "character": 26
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
             "symbolMeta": {
                 "name": "J",
                 "flags": 262144,
@@ -625,27 +415,6 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
 > J
 > J --- {
     "kind": "type_parameter",
-    "typeSymbolMeta": {
-        "name": "J",
-        "flags": 262144,
-        "declarations": [
-            {
-                "location": {
-                    "fileName": "cases/genericTypeDef.ts",
-                    "range": {
-                        "start": {
-                            "line": 2,
-                            "character": 25
-                        },
-                        "end": {
-                            "line": 2,
-                            "character": 26
-                        }
-                    }
-                }
-            }
-        ]
-    },
     "symbolMeta": {
         "name": "J",
         "flags": 262144,

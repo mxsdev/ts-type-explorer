@@ -44,7 +44,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "P",
                     "symbol": {
                         "name": "P",
                         "locations": [
@@ -84,7 +83,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                 {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
-                    "alias": "T",
                     "symbol": {
                         "name": "T",
                         "locations": [
@@ -167,7 +165,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
 > P --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "P",
     "symbol": {
         "name": "P",
         "locations": [
@@ -208,7 +205,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [
@@ -280,7 +276,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
 > P --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "P",
     "symbol": {
         "name": "P",
         "locations": [
@@ -322,7 +317,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
 > P --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "P",
     "symbol": {
         "name": "P",
         "locations": [
@@ -363,7 +357,6 @@ type IndexedAccess<P, T extends keyof P> = P[T]
 > T --- {
     "kindText": "type parameter",
     "kind": "type_parameter",
-    "alias": "T",
     "symbol": {
         "name": "T",
         "locations": [
