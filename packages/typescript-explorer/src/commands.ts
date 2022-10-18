@@ -14,6 +14,7 @@ const typeTreeViewCommands = (typeTreeProvider: TypeTreeProvider): CommandInfo[]
 	["typescript-explorer.typeTree.view.icons.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconsEnabled],
 	["typescript-explorer.typeTree.view.icons.colors.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconColorsEnabled],
 	["typescript-explorer.typeTree.view.typeParameters.info.show.toggle", TSExplorer.Config.TypeTreeView.toggleShowTypeParameterInfo],
+	["typescript-explorer.typeTree.view.baseClass.show.toggle", TSExplorer.Config.TypeTreeView.toggleShowBaseClassInfo]
 ] as RefreshableCommandInfo[]).map(t => wrapRefresh(t, typeTreeProvider))
 
 export function registerCommands(context: vscode.ExtensionContext, { typeTreeProvider }: ViewProviders) {

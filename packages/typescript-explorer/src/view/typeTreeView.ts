@@ -37,6 +37,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
             return this.typeInfoLocalizer!
                 .localizeChildren(element.typeInfo).map(info => this.createTypeNode(info, element))
                 .filter(({ typeInfo: { purpose }}) => TSExplorer.Config.TypeTreeView.showTypeParameterInfo() || !(purpose === 'type_argument_list' || purpose === 'type_parameter_list'))
+                .filter(({ typeInfo: { purpose }}) => TSExplorer.Config.TypeTreeView.showBaseClassInfo() || !(purpose === "class_base_type" || purpose === "class_implementations" || purpose === "object_class"))
         }
     }
 

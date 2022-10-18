@@ -39,6 +39,11 @@
           "title": "Show Type Parameter Info",
           "type": "boolean",
           "default": true
+        },
+        "typescript-explorer.typeTree.view.baseClass.show": {
+          "title": "Show Base Class",
+          "type": "boolean",
+          "default": true
         }
       }
     },
@@ -82,6 +87,12 @@
         "title": "Toggle Type Parameter Info",
         "command": "typescript-explorer.typeTree.view.typeParameters.info.show.toggle",
         "category": "Type Tree"
+      },
+      {
+        "title": "Toggle Base Class Information",
+        "command": "typescript-explorer.typeTree.view.baseClass.show.toggle",
+        "category": "Type Tree"
+
       }
     ],
     "viewsContainers": {
@@ -127,6 +138,11 @@
           "command": "typescript-explorer.typeTree.view.typeParameters.info.show.toggle",
           "when": "view == type-tree",
           "group": "1_info@1"
+        },
+        {
+          "command": "typescript-explorer.typeTree.view.baseClass.show.toggle",
+          "when": "view == type-tree",
+          "group": "1_info@2"
         }
       ],
       "view/item/context": [
