@@ -60,7 +60,7 @@ function generateTypeInfoMap(tree: TypeInfo, cache?: TypeInfoMap): TypeInfoMap {
     return cache
 }
 
-export type TypePurpose = 'return'|'index_type'|'index_value_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'|'object_class'|'type_parameter_list'|'type_argument_list'|'parameter_value'
+export type TypePurpose = 'return'|'index_type'|'index_value_type'|'index_parameter_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'|'object_class'|'type_parameter_list'|'type_argument_list'|'parameter_value'
 
 type ResolvedTypeInfo = Exclude<TypeInfo, {kind: 'reference'}>
 type LocalizedSymbolInfo = { name: string, anonymous?: boolean, insideClassOrInterface?: boolean, property?: boolean, locations?: SourceFileLocation[], isArgument?: boolean }
@@ -327,6 +327,7 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
             kind: "index_info",
             symbol: wrapSafe(localizeSymbol)(indexInfo.parameterSymbol),
             children: [
+                ...indexInfo.parameterType ? [localizeOpts(indexInfo.parameterType, { purpose: 'index_parameter_type' })] : [],
                 ...indexInfo.keyType ? [localizeOpts(indexInfo.keyType, { purpose: 'index_type'})] : [],
                 ...indexInfo.type ? [localizeOpts(indexInfo.type, { purpose: 'index_value_type'})] : [],
             ]

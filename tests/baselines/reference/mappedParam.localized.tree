@@ -61,32 +61,6 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
             },
             "children": [
                 {
-                    "kindText": "union",
-                    "kind": "union",
-                    "purpose": "index_type",
-                    "children": [
-                        {
-                            "kindText": "\"a\"",
-                            "kind": "string_literal",
-                            "children": [],
-                            "_id": "1"
-                        },
-                        {
-                            "kindText": "\"b\"",
-                            "kind": "string_literal",
-                            "children": [],
-                            "_id": "2"
-                        },
-                        {
-                            "kindText": "\"c\"",
-                            "kind": "string_literal",
-                            "children": [],
-                            "_id": "3"
-                        }
-                    ],
-                    "_id": "5"
-                },
-                {
                     "kindText": "type parameter",
                     "kind": "type_parameter",
                     "symbol": {
@@ -107,7 +81,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                             }
                         ]
                     },
-                    "purpose": "index_value_type",
+                    "purpose": "index_parameter_type",
                     "locations": [
                         {
                             "fileName": "cases/mappedParam.ts",
@@ -125,10 +99,39 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                     ],
                     "children": [
                         {
-                            "reference": "5"
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "parameter_base_constraint",
+                            "children": [
+                                {
+                                    "kindText": "\"a\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "1"
+                                },
+                                {
+                                    "kindText": "\"b\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "2"
+                                },
+                                {
+                                    "kindText": "\"c\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "3"
+                                }
+                            ],
+                            "_id": "5"
                         }
                     ],
                     "_id": "4"
+                },
+                {
+                    "reference": "5"
+                },
+                {
+                    "reference": "4"
                 }
             ]
         },

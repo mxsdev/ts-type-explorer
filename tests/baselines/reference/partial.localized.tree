@@ -448,6 +448,76 @@ type partialUnion = Partial<{a: string}|{b: string}>
             },
             "children": [
                 {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "P",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1549,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 1549,
+                                        "character": 17
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "purpose": "index_parameter_type",
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1549,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 1549,
+                                    "character": 17
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "parameter_base_constraint",
+                            "children": [
+                                {
+                                    "kindText": "string",
+                                    "kind": "primitive",
+                                    "primitiveKind": "string",
+                                    "children": [],
+                                    "_id": "10"
+                                },
+                                {
+                                    "kindText": "number",
+                                    "kind": "primitive",
+                                    "primitiveKind": "number",
+                                    "children": [],
+                                    "_id": "11"
+                                },
+                                {
+                                    "kindText": "symbol",
+                                    "kind": "primitive",
+                                    "primitiveKind": "essymbol",
+                                    "children": [],
+                                    "_id": "12"
+                                }
+                            ],
+                            "_id": "9"
+                        }
+                    ],
+                    "_id": "8"
+                },
+                {
                     "kindText": "keyof",
                     "kind": "index",
                     "purpose": "index_type",
@@ -467,74 +537,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                             "reference": "1"
                         },
                         {
-                            "kindText": "type parameter",
-                            "kind": "type_parameter",
-                            "symbol": {
-                                "name": "P",
-                                "locations": [
-                                    {
-                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                        "range": {
-                                            "start": {
-                                                "line": 1549,
-                                                "character": 5
-                                            },
-                                            "end": {
-                                                "line": 1549,
-                                                "character": 17
-                                            }
-                                        }
-                                    }
-                                ]
-                            },
-                            "purpose": "indexed_access_index",
-                            "locations": [
-                                {
-                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 1549,
-                                            "character": 5
-                                        },
-                                        "end": {
-                                            "line": 1549,
-                                            "character": 17
-                                        }
-                                    }
-                                }
-                            ],
-                            "children": [
-                                {
-                                    "kindText": "union",
-                                    "kind": "union",
-                                    "purpose": "parameter_base_constraint",
-                                    "children": [
-                                        {
-                                            "kindText": "string",
-                                            "kind": "primitive",
-                                            "primitiveKind": "string",
-                                            "children": [],
-                                            "_id": "10"
-                                        },
-                                        {
-                                            "kindText": "number",
-                                            "kind": "primitive",
-                                            "primitiveKind": "number",
-                                            "children": [],
-                                            "_id": "11"
-                                        },
-                                        {
-                                            "kindText": "symbol",
-                                            "kind": "primitive",
-                                            "primitiveKind": "essymbol",
-                                            "children": [],
-                                            "_id": "12"
-                                        }
-                                    ],
-                                    "_id": "9"
-                                }
-                            ],
-                            "_id": "8"
+                            "reference": "8"
                         }
                     ],
                     "_id": "7"

@@ -101,6 +101,31 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                         }
                     }
                 ]
+            },
+            "parameterType": {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "P",
+                    "flags": 262144,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedParam.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 22
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 38
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "4"
             }
         }
     ],

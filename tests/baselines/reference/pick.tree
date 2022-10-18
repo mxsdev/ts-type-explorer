@@ -582,6 +582,31 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         }
                     }
                 ]
+            },
+            "parameterType": {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "P",
+                    "flags": 262144,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1570,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 1570,
+                                        "character": 11
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "12"
             }
         }
     ],

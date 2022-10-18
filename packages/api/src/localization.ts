@@ -79,6 +79,7 @@ export function localizePurpose(purpose: TypePurpose): string {
         object_class: "class",
         type_parameter_list: "type parameters",
         type_argument_list: "type arguments",
+        index_parameter_type: "parameter",
     }
 
     return nameByPurpose[purpose]

@@ -309,6 +309,31 @@ type partialUnion = Partial<{a: string}|{b: string}>
                         }
                     }
                 ]
+            },
+            "parameterType": {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "P",
+                    "flags": 262144,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1549,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 1549,
+                                        "character": 17
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "8"
             }
         }
     ],

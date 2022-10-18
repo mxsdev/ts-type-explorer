@@ -4555,6 +4555,9 @@ console.log("hello world")
                                             "reference": "39"
                                         },
                                         {
+                                            "reference": "39"
+                                        },
+                                        {
                                             "reference": "69"
                                         }
                                     ]
@@ -4825,7 +4828,7 @@ console.log("hello world")
                                                                     "kindText": "...",
                                                                     "kind": "max_depth",
                                                                     "children": [],
-                                                                    "_id": "228"
+                                                                    "_id": "230"
                                                                 }
                                                             ]
                                                         },
@@ -4853,15 +4856,18 @@ console.log("hello world")
                                                             },
                                                             "children": [
                                                                 {
-                                                                    "reference": "228"
+                                                                    "reference": "230"
                                                                 },
                                                                 {
-                                                                    "reference": "228"
+                                                                    "reference": "230"
+                                                                },
+                                                                {
+                                                                    "reference": "230"
                                                                 }
                                                             ]
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
                                                     "_id": "75"
@@ -5089,7 +5095,7 @@ console.log("hello world")
                                                         }
                                                     ],
                                                     "children": [],
-                                                    "_id": "82"
+                                                    "_id": "83"
                                                 }
                                             ]
                                         },
@@ -5198,13 +5204,13 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "83"
+                                                    "_id": "84"
                                                 },
                                                 {
-                                                    "reference": "82"
+                                                    "reference": "83"
                                                 }
                                             ]
                                         }
@@ -5256,7 +5262,7 @@ console.log("hello world")
                                             "reference": "69"
                                         }
                                     ],
-                                    "_id": "86"
+                                    "_id": "87"
                                 },
                                 {
                                     "kindText": "method",
@@ -5303,10 +5309,10 @@ console.log("hello world")
                                             "reference": "39"
                                         },
                                         {
-                                            "reference": "82"
+                                            "reference": "83"
                                         }
                                     ],
-                                    "_id": "87"
+                                    "_id": "88"
                                 },
                                 {
                                     "kindText": "method",
@@ -5356,7 +5362,7 @@ console.log("hello world")
                                             "reference": "39"
                                         }
                                     ],
-                                    "_id": "88"
+                                    "_id": "89"
                                 },
                                 {
                                     "kindText": "method",
@@ -5406,7 +5412,7 @@ console.log("hello world")
                                             "reference": "39"
                                         }
                                     ],
-                                    "_id": "89"
+                                    "_id": "90"
                                 },
                                 {
                                     "kindText": "method",
@@ -5580,7 +5586,7 @@ console.log("hello world")
                                                                     "reference": "69"
                                                                 }
                                                             ],
-                                                            "_id": "99"
+                                                            "_id": "101"
                                                         }
                                                     ]
                                                 },
@@ -5664,7 +5670,7 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "92"
+                                                            "_id": "93"
                                                         },
                                                         {
                                                             "kindText": "object",
@@ -5708,7 +5714,7 @@ console.log("hello world")
                                                                     "purpose": "type_argument_list",
                                                                     "children": [
                                                                         {
-                                                                            "reference": "228"
+                                                                            "reference": "230"
                                                                         }
                                                                     ]
                                                                 },
@@ -5736,18 +5742,21 @@ console.log("hello world")
                                                                     },
                                                                     "children": [
                                                                         {
-                                                                            "reference": "228"
+                                                                            "reference": "230"
                                                                         },
                                                                         {
-                                                                            "reference": "228"
+                                                                            "reference": "230"
+                                                                        },
+                                                                        {
+                                                                            "reference": "230"
                                                                         }
                                                                     ]
                                                                 },
                                                                 {
-                                                                    "reference": "228"
+                                                                    "reference": "230"
                                                                 }
                                                             ],
-                                                            "_id": "93"
+                                                            "_id": "94"
                                                         },
                                                         {
                                                             "kindText": "boolean",
@@ -5755,10 +5764,10 @@ console.log("hello world")
                                                             "primitiveKind": "boolean",
                                                             "purpose": "return",
                                                             "children": [],
-                                                            "_id": "98"
+                                                            "_id": "100"
                                                         }
                                                     ],
-                                                    "_id": "91"
+                                                    "_id": "92"
                                                 },
                                                 {
                                                     "kindText": "any",
@@ -5803,7 +5812,7 @@ console.log("hello world")
                                                     "_id": "4"
                                                 },
                                                 {
-                                                    "reference": "98"
+                                                    "reference": "100"
                                                 }
                                             ]
                                         },
@@ -5951,10 +5960,10 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "101"
+                                                            "_id": "103"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
                                                             "kindText": "unknown",
@@ -5962,21 +5971,21 @@ console.log("hello world")
                                                             "primitiveKind": "unknown",
                                                             "purpose": "return",
                                                             "children": [],
-                                                            "_id": "103"
+                                                            "_id": "105"
                                                         }
                                                     ],
-                                                    "_id": "100"
+                                                    "_id": "102"
                                                 },
                                                 {
                                                     "reference": "4"
                                                 },
                                                 {
-                                                    "reference": "98"
+                                                    "reference": "100"
                                                 }
                                             ]
                                         }
                                     ],
-                                    "_id": "90"
+                                    "_id": "91"
                                 },
                                 {
                                     "kindText": "method",
@@ -6096,25 +6105,25 @@ console.log("hello world")
                                                         }
                                                     ],
                                                     "children": [],
-                                                    "_id": "106"
+                                                    "_id": "108"
                                                 },
                                                 {
-                                                    "reference": "93"
+                                                    "reference": "94"
                                                 },
                                                 {
-                                                    "reference": "103"
+                                                    "reference": "105"
                                                 }
                                             ],
-                                            "_id": "105"
+                                            "_id": "107"
                                         },
                                         {
                                             "reference": "4"
                                         },
                                         {
-                                            "reference": "98"
+                                            "reference": "100"
                                         }
                                     ],
-                                    "_id": "104"
+                                    "_id": "106"
                                 },
                                 {
                                     "kindText": "method",
@@ -6234,16 +6243,16 @@ console.log("hello world")
                                                         }
                                                     ],
                                                     "children": [],
-                                                    "_id": "110"
+                                                    "_id": "112"
                                                 },
                                                 {
-                                                    "reference": "93"
+                                                    "reference": "94"
                                                 },
                                                 {
                                                     "reference": "5"
                                                 }
                                             ],
-                                            "_id": "109"
+                                            "_id": "111"
                                         },
                                         {
                                             "reference": "4"
@@ -6252,7 +6261,7 @@ console.log("hello world")
                                             "reference": "5"
                                         }
                                     ],
-                                    "_id": "108"
+                                    "_id": "110"
                                 },
                                 {
                                     "kindText": "method",
@@ -6332,7 +6341,7 @@ console.log("hello world")
                                                         }
                                                     ],
                                                     "children": [],
-                                                    "_id": "117"
+                                                    "_id": "119"
                                                 }
                                             ]
                                         },
@@ -6416,16 +6425,16 @@ console.log("hello world")
                                                         }
                                                     ],
                                                     "children": [],
-                                                    "_id": "115"
+                                                    "_id": "117"
                                                 },
                                                 {
-                                                    "reference": "93"
+                                                    "reference": "94"
                                                 },
                                                 {
-                                                    "reference": "117"
+                                                    "reference": "119"
                                                 }
                                             ],
-                                            "_id": "114"
+                                            "_id": "116"
                                         },
                                         {
                                             "reference": "4"
@@ -6652,10 +6661,10 @@ console.log("hello world")
                                                 }
                                             ],
                                             "children": [],
-                                            "_id": "118"
+                                            "_id": "120"
                                         }
                                     ],
-                                    "_id": "112"
+                                    "_id": "114"
                                 },
                                 {
                                     "kindText": "method",
@@ -6826,10 +6835,10 @@ console.log("hello world")
                                                             ],
                                                             "children": [
                                                                 {
-                                                                    "reference": "228"
+                                                                    "reference": "230"
                                                                 }
                                                             ],
-                                                            "_id": "124"
+                                                            "_id": "126"
                                                         }
                                                     ]
                                                 },
@@ -6913,16 +6922,16 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "121"
+                                                            "_id": "123"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
-                                                            "reference": "98"
+                                                            "reference": "100"
                                                         }
                                                     ],
-                                                    "_id": "120"
+                                                    "_id": "122"
                                                 },
                                                 {
                                                     "reference": "4"
@@ -7150,10 +7159,10 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "123"
+                                                    "_id": "125"
                                                 }
                                             ]
                                         },
@@ -7301,27 +7310,27 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "127"
+                                                            "_id": "129"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
-                                                            "reference": "103"
+                                                            "reference": "105"
                                                         }
                                                     ],
-                                                    "_id": "126"
+                                                    "_id": "128"
                                                 },
                                                 {
                                                     "reference": "4"
                                                 },
                                                 {
-                                                    "reference": "82"
+                                                    "reference": "83"
                                                 }
                                             ]
                                         }
                                     ],
-                                    "_id": "119"
+                                    "_id": "121"
                                 },
                                 {
                                     "kindText": "method",
@@ -7586,16 +7595,16 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "131"
+                                                            "_id": "133"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
                                                             "reference": "69"
                                                         }
                                                     ],
-                                                    "_id": "130"
+                                                    "_id": "132"
                                                 },
                                                 {
                                                     "reference": "69"
@@ -7775,16 +7784,16 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "134"
+                                                            "_id": "136"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
                                                             "reference": "69"
                                                         }
                                                     ],
-                                                    "_id": "133"
+                                                    "_id": "135"
                                                 },
                                                 {
                                                     "reference": "69"
@@ -7924,7 +7933,7 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "140"
+                                                            "_id": "142"
                                                         }
                                                     ]
                                                 },
@@ -8005,7 +8014,7 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "137"
+                                                            "_id": "139"
                                                         },
                                                         {
                                                             "reference": "69"
@@ -8049,27 +8058,27 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "138"
+                                                            "_id": "140"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
-                                                            "reference": "140"
+                                                            "reference": "142"
                                                         }
                                                     ],
-                                                    "_id": "136"
+                                                    "_id": "138"
                                                 },
                                                 {
-                                                    "reference": "137"
+                                                    "reference": "139"
                                                 },
                                                 {
-                                                    "reference": "140"
+                                                    "reference": "142"
                                                 }
                                             ]
                                         }
                                     ],
-                                    "_id": "129"
+                                    "_id": "131"
                                 },
                                 {
                                     "kindText": "method",
@@ -8334,16 +8343,16 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "143"
+                                                            "_id": "145"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
                                                             "reference": "69"
                                                         }
                                                     ],
-                                                    "_id": "142"
+                                                    "_id": "144"
                                                 },
                                                 {
                                                     "reference": "69"
@@ -8523,16 +8532,16 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "146"
+                                                            "_id": "148"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
                                                             "reference": "69"
                                                         }
                                                     ],
-                                                    "_id": "145"
+                                                    "_id": "147"
                                                 },
                                                 {
                                                     "reference": "69"
@@ -8672,7 +8681,7 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "152"
+                                                            "_id": "154"
                                                         }
                                                     ]
                                                 },
@@ -8753,7 +8762,7 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "149"
+                                                            "_id": "151"
                                                         },
                                                         {
                                                             "reference": "69"
@@ -8797,27 +8806,27 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "150"
+                                                            "_id": "152"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
-                                                            "reference": "152"
+                                                            "reference": "154"
                                                         }
                                                     ],
-                                                    "_id": "148"
+                                                    "_id": "150"
                                                 },
                                                 {
-                                                    "reference": "149"
+                                                    "reference": "151"
                                                 },
                                                 {
-                                                    "reference": "152"
+                                                    "reference": "154"
                                                 }
                                             ]
                                         }
                                     ],
-                                    "_id": "141"
+                                    "_id": "143"
                                 },
                                 {
                                     "kindText": "method",
@@ -8991,7 +9000,7 @@ console.log("hello world")
                                                                     "reference": "69"
                                                                 }
                                                             ],
-                                                            "_id": "157"
+                                                            "_id": "159"
                                                         }
                                                     ]
                                                 },
@@ -9075,22 +9084,22 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "155"
+                                                            "_id": "157"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
-                                                            "reference": "98"
+                                                            "reference": "100"
                                                         }
                                                     ],
-                                                    "_id": "154"
+                                                    "_id": "156"
                                                 },
                                                 {
                                                     "reference": "4"
                                                 },
                                                 {
-                                                    "reference": "157"
+                                                    "reference": "159"
                                                 }
                                             ]
                                         },
@@ -9238,16 +9247,16 @@ console.log("hello world")
                                                                 }
                                                             ],
                                                             "children": [],
-                                                            "_id": "159"
+                                                            "_id": "161"
                                                         },
                                                         {
-                                                            "reference": "93"
+                                                            "reference": "94"
                                                         },
                                                         {
-                                                            "reference": "103"
+                                                            "reference": "105"
                                                         }
                                                     ],
-                                                    "_id": "158"
+                                                    "_id": "160"
                                                 },
                                                 {
                                                     "reference": "4"
@@ -9258,7 +9267,7 @@ console.log("hello world")
                                             ]
                                         }
                                     ],
-                                    "_id": "153"
+                                    "_id": "155"
                                 },
                                 {
                                     "kindText": "method",
@@ -9378,16 +9387,16 @@ console.log("hello world")
                                                         }
                                                     ],
                                                     "children": [],
-                                                    "_id": "163"
+                                                    "_id": "165"
                                                 },
                                                 {
-                                                    "reference": "93"
+                                                    "reference": "94"
                                                 },
                                                 {
-                                                    "reference": "103"
+                                                    "reference": "105"
                                                 }
                                             ],
-                                            "_id": "162"
+                                            "_id": "164"
                                         },
                                         {
                                             "reference": "4"
@@ -9396,7 +9405,7 @@ console.log("hello world")
                                             "reference": "39"
                                         }
                                     ],
-                                    "_id": "161"
+                                    "_id": "163"
                                 },
                                 {
                                     "kindText": "method",
@@ -9521,13 +9530,13 @@ console.log("hello world")
                                                                     "purpose": "parameter_value",
                                                                     "children": [
                                                                         {
-                                                                            "reference": "228"
+                                                                            "reference": "230"
                                                                         }
                                                                     ],
-                                                                    "_id": "168"
+                                                                    "_id": "170"
                                                                 }
                                                             ],
-                                                            "_id": "167"
+                                                            "_id": "169"
                                                         }
                                                     ]
                                                 },
@@ -9570,10 +9579,10 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "170"
+                                                    "_id": "172"
                                                 },
                                                 {
                                                     "kindText": "method",
@@ -9614,13 +9623,13 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "172"
+                                                    "_id": "174"
                                                 },
                                                 {
                                                     "kindText": "method",
@@ -9662,13 +9671,13 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "175"
+                                                    "_id": "177"
                                                 },
                                                 {
                                                     "kindText": "method",
@@ -9710,19 +9719,19 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "178"
+                                                    "_id": "180"
                                                 }
                                             ],
-                                            "_id": "166"
+                                            "_id": "168"
                                         }
                                     ],
-                                    "_id": "165"
+                                    "_id": "167"
                                 },
                                 {
                                     "kindText": "method",
@@ -9804,7 +9813,7 @@ console.log("hello world")
                                                     "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
-                                                            "reference": "167"
+                                                            "reference": "169"
                                                         }
                                                     ]
                                                 },
@@ -9847,10 +9856,10 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "183"
+                                                    "_id": "185"
                                                 },
                                                 {
                                                     "kindText": "method",
@@ -9891,13 +9900,13 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "185"
+                                                    "_id": "187"
                                                 },
                                                 {
                                                     "kindText": "method",
@@ -9939,13 +9948,13 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "188"
+                                                    "_id": "190"
                                                 },
                                                 {
                                                     "kindText": "method",
@@ -9987,19 +9996,19 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "191"
+                                                    "_id": "193"
                                                 }
                                             ],
-                                            "_id": "182"
+                                            "_id": "184"
                                         }
                                     ],
-                                    "_id": "181"
+                                    "_id": "183"
                                 },
                                 {
                                     "kindText": "method",
@@ -10081,7 +10090,7 @@ console.log("hello world")
                                                     "purpose": "type_parameter_list",
                                                     "children": [
                                                         {
-                                                            "reference": "167"
+                                                            "reference": "169"
                                                         }
                                                     ]
                                                 },
@@ -10124,10 +10133,10 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "196"
+                                                    "_id": "198"
                                                 },
                                                 {
                                                     "kindText": "method",
@@ -10168,13 +10177,13 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "198"
+                                                    "_id": "200"
                                                 },
                                                 {
                                                     "kindText": "method",
@@ -10216,13 +10225,13 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "201"
+                                                    "_id": "203"
                                                 },
                                                 {
                                                     "kindText": "method",
@@ -10264,19 +10273,19 @@ console.log("hello world")
                                                     ],
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         },
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "204"
+                                                    "_id": "206"
                                                 }
                                             ],
-                                            "_id": "195"
+                                            "_id": "197"
                                         }
                                     ],
-                                    "_id": "194"
+                                    "_id": "196"
                                 },
                                 {
                                     "kindText": "method",
@@ -10323,10 +10332,10 @@ console.log("hello world")
                                             "reference": "39"
                                         },
                                         {
-                                            "reference": "98"
+                                            "reference": "100"
                                         }
                                     ],
-                                    "_id": "207"
+                                    "_id": "209"
                                 },
                                 {
                                     "kindText": "method",
@@ -10406,7 +10415,7 @@ console.log("hello world")
                                                         }
                                                     ],
                                                     "children": [],
-                                                    "_id": "218"
+                                                    "_id": "220"
                                                 },
                                                 {
                                                     "kindText": "type parameter",
@@ -10451,10 +10460,10 @@ console.log("hello world")
                                                             "primitiveKind": "undefined",
                                                             "purpose": "parameter_default",
                                                             "children": [],
-                                                            "_id": "211"
+                                                            "_id": "213"
                                                         }
                                                     ],
-                                                    "_id": "219"
+                                                    "_id": "221"
                                                 }
                                             ]
                                         },
@@ -10538,10 +10547,10 @@ console.log("hello world")
                                                         }
                                                     ],
                                                     "children": [],
-                                                    "_id": "213"
+                                                    "_id": "215"
                                                 },
                                                 {
-                                                    "reference": "82"
+                                                    "reference": "83"
                                                 },
                                                 {
                                                     "kindText": "union",
@@ -10549,13 +10558,13 @@ console.log("hello world")
                                                     "purpose": "return",
                                                     "children": [
                                                         {
-                                                            "reference": "228"
+                                                            "reference": "230"
                                                         }
                                                     ],
-                                                    "_id": "214"
+                                                    "_id": "216"
                                                 }
                                             ],
-                                            "_id": "212"
+                                            "_id": "214"
                                         },
                                         {
                                             "kindText": "type parameter",
@@ -10598,10 +10607,10 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "reference": "211"
+                                                    "reference": "213"
                                                 }
                                             ],
-                                            "_id": "216"
+                                            "_id": "218"
                                         },
                                         {
                                             "kindText": "type parameter",
@@ -10825,10 +10834,10 @@ console.log("hello world")
                                                 }
                                             ],
                                             "children": [],
-                                            "_id": "217"
+                                            "_id": "219"
                                         }
                                     ],
-                                    "_id": "208"
+                                    "_id": "210"
                                 },
                                 {
                                     "kindText": "method",
@@ -10908,7 +10917,7 @@ console.log("hello world")
                                                         }
                                                     ],
                                                     "children": [],
-                                                    "_id": "229"
+                                                    "_id": "231"
                                                 },
                                                 {
                                                     "kindText": "type parameter",
@@ -10952,13 +10961,13 @@ console.log("hello world")
                                                             "kind": "number_literal",
                                                             "purpose": "parameter_default",
                                                             "children": [],
-                                                            "_id": "223"
+                                                            "_id": "225"
                                                         },
                                                         {
                                                             "reference": "39"
                                                         }
                                                     ],
-                                                    "_id": "230"
+                                                    "_id": "232"
                                                 }
                                             ]
                                         },
@@ -11003,13 +11012,13 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "reference": "223"
+                                                    "reference": "225"
                                                 },
                                                 {
                                                     "reference": "39"
                                                 }
                                             ],
-                                            "_id": "224"
+                                            "_id": "226"
                                         },
                                         {
                                             "kindText": "access",
@@ -11144,16 +11153,16 @@ console.log("hello world")
                                             ],
                                             "children": [
                                                 {
-                                                    "reference": "228"
+                                                    "reference": "230"
                                                 },
                                                 {
-                                                    "reference": "228"
+                                                    "reference": "230"
                                                 }
                                             ],
-                                            "_id": "225"
+                                            "_id": "227"
                                         }
                                     ],
-                                    "_id": "220"
+                                    "_id": "222"
                                 },
                                 {
                                     "kindText": "method",
@@ -11194,10 +11203,10 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "195"
+                                            "reference": "197"
                                         }
                                     ],
-                                    "_id": "231"
+                                    "_id": "233"
                                 }
                             ],
                             "_id": "71"
@@ -11352,7 +11361,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "233"
+                            "_id": "235"
                         },
                         {
                             "reference": "5"
@@ -11437,7 +11446,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "234"
+                            "_id": "236"
                         },
                         {
                             "reference": "5"
@@ -11445,7 +11454,7 @@ console.log("hello world")
                     ]
                 }
             ],
-            "_id": "232"
+            "_id": "234"
         },
         {
             "kindText": "method",
@@ -11589,7 +11598,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "236"
+                            "_id": "238"
                         },
                         {
                             "reference": "5"
@@ -11674,7 +11683,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "237"
+                            "_id": "239"
                         },
                         {
                             "reference": "5"
@@ -11682,7 +11691,7 @@ console.log("hello world")
                     ]
                 }
             ],
-            "_id": "235"
+            "_id": "237"
         },
         {
             "kindText": "method",
@@ -11826,7 +11835,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "239"
+                            "_id": "241"
                         },
                         {
                             "kindText": "any",
@@ -11869,7 +11878,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "240"
+                            "_id": "242"
                         },
                         {
                             "reference": "5"
@@ -11954,7 +11963,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "241"
+                            "_id": "243"
                         },
                         {
                             "kindText": "any",
@@ -11997,7 +12006,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "242"
+                            "_id": "244"
                         },
                         {
                             "reference": "5"
@@ -12005,7 +12014,7 @@ console.log("hello world")
                     ]
                 }
             ],
-            "_id": "238"
+            "_id": "240"
         },
         {
             "kindText": "method",
@@ -12149,7 +12158,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "244"
+                            "_id": "246"
                         },
                         {
                             "reference": "5"
@@ -12234,7 +12243,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "245"
+                            "_id": "247"
                         },
                         {
                             "reference": "5"
@@ -12242,7 +12251,7 @@ console.log("hello world")
                     ]
                 }
             ],
-            "_id": "243"
+            "_id": "245"
         },
         {
             "kindText": "method",
@@ -12387,7 +12396,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "247"
+                            "_id": "249"
                         },
                         {
                             "reference": "5"
@@ -12472,7 +12481,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "248"
+                            "_id": "250"
                         },
                         {
                             "kindText": "any",
@@ -12515,7 +12524,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "249"
+                            "_id": "251"
                         },
                         {
                             "reference": "5"
@@ -12523,7 +12532,7 @@ console.log("hello world")
                     ]
                 }
             ],
-            "_id": "246"
+            "_id": "248"
         },
         {
             "kindText": "method",
@@ -12668,7 +12677,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "251"
+                            "_id": "253"
                         },
                         {
                             "reference": "5"
@@ -12753,7 +12762,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "252"
+                            "_id": "254"
                         },
                         {
                             "kindText": "any",
@@ -12796,7 +12805,7 @@ console.log("hello world")
                                 }
                             ],
                             "children": [],
-                            "_id": "253"
+                            "_id": "255"
                         },
                         {
                             "reference": "5"
@@ -12804,7 +12813,7 @@ console.log("hello world")
                     ]
                 }
             ],
-            "_id": "250"
+            "_id": "252"
         },
         {
             "kindText": "interface",
@@ -13065,7 +13074,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "256"
+                            "_id": "258"
                         },
                         {
                             "kindText": "method",
@@ -13218,7 +13227,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "257"
+                            "_id": "259"
                         },
                         {
                             "kindText": "method",
@@ -13377,7 +13386,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "258"
+                            "_id": "260"
                         },
                         {
                             "kindText": "method",
@@ -13536,7 +13545,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "259"
+                            "_id": "261"
                         },
                         {
                             "kindText": "method",
@@ -13698,7 +13707,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "260"
+                            "_id": "262"
                         },
                         {
                             "kindText": "method",
@@ -13863,7 +13872,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "261"
+                            "_id": "263"
                         },
                         {
                             "kindText": "method",
@@ -14022,7 +14031,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "262"
+                            "_id": "264"
                         },
                         {
                             "kindText": "method",
@@ -14184,7 +14193,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "263"
+                            "_id": "265"
                         },
                         {
                             "kindText": "method",
@@ -14343,7 +14352,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "264"
+                            "_id": "266"
                         },
                         {
                             "kindText": "method",
@@ -14502,7 +14511,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "265"
+                            "_id": "267"
                         },
                         {
                             "kindText": "method",
@@ -14655,7 +14664,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "266"
+                            "_id": "268"
                         },
                         {
                             "kindText": "method",
@@ -14817,7 +14826,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "267"
+                            "_id": "269"
                         },
                         {
                             "reference": "62"
@@ -14985,7 +14994,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "268"
+                            "_id": "270"
                         },
                         {
                             "kindText": "method",
@@ -15090,7 +15099,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "233"
+                                            "reference": "235"
                                         },
                                         {
                                             "reference": "5"
@@ -15136,7 +15145,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "234"
+                                            "reference": "236"
                                         },
                                         {
                                             "reference": "5"
@@ -15144,7 +15153,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "269"
+                            "_id": "271"
                         },
                         {
                             "kindText": "method",
@@ -15249,7 +15258,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "236"
+                                            "reference": "238"
                                         },
                                         {
                                             "reference": "5"
@@ -15295,7 +15304,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "237"
+                                            "reference": "239"
                                         },
                                         {
                                             "reference": "5"
@@ -15303,7 +15312,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "270"
+                            "_id": "272"
                         },
                         {
                             "kindText": "method",
@@ -15408,10 +15417,10 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "239"
+                                            "reference": "241"
                                         },
                                         {
-                                            "reference": "240"
+                                            "reference": "242"
                                         },
                                         {
                                             "reference": "5"
@@ -15457,10 +15466,10 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "241"
+                                            "reference": "243"
                                         },
                                         {
-                                            "reference": "242"
+                                            "reference": "244"
                                         },
                                         {
                                             "reference": "5"
@@ -15468,7 +15477,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "271"
+                            "_id": "273"
                         },
                         {
                             "kindText": "method",
@@ -15573,7 +15582,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "244"
+                                            "reference": "246"
                                         },
                                         {
                                             "reference": "5"
@@ -15619,7 +15628,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "245"
+                                            "reference": "247"
                                         },
                                         {
                                             "reference": "5"
@@ -15627,7 +15636,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "272"
+                            "_id": "274"
                         },
                         {
                             "kindText": "method",
@@ -15732,7 +15741,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "247"
+                                            "reference": "249"
                                         },
                                         {
                                             "reference": "5"
@@ -15778,10 +15787,10 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "248"
+                                            "reference": "250"
                                         },
                                         {
-                                            "reference": "249"
+                                            "reference": "251"
                                         },
                                         {
                                             "reference": "5"
@@ -15789,7 +15798,7 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "273"
+                            "_id": "275"
                         },
                         {
                             "kindText": "method",
@@ -15894,7 +15903,7 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "251"
+                                            "reference": "253"
                                         },
                                         {
                                             "reference": "5"
@@ -15940,10 +15949,10 @@ console.log("hello world")
                                     ],
                                     "children": [
                                         {
-                                            "reference": "252"
+                                            "reference": "254"
                                         },
                                         {
-                                            "reference": "253"
+                                            "reference": "255"
                                         },
                                         {
                                             "reference": "5"
@@ -15951,10 +15960,10 @@ console.log("hello world")
                                     ]
                                 }
                             ],
-                            "_id": "274"
+                            "_id": "276"
                         },
                         {
-                            "reference": "254"
+                            "reference": "256"
                         },
                         {
                             "kindText": "method",
@@ -16034,13 +16043,13 @@ console.log("hello world")
                                         }
                                     ],
                                     "children": [],
-                                    "_id": "276"
+                                    "_id": "278"
                                 },
                                 {
                                     "reference": "5"
                                 }
                             ],
-                            "_id": "275"
+                            "_id": "277"
                         },
                         {
                             "kindText": "method",
@@ -16120,25 +16129,25 @@ console.log("hello world")
                                         }
                                     ],
                                     "children": [],
-                                    "_id": "278"
+                                    "_id": "280"
                                 },
                                 {
                                     "reference": "5"
                                 }
                             ],
-                            "_id": "277"
+                            "_id": "279"
                         }
                     ],
-                    "_id": "255"
+                    "_id": "257"
                 }
             ],
-            "_id": "254"
-        },
-        {
-            "reference": "275"
+            "_id": "256"
         },
         {
             "reference": "277"
+        },
+        {
+            "reference": "279"
         }
     ],
     "_id": "0"

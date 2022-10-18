@@ -301,16 +301,19 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
     function getIndexInfo(indexInfo: TSIndexInfoMerged): IndexInfo {
         const { typeChecker } = ctx
 
-        const parameterSymbol =
+        const parameterSymbol: ts.Symbol =
             // @ts-expect-error
             indexInfo?.declaration?.parameters?.[0]?.symbol
          ?? indexInfo?.parameterType?.getSymbol()
+
+        const parameterType = indexInfo?.parameterType ?? (parameterSymbol && getSymbolType(typeChecker, parameterSymbol))
         
         return {
             ...indexInfo.keyType && { keyType: parseType(indexInfo.keyType) },
             ...indexInfo.type && { type: parseType(indexInfo.type) },
             // parameterSymbol: wrapSafe(getSymbolInfo)(wrapSafe(typeChecker.getSymbolAtLocation)(indexInfo?.declaration?.parameters?.[0]))
             parameterSymbol: wrapSafe(getSymbolInfo)(parameterSymbol),
+            ...parameterType && { parameterType: parseType(parameterType) },
         }
     }
     
@@ -394,7 +397,7 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
             case 'object': {
                 return [
                     ...info.properties,
-                    ...info.indexInfos?.flatMap(x => [ x.type, x.keyType ]) ?? [],
+                    ...info.indexInfos?.flatMap(x => [ x.type, x.keyType, x.parameterType ]) ?? [],
                     // ...wrapSafe(getTypeInfoChildren)(info.objectClass) ?? [],
                     info.objectClass,
                 ]

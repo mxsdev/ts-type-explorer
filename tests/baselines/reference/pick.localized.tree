@@ -1081,6 +1081,50 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             },
             "children": [
                 {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "P",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1570,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 1570,
+                                        "character": 11
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "purpose": "index_parameter_type",
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1570,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 1570,
+                                    "character": 11
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "13"
+                        }
+                    ],
+                    "_id": "12"
+                },
+                {
                     "reference": "2"
                 },
                 {
@@ -1092,48 +1136,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             "reference": "1"
                         },
                         {
-                            "kindText": "type parameter",
-                            "kind": "type_parameter",
-                            "symbol": {
-                                "name": "P",
-                                "locations": [
-                                    {
-                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                        "range": {
-                                            "start": {
-                                                "line": 1570,
-                                                "character": 5
-                                            },
-                                            "end": {
-                                                "line": 1570,
-                                                "character": 11
-                                            }
-                                        }
-                                    }
-                                ]
-                            },
-                            "purpose": "indexed_access_index",
-                            "locations": [
-                                {
-                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                    "range": {
-                                        "start": {
-                                            "line": 1570,
-                                            "character": 5
-                                        },
-                                        "end": {
-                                            "line": 1570,
-                                            "character": 11
-                                        }
-                                    }
-                                }
-                            ],
-                            "children": [
-                                {
-                                    "reference": "13"
-                                }
-                            ],
-                            "_id": "12"
+                            "reference": "12"
                         }
                     ],
                     "_id": "11"
