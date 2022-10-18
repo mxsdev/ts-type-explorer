@@ -93,14 +93,16 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
 
     typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(symbol, isAnonymousSymbol, options)
 
-    if(type.aliasSymbol && type.aliasSymbol !== symbol) {
-        typeInfoId.aliasSymbolMeta = getSymbolInfo(type.aliasSymbol)
+    let aliasSymbol = type.aliasSymbol
+
+    if(isInterfaceType(type)) {
+        aliasSymbol ??= type.symbol
     }
 
-    // if(type.symbol && type.symbol !== type.aliasSymbol && type.symbol !== symbol) {
-    //     typeInfoId.typeSymbolMeta = getSymbolInfo(type.symbol)
-    // }
-    
+    if(aliasSymbol && aliasSymbol !== symbol) {
+        typeInfoId.aliasSymbolMeta = getSymbolInfo(aliasSymbol)
+    }
+
     const typeParameters = getTypeParameters(typeChecker, type, symbol) 
     if(isNonEmpty(typeParameters)) {
         typeInfoId.typeParameters = parseTypes(typeParameters)

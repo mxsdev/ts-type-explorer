@@ -1602,6 +1602,27 @@ console.log("hello world")
                                     }
                                 ]
                             },
+                            "aliasSymbolMeta": {
+                                "name": "InspectOptions",
+                                "flags": 64,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 12,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 51,
+                                                    "character": 5
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
                             "id": "24"
                         }
                     ],
@@ -13193,6 +13214,27 @@ console.log("hello world")
                                                     }
                                                 ]
                                             },
+                                            "aliasSymbolMeta": {
+                                                "name": "InspectOptions",
+                                                "flags": 64,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "../node_modules/@types/node/ts4.8/util.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 12,
+                                                                    "character": 4
+                                                                },
+                                                                "end": {
+                                                                    "line": 51,
+                                                                    "character": 5
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
                                             "id": "24"
                                         }
                                     ],
@@ -15480,6 +15522,27 @@ console.log("hello world")
                                     }
                                 ]
                             },
+                            "aliasSymbolMeta": {
+                                "name": "ConsoleConstructor",
+                                "flags": 64,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 402,
+                                                    "character": 12
+                                                },
+                                                "end": {
+                                                    "line": 406,
+                                                    "character": 13
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
                             "id": "254"
                         },
                         {
@@ -15677,6 +15740,42 @@ console.log("hello world")
                             }
                         ]
                     },
+                    "aliasSymbolMeta": {
+                        "name": "Console",
+                        "flags": 33554496,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 17081,
+                                            "character": 0
+                                        },
+                                        "end": {
+                                            "line": 17102,
+                                            "character": 1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 65,
+                                            "character": 8
+                                        },
+                                        "end": {
+                                            "line": 331,
+                                            "character": 9
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
                     "id": "255"
                 }
             ],
@@ -15698,6 +15797,27 @@ console.log("hello world")
                                 "end": {
                                     "line": 66,
                                     "character": 48
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "aliasSymbolMeta": {
+                "name": "ConsoleConstructor",
+                "flags": 64,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 402,
+                                    "character": 12
+                                },
+                                "end": {
+                                    "line": 406,
+                                    "character": 13
                                 }
                             }
                         }
@@ -15821,6 +15941,42 @@ console.log("hello world")
                         "end": {
                             "line": 408,
                             "character": 28
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "aliasSymbolMeta": {
+        "name": "Console",
+        "flags": 33554496,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../node_modules/typescript/lib/lib.dom.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 17081,
+                            "character": 0
+                        },
+                        "end": {
+                            "line": 17102,
+                            "character": 1
+                        }
+                    }
+                }
+            },
+            {
+                "location": {
+                    "fileName": "../node_modules/@types/node/ts4.8/console.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 65,
+                            "character": 8
+                        },
+                        "end": {
+                            "line": 331,
+                            "character": 9
                         }
                     }
                 }
