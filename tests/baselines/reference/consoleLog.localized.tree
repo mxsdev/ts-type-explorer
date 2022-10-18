@@ -319,6 +319,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "assert",
                         "insideClassOrInterface": true,
@@ -451,6 +452,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "assert",
                         "insideClassOrInterface": true,
@@ -686,6 +688,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "clear",
                         "insideClassOrInterface": true,
@@ -728,6 +731,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "clear",
                         "insideClassOrInterface": true,
@@ -837,6 +841,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "count",
                         "insideClassOrInterface": true,
@@ -921,6 +926,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "count",
                         "insideClassOrInterface": true,
@@ -1072,6 +1078,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "countReset",
                         "insideClassOrInterface": true,
@@ -1156,6 +1163,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "countReset",
                         "insideClassOrInterface": true,
@@ -1307,6 +1315,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "debug",
                         "insideClassOrInterface": true,
@@ -1392,6 +1401,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "debug",
                         "insideClassOrInterface": true,
@@ -1586,6 +1596,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "dir",
                         "insideClassOrInterface": true,
@@ -1712,6 +1723,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "dir",
                         "insideClassOrInterface": true,
@@ -2547,6 +2559,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "dirxml",
                         "insideClassOrInterface": true,
@@ -2632,6 +2645,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "dirxml",
                         "insideClassOrInterface": true,
@@ -2784,6 +2798,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "error",
                         "insideClassOrInterface": true,
@@ -2869,6 +2884,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "error",
                         "insideClassOrInterface": true,
@@ -3063,6 +3079,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "group",
                         "insideClassOrInterface": true,
@@ -3148,6 +3165,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "group",
                         "insideClassOrInterface": true,
@@ -3300,6 +3318,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "groupCollapsed",
                         "insideClassOrInterface": true,
@@ -3385,6 +3404,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "groupCollapsed",
                         "insideClassOrInterface": true,
@@ -3537,6 +3557,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "groupEnd",
                         "insideClassOrInterface": true,
@@ -3579,6 +3600,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "groupEnd",
                         "insideClassOrInterface": true,
@@ -3688,6 +3710,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "info",
                         "insideClassOrInterface": true,
@@ -3773,6 +3796,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "info",
                         "insideClassOrInterface": true,
@@ -3967,6 +3991,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "log",
                         "insideClassOrInterface": true,
@@ -4052,6 +4077,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "log",
                         "insideClassOrInterface": true,
@@ -4246,6 +4272,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "table",
                         "insideClassOrInterface": true,
@@ -4373,6 +4400,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "table",
                         "insideClassOrInterface": true,
@@ -4502,6 +4530,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "index",
+                                    "kind": "index_info",
                                     "symbol": {
                                         "name": "n",
                                         "isArgument": true,
@@ -4687,6 +4716,7 @@ console.log("hello world")
                                     "children": [
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "concat",
                                                 "insideClassOrInterface": true,
@@ -4801,6 +4831,7 @@ console.log("hello world")
                                                         },
                                                         {
                                                             "kindText": "index",
+                                                            "kind": "index_info",
                                                             "symbol": {
                                                                 "name": "n",
                                                                 "isArgument": true,
@@ -5064,6 +5095,7 @@ console.log("hello world")
                                         },
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "concat",
                                                 "insideClassOrInterface": true,
@@ -5442,6 +5474,7 @@ console.log("hello world")
                                     "children": [
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "every",
                                                 "insideClassOrInterface": true,
@@ -5681,6 +5714,7 @@ console.log("hello world")
                                                                 },
                                                                 {
                                                                     "kindText": "index",
+                                                                    "kind": "index_info",
                                                                     "symbol": {
                                                                         "name": "n",
                                                                         "isArgument": true,
@@ -5775,6 +5809,7 @@ console.log("hello world")
                                         },
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "every",
                                                 "insideClassOrInterface": true,
@@ -6688,6 +6723,7 @@ console.log("hello world")
                                     "children": [
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "filter",
                                                 "insideClassOrInterface": true,
@@ -7123,6 +7159,7 @@ console.log("hello world")
                                         },
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "filter",
                                                 "insideClassOrInterface": true,
@@ -7378,6 +7415,7 @@ console.log("hello world")
                                     "children": [
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "reduce",
                                                 "insideClassOrInterface": true,
@@ -7566,6 +7604,7 @@ console.log("hello world")
                                         },
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "reduce",
                                                 "insideClassOrInterface": true,
@@ -7757,6 +7796,7 @@ console.log("hello world")
                                         },
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "reduce",
                                                 "insideClassOrInterface": true,
@@ -8123,6 +8163,7 @@ console.log("hello world")
                                     "children": [
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "reduceRight",
                                                 "insideClassOrInterface": true,
@@ -8311,6 +8352,7 @@ console.log("hello world")
                                         },
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "reduceRight",
                                                 "insideClassOrInterface": true,
@@ -8502,6 +8544,7 @@ console.log("hello world")
                                         },
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "reduceRight",
                                                 "insideClassOrInterface": true,
@@ -8842,6 +8885,7 @@ console.log("hello world")
                                     "children": [
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "find",
                                                 "insideClassOrInterface": true,
@@ -9052,6 +9096,7 @@ console.log("hello world")
                                         },
                                         {
                                             "kindText": "signature",
+                                            "kind": "signature",
                                             "symbol": {
                                                 "name": "find",
                                                 "insideClassOrInterface": true,
@@ -11231,6 +11276,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "time",
                         "insideClassOrInterface": true,
@@ -11315,6 +11361,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "time",
                         "insideClassOrInterface": true,
@@ -11466,6 +11513,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "timeEnd",
                         "insideClassOrInterface": true,
@@ -11550,6 +11598,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "timeEnd",
                         "insideClassOrInterface": true,
@@ -11701,6 +11750,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "timeLog",
                         "insideClassOrInterface": true,
@@ -11828,6 +11878,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "timeLog",
                         "insideClassOrInterface": true,
@@ -12022,6 +12073,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "timeStamp",
                         "insideClassOrInterface": true,
@@ -12106,6 +12158,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "timeStamp",
                         "insideClassOrInterface": true,
@@ -12257,6 +12310,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "trace",
                         "insideClassOrInterface": true,
@@ -12342,6 +12396,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "trace",
                         "insideClassOrInterface": true,
@@ -12536,6 +12591,7 @@ console.log("hello world")
             "children": [
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "warn",
                         "insideClassOrInterface": true,
@@ -12621,6 +12677,7 @@ console.log("hello world")
                 },
                 {
                     "kindText": "signature",
+                    "kind": "signature",
                     "symbol": {
                         "name": "warn",
                         "insideClassOrInterface": true,
@@ -12908,6 +12965,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "assert",
                                         "insideClassOrInterface": true,
@@ -12956,6 +13014,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "assert",
                                         "insideClassOrInterface": true,
@@ -13074,6 +13133,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "clear",
                                         "insideClassOrInterface": true,
@@ -13116,6 +13176,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "clear",
                                         "insideClassOrInterface": true,
@@ -13225,6 +13286,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "count",
                                         "insideClassOrInterface": true,
@@ -13270,6 +13332,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "count",
                                         "insideClassOrInterface": true,
@@ -13382,6 +13445,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "countReset",
                                         "insideClassOrInterface": true,
@@ -13427,6 +13491,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "countReset",
                                         "insideClassOrInterface": true,
@@ -13539,6 +13604,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "debug",
                                         "insideClassOrInterface": true,
@@ -13584,6 +13650,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "debug",
                                         "insideClassOrInterface": true,
@@ -13699,6 +13766,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "dir",
                                         "insideClassOrInterface": true,
@@ -13747,6 +13815,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "dir",
                                         "insideClassOrInterface": true,
@@ -13862,6 +13931,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "dirxml",
                                         "insideClassOrInterface": true,
@@ -13907,6 +13977,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "dirxml",
                                         "insideClassOrInterface": true,
@@ -14019,6 +14090,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "error",
                                         "insideClassOrInterface": true,
@@ -14064,6 +14136,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "error",
                                         "insideClassOrInterface": true,
@@ -14179,6 +14252,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "group",
                                         "insideClassOrInterface": true,
@@ -14224,6 +14298,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "group",
                                         "insideClassOrInterface": true,
@@ -14336,6 +14411,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "groupCollapsed",
                                         "insideClassOrInterface": true,
@@ -14381,6 +14457,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "groupCollapsed",
                                         "insideClassOrInterface": true,
@@ -14493,6 +14570,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "groupEnd",
                                         "insideClassOrInterface": true,
@@ -14535,6 +14613,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "groupEnd",
                                         "insideClassOrInterface": true,
@@ -14644,6 +14723,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "info",
                                         "insideClassOrInterface": true,
@@ -14689,6 +14769,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "info",
                                         "insideClassOrInterface": true,
@@ -14807,6 +14888,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "table",
                                         "insideClassOrInterface": true,
@@ -14855,6 +14937,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "table",
                                         "insideClassOrInterface": true,
@@ -14970,6 +15053,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "time",
                                         "insideClassOrInterface": true,
@@ -15015,6 +15099,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "time",
                                         "insideClassOrInterface": true,
@@ -15127,6 +15212,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "timeEnd",
                                         "insideClassOrInterface": true,
@@ -15172,6 +15258,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "timeEnd",
                                         "insideClassOrInterface": true,
@@ -15284,6 +15371,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "timeLog",
                                         "insideClassOrInterface": true,
@@ -15332,6 +15420,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "timeLog",
                                         "insideClassOrInterface": true,
@@ -15447,6 +15536,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "timeStamp",
                                         "insideClassOrInterface": true,
@@ -15492,6 +15582,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "timeStamp",
                                         "insideClassOrInterface": true,
@@ -15604,6 +15695,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "trace",
                                         "insideClassOrInterface": true,
@@ -15649,6 +15741,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "trace",
                                         "insideClassOrInterface": true,
@@ -15764,6 +15857,7 @@ console.log("hello world")
                             "children": [
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "warn",
                                         "insideClassOrInterface": true,
@@ -15809,6 +15903,7 @@ console.log("hello world")
                                 },
                                 {
                                     "kindText": "signature",
+                                    "kind": "signature",
                                     "symbol": {
                                         "name": "warn",
                                         "insideClassOrInterface": true,
@@ -16114,6 +16209,7 @@ console.log("hello world")
     "children": [
         {
             "kindText": "signature",
+            "kind": "signature",
             "symbol": {
                 "name": "log",
                 "insideClassOrInterface": true,
@@ -16204,6 +16300,7 @@ console.log("hello world")
         },
         {
             "kindText": "signature",
+            "kind": "signature",
             "symbol": {
                 "name": "log",
                 "insideClassOrInterface": true,

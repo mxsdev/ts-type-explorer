@@ -1060,6 +1060,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
         },
         {
             "kindText": "index",
+            "kind": "index_info",
             "symbol": {
                 "name": "P",
                 "locations": [

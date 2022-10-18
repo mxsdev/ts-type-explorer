@@ -427,6 +427,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
         },
         {
             "kindText": "index",
+            "kind": "index_info",
             "symbol": {
                 "name": "P",
                 "locations": [
