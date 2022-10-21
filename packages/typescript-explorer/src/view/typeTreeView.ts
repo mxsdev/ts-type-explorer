@@ -2,8 +2,9 @@ import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, Index
 import assert = require('assert');
 import * as vscode from 'vscode'
 import { TSExplorer } from '../config';
+import { markdownDocumentation } from '../markdown';
 import { StateManager } from '../state/stateManager';
-import { fromFileLocationRequestArgs, rangeFromLineAndCharacters } from '../util';
+import { fromFileLocationRequestArgs, getQuickInfoAtPosition, rangeFromLineAndCharacters } from '../util';
 
 const { None: NoChildren, Expanded, Collapsed } = vscode.TreeItemCollapsibleState
 
@@ -20,7 +21,18 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
         this._onDidChangeTreeData.fire()
     }
 
-    getTreeItem(element: TypeTreeItem) {
+    async getTreeItem(element: TypeTreeItem) {
+        if(element.typeInfo.locations) {
+            for(const location of element.typeInfo.locations) {
+                const { documentation, tags } = await getQuickInfoAtPosition(location.fileName, location.range.start) ?? { }
+
+                if(documentation) {
+                    element.tooltip = markdownDocumentation(documentation, tags ?? [], vscode.Uri.file(location.fileName))
+                    break
+                }
+            }
+        }
+
         return element
     }
     
