@@ -21,7 +21,7 @@ export class StateManager {
                 return
             }
 
-            this.selectTypeAtPosition(e.textEditor, ...e.selections)
+            this.selectTypeAtPosition(e.textEditor.document.fileName, ...e.selections)
         })
 
         context.subscriptions.push(
@@ -80,7 +80,7 @@ export class StateManager {
         return this.selectionLocked
     }
 
-    selectTypeAtPosition(textEditor: vscode.TextEditor, ...selections: vscode.Selection[]) {
+    selectTypeAtPosition(fileName: string, ...selections: vscode.Selection[]) {
         if(this.getSelectionLock()) {
             return
         }
@@ -90,7 +90,7 @@ export class StateManager {
             return
         }    
         
-        getQuickInfoAtPosition(textEditor.document.fileName, selections[0].start)
+        getQuickInfoAtPosition(fileName, selections[0].start)
             .then((body) => {
                 const { __displayTree } = body ?? {}
                 this.setTypeTree(__displayTree)
