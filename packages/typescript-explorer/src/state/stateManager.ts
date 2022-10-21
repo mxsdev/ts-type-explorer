@@ -1,7 +1,8 @@
 import { TypeInfo } from '@ts-expand-type/api'
+import assert = require('assert')
 import { toEditorSettings } from 'typescript'
 import * as vscode from 'vscode'
-import { getQuickInfoAtPosition } from '../util'
+import { getQuickInfoAtPosition, showError } from '../util'
 import { TypeTreeItem, TypeTreeProvider } from '../view/typeTreeView'
 import { ViewProviders } from '../view/views'
 
@@ -21,7 +22,7 @@ export class StateManager {
                 return
             }
 
-            this.selectTypeAtPosition(e.textEditor.document.fileName, ...e.selections)
+            this.selectTypeAtPosition(e.textEditor.document.fileName, e.selections)
         })
 
         context.subscriptions.push(
@@ -60,6 +61,22 @@ export class StateManager {
                 () => this.setSelectionLock(false)
             )
         )
+
+        context.subscriptions.push(
+            vscode.commands.registerCommand(
+                "typescriptExplorer.selection.select",
+                () => {
+                    const editor = vscode.window.activeTextEditor
+
+                    if(!editor) {
+                        showError("No active text selection!")
+                        return
+                    }
+
+                    this.selectTypeAtPosition(editor.document.fileName, [editor.selection], true)
+                }
+            )
+        )
     }
 
     setTypeTree(typeTree: TypeInfo|undefined) {
@@ -80,8 +97,8 @@ export class StateManager {
         return this.selectionLocked
     }
 
-    selectTypeAtPosition(fileName: string, ...selections: vscode.Selection[]) {
-        if(this.getSelectionLock()) {
+    selectTypeAtPosition(fileName: string, selections: readonly vscode.Selection[], ignoreSelectionLock: boolean = false) {
+        if(this.getSelectionLock() && !ignoreSelectionLock) {
             return
         }
 

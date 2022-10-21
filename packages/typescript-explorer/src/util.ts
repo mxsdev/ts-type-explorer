@@ -55,3 +55,7 @@ export function smartlySetConfigValue<T>(id: string, value: T, config?: vscode.W
 
 	return config.update(id, setValue, workspaceValue === undefined)
 }
+
+export function showError(message: string) {
+	vscode.window.showErrorMessage(message)
+}

@@ -12,7 +12,16 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:typescript"
+    "onLanguage:typescript",
+    "onView:type-tree",
+    "onCommand:typescriptExplorer.typeTree.view.refresh",
+    "onCommand:typescriptExplorer.typeTree.view.icons.enabled.toggle",
+    "onCommand:typescriptExplorer.typeTree.view.icons.colors.enabled.toggle",
+    "onCommand:typescriptExplorer.typeTree.view.show.typeParameters.toggle",
+    "onCommand:typescriptExplorer.typeTree.view.show.baseClass.toggle",
+    "onCommand:typescriptExplorer.selection.lock",
+    "onCommand:typescriptExplorer.selection.unlock",
+    "onCommand:typescriptExplorer.selection.select"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -93,6 +102,11 @@
         "command": "typescriptExplorer.selection.unlock",
         "category": "%typescriptExplorer.title%",
         "icon": "$(lock)"
+      },
+      {
+        "title": "Select Symbol in Type Tree",
+        "command": "typescriptExplorer.selection.select",
+        "category": "%typescriptExplorer.title%"
       }
     ],
     "viewsContainers": {
@@ -160,6 +174,12 @@
           "command": "typescriptExplorer.typeTree.view.declared.goTo",
           "when": "view == type-tree && viewItem == declared",
           "group": "inline"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "typescriptExplorer.selection.select",
+          "group": "type-explorer"
         }
       ]
     },
