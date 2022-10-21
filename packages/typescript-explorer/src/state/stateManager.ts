@@ -2,6 +2,7 @@ import { TypeInfo } from '@ts-expand-type/api'
 import assert = require('assert')
 import { toEditorSettings } from 'typescript'
 import * as vscode from 'vscode'
+import { TSExplorer } from '../config'
 import { getQuickInfoAtPosition, showError } from '../util'
 import { TypeTreeItem, TypeTreeProvider } from '../view/typeTreeView'
 import { ViewProviders } from '../view/views'
@@ -13,9 +14,18 @@ export class StateManager {
     private typeTreeProvider?: TypeTreeProvider
 
     private selectionLocked: boolean = false
+    private selectionEnabled: boolean = true
 
     init(context: vscode.ExtensionContext, { typeTreeProvider }: ViewProviders) {
         this.typeTreeProvider = typeTreeProvider
+
+        this.updateSelectionContext()
+
+        vscode.workspace.onDidChangeConfiguration(event => {
+            if(event.affectsConfiguration("typescriptExplorer.typeTree.selection.enable")) {
+                this.updateSelectionContext()
+            }
+        }, undefined, context.subscriptions)
 
         vscode.window.onDidChangeTextEditorSelection((e) => {
             if(e.kind === vscode.TextEditorSelectionChangeKind.Command || !e.kind) {
@@ -88,13 +98,18 @@ export class StateManager {
         return this.typeTree
     }
 
+    private updateSelectionContext() {
+        this.selectionEnabled = TSExplorer.Config.TypeTreeView.selectionEnabled()
+        vscode.commands.executeCommand("setContext", "typescriptExplorer.selection.enabled", this.selectionEnabled)
+    }
+
     setSelectionLock(locked: boolean) {
         this.selectionLocked = locked
         vscode.commands.executeCommand("setContext", "typescriptExplorer.selection.locked", locked)
     }
 
     getSelectionLock() {
-        return this.selectionLocked
+        return this.selectionLocked || !this.selectionEnabled
     }
 
     selectTypeAtPosition(fileName: string, selections: readonly vscode.Selection[], ignoreSelectionLock: boolean = false) {

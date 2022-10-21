@@ -21,7 +21,8 @@
     "onCommand:typescriptExplorer.typeTree.view.show.baseClass.toggle",
     "onCommand:typescriptExplorer.selection.lock",
     "onCommand:typescriptExplorer.selection.unlock",
-    "onCommand:typescriptExplorer.selection.select"
+    "onCommand:typescriptExplorer.selection.select",
+    "onCommand:typescriptExplorer.typeTree.selection.enable.toggle"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -45,6 +46,12 @@
         },
         "typescriptExplorer.typeTree.view.show.baseClass": {
           "title": "Show Base Class",
+          "type": "boolean",
+          "default": true
+        },
+        "typescriptExplorer.typeTree.selection.enable": {
+          "title": "Enable Type Tree Selection",
+          "description": "Enable selecting a symbol type on click in the editor",
           "type": "boolean",
           "default": true
         }
@@ -107,6 +114,11 @@
         "title": "Select Symbol in Type Tree",
         "command": "typescriptExplorer.selection.select",
         "category": "%typescriptExplorer.title%"
+      },
+      {
+        "title": "Toggle Type Selection On Click",
+        "command": "typescriptExplorer.typeTree.selection.enable.toggle",
+        "category": "%typescriptExplorer.title%"
       }
     ],
     "viewsContainers": {
@@ -140,12 +152,12 @@
         },
         {
           "command": "typescriptExplorer.selection.lock",
-          "when": "view == type-tree && typescriptExplorer.selection.locked == false",
+          "when": "view == type-tree && typescriptExplorer.selection.locked == false && typescriptExplorer.selection.enabled == true",
           "group": "navigation@2"
         },
         {
           "command": "typescriptExplorer.selection.unlock",
-          "when": "view == type-tree && typescriptExplorer.selection.locked == true",
+          "when": "view == type-tree && typescriptExplorer.selection.locked == true && typescriptExplorer.selection.enabled == true",
           "group": "navigation@2"
         },
         {

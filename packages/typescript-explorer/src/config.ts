@@ -12,6 +12,7 @@ export namespace TSExplorer {
             export const { get: iconColorsEnabled, toggle: toggleIconColorsEnabled } = configBoolean("typescriptExplorer.typeTree.view.icons.colors.enable")
             export const { get: showTypeParameterInfo, toggle: toggleShowTypeParameterInfo } = configBoolean("typescriptExplorer.typeTree.view.show.typeParameters")
             export const { get: showBaseClassInfo, toggle: toggleShowBaseClassInfo } = configBoolean("typescriptExplorer.typeTree.view.show.baseClass")
+            export const { get: selectionEnabled, toggle: toggleSelectionEnabled } = configBoolean("typescriptExplorer.typeTree.selection.enable")
         }
     }
 }

@@ -12,7 +12,8 @@ const typeTreeViewCommands: RefreshableCommandInfo[] = [
 	["typescriptExplorer.typeTree.view.icons.enabled.toggle", "typescriptExplorer.typeTree.view.icons.enable", TSExplorer.Config.TypeTreeView.toggleIconsEnabled],
 	["typescriptExplorer.typeTree.view.icons.colors.enabled.toggle", "typescriptExplorer.typeTree.view.icons.colors.enable", TSExplorer.Config.TypeTreeView.toggleIconColorsEnabled],
 	["typescriptExplorer.typeTree.view.show.typeParameters.toggle", "typescriptExplorer.typeTree.view.show.typeParameters", TSExplorer.Config.TypeTreeView.toggleShowTypeParameterInfo],
-	["typescriptExplorer.typeTree.view.show.baseClass.toggle", "typescriptExplorer.typeTree.view.show.baseClass", TSExplorer.Config.TypeTreeView.toggleShowBaseClassInfo]
+	["typescriptExplorer.typeTree.view.show.baseClass.toggle", "typescriptExplorer.typeTree.view.show.baseClass", TSExplorer.Config.TypeTreeView.toggleShowBaseClassInfo],
+	["typescriptExplorer.typeTree.selection.enable.toggle", "typescriptExplorer.typeTree.selection.enable", TSExplorer.Config.TypeTreeView.toggleSelectionEnabled, false ]
 ]
 
 export function registerCommands(context: vscode.ExtensionContext, { typeTreeProvider }: ViewProviders) {
@@ -24,10 +25,14 @@ export function registerCommands(context: vscode.ExtensionContext, { typeTreePro
 	commands.forEach(c => registerCommand(c, context))
 }
 
-type RefreshableCommandInfo = [id: string, configId: string, handler: CommandHandler]
+type RefreshableCommandInfo = [id: string, configId: string, handler: CommandHandler, refresh?: boolean]
 
 function wrapRefresh(context: vscode.ExtensionContext, command: RefreshableCommandInfo, refreshable: {refresh(): void}): CommandInfo {
-	const [id, configId, handler] = command
+	const [id, configId, handler, refresh] = command
+
+	if(!refresh) {
+		return [id, handler]
+	}
 
 	vscode.workspace.onDidChangeConfiguration((event) => {
 		if(event.affectsConfiguration(configId)) {
