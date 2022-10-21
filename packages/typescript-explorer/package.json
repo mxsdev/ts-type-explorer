@@ -1,6 +1,6 @@
 {
   "name": "typescript-explorer",
-  "displayName": "Typescript Explorer",
+  "displayName": "%typescriptExplorer.title%",
   "description": "Explore typescript types",
   "publisher": "mxsdev",
   "version": "0.0.1",
@@ -17,7 +17,7 @@
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
-      "title": "TypeScript Explorer",
+      "title": "%typescriptExplorer.title%",
       "properties": {
         "typescriptExplorer.typeTree.view.icons.enable": {
           "title": "Show Icons",
@@ -45,49 +45,49 @@
       {
         "title": "Refresh Type Tree",
         "command": "typescriptExplorer.typeTree.view.refresh",
-        "category": "TypeScript Explorer",
+        "category": "%typescriptExplorer.title%",
         "icon": "$(extensions-refresh)"
       },
       {
         "title": "Go To Type",
         "command": "typescriptExplorer.typeTree.view.declared.goTo",
-        "category": "Typescript Explorer",
+        "category": "%typescriptExplorer.title%",
         "icon": "$(arrow-right)",
         "enablement": "view == type-tree"
       },
       {
         "title": "Search",
         "command": "typescriptExplorer.typeTree.view.find",
-        "category": "TypeScript Explorer",
+        "category": "%typescriptExplorer.title%",
         "icon": "$(search-view-icon)",
         "enablement": "view == type-tree"
       },
       {
         "title": "Toggle Icons",
         "command": "typescriptExplorer.typeTree.view.icons.enabled.toggle",
-        "category": "Type Tree"
+        "category": "%typescriptExplorer.typeTree.title%"
       },
       {
         "title": "Toggle Icon Colors",
         "command": "typescriptExplorer.typeTree.view.icons.colors.enabled.toggle",
-        "category": "Type Tree"
+        "category": "%typescriptExplorer.typeTree.title%"
       },
       {
         "title": "Toggle Type Parameter Info",
         "command": "typescriptExplorer.typeTree.view.show.typeParameters.toggle",
-        "category": "Type Tree"
+        "category": "%typescriptExplorer.typeTree.title%"
       },
       {
         "title": "Toggle Base Class Information",
         "command": "typescriptExplorer.typeTree.view.show.baseClass.toggle",
-        "category": "Type Tree"
+        "category": "%typescriptExplorer.typeTree.title%"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
           "id": "typescript-explorer",
-          "title": "TypeScript Explorer",
+          "title": "%typescriptExplorer.title%",
           "icon": "$(symbol-type-parameter)"
         }
       ]
@@ -96,7 +96,7 @@
       "typescript-explorer": [
         {
           "id": "type-tree",
-          "name": "Type Tree"
+          "name": "%typescriptExplorer.typeTree.shortTitle%"
         }
       ]
     },
