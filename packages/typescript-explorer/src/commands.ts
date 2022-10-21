@@ -7,7 +7,7 @@ type CommandHandler = (...args: any[]) => void|Promise<void>
 type CommandInfo = [id: string, handler: CommandHandler]
 
 const normalCommands: CommandInfo[] = [
-	["typescriptExplorer.expandedHover.enable.toggle", TSExplorer.Config.toggleExpandedHover],
+	// ["typescriptExplorer.expandedHover.enable.toggle", TSExplorer.Config.toggleExpandedHover],
 ]
 
 const typeTreeViewCommands = (typeTreeProvider: TypeTreeProvider): CommandInfo[] => ([

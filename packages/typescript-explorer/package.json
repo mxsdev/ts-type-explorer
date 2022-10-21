@@ -81,6 +81,18 @@
         "title": "Toggle Base Class Information",
         "command": "typescriptExplorer.typeTree.view.show.baseClass.toggle",
         "category": "%typescriptExplorer.typeTree.title%"
+      },
+      {
+        "title": "Lock Type Selection",
+        "command": "typescriptExplorer.selection.lock",
+        "category": "%typescriptExplorer.title%",
+        "icon": "$(unlock)"
+      },
+      {
+        "title": "Unlock Type Selection",
+        "command": "typescriptExplorer.selection.unlock",
+        "category": "%typescriptExplorer.title%",
+        "icon": "$(lock)"
       }
     ],
     "viewsContainers": {
@@ -110,6 +122,16 @@
         {
           "command": "typescriptExplorer.typeTree.view.refresh",
           "when": "view == type-tree",
+          "group": "navigation@3"
+        },
+        {
+          "command": "typescriptExplorer.selection.lock",
+          "when": "view == type-tree && typescriptExplorer.selection.locked == false",
+          "group": "navigation@2"
+        },
+        {
+          "command": "typescriptExplorer.selection.unlock",
+          "when": "view == type-tree && typescriptExplorer.selection.locked == true",
           "group": "navigation@2"
         },
         {
