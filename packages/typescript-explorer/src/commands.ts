@@ -3,24 +3,22 @@ import { TSExplorer } from "./config";
 import * as vscode from 'vscode'
 import { TypeTreeProvider } from './view/typeTreeView';
 
-type CommandHandler = (...args: any[]) => void|Promise<void>
+type CommandHandler = (...args: any[]) => void|Thenable<void>
 type CommandInfo = [id: string, handler: CommandHandler]
 
-const normalCommands: CommandInfo[] = [
-	// ["typescriptExplorer.expandedHover.enable.toggle", TSExplorer.Config.toggleExpandedHover],
-]
+const normalCommands: CommandInfo[] = [ ]
 
-const typeTreeViewCommands = (typeTreeProvider: TypeTreeProvider): CommandInfo[] => ([
+const typeTreeViewCommands: RefreshableCommandInfo[] = [
 	["typescriptExplorer.typeTree.view.icons.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconsEnabled],
 	["typescriptExplorer.typeTree.view.icons.colors.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconColorsEnabled],
 	["typescriptExplorer.typeTree.view.show.typeParameters.toggle", TSExplorer.Config.TypeTreeView.toggleShowTypeParameterInfo],
 	["typescriptExplorer.typeTree.view.show.baseClass.toggle", TSExplorer.Config.TypeTreeView.toggleShowBaseClassInfo]
-] as RefreshableCommandInfo[]).map(t => wrapRefresh(t, typeTreeProvider))
+]
 
 export function registerCommands(context: vscode.ExtensionContext, { typeTreeProvider }: ViewProviders) {
 	const commands = [
 		...normalCommands,
-		...typeTreeViewCommands(typeTreeProvider)
+		...typeTreeViewCommands.map(t => wrapRefresh(t, typeTreeProvider))
 	]
 
 	commands.forEach(c => registerCommand(c, context))
