@@ -7,14 +7,14 @@ type CommandHandler = (...args: any[]) => void|Promise<void>
 type CommandInfo = [id: string, handler: CommandHandler]
 
 const normalCommands: CommandInfo[] = [
-	["typescript-explorer.toggleExpandedHover", TSExplorer.Config.toggleExpandedHover],
+	["typescriptExplorer.expandedHover.enable.toggle", TSExplorer.Config.toggleExpandedHover],
 ]
 
 const typeTreeViewCommands = (typeTreeProvider: TypeTreeProvider): CommandInfo[] => ([
-	["typescript-explorer.typeTree.view.icons.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconsEnabled],
-	["typescript-explorer.typeTree.view.icons.colors.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconColorsEnabled],
-	["typescript-explorer.typeTree.view.typeParameters.info.show.toggle", TSExplorer.Config.TypeTreeView.toggleShowTypeParameterInfo],
-	["typescript-explorer.typeTree.view.baseClass.show.toggle", TSExplorer.Config.TypeTreeView.toggleShowBaseClassInfo]
+	["typescriptExplorer.typeTree.view.icons.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconsEnabled],
+	["typescriptExplorer.typeTree.view.icons.colors.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconColorsEnabled],
+	["typescriptExplorer.typeTree.view.show.typeParameters.toggle", TSExplorer.Config.TypeTreeView.toggleShowTypeParameterInfo],
+	["typescriptExplorer.typeTree.view.show.baseClass.toggle", TSExplorer.Config.TypeTreeView.toggleShowBaseClassInfo]
 ] as RefreshableCommandInfo[]).map(t => wrapRefresh(t, typeTreeProvider))
 
 export function registerCommands(context: vscode.ExtensionContext, { typeTreeProvider }: ViewProviders) {

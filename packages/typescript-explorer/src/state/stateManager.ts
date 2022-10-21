@@ -27,23 +27,23 @@ export class StateManager {
 
         context.subscriptions.push(
             vscode.commands.registerCommand(
-                "typescript-explorer.refreshTypeTreeView",
+                "typescriptExplorer.typeTree.view.refresh",
                  () => typeTreeProvider.refresh()
             )
         )
-
+        
         context.subscriptions.push(
             vscode.commands.registerCommand(
-                "typescript-explorer.goToTypeInTypeTreeView",
-                (item: TypeTreeItem) => item.goToDefinition()
-                
+                "typescriptExplorer.typeTree.view.find",
+                () => vscode.commands.executeCommand("list.find")
             )
         )
 
         context.subscriptions.push(
             vscode.commands.registerCommand(
-                "typescript-explorer.findInTypeTreeView",
-                () => vscode.commands.executeCommand("list.find")
+                "typescriptExplorer.typeTree.view.declared.goTo",
+                (item: TypeTreeItem) => item.goToDefinition()
+                
             )
         )
     }

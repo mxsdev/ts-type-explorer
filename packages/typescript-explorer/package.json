@@ -19,28 +19,28 @@
     "configuration": {
       "title": "TypeScript Explorer",
       "properties": {
-        "typescript-explorer.expandedHover": {
+        "typescriptExplorer.expandedHover.enable": {
           "title": "Expanded Hover",
           "type": "boolean",
           "default": false,
           "description": "Show entire expanded type on hovering"
         },
-        "typescript-explorer.typeTree.view.icons.enable": {
+        "typescriptExplorer.typeTree.view.icons.enable": {
           "title": "Show Icons",
           "type": "boolean",
           "default": true
         },
-        "typescript-explorer.typeTree.view.icons.colors.enable": {
+        "typescriptExplorer.typeTree.view.icons.colors.enable": {
           "title": "Enable Colors",
           "type": "boolean",
           "default": true
         },
-        "typescript-explorer.typeTree.view.typeParameters.info.show": {
-          "title": "Show Type Parameter Info",
+        "typescriptExplorer.typeTree.view.show.typeParameters": {
+          "title": "Show Type Parameter List",
           "type": "boolean",
           "default": true
         },
-        "typescript-explorer.typeTree.view.baseClass.show": {
+        "typescriptExplorer.typeTree.view.show.baseClass": {
           "title": "Show Base Class",
           "type": "boolean",
           "default": true
@@ -50,49 +50,48 @@
     "commands": [
       {
         "title": "Toggle Expanded Type on Hover",
-        "command": "typescript-explorer.toggleExpandedHover",
+        "command": "typescriptExplorer.expandedHover.enable.toggle",
         "category": "TypeScript Explorer"
       },
       {
         "title": "Refresh Type Tree",
-        "command": "typescript-explorer.refreshTypeTreeView",
+        "command": "typescriptExplorer.typeTree.view.refresh",
         "category": "TypeScript Explorer",
         "icon": "$(extensions-refresh)"
       },
       {
         "title": "Go To Type",
-        "command": "typescript-explorer.goToTypeInTypeTreeView",
+        "command": "typescriptExplorer.typeTree.view.declared.goTo",
         "category": "Typescript Explorer",
         "icon": "$(arrow-right)",
         "enablement": "view == type-tree"
       },
       {
         "title": "Search",
-        "command": "typescript-explorer.findInTypeTreeView",
+        "command": "typescriptExplorer.typeTree.view.find",
         "category": "TypeScript Explorer",
         "icon": "$(search-view-icon)",
         "enablement": "view == type-tree"
       },
       {
         "title": "Toggle Icons",
-        "command": "typescript-explorer.typeTree.view.icons.enabled.toggle",
+        "command": "typescriptExplorer.typeTree.view.icons.enabled.toggle",
         "category": "Type Tree"
       },
       {
         "title": "Toggle Icon Colors",
-        "command": "typescript-explorer.typeTree.view.icons.colors.enabled.toggle",
+        "command": "typescriptExplorer.typeTree.view.icons.colors.enabled.toggle",
         "category": "Type Tree"
       },
       {
         "title": "Toggle Type Parameter Info",
-        "command": "typescript-explorer.typeTree.view.typeParameters.info.show.toggle",
+        "command": "typescriptExplorer.typeTree.view.show.typeParameters.toggle",
         "category": "Type Tree"
       },
       {
         "title": "Toggle Base Class Information",
-        "command": "typescript-explorer.typeTree.view.baseClass.show.toggle",
+        "command": "typescriptExplorer.typeTree.view.show.baseClass.toggle",
         "category": "Type Tree"
-
       }
     ],
     "viewsContainers": {
@@ -115,39 +114,39 @@
     "menus": {
       "view/title": [
         {
-          "command": "typescript-explorer.findInTypeTreeView",
+          "command": "typescriptExplorer.typeTree.view.find",
           "when": "view == type-tree",
           "group": "navigation@1"
         },
         {
-          "command": "typescript-explorer.refreshTypeTreeView",
+          "command": "typescriptExplorer.typeTree.view.refresh",
           "when": "view == type-tree",
           "group": "navigation@2"
         },
         {
-          "command": "typescript-explorer.typeTree.view.icons.enabled.toggle",
+          "command": "typescriptExplorer.typeTree.view.icons.enabled.toggle",
           "when": "view == type-tree",
           "group": "2_icons@1"
         },
         {
-          "command": "typescript-explorer.typeTree.view.icons.colors.enabled.toggle",
+          "command": "typescriptExplorer.typeTree.view.icons.colors.enabled.toggle",
           "when": "view == type-tree",
           "group": "2_icons@2"
         },
         {
-          "command": "typescript-explorer.typeTree.view.typeParameters.info.show.toggle",
+          "command": "typescriptExplorer.typeTree.view.show.typeParameters.toggle",
           "when": "view == type-tree",
           "group": "1_info@1"
         },
         {
-          "command": "typescript-explorer.typeTree.view.baseClass.show.toggle",
+          "command": "typescriptExplorer.typeTree.view.show.baseClass.toggle",
           "when": "view == type-tree",
           "group": "1_info@2"
         }
       ],
       "view/item/context": [
         {
-          "command": "typescript-explorer.goToTypeInTypeTreeView",
+          "command": "typescriptExplorer.typeTree.view.declared.goTo",
           "when": "view == type-tree && viewItem == declared",
           "group": "inline"
         }
