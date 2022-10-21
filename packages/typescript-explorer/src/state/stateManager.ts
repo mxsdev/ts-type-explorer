@@ -87,6 +87,11 @@ export class StateManager {
                 }
             )
         )
+
+        // make selection on open
+        if(this.selectionEnabled && vscode.window.activeTextEditor?.document.languageId === "typescript") {
+            vscode.commands.executeCommand("typescriptExplorer.selection.select")
+        }
     }
 
     setTypeTree(typeTree: TypeInfo|undefined) {
