@@ -9,34 +9,33 @@ type CommandInfo = [id: string, handler: CommandHandler]
 const normalCommands: CommandInfo[] = [ ]
 
 const typeTreeViewCommands: RefreshableCommandInfo[] = [
-	["typescriptExplorer.typeTree.view.icons.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconsEnabled],
-	["typescriptExplorer.typeTree.view.icons.colors.enabled.toggle", TSExplorer.Config.TypeTreeView.toggleIconColorsEnabled],
-	["typescriptExplorer.typeTree.view.show.typeParameters.toggle", TSExplorer.Config.TypeTreeView.toggleShowTypeParameterInfo],
-	["typescriptExplorer.typeTree.view.show.baseClass.toggle", TSExplorer.Config.TypeTreeView.toggleShowBaseClassInfo]
+	["typescriptExplorer.typeTree.view.icons.enabled.toggle", "typescriptExplorer.typeTree.view.icons.enable", TSExplorer.Config.TypeTreeView.toggleIconsEnabled],
+	["typescriptExplorer.typeTree.view.icons.colors.enabled.toggle", "typescriptExplorer.typeTree.view.icons.colors.enable", TSExplorer.Config.TypeTreeView.toggleIconColorsEnabled],
+	["typescriptExplorer.typeTree.view.show.typeParameters.toggle", "typescriptExplorer.typeTree.view.show.typeParameters", TSExplorer.Config.TypeTreeView.toggleShowTypeParameterInfo],
+	["typescriptExplorer.typeTree.view.show.baseClass.toggle", "typescriptExplorer.typeTree.view.show.baseClass", TSExplorer.Config.TypeTreeView.toggleShowBaseClassInfo]
 ]
 
 export function registerCommands(context: vscode.ExtensionContext, { typeTreeProvider }: ViewProviders) {
 	const commands = [
 		...normalCommands,
-		...typeTreeViewCommands.map(t => wrapRefresh(t, typeTreeProvider))
+		...typeTreeViewCommands.map(t => wrapRefresh(context, t, typeTreeProvider))
 	]
 
 	commands.forEach(c => registerCommand(c, context))
 }
 
-type RefreshableCommandInfo = CommandInfo | [...CommandInfo, boolean]
+type RefreshableCommandInfo = [id: string, configId: string, handler: CommandHandler]
 
-function wrapRefresh(command: RefreshableCommandInfo, refreshable: {refresh(): void}): CommandInfo {
-	const [id, handler, refresh=true] = command
+function wrapRefresh(context: vscode.ExtensionContext, command: RefreshableCommandInfo, refreshable: {refresh(): void}): CommandInfo {
+	const [id, configId, handler] = command
 
-	if(!refresh) {
-		return [id, handler]
-	}
+	vscode.workspace.onDidChangeConfiguration((event) => {
+		if(event.affectsConfiguration(configId)) {
+			refreshable.refresh()
+		}
+	}, undefined, context.subscriptions)
 
-	return [id, async () => {
-		await handler()
-		refreshable.refresh()
-	}]
+	return [id, handler]
 }
 
 function registerCommand([id, handler]: CommandInfo, context: vscode.ExtensionContext) {
