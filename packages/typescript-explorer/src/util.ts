@@ -31,3 +31,27 @@ export async function getQuickInfoAtPosition(fileName: string, position: vscode.
 	return await vscode.commands.executeCommand("typescript.tsserverRequest", "quickinfo-full", toFileLocationRequestArgs(fileName, position))
 		.then((r) => (r as { body: ExpandedQuickInfo|undefined }).body)
 }
+
+/**
+ * Smartly set configuration value based on workspace configuration. This will set
+ * configuration on a workspace level if a workspace value has been set, and will
+ * set it globally otherwise.
+ * 
+ * This will also reset a config value if it is set to its default.
+ * 
+ * @param id 
+ * @param value 
+ * @param config Config object to use, defaults to workspace configuration
+ */
+export function smartlySetConfigValue<T>(id: string, value: T, config?: vscode.WorkspaceConfiguration) {
+	config ??= vscode.workspace.getConfiguration()
+	const { workspaceValue, defaultValue } = config.inspect<T>(id) ?? {}
+
+	let setValue: T|undefined = value
+
+	if(defaultValue !== undefined && defaultValue === value) {
+		setValue = undefined
+	}
+
+	return config.update(id, setValue, workspaceValue === undefined)
+}
