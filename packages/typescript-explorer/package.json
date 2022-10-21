@@ -117,12 +117,12 @@
         {
           "command": "typescript-explorer.findInTypeTreeView",
           "when": "view == type-tree",
-          "group": "navigation"
+          "group": "navigation@1"
         },
         {
           "command": "typescript-explorer.refreshTypeTreeView",
           "when": "view == type-tree",
-          "group": "navigation"
+          "group": "navigation@2"
         },
         {
           "command": "typescript-explorer.typeTree.view.icons.enabled.toggle",
