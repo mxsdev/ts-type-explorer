@@ -42,11 +42,7 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
         }
 
         if(prior) {
-            prior.__displayString = prior.displayParts?.map(({ text }) => text).join("")
-            prior.__displayType = getDisplayType(typeChecker, sourceFile, node)
             prior.__displayTree = getDisplayTree(typeChecker, node)
-
-            prior.displayParts = undefined
         }
         
         return prior

@@ -19,12 +19,6 @@
     "configuration": {
       "title": "TypeScript Explorer",
       "properties": {
-        "typescriptExplorer.expandedHover.enable": {
-          "title": "Expanded Hover",
-          "type": "boolean",
-          "default": false,
-          "description": "Show entire expanded type on hovering"
-        },
         "typescriptExplorer.typeTree.view.icons.enable": {
           "title": "Show Icons",
           "type": "boolean",
@@ -48,11 +42,6 @@
       }
     },
     "commands": [
-      {
-        "title": "Toggle Expanded Type on Hover",
-        "command": "typescriptExplorer.expandedHover.enable.toggle",
-        "category": "TypeScript Explorer"
-      },
       {
         "title": "Refresh Type Tree",
         "command": "typescriptExplorer.typeTree.view.refresh",
