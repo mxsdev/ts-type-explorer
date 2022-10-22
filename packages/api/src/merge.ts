@@ -1,4 +1,4 @@
-import ts from "typescript"
+import * as ts from "typescript"
 import { APIConfig } from "./config"
 import { createUnionType, createIntersectionType, createObjectType, TSSymbol, createSymbol, getSymbolType, SymbolName, ObjectType, getSignaturesOfType, getIndexInfos, getIntersectionTypesFlat, isArrayType, isTupleType, TypeReferenceInternal, isPureObject, CheckFlags } from "./util"
 
@@ -183,5 +183,6 @@ function _recursivelyExpandType(typeChecker: ts.TypeChecker, types: ts.Type[], c
 }
 
 function cloneClassInstance<T>(orig: T): T {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     return Object.assign(Object.create(Object.getPrototypeOf(orig)), orig) as T
 }

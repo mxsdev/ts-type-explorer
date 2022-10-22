@@ -13,6 +13,10 @@ module.exports = {
     plugins: [
         '@typescript-eslint'
     ],
-    ignorePatterns: ["tests/cases/**", "**/out/**", "**/dist/**", "**/*.js", "**/*.cjs"],
+    ignorePatterns: ["tests/cases/**", "**/out/**", "**/dist/**", ".eslintrc.cjs"],
     root: true,
+    rules: {
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+    }
 };

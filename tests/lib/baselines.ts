@@ -1,5 +1,6 @@
-import ts from "typescript"
-import { getSymbolType, multilineTypeToString, recursivelyExpandType, generateTypeTree, TypeInfo, TypeId, getTypeInfoChildren, getTypeInfoSymbols, LocalizedTypeInfo, TypeInfoLocalizer } from "@ts-expand-type/api";
+/* eslint-disable @typescript-eslint/no-misused-promises */
+
+import * as ts from "typescript"
 import path from "path"
 import fs from "fs-extra"
 import { baselinesLocalPath, baselinesReferencePath, testCasePath } from "./files"
@@ -7,13 +8,12 @@ import assert from "assert"
 import glob from "glob"
 import { BaselineGenerators } from "./baselineGenerators";
 import { generateBaseline } from "./baselineGeneratorUtils";
-import { stringify } from "querystring";
 
 function getTestGlob(): string|undefined { return process.env["TESTS"] }
 
 export async function getTestCases(): Promise<string[]> {
     const globbed = await new Promise<string[]>((resolve, reject) => {
-        const res = glob(getTestGlob() ?? "*", { cwd: testCasePath }, (err, files) => {
+         glob(getTestGlob() ?? "*", { cwd: testCasePath }, (err, files) => {
             if(err) {
                 reject(err)
             }
@@ -50,7 +50,7 @@ export async function generateBaselineTests() {
     
             const test = getTestName(filePath)
 
-            describe(`${testName} baselines`, async () => {
+            describe(`${testName} baselines`, () => {
                 BaselineGenerators.forEach((baseline) => {
                     const testFileName = `${test}${baseline.extension}`
                     
@@ -60,9 +60,10 @@ export async function generateBaselineTests() {
                         const typeChecker = program.getTypeChecker()
 
                         const correct = [`=== ${testName} ===`, "", generateBaseline(baseline.generator, sourceFile, typeChecker)].join("\n")
-                        const against = (await fs.readFile(
-                            path.join(baselinesReferencePath, testFileName)
-                        ).catch(() => undefined))?.toString()
+                        const against = await fs
+                            .readFile(path.join(baselinesReferencePath, testFileName))
+                            .catch(() => undefined)
+                            .then((v: Buffer|undefined) => v?.toString())
     
                         try {
                             assert.strictEqual(correct, against)

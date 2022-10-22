@@ -1,8 +1,8 @@
-import assert from "assert";
-import ts, { createProgram, TypeChecker } from "typescript";
+import * as assert from "assert"
+import * as ts from "typescript"
 import { APIConfig } from "./config";
 import { DeclarationInfo, IndexInfo, SignatureInfo, SymbolInfo, TypeId, TypeInfo, TypeInfoNoId } from "./types";
-import { getIndexInfos, getIntersectionTypesFlat, getSignaturesOfType, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, SignatureInternal, getParameterInfo, IntrinsicTypeInternal, TSSymbol, isClassType, isClassOrInterfaceType, isInterfaceType, getImplementsTypes, filterUndefined, createSymbol, getConstructSignatures, getEmptyTypeId, getTypeParameters, isNonEmpty, arrayContentsEqual, getResolvedSignature, getSignatureTypeArguments, getCallLikeExpression, getSourceFileLocation, getNodeSymbol } from "./util";
+import { getIndexInfos, getIntersectionTypesFlat, getSymbolType, getTypeId, TSIndexInfoMerged, isPureObject, wrapSafe, isArrayType, getTypeArguments, isTupleType, getParameterInfo, IntrinsicTypeInternal, TSSymbol, isClassType, isInterfaceType, getImplementsTypes, filterUndefined, getConstructSignatures, getEmptyTypeId, getTypeParameters, isNonEmpty, arrayContentsEqual, getResolvedSignature, getSignatureTypeArguments, getSourceFileLocation, getNodeSymbol } from "./util";
 
 const maxDepthExceeded: TypeInfo = {kind: 'max_depth', id: getEmptyTypeId()}
 
@@ -15,7 +15,7 @@ type TypeTreeContext = {
 
 type SymbolOrType = ({symbol: ts.Symbol, type?: undefined} | {type: ts.Type, symbol?: undefined}) & { node?: ts.Node }
 
-export function generateTypeTree(symbolOrType: SymbolOrType, typeChecker: TypeChecker, config?: APIConfig) {
+export function generateTypeTree(symbolOrType: SymbolOrType, typeChecker: ts.TypeChecker, config?: APIConfig) {
     return _generateTypeTree(
         symbolOrType,
         {
@@ -73,7 +73,7 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
             }
             
             if(!isConstructCallExpression && symbol && symbol.flags & ts.SymbolFlags.Class) {
-                const returnType = wrapSafe(typeChecker.getReturnTypeOfSignature)(constructSignatures[0])
+                const returnType = wrapSafe((sig: ts.Signature) => typeChecker.getReturnTypeOfSignature(sig))(constructSignatures[0])
 
                 type = returnType ?? type
             }
@@ -284,13 +284,13 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
 
         return {
             symbolMeta: wrapSafe(getSymbolInfo)(getNodeSymbol(typeChecker, signature.getDeclaration())),
-            parameters: signature.getParameters().map((parameter, index) => getFunctionParameterInfo(parameter, signature, index)),
+            parameters: signature.getParameters().map((parameter) => getFunctionParameterInfo(parameter, signature)),
             ...includeReturnType && { returnType: parseType(typeChecker.getReturnTypeOfSignature(signature)) },
             ...typeParameters && { typeParameters: parseTypes(typeParameters) },
         }
     }
 
-    function getFunctionParameterInfo(parameter: ts.Symbol, signature: ts.Signature, index: number): TypeInfo {
+    function getFunctionParameterInfo(parameter: ts.Symbol, signature: ts.Signature): TypeInfo {
         const { optional, isRest } = getParameterInfo(typeChecker, parameter, signature)
 
         return parseSymbol(parameter, {
@@ -301,8 +301,10 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
     function getIndexInfo(indexInfo: TSIndexInfoMerged): IndexInfo {
         const { typeChecker } = ctx
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const parameterSymbol: ts.Symbol =
-            // @ts-expect-error
+            // @ts-expect-error This info exists on the object but is not publicly exposed by type info
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             indexInfo?.declaration?.parameters?.[0]?.symbol
          ?? indexInfo?.parameterType?.getSymbol()
 
@@ -317,7 +319,7 @@ function _generateTypeTree({ symbol, type, node }: SymbolOrType, ctx: TypeTreeCo
         }
     }
     
-    function getSymbolInfo(symbol: ts.Symbol, isAnonymous: boolean = false, options: TypeTreeOptions = {}): SymbolInfo {
+    function getSymbolInfo(symbol: ts.Symbol, isAnonymous = false, options: TypeTreeOptions = {}): SymbolInfo {
         const parameterInfo = getParameterInfo(typeChecker, symbol)
 
         const optional = options.optional ?? parameterInfo.optional

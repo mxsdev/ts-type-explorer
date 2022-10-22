@@ -1,10 +1,12 @@
-import { TypeInfo, TypeId, getTypeInfoChildren, SymbolInfo, SignatureInfo, IndexInfo, pseudoBigIntToString, LocalizedTypeInfo, TypeInfoMap, SourceFileLocation, TypeInfoLocalizer, localizePurpose } from '@ts-expand-type/api'
+/* eslint-disable @typescript-eslint/require-await */
+
+import { LocalizedTypeInfo, TypeInfoLocalizer, localizePurpose } from '@ts-expand-type/api'
 import assert = require('assert');
 import * as vscode from 'vscode'
-import { TSExplorer } from '../config';
+import { showTypeParameterInfo, showBaseClassInfo, iconsEnabled, iconColorsEnabled } from '../config';
 import { markdownDocumentation } from '../markdown';
 import { StateManager } from '../state/stateManager';
-import { fromFileLocationRequestArgs, getQuickInfoAtPosition, rangeFromLineAndCharacters } from '../util';
+import { getQuickInfoAtPosition, lineAndCharToPosition, rangeFromLineAndCharacters } from '../util';
 
 const { None: NoChildren, Expanded, Collapsed } = vscode.TreeItemCollapsibleState
 
@@ -24,7 +26,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     async getTreeItem(element: TypeTreeItem) {
         if(element.typeInfo.locations) {
             for(const location of element.typeInfo.locations) {
-                const { documentation, tags } = await getQuickInfoAtPosition(location.fileName, location.range.start) ?? { }
+                const { documentation, tags } = await getQuickInfoAtPosition(location.fileName, lineAndCharToPosition(location.range.start)) ?? { }
 
                 if(documentation) {
                     element.tooltip = markdownDocumentation(documentation, tags ?? [], vscode.Uri.file(location.fileName))
@@ -46,10 +48,12 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
 
             return [this.createTypeNode(localizedTypeInfo, /* root */ undefined)]
         } else {
-            return this.typeInfoLocalizer!
+            assert(this.typeInfoLocalizer, "typeInfoLocalizer should exist")
+
+            return this.typeInfoLocalizer
                 .localizeChildren(element.typeInfo).map(info => this.createTypeNode(info, element))
-                .filter(({ typeInfo: { purpose }}) => TSExplorer.Config.TypeTreeView.showTypeParameterInfo() || !(purpose === 'type_argument_list' || purpose === 'type_parameter_list'))
-                .filter(({ typeInfo: { purpose }}) => TSExplorer.Config.TypeTreeView.showBaseClassInfo() || !(purpose === "class_base_type" || purpose === "class_implementations" || purpose === "object_class"))
+                .filter(({ typeInfo: { purpose }}) => showTypeParameterInfo() || !(purpose === 'type_argument_list' || purpose === 'type_parameter_list'))
+                .filter(({ typeInfo: { purpose }}) => showBaseClassInfo() || !(purpose === "class_base_type" || purpose === "class_implementations" || purpose === "object_class"))
         }
     }
 
@@ -92,15 +96,13 @@ export class TypeTreeItem extends vscode.TreeItem {
         const location = this.typeInfo.locations[this.definitionIndex]
         this.definitionIndex = (this.definitionIndex + 1) % this.typeInfo.locations.length
 
-        const range = {
-            start: (location.range.start),
-            end: (location.range.end),
-        }
-
         const args: [ vscode.Uri, vscode.TextDocumentShowOptions] = [
             vscode.Uri.file(location.fileName),
             {
-                selection: rangeFromLineAndCharacters(range.start, range.end)
+                selection: rangeFromLineAndCharacters(
+                    location.range.start,
+                    location.range.end
+                )
             }
         ]
 
@@ -175,7 +177,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
     type IconId = [id: string, colorId?: string]
 
     function getIcon(): vscode.ThemeIcon|undefined {
-        if(!TSExplorer.Config.TypeTreeView.iconsEnabled()) {
+        if(!iconsEnabled()) {
             return undefined
         }
 
@@ -184,9 +186,10 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
             return undefined
         }
 
-        let [ id, colorId ] = iconIds
+        const [ id ] = iconIds
+        let [ colorId ] = iconIds
 
-        if(!TSExplorer.Config.TypeTreeView.iconColorsEnabled()) {
+        if(!iconColorsEnabled()) {
             colorId = "icon.foreground"
         }
 

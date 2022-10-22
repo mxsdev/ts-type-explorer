@@ -1,20 +1,19 @@
-import { multilineTypeToString, getSymbolType, recursivelyExpandType, generateTypeTree, getNodeType, getNodeSymbol, getDescendantAtPosition } from "@ts-expand-type/api";
+import { getSymbolType, generateTypeTree, getNodeType, getNodeSymbol, getDescendantAtPosition } from "@ts-expand-type/api";
 import type { ExpandedQuickInfo } from "./types";
-import * as ts_orig from "typescript"
-import { TypeChecker, Node } from "typescript/lib/tsserverlibrary";
 import { isValidType } from "@ts-expand-type/api/dist/util";
+import type * as ts from "typescript/lib/tsserverlibrary"
 
 // TODO: add config for e.g. max depth
 
-function init(modules: { typescript: typeof import("typescript/lib/tsserverlibrary") }) {
-    const ts = modules.typescript
-
+function init( /* modules: { typescript: typeof import("typescript/lib/tsserverlibrary") } */ ) {
     function create(info: ts.server.PluginCreateInfo) {
       // Set up decorator object
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const proxy: ts.LanguageService = Object.create(null);
-      for (let k of Object.keys(info.languageService) as Array<keyof ts.LanguageService>) {
+      for (const k of Object.keys(info.languageService) as Array<keyof ts.LanguageService>) {
         const x = info.languageService[k]!;
         // @ts-expect-error - JS runtime trickery which is tricky to type tersely
+        // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-unsafe-return
         proxy[k] = (...args: Array<{}>) => x.apply(info.languageService, args);
       }
 
@@ -30,8 +29,8 @@ function init(modules: { typescript: typeof import("typescript/lib/tsserverlibra
 
         if(!sourceFile) return prior
 
-        // const node: ts.Node = ts.getTouchingPropertyName(sourceFile, position);
         const node = getDescendantAtPosition(sourceFile, position)
+
         if (!node || node === sourceFile) {
             // Avoid giving quickInfo for the sourceFile as a whole.
             return prior
@@ -72,27 +71,6 @@ function getDisplayTree(typeChecker: ts.TypeChecker, node: ts.Node) {
   }
 
   return undefined
-}
-
-function getDisplayType(typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, node: ts.Node): string|undefined {
-    const symbol = typeChecker.getSymbolAtLocation(node)
-    if(!symbol) return undefined
-
-    const type = getSymbolType(typeChecker, symbol, node)
-    const expandedType = recursivelyExpandType(typeChecker, type)
-    
-    const typeString = multilineTypeToString(typeChecker, sourceFile, expandedType, undefined, ts_orig.NodeBuilderFlags.MultilineObjectLiterals | ts_orig.NodeBuilderFlags.InTypeAlias)
-
-    return typeString
-}
-
-function getTypeNode(typeChecker: TypeChecker, node: Node): ts_orig.TypeNode | undefined {
-  const symbol = typeChecker.getSymbolAtLocation(node)
-  if(!symbol) return undefined
-
-  const type = getSymbolType(typeChecker, symbol, node)
-
-  return typeChecker.typeToTypeNode(type, node, undefined)
 }
 
 export = init

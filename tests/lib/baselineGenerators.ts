@@ -1,13 +1,13 @@
-import { multilineTypeToString, recursivelyExpandType, generateTypeTree, TypeInfoLocalizer } from "@ts-expand-type/api"
-import { typeBaselineGenerator, symbolBaselineGenerator, BaselineGenerator } from "./baselineGeneratorUtils"
+import { generateTypeTree, TypeInfoLocalizer } from "@ts-expand-type/api"
+import { symbolBaselineGenerator, BaselineGenerator } from "./baselineGeneratorUtils"
 import { normalizeTypeTree, normalizeLocalizedTypeTree } from "./normalize";
 
-const stringify = (obj: any) => JSON.stringify(obj, undefined, 4);
+const stringify = (obj: unknown) => JSON.stringify(obj, undefined, 4);
 
-const mergeBaselineGenerator = typeBaselineGenerator(
-    (typeChecker, sourceFile, type) => 
-        multilineTypeToString(typeChecker, sourceFile, recursivelyExpandType(typeChecker, type))
-)
+// const mergeBaselineGenerator = typeBaselineGenerator(
+//     (typeChecker, sourceFile, type) => 
+//         multilineTypeToString(typeChecker, sourceFile, recursivelyExpandType(typeChecker, type))
+// )
 
 const treeBaselineGenerator = symbolBaselineGenerator(
     (typeChecker, sourceFile, symbol, node) =>

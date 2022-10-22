@@ -1,7 +1,3 @@
-// namespace Defaults {
-//     export const MAX_DEPTH = 6
-// }
-
 export class APIConfig {
-    public maxDepth: number = 6
+    public maxDepth = 6
 }

@@ -30,9 +30,10 @@ export function generateBaseline(generator: BaselineGeneratorFunction, sourceFil
         .join("\n\n")
 }
 
-function generateBaselineRecursive(generator: BaselineGeneratorFunction, node: ts.Node, typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, depth: number = 0): string[] {
-    let line: string = `${node.getText()}`
+function generateBaselineRecursive(generator: BaselineGeneratorFunction, node: ts.Node, typeChecker: ts.TypeChecker, sourceFile: ts.SourceFile, depth = 0): string[] {
+    let line = `${node.getText()}`
     const generated = generator(typeChecker, sourceFile, node)
+
     if(generated) {
         line += ` --- ${generated}`
     }

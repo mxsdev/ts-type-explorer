@@ -50,7 +50,7 @@ export const KindText: Record<LocalizableKind|'method', string> = {
 
 export function getKindText(kind: LocalizableKind, { insideClassOrInterface }: { insideClassOrInterface?: boolean } = {}, ...args: string[]) {
     return args.reduce<string>((prev, curr, i) => {
-        return prev.replace(new RegExp(`\\\$${i+1}`, "g"), curr)
+        return prev.replace(new RegExp(`\\$${i+1}`, "g"), curr)
     }, KindText[(kind === 'function' && insideClassOrInterface) ? 'method' : kind])
 }
 

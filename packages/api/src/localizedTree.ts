@@ -1,10 +1,9 @@
-import assert from "assert"
+import * as assert from "assert"
 import * as ts from "typescript"
 import { getKindText, getPrimitiveKindText, LocalizableKind } from "./localization"
 import { IndexInfo, SignatureInfo, SourceFileLocation, SymbolInfo, TypeId, TypeInfo, TypeInfoKind } from "./types"
 import { getTypeInfoChildren } from "./tree"
 import { getEmptyTypeId, isEmpty, isNonEmpty, pseudoBigIntToString, wrapSafe } from "./util"
-import { unwatchFile } from "fs"
 
 export class TypeInfoLocalizer {
     private includeIds = false
@@ -31,7 +30,7 @@ export class TypeInfoLocalizer {
                     opts ??= {}
                     opts.includeIds = true
                 }
-    
+
                 return _localizeTypeInfo(info!, { typeInfoMap: this.typeInfoMap }, opts)
             }
         ) ?? []

@@ -1,5 +1,6 @@
 import { ExpandedQuickInfo } from '@ts-expand-type/typescript-explorer-tsserver/dist/types'
 import * as vscode from 'vscode'
+import type * as ts from 'typescript'
 
 export const toFileLocationRequestArgs = (file: string, position: vscode.Position) => ({
 	file,
@@ -7,19 +8,21 @@ export const toFileLocationRequestArgs = (file: string, position: vscode.Positio
 	offset: position.character + 1,
 })
 
-type LineAndCharacter = { line: number, character: number }
-
 export const fromFileLocationRequestArgs = (position: { line: number, character: number }) => ({
 	line: position.line - 1,
 	character: position.character - 1,
 })
 
-export const positionFromLineAndCharacter = ({ line, character }: LineAndCharacter) => new vscode.Position(line, character)
+export const positionFromLineAndCharacter = ({ line, character }: ts.LineAndCharacter) => new vscode.Position(line, character)
 
-export const rangeFromLineAndCharacters = (start: LineAndCharacter, end: LineAndCharacter) => new vscode.Range(
+export const rangeFromLineAndCharacters = (start: ts.LineAndCharacter, end: ts.LineAndCharacter) => new vscode.Range(
 	positionFromLineAndCharacter(start),
 	positionFromLineAndCharacter(end),
 )
+
+export function lineAndCharToPosition({line, character}: ts.LineAndCharacter): vscode.Position {
+	return new vscode.Position(line, character)
+}
 
 export function getTypescriptMd(code: string) {
 	const mds = new vscode.MarkdownString()

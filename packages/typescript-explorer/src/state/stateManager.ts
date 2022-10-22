@@ -1,20 +1,16 @@
 import { TypeInfo } from '@ts-expand-type/api'
-import assert = require('assert')
-import { toEditorSettings } from 'typescript'
 import * as vscode from 'vscode'
-import { TSExplorer } from '../config'
+import { selectionEnabled } from '../config'
 import { getQuickInfoAtPosition, showError } from '../util'
 import { TypeTreeItem, TypeTreeProvider } from '../view/typeTreeView'
 import { ViewProviders } from '../view/views'
 
 export class StateManager {
-    constructor() { }
-    
     private typeTree: TypeInfo|undefined
     private typeTreeProvider?: TypeTreeProvider
 
-    private selectionLocked: boolean = false
-    private selectionEnabled: boolean = true
+    private selectionLocked = false
+    private selectionEnabled = true
 
     init(context: vscode.ExtensionContext, { typeTreeProvider }: ViewProviders) {
         this.typeTreeProvider = typeTreeProvider
@@ -104,7 +100,7 @@ export class StateManager {
     }
 
     private updateSelectionContext() {
-        this.selectionEnabled = TSExplorer.Config.TypeTreeView.selectionEnabled()
+        this.selectionEnabled = selectionEnabled()
         vscode.commands.executeCommand("setContext", "typescriptExplorer.selection.enabled", this.selectionEnabled)
     }
 
@@ -117,7 +113,7 @@ export class StateManager {
         return this.selectionLocked || !this.selectionEnabled
     }
 
-    selectTypeAtPosition(fileName: string, selections: readonly vscode.Selection[], ignoreSelectionLock: boolean = false) {
+    selectTypeAtPosition(fileName: string, selections: readonly vscode.Selection[], ignoreSelectionLock = false) {
         if(this.getSelectionLock() && !ignoreSelectionLock) {
             return
         }
@@ -131,6 +127,10 @@ export class StateManager {
             .then((body) => {
                 const { __displayTree } = body ?? {}
                 this.setTypeTree(__displayTree)
+            })
+            .catch(e => {
+                showError("Error getting quick info")
+                console.error("Quick info error", e)
             })
     }
 }

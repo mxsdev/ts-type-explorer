@@ -1,2 +1,6 @@
 {
+    "exclude": ["./packages/**"],
+    "compilerOptions": {
+        "esModuleInterop": true
+    }
 } 

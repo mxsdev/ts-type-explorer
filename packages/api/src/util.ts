@@ -1,5 +1,4 @@
-import { deepStrictEqual } from "assert"
-import ts from "typescript"
+import * as ts from "typescript"
 import { SourceFileLocation, TypeId } from "./types"
 
 export type SymbolName = ts.__String
@@ -8,12 +7,14 @@ type TypeConstructor = new (checker: ts.TypeChecker, flags: ts.TypeFlags) => ts.
 type SymbolConstructor = new (flags: ts.SymbolFlags, name: SymbolName) => ts.Symbol
 
 function getTypeConstructor() {
-    // @ts-expect-error
+    // @ts-expect-error objectAllocator exists but is not exposed by types publicly
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     return ts.objectAllocator.getTypeConstructor() as TypeConstructor
 }
 
 function getSymbolConstructor() {
-    // @ts-expect-error
+    // @ts-expect-error objectAllocator exists but is not exposed by types publicly
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     return ts.objectAllocator.getSymbolConstructor() as SymbolConstructor
 }
 
@@ -28,6 +29,7 @@ export type ObjectType = ts.ObjectType & {
 
 type TransientSymbol = ts.Symbol & { checkFlags: number }
 type NodeWithTypeArguments = ts.Node & { typeArguments?: ts.NodeArray<ts.TypeNode> }
+type NodeWithJsDoc = ts.Node & { jsDoc?: ts.Node[] | undefined }
 
 export type UnionTypeInternal = ts.UnionType & { id: number }
 export type IntersectionTypeInternal = ts.IntersectionType & { id: number }
@@ -219,7 +221,7 @@ export function multilineTypeToString(typeChecker: ts.TypeChecker, sourceFile: t
     return printer.printNode(ts.EmitHint.Unspecified, typeNode, sourceFile)
 }
 
-export function wrapSafe<T, Args extends Array<any>, Return>(wrapped: (arg1: T, ...args: Args) => Return): (arg1: T|undefined, ...args: Args) => Return|undefined {
+export function wrapSafe<T, Args extends Array<unknown>, Return>(wrapped: (arg1: T, ...args: Args) => Return): (arg1: T|undefined, ...args: Args) => Return|undefined {
     return (arg1, ...args) => arg1 === undefined ? arg1 as undefined : wrapped(arg1, ...args)
 }
 
@@ -231,7 +233,7 @@ export function isEmpty<T>(arr: readonly T[]|undefined): arr is undefined {
     return !isNonEmpty<T>(arr)
 }
 
-export function arrayContentsEqual(x: readonly any[], y: readonly any[]) {
+export function arrayContentsEqual(x: readonly unknown[], y: readonly unknown[]) {
     return (x.length === y.length && x.every((el, i) => y[i] == el))
 }
 
@@ -281,12 +283,12 @@ export function isClassOrInterfaceType(type: ts.Type): type is ts.InterfaceType 
 
 export function isArrayType(type: ts.Type): type is ts.TypeReference {
     return !!(isObjectReference(type)) 
-        && ((type as ts.TypeReference).target.getSymbol()?.getName() === "Array")
+        && (type.target.getSymbol()?.getName() === "Array")
         // && getTypeArguments(typeChecker, type).length >= 1
 }
 
 export function isTupleType(type: ts.Type): type is ts.TypeReference {
-    return !!(isObjectReference(type) && ((type as ts.TypeReference).target.objectFlags & ts.ObjectFlags.Tuple))
+    return !!(isObjectReference(type) && (type.target.objectFlags & ts.ObjectFlags.Tuple))
 }
 
 export function isObjectReference(type: ts.Type): type is ts.TypeReference {
@@ -372,7 +374,8 @@ export function pseudoBigIntToString(value: ts.PseudoBigInt) {
 }
 
 export function getImplementsTypes(typeChecker: ts.TypeChecker, type: ts.InterfaceType): ts.BaseType[] {
-    let resolvedImplementsTypes: ts.BaseType[] = []
+    const resolvedImplementsTypes: ts.BaseType[] = []
+
     if (type.symbol?.declarations) {
         for (const declaration of type.symbol.declarations) {
             const implementsTypeNodes = getEffectiveImplementsTypeNodes(declaration as ts.ClassLikeDeclaration);
@@ -498,7 +501,7 @@ export function getDescendantAtRange(sourceFile: ts.SourceFile, range: [number, 
 
 function getStartSafe(node: ts.Node, sourceFile: ts.SourceFile) {
     // workaround for compiler api bug with getStart(sourceFile, true) (see PR #35029 in typescript repo)
-    const jsDocs = ((node as any).jsDoc) as ts.Node[] | undefined;
+    const jsDocs = (node as NodeWithJsDoc).jsDoc
     if (jsDocs && jsDocs.length > 0) {
       return jsDocs[0].getStart(sourceFile);
     }

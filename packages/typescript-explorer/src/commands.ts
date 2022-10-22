@@ -1,19 +1,18 @@
 import { ViewProviders } from './view/views';
-import { TSExplorer } from "./config";
+import { toggleIconColorsEnabled, toggleIconsEnabled, toggleSelectionEnabled, toggleShowBaseClassInfo, toggleShowTypeParameterInfo } from "./config";
 import * as vscode from 'vscode'
-import { TypeTreeProvider } from './view/typeTreeView';
 
-type CommandHandler = (...args: any[]) => void|Thenable<void>
+type CommandHandler = (...args: unknown[]) => void|Thenable<void>
 type CommandInfo = [id: string, handler: CommandHandler]
 
 const normalCommands: CommandInfo[] = [ ]
 
 const typeTreeViewCommands: RefreshableCommandInfo[] = [
-	["typescriptExplorer.typeTree.view.icons.enabled.toggle", "typescriptExplorer.typeTree.view.icons.enable", TSExplorer.Config.TypeTreeView.toggleIconsEnabled],
-	["typescriptExplorer.typeTree.view.icons.colors.enabled.toggle", "typescriptExplorer.typeTree.view.icons.colors.enable", TSExplorer.Config.TypeTreeView.toggleIconColorsEnabled],
-	["typescriptExplorer.typeTree.view.show.typeParameters.toggle", "typescriptExplorer.typeTree.view.show.typeParameters", TSExplorer.Config.TypeTreeView.toggleShowTypeParameterInfo],
-	["typescriptExplorer.typeTree.view.show.baseClass.toggle", "typescriptExplorer.typeTree.view.show.baseClass", TSExplorer.Config.TypeTreeView.toggleShowBaseClassInfo],
-	["typescriptExplorer.typeTree.selection.enable.toggle", "typescriptExplorer.typeTree.selection.enable", TSExplorer.Config.TypeTreeView.toggleSelectionEnabled, false ]
+	["typescriptExplorer.typeTree.view.icons.enabled.toggle", "typescriptExplorer.typeTree.view.icons.enable", toggleIconsEnabled],
+	["typescriptExplorer.typeTree.view.icons.colors.enabled.toggle", "typescriptExplorer.typeTree.view.icons.colors.enable", toggleIconColorsEnabled],
+	["typescriptExplorer.typeTree.view.show.typeParameters.toggle", "typescriptExplorer.typeTree.view.show.typeParameters", toggleShowTypeParameterInfo],
+	["typescriptExplorer.typeTree.view.show.baseClass.toggle", "typescriptExplorer.typeTree.view.show.baseClass", toggleShowBaseClassInfo],
+	["typescriptExplorer.typeTree.selection.enable.toggle", "typescriptExplorer.typeTree.selection.enable", toggleSelectionEnabled, false ]
 ]
 
 export function registerCommands(context: vscode.ExtensionContext, { typeTreeProvider }: ViewProviders) {
