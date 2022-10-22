@@ -2,7 +2,7 @@
     "references": [
         { "path": "./packages/api" },
         { "path": "./packages/typescript-explorer" },
-        { "path": "./packages/typescript-explorer-tsserver" },
+        { "path": "./packages/typescript-explorer-tsserver" }
     ],
     "files": [],
     "include": [],

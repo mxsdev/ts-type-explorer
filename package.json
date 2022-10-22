@@ -1,33 +1,38 @@
 {
-  "name": "ts-expand-type",
-  "version": "0.0.1",
-  "type": "commonjs",
-  "private": true,
-  "license": "MIT",
-  "scripts": {
-    "build": "tsc -b",
-    "watch": "tsc -b --watch",
-    "test": "mocha",
-    "baseline-accept": "ts-node ./scripts/acceptBaselines.ts",
-    "lint": "eslint ."
-  },
-  "workspaces": [
-    "packages/*"
-  ],
-  "devDependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "@types/glob": "^8.0.0",
-    "@types/mocha": "^10.0.0",
-    "@types/node": "^18.8.0",
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
-    "eslint": "^8.26.0",
-    "eslint-config-prettier": "^8.5.0",
-    "fs-extra": "^10.1.0",
-    "glob": "^8.0.3",
-    "lerna": "^5.5.4",
-    "mocha": "^10.0.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
-  }
+    "name": "ts-expand-type",
+    "version": "0.0.1",
+    "type": "commonjs",
+    "private": true,
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc -b",
+        "watch": "tsc -b --watch",
+        "test": "mocha",
+        "baseline-accept": "ts-node ./scripts/acceptBaselines.ts",
+        "lint": "eslint ."
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "@types/fs-extra": "^9.0.13",
+        "@types/glob": "^8.0.0",
+        "@types/mocha": "^10.0.0",
+        "@types/node": "^18.8.0",
+        "@typescript-eslint/eslint-plugin": "^5.40.1",
+        "@typescript-eslint/parser": "^5.40.1",
+        "eslint": "^8.26.0",
+        "eslint-config-prettier": "^8.5.0",
+        "fs-extra": "^10.1.0",
+        "glob": "^8.0.3",
+        "lerna": "^5.5.4",
+        "mocha": "^10.0.0",
+        "prettier": "2.7.1",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.8.4"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "semi": false
+    }
 }

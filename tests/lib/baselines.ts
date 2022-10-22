@@ -3,25 +3,33 @@
 import * as ts from "typescript"
 import path from "path"
 import fs from "fs-extra"
-import { baselinesLocalPath, baselinesReferencePath, testCasePath } from "./files"
+import {
+    baselinesLocalPath,
+    baselinesReferencePath,
+    testCasePath,
+} from "./files"
 import assert from "assert"
 import glob from "glob"
-import { BaselineGenerators } from "./baselineGenerators";
-import { generateBaseline } from "./baselineGeneratorUtils";
+import { BaselineGenerators } from "./baselineGenerators"
+import { generateBaseline } from "./baselineGeneratorUtils"
 
-function getTestGlob(): string|undefined { return process.env["TESTS"] }
+function getTestGlob(): string | undefined {
+    return process.env["TESTS"]
+}
 
 export async function getTestCases(): Promise<string[]> {
     const globbed = await new Promise<string[]>((resolve, reject) => {
-         glob(getTestGlob() ?? "*", { cwd: testCasePath }, (err, files) => {
-            if(err) {
+        glob(getTestGlob() ?? "*", { cwd: testCasePath }, (err, files) => {
+            if (err) {
                 reject(err)
             }
             resolve(files)
         })
     })
 
-    return globbed.filter(name => path.parse(name).ext.toLowerCase() === ".ts")
+    return globbed.filter(
+        (name) => path.parse(name).ext.toLowerCase() === ".ts"
+    )
 }
 
 function getTestName(filePath: string) {
@@ -29,49 +37,56 @@ function getTestName(filePath: string) {
 }
 
 export async function acceptBaselines() {
-    await fs.copy(
-        baselinesLocalPath,
-        baselinesReferencePath,
-        {
-            overwrite: true,
-        }
-    )
+    await fs.copy(baselinesLocalPath, baselinesReferencePath, {
+        overwrite: true,
+    })
 
     await clearLocalBaselines()
 }
-
 
 export async function generateBaselineTests() {
     const allTestCases = await getTestCases()
 
     describe("baselines", () => {
-        for(const testName of allTestCases) {
+        for (const testName of allTestCases) {
             const filePath = path.join(testCasePath, testName)
-    
+
             const test = getTestName(filePath)
 
             describe(`${testName} baselines`, () => {
                 BaselineGenerators.forEach((baseline) => {
                     const testFileName = `${test}${baseline.extension}`
-                    
+
                     it(`Baseline ${testFileName}`, async () => {
                         const program = getProgram(filePath)
                         const sourceFile = program.getSourceFile(filePath)!
                         const typeChecker = program.getTypeChecker()
 
-                        const correct = [`=== ${testName} ===`, "", generateBaseline(baseline.generator, sourceFile, typeChecker)].join("\n")
+                        const correct = [
+                            `=== ${testName} ===`,
+                            "",
+                            generateBaseline(
+                                baseline.generator,
+                                sourceFile,
+                                typeChecker
+                            ),
+                        ].join("\n")
                         const against = await fs
-                            .readFile(path.join(baselinesReferencePath, testFileName))
+                            .readFile(
+                                path.join(baselinesReferencePath, testFileName)
+                            )
                             .catch(() => undefined)
-                            .then((v: Buffer|undefined) => v?.toString())
-    
+                            .then((v: Buffer | undefined) => v?.toString())
+
                         try {
                             assert.strictEqual(correct, against)
-                        } catch(e) {
-                            await fs.writeFile(path.join(baselinesLocalPath, testFileName), correct)
+                        } catch (e) {
+                            await fs.writeFile(
+                                path.join(baselinesLocalPath, testFileName),
+                                correct
+                            )
                             throw e
                         }
-    
                     })
                 })
             })
@@ -85,6 +100,6 @@ export async function clearLocalBaselines() {
 }
 
 function getProgram(filePath: string): ts.Program {
-    const program = ts.createProgram([filePath], { })
+    const program = ts.createProgram([filePath], {})
     return program
 }

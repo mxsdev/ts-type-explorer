@@ -16,7 +16,7 @@ To install locally, first install the package as a dev dependency (`npm i -D ts-
         // ...
         "plugins": [
             {
-                "name": "ts-expand-type",
+                "name": "ts-expand-type"
                 // ...config options
             }
         ]
@@ -33,17 +33,17 @@ Note that if you are using VSCode, an extension is planned to integrate this fea
 
 Configuration options are set in the `plugins` options - see above. Available configuration options:
 
- - `multilineObjectLiterals`: Whether to force all object literals to be rendered across multiple lines. Defaults to `true`
- - `includeOriginal`: Whether to include the original quick info or override it with type info. Defaults to `false`
- - `typePrefix`: Whether to prefix the type info with the text `(type)`. Defaults to `true` if `includeOriginal` is set, and `false` otherwise.
+-   `multilineObjectLiterals`: Whether to force all object literals to be rendered across multiple lines. Defaults to `true`
+-   `includeOriginal`: Whether to include the original quick info or override it with type info. Defaults to `false`
+-   `typePrefix`: Whether to prefix the type info with the text `(type)`. Defaults to `true` if `includeOriginal` is set, and `false` otherwise.
 
 ## Planned Features
 
 Planned features:
 
- - [x] Support for mapped types
- - [ ] Union merging ([#1](https://github.com/mxsdev/ts-expand-type/issues/1))
- - [ ] Support for function types
+-   [x] Support for mapped types
+-   [ ] Union merging ([#1](https://github.com/mxsdev/ts-expand-type/issues/1))
+-   [ ] Support for function types
 
 ## Usage as a Library
 

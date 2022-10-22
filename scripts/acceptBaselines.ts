@@ -1,3 +1,3 @@
-import { acceptBaselines } from "../tests/lib/baselines";
+import { acceptBaselines } from "../tests/lib/baselines"
 
 acceptBaselines()

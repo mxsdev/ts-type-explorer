@@ -1,9 +1,27 @@
 import * as assert from "assert"
 import * as ts from "typescript"
-import { getKindText, getPrimitiveKindText, LocalizableKind } from "./localization"
-import { IndexInfo, SignatureInfo, SourceFileLocation, SymbolInfo, TypeId, TypeInfo, TypeInfoKind } from "./types"
+import {
+    getKindText,
+    getPrimitiveKindText,
+    LocalizableKind,
+} from "./localization"
+import {
+    IndexInfo,
+    SignatureInfo,
+    SourceFileLocation,
+    SymbolInfo,
+    TypeId,
+    TypeInfo,
+    TypeInfoKind,
+} from "./types"
 import { getTypeInfoChildren } from "./tree"
-import { getEmptyTypeId, isEmpty, isNonEmpty, pseudoBigIntToString, wrapSafe } from "./util"
+import {
+    getEmptyTypeId,
+    isEmpty,
+    isNonEmpty,
+    pseudoBigIntToString,
+    wrapSafe,
+} from "./util"
 
 export class TypeInfoLocalizer {
     private includeIds = false
@@ -14,32 +32,43 @@ export class TypeInfoLocalizer {
     }
 
     localize(info: TypeInfo) {
-        return _localizeTypeInfo(info, { typeInfoMap: this.typeInfoMap }, { includeIds: this.includeIds })
+        return _localizeTypeInfo(
+            info,
+            { typeInfoMap: this.typeInfoMap },
+            { includeIds: this.includeIds }
+        )
     }
 
     localizeChildren(info: LocalizedTypeInfo): LocalizedTypeInfo[] {
-        return info.children?.map(
-            ({info, localizedInfo, opts}) => {
-                assert(info || localizedInfo, "Either info or localized info must be provided")
-    
-                if(localizedInfo) {
+        return (
+            info.children?.map(({ info, localizedInfo, opts }) => {
+                assert(
+                    info || localizedInfo,
+                    "Either info or localized info must be provided"
+                )
+
+                if (localizedInfo) {
                     return localizedInfo
                 }
 
-                if(this.includeIds) {
+                if (this.includeIds) {
                     opts ??= {}
                     opts.includeIds = true
                 }
 
-                return _localizeTypeInfo(info!, { typeInfoMap: this.typeInfoMap }, opts)
-            }
-        ) ?? []
+                return _localizeTypeInfo(
+                    info!,
+                    { typeInfoMap: this.typeInfoMap },
+                    opts
+                )
+            }) ?? []
+        )
     }
 
     /**
      * Sets localizer to debug mode, which will include id information in
      * resultant localized type info.
-     * 
+     *
      * This is used by the test runner to identify circular paths.
      */
     debug(): this {
@@ -48,51 +77,95 @@ export class TypeInfoLocalizer {
     }
 }
 
-
 function generateTypeInfoMap(tree: TypeInfo, cache?: TypeInfoMap): TypeInfoMap {
     cache ??= new Map()
 
-    if(tree.kind === 'reference') { return cache }
+    if (tree.kind === "reference") {
+        return cache
+    }
     cache.set(tree.id, tree)
-    getTypeInfoChildren(tree).forEach(c => generateTypeInfoMap(c, cache))
+    getTypeInfoChildren(tree).forEach((c) => generateTypeInfoMap(c, cache))
 
     return cache
 }
 
-export type TypePurpose = 'return'|'index_type'|'index_value_type'|'index_parameter_type'|'conditional_check'|'conditional_extends'|'conditional_true'|'conditional_false'|'keyof'|'indexed_access_index'|'indexed_access_base'|'parameter_default'|'parameter_base_constraint'|'class_constructor'|'class_base_type'|'class_implementations'|'object_class'|'type_parameter_list'|'type_argument_list'|'parameter_value'
+export type TypePurpose =
+    | "return"
+    | "index_type"
+    | "index_value_type"
+    | "index_parameter_type"
+    | "conditional_check"
+    | "conditional_extends"
+    | "conditional_true"
+    | "conditional_false"
+    | "keyof"
+    | "indexed_access_index"
+    | "indexed_access_base"
+    | "parameter_default"
+    | "parameter_base_constraint"
+    | "class_constructor"
+    | "class_base_type"
+    | "class_implementations"
+    | "object_class"
+    | "type_parameter_list"
+    | "type_argument_list"
+    | "parameter_value"
 
-type ResolvedTypeInfo = Exclude<TypeInfo, {kind: 'reference'}>
-type LocalizedSymbolInfo = { name: string, anonymous?: boolean, insideClassOrInterface?: boolean, property?: boolean, locations?: SourceFileLocation[], isArgument?: boolean }
+type ResolvedTypeInfo = Exclude<TypeInfo, { kind: "reference" }>
+type LocalizedSymbolInfo = {
+    name: string
+    anonymous?: boolean
+    insideClassOrInterface?: boolean
+    property?: boolean
+    locations?: SourceFileLocation[]
+    isArgument?: boolean
+}
 
-type TypeInfoChildren = ({ info?: TypeInfo, localizedInfo?: LocalizedTypeInfo, opts?: LocalizeOpts })[]
+type TypeInfoChildren = {
+    info?: TypeInfo
+    localizedInfo?: LocalizedTypeInfo
+    opts?: LocalizeOpts
+}[]
 
 export type LocalizedTypeInfo = {
-    kindText?: string,
-    kind?: ResolvedTypeInfo['kind']|'signature'|'index_info',
-    primitiveKind?: TypeInfoKind<'primitive'>['primitive'],
-    alias?: string,
-    symbol?: LocalizedSymbolInfo,
-    name?: string,
-    purpose?: TypePurpose,
-    optional?: boolean,
-    dimension?: number,
-    rest?: boolean,
-    children?: TypeInfoChildren,
-    locations?: SourceFileLocation[],
+    kindText?: string
+    kind?: ResolvedTypeInfo["kind"] | "signature" | "index_info"
+    primitiveKind?: TypeInfoKind<"primitive">["primitive"]
+    alias?: string
+    symbol?: LocalizedSymbolInfo
+    name?: string
+    purpose?: TypePurpose
+    optional?: boolean
+    dimension?: number
+    rest?: boolean
+    children?: TypeInfoChildren
+    locations?: SourceFileLocation[]
     /**
      * Debug id information, used by test runner
      * to identify and remove cycles
      */
-    _id?: TypeId,
+    _id?: TypeId
 }
 
 export type TypeInfoMap = Map<TypeId, ResolvedTypeInfo>
 
-type LocalizeOpts = { optional?: boolean, purpose?: TypePurpose, name?: string, typeArguments?: TypeInfo[], typeArgument?: TypeInfo, includeIds?: boolean }
+type LocalizeOpts = {
+    optional?: boolean
+    purpose?: TypePurpose
+    name?: string
+    typeArguments?: TypeInfo[]
+    typeArgument?: TypeInfo
+    includeIds?: boolean
+}
 type LocalizeData = { typeInfoMap: TypeInfoMap }
 
-function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpts = {}): LocalizedTypeInfo {
-    const resolveInfo = (typeInfo: TypeInfo) => resolveTypeReferenceOrArray(typeInfo, typeInfoMap)
+function _localizeTypeInfo(
+    info: TypeInfo,
+    data: LocalizeData,
+    opts: LocalizeOpts = {}
+): LocalizedTypeInfo {
+    const resolveInfo = (typeInfo: TypeInfo) =>
+        resolveTypeReferenceOrArray(typeInfo, typeInfoMap)
 
     const { typeInfoMap } = data
     const { purpose, optional, name, includeIds } = opts
@@ -100,11 +173,14 @@ function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpt
     const symbol = wrapSafe(localizeSymbol)(info.symbolMeta)
 
     const resolved = resolveInfo(info)
-    
+
     info = resolved.info
     const dimension = resolved.dimension
 
-    const isOptional = info.symbolMeta?.optional || optional || ((info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional)
+    const isOptional =
+        info.symbolMeta?.optional ||
+        optional ||
+        (info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional
     const isRest = info.symbolMeta?.rest
 
     const locations = getTypeLocations(info)
@@ -112,197 +188,290 @@ function _localizeTypeInfo(info: TypeInfo, data: LocalizeData, opts: LocalizeOpt
     const res: LocalizedTypeInfo = {
         kindText: getKind(info),
         kind: info.kind,
-        ...info.kind === "primitive" && { primitiveKind: info.primitive },
+        ...(info.kind === "primitive" && { primitiveKind: info.primitive }),
         alias: getAlias(info),
-        symbol, 
+        symbol,
         purpose,
-        ...isOptional && { optional: true },
-        ...isRest && { rest: true },
-        ...dimension && { dimension },
-        ...(name !== undefined) && { name },
+        ...(isOptional && { optional: true }),
+        ...(isRest && { rest: true }),
+        ...(dimension && { dimension }),
+        ...(name !== undefined && { name }),
         locations,
     }
 
     res.children = getChildren(info, opts)
 
-    if(includeIds) {
+    if (includeIds) {
         res._id = info.id
     }
 
     return res
 }
 
-function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArguments, typeArgument }: LocalizeOpts = { }): TypeInfoChildren|undefined {
-    const localizeOpts = (info: TypeInfo, opts?: LocalizeOpts) => ({ info, opts }) //_localizeTypeInfo(info, data, opts)
-    const localize     = (info: TypeInfo) => localizeOpts(info)
-    const createChild  = (localizedInfo: LocalizedTypeInfo) => ({ localizedInfo })
+function getChildren(
+    info: ResolvedTypeInfo,
+    { typeArguments: contextualTypeArguments, typeArgument }: LocalizeOpts = {}
+): TypeInfoChildren | undefined {
+    const localizeOpts = (info: TypeInfo, opts?: LocalizeOpts) => ({
+        info,
+        opts,
+    }) //_localizeTypeInfo(info, data, opts)
+    const localize = (info: TypeInfo) => localizeOpts(info)
+    const createChild = (localizedInfo: LocalizedTypeInfo) => ({
+        localizedInfo,
+    })
 
     const typeParameters = info.typeParameters
     const typeArguments = info.typeArguments ?? contextualTypeArguments
 
-    let passTypeArguments: TypeInfo[]|undefined
-    let parameterChildren: TypeInfoChildren|undefined
+    let passTypeArguments: TypeInfo[] | undefined
+    let parameterChildren: TypeInfoChildren | undefined
 
-    if(info.kind === 'function') {
+    if (info.kind === "function") {
         passTypeArguments = typeArguments
-    } else if(info.kind === 'object' && info.objectClass) {
+    } else if (info.kind === "object" && info.objectClass) {
         passTypeArguments = typeArguments
-        parameterChildren = getTypeParameterAndArgumentList(typeParameters, undefined)
+        parameterChildren = getTypeParameterAndArgumentList(
+            typeParameters,
+            undefined
+        )
     } else {
-        parameterChildren = getTypeParameterAndArgumentList(typeParameters, typeArguments)
+        parameterChildren = getTypeParameterAndArgumentList(
+            typeParameters,
+            typeArguments
+        )
     }
 
-    const baseChildren = getBaseChildren(passTypeArguments) 
-    
-    const children = [
-        ...parameterChildren ?? [],
-        ...baseChildren ?? [],
-    ]
+    const baseChildren = getBaseChildren(passTypeArguments)
+
+    const children = [...(parameterChildren ?? []), ...(baseChildren ?? [])]
 
     return !isEmpty(children) ? children : undefined
 
-    function getBaseChildren(typeArguments?: TypeInfo[]): TypeInfoChildren|undefined {
-        switch(info.kind) {
+    function getBaseChildren(
+        typeArguments?: TypeInfo[]
+    ): TypeInfoChildren | undefined {
+        switch (info.kind) {
             case "object": {
                 const { properties, indexInfos = [], objectClass } = info
                 return [
-                    ...objectClass ? [ localizeOpts(objectClass, { purpose: 'object_class', typeArguments }) ] : [],
-                    ...indexInfos.map(info => getLocalizedIndex(info)),
+                    ...(objectClass
+                        ? [
+                              localizeOpts(objectClass, {
+                                  purpose: "object_class",
+                                  typeArguments,
+                              }),
+                          ]
+                        : []),
+                    ...indexInfos.map((info) => getLocalizedIndex(info)),
                     ...properties.map(localize),
                 ]
             }
-    
+
             case "class":
             case "interface": {
-                const { properties, baseType, implementsTypes, constructSignatures } = info
-                return [ 
-                    ...baseType ? [localizeOpts(baseType, { purpose: 'class_base_type'})] : [],
-                    ...isNonEmpty(implementsTypes) ? [createChild({ purpose: 'class_implementations', children: implementsTypes.map(localize) })] : [],
-                    ...isNonEmpty(constructSignatures) ? [localizeOpts({ kind: 'function', id: getEmptyTypeId(), signatures: constructSignatures }, { purpose: 'class_constructor' })] : [],
+                const {
+                    properties,
+                    baseType,
+                    implementsTypes,
+                    constructSignatures,
+                } = info
+                return [
+                    ...(baseType
+                        ? [
+                              localizeOpts(baseType, {
+                                  purpose: "class_base_type",
+                              }),
+                          ]
+                        : []),
+                    ...(isNonEmpty(implementsTypes)
+                        ? [
+                              createChild({
+                                  purpose: "class_implementations",
+                                  children: implementsTypes.map(localize),
+                              }),
+                          ]
+                        : []),
+                    ...(isNonEmpty(constructSignatures)
+                        ? [
+                              localizeOpts(
+                                  {
+                                      kind: "function",
+                                      id: getEmptyTypeId(),
+                                      signatures: constructSignatures,
+                                  },
+                                  { purpose: "class_constructor" }
+                              ),
+                          ]
+                        : []),
                     ...properties.map(localize),
                 ]
             }
-    
+
             case "enum": {
                 const { properties = [] } = info
                 return properties.map(localize)
             }
-    
+
             case "function": {
                 const { signatures } = info
-                
-                if(signatures.length === 1) {
-                    return getLocalizedSignatureChildren(signatures[0], typeArguments)
+
+                if (signatures.length === 1) {
+                    return getLocalizedSignatureChildren(
+                        signatures[0],
+                        typeArguments
+                    )
                 } else {
-                    return signatures.map(sig => getLocalizedSignature(sig, typeParameters))
+                    return signatures.map((sig) =>
+                        getLocalizedSignature(sig, typeParameters)
+                    )
                 }
             }
-    
+
             case "array": {
                 throw new Error("Tried to get children for array type")
             }
-    
+
             case "tuple": {
                 const { types, names } = info
-                return types.map((t, i) => localizeOpts(t, { name: names?.[i] }))
+                return types.map((t, i) =>
+                    localizeOpts(t, { name: names?.[i] })
+                )
             }
-    
+
             case "conditional": {
                 const { checkType, extendsType, trueType, falseType } = info
-    
+
                 return [
-                    localizeOpts(checkType, { purpose: 'conditional_check' }),
-                    localizeOpts(extendsType, { purpose: 'conditional_extends'}),
-                    ...trueType ? [localizeOpts(trueType, { purpose: 'conditional_true' })] : [],
-                    ...falseType ? [localizeOpts(falseType, { purpose: 'conditional_false' })] : [],
+                    localizeOpts(checkType, { purpose: "conditional_check" }),
+                    localizeOpts(extendsType, {
+                        purpose: "conditional_extends",
+                    }),
+                    ...(trueType
+                        ? [
+                              localizeOpts(trueType, {
+                                  purpose: "conditional_true",
+                              }),
+                          ]
+                        : []),
+                    ...(falseType
+                        ? [
+                              localizeOpts(falseType, {
+                                  purpose: "conditional_false",
+                              }),
+                          ]
+                        : []),
                 ]
             }
-    
+
             case "index": {
                 const { keyOf } = info
-    
-                return [
-                    localizeOpts(keyOf, { purpose: 'keyof' })
-                ]
+
+                return [localizeOpts(keyOf, { purpose: "keyof" })]
             }
-    
+
             case "indexed_access": {
                 const { indexType, objectType } = info
-    
+
                 return [
-                    localizeOpts(objectType, { purpose: 'indexed_access_base' }),
-                    localizeOpts(indexType, { purpose: 'indexed_access_index' }),
+                    localizeOpts(objectType, {
+                        purpose: "indexed_access_base",
+                    }),
+                    localizeOpts(indexType, {
+                        purpose: "indexed_access_index",
+                    }),
                 ]
             }
-    
+
             // TODO: intersection properties
             case "intersection":
             case "union": {
                 const { types } = info
                 return types.map(localize)
             }
-    
+
             case "string_mapping": {
                 const { type } = info
                 return [localize(type)]
             }
-    
+
             case "template_literal": {
                 const { types, texts } = info
                 const res: TypeInfoChildren = []
-    
-                let i = 0, j = 0
-    
-                while(i < texts.length || j < types.length) {
-                    if(i < texts.length) {
+
+                let i = 0,
+                    j = 0
+
+                while (i < texts.length || j < types.length) {
+                    if (i < texts.length) {
                         const text = texts[i]
-                        if(text) {
+                        if (text) {
                             res.push(
-                                localize({ kind: 'string_literal', id: getEmptyTypeId(), value: text })
+                                localize({
+                                    kind: "string_literal",
+                                    id: getEmptyTypeId(),
+                                    value: text,
+                                })
                             )
                         }
                         i++
                     }
-    
-                    if(j < types.length) {
+
+                    if (j < types.length) {
                         const type = types[j]
                         res.push(localize(type))
                         j++
                     }
                 }
-    
+
                 return res
             }
-    
+
             case "type_parameter": {
                 return getLocalizedTypeParameter(info, typeArgument)
             }
-    
+
             default: {
                 return undefined
             }
         }
     }
 
-    function getTypeParameterAndArgumentList(typeParameters: TypeInfo[]|undefined, typeArguments: TypeInfo[]|undefined): TypeInfoChildren {
-        if(typeParameters && typeArguments) {
-            return [
-                getTypeParameterList(typeParameters, typeArguments)
-            ]
+    function getTypeParameterAndArgumentList(
+        typeParameters: TypeInfo[] | undefined,
+        typeArguments: TypeInfo[] | undefined
+    ): TypeInfoChildren {
+        if (typeParameters && typeArguments) {
+            return [getTypeParameterList(typeParameters, typeArguments)]
         } else {
             return [
-                ...typeParameters ? [ getTypeParameterList(typeParameters) ] : [],
-                ...typeArguments ? [ getTypeArgumentList(typeArguments) ] : [],
+                ...(typeParameters
+                    ? [getTypeParameterList(typeParameters)]
+                    : []),
+                ...(typeArguments ? [getTypeArgumentList(typeArguments)] : []),
             ]
         }
     }
 
-    function getLocalizedTypeParameter(info: TypeInfoKind<'type_parameter'>, value?: TypeInfo): TypeInfoChildren {
+    function getLocalizedTypeParameter(
+        info: TypeInfoKind<"type_parameter">,
+        value?: TypeInfo
+    ): TypeInfoChildren {
         const { defaultType, baseConstraint } = info
         return [
-            ...value ? [localizeOpts(value, { purpose: 'parameter_value' })] : [],
-            ...defaultType ? [localizeOpts(defaultType, { purpose: 'parameter_default' })] : [],
-            ...baseConstraint ? [localizeOpts(baseConstraint, { purpose: 'parameter_base_constraint' })] : [],
+            ...(value
+                ? [localizeOpts(value, { purpose: "parameter_value" })]
+                : []),
+            ...(defaultType
+                ? [localizeOpts(defaultType, { purpose: "parameter_default" })]
+                : []),
+            ...(baseConstraint
+                ? [
+                      localizeOpts(baseConstraint, {
+                          purpose: "parameter_base_constraint",
+                      }),
+                  ]
+                : []),
         ]
     }
 
@@ -313,10 +482,15 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
         })
     }
 
-    function getTypeParameterList(typeParameters: TypeInfo[], typeArguments?: TypeInfo[]) {
+    function getTypeParameterList(
+        typeParameters: TypeInfo[],
+        typeArguments?: TypeInfo[]
+    ) {
         return createChild({
             purpose: "type_parameter_list",
-            children: typeParameters.map((param, i) => localizeOpts(param, { typeArgument: typeArguments?.[i] })),
+            children: typeParameters.map((param, i) =>
+                localizeOpts(param, { typeArgument: typeArguments?.[i] })
+            ),
         })
     }
 
@@ -326,29 +500,59 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
             kind: "index_info",
             symbol: wrapSafe(localizeSymbol)(indexInfo.parameterSymbol),
             children: [
-                ...indexInfo.parameterType ? [localizeOpts(indexInfo.parameterType, { purpose: 'index_parameter_type' })] : [],
-                ...indexInfo.keyType ? [localizeOpts(indexInfo.keyType, { purpose: 'index_type'})] : [],
-                ...indexInfo.type ? [localizeOpts(indexInfo.type, { purpose: 'index_value_type'})] : [],
-            ]
+                ...(indexInfo.parameterType
+                    ? [
+                          localizeOpts(indexInfo.parameterType, {
+                              purpose: "index_parameter_type",
+                          }),
+                      ]
+                    : []),
+                ...(indexInfo.keyType
+                    ? [
+                          localizeOpts(indexInfo.keyType, {
+                              purpose: "index_type",
+                          }),
+                      ]
+                    : []),
+                ...(indexInfo.type
+                    ? [
+                          localizeOpts(indexInfo.type, {
+                              purpose: "index_value_type",
+                          }),
+                      ]
+                    : []),
+            ],
         })
     }
 
-    function getLocalizedSignature(signature: SignatureInfo, typeArguments?: TypeInfo[]){
+    function getLocalizedSignature(
+        signature: SignatureInfo,
+        typeArguments?: TypeInfo[]
+    ) {
         const symbol = wrapSafe(localizeSymbol)(signature.symbolMeta)
 
         return createChild({
             kindText: "signature",
             kind: "signature",
-            symbol, locations: symbol?.locations,
+            symbol,
+            locations: symbol?.locations,
             children: getLocalizedSignatureChildren(signature, typeArguments),
         })
     }
 
-    function getLocalizedSignatureChildren(signature: SignatureInfo, typeArguments?: TypeInfo[]) {
+    function getLocalizedSignatureChildren(
+        signature: SignatureInfo,
+        typeArguments?: TypeInfo[]
+    ) {
         return [
-            ...getTypeParameterAndArgumentList(signature.typeParameters, typeArguments),
+            ...getTypeParameterAndArgumentList(
+                signature.typeParameters,
+                typeArguments
+            ),
             ...signature.parameters.map(localize),
-            ...signature.returnType ? [ localizeOpts(signature.returnType, { purpose: 'return' }) ] : [],
+            ...(signature.returnType
+                ? [localizeOpts(signature.returnType, { purpose: "return" })]
+                : []),
         ]
     }
 }
@@ -356,25 +560,30 @@ function getChildren(info: ResolvedTypeInfo, { typeArguments: contextualTypeArgu
 function localizeSymbol(symbolInfo: SymbolInfo): LocalizedSymbolInfo {
     const locations = getLocations(symbolInfo)
 
-    const property = symbolInfo.flags & ts.SymbolFlags.Property 
+    const property = symbolInfo.flags & ts.SymbolFlags.Property
     const isArgument = symbolInfo.flags & ts.SymbolFlags.FunctionScopedVariable
 
     return {
         name: symbolInfo.name,
-        ...symbolInfo.anonymous && { anonymous: symbolInfo.anonymous },
-        ...symbolInfo.insideClassOrInterface && { insideClassOrInterface: symbolInfo.insideClassOrInterface },
-        ...property && { property: true },
-        ...isArgument && { isArgument: true },
+        ...(symbolInfo.anonymous && { anonymous: symbolInfo.anonymous }),
+        ...(symbolInfo.insideClassOrInterface && {
+            insideClassOrInterface: symbolInfo.insideClassOrInterface,
+        }),
+        ...(property && { property: true }),
+        ...(isArgument && { isArgument: true }),
         locations,
     }
 }
 
-function resolveTypeReferenceOrArray(info: TypeInfo, typeInfoMap: TypeInfoMap): { info: Exclude<ResolvedTypeInfo, { kind: 'array' }>, dimension: number }{
+function resolveTypeReferenceOrArray(
+    info: TypeInfo,
+    typeInfoMap: TypeInfoMap
+): { info: Exclude<ResolvedTypeInfo, { kind: "array" }>; dimension: number } {
     let dimension = 0
     let resolvedInfo = info
 
-    while(resolvedInfo.kind === 'array' || resolvedInfo.kind === 'reference') {
-        if(resolvedInfo.kind === 'array') {
+    while (resolvedInfo.kind === "array" || resolvedInfo.kind === "reference") {
+        if (resolvedInfo.kind === "array") {
             dimension++
             resolvedInfo = resolvedInfo.type
         } else {
@@ -382,23 +591,23 @@ function resolveTypeReferenceOrArray(info: TypeInfo, typeInfoMap: TypeInfoMap): 
         }
     }
 
-    resolvedInfo = { 
-        ...resolvedInfo,  
+    resolvedInfo = {
+        ...resolvedInfo,
         symbolMeta: info.symbolMeta,
         id: info.id,
     }
 
-    if(dimension === 0) {
+    if (dimension === 0) {
         resolvedInfo.aliasSymbolMeta = info.aliasSymbolMeta
     }
 
     return { info: resolvedInfo, dimension }
 }
 
-function getAlias(info: ResolvedTypeInfo): string|undefined {
+function getAlias(info: ResolvedTypeInfo): string | undefined {
     const defaultValue = info.aliasSymbolMeta?.name
 
-    switch(info.kind) {
+    switch (info.kind) {
         case "type_parameter": {
             return defaultValue ?? info.typeSymbolMeta?.name
         }
@@ -416,7 +625,7 @@ function getAlias(info: ResolvedTypeInfo): string|undefined {
 
         case "enum_literal": {
             let text = info.literalSymbol.name
-            if(info.parentSymbol) {
+            if (info.parentSymbol) {
                 text = `${info.parentSymbol.name}.${text}`
             }
             return text
@@ -429,9 +638,14 @@ function getAlias(info: ResolvedTypeInfo): string|undefined {
 }
 
 function getKind(info: ResolvedTypeInfo): string {
-    const kindText = (kind: LocalizableKind, ...args: string[]) => getKindText(kind, { insideClassOrInterface: info.symbolMeta?.insideClassOrInterface }, ...args)
+    const kindText = (kind: LocalizableKind, ...args: string[]) =>
+        getKindText(
+            kind,
+            { insideClassOrInterface: info.symbolMeta?.insideClassOrInterface },
+            ...args
+        )
 
-    switch(info.kind) {
+    switch (info.kind) {
         case "string_mapping": {
             const { typeSymbol } = info
             return typeSymbol.name
@@ -463,8 +677,11 @@ function getKind(info: ResolvedTypeInfo): string {
     }
 }
 
-function resolveTypeReference(typeInfo: TypeInfo, typeInfoMap: TypeInfoMap): ResolvedTypeInfo {
-    if(typeInfo.kind === 'reference') {
+function resolveTypeReference(
+    typeInfo: TypeInfo,
+    typeInfoMap: TypeInfoMap
+): ResolvedTypeInfo {
+    if (typeInfo.kind === "reference") {
         const resolvedTypeInfo = typeInfoMap.get(typeInfo.id)
         assert(resolvedTypeInfo, "Encountered invalid type reference!")
         return resolvedTypeInfo
@@ -473,11 +690,13 @@ function resolveTypeReference(typeInfo: TypeInfo, typeInfoMap: TypeInfoMap): Res
     return typeInfo
 }
 
-function getTypeLocations(info: TypeInfo): SourceFileLocation[]|undefined {
-    const baseLocations = wrapSafe(getLocations)(info.aliasSymbolMeta ?? info.symbolMeta)
+function getTypeLocations(info: TypeInfo): SourceFileLocation[] | undefined {
+    const baseLocations = wrapSafe(getLocations)(
+        info.aliasSymbolMeta ?? info.symbolMeta
+    )
 
-    if(!baseLocations) {
-        if(info.kind === 'function' && info.signatures.length === 1) {
+    if (!baseLocations) {
+        if (info.kind === "function" && info.signatures.length === 1) {
             return wrapSafe(getLocations)(info.signatures[0].symbolMeta)
         }
     }
@@ -485,6 +704,6 @@ function getTypeLocations(info: TypeInfo): SourceFileLocation[]|undefined {
     return baseLocations
 }
 
-function getLocations(info: SymbolInfo): SourceFileLocation[]|undefined {
+function getLocations(info: SymbolInfo): SourceFileLocation[] | undefined {
     return info.declarations?.map(({ location }) => location)
 }

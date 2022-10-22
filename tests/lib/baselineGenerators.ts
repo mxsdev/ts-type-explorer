@@ -1,20 +1,21 @@
 import { generateTypeTree, TypeInfoLocalizer } from "@ts-expand-type/api"
-import { symbolBaselineGenerator, BaselineGenerator } from "./baselineGeneratorUtils"
-import { normalizeTypeTree, normalizeLocalizedTypeTree } from "./normalize";
+import {
+    symbolBaselineGenerator,
+    BaselineGenerator,
+} from "./baselineGeneratorUtils"
+import { normalizeTypeTree, normalizeLocalizedTypeTree } from "./normalize"
 
-const stringify = (obj: unknown) => JSON.stringify(obj, undefined, 4);
+const stringify = (obj: unknown) => JSON.stringify(obj, undefined, 4)
 
 // const mergeBaselineGenerator = typeBaselineGenerator(
-//     (typeChecker, sourceFile, type) => 
+//     (typeChecker, sourceFile, type) =>
 //         multilineTypeToString(typeChecker, sourceFile, recursivelyExpandType(typeChecker, type))
 // )
 
 const treeBaselineGenerator = symbolBaselineGenerator(
     (typeChecker, sourceFile, symbol, node) =>
         stringify(
-            normalizeTypeTree(
-                generateTypeTree({ symbol, node }, typeChecker)
-            ),
+            normalizeTypeTree(generateTypeTree({ symbol, node }, typeChecker))
         )
 )
 
@@ -27,9 +28,7 @@ const localizedTreeBaselineGenerator = symbolBaselineGenerator(
         const localizer = new TypeInfoLocalizer(typeTree).debug()
 
         return stringify(
-            normalizeLocalizedTypeTree(
-                localizer.localize(typeTree), localizer
-            )
+            normalizeLocalizedTypeTree(localizer.localize(typeTree), localizer)
         )
     }
 )
@@ -40,11 +39,11 @@ export const BaselineGenerators: BaselineGenerator[] = [
     //     generator: mergeBaselineGenerator
     // },
     {
-        extension: '.tree',
-        generator: treeBaselineGenerator
+        extension: ".tree",
+        generator: treeBaselineGenerator,
     },
     {
-        extension: '.localized.tree',
-        generator: localizedTreeBaselineGenerator
-    }
+        extension: ".localized.tree",
+        generator: localizedTreeBaselineGenerator,
+    },
 ]

@@ -1,22 +1,43 @@
 /* eslint-disable @typescript-eslint/require-await */
 
-import { LocalizedTypeInfo, TypeInfoLocalizer, localizePurpose } from '@ts-expand-type/api'
-import assert = require('assert');
-import * as vscode from 'vscode'
-import { showTypeParameterInfo, showBaseClassInfo, iconsEnabled, iconColorsEnabled } from '../config';
-import { markdownDocumentation } from '../markdown';
-import { StateManager } from '../state/stateManager';
-import { getQuickInfoAtPosition, lineAndCharToPosition, rangeFromLineAndCharacters } from '../util';
+import {
+    LocalizedTypeInfo,
+    TypeInfoLocalizer,
+    localizePurpose,
+} from "@ts-expand-type/api"
+import assert = require("assert")
+import * as vscode from "vscode"
+import {
+    showTypeParameterInfo,
+    showBaseClassInfo,
+    iconsEnabled,
+    iconColorsEnabled,
+} from "../config"
+import { markdownDocumentation } from "../markdown"
+import { StateManager } from "../state/stateManager"
+import {
+    getQuickInfoAtPosition,
+    lineAndCharToPosition,
+    rangeFromLineAndCharacters,
+} from "../util"
 
-const { None: NoChildren, Expanded, Collapsed } = vscode.TreeItemCollapsibleState
+const {
+    None: NoChildren,
+    Expanded,
+    Collapsed,
+} = vscode.TreeItemCollapsibleState
 
 export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
-    constructor(private stateManager: StateManager) { }
+    constructor(private stateManager: StateManager) {}
 
-    private typeInfoLocalizer: TypeInfoLocalizer|undefined
+    private typeInfoLocalizer: TypeInfoLocalizer | undefined
 
-    private _onDidChangeTreeData: vscode.EventEmitter<TypeTreeItem | undefined | null | void> = new vscode.EventEmitter<TypeTreeItem | undefined | null | void>()
-    readonly onDidChangeTreeData: vscode.Event<TypeTreeItem | undefined | null | void> = this._onDidChangeTreeData.event
+    private _onDidChangeTreeData: vscode.EventEmitter<
+        TypeTreeItem | undefined | null | void
+    > = new vscode.EventEmitter<TypeTreeItem | undefined | null | void>()
+    readonly onDidChangeTreeData: vscode.Event<
+        TypeTreeItem | undefined | null | void
+    > = this._onDidChangeTreeData.event
 
     refresh(): void {
         this.typeInfoLocalizer = undefined
@@ -24,12 +45,20 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     }
 
     async getTreeItem(element: TypeTreeItem) {
-        if(element.typeInfo.locations) {
-            for(const location of element.typeInfo.locations) {
-                const { documentation, tags } = await getQuickInfoAtPosition(location.fileName, lineAndCharToPosition(location.range.start)) ?? { }
+        if (element.typeInfo.locations) {
+            for (const location of element.typeInfo.locations) {
+                const { documentation, tags } =
+                    (await getQuickInfoAtPosition(
+                        location.fileName,
+                        lineAndCharToPosition(location.range.start)
+                    )) ?? {}
 
-                if(documentation) {
-                    element.tooltip = markdownDocumentation(documentation, tags ?? [], vscode.Uri.file(location.fileName))
+                if (documentation) {
+                    element.tooltip = markdownDocumentation(
+                        documentation,
+                        tags ?? [],
+                        vscode.Uri.file(location.fileName)
+                    )
                     break
                 }
             }
@@ -37,27 +66,50 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
 
         return element
     }
-    
+
     async getChildren(element?: TypeTreeItem): Promise<TypeTreeItem[]> {
-        if(!element) {
+        if (!element) {
             const typeInfo = this.stateManager.getTypeTree()
-            if(!typeInfo) { return [] }
+            if (!typeInfo) {
+                return []
+            }
 
             this.typeInfoLocalizer = new TypeInfoLocalizer(typeInfo)
             const localizedTypeInfo = this.typeInfoLocalizer.localize(typeInfo)
 
-            return [this.createTypeNode(localizedTypeInfo, /* root */ undefined)]
+            return [
+                this.createTypeNode(localizedTypeInfo, /* root */ undefined),
+            ]
         } else {
             assert(this.typeInfoLocalizer, "typeInfoLocalizer should exist")
 
             return this.typeInfoLocalizer
-                .localizeChildren(element.typeInfo).map(info => this.createTypeNode(info, element))
-                .filter(({ typeInfo: { purpose }}) => showTypeParameterInfo() || !(purpose === 'type_argument_list' || purpose === 'type_parameter_list'))
-                .filter(({ typeInfo: { purpose }}) => showBaseClassInfo() || !(purpose === "class_base_type" || purpose === "class_implementations" || purpose === "object_class"))
+                .localizeChildren(element.typeInfo)
+                .map((info) => this.createTypeNode(info, element))
+                .filter(
+                    ({ typeInfo: { purpose } }) =>
+                        showTypeParameterInfo() ||
+                        !(
+                            purpose === "type_argument_list" ||
+                            purpose === "type_parameter_list"
+                        )
+                )
+                .filter(
+                    ({ typeInfo: { purpose } }) =>
+                        showBaseClassInfo() ||
+                        !(
+                            purpose === "class_base_type" ||
+                            purpose === "class_implementations" ||
+                            purpose === "object_class"
+                        )
+                )
         }
     }
 
-    createTypeNode(typeInfo: LocalizedTypeInfo, parent: TypeTreeItem|undefined) {
+    createTypeNode(
+        typeInfo: LocalizedTypeInfo,
+        parent: TypeTreeItem | undefined
+    ) {
         return new TypeTreeItem(typeInfo, this, parent)
     }
 }
@@ -74,7 +126,12 @@ export class TypeTreeItem extends vscode.TreeItem {
         const { label, description, contextValue, icon } = getMeta(typeInfo)
 
         const depth = (parent?.depth ?? 0) + 1
-        const collapsibleState = (typeInfo.children?.length ?? 0) === 0 ? NoChildren : depth === 1 ? Expanded : Collapsed
+        const collapsibleState =
+            (typeInfo.children?.length ?? 0) === 0
+                ? NoChildren
+                : depth === 1
+                ? Expanded
+                : Collapsed
 
         super(label, collapsibleState)
 
@@ -89,21 +146,25 @@ export class TypeTreeItem extends vscode.TreeItem {
     }
 
     private definitionIndex = 0
-    
+
     goToDefinition() {
-        assert(this.typeInfo.locations && this.typeInfo.locations.length > 0, "Type has no locations!")
+        assert(
+            this.typeInfo.locations && this.typeInfo.locations.length > 0,
+            "Type has no locations!"
+        )
 
         const location = this.typeInfo.locations[this.definitionIndex]
-        this.definitionIndex = (this.definitionIndex + 1) % this.typeInfo.locations.length
+        this.definitionIndex =
+            (this.definitionIndex + 1) % this.typeInfo.locations.length
 
-        const args: [ vscode.Uri, vscode.TextDocumentShowOptions] = [
+        const args: [vscode.Uri, vscode.TextDocumentShowOptions] = [
             vscode.Uri.file(location.fileName),
             {
                 selection: rangeFromLineAndCharacters(
                     location.range.start,
                     location.range.end
-                )
-            }
+                ),
+            },
         ]
 
         vscode.commands.executeCommand("vscode.open", ...args)
@@ -111,10 +172,10 @@ export class TypeTreeItem extends vscode.TreeItem {
 }
 
 type TypeTreeItemMeta = {
-    label: string,
-    description?: string,
-    contextValue?: TypeTreeItemContextValue,
-    icon?: vscode.ThemeIcon,
+    label: string
+    description?: string
+    contextValue?: TypeTreeItemContextValue
+    icon?: vscode.ThemeIcon
 }
 
 function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
@@ -125,7 +186,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
 
     return {
         label,
-        description, 
+        description,
         contextValue: getContextValue(),
         icon: getIcon(),
     }
@@ -133,86 +194,98 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
     function getLabel() {
         const base = getLabelBase()
 
-        if(!base) {
+        if (!base) {
             return base
         }
 
-        return addDecorations(base, { optional: info.optional, rest: info.rest })
+        return addDecorations(base, {
+            optional: info.optional,
+            rest: info.rest,
+        })
 
         function getLabelBase() {
             nameOverridden = true
-    
-            if(info.name !== undefined) {
+
+            if (info.name !== undefined) {
                 return info.name
             }
-    
-            if(info.purpose) {
+
+            if (info.purpose) {
                 return `<${localizePurpose(info.purpose)}>`
             }
-    
+
             nameOverridden = false
-            return !info.symbol?.anonymous ? (info.symbol?.name ?? "") : ""
+            return !info.symbol?.anonymous ? info.symbol?.name ?? "" : ""
         }
     }
 
     function getDescription() {
-        if(!info.kindText) {
+        if (!info.kindText) {
             return undefined
         }
 
-        const decorate = (text: string) => addDecorations(text, { dimension: info.dimension })
+        const decorate = (text: string) =>
+            addDecorations(text, { dimension: info.dimension })
 
         const baseDescription = decorate(info.kindText)
 
-        const aliasDescriptionBase = info.alias ?? (nameOverridden && info.symbol?.name)
-        const aliasDescription = (aliasDescriptionBase) && decorate(aliasDescriptionBase)
+        const aliasDescriptionBase =
+            info.alias ?? (nameOverridden && info.symbol?.name)
+        const aliasDescription =
+            aliasDescriptionBase && decorate(aliasDescriptionBase)
 
-        return aliasDescription ? `${aliasDescription} (${baseDescription})` : baseDescription
+        return aliasDescription
+            ? `${aliasDescription} (${baseDescription})`
+            : baseDescription
     }
 
-    function getContextValue(): TypeTreeItemContextValue|undefined {
-        return info.locations && info.locations.length > 0 ? "declared" : undefined
+    function getContextValue(): TypeTreeItemContextValue | undefined {
+        return info.locations && info.locations.length > 0
+            ? "declared"
+            : undefined
     }
 
     type IconId = [id: string, colorId?: string]
 
-    function getIcon(): vscode.ThemeIcon|undefined {
-        if(!iconsEnabled()) {
+    function getIcon(): vscode.ThemeIcon | undefined {
+        if (!iconsEnabled()) {
             return undefined
         }
 
         const iconIds = _getIcon()
-        if(!iconIds) {
+        if (!iconIds) {
             return undefined
         }
 
-        const [ id ] = iconIds
-        let [ colorId ] = iconIds
+        const [id] = iconIds
+        let [colorId] = iconIds
 
-        if(!iconColorsEnabled()) {
+        if (!iconColorsEnabled()) {
             colorId = "icon.foreground"
         }
 
-        return !colorId ? new vscode.ThemeIcon(id) : new vscode.ThemeIcon(id, new vscode.ThemeColor(colorId))
+        return !colorId
+            ? new vscode.ThemeIcon(id)
+            : new vscode.ThemeIcon(id, new vscode.ThemeColor(colorId))
 
-        function _getIcon(): IconId|undefined {
-            if(info.symbol?.property) {
+        function _getIcon(): IconId | undefined {
+            if (info.symbol?.property) {
                 return ["symbol-field"]
             }
 
-            if(info.symbol?.isArgument) {
+            if (info.symbol?.isArgument) {
                 return ["symbol-property"]
             }
 
-            switch(info.purpose) {
+            switch (info.purpose) {
                 case "class_constructor": {
                     return ["symbol-constructor"]
                 }
             }
 
-            switch(info.kind) {
+            switch (info.kind) {
                 case "primitive": {
-                    switch(info.primitiveKind) {
+                    switch (info.primitiveKind) {
                         case "essymbol":
                         case "unique_symbol":
                         case "string": {
@@ -248,7 +321,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
 
                 case "object": {
                     return ["symbol-object"]
-                }    
+                }
 
                 case "type_parameter": {
                     return ["symbol-type-parameter"]
@@ -302,7 +375,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
 
                 case "signature":
                 case "function": {
-                    if(info.symbol?.insideClassOrInterface) {
+                    if (info.symbol?.insideClassOrInterface) {
                         return ["symbol-method"]
                     }
 
@@ -329,16 +402,19 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
     }
 }
 
-function addDecorations(text: string, decorations: { rest?: boolean, optional?: boolean, dimension?: number }) {
+function addDecorations(
+    text: string,
+    decorations: { rest?: boolean; optional?: boolean; dimension?: number }
+) {
     const { rest = false, optional = false, dimension = 0 } = decorations
 
     text += "[]".repeat(dimension)
-    
-    if(optional) {
-        text += '?'
+
+    if (optional) {
+        text += "?"
     }
 
-    if(rest) {
+    if (rest) {
         text = "..." + text
     }
 
