@@ -1,7 +1,6 @@
 {
     "references": [
         { "path": "./packages/api" },
-        { "path": "./packages/tsserver-plugin" },
         { "path": "./packages/typescript-explorer" },
         { "path": "./packages/typescript-explorer-tsserver" },
     ],

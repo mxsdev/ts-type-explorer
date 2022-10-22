@@ -8,7 +8,8 @@
     "build": "tsc -b",
     "watch": "tsc -b --watch",
     "test": "mocha",
-    "baseline-accept": "ts-node ./scripts/acceptBaselines.ts"
+    "baseline-accept": "ts-node ./scripts/acceptBaselines.ts",
+    "lint": "eslint ."
   },
   "workspaces": [
     "packages/*"
@@ -19,13 +20,15 @@
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.8.0",
     "@types/typescript": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
     "lerna": "^5.5.4",
     "mocha": "^10.0.0",
-    "ts-node": "^10.9.1"
-  },
-  "dependencies": {
+    "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   }
 }
