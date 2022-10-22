@@ -3,7 +3,7 @@
     "displayName": "%typescriptExplorer.title%",
     "description": "Explore typescript types",
     "publisher": "mxsdev",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "private": true,
     "engines": {
         "vscode": "^1.71.0"
@@ -211,8 +211,8 @@
         "test": "node ./out/test/runTest.js"
     },
     "dependencies": {
-        "@ts-expand-type/api": "*",
-        "@ts-expand-type/typescript-explorer-tsserver": "*"
+        "@ts-expand-type/api": "^0.1.0",
+        "@ts-expand-type/typescript-explorer-tsserver": "^0.1.0"
     },
     "devDependencies": {
         "@types/glob": "^8.0.0",

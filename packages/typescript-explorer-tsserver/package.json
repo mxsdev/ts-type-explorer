@@ -1,11 +1,11 @@
 {
     "name": "@ts-expand-type/typescript-explorer-tsserver",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "main": "./dist",
     "type": "commonjs",
     "license": "MIT",
     "dependencies": {
         "typescript": "^4.8.4",
-        "@ts-expand-type/api": "*"
+        "@ts-expand-type/api": "^0.1.0"
     }
 }
