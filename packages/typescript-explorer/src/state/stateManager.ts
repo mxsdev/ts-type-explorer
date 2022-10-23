@@ -6,11 +6,13 @@ import { TypeTreeItem, TypeTreeProvider } from "../view/typeTreeView"
 import { ViewProviders } from "../view/views"
 
 export class StateManager {
-    private typeTree: TypeInfo | undefined
-    private typeTreeProvider?: TypeTreeProvider
+    public typeTree: TypeInfo | undefined
+    public typeTreeProvider?: TypeTreeProvider
 
     private selectionLocked = false
     private selectionEnabled = true
+
+    public initialized = false
 
     init(
         context: vscode.ExtensionContext,
@@ -114,6 +116,8 @@ export class StateManager {
                 "typescriptExplorer.selection.select"
             )
         }
+
+        this.initialized = true
     }
 
     setTypeTree(typeTree: TypeInfo | undefined) {
@@ -136,7 +140,8 @@ export class StateManager {
 
     setSelectionLock(locked: boolean) {
         this.selectionLocked = locked
-        vscode.commands.executeCommand(
+
+        return vscode.commands.executeCommand<void>(
             "setContext",
             "typescriptExplorer.selection.locked",
             locked
@@ -147,9 +152,9 @@ export class StateManager {
         return this.selectionLocked || !this.selectionEnabled
     }
 
-    selectTypeAtPosition(
+    async selectTypeAtPosition(
         fileName: string,
-        selections: readonly vscode.Selection[],
+        selections: readonly vscode.Range[],
         ignoreSelectionLock = false
     ) {
         if (this.getSelectionLock() && !ignoreSelectionLock) {
@@ -161,7 +166,7 @@ export class StateManager {
             return
         }
 
-        getQuickInfoAtPosition(fileName, selections[0].start)
+        return getQuickInfoAtPosition(fileName, selections[0].start)
             .then((body) => {
                 const { __displayTree } = body ?? {}
                 this.setTypeTree(__displayTree)

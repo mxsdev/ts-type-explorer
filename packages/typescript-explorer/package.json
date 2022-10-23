@@ -3,6 +3,7 @@
     "displayName": "%typescriptExplorer.title%",
     "description": "Explore typescript types",
     "publisher": "mxsdev",
+    "repository": "https://github.com/mxsdev/ts-expand-type",
     "version": "0.1.0",
     "private": true,
     "engines": {
@@ -206,9 +207,9 @@
         "vscode:prepublish": "yarn run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
-        "pretest": "yarn run compile && yarn run lint",
-        "lint": "eslint src --ext ts",
-        "test": "node ./out/test/runTest.js"
+        "pretest": "yarn run compile",
+        "package": "vsce package --yarn --dependencies",
+        "test": "rm -rf ./.vscode-test/user-data && node ./out/test/runTest.js"
     },
     "dependencies": {
         "@ts-expand-type/api": "^0.1.0",
@@ -222,6 +223,7 @@
         "@vscode/test-electron": "^2.1.5",
         "glob": "^8.0.3",
         "mocha": "^10.0.0",
-        "typescript": "^4.8.4"
+        "typescript": "^4.8.4",
+        "vsce": "^2.13.0"
     }
 }

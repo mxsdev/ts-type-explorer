@@ -27,6 +27,11 @@ const {
     Collapsed,
 } = vscode.TreeItemCollapsibleState
 
+export type TypeTreeChildrenUpdateInfo = {
+    parent: TypeTreeItem | undefined
+    children: TypeTreeItem[]
+}
+
 export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     constructor(private stateManager: StateManager) {}
 
@@ -34,10 +39,15 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
 
     private _onDidChangeTreeData: vscode.EventEmitter<
         TypeTreeItem | undefined | null | void
-    > = new vscode.EventEmitter<TypeTreeItem | undefined | null | void>()
+    > = new vscode.EventEmitter()
     readonly onDidChangeTreeData: vscode.Event<
         TypeTreeItem | undefined | null | void
     > = this._onDidChangeTreeData.event
+
+    private _onDidGetChildren: vscode.EventEmitter<TypeTreeChildrenUpdateInfo> =
+        new vscode.EventEmitter()
+    readonly onDidGetChildren: vscode.Event<TypeTreeChildrenUpdateInfo> =
+        this._onDidGetChildren.event
 
     refresh(): void {
         this.typeInfoLocalizer = undefined
@@ -68,6 +78,15 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     }
 
     async getChildren(element?: TypeTreeItem): Promise<TypeTreeItem[]> {
+        const children = await this.getChildrenWorker(element)
+        this._onDidGetChildren.fire({ parent: element, children })
+
+        return children
+    }
+
+    private async getChildrenWorker(
+        element?: TypeTreeItem
+    ): Promise<TypeTreeItem[]> {
         if (!element) {
             const typeInfo = this.stateManager.getTypeTree()
             if (!typeInfo) {

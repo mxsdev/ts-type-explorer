@@ -5,8 +5,9 @@ import { StateManager } from "./state/stateManager"
 
 // TODO: add config for e.g. max depth
 
+export const stateManager = new StateManager()
+
 export function activate(context: vscode.ExtensionContext) {
-    const stateManager = new StateManager()
     const viewProviders = createAndRegisterViews(context, stateManager)
 
     registerCommands(context, viewProviders)

@@ -23,6 +23,7 @@ function init(/* modules: { typescript: typeof import("typescript/lib/tsserverli
             // @ts-expect-error - JS runtime trickery which is tricky to type tersely
             // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-unsafe-return
             proxy[k] = (...args: Array<{}>) =>
+                // @ts-expect-error - JS runtime trickery which is tricky to type tersely
                 x.apply(info.languageService, args)
         }
 

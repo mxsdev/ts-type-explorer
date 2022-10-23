@@ -4,6 +4,7 @@
     "main": "./dist",
     "type": "commonjs",
     "license": "MIT",
+    "private": "true",
     "dependencies": {
         "typescript": "^4.8.4",
         "@ts-expand-type/api": "^0.1.0"

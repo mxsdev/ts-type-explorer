@@ -71,6 +71,7 @@ export async function generateBaselineTests() {
                                 typeChecker
                             ),
                         ].join("\n")
+
                         const against = await fs
                             .readFile(
                                 path.join(baselinesReferencePath, testFileName)

@@ -68,7 +68,7 @@ function wrapRefresh(
     command: RefreshableCommandInfo,
     refreshable: { refresh(): void }
 ): CommandInfo {
-    const [id, configId, handler, refresh] = command
+    const [id, configId, handler, refresh = true] = command
 
     if (!refresh) {
         return [id, handler]
