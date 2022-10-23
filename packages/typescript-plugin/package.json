@@ -6,7 +6,9 @@
     "license": "MIT",
     "private": "true",
     "dependencies": {
-        "typescript": "^4.8.4",
         "@ts-type-explorer/api": "^0.1.0"
+    },
+    "devDependencies": {
+        "typescript": "^4.8.4"
     }
 }
