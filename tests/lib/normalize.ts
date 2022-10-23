@@ -5,7 +5,7 @@ import {
     getTypeInfoSymbols,
     LocalizedTypeInfo,
     TypeInfoLocalizer,
-} from "@ts-expand-type/api"
+} from "@ts-type-explorer/api"
 import path from "path"
 import { rootPath } from "./files"
 

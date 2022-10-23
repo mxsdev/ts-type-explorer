@@ -1,4 +1,4 @@
-import { generateTypeTree, TypeInfoLocalizer } from "@ts-expand-type/api"
+import { generateTypeTree, TypeInfoLocalizer } from "@ts-type-explorer/api"
 import {
     symbolBaselineGenerator,
     BaselineGenerator,

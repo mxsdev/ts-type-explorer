@@ -1,4 +1,4 @@
-import { ExpandedQuickInfo } from "@ts-expand-type/typescript-explorer-tsserver/dist/types"
+import { ExpandedQuickInfo } from "@ts-type-explorer/typescript-plugin/dist/types"
 import * as vscode from "vscode"
 import type * as ts from "typescript"
 

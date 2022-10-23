@@ -1,8 +1,8 @@
 {
     "references": [
         { "path": "./packages/api" },
-        { "path": "./packages/typescript-explorer" },
-        { "path": "./packages/typescript-explorer-tsserver" }
+        { "path": "./packages/typescript-explorer-vscode" },
+        { "path": "./packages/typescript-plugin" }
     ],
     "files": [],
     "include": [],

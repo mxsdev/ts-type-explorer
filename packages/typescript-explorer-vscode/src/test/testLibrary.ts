@@ -1,4 +1,4 @@
-import { TypeTreeChildrenUpdateInfo } from "./../view/typeTreeView"
+import { TypeTreeChildrenUpdateInfo } from "../view/typeTreeView"
 import * as path from "path"
 import * as vscode from "vscode"
 import * as extension from "../extension"

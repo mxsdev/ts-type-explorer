@@ -1,5 +1,5 @@
 {
-    "name": "@ts-expand-type/api",
+    "name": "@ts-type-explorer/api",
     "main": "dist",
     "version": "0.1.0",
     "type": "commonjs",

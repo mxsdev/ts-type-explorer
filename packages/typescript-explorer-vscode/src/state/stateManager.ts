@@ -1,4 +1,4 @@
-import { TypeInfo } from "@ts-expand-type/api"
+import { TypeInfo } from "@ts-type-explorer/api"
 import * as vscode from "vscode"
 import { selectionEnabled } from "../config"
 import { getQuickInfoAtPosition, showError } from "../util"

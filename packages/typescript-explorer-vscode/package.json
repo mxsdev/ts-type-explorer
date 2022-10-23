@@ -1,9 +1,9 @@
 {
-    "name": "typescript-explorer",
+    "name": "typescript-explorer-vscode",
     "displayName": "%typescriptExplorer.title%",
     "description": "Explore typescript types",
     "publisher": "mxsdev",
-    "repository": "https://github.com/mxsdev/ts-expand-type",
+    "repository": "https://github.com/mxsdev/ts-type-explorer",
     "version": "0.1.0",
     "private": true,
     "engines": {
@@ -198,7 +198,7 @@
         },
         "typescriptServerPlugins": [
             {
-                "name": "@ts-expand-type/typescript-explorer-tsserver",
+                "name": "@ts-type-explorer/typescript-plugin",
                 "enableForWorkspaceTypeScriptVersions": true
             }
         ]
@@ -208,19 +208,21 @@
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "pretest": "yarn run compile",
-        "package": "vsce package --yarn --dependencies",
-        "test": "rm -rf ./.vscode-test/user-data && node ./out/test/runTest.js"
+        "package": "vsce package --no-yarn --dependencies",
+        "test": "node ./out/test/runTest.js"
     },
     "dependencies": {
-        "@ts-expand-type/api": "^0.1.0",
-        "@ts-expand-type/typescript-explorer-tsserver": "^0.1.0"
+        "@ts-type-explorer/api": "*",
+        "@ts-type-explorer/typescript-plugin": "*"
     },
     "devDependencies": {
+        "@types/fs-extra": "^9.0.13",
         "@types/glob": "^8.0.0",
         "@types/mocha": "^10.0.0",
         "@types/node": "16.x",
         "@types/vscode": "^1.71.0",
         "@vscode/test-electron": "^2.1.5",
+        "fs-extra": "^10.1.0",
         "glob": "^8.0.3",
         "mocha": "^10.0.0",
         "typescript": "^4.8.4",

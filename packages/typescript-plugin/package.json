@@ -1,5 +1,5 @@
 {
-    "name": "@ts-expand-type/typescript-explorer-tsserver",
+    "name": "@ts-type-explorer/typescript-plugin",
     "version": "0.1.0",
     "main": "./dist",
     "type": "commonjs",
@@ -7,6 +7,6 @@
     "private": "true",
     "dependencies": {
         "typescript": "^4.8.4",
-        "@ts-expand-type/api": "^0.1.0"
+        "@ts-type-explorer/api": "^0.1.0"
     }
 }

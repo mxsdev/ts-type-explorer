@@ -4,7 +4,7 @@ import {
     LocalizedTypeInfo,
     TypeInfoLocalizer,
     localizePurpose,
-} from "@ts-expand-type/api"
+} from "@ts-type-explorer/api"
 import assert = require("assert")
 import * as vscode from "vscode"
 import {

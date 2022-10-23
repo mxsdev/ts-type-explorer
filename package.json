@@ -1,5 +1,5 @@
 {
-    "name": "ts-expand-type",
+    "name": "ts-type-explorer",
     "version": "0.1.0",
     "type": "commonjs",
     "private": true,
@@ -8,7 +8,6 @@
         "build": "tsc -b",
         "watch": "tsc -b --watch",
         "test": "mocha",
-        "e2e": "cd ./packages/typescript-explorer && yarn test",
         "baseline-accept": "ts-node ./scripts/acceptBaselines.ts",
         "lint": "eslint .",
         "prepare": "husky install"

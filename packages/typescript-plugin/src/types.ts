@@ -1,4 +1,4 @@
-import { TypeInfo } from "@ts-expand-type/api"
+import { TypeInfo } from "@ts-type-explorer/api"
 import type * as ts from "typescript"
 
 export type ExpandedQuickInfo = ts.QuickInfo & {

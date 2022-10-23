@@ -1,4 +1,4 @@
-import { getSymbolType } from "@ts-expand-type/api"
+import { getSymbolType } from "@ts-type-explorer/api"
 import * as ts from "typescript"
 
 export type BaselineGenerator = {

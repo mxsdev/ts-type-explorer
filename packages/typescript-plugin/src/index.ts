@@ -4,9 +4,9 @@ import {
     getNodeType,
     getNodeSymbol,
     getDescendantAtPosition,
-} from "@ts-expand-type/api"
+} from "@ts-type-explorer/api"
 import type { ExpandedQuickInfo } from "./types"
-import { isValidType } from "@ts-expand-type/api/dist/util"
+import { isValidType } from "@ts-type-explorer/api/dist/util"
 import type * as ts from "typescript/lib/tsserverlibrary"
 
 // TODO: add config for e.g. max depth
