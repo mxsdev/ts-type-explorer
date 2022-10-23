@@ -4,14 +4,16 @@ import {
     getNodeType,
     getNodeSymbol,
     getDescendantAtPosition,
+    TypescriptContext,
 } from "@ts-type-explorer/api"
 import type { ExpandedQuickInfo } from "./types"
-import { isValidType } from "@ts-type-explorer/api/dist/util"
-import type * as ts from "typescript/lib/tsserverlibrary"
+import { isValidType, SourceFileTypescriptContext } from "@ts-type-explorer/api"
 
 // TODO: add config for e.g. max depth
 
-function init(/* modules: { typescript: typeof import("typescript/lib/tsserverlibrary") } */) {
+function init(modules: {
+    typescript: typeof import("typescript/lib/tsserverlibrary")
+}) {
     function create(info: ts.server.PluginCreateInfo) {
         // Set up decorator object
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -42,7 +44,14 @@ function init(/* modules: { typescript: typeof import("typescript/lib/tsserverli
 
             if (!sourceFile) return prior
 
-            const node = getDescendantAtPosition(sourceFile, position)
+            const ctx: SourceFileTypescriptContext = {
+                program,
+                typeChecker,
+                sourceFile,
+                ts: modules.typescript,
+            }
+
+            const node = getDescendantAtPosition(ctx, position)
 
             if (!node || node === sourceFile) {
                 // Avoid giving quickInfo for the sourceFile as a whole.
@@ -54,7 +63,7 @@ function init(/* modules: { typescript: typeof import("typescript/lib/tsserverli
             }
 
             if (prior) {
-                prior.__displayTree = getDisplayTree(typeChecker, node)
+                prior.__displayTree = getDisplayTree(ctx, node)
             }
 
             return prior
@@ -66,23 +75,24 @@ function init(/* modules: { typescript: typeof import("typescript/lib/tsserverli
     return { create }
 }
 
-function getDisplayTree(typeChecker: ts.TypeChecker, node: ts.Node) {
+function getDisplayTree(ctx: TypescriptContext, node: ts.Node) {
+    const { typeChecker } = ctx
+
     const symbol =
-        typeChecker.getSymbolAtLocation(node) ??
-        getNodeSymbol(typeChecker, node)
+        typeChecker.getSymbolAtLocation(node) ?? getNodeSymbol(ctx, node)
 
     if (symbol) {
-        const symbolType = getSymbolType(typeChecker, symbol, node)
+        const symbolType = getSymbolType(ctx, symbol, node)
 
         if (isValidType(symbolType)) {
-            return generateTypeTree({ symbol, node }, typeChecker)
+            return generateTypeTree({ symbol, node }, ctx)
         }
     }
 
-    const type = getNodeType(typeChecker, node)
+    const type = getNodeType(ctx, node)
 
     if (type) {
-        return generateTypeTree({ type, node }, typeChecker)
+        return generateTypeTree({ type, node }, ctx)
     }
 
     return undefined

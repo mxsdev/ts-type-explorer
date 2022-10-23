@@ -4,8 +4,8 @@
     "version": "0.1.0",
     "type": "commonjs",
     "license": "MIT",
-    "dependencies": {
+    "dependencies": {},
+    "devDependencies": {
         "typescript": "^4.8.4"
-    },
-    "devDependencies": {}
+    }
 }

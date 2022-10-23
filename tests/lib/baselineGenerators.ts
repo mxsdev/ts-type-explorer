@@ -12,17 +12,14 @@ const stringify = (obj: unknown) => JSON.stringify(obj, undefined, 4)
 //         multilineTypeToString(typeChecker, sourceFile, recursivelyExpandType(typeChecker, type))
 // )
 
-const treeBaselineGenerator = symbolBaselineGenerator(
-    (typeChecker, sourceFile, symbol, node) =>
-        stringify(
-            normalizeTypeTree(generateTypeTree({ symbol, node }, typeChecker))
-        )
+const treeBaselineGenerator = symbolBaselineGenerator((ctx, symbol, node) =>
+    stringify(normalizeTypeTree(generateTypeTree({ symbol, node }, ctx)))
 )
 
 const localizedTreeBaselineGenerator = symbolBaselineGenerator(
-    (typeChecker, sourceFile, symbol, node) => {
+    (ctx, symbol, node) => {
         const typeTree = normalizeTypeTree(
-            generateTypeTree({ symbol, node }, typeChecker)
+            generateTypeTree({ symbol, node }, ctx)
         )
 
         const localizer = new TypeInfoLocalizer(typeTree).debug()

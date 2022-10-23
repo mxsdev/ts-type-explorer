@@ -1,5 +1,4 @@
 import * as assert from "assert"
-import * as ts from "typescript"
 import {
     getKindText,
     getPrimitiveKindText,
@@ -22,6 +21,10 @@ import {
     pseudoBigIntToString,
     wrapSafe,
 } from "./util"
+import { SymbolFlags } from "./typescript"
+
+// TODO: optional param booleans can sometimes become undefined|true|false (should just be boolean)
+// TODO: enum value aliases sometimes aren't working (like in SymbolFlags up above)
 
 export class TypeInfoLocalizer {
     private includeIds = false
@@ -180,7 +183,7 @@ function _localizeTypeInfo(
     const isOptional =
         info.symbolMeta?.optional ||
         optional ||
-        (info.symbolMeta?.flags ?? 0) & ts.SymbolFlags.Optional
+        (info.symbolMeta?.flags ?? 0) & SymbolFlags.Optional
     const isRest = info.symbolMeta?.rest
 
     const locations = getTypeLocations(info)
@@ -560,8 +563,8 @@ function getChildren(
 function localizeSymbol(symbolInfo: SymbolInfo): LocalizedSymbolInfo {
     const locations = getLocations(symbolInfo)
 
-    const property = symbolInfo.flags & ts.SymbolFlags.Property
-    const isArgument = symbolInfo.flags & ts.SymbolFlags.FunctionScopedVariable
+    const property = symbolInfo.flags & SymbolFlags.Property
+    const isArgument = symbolInfo.flags & SymbolFlags.FunctionScopedVariable
 
     return {
         name: symbolInfo.name,

@@ -1,4 +1,7 @@
-import { getSymbolType } from "@ts-type-explorer/api"
+import {
+    getSymbolType,
+    SourceFileTypescriptContext,
+} from "@ts-type-explorer/api"
 import * as ts from "typescript"
 
 export type BaselineGenerator = {
@@ -7,43 +10,34 @@ export type BaselineGenerator = {
 }
 
 type BaselineGeneratorFunction = (
-    typeChecker: ts.TypeChecker,
-    sourceFile: ts.SourceFile,
+    ctx: SourceFileTypescriptContext,
     node: ts.Node
 ) => string | undefined
 
 export function typeBaselineGenerator(
     generator: (
-        typeChecker: ts.TypeChecker,
-        sourceFile: ts.SourceFile,
+        ctx: SourceFileTypescriptContext,
         type: ts.Type,
         symbol: ts.Symbol,
         node: ts.Node
     ) => string | undefined
 ): BaselineGeneratorFunction {
-    return symbolBaselineGenerator((typeChecker, sourceFile, symbol, node) =>
-        generator(
-            typeChecker,
-            sourceFile,
-            getSymbolType(typeChecker, symbol, node),
-            symbol,
-            node
-        )
+    return symbolBaselineGenerator((ctx, symbol, node) =>
+        generator(ctx, getSymbolType(ctx, symbol, node), symbol, node)
     )
 }
 
 export function symbolBaselineGenerator(
     generator: (
-        typeChecker: ts.TypeChecker,
-        sourceFile: ts.SourceFile,
+        ctx: SourceFileTypescriptContext,
         symbol: ts.Symbol,
         node: ts.Node
     ) => string | undefined
 ): BaselineGeneratorFunction {
-    return (typeChecker, sourceFile, node) => {
-        const symbol = typeChecker.getSymbolAtLocation(node)
+    return (ctx, node) => {
+        const symbol = ctx.typeChecker.getSymbolAtLocation(node)
         if (symbol) {
-            return generator(typeChecker, sourceFile, symbol, node)
+            return generator(ctx, symbol, node)
         }
         return undefined
     }
@@ -51,32 +45,23 @@ export function symbolBaselineGenerator(
 
 export function generateBaseline(
     generator: BaselineGeneratorFunction,
-    sourceFile: ts.SourceFile,
-    typeChecker: ts.TypeChecker
+    ctx: SourceFileTypescriptContext
 ) {
-    return sourceFile
+    return ctx.sourceFile
         .getChildren()[0]!
         .getChildren()
-        .map((c) =>
-            generateBaselineRecursive(
-                generator,
-                c,
-                typeChecker,
-                sourceFile
-            ).join("\n")
-        )
+        .map((c) => generateBaselineRecursive(generator, c, ctx).join("\n"))
         .join("\n\n")
 }
 
 function generateBaselineRecursive(
     generator: BaselineGeneratorFunction,
     node: ts.Node,
-    typeChecker: ts.TypeChecker,
-    sourceFile: ts.SourceFile,
+    ctx: SourceFileTypescriptContext,
     depth = 0
 ): string[] {
     let line = `${node.getText()}`
-    const generated = generator(typeChecker, sourceFile, node)
+    const generated = generator(ctx, node)
 
     if (generated) {
         line += ` --- ${generated}`
@@ -85,13 +70,7 @@ function generateBaselineRecursive(
     const childLines = node
         .getChildren()
         .map((node) =>
-            generateBaselineRecursive(
-                generator,
-                node,
-                typeChecker,
-                sourceFile,
-                depth + 1
-            )
+            generateBaselineRecursive(generator, node, ctx, depth + 1)
         )
         .filter((lines) => lines.length > 0)
         .flatMap((x) => x)

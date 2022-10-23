@@ -1,5 +1,5 @@
 import * as assert from "assert"
-import * as ts from "typescript"
+import type * as ts from "typescript"
 import { APIConfig } from "./config"
 import {
     DeclarationInfo,
@@ -10,6 +10,7 @@ import {
     TypeInfo,
     TypeInfoNoId,
 } from "./types"
+import { SymbolFlags } from "./typescript"
 import {
     getIndexInfos,
     getIntersectionTypesFlat,
@@ -37,12 +38,13 @@ import {
     getSignatureTypeArguments,
     getSourceFileLocation,
     getNodeSymbol,
+    TypescriptContext,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
 
 type TypeTreeContext = {
-    typeChecker: ts.TypeChecker
+    typescriptContext: TypescriptContext
     config: APIConfig
     seen: Set<TypeId>
     depth: number
@@ -55,11 +57,11 @@ type SymbolOrType = (
 
 export function generateTypeTree(
     symbolOrType: SymbolOrType,
-    typeChecker: ts.TypeChecker,
+    typescriptContext: TypescriptContext,
     config?: APIConfig
 ) {
     return _generateTypeTree(symbolOrType, {
-        typeChecker,
+        typescriptContext,
         config: config ?? new APIConfig(),
         seen: new Set(),
         depth: 0,
@@ -80,8 +82,10 @@ function _generateTypeTree(
     assert(symbol || type, "Must provide either symbol or type")
     ctx.depth++
 
-    const { typeChecker } = ctx
+    const { typescriptContext: tsCtx } = ctx
     const maxDepth = ctx.config.maxDepth
+
+    const { typeChecker, ts } = tsCtx
 
     if (ctx.depth > maxDepth) {
         // TODO: allow custom maximum depth
@@ -90,7 +94,7 @@ function _generateTypeTree(
     }
 
     if (!type) {
-        type = getSymbolType(typeChecker, symbol!)
+        type = getSymbolType(tsCtx, symbol!)
     }
 
     let isAnonymousSymbol = !symbol
@@ -112,10 +116,10 @@ function _generateTypeTree(
         signatures,
         constructSignatures,
         signature,
-    } = resolveSignature(typeChecker, type, node)
+    } = resolveSignature(tsCtx, type, node)
 
     if (type.symbol) {
-        if (type.symbol.flags & ts.SymbolFlags.Class) {
+        if (type.symbol.flags & SymbolFlags.Class) {
             const classDefinition = type.symbol.declarations?.[0] as
                 | ts.NamedDeclaration
                 | undefined
@@ -126,7 +130,7 @@ function _generateTypeTree(
             if (
                 !isConstructCallExpression &&
                 symbol &&
-                symbol.flags & ts.SymbolFlags.Class
+                symbol.flags & SymbolFlags.Class
             ) {
                 const returnType = wrapSafe((sig: ts.Signature) =>
                     typeChecker.getReturnTypeOfSignature(sig)
@@ -156,7 +160,7 @@ function _generateTypeTree(
 
     let aliasSymbol = type.aliasSymbol
 
-    if (isInterfaceType(type)) {
+    if (isInterfaceType(tsCtx, type)) {
         aliasSymbol ??= type.symbol
     }
 
@@ -164,17 +168,17 @@ function _generateTypeTree(
         typeInfoId.aliasSymbolMeta = getSymbolInfo(aliasSymbol)
     }
 
-    const typeParameters = getTypeParameters(typeChecker, type, symbol)
+    const typeParameters = getTypeParameters(tsCtx, type, symbol)
     if (isNonEmpty(typeParameters)) {
         typeInfoId.typeParameters = parseTypes(typeParameters)
     }
 
     const typeArguments = !signature
-        ? getTypeArguments(typeChecker, type, node)
+        ? getTypeArguments(tsCtx, type, node)
         : signatureTypeArguments
     if (
-        !isArrayType(type) &&
-        !isTupleType(type) &&
+        !isArrayType(tsCtx, type) &&
+        !isTupleType(tsCtx, type) &&
         isNonEmpty(typeArguments) &&
         (!typeParameters || !arrayContentsEqual(typeArguments, typeParameters))
     ) {
@@ -268,36 +272,36 @@ function _generateTypeTree(
             }
         } else if (flags & ts.TypeFlags.Object) {
             const { symbol: typeSymbol } = type
-            if (typeSymbol && typeSymbol.flags & ts.SymbolFlags.Enum) {
+            if (typeSymbol && typeSymbol.flags & SymbolFlags.Enum) {
                 return {
                     kind: "enum",
                     properties: parseSymbols(type.getProperties()),
                 }
             }
 
-            if (isArrayType(type)) {
+            if (isArrayType(tsCtx, type)) {
                 return {
                     kind: "array",
-                    type: parseType(getTypeArguments(typeChecker, type)![0]),
+                    type: parseType(getTypeArguments(tsCtx, type)![0]),
                 }
-            } else if (isTupleType(type)) {
+            } else if (isTupleType(tsCtx, type)) {
                 return {
                     kind: "tuple",
-                    types: parseTypes(getTypeArguments(typeChecker, type)!),
+                    types: parseTypes(getTypeArguments(tsCtx, type)!),
                     names: (
                         type.target as ts.TupleType
                     ).labeledElementDeclarations?.map((s) => s.name.getText()),
                 }
             } else if (
-                isInterfaceType(type) ||
-                (isClassType(type) &&
+                isInterfaceType(tsCtx, type) ||
+                (isClassType(tsCtx, type) &&
                     symbol &&
-                    symbol.flags & ts.SymbolFlags.Class)
+                    symbol.flags & SymbolFlags.Class)
             ) {
                 return {
-                    kind: isClassType(type)
+                    kind: isClassType(tsCtx, type)
                         ? "class"
-                        : isInterfaceType(type)
+                        : isInterfaceType(tsCtx, type)
                         ? "interface"
                         : (assert(
                               false,
@@ -308,10 +312,10 @@ function _generateTypeTree(
                     }),
                     baseType: wrapSafe(parseType)(type.getBaseTypes()?.[0]),
                     implementsTypes: wrapSafe(parseTypes)(
-                        getImplementsTypes(typeChecker, type)
+                        getImplementsTypes(tsCtx, type)
                     ),
                     constructSignatures: getConstructSignatures(
-                        typeChecker,
+                        tsCtx,
                         type
                     ).map((s) =>
                         getSignatureInfo(s, {
@@ -336,8 +340,8 @@ function _generateTypeTree(
                 return {
                     kind: "object",
                     properties: parseSymbols(type.getProperties()),
-                    indexInfos: getIndexInfos(typeChecker, type).map(
-                        (indexInfo) => getIndexInfo(indexInfo)
+                    indexInfos: getIndexInfos(tsCtx, type).map((indexInfo) =>
+                        getIndexInfo(indexInfo)
                     ),
                     objectClass: wrapSafe(parseSymbol)(classSymbol),
                 }
@@ -348,9 +352,9 @@ function _generateTypeTree(
                 types: parseTypes((type as ts.UnionType).types),
             }
         } else if (flags & ts.TypeFlags.Intersection) {
-            const allTypes = getIntersectionTypesFlat(type)
+            const allTypes = getIntersectionTypesFlat(tsCtx, type)
             const types = parseTypes(
-                allTypes.filter((t) => !isPureObject(typeChecker, t))
+                allTypes.filter((t) => !isPureObject(tsCtx, t))
             )
             const properties = parseSymbols(type.getProperties())
 
@@ -467,12 +471,11 @@ function _generateTypeTree(
             includeReturnType?: boolean
         }
     ): SignatureInfo {
-        const { typeChecker } = ctx
         typeParameters = signature.typeParameters ?? typeParameters
 
         return {
             symbolMeta: wrapSafe(getSymbolInfo)(
-                getNodeSymbol(typeChecker, signature.getDeclaration())
+                getNodeSymbol(tsCtx, signature.getDeclaration())
             ),
             parameters: signature
                 .getParameters()
@@ -495,7 +498,7 @@ function _generateTypeTree(
         signature: ts.Signature
     ): TypeInfo {
         const { optional, isRest } = getParameterInfo(
-            typeChecker,
+            tsCtx,
             parameter,
             signature
         )
@@ -507,8 +510,6 @@ function _generateTypeTree(
     }
 
     function getIndexInfo(indexInfo: TSIndexInfoMerged): IndexInfo {
-        const { typeChecker } = ctx
-
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const parameterSymbol: ts.Symbol =
             // @ts-expect-error This info exists on the object but is not publicly exposed by type info
@@ -518,7 +519,7 @@ function _generateTypeTree(
 
         const parameterType =
             indexInfo?.parameterType ??
-            (parameterSymbol && getSymbolType(typeChecker, parameterSymbol))
+            (parameterSymbol && getSymbolType(tsCtx, parameterSymbol))
 
         return {
             ...(indexInfo.keyType && { keyType: parseType(indexInfo.keyType) }),
@@ -534,7 +535,7 @@ function _generateTypeTree(
         isAnonymous = false,
         options: TypeTreeOptions = {}
     ): SymbolInfo {
-        const parameterInfo = getParameterInfo(typeChecker, symbol)
+        const parameterInfo = getParameterInfo(tsCtx, symbol)
 
         const optional = options.optional ?? parameterInfo.optional
         const rest = options.isRest ?? parameterInfo.isRest
@@ -543,8 +544,7 @@ function _generateTypeTree(
         const insideClassOrInterface =
             options.insideClassOrInterface ??
             (parent &&
-                parent.flags &
-                    (ts.SymbolFlags.Class | ts.SymbolFlags.Interface))
+                parent.flags & (SymbolFlags.Class | SymbolFlags.Interface))
 
         const declarations = wrapSafe(filterUndefined)(
             symbol.getDeclarations()?.map(getDeclarationInfo)
@@ -578,18 +578,20 @@ function _generateTypeTree(
 }
 
 function resolveSignature(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     type: ts.Type,
     node?: ts.Node
 ) {
+    const { ts } = ctx
+
     const isConstructCallExpression =
         node?.parent.kind === ts.SyntaxKind.NewExpression
 
-    const signature = getResolvedSignature(typeChecker, node)
+    const signature = getResolvedSignature(ctx, node)
 
     // const callExpression = wrapSafe(getCallLikeExpression)(node)
     const signatureTypeArguments = signature
-        ? getSignatureTypeArguments(typeChecker, signature)
+        ? getSignatureTypeArguments(ctx, signature)
         : undefined
     const signatureTypeParameters = signature?.target?.typeParameters
 

@@ -1,5 +1,16 @@
-import * as ts from "typescript"
+import type * as ts from "typescript"
 import { SourceFileLocation, TypeId } from "./types"
+import { CheckFlags } from "./typescript"
+
+export type TypescriptContext = {
+    program: ts.Program
+    typeChecker: ts.TypeChecker
+    ts: typeof import("typescript/lib/tsserverlibrary")
+}
+
+export type SourceFileTypescriptContext = TypescriptContext & {
+    sourceFile: ts.SourceFile
+}
 
 export type SymbolName = ts.__String
 
@@ -12,13 +23,13 @@ type SymbolConstructor = new (
     name: SymbolName
 ) => ts.Symbol
 
-function getTypeConstructor() {
+function getTypeConstructor({ ts }: TypescriptContext) {
     // @ts-expect-error objectAllocator exists but is not exposed by types publicly
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     return ts.objectAllocator.getTypeConstructor() as TypeConstructor
 }
 
-function getSymbolConstructor() {
+function getSymbolConstructor({ ts }: TypescriptContext) {
     // @ts-expect-error objectAllocator exists but is not exposed by types publicly
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     return ts.objectAllocator.getSymbolConstructor() as SymbolConstructor
@@ -76,7 +87,7 @@ export function getSymbolDeclaration(
 }
 
 export function getSymbolType(
-    typeChecker: ts.TypeChecker,
+    { typeChecker }: TypescriptContext,
     symbol: ts.Symbol,
     location?: ts.Node
 ) {
@@ -108,7 +119,7 @@ export function getSymbolType(
 }
 
 export function getNodeSymbol(
-    typeChecker: ts.TypeChecker,
+    { typeChecker }: TypescriptContext,
     node?: ts.Node
 ): ts.Symbol | undefined {
     return node
@@ -117,13 +128,15 @@ export function getNodeSymbol(
         : undefined
 }
 
-export function getNodeType(typeChecker: ts.TypeChecker, node: ts.Node) {
+export function getNodeType(ctx: TypescriptContext, node: ts.Node) {
+    const { typeChecker, ts } = ctx
+
     const nodeType = typeChecker.getTypeAtLocation(node)
     if (isValidType(nodeType)) return nodeType
 
     const symbolType = wrapSafe((symbol: ts.Symbol) =>
-        getSymbolType(typeChecker, symbol, node)
-    )(getNodeSymbol(typeChecker, node))
+        getSymbolType(ctx, symbol, node)
+    )(getNodeSymbol(ctx, node))
     if (symbolType && isValidType(symbolType)) return symbolType
 
     if (ts.isTypeNode(node) || ts.isTypeNode(node.parent)) {
@@ -133,7 +146,7 @@ export function getNodeType(typeChecker: ts.TypeChecker, node: ts.Node) {
             ? node.parent
             : (undefined as never)
 
-        const typeNodeType = getTypeFromTypeNode(typeChecker, typeNode)
+        const typeNodeType = getTypeFromTypeNode(ctx, typeNode)
         if (isValidType(typeNodeType)) return typeNodeType
     }
 
@@ -144,7 +157,7 @@ export function getNodeType(typeChecker: ts.TypeChecker, node: ts.Node) {
             }
         ).isExpression(node)
     ) {
-        const expressionType = checkExpression(typeChecker, node)
+        const expressionType = checkExpression(ctx, node)
         if (expressionType && isValidType(expressionType)) return expressionType
     }
 
@@ -154,8 +167,11 @@ export function getNodeType(typeChecker: ts.TypeChecker, node: ts.Node) {
 /**
  * Hack to call typeChecker.checkExpression externally
  */
-export function checkExpression(typeChecker: ts.TypeChecker, node: ts.Node) {
+export function checkExpression(ctx: TypescriptContext, node: ts.Node) {
+    const { ts, typeChecker } = ctx
+
     const symbol = createSymbol(
+        ctx,
         ts.SymbolFlags.BlockScopedVariable,
         "type" as ts.__String
     )
@@ -184,7 +200,7 @@ export function checkExpression(typeChecker: ts.TypeChecker, node: ts.Node) {
 }
 
 export function getSignaturesOfType(
-    typeChecker: ts.TypeChecker,
+    { typeChecker, ts }: TypescriptContext,
     type: ts.Type
 ) {
     return [
@@ -210,7 +226,10 @@ interface MappedType extends ts.Type {
     // containsError?: boolean;
 }
 
-export function getIndexInfos(typeChecker: ts.TypeChecker, type: ts.Type) {
+export function getIndexInfos(
+    { typeChecker, ts }: TypescriptContext,
+    type: ts.Type
+) {
     const indexInfos: TSIndexInfoMerged[] = [
         ...typeChecker.getIndexInfosOfType(type),
     ]
@@ -236,19 +255,16 @@ export function getIndexInfos(typeChecker: ts.TypeChecker, type: ts.Type) {
     return indexInfos
 }
 
-export function createType(checker: ts.TypeChecker, flags: ts.TypeFlags) {
-    return new (getTypeConstructor())(checker, flags)
+export function createType(ctx: TypescriptContext, flags: ts.TypeFlags) {
+    return new (getTypeConstructor(ctx))(ctx.typeChecker, flags)
 }
 
 export function createObjectType(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     objectFlags: ts.ObjectFlags,
     flags: ts.TypeFlags = 0
 ): ObjectType {
-    const type = createType(
-        typeChecker,
-        flags | ts.TypeFlags.Object
-    ) as ObjectType
+    const type = createType(ctx, flags | ctx.ts.TypeFlags.Object) as ObjectType
     type.members = new Map()
     type.objectFlags = objectFlags
     type.properties = []
@@ -260,13 +276,13 @@ export function createObjectType(
 }
 
 export function createUnionType(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     types: ts.Type[] = [],
     flags: ts.TypeFlags = 0
 ): UnionTypeInternal {
     const type = createType(
-        typeChecker,
-        flags | ts.TypeFlags.Union
+        ctx,
+        flags | ctx.ts.TypeFlags.Union
     ) as UnionTypeInternal
 
     type.types = types
@@ -275,13 +291,13 @@ export function createUnionType(
 }
 
 export function createIntersectionType(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     types: ts.Type[] = [],
     flags: ts.TypeFlags = 0
 ): IntersectionTypeInternal {
     const type = createType(
-        typeChecker,
-        flags | ts.TypeFlags.Intersection
+        ctx,
+        flags | ctx.ts.TypeFlags.Intersection
     ) as IntersectionTypeInternal
 
     type.types = types
@@ -290,12 +306,13 @@ export function createIntersectionType(
 }
 
 export function createSymbol(
+    ctx: TypescriptContext,
     flags: ts.SymbolFlags,
     name: SymbolName,
     checkFlags?: number
 ) {
-    const symbol = new (getSymbolConstructor())(
-        flags | ts.SymbolFlags.Transient,
+    const symbol = new (getSymbolConstructor(ctx))(
+        flags | ctx.ts.SymbolFlags.Transient,
         name
     ) as TSSymbol
     symbol.checkFlags = checkFlags || 0
@@ -303,8 +320,7 @@ export function createSymbol(
 }
 
 export function multilineTypeToString(
-    typeChecker: ts.TypeChecker,
-    sourceFile: ts.SourceFile,
+    { typeChecker, sourceFile, ts }: SourceFileTypescriptContext,
     type: ts.Type,
     enclosingDeclaration?: ts.Node,
     flags: ts.NodeBuilderFlags = 0
@@ -367,23 +383,28 @@ export function getEmptyTypeId(): TypeId {
 }
 
 export function isPureObject(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     type: ts.Type
 ): type is ts.ObjectType {
+    const { ts } = ctx
+
     return (
         (!!(type.flags & ts.TypeFlags.Object) &&
-            getSignaturesOfType(typeChecker, type).length === 0 &&
-            getIndexInfos(typeChecker, type).length === 0 &&
-            !isArrayType(type) &&
-            !isTupleType(type)) ||
+            getSignaturesOfType(ctx, type).length === 0 &&
+            getIndexInfos(ctx, type).length === 0 &&
+            !isArrayType(ctx, type) &&
+            !isTupleType(ctx, type)) ||
         (!!(type.flags & ts.TypeFlags.Intersection) &&
             (type as ts.IntersectionType).types.every((t) =>
-                isPureObject(typeChecker, t)
+                isPureObject(ctx, t)
             ))
     )
 }
 
-export function getIntersectionTypesFlat(...types: ts.Type[]): ts.Type[] {
+export function getIntersectionTypesFlat(
+    { ts }: TypescriptContext,
+    ...types: ts.Type[]
+): ts.Type[] {
     return types.flatMap((type) =>
         type.flags & ts.TypeFlags.Intersection
             ? (type as ts.IntersectionType).types
@@ -391,41 +412,61 @@ export function getIntersectionTypesFlat(...types: ts.Type[]): ts.Type[] {
     )
 }
 
-export function isInterfaceType(type: ts.Type): type is ts.InterfaceType {
-    return !!(getObjectFlags(type) & ts.ObjectFlags.Interface)
+export function isInterfaceType(
+    ctx: TypescriptContext,
+    type: ts.Type
+): type is ts.InterfaceType {
+    const { ts } = ctx
+    return !!(getObjectFlags(ctx, type) & ts.ObjectFlags.Interface)
 }
 
-export function isClassType(type: ts.Type): type is ts.InterfaceType {
-    return !!(getObjectFlags(type) & ts.ObjectFlags.Class)
+export function isClassType(
+    ctx: TypescriptContext,
+    type: ts.Type
+): type is ts.InterfaceType {
+    const { ts } = ctx
+    return !!(getObjectFlags(ctx, type) & ts.ObjectFlags.Class)
 }
 
 export function isClassOrInterfaceType(
+    ctx: TypescriptContext,
     type: ts.Type
 ): type is ts.InterfaceType {
-    return !!(getObjectFlags(type) & ts.ObjectFlags.ClassOrInterface)
+    const { ts } = ctx
+    return !!(getObjectFlags(ctx, type) & ts.ObjectFlags.ClassOrInterface)
 }
 
-export function isArrayType(type: ts.Type): type is ts.TypeReference {
+export function isArrayType(
+    ctx: TypescriptContext,
+    type: ts.Type
+): type is ts.TypeReference {
     return (
-        !!isObjectReference(type) &&
+        !!isObjectReference(ctx, type) &&
         type.target.getSymbol()?.getName() === "Array"
     )
     // && getTypeArguments(typeChecker, type).length >= 1
 }
 
-export function isTupleType(type: ts.Type): type is ts.TypeReference {
+export function isTupleType(
+    ctx: TypescriptContext,
+    type: ts.Type
+): type is ts.TypeReference {
     return !!(
-        isObjectReference(type) &&
-        type.target.objectFlags & ts.ObjectFlags.Tuple
+        isObjectReference(ctx, type) &&
+        type.target.objectFlags & ctx.ts.ObjectFlags.Tuple
     )
 }
 
-export function isObjectReference(type: ts.Type): type is ts.TypeReference {
-    return !!(getObjectFlags(type) & ts.ObjectFlags.Reference)
+export function isObjectReference(
+    ctx: TypescriptContext,
+    type: ts.Type
+): type is ts.TypeReference {
+    const { ts } = ctx
+    return !!(getObjectFlags(ctx, type) & ts.ObjectFlags.Reference)
 }
 
 export function getTypeFromTypeNode(
-    typeChecker: ts.TypeChecker,
+    { ts, typeChecker }: TypescriptContext,
     node: ts.TypeNode
 ) {
     if (!(node.flags & ts.NodeFlags.Synthesized)) {
@@ -442,12 +483,12 @@ export function getTypeFromTypeNode(
 }
 
 export function getTypeArguments<T extends ts.Type>(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     type: T,
     node?: ts.Node
 ): readonly ts.Type[] | undefined {
-    const typeArgumentsOfType = isObjectReference(type)
-        ? typeChecker.getTypeArguments(type)
+    const typeArgumentsOfType = isObjectReference(ctx, type)
+        ? ctx.typeChecker.getTypeArguments(type)
         : undefined
 
     if (node && isEmpty(typeArgumentsOfType)) {
@@ -456,7 +497,7 @@ export function getTypeArguments<T extends ts.Type>(
             (node.parent as NodeWithTypeArguments)?.typeArguments
         const typeArgumentsOfNode = wrapSafe(filterUndefined)(
             typeArgumentDefinitions?.map((node) =>
-                getTypeFromTypeNode(typeChecker, node)
+                getTypeFromTypeNode(ctx, node)
             )
         )
 
@@ -469,11 +510,11 @@ export function getTypeArguments<T extends ts.Type>(
 }
 
 export function getTypeParameters(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     type: ts.Type,
     symbol?: ts.Symbol
 ): readonly ts.Type[] | undefined {
-    if (isClassOrInterfaceType(type)) {
+    if (isClassOrInterfaceType(ctx, type)) {
         return type.typeParameters
     } else if (
         symbol &&
@@ -486,7 +527,7 @@ export function getTypeParameters(
                     typeParameters?: ts.NodeArray<ts.TypeParameterDeclaration>
                 }
             ).typeParameters ??
-            typeChecker.symbolToTypeParameterDeclarations(
+            ctx.typeChecker.symbolToTypeParameterDeclarations(
                 symbol,
                 undefined,
                 undefined
@@ -494,9 +535,7 @@ export function getTypeParameters(
         if (isEmpty(typeParameterDeclarations)) return undefined
 
         const typeParameterTypes: ts.Type[] = filterUndefined(
-            typeParameterDeclarations.map((decl) =>
-                getNodeType(typeChecker, decl)
-            )
+            typeParameterDeclarations.map((decl) => getNodeType(ctx, decl))
         )
 
         if (typeParameterDeclarations.length === typeParameterTypes.length) {
@@ -507,7 +546,10 @@ export function getTypeParameters(
     return undefined
 }
 
-export function getObjectFlags(type: ts.Type): number {
+export function getObjectFlags(
+    { ts }: TypescriptContext,
+    type: ts.Type
+): number {
     return type.flags & ts.TypeFlags.Object && (type as ObjectType).objectFlags
 }
 
@@ -517,10 +559,12 @@ type ParameterInfo = {
 }
 
 export function getParameterInfo(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     parameter: ts.Symbol,
     signature?: ts.Signature
 ): ParameterInfo {
+    const { typeChecker, ts } = ctx
+
     const parameterDeclaration = typeChecker.symbolToParameterDeclaration(
         parameter,
         signature?.getDeclaration(),
@@ -543,17 +587,20 @@ export function getParameterInfo(
         optional: !!(
             (baseParameterDeclaration &&
                 typeChecker.isOptionalParameter(baseParameterDeclaration)) ||
-            getCheckFlags(parameter) & CheckFlags.OptionalParameter
+            getCheckFlags(ctx, parameter) & CheckFlags.OptionalParameter
         ),
         isRest: !!(
             (baseParameterDeclaration &&
                 baseParameterDeclaration.dotDotDotToken) ||
-            getCheckFlags(parameter) & CheckFlags.RestParameter
+            getCheckFlags(ctx, parameter) & CheckFlags.RestParameter
         ),
     }
 }
 
-export function getCheckFlags(symbol: ts.Symbol): CheckFlags {
+export function getCheckFlags(
+    { ts }: TypescriptContext,
+    symbol: ts.Symbol
+): CheckFlags {
     return symbol.flags & ts.SymbolFlags.Transient
         ? (symbol as TransientSymbol).checkFlags
         : 0
@@ -564,7 +611,7 @@ export function pseudoBigIntToString(value: ts.PseudoBigInt) {
 }
 
 export function getImplementsTypes(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     type: ts.InterfaceType
 ): ts.BaseType[] {
     const resolvedImplementsTypes: ts.BaseType[] = []
@@ -572,11 +619,12 @@ export function getImplementsTypes(
     if (type.symbol?.declarations) {
         for (const declaration of type.symbol.declarations) {
             const implementsTypeNodes = getEffectiveImplementsTypeNodes(
+                ctx,
                 declaration as ts.ClassLikeDeclaration
             )
             if (!implementsTypeNodes) continue
             for (const node of implementsTypeNodes) {
-                const implementsType = getTypeFromTypeNode(typeChecker, node)
+                const implementsType = getTypeFromTypeNode(ctx, node)
                 if (isValidType(implementsType)) {
                     resolvedImplementsTypes.push(implementsType)
                 }
@@ -586,31 +634,41 @@ export function getImplementsTypes(
     return resolvedImplementsTypes
 }
 
-function isInJSFile(node: ts.Node | undefined): boolean {
+function isInJSFile(
+    { ts }: TypescriptContext,
+    node: ts.Node | undefined
+): boolean {
     return !!node && !!(node.flags & ts.NodeFlags.JavaScriptFile)
 }
 
 function getEffectiveImplementsTypeNodes(
+    ctx: TypescriptContext,
     node: ts.ClassLikeDeclaration
 ): undefined | readonly ts.ExpressionWithTypeArguments[] {
-    if (isInJSFile(node)) {
-        return getJSDocImplementsTags(node).map((n) => n.class)
+    if (isInJSFile(ctx, node)) {
+        return getJSDocImplementsTags(ctx, node).map((n) => n.class)
     } else {
         const heritageClause = getHeritageClause(
             node.heritageClauses,
-            ts.SyntaxKind.ImplementsKeyword
+            ctx.ts.SyntaxKind.ImplementsKeyword
         )
         return heritageClause?.types
     }
 }
 
 function getJSDocImplementsTags(
+    ctx: TypescriptContext,
     node: ts.Node
 ): readonly ts.JSDocImplementsTag[] {
-    return ts.getAllJSDocTags(node, isJSDocImplementsTag)
+    return ctx.ts.getAllJSDocTags(node, (tag): tag is ts.JSDocImplementsTag =>
+        isJSDocImplementsTag(ctx, tag)
+    )
 }
 
-function isJSDocImplementsTag(node: ts.Node): node is ts.JSDocImplementsTag {
+function isJSDocImplementsTag(
+    { ts }: TypescriptContext,
+    node: ts.Node
+): node is ts.JSDocImplementsTag {
     return node.kind === ts.SyntaxKind.JSDocImplementsTag
 }
 
@@ -630,20 +688,23 @@ function getHeritageClause(
 }
 
 export function getConstructSignatures(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     type: ts.InterfaceType
 ): readonly ts.Signature[] {
     const symbol = type.getSymbol()
 
-    if (symbol && symbol.flags & ts.SymbolFlags.Class) {
-        const classType = getSymbolType(typeChecker, symbol)
+    if (symbol && symbol.flags & ctx.ts.SymbolFlags.Class) {
+        const classType = getSymbolType(ctx, symbol)
         return classType.getConstructSignatures()
     }
 
     return []
 }
 
-export function getCallLikeExpression(node: ts.Node) {
+export function getCallLikeExpression(
+    { ts }: TypescriptContext,
+    node: ts.Node
+) {
     return ts.isCallLikeExpression(node)
         ? node
         : ts.isCallLikeExpression(node.parent)
@@ -652,25 +713,27 @@ export function getCallLikeExpression(node: ts.Node) {
 }
 
 export function getResolvedSignature(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     node?: ts.Node
 ): SignatureInternal | undefined {
     if (!node) return undefined
 
-    const callExpression = getCallLikeExpression(node)
+    const callExpression = getCallLikeExpression(ctx, node)
 
     return callExpression
-        ? (typeChecker.getResolvedSignature(
+        ? (ctx.typeChecker.getResolvedSignature(
               callExpression
           ) as SignatureInternal)
         : undefined
 }
 
 export function getSignatureTypeArguments(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     signature: ts.Signature,
     enclosingDeclaration?: ts.Node
 ) {
+    const { typeChecker, ts } = ctx
+
     return typeChecker
         .signatureToSignatureDeclaration(
             signature,
@@ -678,18 +741,18 @@ export function getSignatureTypeArguments(
             enclosingDeclaration,
             ts.NodeBuilderFlags.WriteTypeArgumentsOfSignature
         )
-        ?.typeArguments?.map((t) => getTypeFromTypeNode(typeChecker, t))
+        ?.typeArguments?.map((t) => getTypeFromTypeNode(ctx, t))
 }
 
 export function getDescendantAtPosition(
-    sourceFile: ts.SourceFile,
+    ctx: SourceFileTypescriptContext,
     position: number
 ) {
-    return getDescendantAtRange(sourceFile, [position, position])
+    return getDescendantAtRange(ctx, [position, position])
 }
 
 export function getDescendantAtRange(
-    sourceFile: ts.SourceFile,
+    { sourceFile, ts }: SourceFileTypescriptContext,
     range: [number, number]
 ) {
     let bestMatch: { node: ts.Node; start: number } = {
@@ -771,31 +834,4 @@ export function getSourceFileLocation(
             end,
         },
     }
-}
-
-export const enum CheckFlags {
-    Instantiated = 1 << 0, // Instantiated symbol
-    SyntheticProperty = 1 << 1, // Property in union or intersection type
-    SyntheticMethod = 1 << 2, // Method in union or intersection type
-    Readonly = 1 << 3, // Readonly transient symbol
-    ReadPartial = 1 << 4, // Synthetic property present in some but not all constituents
-    WritePartial = 1 << 5, // Synthetic property present in some but only satisfied by an index signature in others
-    HasNonUniformType = 1 << 6, // Synthetic property with non-uniform type in constituents
-    HasLiteralType = 1 << 7, // Synthetic property with at least one literal type in constituents
-    ContainsPublic = 1 << 8, // Synthetic property with public constituent(s)
-    ContainsProtected = 1 << 9, // Synthetic property with protected constituent(s)
-    ContainsPrivate = 1 << 10, // Synthetic property with private constituent(s)
-    ContainsStatic = 1 << 11, // Synthetic property with static constituent(s)
-    Late = 1 << 12, // Late-bound symbol for a computed property with a dynamic name
-    ReverseMapped = 1 << 13, // Property of reverse-inferred homomorphic mapped type
-    OptionalParameter = 1 << 14, // Optional parameter
-    RestParameter = 1 << 15, // Rest parameter
-    DeferredType = 1 << 16, // Calculation of the type of this symbol is deferred due to processing costs, should be fetched with `getTypeOfSymbolWithDeferredType`
-    HasNeverType = 1 << 17, // Synthetic property with at least one never type in constituents
-    Mapped = 1 << 18, // Property of mapped type
-    StripOptional = 1 << 19, // Strip optionality in mapped property
-    Unresolved = 1 << 20, // Unresolved type alias symbol
-    Synthetic = SyntheticProperty | SyntheticMethod,
-    Discriminant = HasNonUniformType | HasLiteralType,
-    Partial = ReadPartial | WritePartial,
 }

@@ -1,4 +1,4 @@
-import * as ts from "typescript"
+import type * as ts from "typescript"
 import { APIConfig } from "./config"
 import {
     createUnionType,
@@ -16,17 +16,18 @@ import {
     isTupleType,
     TypeReferenceInternal,
     isPureObject,
-    CheckFlags,
+    TypescriptContext,
 } from "./util"
+import { CheckFlags } from "./typescript"
 
 export function recursivelyExpandType(
-    typeChecker: ts.TypeChecker,
+    ctx: TypescriptContext,
     type: ts.Type,
     config?: APIConfig
 ) {
     config ??= new APIConfig()
 
-    return _recursivelyExpandType(typeChecker, [type], {
+    return _recursivelyExpandType(ctx, [type], {
         seen: new WeakMap(),
         maxDepth: config.maxDepth,
         depth: 0,
@@ -40,10 +41,12 @@ type RecursiveExpandContext = {
 }
 
 function _recursivelyExpandType(
-    typeChecker: ts.TypeChecker,
+    tsCtx: TypescriptContext,
     types: ts.Type[],
     ctx: RecursiveExpandContext
 ): ts.Type {
+    const { typeChecker, ts } = tsCtx
+
     const { seen } = ctx
 
     ctx.depth++
@@ -63,44 +66,44 @@ function _recursivelyExpandType(
 
         function processType(type: ts.Type): ts.Type[] {
             if (type.flags & ts.TypeFlags.Intersection) {
-                return getIntersectionTypesFlat(type).flatMap(processType)
+                return getIntersectionTypesFlat(tsCtx, type).flatMap(
+                    processType
+                )
             } else if (type.flags & ts.TypeFlags.Union) {
-                const newType = createUnionType(typeChecker)
+                const newType = createUnionType(tsCtx)
                 seen.set(type, newType)
 
                 const unionTypeMembers = (type as ts.UnionType).types.map((t) =>
-                    _recursivelyExpandType(typeChecker, [t], ctx)
+                    _recursivelyExpandType(tsCtx, [t], ctx)
                 )
                 newType.types = unionTypeMembers
 
                 return [newType]
             } else if (type.flags & ts.TypeFlags.Object) {
-                if (getSignaturesOfType(typeChecker, type).length > 0) {
+                if (getSignaturesOfType(tsCtx, type).length > 0) {
                     // function type
                     return [type]
-                } else if (isTupleType(type)) {
+                } else if (isTupleType(tsCtx, type)) {
                     const expandedTuple = createTupleType(type)
                     seen.set(type, expandedTuple)
                     expandedTuple.resolvedTypeArguments = typeChecker
                         .getTypeArguments(type)
-                        .map((arg) =>
-                            _recursivelyExpandType(typeChecker, [arg], ctx)
-                        )
+                        .map((arg) => _recursivelyExpandType(tsCtx, [arg], ctx))
 
                     return [expandedTuple]
-                } else if (isArrayType(type)) {
+                } else if (isArrayType(tsCtx, type)) {
                     const expandedArray = createArrayType(type)
                     seen.set(type, expandedArray)
                     expandedArray.resolvedTypeArguments = [
                         _recursivelyExpandType(
-                            typeChecker,
+                            tsCtx,
                             [typeChecker.getTypeArguments(type)[0]],
                             ctx
                         ),
                     ]
 
                     return [expandedArray]
-                } else if (getIndexInfos(typeChecker, type).length > 0) {
+                } else if (getIndexInfos(tsCtx, type).length > 0) {
                     // mapped type
                     return [type]
                 } else {
@@ -129,7 +132,7 @@ function _recursivelyExpandType(
             const nonObjectTypes: ts.Type[] = []
 
             processedTypes.forEach((t) =>
-                isPureObject(typeChecker, t)
+                isPureObject(tsCtx, t)
                     ? objectTypes.push(t)
                     : nonObjectTypes.push(t)
             )
@@ -145,7 +148,7 @@ function _recursivelyExpandType(
             if (nonObjectTypes.length === 0 && objectType) {
                 return objectType
             } else {
-                const newType = createIntersectionType(typeChecker)
+                const newType = createIntersectionType(tsCtx)
                 if (types.length === 1) seen.set(types[0], newType)
 
                 newType.types = [
@@ -159,12 +162,12 @@ function _recursivelyExpandType(
     }
 
     function createAnonymousObjectType() {
-        return createObjectType(typeChecker, ts.ObjectFlags.Anonymous)
+        return createObjectType(tsCtx, ts.ObjectFlags.Anonymous)
     }
 
     function createArrayType(array: ts.TypeReference): TypeReferenceInternal {
         const arrayType = createObjectType(
-            typeChecker,
+            tsCtx,
             ts.ObjectFlags.Reference
         ) as unknown as TypeReferenceInternal
         arrayType.target = array.target
@@ -173,7 +176,7 @@ function _recursivelyExpandType(
 
     function createTupleType(tuple: ts.TypeReference): TypeReferenceInternal {
         const tupleType = createObjectType(
-            typeChecker,
+            tsCtx,
             ts.ObjectFlags.Reference
         ) as unknown as TypeReferenceInternal
         tupleType.target = tuple.target
@@ -220,14 +223,15 @@ function _recursivelyExpandType(
         }
 
         const propertySymbol = createSymbol(
+            tsCtx,
             symbolFlags,
             name,
             CheckFlags.Mapped
         )
 
-        const types = symbols.map((s) => getSymbolType(typeChecker, s))
+        const types = symbols.map((s) => getSymbolType(tsCtx, s))
 
-        propertySymbol.type = _recursivelyExpandType(typeChecker, types, ctx)
+        propertySymbol.type = _recursivelyExpandType(tsCtx, types, ctx)
 
         return propertySymbol
     }

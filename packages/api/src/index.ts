@@ -7,6 +7,9 @@ export {
     getNodeSymbol,
     getDescendantAtPosition,
     getDescendantAtRange,
+    TypescriptContext,
+    SourceFileTypescriptContext,
+    isValidType,
 } from "./util"
 export { recursivelyExpandType } from "./merge"
 export {

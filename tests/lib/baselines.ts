@@ -65,11 +65,12 @@ export async function generateBaselineTests() {
                         const correct = [
                             `=== ${testName} ===`,
                             "",
-                            generateBaseline(
-                                baseline.generator,
+                            generateBaseline(baseline.generator, {
                                 sourceFile,
-                                typeChecker
-                            ),
+                                typeChecker,
+                                program,
+                                ts: ts as typeof import("typescript/lib/tsserverlibrary"),
+                            }),
                         ].join("\n")
 
                         const against = await fs

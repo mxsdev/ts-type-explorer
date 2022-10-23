@@ -16,6 +16,7 @@ module.exports = {
         "**/out/**",
         "**/dist/**",
         ".eslintrc.cjs",
+        "**/scripts/**/*.js",
     ],
     root: true,
     rules: {
