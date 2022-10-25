@@ -5,6 +5,7 @@ import {
     DeclarationInfo,
     IndexInfo,
     SignatureInfo,
+    SourceFileLocation,
     SymbolInfo,
     TypeId,
     TypeInfo,
@@ -82,6 +83,8 @@ function _generateTypeTree(
     assert(symbol || type, "Must provide either symbol or type")
     ctx.depth++
 
+    const originalSymbol = symbol
+
     const { typescriptContext: tsCtx } = ctx
     const maxDepth = ctx.config.maxDepth
 
@@ -102,7 +105,11 @@ function _generateTypeTree(
     if (!symbol) {
         const associatedSymbol = type.getSymbol()
 
-        if (associatedSymbol) {
+        if (
+            associatedSymbol &&
+            !isArrayType(tsCtx, type) &&
+            !isTupleType(tsCtx, type)
+        ) {
             isAnonymousSymbol = associatedSymbol.name === "__type"
             symbol = associatedSymbol
         }
@@ -140,12 +147,25 @@ function _generateTypeTree(
             }
         }
     }
+
     let typeInfo: TypeInfoNoId
     const id = getTypeId(type, symbol, node)
 
     if (!ctx.seen?.has(id)) {
-        ctx.seen?.add(id)
-        typeInfo = createNode(type)
+        const locations: SourceFileLocation[] = filterUndefined([
+            ...(getSymbolLocations(originalSymbol) ?? []),
+        ])
+
+        if (
+            ctx.config.referenceDefinedTypes &&
+            ctx.depth > 1 &&
+            isNonEmpty(locations)
+        ) {
+            typeInfo = { kind: "reference", location: locations[0] }
+        } else {
+            ctx.seen?.add(id)
+            typeInfo = createNode(type)
+        }
     } else {
         typeInfo = { kind: "reference" }
     }
@@ -528,6 +548,16 @@ function _generateTypeTree(
             parameterSymbol: wrapSafe(getSymbolInfo)(parameterSymbol),
             ...(parameterType && { parameterType: parseType(parameterType) }),
         }
+    }
+
+    function getSymbolLocations(symbol?: ts.Symbol) {
+        return wrapSafe(filterUndefined)(
+            symbol?.getDeclarations()?.map(getDeclarationLocation)
+        )
+    }
+
+    function getDeclarationLocation(declaration: ts.Declaration) {
+        return getDeclarationInfo(declaration)?.location
     }
 
     function getSymbolInfo(

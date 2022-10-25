@@ -15,6 +15,7 @@ import {
 } from "./types"
 import { getTypeInfoChildren } from "./tree"
 import {
+    filterUndefined,
     getEmptyTypeId,
     isEmpty,
     isNonEmpty,
@@ -26,46 +27,154 @@ import { SymbolFlags } from "./typescript"
 // TODO: optional param booleans can sometimes become undefined|true|false (should just be boolean)
 // TODO: enum value aliases sometimes aren't working (like in SymbolFlags up above)
 
+type TypeInfoRetriever = (
+    location: SourceFileLocation
+) => Promise<TypeInfo | undefined>
+
 export class TypeInfoLocalizer {
     private includeIds = false
-    typeInfoMap: TypeInfoMap
 
-    constructor(private typeInfo: TypeInfo) {
-        this.typeInfoMap = generateTypeInfoMap(typeInfo)
-    }
+    typeInfoMaps = new WeakMap<TypeInfo, TypeInfoMap>()
+    localizedInfoOrigin = new WeakMap<LocalizedTypeInfo, TypeInfo>()
 
-    localize(info: TypeInfo) {
+    constructor(private retrieveTypeInfo?: TypeInfoRetriever) {}
+
+    private localizeTypeInfo(
+        resolvedInfo: ResolvedArrayTypeInfo,
+        info?: TypeInfo,
+        opts?: LocalizeOpts
+    ) {
+        info ??= resolvedInfo.info
+
+        opts ??= {}
+        opts.includeIds = this.includeIds
+
         return _localizeTypeInfo(
             info,
-            { typeInfoMap: this.typeInfoMap },
-            { includeIds: this.includeIds }
+            resolvedInfo,
+            { localizedOrigin: this.localizedInfoOrigin },
+            opts
         )
     }
 
-    localizeChildren(info: LocalizedTypeInfo): LocalizedTypeInfo[] {
-        return (
-            info.children?.map(({ info, localizedInfo, opts }) => {
+    async localize(info: TypeInfo) {
+        return this.localizeTypeInfo(
+            await this.resolveTypeReferenceOrArray(info)
+        )
+    }
+
+    getTypeInfoMap(info: TypeInfo) {
+        if (this.typeInfoMaps.has(info)) {
+            return this.typeInfoMaps.get(info)!
+        }
+
+        const typeInfoMap = generateTypeInfoMap(info)
+        this.typeInfoMaps.set(info, typeInfoMap)
+        return typeInfoMap
+    }
+
+    async localizeChildren(
+        parent: LocalizedTypeInfo
+    ): Promise<LocalizedTypeInfo[]> {
+        const parentOrigin = this.localizedInfoOrigin.get(parent)
+        assert(parentOrigin)
+
+        return await Promise.all(
+            parent.children?.map(async ({ info, localizedInfo, opts }) => {
                 assert(
                     info || localizedInfo,
                     "Either info or localized info must be provided"
                 )
 
                 if (localizedInfo) {
+                    this.localizedInfoOrigin.set(localizedInfo, parentOrigin)
                     return localizedInfo
                 }
 
-                if (this.includeIds) {
-                    opts ??= {}
-                    opts.includeIds = true
-                }
+                assert(info)
 
-                return _localizeTypeInfo(
-                    info!,
-                    { typeInfoMap: this.typeInfoMap },
-                    opts
+                const typeInfoMap = this.getTypeInfoMap(parentOrigin)
+
+                const resolvedInfo = await this.resolveTypeReferenceOrArray(
+                    info,
+                    typeInfoMap
                 )
+
+                return this.localizeTypeInfo(resolvedInfo, info, opts)
             }) ?? []
-        )
+        ).then(filterUndefined)
+    }
+
+    private async resolveTypeReferenceOrArray(
+        info: TypeInfo,
+        _typeInfoMap?: TypeInfoMap
+    ): Promise<ResolvedArrayTypeInfo> {
+        let dimension = 0
+        let resolvedInfo = info
+
+        let typeInfoMap = _typeInfoMap ?? this.getTypeInfoMap(info)
+
+        while (
+            resolvedInfo.kind === "array" ||
+            resolvedInfo.kind === "reference"
+        ) {
+            if (resolvedInfo.kind === "array") {
+                dimension++
+                resolvedInfo = resolvedInfo.type
+            } else {
+                const resolved = await this.resolveTypeReference(
+                    resolvedInfo,
+                    typeInfoMap
+                )
+
+                assert(resolved, "Cannot resolve type from location!")
+
+                typeInfoMap = resolved.typeInfoMap
+                resolvedInfo = resolved.typeInfo
+            }
+        }
+
+        resolvedInfo = {
+            ...resolvedInfo,
+            symbolMeta: info.symbolMeta,
+            id: info.id,
+        }
+
+        if (dimension === 0) {
+            resolvedInfo.aliasSymbolMeta = info.aliasSymbolMeta
+        }
+
+        return { info: resolvedInfo, dimension }
+    }
+
+    private async resolveTypeReference(
+        typeInfo: TypeInfo,
+        typeInfoMap: TypeInfoMap
+    ): Promise<
+        { typeInfo: ResolvedTypeInfo; typeInfoMap: TypeInfoMap } | undefined
+    > {
+        if (typeInfo.kind === "reference") {
+            if (typeInfo.location) {
+                assert(this.retrieveTypeInfo, "Must provide retriveTypeInfo")
+
+                const retrievedTypeInfo = (await this.retrieveTypeInfo(
+                    typeInfo.location
+                )) as ResolvedTypeInfo
+
+                if (!retrievedTypeInfo) return undefined
+
+                typeInfoMap = this.getTypeInfoMap(retrievedTypeInfo)
+                typeInfo = retrievedTypeInfo
+            } else {
+                const resolvedTypeInfo = typeInfoMap.get(typeInfo.id)
+                assert(resolvedTypeInfo, "Encountered invalid type reference!")
+
+                typeInfo = resolvedTypeInfo
+            }
+        }
+
+        this.typeInfoMaps.set(typeInfo, typeInfoMap)
+        return { typeInfo, typeInfoMap }
     }
 
     /**
@@ -130,6 +239,11 @@ type TypeInfoChildren = {
     opts?: LocalizeOpts
 }[]
 
+type ResolvedArrayTypeInfo = {
+    info: Exclude<ResolvedTypeInfo, { kind: "array" }>
+    dimension: number
+}
+
 export type LocalizedTypeInfo = {
     kindText?: string
     kind?: ResolvedTypeInfo["kind"] | "signature" | "index_info"
@@ -160,22 +274,20 @@ type LocalizeOpts = {
     typeArgument?: TypeInfo
     includeIds?: boolean
 }
-type LocalizeData = { typeInfoMap: TypeInfoMap }
+type LocalizeData = {
+    localizedOrigin: WeakMap<LocalizedTypeInfo, TypeInfo>
+}
 
 function _localizeTypeInfo(
     info: TypeInfo,
+    resolved: ResolvedArrayTypeInfo,
     data: LocalizeData,
     opts: LocalizeOpts = {}
 ): LocalizedTypeInfo {
-    const resolveInfo = (typeInfo: TypeInfo) =>
-        resolveTypeReferenceOrArray(typeInfo, typeInfoMap)
-
-    const { typeInfoMap } = data
+    const { localizedOrigin } = data
     const { purpose, optional, name, includeIds } = opts
 
     const symbol = wrapSafe(localizeSymbol)(info.symbolMeta)
-
-    const resolved = resolveInfo(info)
 
     info = resolved.info
     const dimension = resolved.dimension
@@ -203,6 +315,7 @@ function _localizeTypeInfo(
     }
 
     res.children = getChildren(info, opts)
+    localizedOrigin.set(res, info)
 
     if (includeIds) {
         res._id = info.id
@@ -578,35 +691,6 @@ function localizeSymbol(symbolInfo: SymbolInfo): LocalizedSymbolInfo {
     }
 }
 
-function resolveTypeReferenceOrArray(
-    info: TypeInfo,
-    typeInfoMap: TypeInfoMap
-): { info: Exclude<ResolvedTypeInfo, { kind: "array" }>; dimension: number } {
-    let dimension = 0
-    let resolvedInfo = info
-
-    while (resolvedInfo.kind === "array" || resolvedInfo.kind === "reference") {
-        if (resolvedInfo.kind === "array") {
-            dimension++
-            resolvedInfo = resolvedInfo.type
-        } else {
-            resolvedInfo = resolveTypeReference(resolvedInfo, typeInfoMap)
-        }
-    }
-
-    resolvedInfo = {
-        ...resolvedInfo,
-        symbolMeta: info.symbolMeta,
-        id: info.id,
-    }
-
-    if (dimension === 0) {
-        resolvedInfo.aliasSymbolMeta = info.aliasSymbolMeta
-    }
-
-    return { info: resolvedInfo, dimension }
-}
-
 function getAlias(info: ResolvedTypeInfo): string | undefined {
     const defaultValue = info.aliasSymbolMeta?.name
 
@@ -678,19 +762,6 @@ function getKind(info: ResolvedTypeInfo): string {
             return kindText(info.kind)
         }
     }
-}
-
-function resolveTypeReference(
-    typeInfo: TypeInfo,
-    typeInfoMap: TypeInfoMap
-): ResolvedTypeInfo {
-    if (typeInfo.kind === "reference") {
-        const resolvedTypeInfo = typeInfoMap.get(typeInfo.id)
-        assert(resolvedTypeInfo, "Encountered invalid type reference!")
-        return resolvedTypeInfo
-    }
-
-    return typeInfo
 }
 
 function getTypeLocations(info: TypeInfo): SourceFileLocation[] | undefined {

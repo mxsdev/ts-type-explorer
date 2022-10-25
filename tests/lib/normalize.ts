@@ -8,6 +8,7 @@ import {
 } from "@ts-type-explorer/api"
 import path from "path"
 import { rootPath } from "./files"
+import { asyncMap } from "./testUtil"
 
 function normalizeFilePath(filePath: string) {
     return path.relative(rootPath, filePath)
@@ -45,13 +46,13 @@ type LocalizedTypeInfoWithId =
       })
     | { reference: TypeId }
 
-export function normalizeLocalizedTypeTree(
+export async function normalizeLocalizedTypeTree(
     typeTree: LocalizedTypeInfo,
     localizer: TypeInfoLocalizer,
     context?: {
         seen: Set<TypeId>
     }
-): LocalizedTypeInfoWithId {
+): Promise<LocalizedTypeInfoWithId> {
     context ??= { seen: new Set() }
 
     if (typeTree._id) {
@@ -62,10 +63,16 @@ export function normalizeLocalizedTypeTree(
         }
     }
 
+    const children = await localizer
+        .localizeChildren(typeTree)
+        .then((localizedChildren) =>
+            asyncMap(localizedChildren, (c) =>
+                normalizeLocalizedTypeTree(c, localizer, context)
+            )
+        )
+
     return {
         ...typeTree,
-        children: localizer
-            .localizeChildren(typeTree)
-            .map((c) => normalizeLocalizedTypeTree(c, localizer, context)),
+        children,
     }
 }

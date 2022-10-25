@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/require-await */
 import { generateTypeTree, TypeInfoLocalizer } from "@ts-type-explorer/api"
 import {
     symbolBaselineGenerator,
@@ -12,20 +13,24 @@ const stringify = (obj: unknown) => JSON.stringify(obj, undefined, 4)
 //         multilineTypeToString(typeChecker, sourceFile, recursivelyExpandType(typeChecker, type))
 // )
 
-const treeBaselineGenerator = symbolBaselineGenerator((ctx, symbol, node) =>
-    stringify(normalizeTypeTree(generateTypeTree({ symbol, node }, ctx)))
+const treeBaselineGenerator = symbolBaselineGenerator(
+    async (ctx, symbol, node) =>
+        stringify(normalizeTypeTree(generateTypeTree({ symbol, node }, ctx)))
 )
 
 const localizedTreeBaselineGenerator = symbolBaselineGenerator(
-    (ctx, symbol, node) => {
+    async (ctx, symbol, node) => {
         const typeTree = normalizeTypeTree(
             generateTypeTree({ symbol, node }, ctx)
         )
 
-        const localizer = new TypeInfoLocalizer(typeTree).debug()
+        const localizer = new TypeInfoLocalizer().debug()
 
         return stringify(
-            normalizeLocalizedTypeTree(localizer.localize(typeTree), localizer)
+            await normalizeLocalizedTypeTree(
+                await localizer.localize(typeTree),
+                localizer
+            )
         )
     }
 )

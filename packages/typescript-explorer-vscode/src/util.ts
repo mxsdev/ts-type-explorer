@@ -1,6 +1,7 @@
 import { ExpandedQuickInfo } from "@ts-type-explorer/typescript-plugin/dist/types"
 import * as vscode from "vscode"
 import type * as ts from "typescript"
+import { SourceFileLocation, TypeInfo } from "@ts-type-explorer/api"
 
 export const toFileLocationRequestArgs = (
     file: string,
@@ -33,13 +34,6 @@ export const rangeFromLineAndCharacters = (
         positionFromLineAndCharacter(end)
     )
 
-export function lineAndCharToPosition({
-    line,
-    character,
-}: ts.LineAndCharacter): vscode.Position {
-    return new vscode.Position(line, character)
-}
-
 export function getTypescriptMd(code: string) {
     const mds = new vscode.MarkdownString()
     mds.appendCodeblock(code, "typescript")
@@ -57,6 +51,19 @@ export async function getQuickInfoAtPosition(
             toFileLocationRequestArgs(fileName, position)
         )
         .then((r) => (r as { body: ExpandedQuickInfo | undefined }).body)
+}
+
+export function getQuickInfoAtLocation(location: SourceFileLocation) {
+    return getQuickInfoAtPosition(
+        location.fileName,
+        positionFromLineAndCharacter(location.range.start)
+    )
+}
+
+export function getTypeTreeAtLocation(
+    location: SourceFileLocation
+): Promise<TypeInfo | undefined> {
+    return getQuickInfoAtLocation(location).then((data) => data?.__displayTree)
 }
 
 /**
