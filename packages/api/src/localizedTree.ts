@@ -70,6 +70,7 @@ export class TypeInfoLocalizer {
 
         const typeInfoMap = generateTypeInfoMap(info)
         this.typeInfoMaps.set(info, typeInfoMap)
+
         return typeInfoMap
     }
 
@@ -143,6 +144,8 @@ export class TypeInfoLocalizer {
         if (dimension === 0) {
             resolvedInfo.aliasSymbolMeta = info.aliasSymbolMeta
         }
+
+        this.typeInfoMaps.set(resolvedInfo, typeInfoMap)
 
         return { info: resolvedInfo, dimension }
     }
