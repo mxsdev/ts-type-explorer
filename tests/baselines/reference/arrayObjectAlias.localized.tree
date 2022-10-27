@@ -289,7 +289,7 @@ type arrObj = Obj[]
                 }
             ],
             "children": [],
-            "_id": "2"
+            "_id": "1"
         },
         {
             "kindText": "number",
@@ -330,7 +330,7 @@ type arrObj = Obj[]
                 }
             ],
             "children": [],
-            "_id": "3"
+            "_id": "2"
         }
     ],
     "_id": "0"

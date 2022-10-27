@@ -495,27 +495,27 @@ type partialUnion = Partial<{a: string}|{b: string}>
                                     "kind": "primitive",
                                     "primitiveKind": "string",
                                     "children": [],
-                                    "_id": "10"
+                                    "_id": "9"
                                 },
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
                                     "primitiveKind": "number",
                                     "children": [],
-                                    "_id": "11"
+                                    "_id": "10"
                                 },
                                 {
                                     "kindText": "symbol",
                                     "kind": "primitive",
                                     "primitiveKind": "essymbol",
                                     "children": [],
-                                    "_id": "12"
+                                    "_id": "11"
                                 }
                             ],
-                            "_id": "9"
+                            "_id": "8"
                         }
                     ],
-                    "_id": "8"
+                    "_id": "7"
                 },
                 {
                     "kindText": "keyof",
@@ -526,7 +526,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
                             "reference": "1"
                         }
                     ],
-                    "_id": "13"
+                    "_id": "12"
                 },
                 {
                     "kindText": "access",
@@ -537,10 +537,10 @@ type partialUnion = Partial<{a: string}|{b: string}>
                             "reference": "1"
                         },
                         {
-                            "reference": "8"
+                            "reference": "7"
                         }
                     ],
-                    "_id": "7"
+                    "_id": "13"
                 }
             ]
         }

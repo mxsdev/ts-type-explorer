@@ -9,7 +9,7 @@
             "type": "extensionHost",
             "request": "launch",
             "args": [
-                "--extensionDevelopmentPath=${workspaceFolder}/packages/typescript-explorer"
+                "--extensionDevelopmentPath=${workspaceFolder}/packages/typescript-explorer-vscode"
             ],
             "outFiles": ["${workspaceFolder}/out/**/*.js"]
         },

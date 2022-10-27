@@ -107,42 +107,42 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                                     "kindText": "\"a\"",
                                     "kind": "string_literal",
                                     "children": [],
-                                    "_id": "1"
+                                    "_id": "3"
                                 },
                                 {
                                     "kindText": "\"b\"",
                                     "kind": "string_literal",
                                     "children": [],
-                                    "_id": "2"
+                                    "_id": "4"
                                 },
                                 {
                                     "kindText": "\"c\"",
                                     "kind": "string_literal",
                                     "children": [],
-                                    "_id": "3"
+                                    "_id": "5"
                                 }
                             ],
-                            "_id": "5"
+                            "_id": "2"
                         }
                     ],
-                    "_id": "4"
+                    "_id": "1"
                 },
                 {
-                    "reference": "5"
+                    "reference": "2"
                 },
                 {
-                    "reference": "4"
+                    "reference": "1"
                 }
             ]
         },
         {
-            "reference": "1"
-        },
-        {
-            "reference": "2"
-        },
-        {
             "reference": "3"
+        },
+        {
+            "reference": "4"
+        },
+        {
+            "reference": "5"
         }
     ],
     "_id": "0"

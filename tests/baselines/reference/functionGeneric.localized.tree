@@ -10,7 +10,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         "name": "sig1",
         "locations": [
             {
-                "fileName": "../cases/functionGeneric.ts",
+                "fileName": "cases/functionGeneric.ts",
                 "range": {
                     "start": {
                         "line": 0,
@@ -26,7 +26,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
     },
     "locations": [
         {
-            "fileName": "../cases/functionGeneric.ts",
+            "fileName": "cases/functionGeneric.ts",
             "range": {
                 "start": {
                     "line": 0,
@@ -86,7 +86,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                             "primitiveKind": "string",
                             "purpose": "parameter_base_constraint",
                             "children": [],
-                            "_id": "3"
+                            "_id": "2"
                         }
                     ],
                     "_id": "1"
@@ -133,10 +133,10 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             ],
             "children": [
                 {
-                    "reference": "3"
+                    "reference": "2"
                 }
             ],
-            "_id": "2"
+            "_id": "3"
         },
         {
             "kindText": "any",
@@ -182,7 +182,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "_id": "4"
         },
         {
-            "reference": "3"
+            "reference": "2"
         }
     ],
     "_id": "0"
@@ -194,7 +194,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         "name": "sig1",
         "locations": [
             {
-                "fileName": "../cases/functionGeneric.ts",
+                "fileName": "cases/functionGeneric.ts",
                 "range": {
                     "start": {
                         "line": 0,
@@ -210,7 +210,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
     },
     "locations": [
         {
-            "fileName": "../cases/functionGeneric.ts",
+            "fileName": "cases/functionGeneric.ts",
             "range": {
                 "start": {
                     "line": 0,
@@ -270,7 +270,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                             "primitiveKind": "string",
                             "purpose": "parameter_base_constraint",
                             "children": [],
-                            "_id": "3"
+                            "_id": "2"
                         }
                     ],
                     "_id": "1"
@@ -317,10 +317,10 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             ],
             "children": [
                 {
-                    "reference": "3"
+                    "reference": "2"
                 }
             ],
-            "_id": "2"
+            "_id": "3"
         },
         {
             "kindText": "any",
@@ -366,7 +366,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "_id": "4"
         },
         {
-            "reference": "3"
+            "reference": "2"
         }
     ],
     "_id": "0"
@@ -675,7 +675,7 @@ sig1("asd", 3, 4)
         "name": "sig1",
         "locations": [
             {
-                "fileName": "../cases/functionGeneric.ts",
+                "fileName": "cases/functionGeneric.ts",
                 "range": {
                     "start": {
                         "line": 0,
@@ -691,7 +691,7 @@ sig1("asd", 3, 4)
     },
     "locations": [
         {
-            "fileName": "../cases/functionGeneric.ts",
+            "fileName": "cases/functionGeneric.ts",
             "range": {
                 "start": {
                     "line": 0,
@@ -758,7 +758,7 @@ sig1("asd", 3, 4)
                             "primitiveKind": "string",
                             "purpose": "parameter_base_constraint",
                             "children": [],
-                            "_id": "5"
+                            "_id": "3"
                         }
                     ],
                     "_id": "1"
@@ -809,10 +809,10 @@ sig1("asd", 3, 4)
                 }
             ],
             "children": [],
-            "_id": "3"
+            "_id": "4"
         },
         {
-            "reference": "5"
+            "reference": "3"
         }
     ],
     "_id": "0"

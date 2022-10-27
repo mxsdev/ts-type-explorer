@@ -47,7 +47,7 @@ interface TestInterface {
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/class.ts",
+                            "fileName": "cases/class.ts",
                             "range": {
                                 "start": {
                                     "line": 1,
@@ -133,7 +133,7 @@ interface TestInterface {
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/class.ts",
+                    "fileName": "cases/class.ts",
                     "range": {
                         "start": {
                             "line": 1,
@@ -202,7 +202,7 @@ class TestClass implements TestInterface {
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/class.ts",
+                            "fileName": "cases/class.ts",
                             "range": {
                                 "start": {
                                     "line": 7,
@@ -264,7 +264,7 @@ class TestClass implements TestInterface {
                         "declarations": [
                             {
                                 "location": {
-                                    "fileName": "../cases/class.ts",
+                                    "fileName": "cases/class.ts",
                                     "range": {
                                         "start": {
                                             "line": 1,
@@ -450,7 +450,7 @@ class TestClass implements TestInterface {
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/class.ts",
+                            "fileName": "cases/class.ts",
                             "range": {
                                 "start": {
                                     "line": 7,
@@ -512,7 +512,7 @@ class TestClass implements TestInterface {
                         "declarations": [
                             {
                                 "location": {
-                                    "fileName": "../cases/class.ts",
+                                    "fileName": "cases/class.ts",
                                     "range": {
                                         "start": {
                                             "line": 1,
@@ -702,7 +702,7 @@ class TestClass implements TestInterface {
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/class.ts",
+                            "fileName": "cases/class.ts",
                             "range": {
                                 "start": {
                                     "line": 1,
@@ -795,7 +795,7 @@ class TestClass implements TestInterface {
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/class.ts",
+                            "fileName": "cases/class.ts",
                             "range": {
                                 "start": {
                                     "line": 7,
@@ -857,7 +857,7 @@ class TestClass implements TestInterface {
                         "declarations": [
                             {
                                 "location": {
-                                    "fileName": "../cases/class.ts",
+                                    "fileName": "cases/class.ts",
                                     "range": {
                                         "start": {
                                             "line": 1,
@@ -1071,7 +1071,7 @@ class TestClass implements TestInterface {
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/class.ts",
+                    "fileName": "cases/class.ts",
                     "range": {
                         "start": {
                             "line": 7,
@@ -1137,7 +1137,7 @@ const _a = new TestClass("param")
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/class.ts",
+                            "fileName": "cases/class.ts",
                             "range": {
                                 "start": {
                                     "line": 7,
@@ -1230,7 +1230,7 @@ const _a = new TestClass("param")
                             "declarations": [
                                 {
                                     "location": {
-                                        "fileName": "../cases/class.ts",
+                                        "fileName": "cases/class.ts",
                                         "range": {
                                             "start": {
                                                 "line": 1,
@@ -1494,7 +1494,7 @@ const _a = new TestClass("param")
                             "declarations": [
                                 {
                                     "location": {
-                                        "fileName": "../cases/class.ts",
+                                        "fileName": "cases/class.ts",
                                         "range": {
                                             "start": {
                                                 "line": 7,
@@ -1556,7 +1556,7 @@ const _a = new TestClass("param")
                                     "declarations": [
                                         {
                                             "location": {
-                                                "fileName": "../cases/class.ts",
+                                                "fileName": "cases/class.ts",
                                                 "range": {
                                                     "start": {
                                                         "line": 1,
@@ -1705,7 +1705,7 @@ const _a = new TestClass("param")
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/class.ts",
+                    "fileName": "cases/class.ts",
                     "range": {
                         "start": {
                             "line": 4,

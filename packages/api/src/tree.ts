@@ -5,6 +5,7 @@ import {
     DeclarationInfo,
     IndexInfo,
     SignatureInfo,
+    SourceFileLocation,
     SymbolInfo,
     TypeId,
     TypeInfo,
@@ -39,6 +40,7 @@ import {
     getSourceFileLocation,
     getNodeSymbol,
     TypescriptContext,
+    removeDuplicates,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -82,6 +84,8 @@ function _generateTypeTree(
     assert(symbol || type, "Must provide either symbol or type")
     ctx.depth++
 
+    const originalSymbol = symbol
+
     const { typescriptContext: tsCtx } = ctx
     const maxDepth = ctx.config.maxDepth
 
@@ -102,7 +106,11 @@ function _generateTypeTree(
     if (!symbol) {
         const associatedSymbol = type.getSymbol()
 
-        if (associatedSymbol) {
+        if (
+            associatedSymbol &&
+            !isArrayType(tsCtx, type) &&
+            !isTupleType(tsCtx, type)
+        ) {
             isAnonymousSymbol = associatedSymbol.name === "__type"
             symbol = associatedSymbol
         }
@@ -140,12 +148,38 @@ function _generateTypeTree(
             }
         }
     }
+
     let typeInfo: TypeInfoNoId
     const id = getTypeId(type, symbol, node)
 
     if (!ctx.seen?.has(id)) {
-        ctx.seen?.add(id)
-        typeInfo = createNode(type)
+        const locations: SourceFileLocation[] = filterUndefined([
+            ...(getSymbolLocations(originalSymbol) ?? []),
+        ])
+
+        if (
+            ctx.config.referenceDefinedTypes &&
+            ctx.depth > 1 &&
+            isNonEmpty(locations) &&
+            originalSymbol &&
+            !(
+                originalSymbol.flags & ts.SymbolFlags.Property &&
+                locations.length > 1
+            ) &&
+            // ensures inferred types on e.g. function
+            // parameter symbols are referenced properly
+            type ===
+                getSymbolType(
+                    tsCtx,
+                    (originalSymbol as TSSymbol).target ?? originalSymbol,
+                    node
+                )
+        ) {
+            typeInfo = { kind: "reference", location: locations[0] }
+        } else {
+            ctx.seen?.add(id)
+            typeInfo = createNode(type)
+        }
     } else {
         typeInfo = { kind: "reference" }
     }
@@ -168,21 +202,26 @@ function _generateTypeTree(
         typeInfoId.aliasSymbolMeta = getSymbolInfo(aliasSymbol)
     }
 
-    const typeParameters = getTypeParameters(tsCtx, type, symbol)
-    if (isNonEmpty(typeParameters)) {
-        typeInfoId.typeParameters = parseTypes(typeParameters)
-    }
+    if (typeInfoId.kind !== "reference") {
+        const typeParameters = getTypeParameters(tsCtx, type, symbol)
+        if (isNonEmpty(typeParameters)) {
+            typeInfoId.typeParameters = parseTypes(typeParameters)
+        }
 
-    const typeArguments = !signature
-        ? getTypeArguments(tsCtx, type, node)
-        : signatureTypeArguments
-    if (
-        !isArrayType(tsCtx, type) &&
-        !isTupleType(tsCtx, type) &&
-        isNonEmpty(typeArguments) &&
-        (!typeParameters || !arrayContentsEqual(typeArguments, typeParameters))
-    ) {
-        typeInfoId.typeArguments = parseTypes(typeArguments)
+        const typeArguments = !signature
+            ? getTypeArguments(tsCtx, type, node)
+            : signatureTypeArguments
+        if (
+            !isArrayType(tsCtx, type) &&
+            !isTupleType(tsCtx, type) &&
+            isNonEmpty(typeArguments) &&
+            !(
+                typeParameters &&
+                arrayContentsEqual(typeArguments, typeParameters)
+            )
+        ) {
+            typeInfoId.typeArguments = parseTypes(typeArguments)
+        }
     }
 
     typeInfoId.id = id
@@ -530,6 +569,16 @@ function _generateTypeTree(
         }
     }
 
+    function getSymbolLocations(symbol?: ts.Symbol) {
+        return wrapSafe(filterUndefined)(
+            symbol?.getDeclarations()?.map(getDeclarationLocation)
+        )
+    }
+
+    function getDeclarationLocation(declaration: ts.Declaration) {
+        return getDeclarationInfo(declaration)?.location
+    }
+
     function getSymbolInfo(
         symbol: ts.Symbol,
         isAnonymous = false,
@@ -736,11 +785,13 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
 }
 
 export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
-    return filterUndefined([
-        info.symbolMeta,
-        info.aliasSymbolMeta,
-        ..._getTypeInfoSymbols(info),
-    ])
+    return removeDuplicates(
+        filterUndefined([
+            info.symbolMeta,
+            info.aliasSymbolMeta,
+            ..._getTypeInfoSymbols(info),
+        ])
+    )
 
     function _getTypeInfoSymbols(info: TypeInfo): (SymbolInfo | undefined)[] {
         switch (info.kind) {

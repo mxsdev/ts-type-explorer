@@ -8,7 +8,7 @@ type f = (arg1: string, arg2: boolean) => void
         "name": "f",
         "locations": [
             {
-                "fileName": "../cases/lambda.ts",
+                "fileName": "cases/lambda.ts",
                 "range": {
                     "start": {
                         "line": 0,
@@ -24,7 +24,7 @@ type f = (arg1: string, arg2: boolean) => void
     },
     "locations": [
         {
-            "fileName": "../cases/lambda.ts",
+            "fileName": "cases/lambda.ts",
             "range": {
                 "start": {
                     "line": 0,
@@ -305,7 +305,7 @@ type t = { a: string } | f
                 "anonymous": true,
                 "locations": [
                     {
-                        "fileName": "../cases/lambda.ts",
+                        "fileName": "cases/lambda.ts",
                         "range": {
                             "start": {
                                 "line": 0,
@@ -567,7 +567,7 @@ type t = { a: string } | f
         "name": "f",
         "locations": [
             {
-                "fileName": "../cases/lambda.ts",
+                "fileName": "cases/lambda.ts",
                 "range": {
                     "start": {
                         "line": 0,
@@ -583,7 +583,7 @@ type t = { a: string } | f
     },
     "locations": [
         {
-            "fileName": "../cases/lambda.ts",
+            "fileName": "cases/lambda.ts",
             "range": {
                 "start": {
                     "line": 0,

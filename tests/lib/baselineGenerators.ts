@@ -1,4 +1,15 @@
-import { generateTypeTree, TypeInfoLocalizer } from "@ts-type-explorer/api"
+/* eslint-disable @typescript-eslint/require-await */
+import {
+    APIConfig,
+    generateTypeTree,
+    getDescendantAtPosition,
+    getNodeSymbol,
+    getNodeType,
+    SourceFileLocation,
+    SourceFileTypescriptContext,
+    TypeInfoLocalizer,
+} from "@ts-type-explorer/api"
+import assert from "assert"
 import {
     symbolBaselineGenerator,
     BaselineGenerator,
@@ -12,23 +23,62 @@ const stringify = (obj: unknown) => JSON.stringify(obj, undefined, 4)
 //         multilineTypeToString(typeChecker, sourceFile, recursivelyExpandType(typeChecker, type))
 // )
 
-const treeBaselineGenerator = symbolBaselineGenerator((ctx, symbol, node) =>
-    stringify(normalizeTypeTree(generateTypeTree({ symbol, node }, ctx)))
+const treeBaselineGenerator = symbolBaselineGenerator(
+    async (ctx, symbol, node) =>
+        stringify(normalizeTypeTree(generateTypeTree({ symbol, node }, ctx)))
 )
 
+const apiConfig = new APIConfig()
+apiConfig.referenceDefinedTypes = true
+
 const localizedTreeBaselineGenerator = symbolBaselineGenerator(
-    (ctx, symbol, node) => {
+    async (ctx, symbol, node) => {
         const typeTree = normalizeTypeTree(
-            generateTypeTree({ symbol, node }, ctx)
+            generateTypeTree({ symbol, node }, ctx, apiConfig),
+            false
         )
 
-        const localizer = new TypeInfoLocalizer(typeTree).debug()
+        const localizer = new TypeInfoLocalizer(
+            getTypeInfoRetriever(ctx)
+        ).debug()
 
         return stringify(
-            normalizeLocalizedTypeTree(localizer.localize(typeTree), localizer)
+            await normalizeLocalizedTypeTree(
+                await localizer.localize(typeTree),
+                localizer
+            )
         )
     }
 )
+
+function getTypeInfoRetriever(ctx: SourceFileTypescriptContext) {
+    return async (location: SourceFileLocation) => {
+        const sourceFile = ctx.program.getSourceFile(location.fileName)
+        assert(sourceFile)
+
+        const { line, character } = location.range.start
+        const node = getDescendantAtPosition(
+            ctx,
+            sourceFile.getPositionOfLineAndCharacter(line, character)
+        )
+
+        const symbol = getNodeSymbol(ctx, node)
+
+        if (symbol) {
+            return normalizeTypeTree(
+                generateTypeTree({ symbol, node }, ctx, apiConfig),
+                false
+            )
+        } else {
+            const type = getNodeType(ctx, node)
+            assert(type, "Symbol/type not found")
+            return normalizeTypeTree(
+                generateTypeTree({ type, node }, ctx, apiConfig),
+                false
+            )
+        }
+    }
+}
 
 export const BaselineGenerators: BaselineGenerator[] = [
     // {

@@ -5,6 +5,7 @@ import {
     getNodeSymbol,
     getDescendantAtPosition,
     TypescriptContext,
+    APIConfig,
 } from "@ts-type-explorer/api"
 import type { ExpandedQuickInfo } from "./types"
 import { isValidType, SourceFileTypescriptContext } from "@ts-type-explorer/api"
@@ -75,6 +76,9 @@ function init(modules: {
     return { create }
 }
 
+const apiConfig = new APIConfig()
+apiConfig.referenceDefinedTypes = true
+
 function getDisplayTree(ctx: TypescriptContext, node: ts.Node) {
     const { typeChecker } = ctx
 
@@ -85,7 +89,7 @@ function getDisplayTree(ctx: TypescriptContext, node: ts.Node) {
         const symbolType = getSymbolType(ctx, symbol, node)
 
         if (isValidType(symbolType)) {
-            return generateTypeTree({ symbol, node }, ctx)
+            return generateTypeTree({ symbol, node }, ctx, apiConfig)
         }
     }
 

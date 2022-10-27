@@ -69,7 +69,7 @@ export type TypeInfoNoId = {
               | "void"
       }
     | { kind: "enum"; properties?: TypeInfo[] }
-    | { kind: "reference" }
+    | { kind: "reference"; location?: SourceFileLocation }
     | { kind: "string_literal"; value: string }
     | { kind: "number_literal"; value: number }
     | { kind: "boolean_literal"; value: boolean }

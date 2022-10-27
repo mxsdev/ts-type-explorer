@@ -16,8 +16,8 @@ import {
 import { markdownDocumentation } from "../markdown"
 import { StateManager } from "../state/stateManager"
 import {
-    getQuickInfoAtPosition,
-    lineAndCharToPosition,
+    getQuickInfoAtLocation,
+    getTypeTreeAtLocation,
     rangeFromLineAndCharacters,
 } from "../util"
 
@@ -58,10 +58,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
         if (element.typeInfo.locations) {
             for (const location of element.typeInfo.locations) {
                 const { documentation, tags } =
-                    (await getQuickInfoAtPosition(
-                        location.fileName,
-                        lineAndCharToPosition(location.range.start)
-                    )) ?? {}
+                    (await getQuickInfoAtLocation(location)) ?? {}
 
                 if (documentation) {
                     element.tooltip = markdownDocumentation(
@@ -93,8 +90,13 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
                 return []
             }
 
-            this.typeInfoLocalizer = new TypeInfoLocalizer(typeInfo)
-            const localizedTypeInfo = this.typeInfoLocalizer.localize(typeInfo)
+            this.typeInfoLocalizer = new TypeInfoLocalizer(
+                getTypeTreeAtLocation
+            )
+
+            const localizedTypeInfo = await this.typeInfoLocalizer.localize(
+                typeInfo
+            )
 
             return [
                 this.createTypeNode(localizedTypeInfo, /* root */ undefined),
@@ -102,8 +104,10 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
         } else {
             assert(this.typeInfoLocalizer, "typeInfoLocalizer should exist")
 
-            return this.typeInfoLocalizer
-                .localizeChildren(element.typeInfo)
+            const localizedChildren =
+                await this.typeInfoLocalizer.localizeChildren(element.typeInfo)
+
+            return localizedChildren
                 .map((info) => this.createTypeNode(info, element))
                 .filter(
                     ({ typeInfo: { purpose } }) =>

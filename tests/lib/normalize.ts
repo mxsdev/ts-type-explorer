@@ -8,6 +8,7 @@ import {
 } from "@ts-type-explorer/api"
 import path from "path"
 import { rootPath } from "./files"
+import { asyncMap } from "./testUtil"
 
 function normalizeFilePath(filePath: string) {
     return path.relative(rootPath, filePath)
@@ -15,23 +16,30 @@ function normalizeFilePath(filePath: string) {
 
 export function normalizeTypeTree(
     typeTree: TypeInfo,
+    normalizeIds = true,
     context?: Map<TypeId, TypeId>
 ): TypeInfo {
     context ??= new Map()
 
-    if (!context.has(typeTree.id)) {
-        const newId = context.size.toString()
-        context.set(typeTree.id, newId)
+    if (normalizeIds) {
+        if (!context.has(typeTree.id)) {
+            const newId = context.size.toString()
+            context.set(typeTree.id, newId)
 
-        typeTree.id = newId
-    } else {
-        typeTree.id = context.get(typeTree.id)!
+            typeTree.id = newId
+        } else {
+            typeTree.id = context.get(typeTree.id)!
+        }
     }
 
-    getTypeInfoChildren(typeTree).forEach((t) => normalizeTypeTree(t, context))
+    getTypeInfoChildren(typeTree).forEach((t) =>
+        normalizeTypeTree(t, normalizeIds, context)
+    )
 
     getTypeInfoSymbols(typeTree).forEach((s) => {
         s.declarations?.forEach((d) => {
+            // eslint-disable-next-line no-debugger
+            // debugger
             d.location.fileName = normalizeFilePath(d.location.fileName)
         })
     })
@@ -45,27 +53,37 @@ type LocalizedTypeInfoWithId =
       })
     | { reference: TypeId }
 
-export function normalizeLocalizedTypeTree(
+export async function normalizeLocalizedTypeTree(
     typeTree: LocalizedTypeInfo,
     localizer: TypeInfoLocalizer,
     context?: {
-        seen: Set<TypeId>
+        seen: Map<TypeId, TypeId>
     }
-): LocalizedTypeInfoWithId {
-    context ??= { seen: new Set() }
+): Promise<LocalizedTypeInfoWithId> {
+    context ??= { seen: new Map() }
 
     if (typeTree._id) {
         if (context.seen.has(typeTree._id)) {
-            return { reference: typeTree._id }
+            const id = context.seen.get(typeTree._id)!
+            return { reference: id }
         } else {
-            context.seen.add(typeTree._id)
+            const newId = context.seen.size.toString()
+            context.seen.set(typeTree._id, newId)
+
+            typeTree._id = newId
         }
     }
 
+    const children = await localizer
+        .localizeChildren(typeTree)
+        .then((localizedChildren) =>
+            asyncMap(localizedChildren, (c) =>
+                normalizeLocalizedTypeTree(c, localizer, context)
+            )
+        )
+
     return {
         ...typeTree,
-        children: localizer
-            .localizeChildren(typeTree)
-            .map((c) => normalizeLocalizedTypeTree(c, localizer, context)),
+        children,
     }
 }

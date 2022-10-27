@@ -65,7 +65,7 @@ export async function generateBaselineTests() {
                         const correct = [
                             `=== ${testName} ===`,
                             "",
-                            generateBaseline(baseline.generator, {
+                            await generateBaseline(baseline.generator, {
                                 sourceFile,
                                 typeChecker,
                                 program,
