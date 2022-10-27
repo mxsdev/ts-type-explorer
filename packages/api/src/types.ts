@@ -113,6 +113,7 @@ export type TypeInfoNoId = {
           kind: "intersection"
           properties: TypeInfo[]
           types: TypeInfo[]
+          indexInfos?: IndexInfo[]
       }
     | {
           kind: "index"

@@ -1,0 +1,152 @@
+=== intersectionWithIndex.ts ===
+
+type intersectionWithIndex = { [index: string]: string } & { a: "asd" };
+> intersectionWithIndex --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "string_literal",
+            "value": "asd",
+            "symbolMeta": {
+                "name": "a",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/intersectionWithIndex.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 61
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 62
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            "type": {
+                "kind": "reference",
+                "id": "2"
+            },
+            "parameterSymbol": {
+                "name": "index",
+                "flags": 1,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/intersectionWithIndex.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 32
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 37
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "intersectionWithIndex",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/intersectionWithIndex.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 26
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> { [index: string]: string } & { a: "asd" }
+> { [index: string]: string } & { a: "asd" }
+> { [index: string]: string }
+> [index: string]: string
+> [index: string]: string
+> index: string
+> index: string
+> index --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "index",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/intersectionWithIndex.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 32
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 37
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> { a: "asd" }
+> a: "asd"
+> a: "asd"
+> a --- {
+    "kind": "string_literal",
+    "value": "asd",
+    "symbolMeta": {
+        "name": "a",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/intersectionWithIndex.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 61
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 62
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

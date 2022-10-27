@@ -1,0 +1,1 @@
+type intersectionWithIndex = { [index: string]: string } & { a: "asd" };

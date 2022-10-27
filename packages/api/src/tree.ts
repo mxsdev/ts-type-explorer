@@ -17,7 +17,6 @@ import {
     getIntersectionTypesFlat,
     getSymbolType,
     getTypeId,
-    isPureObject,
     wrapSafe,
     isArrayType,
     getTypeArguments,
@@ -42,6 +41,7 @@ import {
     removeDuplicates,
     narrowDeclarationForLocation,
     TSIndexInfo,
+    isPureObjectOrMappedTypeShallow,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -411,19 +411,25 @@ function _generateTypeTree(
         } else if (flags & ts.TypeFlags.Intersection) {
             const allTypes = getIntersectionTypesFlat(tsCtx, type)
             const types = parseTypes(
-                allTypes.filter((t) => !isPureObject(tsCtx, t))
+                allTypes.filter(
+                    (t) => !isPureObjectOrMappedTypeShallow(tsCtx, t)
+                )
             )
+
             const properties = parseSymbols(type.getProperties())
+            const indexInfos = getIndexInfos(tsCtx, type).map(getIndexInfo)
 
             if (types.length === 0) {
                 return {
                     kind: "object",
                     properties,
+                    ...(isNonEmpty(indexInfos) && { indexInfos }),
                 }
             } else {
                 return {
                     kind: "intersection",
                     types,
+                    ...(isNonEmpty(indexInfos) && { indexInfos }),
                     properties,
                 }
             }
@@ -735,7 +741,11 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
             }
 
             case "intersection": {
-                return [...info.types, ...info.properties]
+                return [
+                    ...info.types,
+                    ...info.properties,
+                    ...(info.indexInfos?.flatMap(mapIndexInfo) ?? []),
+                ]
             }
 
             case "union": {
@@ -823,6 +833,7 @@ export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
 
     function _getTypeInfoSymbols(info: TypeInfo): (SymbolInfo | undefined)[] {
         switch (info.kind) {
+            case "intersection":
             case "object": {
                 return [...(info.indexInfos?.map(mapIndexInfo) ?? [])]
             }

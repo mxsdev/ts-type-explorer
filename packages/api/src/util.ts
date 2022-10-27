@@ -416,14 +416,26 @@ export function isPureObject(
 
     return (
         (!!(type.flags & ts.TypeFlags.Object) &&
-            getSignaturesOfType(ctx, type).length === 0 &&
             getIndexInfos(ctx, type).length === 0 &&
-            !isArrayType(ctx, type) &&
-            !isTupleType(ctx, type)) ||
+            isPureObjectOrMappedTypeShallow(ctx, type)) ||
         (!!(type.flags & ts.TypeFlags.Intersection) &&
             (type as ts.IntersectionType).types.every((t) =>
                 isPureObject(ctx, t)
             ))
+    )
+}
+
+export function isPureObjectOrMappedTypeShallow(
+    ctx: TypescriptContext,
+    type: ts.Type
+): type is ts.ObjectType {
+    const { ts } = ctx
+
+    return (
+        !!(type.flags & ts.TypeFlags.Object) &&
+        getSignaturesOfType(ctx, type).length === 0 &&
+        !isArrayType(ctx, type) &&
+        !isTupleType(ctx, type)
     )
 }
 

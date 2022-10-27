@@ -1,0 +1,210 @@
+=== intersectionWithIndex.ts ===
+
+type intersectionWithIndex = { [index: string]: string } & { a: "asd" };
+> intersectionWithIndex --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "intersectionWithIndex",
+        "locations": [
+            {
+                "fileName": "cases/intersectionWithIndex.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 26
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/intersectionWithIndex.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 5
+                },
+                "end": {
+                    "line": 0,
+                    "character": 26
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "symbol": {
+                "name": "index",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/intersectionWithIndex.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 32
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 37
+                            }
+                        }
+                    }
+                ]
+            },
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "purpose": "index_type",
+                    "children": [],
+                    "_id": "1"
+                },
+                {
+                    "reference": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "\"asd\"",
+            "kind": "string_literal",
+            "symbol": {
+                "name": "a",
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/intersectionWithIndex.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 61
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 62
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/intersectionWithIndex.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 61
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 62
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
+> { [index: string]: string } & { a: "asd" }
+> { [index: string]: string } & { a: "asd" }
+> { [index: string]: string }
+> [index: string]: string
+> [index: string]: string
+> index: string
+> index: string
+> index --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "index",
+        "isArgument": true,
+        "locations": [
+            {
+                "fileName": "cases/intersectionWithIndex.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 32
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 37
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/intersectionWithIndex.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 32
+                },
+                "end": {
+                    "line": 0,
+                    "character": 37
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> { a: "asd" }
+> a: "asd"
+> a: "asd"
+> a --- {
+    "kindText": "\"asd\"",
+    "kind": "string_literal",
+    "symbol": {
+        "name": "a",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/intersectionWithIndex.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 61
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 62
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/intersectionWithIndex.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 61
+                },
+                "end": {
+                    "line": 0,
+                    "character": 62
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

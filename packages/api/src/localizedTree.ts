@@ -514,7 +514,16 @@ function getChildren(
             }
 
             // TODO: intersection properties
-            case "intersection":
+            case "intersection": {
+                const { types, properties, indexInfos = [] } = info
+
+                return [
+                    ...indexInfos.map((info) => getLocalizedIndex(info)),
+                    ...properties.map(localize),
+                    ...types.map(localize),
+                ]
+            }
+
             case "union": {
                 const { types } = info
                 return types.map(localize)
@@ -625,10 +634,12 @@ function getChildren(
     }
 
     function getLocalizedIndex(indexInfo: IndexInfo) {
+        const indexSymbol = wrapSafe(localizeSymbol)(indexInfo.parameterSymbol)
+
         return createChild({
             kindText: "index",
             kind: "index_info",
-            symbol: wrapSafe(localizeSymbol)(indexInfo.parameterSymbol),
+            symbol: indexSymbol,
             children: [
                 ...(indexInfo.parameterType
                     ? [
