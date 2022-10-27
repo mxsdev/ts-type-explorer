@@ -25,7 +25,6 @@ import {
 import { SymbolFlags } from "./typescript"
 
 // TODO: optional param booleans can sometimes become undefined|true|false (should just be boolean)
-// TODO: enum value aliases sometimes aren't working (like in SymbolFlags up above)
 
 type TypeInfoRetriever = (
     location: SourceFileLocation

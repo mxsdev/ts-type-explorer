@@ -1,0 +1,305 @@
+=== enumWithBitshift.ts ===
+
+enum SymbolFlags {
+    None = 0,
+    FunctionScopedVariable = 1 << 0, // Variable (var) or parameter
+}
+> SymbolFlags --- {
+    "kind": "enum",
+    "properties": [
+        {
+            "kind": "enum_literal",
+            "literalSymbol": {
+                "name": "None",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enumWithBitshift.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 8
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parentSymbol": {
+                "name": "SymbolFlags",
+                "flags": 256,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enumWithBitshift.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 16
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "symbolMeta": {
+                "name": "None",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enumWithBitshift.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 8
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "enum_literal",
+            "literalSymbol": {
+                "name": "FunctionScopedVariable",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enumWithBitshift.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parentSymbol": {
+                "name": "SymbolFlags",
+                "flags": 256,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enumWithBitshift.ts",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 16
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "symbolMeta": {
+                "name": "FunctionScopedVariable",
+                "flags": 8,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/enumWithBitshift.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        }
+    ],
+    "symbolMeta": {
+        "name": "SymbolFlags",
+        "flags": 256,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enumWithBitshift.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 16
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> None = 0,
+    FunctionScopedVariable = 1 << 0,
+> None = 0
+> None --- {
+    "kind": "enum_literal",
+    "literalSymbol": {
+        "name": "None",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enumWithBitshift.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 8
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "parentSymbol": {
+        "name": "SymbolFlags",
+        "flags": 256,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enumWithBitshift.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 16
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "None",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enumWithBitshift.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 8
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> FunctionScopedVariable = 1 << 0
+> FunctionScopedVariable --- {
+    "kind": "enum_literal",
+    "literalSymbol": {
+        "name": "FunctionScopedVariable",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enumWithBitshift.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 26
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "parentSymbol": {
+        "name": "SymbolFlags",
+        "flags": 256,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enumWithBitshift.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 16
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "FunctionScopedVariable",
+        "flags": 8,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/enumWithBitshift.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 26
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

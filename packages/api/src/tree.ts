@@ -269,13 +269,23 @@ function _generateTypeTree(
             return { kind: "primitive", primitive: "number" }
         } else if (flags & ts.TypeFlags.Void) {
             return { kind: "primitive", primitive: "void" }
-        } else if (flags & ts.TypeFlags.EnumLiteral) {
+        } else if (
+            flags & ts.TypeFlags.EnumLiteral ||
+            (flags & ts.TypeFlags.EnumLike &&
+                symbol &&
+                symbol.flags & ts.SymbolFlags.EnumMember)
+        ) {
+            const enumSymbol =
+                symbol && symbol.flags & ts.SymbolFlags.EnumMember
+                    ? symbol
+                    : type.symbol
+
             return {
                 kind: "enum_literal",
                 value: (type as ts.StringLiteralType).value,
-                literalSymbol: getSymbolInfo(type.symbol),
+                literalSymbol: getSymbolInfo(enumSymbol),
                 parentSymbol: wrapSafe(getSymbolInfo)(
-                    (type.symbol as TSSymbol).parent
+                    (enumSymbol as TSSymbol).parent
                 ),
             }
         } else if (flags & ts.TypeFlags.Enum) {
