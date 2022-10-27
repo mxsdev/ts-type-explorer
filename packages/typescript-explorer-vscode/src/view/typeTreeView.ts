@@ -2,7 +2,7 @@
 
 import {
     LocalizedTypeInfo,
-    TypeInfoLocalizer,
+    TypeInfoResolver,
     localizePurpose,
 } from "@ts-type-explorer/api"
 import assert = require("assert")
@@ -35,7 +35,7 @@ export type TypeTreeChildrenUpdateInfo = {
 export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     constructor(private stateManager: StateManager) {}
 
-    private typeInfoLocalizer: TypeInfoLocalizer | undefined
+    private typeInfoResolver: TypeInfoResolver | undefined
 
     private _onDidChangeTreeData: vscode.EventEmitter<
         TypeTreeItem | undefined | null | void
@@ -50,7 +50,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
         this._onDidGetChildren.event
 
     refresh(): void {
-        this.typeInfoLocalizer = undefined
+        this.typeInfoResolver = undefined
         this._onDidChangeTreeData.fire()
     }
 
@@ -90,11 +90,9 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
                 return []
             }
 
-            this.typeInfoLocalizer = new TypeInfoLocalizer(
-                getTypeTreeAtLocation
-            )
+            this.typeInfoResolver = new TypeInfoResolver(getTypeTreeAtLocation)
 
-            const localizedTypeInfo = await this.typeInfoLocalizer.localize(
+            const localizedTypeInfo = await this.typeInfoResolver.localize(
                 typeInfo
             )
 
@@ -103,13 +101,13 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
             ]
         } else {
             if (
-                !this.typeInfoLocalizer?.hasLocalizedTypeInfo(element.typeInfo)
+                !this.typeInfoResolver?.hasLocalizedTypeInfo(element.typeInfo)
             ) {
                 return []
             }
 
             const localizedChildren =
-                await this.typeInfoLocalizer.localizeChildren(element.typeInfo)
+                await this.typeInfoResolver.localizeChildren(element.typeInfo)
 
             return localizedChildren
                 .map((info) => this.createTypeNode(info, element))

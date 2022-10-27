@@ -7,7 +7,7 @@ import {
     getNodeType,
     SourceFileLocation,
     SourceFileTypescriptContext,
-    TypeInfoLocalizer,
+    TypeInfoResolver,
 } from "@ts-type-explorer/api"
 import assert from "assert"
 import {
@@ -38,14 +38,12 @@ const localizedTreeBaselineGenerator = symbolBaselineGenerator(
             false
         )
 
-        const localizer = new TypeInfoLocalizer(
-            getTypeInfoRetriever(ctx)
-        ).debug()
+        const resolver = new TypeInfoResolver(getTypeInfoRetriever(ctx)).debug()
 
         return stringify(
             await normalizeLocalizedTypeTree(
-                await localizer.localize(typeTree),
-                localizer
+                await resolver.localize(typeTree),
+                resolver
             )
         )
     }

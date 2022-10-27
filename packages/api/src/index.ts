@@ -27,10 +27,6 @@ export {
     TypeParameterInfo,
     SourceFileLocation,
 } from "./types"
-export {
-    TypeInfoLocalizer,
-    LocalizedTypeInfo,
-    TypeInfoMap,
-    TypePurpose,
-} from "./localizedTree"
+export { LocalizedTypeInfo, TypeInfoMap, TypePurpose } from "./localizedTree"
+export { TypeInfoResolver } from "./resolveTree"
 export { localizePurpose } from "./localization"

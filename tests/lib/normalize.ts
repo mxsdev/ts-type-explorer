@@ -4,7 +4,7 @@ import {
     getTypeInfoChildren,
     getTypeInfoSymbols,
     LocalizedTypeInfo,
-    TypeInfoLocalizer,
+    TypeInfoResolver,
 } from "@ts-type-explorer/api"
 import path from "path"
 import { rootPath } from "./files"
@@ -55,7 +55,7 @@ type LocalizedTypeInfoWithId =
 
 export async function normalizeLocalizedTypeTree(
     typeTree: LocalizedTypeInfo,
-    localizer: TypeInfoLocalizer,
+    resolver: TypeInfoResolver,
     context?: {
         seen: Map<TypeId, TypeId>
     }
@@ -74,11 +74,11 @@ export async function normalizeLocalizedTypeTree(
         }
     }
 
-    const children = await localizer
+    const children = await resolver
         .localizeChildren(typeTree)
         .then((localizedChildren) =>
             asyncMap(localizedChildren, (c) =>
-                normalizeLocalizedTypeTree(c, localizer, context)
+                normalizeLocalizedTypeTree(c, resolver, context)
             )
         )
 
