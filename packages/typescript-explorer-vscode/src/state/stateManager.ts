@@ -1,7 +1,7 @@
 import { TypeInfo } from "@ts-type-explorer/api"
 import * as vscode from "vscode"
 import { selectionEnabled } from "../config"
-import { getQuickInfoAtPosition, showError } from "../util"
+import { getQuickInfoAtPosition, isDocumentSupported, showError } from "../util"
 import { TypeTreeItem, TypeTreeProvider } from "../view/typeTreeView"
 import { ViewProviders } from "../view/views"
 
@@ -37,6 +37,10 @@ export class StateManager {
         )
 
         vscode.window.onDidChangeTextEditorSelection((e) => {
+            if (!isDocumentSupported(e.textEditor.document)) {
+                return
+            }
+
             if (
                 e.kind === vscode.TextEditorSelectionChangeKind.Command ||
                 !e.kind
@@ -95,6 +99,11 @@ export class StateManager {
 
                     if (!editor) {
                         showError("No active text selection!")
+                        return
+                    }
+
+                    if (!isDocumentSupported(editor.document)) {
+                        showError("Document language not supported!")
                         return
                     }
 

@@ -97,3 +97,7 @@ export function smartlySetConfigValue<T>(
 export function showError(message: string) {
     vscode.window.showErrorMessage(message)
 }
+
+export function isDocumentSupported({ languageId }: vscode.TextDocument) {
+    return languageId === "typescript" || languageId === "javascript"
+}

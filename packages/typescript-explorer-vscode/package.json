@@ -192,7 +192,8 @@
             "editor/context": [
                 {
                     "command": "typescriptExplorer.selection.select",
-                    "group": "type-explorer"
+                    "group": "type-explorer",
+                    "when": "editorLangId == 'typescript' || editorLangId == 'javascript'"
                 }
             ]
         },
