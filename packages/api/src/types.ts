@@ -1,4 +1,15 @@
 import type * as ts from "typescript"
+import { APIConfig } from "./config"
+
+export type TypescriptContext = {
+    program: ts.Program
+    typeChecker: ts.TypeChecker
+    ts: typeof import("typescript/lib/tsserverlibrary")
+}
+
+export type SourceFileTypescriptContext = TypescriptContext & {
+    sourceFile: ts.SourceFile
+}
 
 export type TextRange = {
     start: ts.LineAndCharacter
@@ -97,7 +108,6 @@ export type TypeInfoNoId = {
           properties: TypeInfo[]
           baseType?: TypeInfo
           implementsTypes?: TypeInfo[]
-          // typeParameters?: TypeInfo[],
           constructSignatures?: SignatureInfo[]
           classSymbol?: SymbolInfo
           indexInfos?: IndexInfo[]
@@ -159,3 +169,174 @@ export type TypeInfoKind<K extends TypeInfo["kind"]> = Extract<
     TypeInfo,
     { kind: K }
 >
+
+export type TypePurpose =
+    | "return"
+    | "index_type"
+    | "index_value_type"
+    | "index_parameter_type"
+    | "conditional_check"
+    | "conditional_extends"
+    | "conditional_true"
+    | "conditional_false"
+    | "keyof"
+    | "indexed_access_index"
+    | "indexed_access_base"
+    | "parameter_default"
+    | "parameter_base_constraint"
+    | "class_constructor"
+    | "class_base_type"
+    | "class_implementations"
+    | "object_class"
+    | "type_parameter_list"
+    | "type_argument_list"
+    | "parameter_value"
+
+export type PrimitiveKind = TypeInfoKind<"primitive">["primitive"]
+export type LocalizableKind = Exclude<TypeInfo["kind"], "reference">
+
+/**
+ * @internal
+ */
+export type ResolvedTypeInfo = Exclude<TypeInfo, { kind: "reference" }>
+
+/**
+ * @internal
+ */
+export type TypeInfoChildren = {
+    info?: TypeInfo
+    localizedInfo?: LocalizedTypeInfo
+    opts?: LocalizeOpts
+}[]
+
+/**
+ * @internal
+ */
+export type ResolvedArrayTypeInfo = {
+    info: Exclude<ResolvedTypeInfo, { kind: "array" }>
+    dimension: number
+}
+
+export type LocalizedTypeInfo = {
+    kindText?: string
+    kind?: ResolvedTypeInfo["kind"] | "signature" | "index_info"
+    primitiveKind?: PrimitiveKind
+    alias?: string
+    symbol?: LocalizedSymbolInfo
+    name?: string
+    purpose?: TypePurpose
+    optional?: boolean
+    dimension?: number
+    rest?: boolean
+    children?: TypeInfoChildren
+    locations?: SourceFileLocation[]
+    /**
+     * Debug id information, used by test runner
+     * to identify and remove cycles
+     */
+    _id?: TypeId
+}
+
+export type LocalizedSymbolInfo = {
+    name: string
+    anonymous?: boolean
+    insideClassOrInterface?: boolean
+    property?: boolean
+    locations?: SourceFileLocation[]
+    isArgument?: boolean
+}
+
+/**
+ * @internal
+ */
+export type TypeInfoMap = Map<TypeId, ResolvedTypeInfo>
+
+/**
+ * @internal
+ */
+export type LocalizeOpts = {
+    optional?: boolean
+    purpose?: TypePurpose
+    name?: string
+    typeArguments?: TypeInfo[]
+    typeArgument?: TypeInfo
+    includeIds?: boolean
+}
+
+/**
+ * @internal
+ */
+export type LocalizeData = {
+    localizedOrigin: WeakMap<LocalizedTypeInfo, TypeInfo>
+}
+
+/**
+ * @internal
+ */
+export type TypeTreeContext = {
+    typescriptContext: TypescriptContext
+    config: APIConfig
+    seen: Set<TypeId>
+    depth: number
+}
+
+/**
+ * @internal
+ */
+export type SymbolOrType = (
+    | { symbol: ts.Symbol; type?: undefined }
+    | { type: ts.Type; symbol?: undefined }
+) & { node?: ts.Node }
+
+/**
+ * @internal
+ */
+export type TypeTreeOptions = {
+    optional?: boolean
+    isRest?: boolean
+    insideClassOrInterface?: boolean
+}
+
+/**
+ * @internal
+ */
+export type RecursiveExpandContext = {
+    seen: WeakMap<ts.Type, ts.Type>
+    depth: number
+    maxDepth: number
+}
+
+export type TypeInfoRetriever = (
+    location: SourceFileLocation
+) => Promise<TypeInfo | undefined>
+
+/**
+ * @internal
+ */
+export type IndexInfoMerged = {
+    declaration?: ts.MappedTypeNode | ts.IndexSignatureDeclaration
+    keyType?: ts.Type
+    type?: ts.Type
+    parameterType?: ts.Type
+}
+
+/**
+ * @internal
+ */
+export type IndexInfoType = "simple" | "parameter"
+
+/**
+ * @internal
+ */
+export type DiscriminatedIndexInfo = {
+    type: IndexInfoType
+    info: IndexInfoMerged
+}
+
+/**
+ * @internal
+ */
+export type ParameterInfo = {
+    optional?: boolean
+    isRest?: boolean
+}

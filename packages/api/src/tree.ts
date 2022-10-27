@@ -2,61 +2,55 @@ import * as assert from "assert"
 import type * as ts from "typescript"
 import { APIConfig } from "./config"
 import {
+    wrapSafe,
+    filterUndefined,
+    isNonEmpty,
+    arrayContentsEqual,
+    removeDuplicates,
+} from "./objectUtil"
+import {
     DeclarationInfo,
     IndexInfo,
     SignatureInfo,
     SourceFileLocation,
     SymbolInfo,
-    TypeId,
+    SymbolOrType,
     TypeInfo,
     TypeInfoNoId,
+    TypescriptContext,
+    TypeTreeContext,
+    TypeTreeOptions,
+    DiscriminatedIndexInfo,
 } from "./types"
-import { SymbolFlags } from "./typescript"
+import {
+    IntrinsicTypeInternal,
+    SymbolFlags,
+    SymbolInternal,
+} from "./typescript"
 import {
     getIndexInfos,
     getIntersectionTypesFlat,
     getSymbolType,
     getTypeId,
-    wrapSafe,
     isArrayType,
     getTypeArguments,
     isTupleType,
     getParameterInfo,
-    IntrinsicTypeInternal,
-    TSSymbol,
     isClassType,
     isInterfaceType,
     getImplementsTypes,
-    filterUndefined,
     getConstructSignatures,
     getEmptyTypeId,
     getTypeParameters,
-    isNonEmpty,
-    arrayContentsEqual,
     getResolvedSignature,
     getSignatureTypeArguments,
     getSourceFileLocation,
     getNodeSymbol,
-    TypescriptContext,
-    removeDuplicates,
     narrowDeclarationForLocation,
-    TSIndexInfo,
     isPureObjectOrMappedTypeShallow,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
-
-type TypeTreeContext = {
-    typescriptContext: TypescriptContext
-    config: APIConfig
-    seen: Set<TypeId>
-    depth: number
-}
-
-type SymbolOrType = (
-    | { symbol: ts.Symbol; type?: undefined }
-    | { type: ts.Type; symbol?: undefined }
-) & { node?: ts.Node }
 
 export function generateTypeTree(
     symbolOrType: SymbolOrType,
@@ -69,12 +63,6 @@ export function generateTypeTree(
         seen: new Set(),
         depth: 0,
     })
-}
-
-type TypeTreeOptions = {
-    optional?: boolean
-    isRest?: boolean
-    insideClassOrInterface?: boolean
 }
 
 function _generateTypeTree(
@@ -173,7 +161,7 @@ function _generateTypeTree(
             type ===
                 getSymbolType(
                     tsCtx,
-                    (originalSymbol as TSSymbol).target ?? originalSymbol,
+                    (originalSymbol as SymbolInternal).target ?? originalSymbol,
                     node
                 )
         ) {
@@ -285,7 +273,7 @@ function _generateTypeTree(
                 value: (type as ts.StringLiteralType).value,
                 literalSymbol: getSymbolInfo(enumSymbol),
                 parentSymbol: wrapSafe(getSymbolInfo)(
-                    (enumSymbol as TSSymbol).parent
+                    (enumSymbol as SymbolInternal).parent
                 ),
             }
         } else if (flags & ts.TypeFlags.Enum) {
@@ -572,7 +560,10 @@ function _generateTypeTree(
         })
     }
 
-    function getIndexInfo({ info: indexInfo, type }: TSIndexInfo): IndexInfo {
+    function getIndexInfo({
+        info: indexInfo,
+        type,
+    }: DiscriminatedIndexInfo): IndexInfo {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const parameterSymbol: ts.Symbol =
             // @ts-expect-error This info exists on the object but is not publicly exposed by type info
@@ -613,7 +604,7 @@ function _generateTypeTree(
         const optional = options.optional ?? parameterInfo.optional
         const rest = options.isRest ?? parameterInfo.isRest
 
-        const parent = (symbol as TSSymbol).parent
+        const parent = (symbol as SymbolInternal).parent
         const insideClassOrInterface =
             options.insideClassOrInterface ??
             (parent &&

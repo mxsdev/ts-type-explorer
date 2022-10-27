@@ -1,104 +1,25 @@
-import {
-    getKindText,
-    getPrimitiveKindText,
-    LocalizableKind,
-} from "./localization"
+import { getKindText, getPrimitiveKindText } from "./localization"
 import {
     IndexInfo,
+    LocalizableKind,
+    LocalizeData,
+    LocalizedSymbolInfo,
+    LocalizedTypeInfo,
+    LocalizeOpts,
+    ResolvedArrayTypeInfo,
+    ResolvedTypeInfo,
     SignatureInfo,
     SourceFileLocation,
     SymbolInfo,
-    TypeId,
     TypeInfo,
+    TypeInfoChildren,
     TypeInfoKind,
 } from "./types"
-import {
-    getEmptyTypeId,
-    isEmpty,
-    isNonEmpty,
-    pseudoBigIntToString,
-    wrapSafe,
-} from "./util"
+import { getEmptyTypeId, pseudoBigIntToString } from "./util"
 import { SymbolFlags } from "./typescript"
+import { wrapSafe, isEmpty, isNonEmpty } from "./objectUtil"
 
 // TODO: optional param booleans can sometimes become undefined|true|false (should just be boolean)
-
-export type TypePurpose =
-    | "return"
-    | "index_type"
-    | "index_value_type"
-    | "index_parameter_type"
-    | "conditional_check"
-    | "conditional_extends"
-    | "conditional_true"
-    | "conditional_false"
-    | "keyof"
-    | "indexed_access_index"
-    | "indexed_access_base"
-    | "parameter_default"
-    | "parameter_base_constraint"
-    | "class_constructor"
-    | "class_base_type"
-    | "class_implementations"
-    | "object_class"
-    | "type_parameter_list"
-    | "type_argument_list"
-    | "parameter_value"
-
-export type ResolvedTypeInfo = Exclude<TypeInfo, { kind: "reference" }>
-type LocalizedSymbolInfo = {
-    name: string
-    anonymous?: boolean
-    insideClassOrInterface?: boolean
-    property?: boolean
-    locations?: SourceFileLocation[]
-    isArgument?: boolean
-}
-
-type TypeInfoChildren = {
-    info?: TypeInfo
-    localizedInfo?: LocalizedTypeInfo
-    opts?: LocalizeOpts
-}[]
-
-export type ResolvedArrayTypeInfo = {
-    info: Exclude<ResolvedTypeInfo, { kind: "array" }>
-    dimension: number
-}
-
-export type LocalizedTypeInfo = {
-    kindText?: string
-    kind?: ResolvedTypeInfo["kind"] | "signature" | "index_info"
-    primitiveKind?: TypeInfoKind<"primitive">["primitive"]
-    alias?: string
-    symbol?: LocalizedSymbolInfo
-    name?: string
-    purpose?: TypePurpose
-    optional?: boolean
-    dimension?: number
-    rest?: boolean
-    children?: TypeInfoChildren
-    locations?: SourceFileLocation[]
-    /**
-     * Debug id information, used by test runner
-     * to identify and remove cycles
-     */
-    _id?: TypeId
-}
-
-export type TypeInfoMap = Map<TypeId, ResolvedTypeInfo>
-
-export type LocalizeOpts = {
-    optional?: boolean
-    purpose?: TypePurpose
-    name?: string
-    typeArguments?: TypeInfo[]
-    typeArgument?: TypeInfo
-    includeIds?: boolean
-}
-type LocalizeData = {
-    localizedOrigin: WeakMap<LocalizedTypeInfo, TypeInfo>
-}
 
 export function _localizeTypeInfo(
     info: TypeInfo,

@@ -1,3 +1,131 @@
+import { TypescriptContext } from "./types"
+
+/**
+ * @internal
+ */
+export type SymbolName = ts.__String
+
+/**
+ * @internal
+ */
+export type TypeConstructor = new (
+    checker: ts.TypeChecker,
+    flags: ts.TypeFlags
+) => ts.Type
+
+/**
+ * @internal
+ */
+export type SymbolConstructor = new (
+    flags: ts.SymbolFlags,
+    name: SymbolName
+) => ts.Symbol
+
+/**
+ * @internal
+ */
+export function getTypeConstructor({ ts }: TypescriptContext) {
+    // @ts-expect-error - objectAllocator exists but is not exposed by types publicly
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    return ts.objectAllocator.getTypeConstructor() as TypeConstructor
+}
+
+/**
+ * @internal
+ */
+export function getSymbolConstructor({ ts }: TypescriptContext) {
+    // @ts-expect-error - objectAllocator exists but is not exposed by types publicly
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    return ts.objectAllocator.getSymbolConstructor() as SymbolConstructor
+}
+
+/**
+ * @internal
+ */
+export type ObjectTypeInternal = ts.ObjectType & {
+    id: number
+    members: ts.SymbolTable
+    properties: ts.Symbol[]
+    indexInfos: ts.IndexInfo[]
+    constructSignatures: ts.Signature[]
+    callSignatures: ts.Signature[]
+}
+
+/**
+ * @internal
+ */
+export type MappedTypeInternal = ts.Type & {
+    declaration: ts.MappedTypeNode
+    typeParameter?: ts.TypeParameter
+    constraintType?: ts.Type
+    templateType?: ts.Type
+    modifiersType?: ts.Type
+}
+
+/**
+ * @internal
+ */
+export type TransientSymbol = ts.Symbol & { checkFlags: number }
+
+/**
+ * @internal
+ */
+export type NodeWithTypeArguments = ts.Node & {
+    typeArguments?: ts.NodeArray<ts.TypeNode>
+}
+/**
+ * @internal
+ */
+export type NodeWithJsDoc = ts.Node & { jsDoc?: ts.Node[] | undefined }
+
+/**
+ * @internal
+ */
+export type DeclarationInternal = ts.Declaration & { name?: ts.Identifier }
+
+/**
+ * @internal
+ */
+export type UnionTypeInternal = ts.UnionType & { id: number }
+/**
+ * @internal
+ */
+export type IntersectionTypeInternal = ts.IntersectionType & { id: number }
+/**
+ * @internal
+ */
+export type TypeReferenceInternal = ts.TypeReference & {
+    resolvedTypeArguments?: ts.Type[]
+}
+/**
+ * @internal
+ */
+export type SignatureInternal = ts.Signature & {
+    minArgumentCount: number
+    resolvedMinArgumentCount?: number
+    target?: SignatureInternal
+}
+/**
+ * @internal
+ */
+export type IntrinsicTypeInternal = ts.Type & {
+    intrinsicName: string
+    objectFlags: ts.ObjectFlags
+}
+
+/**
+ * @internal
+ */
+export type SymbolInternal = ts.Symbol & {
+    checkFlags: number
+    type?: ts.Type
+    parent?: SymbolInternal
+    target?: SymbolInternal
+}
+
+/**
+ * @internal
+ */
 export const enum CheckFlags {
     Instantiated = 1 << 0, // Instantiated symbol
     SyntheticProperty = 1 << 1, // Property in union or intersection type
@@ -25,6 +153,9 @@ export const enum CheckFlags {
     Partial = ReadPartial | WritePartial,
 }
 
+/**
+ * @internal
+ */
 export const enum TypeFlags {
     Any = 1 << 0,
     Unknown = 1 << 1,
@@ -197,6 +328,9 @@ export const enum TypeFlags {
         IncludesInstantiable,
 }
 
+/**
+ * @internal
+ */
 export const enum SymbolFlags {
     None = 0,
     FunctionScopedVariable = 1 << 0, // Variable (var) or parameter
@@ -348,6 +482,9 @@ export const enum SymbolFlags {
         Function,
 }
 
+/**
+ * @internal
+ */
 export const enum TypeFormatFlags {
     None = 0,
     NoTruncation = 1 << 0, // Don't truncate typeToString result
@@ -403,6 +540,9 @@ export const enum TypeFormatFlags {
         OmitThisParameter,
 }
 
+/**
+ * @internal
+ */
 export const enum NodeBuilderFlags {
     None = 0,
     // Options
@@ -455,6 +595,9 @@ export const enum NodeBuilderFlags {
     InInitialEntityName = 1 << 24, // Set when writing the LHS of an entity name or entity name expression
 }
 
+/**
+ * @internal
+ */
 export const enum SyntaxKind {
     Unknown,
     EndOfFileToken,
@@ -900,6 +1043,9 @@ export const enum SyntaxKind {
     /* @internal */ LastContextualKeyword = OfKeyword,
 }
 
+/**
+ * @internal
+ */
 export const enum ObjectFlags {
     Class = 1 << 0, // Class
     Interface = 1 << 1, // Interface
@@ -984,6 +1130,9 @@ export const enum ObjectFlags {
     IsNeverIntersection = 1 << 25, // Intersection reduces to never
 }
 
+/**
+ * @internal
+ */
 export const enum NodeFlags {
     None = 0,
     Let = 1 << 0, // Variable declaration

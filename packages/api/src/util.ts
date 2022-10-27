@@ -1,78 +1,28 @@
 import type * as ts from "typescript"
-import { SourceFileLocation, TypeId } from "./types"
-import { CheckFlags } from "./typescript"
-
-export type TypescriptContext = {
-    program: ts.Program
-    typeChecker: ts.TypeChecker
-    ts: typeof import("typescript/lib/tsserverlibrary")
-}
-
-export type SourceFileTypescriptContext = TypescriptContext & {
-    sourceFile: ts.SourceFile
-}
-
-export type SymbolName = ts.__String
-
-type TypeConstructor = new (
-    checker: ts.TypeChecker,
-    flags: ts.TypeFlags
-) => ts.Type
-type SymbolConstructor = new (
-    flags: ts.SymbolFlags,
-    name: SymbolName
-) => ts.Symbol
-
-function getTypeConstructor({ ts }: TypescriptContext) {
-    // @ts-expect-error - objectAllocator exists but is not exposed by types publicly
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    return ts.objectAllocator.getTypeConstructor() as TypeConstructor
-}
-
-function getSymbolConstructor({ ts }: TypescriptContext) {
-    // @ts-expect-error - objectAllocator exists but is not exposed by types publicly
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    return ts.objectAllocator.getSymbolConstructor() as SymbolConstructor
-}
-
-export type ObjectType = ts.ObjectType & {
-    id: number
-    members: ts.SymbolTable
-    properties: ts.Symbol[]
-    indexInfos: ts.IndexInfo[]
-    constructSignatures: ts.Signature[]
-    callSignatures: ts.Signature[]
-}
-
-type TransientSymbol = ts.Symbol & { checkFlags: number }
-type NodeWithTypeArguments = ts.Node & {
-    typeArguments?: ts.NodeArray<ts.TypeNode>
-}
-type NodeWithJsDoc = ts.Node & { jsDoc?: ts.Node[] | undefined }
-
-type DeclarationInternal = ts.Declaration & { name?: ts.Identifier }
-
-export type UnionTypeInternal = ts.UnionType & { id: number }
-export type IntersectionTypeInternal = ts.IntersectionType & { id: number }
-export type TypeReferenceInternal = ts.TypeReference & {
-    resolvedTypeArguments?: ts.Type[]
-}
-export type SignatureInternal = ts.Signature & {
-    minArgumentCount: number
-    resolvedMinArgumentCount?: number
-    target?: SignatureInternal
-}
-export type IntrinsicTypeInternal = ts.Type & {
-    intrinsicName: string
-    objectFlags: ts.ObjectFlags
-}
-
-export type TSSymbol = ts.Symbol & {
-    checkFlags: number
-    type?: ts.Type
-    parent?: TSSymbol
-    target?: TSSymbol
-}
+import { wrapSafe, isEmpty, filterUndefined } from "./objectUtil"
+import {
+    SourceFileLocation,
+    TypeId,
+    TypescriptContext,
+    SourceFileTypescriptContext,
+    DiscriminatedIndexInfo,
+    ParameterInfo,
+} from "./types"
+import {
+    CheckFlags,
+    DeclarationInternal,
+    getSymbolConstructor,
+    getTypeConstructor,
+    IntersectionTypeInternal,
+    MappedTypeInternal,
+    NodeWithJsDoc,
+    ObjectTypeInternal,
+    SignatureInternal,
+    SymbolInternal,
+    SymbolName,
+    TransientSymbol,
+    UnionTypeInternal,
+} from "./typescript"
 
 export function isValidType(type: ts.Type): boolean {
     return (
@@ -126,7 +76,7 @@ export function getNodeSymbol(
     node?: ts.Node
 ): ts.Symbol | undefined {
     return node
-        ? (node as ts.Node & { symbol?: TSSymbol }).symbol ??
+        ? (node as ts.Node & { symbol?: SymbolInternal }).symbol ??
               typeChecker.getSymbolAtLocation(node)
         : undefined
 }
@@ -212,30 +162,11 @@ export function getSignaturesOfType(
     ]
 }
 
-export type TSIndexInfoMerged = {
-    declaration?: ts.MappedTypeNode | ts.IndexSignatureDeclaration
-    keyType?: ts.Type
-    type?: ts.Type
-    parameterType?: ts.Type
-}
-
-export type TSIndexInfoType = "simple" | "parameter"
-
-interface MappedType extends ts.Type {
-    declaration: ts.MappedTypeNode
-    typeParameter?: ts.TypeParameter
-    constraintType?: ts.Type
-    templateType?: ts.Type
-    modifiersType?: ts.Type
-}
-
-export type TSIndexInfo = { type: TSIndexInfoType; info: TSIndexInfoMerged }
-
 export function getIndexInfos(
     { typeChecker, ts }: TypescriptContext,
     type: ts.Type
 ) {
-    const indexInfos: TSIndexInfo[] = [
+    const indexInfos: DiscriminatedIndexInfo[] = [
         ...typeChecker
             .getIndexInfosOfType(type)
             .map((info) => ({ type: "simple", info } as const)),
@@ -244,10 +175,13 @@ export function getIndexInfos(
     if (
         indexInfos.length === 0 &&
         type.flags & ts.TypeFlags.Object &&
-        (type as ObjectType).objectFlags & ts.ObjectFlags.Mapped &&
-        !((type as ObjectType).objectFlags & ts.ObjectFlags.Instantiated)
+        (type as ObjectTypeInternal).objectFlags & ts.ObjectFlags.Mapped &&
+        !(
+            (type as ObjectTypeInternal).objectFlags &
+            ts.ObjectFlags.Instantiated
+        )
     ) {
-        const mappedType = type as MappedType
+        const mappedType = type as MappedTypeInternal
 
         if (mappedType.typeParameter) {
             indexInfos.push({
@@ -273,8 +207,11 @@ export function createObjectType(
     ctx: TypescriptContext,
     objectFlags: ts.ObjectFlags,
     flags: ts.TypeFlags = 0
-): ObjectType {
-    const type = createType(ctx, flags | ctx.ts.TypeFlags.Object) as ObjectType
+): ObjectTypeInternal {
+    const type = createType(
+        ctx,
+        flags | ctx.ts.TypeFlags.Object
+    ) as ObjectTypeInternal
     type.members = new Map()
     type.objectFlags = objectFlags
     type.properties = []
@@ -324,7 +261,7 @@ export function createSymbol(
     const symbol = new (getSymbolConstructor(ctx))(
         flags | ctx.ts.SymbolFlags.Transient,
         name
-    ) as TSSymbol
+    ) as SymbolInternal
     symbol.checkFlags = checkFlags || 0
     return symbol
 }
@@ -344,47 +281,6 @@ export function multilineTypeToString(
 
     const printer = ts.createPrinter()
     return printer.printNode(ts.EmitHint.Unspecified, typeNode, sourceFile)
-}
-
-export function wrapSafe<T, Args extends Array<unknown>, Return>(
-    wrapped: (arg1: T, ...args: Args) => Return
-): (arg1: T | undefined, ...args: Args) => Return | undefined {
-    return (arg1, ...args) =>
-        arg1 === undefined ? (arg1 as undefined) : wrapped(arg1, ...args)
-}
-
-export function isNonEmpty<T>(
-    arr: readonly T[] | undefined
-): arr is readonly T[] {
-    return !!arr && arr.length > 0
-}
-
-export function isEmpty<T>(arr: readonly T[] | undefined): arr is undefined {
-    return !isNonEmpty<T>(arr)
-}
-
-export function arrayContentsEqual(
-    x: readonly unknown[],
-    y: readonly unknown[]
-) {
-    return x.length === y.length && x.every((el, i) => y[i] == el)
-}
-
-export function filterUndefined<T>(arr: T[]): Exclude<T, undefined>[] {
-    return arr.filter((x) => x !== undefined) as Exclude<T, undefined>[]
-}
-
-export function removeDuplicates<T extends object>(arr: T[]) {
-    const set = new WeakSet<T>()
-
-    return arr.filter((val) => {
-        if (set.has(val)) {
-            return false
-        }
-
-        set.add(val)
-        return val
-    })
 }
 
 export function getTypeId(
@@ -527,8 +423,8 @@ export function getTypeArguments<T extends ts.Type>(
 
     if (node && isEmpty(typeArgumentsOfType)) {
         const typeArgumentDefinitions =
-            (node as NodeWithTypeArguments).typeArguments ??
-            (node.parent as NodeWithTypeArguments)?.typeArguments
+            (node as ts.NodeWithTypeArguments).typeArguments ??
+            (node.parent as ts.NodeWithTypeArguments)?.typeArguments
         const typeArgumentsOfNode = wrapSafe(filterUndefined)(
             typeArgumentDefinitions?.map((node) =>
                 getTypeFromTypeNode(ctx, node)
@@ -584,12 +480,10 @@ export function getObjectFlags(
     { ts }: TypescriptContext,
     type: ts.Type
 ): number {
-    return type.flags & ts.TypeFlags.Object && (type as ObjectType).objectFlags
-}
-
-type ParameterInfo = {
-    optional?: boolean
-    isRest?: boolean
+    return (
+        type.flags & ts.TypeFlags.Object &&
+        (type as ObjectTypeInternal).objectFlags
+    )
 }
 
 export function getParameterInfo(

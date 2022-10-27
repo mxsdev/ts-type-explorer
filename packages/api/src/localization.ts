@@ -1,7 +1,4 @@
-import { TypePurpose } from "./localizedTree"
-import { TypeInfoKind, TypeInfo } from "./types"
-
-type PrimitiveKind = TypeInfoKind<"primitive">["primitive"]
+import { LocalizableKind, PrimitiveKind, TypePurpose } from "./types"
 
 export const PrimitiveKindText: Record<PrimitiveKind, string> = {
     any: "any",
@@ -18,7 +15,6 @@ export const PrimitiveKindText: Record<PrimitiveKind, string> = {
     unknown: "unknown",
 }
 
-export type LocalizableKind = Exclude<TypeInfo["kind"], "reference">
 export const KindText: Record<LocalizableKind | "method", string> = {
     bigint_literal: "$1n",
     boolean_literal: "$1",

@@ -1,19 +1,16 @@
 import * as assert from "assert"
-import { SourceFileLocation, TypeInfo } from "./types"
-import { filterUndefined } from "./util"
-import { getTypeInfoChildren } from "./tree"
 import {
-    TypeInfoMap,
     LocalizedTypeInfo,
-    ResolvedArrayTypeInfo,
     LocalizeOpts,
-    _localizeTypeInfo,
+    ResolvedArrayTypeInfo,
     ResolvedTypeInfo,
-} from "./localizedTree"
-
-export type TypeInfoRetriever = (
-    location: SourceFileLocation
-) => Promise<TypeInfo | undefined>
+    TypeInfo,
+    TypeInfoMap,
+    TypeInfoRetriever,
+} from "./types"
+import { getTypeInfoChildren } from "./tree"
+import { _localizeTypeInfo } from "./localizedTree"
+import { filterUndefined } from "./objectUtil"
 
 export class TypeInfoResolver {
     private includeIds = false
@@ -194,7 +191,7 @@ export class TypeInfoResolver {
     }
 
     /**
-     * Sets localizer to debug mode, which will include id information in
+     * Sets resolver to debug mode, which will include id information in
      * resultant localized type info.
      *
      * This is used by the test runner to identify circular paths.

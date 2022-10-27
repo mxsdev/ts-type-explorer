@@ -4,21 +4,23 @@ import {
     createUnionType,
     createIntersectionType,
     createObjectType,
-    TSSymbol,
     createSymbol,
     getSymbolType,
-    SymbolName,
-    ObjectType,
     getSignaturesOfType,
     getIndexInfos,
     getIntersectionTypesFlat,
     isArrayType,
     isTupleType,
-    TypeReferenceInternal,
     isPureObject,
-    TypescriptContext,
 } from "./util"
-import { CheckFlags } from "./typescript"
+import {
+    CheckFlags,
+    ObjectTypeInternal,
+    SymbolInternal,
+    SymbolName,
+    TypeReferenceInternal,
+} from "./typescript"
+import { RecursiveExpandContext, TypescriptContext } from "./types"
 
 export function recursivelyExpandType(
     ctx: TypescriptContext,
@@ -32,12 +34,6 @@ export function recursivelyExpandType(
         maxDepth: config.maxDepth,
         depth: 0,
     })
-}
-
-type RecursiveExpandContext = {
-    seen: WeakMap<ts.Type, ts.Type>
-    depth: number
-    maxDepth: number
 }
 
 function _recursivelyExpandType(
@@ -137,7 +133,7 @@ function _recursivelyExpandType(
                     : nonObjectTypes.push(t)
             )
 
-            let objectType: ObjectType | undefined
+            let objectType: ObjectTypeInternal | undefined
             if (objectTypes.length > 0) {
                 objectType = createAnonymousObjectType()
                 if (nonObjectTypes.length === 0) seen.set(types[0], objectType)
@@ -186,10 +182,10 @@ function _recursivelyExpandType(
     // TODO: move to using type.getProperties() on the intersection type
     function recursiveMergeObjectIntersection(
         types: ts.ObjectType[],
-        newType?: ObjectType
+        newType?: ObjectTypeInternal
     ) {
         newType ||= createAnonymousObjectType()
-        const nameToSymbols = new Map<SymbolName, TSSymbol[]>()
+        const nameToSymbols = new Map<SymbolName, SymbolInternal[]>()
 
         types.forEach((t) => {
             t.getProperties().forEach((s) => {
@@ -199,7 +195,7 @@ function _recursivelyExpandType(
                     nameToSymbols.set(name, [])
                 }
 
-                nameToSymbols.get(name)!.push(s as TSSymbol)
+                nameToSymbols.get(name)!.push(s as SymbolInternal)
             })
         })
 
@@ -213,9 +209,9 @@ function _recursivelyExpandType(
     }
 
     function mergeIntersectedPropertySymbols(
-        symbols: TSSymbol[],
+        symbols: SymbolInternal[],
         name: SymbolName
-    ): TSSymbol {
+    ): SymbolInternal {
         let symbolFlags = ts.SymbolFlags.Property
 
         if (symbols.every((s) => s.flags & ts.SymbolFlags.Optional)) {

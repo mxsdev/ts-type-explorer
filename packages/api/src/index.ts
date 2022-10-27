@@ -7,8 +7,6 @@ export {
     getNodeSymbol,
     getDescendantAtPosition,
     getDescendantAtRange,
-    TypescriptContext,
-    SourceFileTypescriptContext,
     isValidType,
 } from "./util"
 export { recursivelyExpandType } from "./merge"
@@ -27,6 +25,11 @@ export {
     TypeParameterInfo,
     SourceFileLocation,
 } from "./types"
-export { LocalizedTypeInfo, TypeInfoMap, TypePurpose } from "./localizedTree"
+export {
+    LocalizedTypeInfo,
+    TypePurpose,
+    TypescriptContext,
+    SourceFileTypescriptContext,
+} from "./types"
 export { TypeInfoResolver } from "./resolveTree"
 export { localizePurpose } from "./localization"
