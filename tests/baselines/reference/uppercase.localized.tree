@@ -269,13 +269,13 @@ type U<T extends string> = Uppercase<T>
                                     "primitiveKind": "string",
                                     "purpose": "parameter_base_constraint",
                                     "children": [],
-                                    "_id": "2"
+                                    "_id": "3"
                                 }
                             ],
-                            "_id": "3"
+                            "_id": "2"
                         },
                         {
-                            "reference": "2"
+                            "reference": "3"
                         }
                     ],
                     "_id": "1"

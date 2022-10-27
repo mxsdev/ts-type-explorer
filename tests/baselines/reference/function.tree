@@ -96,7 +96,7 @@ function func(a: string, b?: number) {
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/function.ts",
+                    "fileName": "cases/function.ts",
                     "range": {
                         "start": {
                             "line": 0,
@@ -206,7 +206,7 @@ function func(a: string, b?: number) {
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/function.ts",
+                    "fileName": "cases/function.ts",
                     "range": {
                         "start": {
                             "line": 0,

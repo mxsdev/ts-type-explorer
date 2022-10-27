@@ -98,14 +98,14 @@ type Conditional<T> = T extends string ? "a" : "b"
             "kind": "string_literal",
             "purpose": "conditional_true",
             "children": [],
-            "_id": "4"
+            "_id": "3"
         },
         {
             "kindText": "\"b\"",
             "kind": "string_literal",
             "purpose": "conditional_false",
             "children": [],
-            "_id": "3"
+            "_id": "4"
         }
     ],
     "_id": "0"

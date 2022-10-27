@@ -838,7 +838,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                         }
                                     ],
                                     "children": [],
-                                    "_id": "4"
+                                    "_id": "3"
                                 },
                                 {
                                     "kindText": "\"d\"",
@@ -878,7 +878,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                         }
                                     ],
                                     "children": [],
-                                    "_id": "5"
+                                    "_id": "4"
                                 },
                                 {
                                     "kindText": "object",
@@ -956,13 +956,13 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                                 }
                                             ],
                                             "children": [],
-                                            "_id": "7"
+                                            "_id": "6"
                                         }
                                     ],
-                                    "_id": "6"
+                                    "_id": "5"
                                 }
                             ],
-                            "_id": "3"
+                            "_id": "2"
                         }
                     ],
                     "_id": "1"
@@ -1034,27 +1034,27 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     "kind": "primitive",
                                     "primitiveKind": "string",
                                     "children": [],
-                                    "_id": "14"
+                                    "_id": "12"
                                 },
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
                                     "primitiveKind": "number",
                                     "children": [],
-                                    "_id": "15"
+                                    "_id": "13"
                                 },
                                 {
                                     "kindText": "symbol",
                                     "kind": "primitive",
                                     "primitiveKind": "essymbol",
                                     "children": [],
-                                    "_id": "16"
+                                    "_id": "14"
                                 }
                             ],
-                            "_id": "13"
+                            "_id": "11"
                         }
                     ],
-                    "_id": "2"
+                    "_id": "7"
                 }
             ]
         },
@@ -1119,13 +1119,13 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     ],
                     "children": [
                         {
-                            "reference": "13"
+                            "reference": "11"
                         }
                     ],
-                    "_id": "12"
+                    "_id": "15"
                 },
                 {
-                    "reference": "2"
+                    "reference": "7"
                 },
                 {
                     "kindText": "access",
@@ -1136,10 +1136,10 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             "reference": "1"
                         },
                         {
-                            "reference": "12"
+                            "reference": "15"
                         }
                     ],
-                    "_id": "11"
+                    "_id": "16"
                 }
             ]
         }

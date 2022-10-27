@@ -69,6 +69,7 @@ export type TSSymbol = ts.Symbol & {
     checkFlags: number
     type?: ts.Type
     parent?: TSSymbol
+    target?: TSSymbol
 }
 
 export function isValidType(type: ts.Type): boolean {
@@ -362,6 +363,19 @@ export function arrayContentsEqual(
 
 export function filterUndefined<T>(arr: T[]): Exclude<T, undefined>[] {
     return arr.filter((x) => x !== undefined) as Exclude<T, undefined>[]
+}
+
+export function removeDuplicates<T extends object>(arr: T[]) {
+    const set = new WeakSet<T>()
+
+    return arr.filter((val) => {
+        if (set.has(val)) {
+            return false
+        }
+
+        set.add(val)
+        return val
+    })
 }
 
 export function getTypeId(

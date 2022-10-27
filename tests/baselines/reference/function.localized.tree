@@ -10,7 +10,7 @@ function func(a: string, b?: number) {
         "name": "func",
         "locations": [
             {
-                "fileName": "../cases/function.ts",
+                "fileName": "cases/function.ts",
                 "range": {
                     "start": {
                         "line": 0,
@@ -26,7 +26,7 @@ function func(a: string, b?: number) {
     },
     "locations": [
         {
-            "fileName": "../cases/function.ts",
+            "fileName": "cases/function.ts",
             "range": {
                 "start": {
                     "line": 0,
@@ -141,7 +141,7 @@ function func(a: string, b?: number) {
         "name": "func",
         "locations": [
             {
-                "fileName": "../cases/function.ts",
+                "fileName": "cases/function.ts",
                 "range": {
                     "start": {
                         "line": 0,
@@ -157,7 +157,7 @@ function func(a: string, b?: number) {
     },
     "locations": [
         {
-            "fileName": "../cases/function.ts",
+            "fileName": "cases/function.ts",
             "range": {
                 "start": {
                     "line": 0,

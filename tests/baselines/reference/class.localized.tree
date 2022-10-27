@@ -48,7 +48,7 @@ interface TestInterface {
                 "insideClassOrInterface": true,
                 "locations": [
                     {
-                        "fileName": "../cases/class.ts",
+                        "fileName": "cases/class.ts",
                         "range": {
                             "start": {
                                 "line": 1,
@@ -64,7 +64,7 @@ interface TestInterface {
             },
             "locations": [
                 {
-                    "fileName": "../cases/class.ts",
+                    "fileName": "cases/class.ts",
                     "range": {
                         "start": {
                             "line": 1,
@@ -102,7 +102,7 @@ interface TestInterface {
         "insideClassOrInterface": true,
         "locations": [
             {
-                "fileName": "../cases/class.ts",
+                "fileName": "cases/class.ts",
                 "range": {
                     "start": {
                         "line": 1,
@@ -118,7 +118,7 @@ interface TestInterface {
     },
     "locations": [
         {
-            "fileName": "../cases/class.ts",
+            "fileName": "cases/class.ts",
             "range": {
                 "start": {
                     "line": 1,
@@ -237,7 +237,7 @@ class TestClass implements TestInterface {
                                 "insideClassOrInterface": true,
                                 "locations": [
                                     {
-                                        "fileName": "../cases/class.ts",
+                                        "fileName": "cases/class.ts",
                                         "range": {
                                             "start": {
                                                 "line": 1,
@@ -253,7 +253,7 @@ class TestClass implements TestInterface {
                             },
                             "locations": [
                                 {
-                                    "fileName": "../cases/class.ts",
+                                    "fileName": "cases/class.ts",
                                     "range": {
                                         "start": {
                                             "line": 1,
@@ -273,13 +273,13 @@ class TestClass implements TestInterface {
                                     "primitiveKind": "string",
                                     "purpose": "return",
                                     "children": [],
-                                    "_id": "2"
+                                    "_id": "3"
                                 }
                             ],
-                            "_id": "5"
+                            "_id": "2"
                         }
                     ],
-                    "_id": "4"
+                    "_id": "1"
                 }
             ]
         },
@@ -342,7 +342,7 @@ class TestClass implements TestInterface {
                         }
                     ],
                     "children": [],
-                    "_id": "3"
+                    "_id": "4"
                 }
             ],
             "_id": ""
@@ -355,7 +355,7 @@ class TestClass implements TestInterface {
                 "insideClassOrInterface": true,
                 "locations": [
                     {
-                        "fileName": "../cases/class.ts",
+                        "fileName": "cases/class.ts",
                         "range": {
                             "start": {
                                 "line": 7,
@@ -371,7 +371,7 @@ class TestClass implements TestInterface {
             },
             "locations": [
                 {
-                    "fileName": "../cases/class.ts",
+                    "fileName": "cases/class.ts",
                     "range": {
                         "start": {
                             "line": 7,
@@ -386,10 +386,10 @@ class TestClass implements TestInterface {
             ],
             "children": [
                 {
-                    "reference": "2"
+                    "reference": "3"
                 }
             ],
-            "_id": "1"
+            "_id": "5"
         }
     ],
     "_id": "0"
@@ -480,7 +480,7 @@ class TestClass implements TestInterface {
                                 "insideClassOrInterface": true,
                                 "locations": [
                                     {
-                                        "fileName": "../cases/class.ts",
+                                        "fileName": "cases/class.ts",
                                         "range": {
                                             "start": {
                                                 "line": 1,
@@ -496,7 +496,7 @@ class TestClass implements TestInterface {
                             },
                             "locations": [
                                 {
-                                    "fileName": "../cases/class.ts",
+                                    "fileName": "cases/class.ts",
                                     "range": {
                                         "start": {
                                             "line": 1,
@@ -516,13 +516,13 @@ class TestClass implements TestInterface {
                                     "primitiveKind": "string",
                                     "purpose": "return",
                                     "children": [],
-                                    "_id": "2"
+                                    "_id": "3"
                                 }
                             ],
-                            "_id": "5"
+                            "_id": "2"
                         }
                     ],
-                    "_id": "4"
+                    "_id": "1"
                 }
             ]
         },
@@ -585,7 +585,7 @@ class TestClass implements TestInterface {
                         }
                     ],
                     "children": [],
-                    "_id": "3"
+                    "_id": "4"
                 }
             ],
             "_id": ""
@@ -598,7 +598,7 @@ class TestClass implements TestInterface {
                 "insideClassOrInterface": true,
                 "locations": [
                     {
-                        "fileName": "../cases/class.ts",
+                        "fileName": "cases/class.ts",
                         "range": {
                             "start": {
                                 "line": 7,
@@ -614,7 +614,7 @@ class TestClass implements TestInterface {
             },
             "locations": [
                 {
-                    "fileName": "../cases/class.ts",
+                    "fileName": "cases/class.ts",
                     "range": {
                         "start": {
                             "line": 7,
@@ -629,10 +629,10 @@ class TestClass implements TestInterface {
             ],
             "children": [
                 {
-                    "reference": "2"
+                    "reference": "3"
                 }
             ],
-            "_id": "1"
+            "_id": "5"
         }
     ],
     "_id": "0"
@@ -686,7 +686,7 @@ class TestClass implements TestInterface {
                 "insideClassOrInterface": true,
                 "locations": [
                     {
-                        "fileName": "../cases/class.ts",
+                        "fileName": "cases/class.ts",
                         "range": {
                             "start": {
                                 "line": 1,
@@ -702,7 +702,7 @@ class TestClass implements TestInterface {
             },
             "locations": [
                 {
-                    "fileName": "../cases/class.ts",
+                    "fileName": "cases/class.ts",
                     "range": {
                         "start": {
                             "line": 1,
@@ -822,7 +822,7 @@ class TestClass implements TestInterface {
                                 "insideClassOrInterface": true,
                                 "locations": [
                                     {
-                                        "fileName": "../cases/class.ts",
+                                        "fileName": "cases/class.ts",
                                         "range": {
                                             "start": {
                                                 "line": 1,
@@ -838,7 +838,7 @@ class TestClass implements TestInterface {
                             },
                             "locations": [
                                 {
-                                    "fileName": "../cases/class.ts",
+                                    "fileName": "cases/class.ts",
                                     "range": {
                                         "start": {
                                             "line": 1,
@@ -858,13 +858,13 @@ class TestClass implements TestInterface {
                                     "primitiveKind": "string",
                                     "purpose": "return",
                                     "children": [],
-                                    "_id": "2"
+                                    "_id": "3"
                                 }
                             ],
-                            "_id": "5"
+                            "_id": "2"
                         }
                     ],
-                    "_id": "4"
+                    "_id": "1"
                 }
             ]
         },
@@ -927,7 +927,7 @@ class TestClass implements TestInterface {
                         }
                     ],
                     "children": [],
-                    "_id": "3"
+                    "_id": "4"
                 }
             ],
             "_id": ""
@@ -940,7 +940,7 @@ class TestClass implements TestInterface {
                 "insideClassOrInterface": true,
                 "locations": [
                     {
-                        "fileName": "../cases/class.ts",
+                        "fileName": "cases/class.ts",
                         "range": {
                             "start": {
                                 "line": 7,
@@ -956,7 +956,7 @@ class TestClass implements TestInterface {
             },
             "locations": [
                 {
-                    "fileName": "../cases/class.ts",
+                    "fileName": "cases/class.ts",
                     "range": {
                         "start": {
                             "line": 7,
@@ -971,10 +971,10 @@ class TestClass implements TestInterface {
             ],
             "children": [
                 {
-                    "reference": "2"
+                    "reference": "3"
                 }
             ],
-            "_id": "1"
+            "_id": "5"
         }
     ],
     "_id": "0"
@@ -1033,7 +1033,7 @@ class TestClass implements TestInterface {
         "insideClassOrInterface": true,
         "locations": [
             {
-                "fileName": "../cases/class.ts",
+                "fileName": "cases/class.ts",
                 "range": {
                     "start": {
                         "line": 7,
@@ -1049,7 +1049,7 @@ class TestClass implements TestInterface {
     },
     "locations": [
         {
-            "fileName": "../cases/class.ts",
+            "fileName": "cases/class.ts",
             "range": {
                 "start": {
                     "line": 7,
@@ -1203,7 +1203,7 @@ const _a = new TestClass("param")
                                         "insideClassOrInterface": true,
                                         "locations": [
                                             {
-                                                "fileName": "../cases/class.ts",
+                                                "fileName": "cases/class.ts",
                                                 "range": {
                                                     "start": {
                                                         "line": 1,
@@ -1219,7 +1219,7 @@ const _a = new TestClass("param")
                                     },
                                     "locations": [
                                         {
-                                            "fileName": "../cases/class.ts",
+                                            "fileName": "cases/class.ts",
                                             "range": {
                                                 "start": {
                                                     "line": 1,
@@ -1239,13 +1239,13 @@ const _a = new TestClass("param")
                                             "primitiveKind": "string",
                                             "purpose": "return",
                                             "children": [],
-                                            "_id": "2"
+                                            "_id": "4"
                                         }
                                     ],
-                                    "_id": "6"
+                                    "_id": "3"
                                 }
                             ],
-                            "_id": "5"
+                            "_id": "2"
                         }
                     ]
                 },
@@ -1308,7 +1308,7 @@ const _a = new TestClass("param")
                                 }
                             ],
                             "children": [],
-                            "_id": "4"
+                            "_id": "5"
                         }
                     ],
                     "_id": ""
@@ -1352,16 +1352,16 @@ const _a = new TestClass("param")
                     ],
                     "children": [
                         {
-                            "reference": "2"
+                            "reference": "4"
                         }
                     ],
-                    "_id": "1"
+                    "_id": "6"
                 }
             ],
-            "_id": "3"
+            "_id": "1"
         },
         {
-            "reference": "1"
+            "reference": "6"
         }
     ],
     "_id": "0"
@@ -1374,7 +1374,7 @@ const _a = new TestClass("param")
         "name": "TestClass",
         "locations": [
             {
-                "fileName": "../cases/class.ts",
+                "fileName": "cases/class.ts",
                 "range": {
                     "start": {
                         "line": 4,
@@ -1390,7 +1390,7 @@ const _a = new TestClass("param")
     },
     "locations": [
         {
-            "fileName": "../cases/class.ts",
+            "fileName": "cases/class.ts",
             "range": {
                 "start": {
                     "line": 4,
@@ -1532,7 +1532,7 @@ const _a = new TestClass("param")
                                         "insideClassOrInterface": true,
                                         "locations": [
                                             {
-                                                "fileName": "../cases/class.ts",
+                                                "fileName": "cases/class.ts",
                                                 "range": {
                                                     "start": {
                                                         "line": 1,
@@ -1548,7 +1548,7 @@ const _a = new TestClass("param")
                                     },
                                     "locations": [
                                         {
-                                            "fileName": "../cases/class.ts",
+                                            "fileName": "cases/class.ts",
                                             "range": {
                                                 "start": {
                                                     "line": 1,
@@ -1568,13 +1568,13 @@ const _a = new TestClass("param")
                                             "primitiveKind": "string",
                                             "purpose": "return",
                                             "children": [],
-                                            "_id": "4"
+                                            "_id": "5"
                                         }
                                     ],
-                                    "_id": "6"
+                                    "_id": "4"
                                 }
                             ],
-                            "_id": "5"
+                            "_id": "3"
                         }
                     ]
                 },
@@ -1612,7 +1612,7 @@ const _a = new TestClass("param")
                         "insideClassOrInterface": true,
                         "locations": [
                             {
-                                "fileName": "../cases/class.ts",
+                                "fileName": "cases/class.ts",
                                 "range": {
                                     "start": {
                                         "line": 7,
@@ -1628,7 +1628,7 @@ const _a = new TestClass("param")
                     },
                     "locations": [
                         {
-                            "fileName": "../cases/class.ts",
+                            "fileName": "cases/class.ts",
                             "range": {
                                 "start": {
                                     "line": 7,
@@ -1643,10 +1643,10 @@ const _a = new TestClass("param")
                     ],
                     "children": [
                         {
-                            "reference": "4"
+                            "reference": "5"
                         }
                     ],
-                    "_id": "3"
+                    "_id": "6"
                 }
             ],
             "_id": "2"

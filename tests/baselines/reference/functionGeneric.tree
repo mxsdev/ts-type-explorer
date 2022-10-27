@@ -155,7 +155,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/functionGeneric.ts",
+                    "fileName": "cases/functionGeneric.ts",
                     "range": {
                         "start": {
                             "line": 0,
@@ -351,7 +351,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/functionGeneric.ts",
+                    "fileName": "cases/functionGeneric.ts",
                     "range": {
                         "start": {
                             "line": 0,
@@ -762,7 +762,7 @@ sig1("asd", 3, 4)
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/functionGeneric.ts",
+                    "fileName": "cases/functionGeneric.ts",
                     "range": {
                         "start": {
                             "line": 0,

@@ -240,7 +240,7 @@ class TestClass<T> extends TestBaseClass {
                     "_id": ""
                 }
             ],
-            "_id": "8"
+            "_id": "2"
         },
         {
             "kindText": "function",
@@ -309,7 +309,7 @@ class TestClass<T> extends TestBaseClass {
                         }
                     ],
                     "children": [],
-                    "_id": "5"
+                    "_id": "3"
                 },
                 {
                     "kindText": "union",
@@ -354,26 +354,26 @@ class TestClass<T> extends TestBaseClass {
                             "kind": "primitive",
                             "primitiveKind": "string",
                             "children": [],
-                            "_id": "2"
+                            "_id": "5"
                         },
                         {
                             "kindText": "number",
                             "kind": "primitive",
                             "primitiveKind": "number",
                             "children": [],
-                            "_id": "7"
+                            "_id": "6"
                         }
                     ],
-                    "_id": "6"
+                    "_id": "4"
                 }
             ],
             "_id": ""
         },
         {
-            "reference": "2"
+            "reference": "5"
         },
         {
-            "reference": "2"
+            "reference": "5"
         },
         {
             "kindText": "method",
@@ -383,7 +383,7 @@ class TestClass<T> extends TestBaseClass {
                 "insideClassOrInterface": true,
                 "locations": [
                     {
-                        "fileName": "../cases/classGeneric.ts",
+                        "fileName": "cases/classGeneric.ts",
                         "range": {
                             "start": {
                                 "line": 10,
@@ -399,7 +399,7 @@ class TestClass<T> extends TestBaseClass {
             },
             "locations": [
                 {
-                    "fileName": "../cases/classGeneric.ts",
+                    "fileName": "cases/classGeneric.ts",
                     "range": {
                         "start": {
                             "line": 10,
@@ -452,13 +452,13 @@ class TestClass<T> extends TestBaseClass {
                         }
                     ],
                     "children": [],
-                    "_id": "4"
+                    "_id": "8"
                 },
                 {
-                    "reference": "2"
+                    "reference": "5"
                 }
             ],
-            "_id": "3"
+            "_id": "7"
         }
     ],
     "_id": "0"
@@ -593,7 +593,7 @@ class TestClass<T> extends TestBaseClass {
                     "_id": ""
                 }
             ],
-            "_id": "8"
+            "_id": "2"
         },
         {
             "kindText": "function",
@@ -662,7 +662,7 @@ class TestClass<T> extends TestBaseClass {
                         }
                     ],
                     "children": [],
-                    "_id": "5"
+                    "_id": "3"
                 },
                 {
                     "kindText": "union",
@@ -707,26 +707,26 @@ class TestClass<T> extends TestBaseClass {
                             "kind": "primitive",
                             "primitiveKind": "string",
                             "children": [],
-                            "_id": "2"
+                            "_id": "5"
                         },
                         {
                             "kindText": "number",
                             "kind": "primitive",
                             "primitiveKind": "number",
                             "children": [],
-                            "_id": "7"
+                            "_id": "6"
                         }
                     ],
-                    "_id": "6"
+                    "_id": "4"
                 }
             ],
             "_id": ""
         },
         {
-            "reference": "2"
+            "reference": "5"
         },
         {
-            "reference": "2"
+            "reference": "5"
         },
         {
             "kindText": "method",
@@ -736,7 +736,7 @@ class TestClass<T> extends TestBaseClass {
                 "insideClassOrInterface": true,
                 "locations": [
                     {
-                        "fileName": "../cases/classGeneric.ts",
+                        "fileName": "cases/classGeneric.ts",
                         "range": {
                             "start": {
                                 "line": 10,
@@ -752,7 +752,7 @@ class TestClass<T> extends TestBaseClass {
             },
             "locations": [
                 {
-                    "fileName": "../cases/classGeneric.ts",
+                    "fileName": "cases/classGeneric.ts",
                     "range": {
                         "start": {
                             "line": 10,
@@ -805,13 +805,13 @@ class TestClass<T> extends TestBaseClass {
                         }
                     ],
                     "children": [],
-                    "_id": "4"
+                    "_id": "8"
                 },
                 {
-                    "reference": "2"
+                    "reference": "5"
                 }
             ],
-            "_id": "3"
+            "_id": "7"
         }
     ],
     "_id": "0"
@@ -1053,7 +1053,7 @@ class TestClass<T> extends TestBaseClass {
                     "_id": ""
                 }
             ],
-            "_id": "8"
+            "_id": "2"
         },
         {
             "kindText": "function",
@@ -1122,7 +1122,7 @@ class TestClass<T> extends TestBaseClass {
                         }
                     ],
                     "children": [],
-                    "_id": "5"
+                    "_id": "3"
                 },
                 {
                     "kindText": "union",
@@ -1167,26 +1167,26 @@ class TestClass<T> extends TestBaseClass {
                             "kind": "primitive",
                             "primitiveKind": "string",
                             "children": [],
-                            "_id": "2"
+                            "_id": "5"
                         },
                         {
                             "kindText": "number",
                             "kind": "primitive",
                             "primitiveKind": "number",
                             "children": [],
-                            "_id": "7"
+                            "_id": "6"
                         }
                     ],
-                    "_id": "6"
+                    "_id": "4"
                 }
             ],
             "_id": ""
         },
         {
-            "reference": "2"
+            "reference": "5"
         },
         {
-            "reference": "2"
+            "reference": "5"
         },
         {
             "kindText": "method",
@@ -1196,7 +1196,7 @@ class TestClass<T> extends TestBaseClass {
                 "insideClassOrInterface": true,
                 "locations": [
                     {
-                        "fileName": "../cases/classGeneric.ts",
+                        "fileName": "cases/classGeneric.ts",
                         "range": {
                             "start": {
                                 "line": 10,
@@ -1212,7 +1212,7 @@ class TestClass<T> extends TestBaseClass {
             },
             "locations": [
                 {
-                    "fileName": "../cases/classGeneric.ts",
+                    "fileName": "cases/classGeneric.ts",
                     "range": {
                         "start": {
                             "line": 10,
@@ -1265,13 +1265,13 @@ class TestClass<T> extends TestBaseClass {
                         }
                     ],
                     "children": [],
-                    "_id": "4"
+                    "_id": "8"
                 },
                 {
-                    "reference": "2"
+                    "reference": "5"
                 }
             ],
-            "_id": "3"
+            "_id": "7"
         }
     ],
     "_id": "0"
@@ -1526,7 +1526,7 @@ class TestClass<T> extends TestBaseClass {
         "insideClassOrInterface": true,
         "locations": [
             {
-                "fileName": "../cases/classGeneric.ts",
+                "fileName": "cases/classGeneric.ts",
                 "range": {
                     "start": {
                         "line": 10,
@@ -1542,7 +1542,7 @@ class TestClass<T> extends TestBaseClass {
     },
     "locations": [
         {
-            "fileName": "../cases/classGeneric.ts",
+            "fileName": "cases/classGeneric.ts",
             "range": {
                 "start": {
                     "line": 10,
@@ -1820,10 +1820,10 @@ const _a = new TestClass<string>(false, 4)
                                     "primitiveKind": "string",
                                     "purpose": "parameter_value",
                                     "children": [],
-                                    "_id": "1"
+                                    "_id": "3"
                                 }
                             ],
-                            "_id": "6"
+                            "_id": "2"
                         }
                     ]
                 },
@@ -1874,7 +1874,7 @@ const _a = new TestClass<string>(false, 4)
                             "_id": ""
                         }
                     ],
-                    "_id": "12"
+                    "_id": "4"
                 },
                 {
                     "kindText": "function",
@@ -1900,7 +1900,7 @@ const _a = new TestClass<string>(false, 4)
                             "purpose": "type_parameter_list",
                             "children": [
                                 {
-                                    "reference": "6"
+                                    "reference": "2"
                                 }
                             ]
                         },
@@ -1943,7 +1943,7 @@ const _a = new TestClass<string>(false, 4)
                                 }
                             ],
                             "children": [],
-                            "_id": "9"
+                            "_id": "5"
                         },
                         {
                             "kindText": "union",
@@ -1984,26 +1984,26 @@ const _a = new TestClass<string>(false, 4)
                             ],
                             "children": [
                                 {
-                                    "reference": "1"
+                                    "reference": "3"
                                 },
                                 {
                                     "kindText": "number",
                                     "kind": "primitive",
                                     "primitiveKind": "number",
                                     "children": [],
-                                    "_id": "11"
+                                    "_id": "7"
                                 }
                             ],
-                            "_id": "10"
+                            "_id": "6"
                         }
                     ],
                     "_id": ""
                 },
                 {
-                    "reference": "1"
+                    "reference": "3"
                 },
                 {
-                    "reference": "1"
+                    "reference": "3"
                 },
                 {
                     "kindText": "method",
@@ -2013,7 +2013,7 @@ const _a = new TestClass<string>(false, 4)
                         "insideClassOrInterface": true,
                         "locations": [
                             {
-                                "fileName": "../cases/classGeneric.ts",
+                                "fileName": "cases/classGeneric.ts",
                                 "range": {
                                     "start": {
                                         "line": 10,
@@ -2029,7 +2029,7 @@ const _a = new TestClass<string>(false, 4)
                     },
                     "locations": [
                         {
-                            "fileName": "../cases/classGeneric.ts",
+                            "fileName": "cases/classGeneric.ts",
                             "range": {
                                 "start": {
                                     "line": 10,
@@ -2082,16 +2082,16 @@ const _a = new TestClass<string>(false, 4)
                                 }
                             ],
                             "children": [],
-                            "_id": "8"
+                            "_id": "9"
                         },
                         {
-                            "reference": "1"
+                            "reference": "3"
                         }
                     ],
-                    "_id": "7"
+                    "_id": "8"
                 }
             ],
-            "_id": "5"
+            "_id": "1"
         },
         {
             "kindText": "string",
@@ -2133,7 +2133,7 @@ const _a = new TestClass<string>(false, 4)
                 }
             ],
             "children": [],
-            "_id": "2"
+            "_id": "10"
         },
         {
             "kindText": "string",
@@ -2175,7 +2175,7 @@ const _a = new TestClass<string>(false, 4)
                 }
             ],
             "children": [],
-            "_id": "3"
+            "_id": "11"
         },
         {
             "kindText": "method",
@@ -2185,7 +2185,7 @@ const _a = new TestClass<string>(false, 4)
                 "insideClassOrInterface": true,
                 "locations": [
                     {
-                        "fileName": "../cases/classGeneric.ts",
+                        "fileName": "cases/classGeneric.ts",
                         "range": {
                             "start": {
                                 "line": 10,
@@ -2201,7 +2201,7 @@ const _a = new TestClass<string>(false, 4)
             },
             "locations": [
                 {
-                    "fileName": "../cases/classGeneric.ts",
+                    "fileName": "cases/classGeneric.ts",
                     "range": {
                         "start": {
                             "line": 10,
@@ -2216,13 +2216,13 @@ const _a = new TestClass<string>(false, 4)
             ],
             "children": [
                 {
-                    "reference": "1"
+                    "reference": "3"
                 },
                 {
-                    "reference": "1"
+                    "reference": "3"
                 }
             ],
-            "_id": "4"
+            "_id": "12"
         }
     ],
     "_id": "0"
@@ -2235,7 +2235,7 @@ const _a = new TestClass<string>(false, 4)
         "name": "TestClass",
         "locations": [
             {
-                "fileName": "../cases/classGeneric.ts",
+                "fileName": "cases/classGeneric.ts",
                 "range": {
                     "start": {
                         "line": 2,
@@ -2251,7 +2251,7 @@ const _a = new TestClass<string>(false, 4)
     },
     "locations": [
         {
-            "fileName": "../cases/classGeneric.ts",
+            "fileName": "cases/classGeneric.ts",
             "range": {
                 "start": {
                     "line": 2,
@@ -2551,7 +2551,7 @@ const _a = new TestClass<string>(false, 4)
                                     "_id": ""
                                 }
                             ],
-                            "_id": "13"
+                            "_id": "8"
                         },
                         {
                             "kindText": "function",
@@ -2604,7 +2604,7 @@ const _a = new TestClass<string>(false, 4)
                                 "insideClassOrInterface": true,
                                 "locations": [
                                     {
-                                        "fileName": "../cases/classGeneric.ts",
+                                        "fileName": "cases/classGeneric.ts",
                                         "range": {
                                             "start": {
                                                 "line": 10,
@@ -2620,7 +2620,7 @@ const _a = new TestClass<string>(false, 4)
                             },
                             "locations": [
                                 {
-                                    "fileName": "../cases/classGeneric.ts",
+                                    "fileName": "cases/classGeneric.ts",
                                     "range": {
                                         "start": {
                                             "line": 10,
@@ -2673,16 +2673,16 @@ const _a = new TestClass<string>(false, 4)
                                         }
                                     ],
                                     "children": [],
-                                    "_id": "12"
+                                    "_id": "10"
                                 },
                                 {
                                     "reference": "2"
                                 }
                             ],
-                            "_id": "11"
+                            "_id": "9"
                         }
                     ],
-                    "_id": "10"
+                    "_id": "7"
                 },
                 {
                     "kindText": "string",
@@ -2724,7 +2724,7 @@ const _a = new TestClass<string>(false, 4)
                         }
                     ],
                     "children": [],
-                    "_id": "7"
+                    "_id": "11"
                 },
                 {
                     "kindText": "string",
@@ -2766,7 +2766,7 @@ const _a = new TestClass<string>(false, 4)
                         }
                     ],
                     "children": [],
-                    "_id": "8"
+                    "_id": "12"
                 },
                 {
                     "kindText": "method",
@@ -2776,7 +2776,7 @@ const _a = new TestClass<string>(false, 4)
                         "insideClassOrInterface": true,
                         "locations": [
                             {
-                                "fileName": "../cases/classGeneric.ts",
+                                "fileName": "cases/classGeneric.ts",
                                 "range": {
                                     "start": {
                                         "line": 10,
@@ -2792,7 +2792,7 @@ const _a = new TestClass<string>(false, 4)
                     },
                     "locations": [
                         {
-                            "fileName": "../cases/classGeneric.ts",
+                            "fileName": "cases/classGeneric.ts",
                             "range": {
                                 "start": {
                                     "line": 10,
@@ -2813,7 +2813,7 @@ const _a = new TestClass<string>(false, 4)
                             "reference": "2"
                         }
                     ],
-                    "_id": "9"
+                    "_id": "13"
                 }
             ],
             "_id": "6"

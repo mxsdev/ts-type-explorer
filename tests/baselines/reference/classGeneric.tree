@@ -264,7 +264,7 @@ class TestClass<T> extends TestBaseClass {
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/classGeneric.ts",
+                            "fileName": "cases/classGeneric.ts",
                             "range": {
                                 "start": {
                                     "line": 10,
@@ -670,7 +670,7 @@ class TestClass<T> extends TestBaseClass {
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/classGeneric.ts",
+                            "fileName": "cases/classGeneric.ts",
                             "range": {
                                 "start": {
                                     "line": 10,
@@ -1174,7 +1174,7 @@ class TestClass<T> extends TestBaseClass {
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/classGeneric.ts",
+                            "fileName": "cases/classGeneric.ts",
                             "range": {
                                 "start": {
                                     "line": 10,
@@ -1709,7 +1709,7 @@ class TestClass<T> extends TestBaseClass {
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/classGeneric.ts",
+                    "fileName": "cases/classGeneric.ts",
                     "range": {
                         "start": {
                             "line": 10,
@@ -1931,7 +1931,7 @@ const _a = new TestClass<string>(false, 4)
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "../cases/classGeneric.ts",
+                            "fileName": "cases/classGeneric.ts",
                             "range": {
                                 "start": {
                                     "line": 10,
@@ -2093,7 +2093,7 @@ const _a = new TestClass<string>(false, 4)
                     "declarations": [
                         {
                             "location": {
-                                "fileName": "../cases/classGeneric.ts",
+                                "fileName": "cases/classGeneric.ts",
                                 "range": {
                                     "start": {
                                         "line": 10,
@@ -2599,7 +2599,7 @@ const _a = new TestClass<string>(false, 4)
                             "declarations": [
                                 {
                                     "location": {
-                                        "fileName": "../cases/classGeneric.ts",
+                                        "fileName": "cases/classGeneric.ts",
                                         "range": {
                                             "start": {
                                                 "line": 10,
@@ -2761,7 +2761,7 @@ const _a = new TestClass<string>(false, 4)
                                 "declarations": [
                                     {
                                         "location": {
-                                            "fileName": "../cases/classGeneric.ts",
+                                            "fileName": "cases/classGeneric.ts",
                                             "range": {
                                                 "start": {
                                                     "line": 10,
@@ -3104,7 +3104,7 @@ const _a = new TestClass<string>(false, 4)
         "declarations": [
             {
                 "location": {
-                    "fileName": "../cases/classGeneric.ts",
+                    "fileName": "cases/classGeneric.ts",
                     "range": {
                         "start": {
                             "line": 2,

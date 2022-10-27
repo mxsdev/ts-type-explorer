@@ -40,6 +40,7 @@ import {
     getSourceFileLocation,
     getNodeSymbol,
     TypescriptContext,
+    removeDuplicates,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -159,7 +160,20 @@ function _generateTypeTree(
         if (
             ctx.config.referenceDefinedTypes &&
             ctx.depth > 1 &&
-            isNonEmpty(locations)
+            isNonEmpty(locations) &&
+            originalSymbol &&
+            !(
+                originalSymbol.flags & ts.SymbolFlags.Property &&
+                locations.length > 1
+            ) &&
+            // ensures inferred types on e.g. function
+            // parameter symbols are referenced properly
+            type ===
+                getSymbolType(
+                    tsCtx,
+                    (originalSymbol as TSSymbol).target ?? originalSymbol,
+                    node
+                )
         ) {
             typeInfo = { kind: "reference", location: locations[0] }
         } else {
@@ -188,21 +202,26 @@ function _generateTypeTree(
         typeInfoId.aliasSymbolMeta = getSymbolInfo(aliasSymbol)
     }
 
-    const typeParameters = getTypeParameters(tsCtx, type, symbol)
-    if (isNonEmpty(typeParameters)) {
-        typeInfoId.typeParameters = parseTypes(typeParameters)
-    }
+    if (typeInfoId.kind !== "reference") {
+        const typeParameters = getTypeParameters(tsCtx, type, symbol)
+        if (isNonEmpty(typeParameters)) {
+            typeInfoId.typeParameters = parseTypes(typeParameters)
+        }
 
-    const typeArguments = !signature
-        ? getTypeArguments(tsCtx, type, node)
-        : signatureTypeArguments
-    if (
-        !isArrayType(tsCtx, type) &&
-        !isTupleType(tsCtx, type) &&
-        isNonEmpty(typeArguments) &&
-        (!typeParameters || !arrayContentsEqual(typeArguments, typeParameters))
-    ) {
-        typeInfoId.typeArguments = parseTypes(typeArguments)
+        const typeArguments = !signature
+            ? getTypeArguments(tsCtx, type, node)
+            : signatureTypeArguments
+        if (
+            !isArrayType(tsCtx, type) &&
+            !isTupleType(tsCtx, type) &&
+            isNonEmpty(typeArguments) &&
+            !(
+                typeParameters &&
+                arrayContentsEqual(typeArguments, typeParameters)
+            )
+        ) {
+            typeInfoId.typeArguments = parseTypes(typeArguments)
+        }
     }
 
     typeInfoId.id = id
@@ -766,11 +785,13 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
 }
 
 export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
-    return filterUndefined([
-        info.symbolMeta,
-        info.aliasSymbolMeta,
-        ..._getTypeInfoSymbols(info),
-    ])
+    return removeDuplicates(
+        filterUndefined([
+            info.symbolMeta,
+            info.aliasSymbolMeta,
+            ..._getTypeInfoSymbols(info),
+        ])
+    )
 
     function _getTypeInfoSymbols(info: TypeInfo): (SymbolInfo | undefined)[] {
         switch (info.kind) {
