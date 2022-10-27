@@ -154,6 +154,7 @@ function _generateTypeTree(
     const id = getTypeId(type, symbol, node)
 
     if (!ctx.seen?.has(id)) {
+        // TODO: should probably support alias symbols as well
         const locations: SourceFileLocation[] = filterUndefined([
             ...(getSymbolLocations(originalSymbol) ?? []),
         ])
