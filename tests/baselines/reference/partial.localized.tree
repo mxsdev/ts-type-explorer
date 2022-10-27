@@ -446,6 +446,21 @@ type partialUnion = Partial<{a: string}|{b: string}>
                     }
                 ]
             },
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1549,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 1549,
+                            "character": 6
+                        }
+                    }
+                }
+            ],
             "children": [
                 {
                     "kindText": "type parameter",

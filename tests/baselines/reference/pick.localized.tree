@@ -1079,6 +1079,21 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     }
                 ]
             },
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1570,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 1570,
+                            "character": 6
+                        }
+                    }
+                }
+            ],
             "children": [
                 {
                     "kindText": "type parameter",

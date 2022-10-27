@@ -63,6 +63,21 @@ interface InterfaceWithIndex {
                     }
                 ]
             },
+            "locations": [
+                {
+                    "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/interfaceWithIndex.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 3
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 8
+                        }
+                    }
+                }
+            ],
             "children": [
                 {
                     "kindText": "string",

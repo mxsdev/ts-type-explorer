@@ -60,6 +60,21 @@ type mapped = { [index: string]: number }
                     }
                 ]
             },
+            "locations": [
+                {
+                    "fileName": "cases/mapped.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 17
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 22
+                        }
+                    }
+                }
+            ],
             "children": [
                 {
                     "kindText": "string",

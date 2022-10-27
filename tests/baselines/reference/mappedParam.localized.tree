@@ -59,6 +59,21 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                     }
                 ]
             },
+            "locations": [
+                {
+                    "fileName": "cases/mappedParam.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 22
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 23
+                        }
+                    }
+                }
+            ],
             "children": [
                 {
                     "kindText": "type parameter",

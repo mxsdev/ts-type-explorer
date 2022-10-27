@@ -60,6 +60,21 @@ type intersectionWithIndex = { [index: string]: string } & { a: "asd" };
                     }
                 ]
             },
+            "locations": [
+                {
+                    "fileName": "cases/intersectionWithIndex.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 32
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 37
+                        }
+                    }
+                }
+            ],
             "children": [
                 {
                     "kindText": "string",

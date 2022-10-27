@@ -640,6 +640,7 @@ function getChildren(
             kindText: "index",
             kind: "index_info",
             symbol: indexSymbol,
+            locations: indexSymbol?.locations,
             children: [
                 ...(indexInfo.parameterType
                     ? [
