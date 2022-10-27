@@ -342,7 +342,7 @@ function getChildren(
     const localizeOpts = (info: TypeInfo, opts?: LocalizeOpts) => ({
         info,
         opts,
-    }) //_localizeTypeInfo(info, data, opts)
+    })
     const localize = (info: TypeInfo) => localizeOpts(info)
     const createChild = (localizedInfo: LocalizedTypeInfo) => ({
         localizedInfo,

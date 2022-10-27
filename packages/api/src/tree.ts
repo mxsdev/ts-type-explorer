@@ -588,7 +588,6 @@ function _generateTypeTree(
         return {
             ...(indexInfo.keyType && { keyType: parseType(indexInfo.keyType) }),
             ...(indexInfo.type && { type: parseType(indexInfo.type) }),
-            // parameterSymbol: wrapSafe(getSymbolInfo)(wrapSafe(typeChecker.getSymbolAtLocation)(indexInfo?.declaration?.parameters?.[0]))
             parameterSymbol: wrapSafe(getSymbolInfo)(parameterSymbol),
             ...(parameterType && { parameterType: parseType(parameterType) }),
         }
@@ -665,7 +664,6 @@ function resolveSignature(
 
     const signature = getResolvedSignature(ctx, node)
 
-    // const callExpression = wrapSafe(getCallLikeExpression)(node)
     const signatureTypeArguments = signature
         ? getSignatureTypeArguments(ctx, signature)
         : undefined
@@ -735,7 +733,6 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
                 return [
                     ...info.properties,
                     ...(info.indexInfos?.flatMap(mapIndexInfo) ?? []),
-                    // ...wrapSafe(getTypeInfoChildren)(info.objectClass) ?? [],
                     info.objectClass,
                 ]
             }

@@ -24,13 +24,13 @@ type SymbolConstructor = new (
 ) => ts.Symbol
 
 function getTypeConstructor({ ts }: TypescriptContext) {
-    // @ts-expect-error objectAllocator exists but is not exposed by types publicly
+    // @ts-expect-error - objectAllocator exists but is not exposed by types publicly
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     return ts.objectAllocator.getTypeConstructor() as TypeConstructor
 }
 
 function getSymbolConstructor({ ts }: TypescriptContext) {
-    // @ts-expect-error objectAllocator exists but is not exposed by types publicly
+    // @ts-expect-error - objectAllocator exists but is not exposed by types publicly
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     return ts.objectAllocator.getSymbolConstructor() as SymbolConstructor
 }
@@ -225,11 +225,8 @@ interface MappedType extends ts.Type {
     declaration: ts.MappedTypeNode
     typeParameter?: ts.TypeParameter
     constraintType?: ts.Type
-    // nameType?: ts.Type;
     templateType?: ts.Type
     modifiersType?: ts.Type
-    // resolvedApparentType?: ts.Type;
-    // containsError?: boolean;
 }
 
 export type TSIndexInfo = { type: TSIndexInfoType; info: TSIndexInfoMerged }
@@ -482,7 +479,6 @@ export function isArrayType(
         !!isObjectReference(ctx, type) &&
         type.target.getSymbol()?.getName() === "Array"
     )
-    // && getTypeArguments(typeChecker, type).length >= 1
 }
 
 export function isTupleType(
@@ -789,6 +785,9 @@ export function getDescendantAtPosition(
     return getDescendantAtRange(ctx, [position, position])
 }
 
+/**
+ * https://github.com/dsherret/ts-ast-viewer/blob/b4be8f2234a1c3c099296bf5d0ad6cc14107367c/site/src/compiler/getDescendantAtRange.ts
+ */
 export function getDescendantAtRange(
     { sourceFile, ts }: SourceFileTypescriptContext,
     range: [number, number]
@@ -806,7 +805,6 @@ export function getDescendantAtRange(
             children.push(child)
             return undefined
         })
-        // const children = node.getChildren(sourcefile)
 
         for (const child of children) {
             if (child.kind !== ts.SyntaxKind.SyntaxList) {
@@ -840,15 +838,15 @@ export function getDescendantAtRange(
     function isAfterRange(nodeEnd: number) {
         return nodeEnd >= range[0] && nodeEnd > range[1]
     }
-}
 
-function getStartSafe(node: ts.Node, sourceFile: ts.SourceFile) {
-    // workaround for compiler api bug with getStart(sourceFile, true) (see PR #35029 in typescript repo)
-    const jsDocs = (node as NodeWithJsDoc).jsDoc
-    if (jsDocs && jsDocs.length > 0) {
-        return jsDocs[0].getStart(sourceFile)
+    function getStartSafe(node: ts.Node, sourceFile: ts.SourceFile) {
+        // workaround for compiler api bug with getStart(sourceFile, true) (see PR #35029 in typescript repo)
+        const jsDocs = (node as NodeWithJsDoc).jsDoc
+        if (jsDocs && jsDocs.length > 0) {
+            return jsDocs[0].getStart(sourceFile)
+        }
+        return node.getStart(sourceFile)
     }
-    return node.getStart(sourceFile)
 }
 
 export function getSourceFileLocation(
