@@ -13,6 +13,8 @@ type CommandInfo = [id: string, handler: CommandHandler]
 
 const normalCommands: CommandInfo[] = []
 
+// TODO: refreshing on config should be done in config.ts, not here...
+
 const typeTreeViewCommands: RefreshableCommandInfo[] = [
     [
         "typescriptExplorer.typeTree.view.icons.enabled.toggle",

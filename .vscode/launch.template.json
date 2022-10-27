@@ -18,8 +18,8 @@
             "type": "extensionHost",
             "request": "launch",
             "args": [
-                "--extensionDevelopmentPath=${workspaceFolder}/packages/typescript-explorer",
-                "--extensionTestsPath=${workspaceFolder}/packages/typescript-explorer/out/test/suite/index"
+                "--extensionDevelopmentPath=${workspaceFolder}/packages/typescript-explorer-vscode",
+                "--extensionTestsPath=${workspaceFolder}/packages/typescript-explorer-vscode/out/test/suite/index"
             ],
             "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
             "preLaunchTask": "${defaultBuildTask}"
