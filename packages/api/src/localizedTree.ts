@@ -39,6 +39,15 @@ export class TypeInfoLocalizer {
 
     constructor(private retrieveTypeInfo?: TypeInfoRetriever) {}
 
+    hasTypeInfo(info: TypeInfo): boolean {
+        return this.typeInfoMaps.has(info)
+    }
+
+    hasLocalizedTypeInfo(localizedInfo: LocalizedTypeInfo): boolean {
+        const info = this.localizedInfoOrigin.get(localizedInfo)
+        return !!(info && this.hasTypeInfo(info))
+    }
+
     private localizeTypeInfo(
         resolvedInfo: ResolvedArrayTypeInfo,
         info?: TypeInfo,

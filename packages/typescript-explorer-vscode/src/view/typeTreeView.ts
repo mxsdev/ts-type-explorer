@@ -102,7 +102,11 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
                 this.createTypeNode(localizedTypeInfo, /* root */ undefined),
             ]
         } else {
-            assert(this.typeInfoLocalizer, "typeInfoLocalizer should exist")
+            if (
+                !this.typeInfoLocalizer?.hasLocalizedTypeInfo(element.typeInfo)
+            ) {
+                return []
+            }
 
             const localizedChildren =
                 await this.typeInfoLocalizer.localizeChildren(element.typeInfo)
