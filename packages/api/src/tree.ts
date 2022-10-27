@@ -41,6 +41,7 @@ import {
     getNodeSymbol,
     TypescriptContext,
     removeDuplicates,
+    narrowDeclarationForLocation,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -613,6 +614,8 @@ function _generateTypeTree(
     function getDeclarationInfo(
         declaration: ts.Declaration
     ): DeclarationInfo | undefined {
+        declaration = narrowDeclarationForLocation(declaration)
+
         const sourceFile = declaration.getSourceFile()
         const location = getSourceFileLocation(sourceFile, declaration)
 

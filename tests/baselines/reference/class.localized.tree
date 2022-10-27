@@ -14,11 +14,11 @@ interface TestInterface {
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 10
                     },
                     "end": {
-                        "line": 2,
-                        "character": 1
+                        "line": 0,
+                        "character": 23
                     }
                 }
             }
@@ -30,11 +30,11 @@ interface TestInterface {
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 10
                 },
                 "end": {
-                    "line": 2,
-                    "character": 1
+                    "line": 0,
+                    "character": 23
                 }
             }
         }
@@ -56,7 +56,7 @@ interface TestInterface {
                             },
                             "end": {
                                 "line": 1,
-                                "character": 22
+                                "character": 12
                             }
                         }
                     }
@@ -72,7 +72,7 @@ interface TestInterface {
                         },
                         "end": {
                             "line": 1,
-                            "character": 22
+                            "character": 12
                         }
                     }
                 }
@@ -110,7 +110,7 @@ interface TestInterface {
                     },
                     "end": {
                         "line": 1,
-                        "character": 22
+                        "character": 12
                     }
                 }
             }
@@ -126,7 +126,7 @@ interface TestInterface {
                 },
                 "end": {
                     "line": 1,
-                    "character": 22
+                    "character": 12
                 }
             }
         }
@@ -163,11 +163,11 @@ class TestClass implements TestInterface {
                 "range": {
                     "start": {
                         "line": 4,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
-                        "line": 10,
-                        "character": 1
+                        "line": 4,
+                        "character": 15
                     }
                 }
             }
@@ -179,11 +179,11 @@ class TestClass implements TestInterface {
             "range": {
                 "start": {
                     "line": 4,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
-                    "line": 10,
-                    "character": 1
+                    "line": 4,
+                    "character": 15
                 }
             }
         }
@@ -203,11 +203,11 @@ class TestClass implements TestInterface {
                                 "range": {
                                     "start": {
                                         "line": 0,
-                                        "character": 0
+                                        "character": 10
                                     },
                                     "end": {
-                                        "line": 2,
-                                        "character": 1
+                                        "line": 0,
+                                        "character": 23
                                     }
                                 }
                             }
@@ -219,11 +219,11 @@ class TestClass implements TestInterface {
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 10
                                 },
                                 "end": {
-                                    "line": 2,
-                                    "character": 1
+                                    "line": 0,
+                                    "character": 23
                                 }
                             }
                         }
@@ -245,7 +245,7 @@ class TestClass implements TestInterface {
                                             },
                                             "end": {
                                                 "line": 1,
-                                                "character": 22
+                                                "character": 12
                                             }
                                         }
                                     }
@@ -261,7 +261,7 @@ class TestClass implements TestInterface {
                                         },
                                         "end": {
                                             "line": 1,
-                                            "character": 22
+                                            "character": 12
                                         }
                                     }
                                 }
@@ -320,7 +320,7 @@ class TestClass implements TestInterface {
                                     },
                                     "end": {
                                         "line": 5,
-                                        "character": 29
+                                        "character": 21
                                     }
                                 }
                             }
@@ -336,7 +336,7 @@ class TestClass implements TestInterface {
                                 },
                                 "end": {
                                     "line": 5,
-                                    "character": 29
+                                    "character": 21
                                 }
                             }
                         }
@@ -362,8 +362,8 @@ class TestClass implements TestInterface {
                                 "character": 4
                             },
                             "end": {
-                                "line": 9,
-                                "character": 5
+                                "line": 7,
+                                "character": 12
                             }
                         }
                     }
@@ -378,8 +378,8 @@ class TestClass implements TestInterface {
                             "character": 4
                         },
                         "end": {
-                            "line": 9,
-                            "character": 5
+                            "line": 7,
+                            "character": 12
                         }
                     }
                 }
@@ -406,11 +406,11 @@ class TestClass implements TestInterface {
                 "range": {
                     "start": {
                         "line": 4,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
-                        "line": 10,
-                        "character": 1
+                        "line": 4,
+                        "character": 15
                     }
                 }
             }
@@ -422,11 +422,11 @@ class TestClass implements TestInterface {
             "range": {
                 "start": {
                     "line": 4,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
-                    "line": 10,
-                    "character": 1
+                    "line": 4,
+                    "character": 15
                 }
             }
         }
@@ -446,11 +446,11 @@ class TestClass implements TestInterface {
                                 "range": {
                                     "start": {
                                         "line": 0,
-                                        "character": 0
+                                        "character": 10
                                     },
                                     "end": {
-                                        "line": 2,
-                                        "character": 1
+                                        "line": 0,
+                                        "character": 23
                                     }
                                 }
                             }
@@ -462,11 +462,11 @@ class TestClass implements TestInterface {
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 10
                                 },
                                 "end": {
-                                    "line": 2,
-                                    "character": 1
+                                    "line": 0,
+                                    "character": 23
                                 }
                             }
                         }
@@ -488,7 +488,7 @@ class TestClass implements TestInterface {
                                             },
                                             "end": {
                                                 "line": 1,
-                                                "character": 22
+                                                "character": 12
                                             }
                                         }
                                     }
@@ -504,7 +504,7 @@ class TestClass implements TestInterface {
                                         },
                                         "end": {
                                             "line": 1,
-                                            "character": 22
+                                            "character": 12
                                         }
                                     }
                                 }
@@ -563,7 +563,7 @@ class TestClass implements TestInterface {
                                     },
                                     "end": {
                                         "line": 5,
-                                        "character": 29
+                                        "character": 21
                                     }
                                 }
                             }
@@ -579,7 +579,7 @@ class TestClass implements TestInterface {
                                 },
                                 "end": {
                                     "line": 5,
-                                    "character": 29
+                                    "character": 21
                                 }
                             }
                         }
@@ -605,8 +605,8 @@ class TestClass implements TestInterface {
                                 "character": 4
                             },
                             "end": {
-                                "line": 9,
-                                "character": 5
+                                "line": 7,
+                                "character": 12
                             }
                         }
                     }
@@ -621,8 +621,8 @@ class TestClass implements TestInterface {
                             "character": 4
                         },
                         "end": {
-                            "line": 9,
-                            "character": 5
+                            "line": 7,
+                            "character": 12
                         }
                     }
                 }
@@ -652,11 +652,11 @@ class TestClass implements TestInterface {
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 10
                     },
                     "end": {
-                        "line": 2,
-                        "character": 1
+                        "line": 0,
+                        "character": 23
                     }
                 }
             }
@@ -668,11 +668,11 @@ class TestClass implements TestInterface {
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 10
                 },
                 "end": {
-                    "line": 2,
-                    "character": 1
+                    "line": 0,
+                    "character": 23
                 }
             }
         }
@@ -694,7 +694,7 @@ class TestClass implements TestInterface {
                             },
                             "end": {
                                 "line": 1,
-                                "character": 22
+                                "character": 12
                             }
                         }
                     }
@@ -710,7 +710,7 @@ class TestClass implements TestInterface {
                         },
                         "end": {
                             "line": 1,
-                            "character": 22
+                            "character": 12
                         }
                     }
                 }
@@ -748,11 +748,11 @@ class TestClass implements TestInterface {
                 "range": {
                     "start": {
                         "line": 4,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
-                        "line": 10,
-                        "character": 1
+                        "line": 4,
+                        "character": 15
                     }
                 }
             }
@@ -764,11 +764,11 @@ class TestClass implements TestInterface {
             "range": {
                 "start": {
                     "line": 4,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
-                    "line": 10,
-                    "character": 1
+                    "line": 4,
+                    "character": 15
                 }
             }
         }
@@ -788,11 +788,11 @@ class TestClass implements TestInterface {
                                 "range": {
                                     "start": {
                                         "line": 0,
-                                        "character": 0
+                                        "character": 10
                                     },
                                     "end": {
-                                        "line": 2,
-                                        "character": 1
+                                        "line": 0,
+                                        "character": 23
                                     }
                                 }
                             }
@@ -804,11 +804,11 @@ class TestClass implements TestInterface {
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 10
                                 },
                                 "end": {
-                                    "line": 2,
-                                    "character": 1
+                                    "line": 0,
+                                    "character": 23
                                 }
                             }
                         }
@@ -830,7 +830,7 @@ class TestClass implements TestInterface {
                                             },
                                             "end": {
                                                 "line": 1,
-                                                "character": 22
+                                                "character": 12
                                             }
                                         }
                                     }
@@ -846,7 +846,7 @@ class TestClass implements TestInterface {
                                         },
                                         "end": {
                                             "line": 1,
-                                            "character": 22
+                                            "character": 12
                                         }
                                     }
                                 }
@@ -905,7 +905,7 @@ class TestClass implements TestInterface {
                                     },
                                     "end": {
                                         "line": 5,
-                                        "character": 29
+                                        "character": 21
                                     }
                                 }
                             }
@@ -921,7 +921,7 @@ class TestClass implements TestInterface {
                                 },
                                 "end": {
                                     "line": 5,
-                                    "character": 29
+                                    "character": 21
                                 }
                             }
                         }
@@ -947,8 +947,8 @@ class TestClass implements TestInterface {
                                 "character": 4
                             },
                             "end": {
-                                "line": 9,
-                                "character": 5
+                                "line": 7,
+                                "character": 12
                             }
                         }
                     }
@@ -963,8 +963,8 @@ class TestClass implements TestInterface {
                             "character": 4
                         },
                         "end": {
-                            "line": 9,
-                            "character": 5
+                            "line": 7,
+                            "character": 12
                         }
                     }
                 }
@@ -998,7 +998,7 @@ class TestClass implements TestInterface {
                     },
                     "end": {
                         "line": 5,
-                        "character": 29
+                        "character": 21
                     }
                 }
             }
@@ -1014,7 +1014,7 @@ class TestClass implements TestInterface {
                 },
                 "end": {
                     "line": 5,
-                    "character": 29
+                    "character": 21
                 }
             }
         }
@@ -1040,8 +1040,8 @@ class TestClass implements TestInterface {
                         "character": 4
                     },
                     "end": {
-                        "line": 9,
-                        "character": 5
+                        "line": 7,
+                        "character": 12
                     }
                 }
             }
@@ -1056,8 +1056,8 @@ class TestClass implements TestInterface {
                     "character": 4
                 },
                 "end": {
-                    "line": 9,
-                    "character": 5
+                    "line": 7,
+                    "character": 12
                 }
             }
         }
@@ -1094,7 +1094,7 @@ const _a = new TestClass("param")
                     },
                     "end": {
                         "line": 12,
-                        "character": 33
+                        "character": 8
                     }
                 }
             }
@@ -1110,7 +1110,7 @@ const _a = new TestClass("param")
                 },
                 "end": {
                     "line": 12,
-                    "character": 33
+                    "character": 8
                 }
             }
         }
@@ -1128,11 +1128,11 @@ const _a = new TestClass("param")
                         "range": {
                             "start": {
                                 "line": 4,
-                                "character": 0
+                                "character": 6
                             },
                             "end": {
-                                "line": 10,
-                                "character": 1
+                                "line": 4,
+                                "character": 15
                             }
                         }
                     }
@@ -1145,11 +1145,11 @@ const _a = new TestClass("param")
                     "range": {
                         "start": {
                             "line": 4,
-                            "character": 0
+                            "character": 6
                         },
                         "end": {
-                            "line": 10,
-                            "character": 1
+                            "line": 4,
+                            "character": 15
                         }
                     }
                 }
@@ -1169,11 +1169,11 @@ const _a = new TestClass("param")
                                         "range": {
                                             "start": {
                                                 "line": 0,
-                                                "character": 0
+                                                "character": 10
                                             },
                                             "end": {
-                                                "line": 2,
-                                                "character": 1
+                                                "line": 0,
+                                                "character": 23
                                             }
                                         }
                                     }
@@ -1185,11 +1185,11 @@ const _a = new TestClass("param")
                                     "range": {
                                         "start": {
                                             "line": 0,
-                                            "character": 0
+                                            "character": 10
                                         },
                                         "end": {
-                                            "line": 2,
-                                            "character": 1
+                                            "line": 0,
+                                            "character": 23
                                         }
                                     }
                                 }
@@ -1211,7 +1211,7 @@ const _a = new TestClass("param")
                                                     },
                                                     "end": {
                                                         "line": 1,
-                                                        "character": 22
+                                                        "character": 12
                                                     }
                                                 }
                                             }
@@ -1227,7 +1227,7 @@ const _a = new TestClass("param")
                                                 },
                                                 "end": {
                                                     "line": 1,
-                                                    "character": 22
+                                                    "character": 12
                                                 }
                                             }
                                         }
@@ -1286,7 +1286,7 @@ const _a = new TestClass("param")
                                             },
                                             "end": {
                                                 "line": 5,
-                                                "character": 29
+                                                "character": 21
                                             }
                                         }
                                     }
@@ -1302,7 +1302,7 @@ const _a = new TestClass("param")
                                         },
                                         "end": {
                                             "line": 5,
-                                            "character": 29
+                                            "character": 21
                                         }
                                     }
                                 }
@@ -1328,8 +1328,8 @@ const _a = new TestClass("param")
                                         "character": 4
                                     },
                                     "end": {
-                                        "line": 9,
-                                        "character": 5
+                                        "line": 7,
+                                        "character": 12
                                     }
                                 }
                             }
@@ -1344,8 +1344,8 @@ const _a = new TestClass("param")
                                     "character": 4
                                 },
                                 "end": {
-                                    "line": 9,
-                                    "character": 5
+                                    "line": 7,
+                                    "character": 12
                                 }
                             }
                         }
@@ -1378,11 +1378,11 @@ const _a = new TestClass("param")
                 "range": {
                     "start": {
                         "line": 4,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
-                        "line": 10,
-                        "character": 1
+                        "line": 4,
+                        "character": 15
                     }
                 }
             }
@@ -1394,11 +1394,11 @@ const _a = new TestClass("param")
             "range": {
                 "start": {
                     "line": 4,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
-                    "line": 10,
-                    "character": 1
+                    "line": 4,
+                    "character": 15
                 }
             }
         }
@@ -1421,7 +1421,7 @@ const _a = new TestClass("param")
                             },
                             "end": {
                                 "line": 5,
-                                "character": 29
+                                "character": 21
                             }
                         }
                     }
@@ -1437,7 +1437,7 @@ const _a = new TestClass("param")
                         },
                         "end": {
                             "line": 5,
-                            "character": 29
+                            "character": 21
                         }
                     }
                 }
@@ -1457,11 +1457,11 @@ const _a = new TestClass("param")
                         "range": {
                             "start": {
                                 "line": 4,
-                                "character": 0
+                                "character": 6
                             },
                             "end": {
-                                "line": 10,
-                                "character": 1
+                                "line": 4,
+                                "character": 15
                             }
                         }
                     }
@@ -1474,11 +1474,11 @@ const _a = new TestClass("param")
                     "range": {
                         "start": {
                             "line": 4,
-                            "character": 0
+                            "character": 6
                         },
                         "end": {
-                            "line": 10,
-                            "character": 1
+                            "line": 4,
+                            "character": 15
                         }
                     }
                 }
@@ -1498,11 +1498,11 @@ const _a = new TestClass("param")
                                         "range": {
                                             "start": {
                                                 "line": 0,
-                                                "character": 0
+                                                "character": 10
                                             },
                                             "end": {
-                                                "line": 2,
-                                                "character": 1
+                                                "line": 0,
+                                                "character": 23
                                             }
                                         }
                                     }
@@ -1514,11 +1514,11 @@ const _a = new TestClass("param")
                                     "range": {
                                         "start": {
                                             "line": 0,
-                                            "character": 0
+                                            "character": 10
                                         },
                                         "end": {
-                                            "line": 2,
-                                            "character": 1
+                                            "line": 0,
+                                            "character": 23
                                         }
                                     }
                                 }
@@ -1540,7 +1540,7 @@ const _a = new TestClass("param")
                                                     },
                                                     "end": {
                                                         "line": 1,
-                                                        "character": 22
+                                                        "character": 12
                                                     }
                                                 }
                                             }
@@ -1556,7 +1556,7 @@ const _a = new TestClass("param")
                                                 },
                                                 "end": {
                                                     "line": 1,
-                                                    "character": 22
+                                                    "character": 12
                                                 }
                                             }
                                         }
@@ -1619,8 +1619,8 @@ const _a = new TestClass("param")
                                         "character": 4
                                     },
                                     "end": {
-                                        "line": 9,
-                                        "character": 5
+                                        "line": 7,
+                                        "character": 12
                                     }
                                 }
                             }
@@ -1635,8 +1635,8 @@ const _a = new TestClass("param")
                                     "character": 4
                                 },
                                 "end": {
-                                    "line": 9,
-                                    "character": 5
+                                    "line": 7,
+                                    "character": 12
                                 }
                             }
                         }

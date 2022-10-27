@@ -14,11 +14,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 9
                     },
                     "end": {
-                        "line": 2,
-                        "character": 1
+                        "line": 0,
+                        "character": 13
                     }
                 }
             }
@@ -30,11 +30,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 9
                 },
                 "end": {
-                    "line": 2,
-                    "character": 1
+                    "line": 0,
+                    "character": 13
                 }
             }
         }
@@ -58,7 +58,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 30
+                                        "character": 15
                                     }
                                 }
                             }
@@ -74,7 +74,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 30
+                                    "character": 15
                                 }
                             }
                         }
@@ -110,7 +110,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                             },
                             "end": {
                                 "line": 0,
-                                "character": 38
+                                "character": 35
                             }
                         }
                     }
@@ -126,7 +126,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                         },
                         "end": {
                             "line": 0,
-                            "character": 38
+                            "character": 35
                         }
                     }
                 }
@@ -151,11 +151,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                         "range": {
                             "start": {
                                 "line": 0,
-                                "character": 40
+                                "character": 43
                             },
                             "end": {
                                 "line": 0,
-                                "character": 54
+                                "character": 47
                             }
                         }
                     }
@@ -169,11 +169,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 40
+                            "character": 43
                         },
                         "end": {
                             "line": 0,
-                            "character": 54
+                            "character": 47
                         }
                     }
                 }
@@ -198,11 +198,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 9
                     },
                     "end": {
-                        "line": 2,
-                        "character": 1
+                        "line": 0,
+                        "character": 13
                     }
                 }
             }
@@ -214,11 +214,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 9
                 },
                 "end": {
-                    "line": 2,
-                    "character": 1
+                    "line": 0,
+                    "character": 13
                 }
             }
         }
@@ -242,7 +242,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 30
+                                        "character": 15
                                     }
                                 }
                             }
@@ -258,7 +258,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 30
+                                    "character": 15
                                 }
                             }
                         }
@@ -294,7 +294,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                             },
                             "end": {
                                 "line": 0,
-                                "character": 38
+                                "character": 35
                             }
                         }
                     }
@@ -310,7 +310,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                         },
                         "end": {
                             "line": 0,
-                            "character": 38
+                            "character": 35
                         }
                     }
                 }
@@ -335,11 +335,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                         "range": {
                             "start": {
                                 "line": 0,
-                                "character": 40
+                                "character": 43
                             },
                             "end": {
                                 "line": 0,
-                                "character": 54
+                                "character": 47
                             }
                         }
                     }
@@ -353,11 +353,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 40
+                            "character": 43
                         },
                         "end": {
                             "line": 0,
-                            "character": 54
+                            "character": 47
                         }
                     }
                 }
@@ -388,7 +388,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                     },
                     "end": {
                         "line": 0,
-                        "character": 30
+                        "character": 15
                     }
                 }
             }
@@ -404,7 +404,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 },
                 "end": {
                     "line": 0,
-                    "character": 30
+                    "character": 15
                 }
             }
         }
@@ -440,7 +440,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                     },
                     "end": {
                         "line": 0,
-                        "character": 38
+                        "character": 35
                     }
                 }
             }
@@ -456,7 +456,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 },
                 "end": {
                     "line": 0,
-                    "character": 38
+                    "character": 35
                 }
             }
         }
@@ -489,7 +489,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                     },
                     "end": {
                         "line": 0,
-                        "character": 30
+                        "character": 15
                     }
                 }
             }
@@ -505,7 +505,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 },
                 "end": {
                     "line": 0,
-                    "character": 30
+                    "character": 15
                 }
             }
         }
@@ -536,11 +536,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 40
+                        "character": 43
                     },
                     "end": {
                         "line": 0,
-                        "character": 54
+                        "character": 47
                     }
                 }
             }
@@ -554,11 +554,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 40
+                    "character": 43
                 },
                 "end": {
                     "line": 0,
-                    "character": 54
+                    "character": 47
                 }
             }
         }
@@ -589,7 +589,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                     },
                     "end": {
                         "line": 0,
-                        "character": 38
+                        "character": 35
                     }
                 }
             }
@@ -605,7 +605,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 },
                 "end": {
                     "line": 0,
-                    "character": 38
+                    "character": 35
                 }
             }
         }
@@ -635,11 +635,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 40
+                        "character": 43
                     },
                     "end": {
                         "line": 0,
-                        "character": 54
+                        "character": 47
                     }
                 }
             }
@@ -653,11 +653,11 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 40
+                    "character": 43
                 },
                 "end": {
                     "line": 0,
-                    "character": 54
+                    "character": 47
                 }
             }
         }
@@ -679,11 +679,11 @@ sig1("asd", 3, 4)
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 9
                     },
                     "end": {
-                        "line": 2,
-                        "character": 1
+                        "line": 0,
+                        "character": 13
                     }
                 }
             }
@@ -695,11 +695,11 @@ sig1("asd", 3, 4)
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 9
                 },
                 "end": {
-                    "line": 2,
-                    "character": 1
+                    "line": 0,
+                    "character": 13
                 }
             }
         }
@@ -723,7 +723,7 @@ sig1("asd", 3, 4)
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 30
+                                        "character": 15
                                     }
                                 }
                             }
@@ -739,7 +739,7 @@ sig1("asd", 3, 4)
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 30
+                                    "character": 15
                                 }
                             }
                         }
@@ -781,11 +781,11 @@ sig1("asd", 3, 4)
                         "range": {
                             "start": {
                                 "line": 0,
-                                "character": 40
+                                "character": 43
                             },
                             "end": {
                                 "line": 0,
-                                "character": 54
+                                "character": 47
                             }
                         }
                     }
@@ -799,11 +799,11 @@ sig1("asd", 3, 4)
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 40
+                            "character": 43
                         },
                         "end": {
                             "line": 0,
-                            "character": 54
+                            "character": 47
                         }
                     }
                 }

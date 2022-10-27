@@ -12,11 +12,11 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 47
+                        "character": 18
                     }
                 }
             }
@@ -28,11 +28,11 @@ type IndexedAccess<P, T extends keyof P> = P[T]
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 47
+                    "character": 18
                 }
             }
         }
@@ -95,7 +95,7 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 39
+                                        "character": 23
                                     }
                                 }
                             }
@@ -111,7 +111,7 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 39
+                                    "character": 23
                                 }
                             }
                         }
@@ -217,7 +217,7 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                     },
                     "end": {
                         "line": 0,
-                        "character": 39
+                        "character": 23
                     }
                 }
             }
@@ -233,7 +233,7 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                 },
                 "end": {
                     "line": 0,
-                    "character": 39
+                    "character": 23
                 }
             }
         }
@@ -369,7 +369,7 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                     },
                     "end": {
                         "line": 0,
-                        "character": 39
+                        "character": 23
                     }
                 }
             }
@@ -385,7 +385,7 @@ type IndexedAccess<P, T extends keyof P> = P[T]
                 },
                 "end": {
                     "line": 0,
-                    "character": 39
+                    "character": 23
                 }
             }
         }

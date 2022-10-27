@@ -12,11 +12,11 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 42
+                        "character": 6
                     }
                 }
             }
@@ -28,11 +28,11 @@ type t = { a: "b", c: "d", d: { a: "b" } }
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 42
+                    "character": 6
                 }
             }
         }
@@ -54,7 +54,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                             },
                             "end": {
                                 "line": 0,
-                                "character": 18
+                                "character": 12
                             }
                         }
                     }
@@ -70,7 +70,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                         },
                         "end": {
                             "line": 0,
-                            "character": 18
+                            "character": 12
                         }
                     }
                 }
@@ -94,7 +94,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                             },
                             "end": {
                                 "line": 0,
-                                "character": 26
+                                "character": 20
                             }
                         }
                     }
@@ -110,7 +110,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                         },
                         "end": {
                             "line": 0,
-                            "character": 26
+                            "character": 20
                         }
                     }
                 }
@@ -134,7 +134,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                             },
                             "end": {
                                 "line": 0,
-                                "character": 40
+                                "character": 28
                             }
                         }
                     }
@@ -150,7 +150,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                         },
                         "end": {
                             "line": 0,
-                            "character": 40
+                            "character": 28
                         }
                     }
                 }
@@ -172,7 +172,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 38
+                                        "character": 33
                                     }
                                 }
                             }
@@ -188,7 +188,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 38
+                                    "character": 33
                                 }
                             }
                         }
@@ -221,7 +221,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                     },
                     "end": {
                         "line": 0,
-                        "character": 18
+                        "character": 12
                     }
                 }
             }
@@ -237,7 +237,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                 },
                 "end": {
                     "line": 0,
-                    "character": 18
+                    "character": 12
                 }
             }
         }
@@ -262,7 +262,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                     },
                     "end": {
                         "line": 0,
-                        "character": 26
+                        "character": 20
                     }
                 }
             }
@@ -278,7 +278,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                 },
                 "end": {
                     "line": 0,
-                    "character": 26
+                    "character": 20
                 }
             }
         }
@@ -303,7 +303,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                     },
                     "end": {
                         "line": 0,
-                        "character": 40
+                        "character": 28
                     }
                 }
             }
@@ -319,7 +319,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                 },
                 "end": {
                     "line": 0,
-                    "character": 40
+                    "character": 28
                 }
             }
         }
@@ -341,7 +341,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                             },
                             "end": {
                                 "line": 0,
-                                "character": 38
+                                "character": 33
                             }
                         }
                     }
@@ -357,7 +357,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                         },
                         "end": {
                             "line": 0,
-                            "character": 38
+                            "character": 33
                         }
                     }
                 }
@@ -387,7 +387,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                     },
                     "end": {
                         "line": 0,
-                        "character": 38
+                        "character": 33
                     }
                 }
             }
@@ -403,7 +403,7 @@ type t = { a: "b", c: "d", d: { a: "b" } }
                 },
                 "end": {
                     "line": 0,
-                    "character": 38
+                    "character": 33
                 }
             }
         }
@@ -424,11 +424,11 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 "range": {
                     "start": {
                         "line": 1,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 1,
-                        "character": 53
+                        "character": 6
                     }
                 }
             }
@@ -440,11 +440,11 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "range": {
                 "start": {
                     "line": 1,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 1,
-                    "character": 53
+                    "character": 6
                 }
             }
         }
@@ -466,7 +466,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 40
+                                "character": 28
                             }
                         }
                     },
@@ -479,7 +479,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             },
                             "end": {
                                 "line": 1,
-                                "character": 52
+                                "character": 40
                             }
                         }
                     }
@@ -495,7 +495,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         },
                         "end": {
                             "line": 0,
-                            "character": 40
+                            "character": 28
                         }
                     }
                 },
@@ -508,7 +508,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         },
                         "end": {
                             "line": 1,
-                            "character": 52
+                            "character": 40
                         }
                     }
                 }
@@ -530,7 +530,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 38
+                                        "character": 33
                                     }
                                 }
                             }
@@ -546,7 +546,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 38
+                                    "character": 33
                                 }
                             }
                         }
@@ -570,7 +570,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     },
                                     "end": {
                                         "line": 1,
-                                        "character": 50
+                                        "character": 45
                                     }
                                 }
                             }
@@ -586,7 +586,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                 },
                                 "end": {
                                     "line": 1,
-                                    "character": 50
+                                    "character": 45
                                 }
                             }
                         }
@@ -613,7 +613,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 18
+                                "character": 12
                             }
                         }
                     }
@@ -629,7 +629,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         },
                         "end": {
                             "line": 0,
-                            "character": 18
+                            "character": 12
                         }
                     }
                 }
@@ -653,7 +653,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             },
                             "end": {
                                 "line": 1,
-                                "character": 38
+                                "character": 30
                             }
                         }
                     }
@@ -669,7 +669,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         },
                         "end": {
                             "line": 1,
-                            "character": 38
+                            "character": 30
                         }
                     }
                 }
@@ -694,11 +694,11 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 "range": {
                     "start": {
                         "line": 1569,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
-                        "line": 1571,
-                        "character": 2
+                        "line": 1569,
+                        "character": 9
                     }
                 }
             }
@@ -710,11 +710,11 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "range": {
                 "start": {
                     "line": 1569,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
-                    "line": 1571,
-                    "character": 2
+                    "line": 1569,
+                    "character": 9
                 }
             }
         }
@@ -790,11 +790,11 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     "range": {
                                         "start": {
                                             "line": 0,
-                                            "character": 0
+                                            "character": 5
                                         },
                                         "end": {
                                             "line": 0,
-                                            "character": 42
+                                            "character": 6
                                         }
                                     }
                                 }
@@ -816,7 +816,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                                     },
                                                     "end": {
                                                         "line": 0,
-                                                        "character": 18
+                                                        "character": 12
                                                     }
                                                 }
                                             }
@@ -832,7 +832,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                                 },
                                                 "end": {
                                                     "line": 0,
-                                                    "character": 18
+                                                    "character": 12
                                                 }
                                             }
                                         }
@@ -856,7 +856,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                                     },
                                                     "end": {
                                                         "line": 0,
-                                                        "character": 26
+                                                        "character": 20
                                                     }
                                                 }
                                             }
@@ -872,7 +872,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                                 },
                                                 "end": {
                                                     "line": 0,
-                                                    "character": 26
+                                                    "character": 20
                                                 }
                                             }
                                         }
@@ -896,7 +896,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                                     },
                                                     "end": {
                                                         "line": 0,
-                                                        "character": 40
+                                                        "character": 28
                                                     }
                                                 }
                                             }
@@ -912,7 +912,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                                 },
                                                 "end": {
                                                     "line": 0,
-                                                    "character": 40
+                                                    "character": 28
                                                 }
                                             }
                                         }
@@ -934,7 +934,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                                             },
                                                             "end": {
                                                                 "line": 0,
-                                                                "character": 38
+                                                                "character": 33
                                                             }
                                                         }
                                                     }
@@ -950,7 +950,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                                         },
                                                         "end": {
                                                             "line": 0,
-                                                            "character": 38
+                                                            "character": 33
                                                         }
                                                     }
                                                 }
@@ -982,7 +982,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     },
                                     "end": {
                                         "line": 1569,
-                                        "character": 30
+                                        "character": 14
                                     }
                                 }
                             }
@@ -998,7 +998,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                 },
                                 "end": {
                                     "line": 1569,
-                                    "character": 30
+                                    "character": 14
                                 }
                             }
                         }
@@ -1073,7 +1073,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             },
                             "end": {
                                 "line": 1570,
-                                "character": 11
+                                "character": 6
                             }
                         }
                     }
@@ -1095,7 +1095,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     },
                                     "end": {
                                         "line": 1570,
-                                        "character": 11
+                                        "character": 6
                                     }
                                 }
                             }
@@ -1112,7 +1112,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                 },
                                 "end": {
                                     "line": 1570,
-                                    "character": 11
+                                    "character": 6
                                 }
                             }
                         }
@@ -1159,11 +1159,11 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 42
+                        "character": 6
                     }
                 }
             }
@@ -1175,11 +1175,11 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 42
+                    "character": 6
                 }
             }
         }
@@ -1201,7 +1201,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 18
+                                "character": 12
                             }
                         }
                     }
@@ -1217,7 +1217,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         },
                         "end": {
                             "line": 0,
-                            "character": 18
+                            "character": 12
                         }
                     }
                 }
@@ -1241,7 +1241,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 26
+                                "character": 20
                             }
                         }
                     }
@@ -1257,7 +1257,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         },
                         "end": {
                             "line": 0,
-                            "character": 26
+                            "character": 20
                         }
                     }
                 }
@@ -1281,7 +1281,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 40
+                                "character": 28
                             }
                         }
                     }
@@ -1297,7 +1297,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         },
                         "end": {
                             "line": 0,
-                            "character": 40
+                            "character": 28
                         }
                     }
                 }
@@ -1319,7 +1319,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 38
+                                        "character": 33
                                     }
                                 }
                             }
@@ -1335,7 +1335,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 38
+                                    "character": 33
                                 }
                             }
                         }
@@ -1368,7 +1368,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     },
                     "end": {
                         "line": 1,
-                        "character": 38
+                        "character": 30
                     }
                 }
             }
@@ -1384,7 +1384,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 },
                 "end": {
                     "line": 1,
-                    "character": 38
+                    "character": 30
                 }
             }
         }
@@ -1409,7 +1409,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     },
                     "end": {
                         "line": 1,
-                        "character": 52
+                        "character": 40
                     }
                 }
             }
@@ -1425,7 +1425,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 },
                 "end": {
                     "line": 1,
-                    "character": 52
+                    "character": 40
                 }
             }
         }
@@ -1447,7 +1447,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                             },
                             "end": {
                                 "line": 1,
-                                "character": 50
+                                "character": 45
                             }
                         }
                     }
@@ -1463,7 +1463,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                         },
                         "end": {
                             "line": 1,
-                            "character": 50
+                            "character": 45
                         }
                     }
                 }
@@ -1493,7 +1493,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     },
                     "end": {
                         "line": 1,
-                        "character": 50
+                        "character": 45
                     }
                 }
             }
@@ -1509,7 +1509,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 },
                 "end": {
                     "line": 1,
-                    "character": 50
+                    "character": 45
                 }
             }
         }
@@ -1538,7 +1538,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     },
                     "end": {
                         "line": 3,
-                        "character": 58
+                        "character": 11
                     }
                 }
             }
@@ -1550,11 +1550,11 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "range": {
                 "start": {
                     "line": 1,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 1,
-                    "character": 53
+                    "character": 6
                 }
             }
         }
@@ -1576,7 +1576,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 40
+                                "character": 28
                             }
                         }
                     },
@@ -1589,7 +1589,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 1,
-                                "character": 52
+                                "character": 40
                             }
                         }
                     }
@@ -1605,7 +1605,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 0,
-                            "character": 40
+                            "character": 28
                         }
                     }
                 },
@@ -1618,7 +1618,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 1,
-                            "character": 52
+                            "character": 40
                         }
                     }
                 }
@@ -1640,7 +1640,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 38
+                                        "character": 33
                                     }
                                 }
                             }
@@ -1656,7 +1656,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 38
+                                    "character": 33
                                 }
                             }
                         }
@@ -1680,7 +1680,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                                     },
                                     "end": {
                                         "line": 1,
-                                        "character": 50
+                                        "character": 45
                                     }
                                 }
                             }
@@ -1696,7 +1696,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                                 },
                                 "end": {
                                     "line": 1,
-                                    "character": 50
+                                    "character": 45
                                 }
                             }
                         }
@@ -1723,7 +1723,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 18
+                                "character": 12
                             }
                         }
                     }
@@ -1739,7 +1739,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 0,
-                            "character": 18
+                            "character": 12
                         }
                     }
                 }
@@ -1763,7 +1763,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 1,
-                                "character": 38
+                                "character": 30
                             }
                         }
                     }
@@ -1779,7 +1779,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 1,
-                            "character": 38
+                            "character": 30
                         }
                     }
                 }
@@ -1802,11 +1802,11 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                 "range": {
                     "start": {
                         "line": 1,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 1,
-                        "character": 53
+                        "character": 6
                     }
                 }
             }
@@ -1818,11 +1818,11 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
             "range": {
                 "start": {
                     "line": 1,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 1,
-                    "character": 53
+                    "character": 6
                 }
             }
         }
@@ -1844,7 +1844,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 40
+                                "character": 28
                             }
                         }
                     },
@@ -1857,7 +1857,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 1,
-                                "character": 52
+                                "character": 40
                             }
                         }
                     }
@@ -1873,7 +1873,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 0,
-                            "character": 40
+                            "character": 28
                         }
                     }
                 },
@@ -1886,7 +1886,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 1,
-                            "character": 52
+                            "character": 40
                         }
                     }
                 }
@@ -1908,7 +1908,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 38
+                                        "character": 33
                                     }
                                 }
                             }
@@ -1924,7 +1924,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 38
+                                    "character": 33
                                 }
                             }
                         }
@@ -1948,7 +1948,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                                     },
                                     "end": {
                                         "line": 1,
-                                        "character": 50
+                                        "character": 45
                                     }
                                 }
                             }
@@ -1964,7 +1964,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                                 },
                                 "end": {
                                     "line": 1,
-                                    "character": 50
+                                    "character": 45
                                 }
                             }
                         }
@@ -1991,7 +1991,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 18
+                                "character": 12
                             }
                         }
                     }
@@ -2007,7 +2007,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 0,
-                            "character": 18
+                            "character": 12
                         }
                     }
                 }
@@ -2031,7 +2031,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 1,
-                                "character": 38
+                                "character": 30
                             }
                         }
                     }
@@ -2047,7 +2047,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 1,
-                            "character": 38
+                            "character": 30
                         }
                     }
                 }
@@ -2077,7 +2077,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     },
                     "end": {
                         "line": 3,
-                        "character": 24
+                        "character": 19
                     }
                 }
             }
@@ -2093,7 +2093,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                 },
                 "end": {
                     "line": 3,
-                    "character": 24
+                    "character": 19
                 }
             }
         }
@@ -2118,7 +2118,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     },
                     "end": {
                         "line": 3,
-                        "character": 34
+                        "character": 27
                     }
                 }
             }
@@ -2134,7 +2134,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                 },
                 "end": {
                     "line": 3,
-                    "character": 34
+                    "character": 27
                 }
             }
         }
@@ -2159,7 +2159,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     },
                     "end": {
                         "line": 3,
-                        "character": 57
+                        "character": 37
                     }
                 }
             }
@@ -2175,7 +2175,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                 },
                 "end": {
                     "line": 3,
-                    "character": 57
+                    "character": 37
                 }
             }
         }
@@ -2197,7 +2197,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 3,
-                                "character": 47
+                                "character": 42
                             }
                         }
                     }
@@ -2213,7 +2213,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 3,
-                            "character": 47
+                            "character": 42
                         }
                     }
                 }
@@ -2237,7 +2237,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                             },
                             "end": {
                                 "line": 3,
-                                "character": 55
+                                "character": 50
                             }
                         }
                     }
@@ -2253,7 +2253,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                         },
                         "end": {
                             "line": 3,
-                            "character": 55
+                            "character": 50
                         }
                     }
                 }
@@ -2283,7 +2283,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     },
                     "end": {
                         "line": 3,
-                        "character": 47
+                        "character": 42
                     }
                 }
             }
@@ -2299,7 +2299,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                 },
                 "end": {
                     "line": 3,
-                    "character": 47
+                    "character": 42
                 }
             }
         }
@@ -2324,7 +2324,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                     },
                     "end": {
                         "line": 3,
-                        "character": 55
+                        "character": 50
                     }
                 }
             }
@@ -2340,7 +2340,7 @@ const test3: p = {a: "b", b: "asd", d: { a: "b", b: "c" }}
                 },
                 "end": {
                     "line": 3,
-                    "character": 55
+                    "character": 50
                 }
             }
         }

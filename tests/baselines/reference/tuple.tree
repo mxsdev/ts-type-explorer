@@ -30,11 +30,11 @@ type tupleOfStuff = ["a", string, number]
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 41
+                            "character": 17
                         }
                     }
                 }

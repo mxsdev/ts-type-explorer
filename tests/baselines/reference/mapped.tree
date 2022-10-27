@@ -30,7 +30,7 @@ type mapped = { [index: string]: number }
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 30
+                                    "character": 22
                                 }
                             }
                         }
@@ -53,11 +53,11 @@ type mapped = { [index: string]: number }
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 41
+                            "character": 11
                         }
                     }
                 }
@@ -88,7 +88,7 @@ type mapped = { [index: string]: number }
                         },
                         "end": {
                             "line": 0,
-                            "character": 30
+                            "character": 22
                         }
                     }
                 }

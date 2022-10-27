@@ -12,11 +12,11 @@ type Recursive = { a: { b: Recursive } }
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 40
+                        "character": 14
                     }
                 }
             }
@@ -28,11 +28,11 @@ type Recursive = { a: { b: Recursive } }
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 40
+                    "character": 14
                 }
             }
         }
@@ -54,7 +54,7 @@ type Recursive = { a: { b: Recursive } }
                             },
                             "end": {
                                 "line": 0,
-                                "character": 38
+                                "character": 20
                             }
                         }
                     }
@@ -70,7 +70,7 @@ type Recursive = { a: { b: Recursive } }
                         },
                         "end": {
                             "line": 0,
-                            "character": 38
+                            "character": 20
                         }
                     }
                 }
@@ -93,7 +93,7 @@ type Recursive = { a: { b: Recursive } }
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 36
+                                        "character": 25
                                     }
                                 }
                             }
@@ -105,11 +105,11 @@ type Recursive = { a: { b: Recursive } }
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 5
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 40
+                                    "character": 14
                                 }
                             }
                         }
@@ -146,7 +146,7 @@ type Recursive = { a: { b: Recursive } }
                     },
                     "end": {
                         "line": 0,
-                        "character": 38
+                        "character": 20
                     }
                 }
             }
@@ -162,7 +162,7 @@ type Recursive = { a: { b: Recursive } }
                 },
                 "end": {
                     "line": 0,
-                    "character": 38
+                    "character": 20
                 }
             }
         }
@@ -185,7 +185,7 @@ type Recursive = { a: { b: Recursive } }
                             },
                             "end": {
                                 "line": 0,
-                                "character": 36
+                                "character": 25
                             }
                         }
                     }
@@ -197,11 +197,11 @@ type Recursive = { a: { b: Recursive } }
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 40
+                            "character": 14
                         }
                     }
                 }
@@ -236,7 +236,7 @@ type Recursive = { a: { b: Recursive } }
                     },
                     "end": {
                         "line": 0,
-                        "character": 36
+                        "character": 25
                     }
                 }
             }
@@ -248,11 +248,11 @@ type Recursive = { a: { b: Recursive } }
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 40
+                    "character": 14
                 }
             }
         }
@@ -274,7 +274,7 @@ type Recursive = { a: { b: Recursive } }
                             },
                             "end": {
                                 "line": 0,
-                                "character": 38
+                                "character": 20
                             }
                         }
                     }
@@ -290,7 +290,7 @@ type Recursive = { a: { b: Recursive } }
                         },
                         "end": {
                             "line": 0,
-                            "character": 38
+                            "character": 20
                         }
                     }
                 }
@@ -317,11 +317,11 @@ type Recursive = { a: { b: Recursive } }
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 40
+                        "character": 14
                     }
                 }
             }
@@ -333,11 +333,11 @@ type Recursive = { a: { b: Recursive } }
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 40
+                    "character": 14
                 }
             }
         }
@@ -359,7 +359,7 @@ type Recursive = { a: { b: Recursive } }
                             },
                             "end": {
                                 "line": 0,
-                                "character": 38
+                                "character": 20
                             }
                         }
                     }
@@ -375,7 +375,7 @@ type Recursive = { a: { b: Recursive } }
                         },
                         "end": {
                             "line": 0,
-                            "character": 38
+                            "character": 20
                         }
                     }
                 }
@@ -398,7 +398,7 @@ type Recursive = { a: { b: Recursive } }
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 36
+                                        "character": 25
                                     }
                                 }
                             }
@@ -410,11 +410,11 @@ type Recursive = { a: { b: Recursive } }
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 5
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 40
+                                    "character": 14
                                 }
                             }
                         }

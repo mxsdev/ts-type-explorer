@@ -12,11 +12,11 @@ type U<T extends string> = Uppercase<T>
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 39
+                        "character": 6
                     }
                 }
             }
@@ -28,11 +28,11 @@ type U<T extends string> = Uppercase<T>
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 39
+                    "character": 6
                 }
             }
         }
@@ -56,7 +56,7 @@ type U<T extends string> = Uppercase<T>
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 23
+                                        "character": 8
                                     }
                                 }
                             }
@@ -72,7 +72,7 @@ type U<T extends string> = Uppercase<T>
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 23
+                                    "character": 8
                                 }
                             }
                         }
@@ -114,7 +114,7 @@ type U<T extends string> = Uppercase<T>
                     },
                     "end": {
                         "line": 0,
-                        "character": 23
+                        "character": 8
                     }
                 }
             }
@@ -130,7 +130,7 @@ type U<T extends string> = Uppercase<T>
                 },
                 "end": {
                     "line": 0,
-                    "character": 23
+                    "character": 8
                 }
             }
         }
@@ -159,11 +159,11 @@ type U<T extends string> = Uppercase<T>
                 "range": {
                     "start": {
                         "line": 1623,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 1623,
-                        "character": 45
+                        "character": 14
                     }
                 }
             }
@@ -175,11 +175,11 @@ type U<T extends string> = Uppercase<T>
             "range": {
                 "start": {
                     "line": 1623,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 1623,
-                    "character": 45
+                    "character": 14
                 }
             }
         }
@@ -203,7 +203,7 @@ type U<T extends string> = Uppercase<T>
                                     },
                                     "end": {
                                         "line": 1623,
-                                        "character": 31
+                                        "character": 16
                                     }
                                 }
                             }
@@ -219,7 +219,7 @@ type U<T extends string> = Uppercase<T>
                                 },
                                 "end": {
                                     "line": 1623,
-                                    "character": 31
+                                    "character": 16
                                 }
                             }
                         }
@@ -240,7 +240,7 @@ type U<T extends string> = Uppercase<T>
                                             },
                                             "end": {
                                                 "line": 0,
-                                                "character": 23
+                                                "character": 8
                                             }
                                         }
                                     }
@@ -257,7 +257,7 @@ type U<T extends string> = Uppercase<T>
                                         },
                                         "end": {
                                             "line": 0,
-                                            "character": 23
+                                            "character": 8
                                         }
                                     }
                                 }
@@ -302,7 +302,7 @@ type U<T extends string> = Uppercase<T>
                     },
                     "end": {
                         "line": 0,
-                        "character": 23
+                        "character": 8
                     }
                 }
             }
@@ -318,7 +318,7 @@ type U<T extends string> = Uppercase<T>
                 },
                 "end": {
                     "line": 0,
-                    "character": 23
+                    "character": 8
                 }
             }
         }

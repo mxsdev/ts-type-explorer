@@ -12,11 +12,11 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 43
+                        "character": 16
                     }
                 }
             }
@@ -28,11 +28,11 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 43
+                    "character": 16
                 }
             }
         }
@@ -53,7 +53,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                             },
                             "end": {
                                 "line": 0,
-                                "character": 38
+                                "character": 23
                             }
                         }
                     }
@@ -75,7 +75,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 38
+                                        "character": 23
                                     }
                                 }
                             }
@@ -92,7 +92,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 38
+                                    "character": 23
                                 }
                             }
                         }
@@ -164,7 +164,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                     },
                     "end": {
                         "line": 0,
-                        "character": 38
+                        "character": 23
                     }
                 }
             }
@@ -180,7 +180,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                 },
                 "end": {
                     "line": 0,
-                    "character": 38
+                    "character": 23
                 }
             }
         }
@@ -231,7 +231,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                     },
                     "end": {
                         "line": 0,
-                        "character": 38
+                        "character": 23
                     }
                 }
             }
@@ -247,7 +247,7 @@ type mappedType2 = { [P in 'a'|'b'|'c']: P}
                 },
                 "end": {
                     "line": 0,
-                    "character": 38
+                    "character": 23
                 }
             }
         }

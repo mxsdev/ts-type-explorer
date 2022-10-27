@@ -50,6 +50,8 @@ type NodeWithTypeArguments = ts.Node & {
 }
 type NodeWithJsDoc = ts.Node & { jsDoc?: ts.Node[] | undefined }
 
+type DeclarationInternal = ts.Declaration & { name?: ts.Identifier }
+
 export type UnionTypeInternal = ts.UnionType & { id: number }
 export type IntersectionTypeInternal = ts.IntersectionType & { id: number }
 export type TypeReferenceInternal = ts.TypeReference & {
@@ -848,4 +850,23 @@ export function getSourceFileLocation(
             end,
         },
     }
+}
+
+/**
+ * Tries to find subnode that can be retrieved later
+ * by the client
+ *
+ * For example, consider:
+ *
+ * `export enum Enum { ... }`
+ *
+ * If the client tries to retrieve the entire `EnumDeclaration`
+ * node, then it will go from character 0, which will find the
+ * `export` token, which does not have a type. In this case,
+ * the node is narrowed to its identifier - `Enum` in this case
+ *
+ * @param node
+ */
+export function narrowDeclarationForLocation(node: ts.Declaration) {
+    return (node as DeclarationInternal).name ?? node
 }

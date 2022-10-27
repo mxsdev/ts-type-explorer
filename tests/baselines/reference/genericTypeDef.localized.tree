@@ -13,11 +13,11 @@ type TypeWithGenerics<T, K> = T
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 31
+                        "character": 21
                     }
                 }
             }
@@ -29,11 +29,11 @@ type TypeWithGenerics<T, K> = T
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 31
+                    "character": 21
                 }
             }
         }
@@ -260,11 +260,11 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
                 "range": {
                     "start": {
                         "line": 2,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 2,
-                        "character": 56
+                        "character": 24
                     }
                 }
             }
@@ -276,11 +276,11 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
             "range": {
                 "start": {
                     "line": 2,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 2,
-                    "character": 56
+                    "character": 24
                 }
             }
         }
@@ -387,11 +387,11 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 31
+                        "character": 21
                     }
                 }
             }
@@ -403,11 +403,11 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 31
+                    "character": 21
                 }
             }
         }

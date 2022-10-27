@@ -17,11 +17,11 @@ function func(a: string, b?: number) {
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 9
                                 },
                                 "end": {
-                                    "line": 2,
-                                    "character": 1
+                                    "line": 0,
+                                    "character": 13
                                 }
                             }
                         }
@@ -46,7 +46,7 @@ function func(a: string, b?: number) {
                                         },
                                         "end": {
                                             "line": 0,
-                                            "character": 23
+                                            "character": 15
                                         }
                                     }
                                 }
@@ -73,7 +73,7 @@ function func(a: string, b?: number) {
                                         },
                                         "end": {
                                             "line": 0,
-                                            "character": 35
+                                            "character": 26
                                         }
                                     }
                                 }
@@ -100,11 +100,11 @@ function func(a: string, b?: number) {
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 9
                         },
                         "end": {
-                            "line": 2,
-                            "character": 1
+                            "line": 0,
+                            "character": 13
                         }
                     }
                 }
@@ -127,11 +127,11 @@ function func(a: string, b?: number) {
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 9
                                 },
                                 "end": {
-                                    "line": 2,
-                                    "character": 1
+                                    "line": 0,
+                                    "character": 13
                                 }
                             }
                         }
@@ -156,7 +156,7 @@ function func(a: string, b?: number) {
                                         },
                                         "end": {
                                             "line": 0,
-                                            "character": 23
+                                            "character": 15
                                         }
                                     }
                                 }
@@ -183,7 +183,7 @@ function func(a: string, b?: number) {
                                         },
                                         "end": {
                                             "line": 0,
-                                            "character": 35
+                                            "character": 26
                                         }
                                     }
                                 }
@@ -210,11 +210,11 @@ function func(a: string, b?: number) {
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 9
                         },
                         "end": {
-                            "line": 2,
-                            "character": 1
+                            "line": 0,
+                            "character": 13
                         }
                     }
                 }
@@ -242,7 +242,7 @@ function func(a: string, b?: number) {
                         },
                         "end": {
                             "line": 0,
-                            "character": 23
+                            "character": 15
                         }
                     }
                 }
@@ -270,7 +270,7 @@ function func(a: string, b?: number) {
                         },
                         "end": {
                             "line": 0,
-                            "character": 35
+                            "character": 26
                         }
                     }
                 }

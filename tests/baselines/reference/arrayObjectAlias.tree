@@ -21,7 +21,7 @@ type Obj = { a: string, b: number }
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 23
+                                    "character": 14
                                 }
                             }
                         }
@@ -47,7 +47,7 @@ type Obj = { a: string, b: number }
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 33
+                                    "character": 25
                                 }
                             }
                         }
@@ -68,11 +68,11 @@ type Obj = { a: string, b: number }
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 35
+                            "character": 8
                         }
                     }
                 }
@@ -101,7 +101,7 @@ type Obj = { a: string, b: number }
                         },
                         "end": {
                             "line": 0,
-                            "character": 23
+                            "character": 14
                         }
                     }
                 }
@@ -128,7 +128,7 @@ type Obj = { a: string, b: number }
                         },
                         "end": {
                             "line": 0,
-                            "character": 33
+                            "character": 25
                         }
                     }
                 }
@@ -161,7 +161,7 @@ type arrObj = Obj[]
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 23
+                                        "character": 14
                                     }
                                 }
                             }
@@ -187,7 +187,7 @@ type arrObj = Obj[]
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 33
+                                        "character": 25
                                     }
                                 }
                             }
@@ -230,11 +230,11 @@ type arrObj = Obj[]
                         "range": {
                             "start": {
                                 "line": 0,
-                                "character": 0
+                                "character": 5
                             },
                             "end": {
                                 "line": 0,
-                                "character": 35
+                                "character": 8
                             }
                         }
                     }
@@ -253,11 +253,11 @@ type arrObj = Obj[]
                     "range": {
                         "start": {
                             "line": 1,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 1,
-                            "character": 19
+                            "character": 11
                         }
                     }
                 }
@@ -288,7 +288,7 @@ type arrObj = Obj[]
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 23
+                                    "character": 14
                                 }
                             }
                         }
@@ -314,7 +314,7 @@ type arrObj = Obj[]
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 33
+                                    "character": 25
                                 }
                             }
                         }
@@ -335,11 +335,11 @@ type arrObj = Obj[]
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 35
+                            "character": 8
                         }
                     }
                 }

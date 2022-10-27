@@ -12,11 +12,11 @@ type f = (arg1: string, arg2: boolean) => void
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 46
+                        "character": 6
                     }
                 }
             }
@@ -28,11 +28,11 @@ type f = (arg1: string, arg2: boolean) => void
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 46
+                    "character": 6
                 }
             }
         }
@@ -55,7 +55,7 @@ type f = (arg1: string, arg2: boolean) => void
                             },
                             "end": {
                                 "line": 0,
-                                "character": 22
+                                "character": 14
                             }
                         }
                     }
@@ -71,7 +71,7 @@ type f = (arg1: string, arg2: boolean) => void
                         },
                         "end": {
                             "line": 0,
-                            "character": 22
+                            "character": 14
                         }
                     }
                 }
@@ -96,7 +96,7 @@ type f = (arg1: string, arg2: boolean) => void
                             },
                             "end": {
                                 "line": 0,
-                                "character": 37
+                                "character": 28
                             }
                         }
                     }
@@ -112,7 +112,7 @@ type f = (arg1: string, arg2: boolean) => void
                         },
                         "end": {
                             "line": 0,
-                            "character": 37
+                            "character": 28
                         }
                     }
                 }
@@ -151,7 +151,7 @@ type f = (arg1: string, arg2: boolean) => void
                     },
                     "end": {
                         "line": 0,
-                        "character": 22
+                        "character": 14
                     }
                 }
             }
@@ -167,7 +167,7 @@ type f = (arg1: string, arg2: boolean) => void
                 },
                 "end": {
                     "line": 0,
-                    "character": 22
+                    "character": 14
                 }
             }
         }
@@ -193,7 +193,7 @@ type f = (arg1: string, arg2: boolean) => void
                     },
                     "end": {
                         "line": 0,
-                        "character": 37
+                        "character": 28
                     }
                 }
             }
@@ -209,7 +209,7 @@ type f = (arg1: string, arg2: boolean) => void
                 },
                 "end": {
                     "line": 0,
-                    "character": 37
+                    "character": 28
                 }
             }
         }
@@ -270,11 +270,11 @@ type t = { a: string } | f
                 "range": {
                     "start": {
                         "line": 1,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 1,
-                        "character": 26
+                        "character": 6
                     }
                 }
             }
@@ -286,11 +286,11 @@ type t = { a: string } | f
             "range": {
                 "start": {
                     "line": 1,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 1,
-                    "character": 26
+                    "character": 6
                 }
             }
         }
@@ -325,11 +325,11 @@ type t = { a: string } | f
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 46
+                            "character": 6
                         }
                     }
                 }
@@ -352,7 +352,7 @@ type t = { a: string } | f
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 22
+                                        "character": 14
                                     }
                                 }
                             }
@@ -368,7 +368,7 @@ type t = { a: string } | f
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 22
+                                    "character": 14
                                 }
                             }
                         }
@@ -393,7 +393,7 @@ type t = { a: string } | f
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 37
+                                        "character": 28
                                     }
                                 }
                             }
@@ -409,7 +409,7 @@ type t = { a: string } | f
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 37
+                                    "character": 28
                                 }
                             }
                         }
@@ -483,7 +483,7 @@ type t = { a: string } | f
                                     },
                                     "end": {
                                         "line": 1,
-                                        "character": 20
+                                        "character": 12
                                     }
                                 }
                             }
@@ -499,7 +499,7 @@ type t = { a: string } | f
                                 },
                                 "end": {
                                     "line": 1,
-                                    "character": 20
+                                    "character": 12
                                 }
                             }
                         }
@@ -535,7 +535,7 @@ type t = { a: string } | f
                     },
                     "end": {
                         "line": 1,
-                        "character": 20
+                        "character": 12
                     }
                 }
             }
@@ -551,7 +551,7 @@ type t = { a: string } | f
                 },
                 "end": {
                     "line": 1,
-                    "character": 20
+                    "character": 12
                 }
             }
         }
@@ -571,11 +571,11 @@ type t = { a: string } | f
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 5
                     },
                     "end": {
                         "line": 0,
-                        "character": 46
+                        "character": 6
                     }
                 }
             }
@@ -587,11 +587,11 @@ type t = { a: string } | f
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 5
                 },
                 "end": {
                     "line": 0,
-                    "character": 46
+                    "character": 6
                 }
             }
         }
@@ -614,7 +614,7 @@ type t = { a: string } | f
                             },
                             "end": {
                                 "line": 0,
-                                "character": 22
+                                "character": 14
                             }
                         }
                     }
@@ -630,7 +630,7 @@ type t = { a: string } | f
                         },
                         "end": {
                             "line": 0,
-                            "character": 22
+                            "character": 14
                         }
                     }
                 }
@@ -655,7 +655,7 @@ type t = { a: string } | f
                             },
                             "end": {
                                 "line": 0,
-                                "character": 37
+                                "character": 28
                             }
                         }
                     }
@@ -671,7 +671,7 @@ type t = { a: string } | f
                         },
                         "end": {
                             "line": 0,
-                            "character": 37
+                            "character": 28
                         }
                     }
                 }

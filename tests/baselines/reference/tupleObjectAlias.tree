@@ -21,7 +21,7 @@ type Obj2 = { a: string, b: number }
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 24
+                                    "character": 15
                                 }
                             }
                         }
@@ -47,7 +47,7 @@ type Obj2 = { a: string, b: number }
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 34
+                                    "character": 26
                                 }
                             }
                         }
@@ -68,11 +68,11 @@ type Obj2 = { a: string, b: number }
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 36
+                            "character": 9
                         }
                     }
                 }
@@ -101,7 +101,7 @@ type Obj2 = { a: string, b: number }
                         },
                         "end": {
                             "line": 0,
-                            "character": 24
+                            "character": 15
                         }
                     }
                 }
@@ -128,7 +128,7 @@ type Obj2 = { a: string, b: number }
                         },
                         "end": {
                             "line": 0,
-                            "character": 34
+                            "character": 26
                         }
                     }
                 }
@@ -162,7 +162,7 @@ type tupleObj = [Obj2, Obj2]
                                         },
                                         "end": {
                                             "line": 0,
-                                            "character": 24
+                                            "character": 15
                                         }
                                     }
                                 }
@@ -188,7 +188,7 @@ type tupleObj = [Obj2, Obj2]
                                         },
                                         "end": {
                                             "line": 0,
-                                            "character": 34
+                                            "character": 26
                                         }
                                     }
                                 }
@@ -231,11 +231,11 @@ type tupleObj = [Obj2, Obj2]
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 5
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 36
+                                    "character": 9
                                 }
                             }
                         }
@@ -278,11 +278,11 @@ type tupleObj = [Obj2, Obj2]
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 5
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 36
+                                    "character": 9
                                 }
                             }
                         }
@@ -302,11 +302,11 @@ type tupleObj = [Obj2, Obj2]
                     "range": {
                         "start": {
                             "line": 1,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 1,
-                            "character": 28
+                            "character": 13
                         }
                     }
                 }
@@ -338,7 +338,7 @@ type tupleObj = [Obj2, Obj2]
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 24
+                                    "character": 15
                                 }
                             }
                         }
@@ -364,7 +364,7 @@ type tupleObj = [Obj2, Obj2]
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 34
+                                    "character": 26
                                 }
                             }
                         }
@@ -385,11 +385,11 @@ type tupleObj = [Obj2, Obj2]
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 36
+                            "character": 9
                         }
                     }
                 }
@@ -419,7 +419,7 @@ type tupleObj = [Obj2, Obj2]
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 24
+                                    "character": 15
                                 }
                             }
                         }
@@ -445,7 +445,7 @@ type tupleObj = [Obj2, Obj2]
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 34
+                                    "character": 26
                                 }
                             }
                         }
@@ -466,11 +466,11 @@ type tupleObj = [Obj2, Obj2]
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 36
+                            "character": 9
                         }
                     }
                 }

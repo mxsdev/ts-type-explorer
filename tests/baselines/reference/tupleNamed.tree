@@ -35,11 +35,11 @@ type namedTuple = [param: "a", param2: string, param3: number]
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 5
                         },
                         "end": {
                             "line": 0,
-                            "character": 62
+                            "character": 15
                         }
                     }
                 }

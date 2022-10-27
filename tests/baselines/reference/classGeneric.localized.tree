@@ -13,11 +13,11 @@ class TestBaseClass { }
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
                         "line": 0,
-                        "character": 23
+                        "character": 19
                     }
                 }
             }
@@ -29,11 +29,11 @@ class TestBaseClass { }
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
                     "line": 0,
-                    "character": 23
+                    "character": 19
                 }
             }
         }
@@ -61,11 +61,11 @@ class TestBaseClass { }
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
                         "line": 0,
-                        "character": 23
+                        "character": 19
                     }
                 }
             }
@@ -77,11 +77,11 @@ class TestBaseClass { }
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
                     "line": 0,
-                    "character": 23
+                    "character": 19
                 }
             }
         }
@@ -122,11 +122,11 @@ class TestClass<T> extends TestBaseClass {
                 "range": {
                     "start": {
                         "line": 2,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
-                        "line": 13,
-                        "character": 1
+                        "line": 2,
+                        "character": 15
                     }
                 }
             }
@@ -138,11 +138,11 @@ class TestClass<T> extends TestBaseClass {
             "range": {
                 "start": {
                     "line": 2,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
-                    "line": 13,
-                    "character": 1
+                    "line": 2,
+                    "character": 15
                 }
             }
         }
@@ -205,11 +205,11 @@ class TestClass<T> extends TestBaseClass {
                         "range": {
                             "start": {
                                 "line": 0,
-                                "character": 0
+                                "character": 6
                             },
                             "end": {
                                 "line": 0,
-                                "character": 23
+                                "character": 19
                             }
                         }
                     }
@@ -222,11 +222,11 @@ class TestClass<T> extends TestBaseClass {
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 6
                         },
                         "end": {
                             "line": 0,
-                            "character": 23
+                            "character": 19
                         }
                     }
                 }
@@ -287,7 +287,7 @@ class TestClass<T> extends TestBaseClass {
                                     },
                                     "end": {
                                         "line": 3,
-                                        "character": 30
+                                        "character": 21
                                     }
                                 }
                             }
@@ -303,7 +303,7 @@ class TestClass<T> extends TestBaseClass {
                                 },
                                 "end": {
                                     "line": 3,
-                                    "character": 30
+                                    "character": 21
                                 }
                             }
                         }
@@ -327,7 +327,7 @@ class TestClass<T> extends TestBaseClass {
                                     },
                                     "end": {
                                         "line": 3,
-                                        "character": 52
+                                        "character": 37
                                     }
                                 }
                             }
@@ -343,7 +343,7 @@ class TestClass<T> extends TestBaseClass {
                                 },
                                 "end": {
                                     "line": 3,
-                                    "character": 52
+                                    "character": 37
                                 }
                             }
                         }
@@ -390,8 +390,8 @@ class TestClass<T> extends TestBaseClass {
                                 "character": 4
                             },
                             "end": {
-                                "line": 12,
-                                "character": 5
+                                "line": 10,
+                                "character": 12
                             }
                         }
                     }
@@ -406,8 +406,8 @@ class TestClass<T> extends TestBaseClass {
                             "character": 4
                         },
                         "end": {
-                            "line": 12,
-                            "character": 5
+                            "line": 10,
+                            "character": 12
                         }
                     }
                 }
@@ -430,7 +430,7 @@ class TestClass<T> extends TestBaseClass {
                                     },
                                     "end": {
                                         "line": 10,
-                                        "character": 21
+                                        "character": 18
                                     }
                                 }
                             }
@@ -446,7 +446,7 @@ class TestClass<T> extends TestBaseClass {
                                 },
                                 "end": {
                                     "line": 10,
-                                    "character": 21
+                                    "character": 18
                                 }
                             }
                         }
@@ -475,11 +475,11 @@ class TestClass<T> extends TestBaseClass {
                 "range": {
                     "start": {
                         "line": 2,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
-                        "line": 13,
-                        "character": 1
+                        "line": 2,
+                        "character": 15
                     }
                 }
             }
@@ -491,11 +491,11 @@ class TestClass<T> extends TestBaseClass {
             "range": {
                 "start": {
                     "line": 2,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
-                    "line": 13,
-                    "character": 1
+                    "line": 2,
+                    "character": 15
                 }
             }
         }
@@ -558,11 +558,11 @@ class TestClass<T> extends TestBaseClass {
                         "range": {
                             "start": {
                                 "line": 0,
-                                "character": 0
+                                "character": 6
                             },
                             "end": {
                                 "line": 0,
-                                "character": 23
+                                "character": 19
                             }
                         }
                     }
@@ -575,11 +575,11 @@ class TestClass<T> extends TestBaseClass {
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 6
                         },
                         "end": {
                             "line": 0,
-                            "character": 23
+                            "character": 19
                         }
                     }
                 }
@@ -640,7 +640,7 @@ class TestClass<T> extends TestBaseClass {
                                     },
                                     "end": {
                                         "line": 3,
-                                        "character": 30
+                                        "character": 21
                                     }
                                 }
                             }
@@ -656,7 +656,7 @@ class TestClass<T> extends TestBaseClass {
                                 },
                                 "end": {
                                     "line": 3,
-                                    "character": 30
+                                    "character": 21
                                 }
                             }
                         }
@@ -680,7 +680,7 @@ class TestClass<T> extends TestBaseClass {
                                     },
                                     "end": {
                                         "line": 3,
-                                        "character": 52
+                                        "character": 37
                                     }
                                 }
                             }
@@ -696,7 +696,7 @@ class TestClass<T> extends TestBaseClass {
                                 },
                                 "end": {
                                     "line": 3,
-                                    "character": 52
+                                    "character": 37
                                 }
                             }
                         }
@@ -743,8 +743,8 @@ class TestClass<T> extends TestBaseClass {
                                 "character": 4
                             },
                             "end": {
-                                "line": 12,
-                                "character": 5
+                                "line": 10,
+                                "character": 12
                             }
                         }
                     }
@@ -759,8 +759,8 @@ class TestClass<T> extends TestBaseClass {
                             "character": 4
                         },
                         "end": {
-                            "line": 12,
-                            "character": 5
+                            "line": 10,
+                            "character": 12
                         }
                     }
                 }
@@ -783,7 +783,7 @@ class TestClass<T> extends TestBaseClass {
                                     },
                                     "end": {
                                         "line": 10,
-                                        "character": 21
+                                        "character": 18
                                     }
                                 }
                             }
@@ -799,7 +799,7 @@ class TestClass<T> extends TestBaseClass {
                                 },
                                 "end": {
                                     "line": 10,
-                                    "character": 21
+                                    "character": 18
                                 }
                             }
                         }
@@ -874,11 +874,11 @@ class TestClass<T> extends TestBaseClass {
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
                         "line": 0,
-                        "character": 23
+                        "character": 19
                     }
                 }
             }
@@ -890,11 +890,11 @@ class TestClass<T> extends TestBaseClass {
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
                     "line": 0,
-                    "character": 23
+                    "character": 19
                 }
             }
         }
@@ -935,11 +935,11 @@ class TestClass<T> extends TestBaseClass {
                 "range": {
                     "start": {
                         "line": 2,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
-                        "line": 13,
-                        "character": 1
+                        "line": 2,
+                        "character": 15
                     }
                 }
             }
@@ -951,11 +951,11 @@ class TestClass<T> extends TestBaseClass {
             "range": {
                 "start": {
                     "line": 2,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
-                    "line": 13,
-                    "character": 1
+                    "line": 2,
+                    "character": 15
                 }
             }
         }
@@ -1018,11 +1018,11 @@ class TestClass<T> extends TestBaseClass {
                         "range": {
                             "start": {
                                 "line": 0,
-                                "character": 0
+                                "character": 6
                             },
                             "end": {
                                 "line": 0,
-                                "character": 23
+                                "character": 19
                             }
                         }
                     }
@@ -1035,11 +1035,11 @@ class TestClass<T> extends TestBaseClass {
                     "range": {
                         "start": {
                             "line": 0,
-                            "character": 0
+                            "character": 6
                         },
                         "end": {
                             "line": 0,
-                            "character": 23
+                            "character": 19
                         }
                     }
                 }
@@ -1100,7 +1100,7 @@ class TestClass<T> extends TestBaseClass {
                                     },
                                     "end": {
                                         "line": 3,
-                                        "character": 30
+                                        "character": 21
                                     }
                                 }
                             }
@@ -1116,7 +1116,7 @@ class TestClass<T> extends TestBaseClass {
                                 },
                                 "end": {
                                     "line": 3,
-                                    "character": 30
+                                    "character": 21
                                 }
                             }
                         }
@@ -1140,7 +1140,7 @@ class TestClass<T> extends TestBaseClass {
                                     },
                                     "end": {
                                         "line": 3,
-                                        "character": 52
+                                        "character": 37
                                     }
                                 }
                             }
@@ -1156,7 +1156,7 @@ class TestClass<T> extends TestBaseClass {
                                 },
                                 "end": {
                                     "line": 3,
-                                    "character": 52
+                                    "character": 37
                                 }
                             }
                         }
@@ -1203,8 +1203,8 @@ class TestClass<T> extends TestBaseClass {
                                 "character": 4
                             },
                             "end": {
-                                "line": 12,
-                                "character": 5
+                                "line": 10,
+                                "character": 12
                             }
                         }
                     }
@@ -1219,8 +1219,8 @@ class TestClass<T> extends TestBaseClass {
                             "character": 4
                         },
                         "end": {
-                            "line": 12,
-                            "character": 5
+                            "line": 10,
+                            "character": 12
                         }
                     }
                 }
@@ -1243,7 +1243,7 @@ class TestClass<T> extends TestBaseClass {
                                     },
                                     "end": {
                                         "line": 10,
-                                        "character": 21
+                                        "character": 18
                                     }
                                 }
                             }
@@ -1259,7 +1259,7 @@ class TestClass<T> extends TestBaseClass {
                                 },
                                 "end": {
                                     "line": 10,
-                                    "character": 21
+                                    "character": 18
                                 }
                             }
                         }
@@ -1295,7 +1295,7 @@ class TestClass<T> extends TestBaseClass {
                     },
                     "end": {
                         "line": 3,
-                        "character": 30
+                        "character": 21
                     }
                 }
             }
@@ -1311,7 +1311,7 @@ class TestClass<T> extends TestBaseClass {
                 },
                 "end": {
                     "line": 3,
-                    "character": 30
+                    "character": 21
                 }
             }
         }
@@ -1336,7 +1336,7 @@ class TestClass<T> extends TestBaseClass {
                     },
                     "end": {
                         "line": 3,
-                        "character": 52
+                        "character": 37
                     }
                 }
             }
@@ -1352,7 +1352,7 @@ class TestClass<T> extends TestBaseClass {
                 },
                 "end": {
                     "line": 3,
-                    "character": 52
+                    "character": 37
                 }
             }
         }
@@ -1393,11 +1393,11 @@ class TestClass<T> extends TestBaseClass {
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
                         "line": 0,
-                        "character": 23
+                        "character": 19
                     }
                 }
             }
@@ -1409,11 +1409,11 @@ class TestClass<T> extends TestBaseClass {
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
                     "line": 0,
-                    "character": 23
+                    "character": 19
                 }
             }
         }
@@ -1448,7 +1448,7 @@ class TestClass<T> extends TestBaseClass {
                     },
                     "end": {
                         "line": 7,
-                        "character": 23
+                        "character": 9
                     }
                 }
             }
@@ -1464,7 +1464,7 @@ class TestClass<T> extends TestBaseClass {
                 },
                 "end": {
                     "line": 7,
-                    "character": 23
+                    "character": 9
                 }
             }
         }
@@ -1491,7 +1491,7 @@ class TestClass<T> extends TestBaseClass {
                     },
                     "end": {
                         "line": 8,
-                        "character": 24
+                        "character": 10
                     }
                 }
             }
@@ -1507,7 +1507,7 @@ class TestClass<T> extends TestBaseClass {
                 },
                 "end": {
                     "line": 8,
-                    "character": 24
+                    "character": 10
                 }
             }
         }
@@ -1533,8 +1533,8 @@ class TestClass<T> extends TestBaseClass {
                         "character": 4
                     },
                     "end": {
-                        "line": 12,
-                        "character": 5
+                        "line": 10,
+                        "character": 12
                     }
                 }
             }
@@ -1549,8 +1549,8 @@ class TestClass<T> extends TestBaseClass {
                     "character": 4
                 },
                 "end": {
-                    "line": 12,
-                    "character": 5
+                    "line": 10,
+                    "character": 12
                 }
             }
         }
@@ -1573,7 +1573,7 @@ class TestClass<T> extends TestBaseClass {
                             },
                             "end": {
                                 "line": 10,
-                                "character": 21
+                                "character": 18
                             }
                         }
                     }
@@ -1589,7 +1589,7 @@ class TestClass<T> extends TestBaseClass {
                         },
                         "end": {
                             "line": 10,
-                            "character": 21
+                            "character": 18
                         }
                     }
                 }
@@ -1627,7 +1627,7 @@ class TestClass<T> extends TestBaseClass {
                     },
                     "end": {
                         "line": 10,
-                        "character": 21
+                        "character": 18
                     }
                 }
             }
@@ -1643,7 +1643,7 @@ class TestClass<T> extends TestBaseClass {
                 },
                 "end": {
                     "line": 10,
-                    "character": 21
+                    "character": 18
                 }
             }
         }
@@ -1712,7 +1712,7 @@ const _a = new TestClass<string>(false, 4)
                     },
                     "end": {
                         "line": 15,
-                        "character": 42
+                        "character": 8
                     }
                 }
             }
@@ -1728,7 +1728,7 @@ const _a = new TestClass<string>(false, 4)
                 },
                 "end": {
                     "line": 15,
-                    "character": 42
+                    "character": 8
                 }
             }
         }
@@ -1746,11 +1746,11 @@ const _a = new TestClass<string>(false, 4)
                         "range": {
                             "start": {
                                 "line": 2,
-                                "character": 0
+                                "character": 6
                             },
                             "end": {
-                                "line": 13,
-                                "character": 1
+                                "line": 2,
+                                "character": 15
                             }
                         }
                     }
@@ -1763,11 +1763,11 @@ const _a = new TestClass<string>(false, 4)
                     "range": {
                         "start": {
                             "line": 2,
-                            "character": 0
+                            "character": 6
                         },
                         "end": {
-                            "line": 13,
-                            "character": 1
+                            "line": 2,
+                            "character": 15
                         }
                     }
                 }
@@ -1839,11 +1839,11 @@ const _a = new TestClass<string>(false, 4)
                                 "range": {
                                     "start": {
                                         "line": 0,
-                                        "character": 0
+                                        "character": 6
                                     },
                                     "end": {
                                         "line": 0,
-                                        "character": 23
+                                        "character": 19
                                     }
                                 }
                             }
@@ -1856,11 +1856,11 @@ const _a = new TestClass<string>(false, 4)
                             "range": {
                                 "start": {
                                     "line": 0,
-                                    "character": 0
+                                    "character": 6
                                 },
                                 "end": {
                                     "line": 0,
-                                    "character": 23
+                                    "character": 19
                                 }
                             }
                         }
@@ -1921,7 +1921,7 @@ const _a = new TestClass<string>(false, 4)
                                             },
                                             "end": {
                                                 "line": 3,
-                                                "character": 30
+                                                "character": 21
                                             }
                                         }
                                     }
@@ -1937,7 +1937,7 @@ const _a = new TestClass<string>(false, 4)
                                         },
                                         "end": {
                                             "line": 3,
-                                            "character": 30
+                                            "character": 21
                                         }
                                     }
                                 }
@@ -1961,7 +1961,7 @@ const _a = new TestClass<string>(false, 4)
                                             },
                                             "end": {
                                                 "line": 3,
-                                                "character": 52
+                                                "character": 37
                                             }
                                         }
                                     }
@@ -1977,7 +1977,7 @@ const _a = new TestClass<string>(false, 4)
                                         },
                                         "end": {
                                             "line": 3,
-                                            "character": 52
+                                            "character": 37
                                         }
                                     }
                                 }
@@ -2020,8 +2020,8 @@ const _a = new TestClass<string>(false, 4)
                                         "character": 4
                                     },
                                     "end": {
-                                        "line": 12,
-                                        "character": 5
+                                        "line": 10,
+                                        "character": 12
                                     }
                                 }
                             }
@@ -2036,8 +2036,8 @@ const _a = new TestClass<string>(false, 4)
                                     "character": 4
                                 },
                                 "end": {
-                                    "line": 12,
-                                    "character": 5
+                                    "line": 10,
+                                    "character": 12
                                 }
                             }
                         }
@@ -2060,7 +2060,7 @@ const _a = new TestClass<string>(false, 4)
                                             },
                                             "end": {
                                                 "line": 10,
-                                                "character": 21
+                                                "character": 18
                                             }
                                         }
                                     }
@@ -2076,7 +2076,7 @@ const _a = new TestClass<string>(false, 4)
                                         },
                                         "end": {
                                             "line": 10,
-                                            "character": 21
+                                            "character": 18
                                         }
                                     }
                                 }
@@ -2111,7 +2111,7 @@ const _a = new TestClass<string>(false, 4)
                             },
                             "end": {
                                 "line": 7,
-                                "character": 23
+                                "character": 9
                             }
                         }
                     }
@@ -2127,7 +2127,7 @@ const _a = new TestClass<string>(false, 4)
                         },
                         "end": {
                             "line": 7,
-                            "character": 23
+                            "character": 9
                         }
                     }
                 }
@@ -2153,7 +2153,7 @@ const _a = new TestClass<string>(false, 4)
                             },
                             "end": {
                                 "line": 8,
-                                "character": 24
+                                "character": 10
                             }
                         }
                     }
@@ -2169,7 +2169,7 @@ const _a = new TestClass<string>(false, 4)
                         },
                         "end": {
                             "line": 8,
-                            "character": 24
+                            "character": 10
                         }
                     }
                 }
@@ -2192,8 +2192,8 @@ const _a = new TestClass<string>(false, 4)
                                 "character": 4
                             },
                             "end": {
-                                "line": 12,
-                                "character": 5
+                                "line": 10,
+                                "character": 12
                             }
                         }
                     }
@@ -2208,8 +2208,8 @@ const _a = new TestClass<string>(false, 4)
                             "character": 4
                         },
                         "end": {
-                            "line": 12,
-                            "character": 5
+                            "line": 10,
+                            "character": 12
                         }
                     }
                 }
@@ -2239,11 +2239,11 @@ const _a = new TestClass<string>(false, 4)
                 "range": {
                     "start": {
                         "line": 2,
-                        "character": 0
+                        "character": 6
                     },
                     "end": {
-                        "line": 13,
-                        "character": 1
+                        "line": 2,
+                        "character": 15
                     }
                 }
             }
@@ -2255,11 +2255,11 @@ const _a = new TestClass<string>(false, 4)
             "range": {
                 "start": {
                     "line": 2,
-                    "character": 0
+                    "character": 6
                 },
                 "end": {
-                    "line": 13,
-                    "character": 1
+                    "line": 2,
+                    "character": 15
                 }
             }
         }
@@ -2336,7 +2336,7 @@ const _a = new TestClass<string>(false, 4)
                             },
                             "end": {
                                 "line": 3,
-                                "character": 30
+                                "character": 21
                             }
                         }
                     }
@@ -2352,7 +2352,7 @@ const _a = new TestClass<string>(false, 4)
                         },
                         "end": {
                             "line": 3,
-                            "character": 30
+                            "character": 21
                         }
                     }
                 }
@@ -2376,7 +2376,7 @@ const _a = new TestClass<string>(false, 4)
                             },
                             "end": {
                                 "line": 3,
-                                "character": 52
+                                "character": 37
                             }
                         }
                     }
@@ -2392,7 +2392,7 @@ const _a = new TestClass<string>(false, 4)
                         },
                         "end": {
                             "line": 3,
-                            "character": 52
+                            "character": 37
                         }
                     }
                 }
@@ -2422,11 +2422,11 @@ const _a = new TestClass<string>(false, 4)
                         "range": {
                             "start": {
                                 "line": 2,
-                                "character": 0
+                                "character": 6
                             },
                             "end": {
-                                "line": 13,
-                                "character": 1
+                                "line": 2,
+                                "character": 15
                             }
                         }
                     }
@@ -2439,11 +2439,11 @@ const _a = new TestClass<string>(false, 4)
                     "range": {
                         "start": {
                             "line": 2,
-                            "character": 0
+                            "character": 6
                         },
                         "end": {
-                            "line": 13,
-                            "character": 1
+                            "line": 2,
+                            "character": 15
                         }
                     }
                 }
@@ -2469,11 +2469,11 @@ const _a = new TestClass<string>(false, 4)
                                 "range": {
                                     "start": {
                                         "line": 2,
-                                        "character": 0
+                                        "character": 6
                                     },
                                     "end": {
-                                        "line": 13,
-                                        "character": 1
+                                        "line": 2,
+                                        "character": 15
                                     }
                                 }
                             }
@@ -2486,11 +2486,11 @@ const _a = new TestClass<string>(false, 4)
                             "range": {
                                 "start": {
                                     "line": 2,
-                                    "character": 0
+                                    "character": 6
                                 },
                                 "end": {
-                                    "line": 13,
-                                    "character": 1
+                                    "line": 2,
+                                    "character": 15
                                 }
                             }
                         }
@@ -2516,11 +2516,11 @@ const _a = new TestClass<string>(false, 4)
                                         "range": {
                                             "start": {
                                                 "line": 0,
-                                                "character": 0
+                                                "character": 6
                                             },
                                             "end": {
                                                 "line": 0,
-                                                "character": 23
+                                                "character": 19
                                             }
                                         }
                                     }
@@ -2533,11 +2533,11 @@ const _a = new TestClass<string>(false, 4)
                                     "range": {
                                         "start": {
                                             "line": 0,
-                                            "character": 0
+                                            "character": 6
                                         },
                                         "end": {
                                             "line": 0,
-                                            "character": 23
+                                            "character": 19
                                         }
                                     }
                                 }
@@ -2611,8 +2611,8 @@ const _a = new TestClass<string>(false, 4)
                                                 "character": 4
                                             },
                                             "end": {
-                                                "line": 12,
-                                                "character": 5
+                                                "line": 10,
+                                                "character": 12
                                             }
                                         }
                                     }
@@ -2627,8 +2627,8 @@ const _a = new TestClass<string>(false, 4)
                                             "character": 4
                                         },
                                         "end": {
-                                            "line": 12,
-                                            "character": 5
+                                            "line": 10,
+                                            "character": 12
                                         }
                                     }
                                 }
@@ -2651,7 +2651,7 @@ const _a = new TestClass<string>(false, 4)
                                                     },
                                                     "end": {
                                                         "line": 10,
-                                                        "character": 21
+                                                        "character": 18
                                                     }
                                                 }
                                             }
@@ -2667,7 +2667,7 @@ const _a = new TestClass<string>(false, 4)
                                                 },
                                                 "end": {
                                                     "line": 10,
-                                                    "character": 21
+                                                    "character": 18
                                                 }
                                             }
                                         }
@@ -2702,7 +2702,7 @@ const _a = new TestClass<string>(false, 4)
                                     },
                                     "end": {
                                         "line": 7,
-                                        "character": 23
+                                        "character": 9
                                     }
                                 }
                             }
@@ -2718,7 +2718,7 @@ const _a = new TestClass<string>(false, 4)
                                 },
                                 "end": {
                                     "line": 7,
-                                    "character": 23
+                                    "character": 9
                                 }
                             }
                         }
@@ -2744,7 +2744,7 @@ const _a = new TestClass<string>(false, 4)
                                     },
                                     "end": {
                                         "line": 8,
-                                        "character": 24
+                                        "character": 10
                                     }
                                 }
                             }
@@ -2760,7 +2760,7 @@ const _a = new TestClass<string>(false, 4)
                                 },
                                 "end": {
                                     "line": 8,
-                                    "character": 24
+                                    "character": 10
                                 }
                             }
                         }
@@ -2783,8 +2783,8 @@ const _a = new TestClass<string>(false, 4)
                                         "character": 4
                                     },
                                     "end": {
-                                        "line": 12,
-                                        "character": 5
+                                        "line": 10,
+                                        "character": 12
                                     }
                                 }
                             }
@@ -2799,8 +2799,8 @@ const _a = new TestClass<string>(false, 4)
                                     "character": 4
                                 },
                                 "end": {
-                                    "line": 12,
-                                    "character": 5
+                                    "line": 10,
+                                    "character": 12
                                 }
                             }
                         }
