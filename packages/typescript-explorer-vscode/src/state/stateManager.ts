@@ -139,7 +139,7 @@ export class StateManager {
     }
 
     private updateSelectionContext() {
-        this.selectionEnabled = selectionEnabled()
+        this.selectionEnabled = selectionEnabled.get()
         vscode.commands.executeCommand(
             "setContext",
             "typescriptExplorer.selection.enabled",

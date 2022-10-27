@@ -115,7 +115,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
                 .map((info) => this.createTypeNode(info, element))
                 .filter(
                     ({ typeInfo: { purpose } }) =>
-                        showTypeParameterInfo() ||
+                        showTypeParameterInfo.get() ||
                         !(
                             purpose === "type_argument_list" ||
                             purpose === "type_parameter_list"
@@ -123,7 +123,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
                 )
                 .filter(
                     ({ typeInfo: { purpose } }) =>
-                        showBaseClassInfo() ||
+                        showBaseClassInfo.get() ||
                         !(
                             purpose === "class_base_type" ||
                             purpose === "class_implementations" ||
@@ -275,7 +275,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
     type IconId = [id: string, colorId?: string]
 
     function getIcon(): vscode.ThemeIcon | undefined {
-        if (!iconsEnabled()) {
+        if (!iconsEnabled.get()) {
             return undefined
         }
 
@@ -287,7 +287,7 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
         const [id] = iconIds
         let [colorId] = iconIds
 
-        if (!iconColorsEnabled()) {
+        if (!iconColorsEnabled.get()) {
             colorId = "icon.foreground"
         }
 
