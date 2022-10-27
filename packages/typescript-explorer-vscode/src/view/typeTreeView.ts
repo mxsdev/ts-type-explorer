@@ -361,6 +361,10 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
                     return ["symbol-number"]
                 }
 
+                case "boolean_literal": {
+                    return ["symbol-boolean"]
+                }
+
                 case "enum": {
                     return ["symbol-enum"]
                 }
