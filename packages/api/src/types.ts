@@ -40,14 +40,12 @@ export type IndexInfo = {
     type?: TypeInfo
     parameterSymbol?: SymbolInfo
     parameterType?: TypeInfo
-    // parameterName?: string
 }
 
 export type SignatureInfo = {
     symbolMeta?: SymbolInfo
     parameters: TypeInfo[]
     returnType?: TypeInfo
-    // minArgumentCount: number,
     typeParameters?: TypeInfo[]
 }
 
@@ -217,19 +215,67 @@ export type ResolvedArrayTypeInfo = {
     dimension: number
 }
 
+/**
+ * Collapsed version of TypeInfo which is much more useful for displaying to a
+ * user
+ */
 export type LocalizedTypeInfo = {
+    /**
+     * Localized text version of kind
+     */
     kindText?: string
+    /**
+     * The type's kind, such as object, enum, etc.
+     */
     kind?: ResolvedTypeInfo["kind"] | "signature" | "index_info"
+    /**
+     * In case kind is "primitive", this specifies the kind of primitive
+     */
     primitiveKind?: PrimitiveKind
+    /**
+     * Name of the type alias, if any
+     */
     alias?: string
+    /**
+     * Symbol info associated with this type, if any
+     */
     symbol?: LocalizedSymbolInfo
+    /**
+     * Resolved type name
+     */
     name?: string
+    /**
+     * Some localized type nodes have some special function, which is indicated
+     * by its "purpose"
+     *
+     * For example, a localized type node can exist for the purpose of listing
+     * relevant type parameters, in which case it has a purpose of
+     * "type_parameter_list"
+     *
+     * In the VSCode Extension, purpose is usually denoted with angle brackets.
+     * The above example, for instance, corresponds to the tree node "<type
+     * parameters>"
+     */
     purpose?: TypePurpose
+    /**
+     * Whether this type is something like, for example, an optional parameter
+     */
     optional?: boolean
+    /**
+     * If this type represents an array, it will have a dimension > 0
+     * corresponding to the array type's dimension
+     */
     dimension?: number
+    /**
+     * Whether this type/symbol is something like, for example, a rest parameter
+     * in a function
+     */
     rest?: boolean
-    children?: TypeInfoChildren
+    /**
+     * List of resolved locations of the type
+     */
     locations?: SourceFileLocation[]
+    children?: TypeInfoChildren
     /**
      * Debug id information, used by test runner
      * to identify and remove cycles

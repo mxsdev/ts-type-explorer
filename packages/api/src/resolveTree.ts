@@ -12,6 +12,9 @@ import { getTypeInfoChildren } from "./tree"
 import { _localizeTypeInfo } from "./localizedTree"
 import { filterUndefined } from "./objectUtil"
 
+/**
+ * Localizes and resolves circularities in TypeInfo nodes
+ */
 export class TypeInfoResolver {
     private includeIds = false
 
@@ -195,6 +198,8 @@ export class TypeInfoResolver {
      * resultant localized type info.
      *
      * This is used by the test runner to identify circular paths.
+     *
+     * @internal
      */
     debug(): this {
         this.includeIds = true
