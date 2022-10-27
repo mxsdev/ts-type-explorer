@@ -36,10 +36,6 @@ type mapped = { [index: string]: number }
                         }
                     }
                 ]
-            },
-            "parameterType": {
-                "kind": "reference",
-                "id": "2"
             }
         }
     ],

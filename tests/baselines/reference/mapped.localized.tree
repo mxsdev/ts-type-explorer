@@ -65,12 +65,9 @@ type mapped = { [index: string]: number }
                     "kindText": "string",
                     "kind": "primitive",
                     "primitiveKind": "string",
-                    "purpose": "index_parameter_type",
+                    "purpose": "index_type",
                     "children": [],
                     "_id": "1"
-                },
-                {
-                    "reference": "1"
                 },
                 {
                     "kindText": "number",

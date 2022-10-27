@@ -68,10 +68,6 @@ interface InterfaceWithIndex {
                         }
                     }
                 ]
-            },
-            "parameterType": {
-                "kind": "reference",
-                "id": "2"
             }
         }
     ],

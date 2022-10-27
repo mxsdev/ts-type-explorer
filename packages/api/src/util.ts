@@ -218,6 +218,9 @@ export type TSIndexInfoMerged = {
     type?: ts.Type
     parameterType?: ts.Type
 }
+
+export type TSIndexInfoType = "simple" | "parameter"
+
 interface MappedType extends ts.Type {
     declaration: ts.MappedTypeNode
     typeParameter?: ts.TypeParameter
@@ -229,12 +232,16 @@ interface MappedType extends ts.Type {
     // containsError?: boolean;
 }
 
+export type TSIndexInfo = { type: TSIndexInfoType; info: TSIndexInfoMerged }
+
 export function getIndexInfos(
     { typeChecker, ts }: TypescriptContext,
     type: ts.Type
 ) {
-    const indexInfos: TSIndexInfoMerged[] = [
-        ...typeChecker.getIndexInfosOfType(type),
+    const indexInfos: TSIndexInfo[] = [
+        ...typeChecker
+            .getIndexInfosOfType(type)
+            .map((info) => ({ type: "simple", info } as const)),
     ]
 
     if (
@@ -247,10 +254,13 @@ export function getIndexInfos(
 
         if (mappedType.typeParameter) {
             indexInfos.push({
-                keyType: mappedType.constraintType,
-                type: mappedType.templateType,
-                parameterType: mappedType.typeParameter,
-                declaration: mappedType.declaration,
+                type: "parameter",
+                info: {
+                    keyType: mappedType.constraintType,
+                    type: mappedType.templateType,
+                    parameterType: mappedType.typeParameter,
+                    declaration: mappedType.declaration,
+                },
             })
         }
     }

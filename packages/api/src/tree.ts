@@ -17,7 +17,6 @@ import {
     getIntersectionTypesFlat,
     getSymbolType,
     getTypeId,
-    TSIndexInfoMerged,
     isPureObject,
     wrapSafe,
     isArrayType,
@@ -42,6 +41,7 @@ import {
     TypescriptContext,
     removeDuplicates,
     narrowDeclarationForLocation,
+    TSIndexInfo,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -556,7 +556,7 @@ function _generateTypeTree(
         })
     }
 
-    function getIndexInfo(indexInfo: TSIndexInfoMerged): IndexInfo {
+    function getIndexInfo({ info: indexInfo, type }: TSIndexInfo): IndexInfo {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const parameterSymbol: ts.Symbol =
             // @ts-expect-error This info exists on the object but is not publicly exposed by type info
@@ -565,8 +565,9 @@ function _generateTypeTree(
             indexInfo?.parameterType?.getSymbol()
 
         const parameterType =
-            indexInfo?.parameterType ??
-            (parameterSymbol && getSymbolType(tsCtx, parameterSymbol))
+            type === "parameter" &&
+            (indexInfo?.parameterType ??
+                (parameterSymbol && getSymbolType(tsCtx, parameterSymbol)))
 
         return {
             ...(indexInfo.keyType && { keyType: parseType(indexInfo.keyType) }),
