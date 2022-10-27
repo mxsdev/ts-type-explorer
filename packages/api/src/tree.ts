@@ -320,6 +320,8 @@ function _generateTypeTree(
                 }
             }
 
+            const indexInfos = getIndexInfos(tsCtx, type) //.map((indexInfo) => getIndexInfo(indexInfo))
+
             if (isArrayType(tsCtx, type)) {
                 return {
                     kind: "array",
@@ -339,15 +341,17 @@ function _generateTypeTree(
                     symbol &&
                     symbol.flags & SymbolFlags.Class)
             ) {
+                const interfaceKind = isClassType(tsCtx, type)
+                    ? "class"
+                    : isInterfaceType(tsCtx, type)
+                    ? "interface"
+                    : (assert(
+                          false,
+                          "Should be class or interface type"
+                      ) as never)
+
                 return {
-                    kind: isClassType(tsCtx, type)
-                        ? "class"
-                        : isInterfaceType(tsCtx, type)
-                        ? "interface"
-                        : (assert(
-                              false,
-                              "Should be class or interface type"
-                          ) as never),
+                    kind: interfaceKind,
                     properties: parseSymbols(type.getProperties(), {
                         insideClassOrInterface: true,
                     }),
@@ -365,6 +369,10 @@ function _generateTypeTree(
                         })
                     ),
                     classSymbol: wrapSafe(getSymbolInfo)(classSymbol),
+                    ...(interfaceKind === "interface" &&
+                        isNonEmpty(indexInfos) && {
+                            indexInfos: indexInfos.map(getIndexInfo),
+                        }),
                 }
             } else if (signatures.length > 0) {
                 return {
@@ -381,9 +389,7 @@ function _generateTypeTree(
                 return {
                     kind: "object",
                     properties: parseSymbols(type.getProperties()),
-                    indexInfos: getIndexInfos(tsCtx, type).map((indexInfo) =>
-                        getIndexInfo(indexInfo)
-                    ),
+                    indexInfos: indexInfos.map(getIndexInfo),
                     objectClass: wrapSafe(parseSymbol)(classSymbol),
                 }
             }
@@ -694,6 +700,12 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
         ...(signature.typeParameters ?? []),
     ]
 
+    const mapIndexInfo = (x: IndexInfo): (TypeInfo | undefined)[] => [
+        x.type,
+        x.keyType,
+        x.parameterType,
+    ]
+
     return [
         ...(info.typeParameters ?? []),
         ...(info.typeArguments ?? []),
@@ -705,11 +717,7 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
             case "object": {
                 return [
                     ...info.properties,
-                    ...(info.indexInfos?.flatMap((x) => [
-                        x.type,
-                        x.keyType,
-                        x.parameterType,
-                    ]) ?? []),
+                    ...(info.indexInfos?.flatMap(mapIndexInfo) ?? []),
                     // ...wrapSafe(getTypeInfoChildren)(info.objectClass) ?? [],
                     info.objectClass,
                 ]
@@ -776,6 +784,7 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
                         []),
                     info.baseType,
                     ...(info.implementsTypes ?? []),
+                    ...(info.indexInfos?.flatMap(mapIndexInfo) ?? []),
                 ]
             }
 
@@ -789,6 +798,10 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
 }
 
 export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
+    const mapIndexInfo = ({
+        parameterSymbol,
+    }: IndexInfo): SymbolInfo | undefined => parameterSymbol
+
     return removeDuplicates(
         filterUndefined([
             info.symbolMeta,
@@ -800,17 +813,14 @@ export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
     function _getTypeInfoSymbols(info: TypeInfo): (SymbolInfo | undefined)[] {
         switch (info.kind) {
             case "object": {
-                return [
-                    ...(info.indexInfos?.map(
-                        ({ parameterSymbol }) => parameterSymbol
-                    ) ?? []),
-                ]
+                return [...(info.indexInfos?.map(mapIndexInfo) ?? [])]
             }
 
             case "class": {
                 return [
                     ...(info.constructSignatures?.flatMap(mapSignature) ?? []),
                     info.classSymbol,
+                    ...(info.indexInfos?.map(mapIndexInfo) ?? []),
                 ]
             }
 

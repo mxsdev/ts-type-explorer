@@ -1,0 +1,159 @@
+=== interfaceWithIndex.ts ===
+
+interface InterfaceWithIndex {
+  [index: string]: string;
+  a: "asd"
+}
+> InterfaceWithIndex --- {
+    "kind": "interface",
+    "properties": [
+        {
+            "kind": "string_literal",
+            "value": "asd",
+            "symbolMeta": {
+                "name": "a",
+                "flags": 4,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/interfaceWithIndex.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 2
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 3
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "implementsTypes": [],
+    "constructSignatures": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            "type": {
+                "kind": "reference",
+                "id": "2"
+            },
+            "parameterSymbol": {
+                "name": "index",
+                "flags": 1,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/interfaceWithIndex.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 3
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 8
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameterType": {
+                "kind": "reference",
+                "id": "2"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "InterfaceWithIndex",
+        "flags": 64,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/interfaceWithIndex.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 10
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 28
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> [index: string]: string;
+  a: "asd"
+> [index: string]: string;
+> index: string
+> index: string
+> index --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "index",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/interfaceWithIndex.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 3
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 8
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> a: "asd"
+> a --- {
+    "kind": "string_literal",
+    "value": "asd",
+    "symbolMeta": {
+        "name": "a",
+        "flags": 4,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/interfaceWithIndex.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 2
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 3
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

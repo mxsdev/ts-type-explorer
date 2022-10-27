@@ -100,6 +100,7 @@ export type TypeInfoNoId = {
           // typeParameters?: TypeInfo[],
           constructSignatures?: SignatureInfo[]
           classSymbol?: SymbolInfo
+          indexInfos?: IndexInfo[]
       }
     | { kind: "function"; signatures: SignatureInfo[] }
     | { kind: "array"; type: TypeInfo }

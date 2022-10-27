@@ -403,6 +403,7 @@ function getChildren(
                     baseType,
                     implementsTypes,
                     constructSignatures,
+                    indexInfos,
                 } = info
                 return [
                     ...(baseType
@@ -432,6 +433,8 @@ function getChildren(
                               ),
                           ]
                         : []),
+                    ...(indexInfos?.map((info) => getLocalizedIndex(info)) ??
+                        []),
                     ...properties.map(localize),
                 ]
             }
