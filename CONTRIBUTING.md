@@ -94,7 +94,7 @@ Test cases are provided in the `tests/cases` directory.
 
 ### VSCode Testing
 
-Run `yarn test` in the `packages/typescript-explorer-vscode` directory to run the VSCode test suite.
+Run `yarn test` in the `packages/typescript-explorer-vscode` directory to run the VSCode test suite. Alternatively, you can just `yarn test:vscode` in the main directory.
 
 Tests are from the `src/test/suite` subfolder.
 
