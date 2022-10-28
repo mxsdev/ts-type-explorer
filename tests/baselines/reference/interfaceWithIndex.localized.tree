@@ -49,7 +49,7 @@ interface InterfaceWithIndex {
                 "isArgument": true,
                 "locations": [
                     {
-                        "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/interfaceWithIndex.ts",
+                        "fileName": "cases/interfaceWithIndex.ts",
                         "range": {
                             "start": {
                                 "line": 1,
@@ -65,7 +65,7 @@ interface InterfaceWithIndex {
             },
             "locations": [
                 {
-                    "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/interfaceWithIndex.ts",
+                    "fileName": "cases/interfaceWithIndex.ts",
                     "range": {
                         "start": {
                             "line": 1,

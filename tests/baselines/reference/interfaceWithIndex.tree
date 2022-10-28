@@ -54,7 +54,7 @@ interface InterfaceWithIndex {
                 "declarations": [
                     {
                         "location": {
-                            "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/interfaceWithIndex.ts",
+                            "fileName": "cases/interfaceWithIndex.ts",
                             "range": {
                                 "start": {
                                     "line": 1,

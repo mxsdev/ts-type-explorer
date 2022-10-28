@@ -826,6 +826,7 @@ export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
                 return [...(info.indexInfos?.map(mapIndexInfo) ?? [])]
             }
 
+            case "interface":
             case "class": {
                 return [
                     ...(info.constructSignatures?.flatMap(mapSignature) ?? []),
