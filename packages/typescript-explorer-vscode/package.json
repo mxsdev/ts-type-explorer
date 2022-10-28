@@ -205,17 +205,18 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "yarn run compile",
+        "vscode:prepublish": "yarn run compile && yarn run bootstrap",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "pretest": "yarn run compile",
         "bootstrap": "node ./scripts/bootstrap.js",
-        "package": "yarn run bootstrap && vsce package --yarn --dependencies && yarn run bootstrap --clean",
+        "bootstrap:clean": "yarn bootstrap --clean",
+        "package": "vsce package --yarn --dependencies",
         "test": "node ./out/test/runTest.js"
     },
     "dependencies": {
-        "@ts-type-explorer/api": "*",
-        "@ts-type-explorer/typescript-plugin": "*"
+        "@ts-type-explorer/api": "^0.1.0",
+        "@ts-type-explorer/typescript-plugin": "^0.1.0"
     },
     "devDependencies": {
         "@types/fs-extra": "^9.0.13",
@@ -224,6 +225,7 @@
         "@types/node": "16.x",
         "@types/vscode": "^1.71.0",
         "@vscode/test-electron": "^2.1.5",
+        "args-mapper": "^1.0.4",
         "commander": "^9.4.1",
         "fs-extra": "^10.1.0",
         "glob": "^8.0.3",
