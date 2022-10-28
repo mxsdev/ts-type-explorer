@@ -13,11 +13,11 @@ jobs:
           cache: yarn
 
       - name: Install Dependencies
-      - run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile
       - name: Run Tests
-      - run: yarn test
+        run: yarn test
       - name: Run VSCode Tests
-      - run: yarn run test-vscode
+        run: yarn run test-vscode
 
   lint:
     runs-on: ubuntu-latest
@@ -30,8 +30,8 @@ jobs:
           cache: yarn
 
       - name: Install Dependencies
-      - run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile
       - name: Linter
-      - run: yarn run lint
+        run: yarn run lint
       - name: Formatting
-      - run: yarn run format-check
+        run: yarn run format-check
