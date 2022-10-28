@@ -17,6 +17,7 @@ module.exports = {
         "**/dist/**",
         ".eslintrc.cjs",
         "**/scripts/**/*.js",
+        "**/.vscode-test/**",
     ],
     root: true,
     rules: {

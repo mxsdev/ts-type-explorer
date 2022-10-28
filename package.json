@@ -8,8 +8,11 @@
         "build": "tsc -b",
         "watch": "tsc -b --watch",
         "test": "mocha",
+        "test-vscode": "yarn workspace typescript-explorer-vscode test",
         "baseline-accept": "ts-node ./scripts/acceptBaselines.ts",
         "lint": "eslint .",
+        "format-check": "prettier --check .",
+        "format": "prettier --write .",
         "prepare": "husky install"
     },
     "workspaces": [
@@ -36,7 +39,15 @@
     },
     "prettier": {
         "tabWidth": 4,
-        "semi": false
+        "semi": false,
+        "overrides": [
+            {
+                "files": "*.yml",
+                "options": {
+                    "tabWidth": 2
+                }
+            }
+        ]
     },
     "lint-staged": {
         "*.ts": [
