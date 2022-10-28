@@ -43,9 +43,10 @@ jobs:
         run: yarn build
 
       - name: Package Vsix
-        env:
-          VSIX_FILENAME: typescript-explorer-v${{ env.CURRENT_VERSION }}.vsix
-        run: yarn workspace typescript-explorer-vscode package -o ./${{ env.VSIX_FILENAME }}
+        run: |
+          VSIX_FILENAME=typescript-explorer-v${{ env.CURRENT_VERSION }}.vsix
+          echo "VSIX_FILENAME=${VSIX_FILENAME}" >> $GITHUB_ENV
+          yarn workspace typescript-explorer-vscode package -o ./${VSIX_FILENAME}
 
       - name: Get Changelog
         run: |
