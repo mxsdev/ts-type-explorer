@@ -11,7 +11,7 @@
         "test-vscode": "yarn workspace typescript-explorer-vscode test",
         "baseline-accept": "ts-node ./scripts/acceptBaselines.ts",
         "lint": "eslint .",
-        "format-check": "prettier --check .",
+        "format:check": "prettier --check .",
         "format": "prettier --write .",
         "prepare": "husky install"
     },

@@ -40,4 +40,4 @@ jobs:
       - name: Linter
         run: yarn run lint
       - name: Formatting
-        run: yarn run format-check
+        run: yarn run format:check
