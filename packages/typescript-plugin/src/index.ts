@@ -7,8 +7,8 @@ import {
     TypescriptContext,
     APIConfig,
     SymbolOrType,
+    ExpandedQuickInfo,
 } from "@ts-type-explorer/api"
-import type { ExpandedQuickInfo } from "./types"
 import { isValidType, SourceFileTypescriptContext } from "@ts-type-explorer/api"
 
 // TODO: add config for e.g. max depth

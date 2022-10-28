@@ -25,6 +25,7 @@ export {
     TypeParameterInfo,
     SourceFileLocation,
     SymbolOrType,
+    ExpandedQuickInfo,
 } from "./types"
 export {
     LocalizedTypeInfo,

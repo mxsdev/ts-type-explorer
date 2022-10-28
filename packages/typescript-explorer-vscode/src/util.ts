@@ -1,7 +1,10 @@
-import { ExpandedQuickInfo } from "@ts-type-explorer/typescript-plugin/dist/types"
 import * as vscode from "vscode"
 import type * as ts from "typescript"
-import { SourceFileLocation, TypeInfo } from "@ts-type-explorer/api"
+import {
+    SourceFileLocation,
+    TypeInfo,
+    ExpandedQuickInfo,
+} from "@ts-type-explorer/api"
 
 export const toFileLocationRequestArgs = (
     file: string,

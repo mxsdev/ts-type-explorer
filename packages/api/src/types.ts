@@ -1,6 +1,10 @@
 import type * as ts from "typescript"
 import { APIConfig } from "./config"
 
+export type ExpandedQuickInfo = ts.QuickInfo & {
+    __displayTree?: TypeInfo
+}
+
 export type TypescriptContext = {
     program: ts.Program
     typeChecker: ts.TypeChecker
