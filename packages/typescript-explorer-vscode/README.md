@@ -1,6 +1,8 @@
 # typescript-explorer-vscode
 
-[2022-10-28 17-41-06.webm](https://user-images.githubusercontent.com/16108792/198748813-27d0b0b2-c37b-493f-a0ae-e1234fae5f0e.webm)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/16108792/198750577-f9430cc3-ff13-43dc-a027-da8041a38337.gif" />
+</p>
 
 VSCode Extension providing full type information in TypeScript projects. Supports:
 
