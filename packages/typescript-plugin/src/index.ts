@@ -6,6 +6,7 @@ import {
     getDescendantAtPosition,
     TypescriptContext,
     APIConfig,
+    SymbolOrType,
 } from "@ts-type-explorer/api"
 import type { ExpandedQuickInfo } from "./types"
 import { isValidType, SourceFileTypescriptContext } from "@ts-type-explorer/api"
@@ -59,12 +60,25 @@ function init(modules: {
                 return prior
             }
 
+            const symbolOrType = getSymbolOrType(ctx, node)
+
+            if (!symbolOrType) {
+                return prior
+            }
+
             if (!prior) {
                 prior = {} as ExpandedQuickInfo
             }
 
+            const apiConfig = new APIConfig()
+            apiConfig.referenceDefinedTypes = true
+
             if (prior) {
-                prior.__displayTree = getDisplayTree(ctx, node)
+                prior.__displayTree = generateTypeTree(
+                    symbolOrType,
+                    ctx,
+                    apiConfig
+                )
             }
 
             return prior
@@ -76,10 +90,10 @@ function init(modules: {
     return { create }
 }
 
-const apiConfig = new APIConfig()
-apiConfig.referenceDefinedTypes = true
-
-function getDisplayTree(ctx: TypescriptContext, node: ts.Node) {
+function getSymbolOrType(
+    ctx: TypescriptContext,
+    node: ts.Node
+): SymbolOrType | undefined {
     const { typeChecker } = ctx
 
     const symbol =
@@ -89,14 +103,14 @@ function getDisplayTree(ctx: TypescriptContext, node: ts.Node) {
         const symbolType = getSymbolType(ctx, symbol, node)
 
         if (isValidType(symbolType)) {
-            return generateTypeTree({ symbol, node }, ctx, apiConfig)
+            return { symbol, node }
         }
     }
 
     const type = getNodeType(ctx, node)
 
     if (type) {
-        return generateTypeTree({ type, node }, ctx)
+        return { type, node }
     }
 
     return undefined
