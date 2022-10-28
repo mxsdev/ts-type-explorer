@@ -2,6 +2,10 @@
 
 VSCode Extension & utilities to explore type information in TypeScript projects.
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/16108792/198750577-f9430cc3-ff13-43dc-a027-da8041a38337.gif" />
+</p>
+
 ## Packages
 
 -   [**typescript-explorer-vscode**](packages/typescript-explorer-vscode) - VSCode Extension
