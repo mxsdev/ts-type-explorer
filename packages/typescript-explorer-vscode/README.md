@@ -1,3 +1,3 @@
-# typescript-explorer README
+# typescript-explorer-vscode
 
-Edited README.
+TODO
