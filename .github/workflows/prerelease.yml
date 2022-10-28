@@ -87,6 +87,6 @@ jobs:
           tag: v${{ env.CURRENT_VERSION }}
           body: |
             ${{ env.CHANGELOG_MD }}
-          artifacts: "./packages/typescript-explorer-vscode/${{ env.VSIX_FILENAME }}"
+          artifacts: ./packages/typescript-explorer-vscode/${{ env.VSIX_FILENAME }}
           draft: false
           prerelease: true
