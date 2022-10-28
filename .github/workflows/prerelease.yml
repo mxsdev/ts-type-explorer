@@ -49,8 +49,7 @@ jobs:
 
       - name: Get Changelog
         run: |
-          yarn changelog:get >> $CHANGELOG_MD
-          echo "CHANGELOG_MD=${CHANGELOG_MD}" >> $GITHUB_ENV
+          echo "CHANGELOG_MD=$(yarn --silent changelog:get)" >> $GITHUB_ENV
 
       - name: Tag Check
         id: tag_check
