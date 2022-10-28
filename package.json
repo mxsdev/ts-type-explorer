@@ -13,7 +13,9 @@
         "lint": "eslint .",
         "format:check": "prettier --check .",
         "format": "prettier --write .",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "version:bump": "lerna version --conventional-commits --skip-git",
+        "changelog:get": "ts-node ./scripts/changelog.ts"
     },
     "workspaces": [
         "packages/*"
