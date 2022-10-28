@@ -162,6 +162,9 @@ export function getSignaturesOfType(
     ]
 }
 
+/**
+ * @internal
+ */
 export function getIndexInfos(
     { typeChecker, ts }: TypescriptContext,
     type: ts.Type
@@ -199,10 +202,16 @@ export function getIndexInfos(
     return indexInfos
 }
 
+/**
+ * @internal
+ */
 export function createType(ctx: TypescriptContext, flags: ts.TypeFlags) {
     return new (getTypeConstructor(ctx))(ctx.typeChecker, flags)
 }
 
+/**
+ * @internal
+ */
 export function createObjectType(
     ctx: TypescriptContext,
     objectFlags: ts.ObjectFlags,
@@ -222,6 +231,9 @@ export function createObjectType(
     return type
 }
 
+/**
+ * @internal
+ */
 export function createUnionType(
     ctx: TypescriptContext,
     types: ts.Type[] = [],
@@ -237,6 +249,9 @@ export function createUnionType(
     return type
 }
 
+/**
+ * @internal
+ */
 export function createIntersectionType(
     ctx: TypescriptContext,
     types: ts.Type[] = [],
@@ -252,6 +267,9 @@ export function createIntersectionType(
     return type
 }
 
+/**
+ * @internal
+ */
 export function createSymbol(
     ctx: TypescriptContext,
     flags: ts.SymbolFlags,
@@ -486,6 +504,9 @@ export function getObjectFlags(
     )
 }
 
+/**
+ * @internal
+ */
 export function getParameterInfo(
     ctx: TypescriptContext,
     parameter: ts.Symbol,
@@ -525,6 +546,9 @@ export function getParameterInfo(
     }
 }
 
+/**
+ * @internal
+ */
 export function getCheckFlags(
     { ts }: TypescriptContext,
     symbol: ts.Symbol
@@ -640,6 +664,9 @@ export function getCallLikeExpression(
         : undefined
 }
 
+/**
+ * @internal
+ */
 export function getResolvedSignature(
     ctx: TypescriptContext,
     node?: ts.Node

@@ -193,14 +193,8 @@ export type TypePurpose =
 export type PrimitiveKind = TypeInfoKind<"primitive">["primitive"]
 export type LocalizableKind = Exclude<TypeInfo["kind"], "reference">
 
-/**
- * @internal
- */
 export type ResolvedTypeInfo = Exclude<TypeInfo, { kind: "reference" }>
 
-/**
- * @internal
- */
 export type TypeInfoChildren = {
     info?: TypeInfo
     localizedInfo?: LocalizedTypeInfo
@@ -297,9 +291,6 @@ export type LocalizedSymbolInfo = {
  */
 export type TypeInfoMap = Map<TypeId, ResolvedTypeInfo>
 
-/**
- * @internal
- */
 export type LocalizeOpts = {
     optional?: boolean
     purpose?: TypePurpose
@@ -326,9 +317,6 @@ export type TypeTreeContext = {
     depth: number
 }
 
-/**
- * @internal
- */
 export type SymbolOrType = (
     | { symbol: ts.Symbol; type?: undefined }
     | { type: ts.Type; symbol?: undefined }

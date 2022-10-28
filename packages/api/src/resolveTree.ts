@@ -16,10 +16,20 @@ import { filterUndefined } from "./objectUtil"
  * Localizes and resolves circularities in TypeInfo nodes
  */
 export class TypeInfoResolver {
+    /**
+     * @internal
+     */
     private includeIds = false
 
-    typeInfoMaps = new WeakMap<TypeInfo, TypeInfoMap>()
-    localizedInfoOrigin = new WeakMap<LocalizedTypeInfo, TypeInfo>()
+    /**
+     * @internal
+     */
+    private typeInfoMaps = new WeakMap<TypeInfo, TypeInfoMap>()
+
+    /**
+     * @internal
+     */
+    private localizedInfoOrigin = new WeakMap<LocalizedTypeInfo, TypeInfo>()
 
     constructor(private retrieveTypeInfo?: TypeInfoRetriever) {}
 
@@ -198,8 +208,6 @@ export class TypeInfoResolver {
      * resultant localized type info.
      *
      * This is used by the test runner to identify circular paths.
-     *
-     * @internal
      */
     debug(): this {
         this.includeIds = true
