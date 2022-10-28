@@ -90,6 +90,14 @@ This project's snapshot testing is inspired by TypeScript's.
 
 Run all baselines with `yarn test`, and provide the `TESTS` environment variable if you'd like to apply a glob pattern to the test names. Running `yarn baseline-accept` will accept all local baselines.
 
+Test cases are provided in the `tests/cases` directory.
+
+### VSCode Testing
+
+Run `yarn test` in the `packages/typescript-explorer-vscode` directory to run the VSCode test suite.
+
+Tests are from the `src/test/suite` subfolder.
+
 ## Versioning/Releasing
 
 This project follows [sem-ver][semver] with [conventional commits][conventional-commits]. Versioning is done automatically with [lerna][lerna].
