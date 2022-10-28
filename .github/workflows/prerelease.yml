@@ -48,9 +48,10 @@ jobs:
         run: yarn workspace typescript-explorer-vscode package -o ./${{ env.VSIX_FILENAME }}
 
       - name: Get Changelog
-        id: changelog
         run: |
-          echo "::set-output name=markdown::$(yarn --silent changelog:get)"
+          echo "CHANGELOG_MD<<__EOF__" >> $GITHUB_ENV
+          yarn --silent changelog:get >> $GITHUB_ENV
+          echo "__EOF__" >> $GITHUB_ENV
 
       - name: Tag Check
         id: tag_check
@@ -67,7 +68,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Test CHANGELOG_MD
-        run: echo "${{ steps.changelog.outputs.markdown }}"
+        run: echo ${{ env.CHANGELOG_MD }}
 
       # - name: Create Git Tag
       #   if: steps.tag_check.outputs.exists_tag == 'false'
