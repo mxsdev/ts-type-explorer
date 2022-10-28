@@ -20,8 +20,6 @@ jobs:
         run: yarn build
       - name: Run Tests
         run: yarn test
-      - name: Run VSCode Tests
-        run: yarn run test-vscode
 
   lint:
     runs-on: ubuntu-latest
