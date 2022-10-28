@@ -6,6 +6,10 @@ VSCode Extension & utilities to explore type information in TypeScript projects.
 <img src="https://user-images.githubusercontent.com/16108792/198750577-f9430cc3-ff13-43dc-a027-da8041a38337.gif" />
 </p>
 
+## Installation
+
+Check out the [releases page][releases] to download the VSIX file.
+
 ## Packages
 
 -   [**typescript-explorer-vscode**](packages/typescript-explorer-vscode) - VSCode Extension
@@ -19,3 +23,5 @@ Build the entire project by running `yarn build` in the root directory, and buil
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)!
+
+[releases]: https://github.com/mxsdev/ts-type-explorer/releases
