@@ -66,28 +66,31 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Git Tag
-        if: steps.tag_check.outputs.exists_tag == 'false'
-        uses: pkgdeps/git-tag-action@v2
-        with:
-          version: ${{ env.CURRENT_VERSION }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          github_repo: ${{ github.repository }}
-          git_commit_sha: ${{ github.sha }}
-          git_tag_prefix: "v"
+      - name: Test CHANGELOG_MD
+        run: echo ${{ env.CHANGELOG_MD }}
 
-      - name: Create Pre-release
-        id: create_prerelease
-        if: steps.tag_check.outputs.exists_tag == 'false'
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ env.CURRENT_VERSION }}
+      # - name: Create Git Tag
+      #   if: steps.tag_check.outputs.exists_tag == 'false'
+      #   uses: pkgdeps/git-tag-action@v2
+      #   with:
+      #     version: ${{ env.CURRENT_VERSION }}
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     github_repo: ${{ github.repository }}
+      #     git_commit_sha: ${{ github.sha }}
+      #     git_tag_prefix: "v"
 
-          # Copy Pull Request's tile and body to Release Note
-          release_name: ts-type-explorer v${{ env.CURRENT_VERSION }}
-          body: |
-            ${{ env.CHANGELOG_MD }}
-          draft: false
-          prerelease: true
+      # - name: Create Pre-release
+      #   id: create_prerelease
+      #   if: steps.tag_check.outputs.exists_tag == 'false'
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: v${{ env.CURRENT_VERSION }}
+
+      #     # Copy Pull Request's tile and body to Release Note
+      #     release_name: ts-type-explorer v${{ env.CURRENT_VERSION }}
+      #     body: |
+      #       ${{ env.CHANGELOG_MD }}
+      #     draft: false
+      #     prerelease: true
