@@ -1,7 +1,9 @@
 import {
     CustomTypeScriptRequest,
+    CustomTypeScriptResponse,
     CustomTypeScriptResponseBody,
     getTypeInfoAtRange,
+    TypescriptContext,
 } from "@ts-type-explorer/api"
 import { SourceFileTypescriptContext } from "@ts-type-explorer/api"
 
@@ -45,7 +47,6 @@ function init(modules: {
             }
         }
 
-        // @ts-expect-error - returning custom response types
         proxy.getCompletionsAtPosition = function (...args) {
             // triggerCharacter is "hijacked" with custom request information
             const { triggerCharacter: possiblePayload } = args[2] ?? {}
@@ -57,29 +58,60 @@ function init(modules: {
             const payload =
                 possiblePayload as unknown as CustomTypeScriptRequest
 
-            const [fileName] = args
+            const [fileName, position] = args
             const ctx = getContext(fileName)
+
+            let prior = info.languageService.getCompletionsAtPosition(
+                fileName,
+                position,
+                undefined,
+                undefined
+            ) as
+                | (ts.WithMetadata<ts.CompletionInfo> &
+                      CustomTypeScriptResponse["body"])
+                | undefined
 
             if (!ctx) {
                 return undefined
             }
 
-            if (payload.id === "type-tree") {
-                const typeInfo = getTypeInfoAtRange(ctx, {
-                    fileName,
-                    range: payload.range,
-                })
-
-                return { typeInfo } as CustomTypeScriptResponseBody<"type-tree">
+            prior ??= {
+                isGlobalCompletion: false,
+                isMemberCompletion: false,
+                isNewIdentifierLocation: false,
+                entries: [],
             }
 
-            return undefined
+            const responseData = getCustomResponse(ctx, fileName, payload)
+
+            if (responseData) {
+                prior.__tsExplorerResponse = responseData
+            }
+
+            return prior
         }
 
         return proxy
     }
 
     return { create }
+}
+
+function getCustomResponse(
+    ctx: TypescriptContext,
+    fileName: string,
+    payload: CustomTypeScriptRequest
+): CustomTypeScriptResponseBody {
+    switch (payload.id) {
+        case "type-tree": {
+            const typeInfo = getTypeInfoAtRange(ctx, {
+                fileName,
+                range: payload.range,
+            })
+
+            return { typeInfo }
+        }
+    }
 }
 
 export = init

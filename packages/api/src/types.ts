@@ -22,12 +22,15 @@ type CustomTypeScriptResponseById = {
     "type-tree": TypeTreeResponseBody
 }
 
-export type CustomTypeScriptResponse<Id extends CustomTypeScriptRequestId> = {
-    body: CustomTypeScriptResponseById[Id]
+export type CustomTypeScriptResponse<
+    Id extends CustomTypeScriptRequestId = CustomTypeScriptRequestId
+> = {
+    body: { __tsExplorerResponse?: CustomTypeScriptResponseBody<Id> }
 }
 
-export type CustomTypeScriptResponseBody<Id extends CustomTypeScriptRequestId> =
-    CustomTypeScriptResponse<Id>["body"]
+export type CustomTypeScriptResponseBody<
+    Id extends CustomTypeScriptRequestId = CustomTypeScriptRequestId
+> = CustomTypeScriptResponseById[Id]
 
 export type TypescriptContext = {
     program: ts.Program

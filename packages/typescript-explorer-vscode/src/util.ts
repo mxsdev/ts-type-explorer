@@ -110,9 +110,7 @@ export function getTypeTreeAtRange(
             id: "type-tree",
             range: rangeToTextRange(range),
         }
-    ).then((res) => {
-        return res?.body.typeInfo
-    })
+    ).then((res) => res?.body.__tsExplorerResponse?.typeInfo)
 }
 
 /**
