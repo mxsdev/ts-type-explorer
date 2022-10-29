@@ -114,7 +114,7 @@ export type TypeInfoNoId = {
           classSymbol?: SymbolInfo
           indexInfos?: IndexInfo[]
       }
-    | { kind: "function"; signatures: SignatureInfo[] }
+    | { kind: "function"; signatures: SignatureInfo[]; isJSXElement?: boolean }
     | { kind: "array"; type: TypeInfo }
     | { kind: "tuple"; types: TypeInfo[]; names?: string[] }
     | {
@@ -193,6 +193,7 @@ export type TypePurpose =
     | "type_parameter_list"
     | "type_argument_list"
     | "parameter_value"
+    | "jsx_properties"
 
 export type PrimitiveKind = TypeInfoKind<"primitive">["primitive"]
 export type LocalizableKind = Exclude<TypeInfo["kind"], "reference">
@@ -302,6 +303,7 @@ export type LocalizeOpts = {
     typeArguments?: TypeInfo[]
     typeArgument?: TypeInfo
     includeIds?: boolean
+    isInsideJSXElement?: boolean
 }
 
 /**

@@ -9,6 +9,8 @@
     "exclude": ["**/node_modules", "**/dist"],
     "compilerOptions": {
         "esModuleInterop": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "jsx": "react",
+        "sourceMap": true
     }
 }

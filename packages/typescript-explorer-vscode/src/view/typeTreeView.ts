@@ -148,15 +148,10 @@ export class TypeTreeItem extends vscode.TreeItem {
         private provider: TypeTreeProvider,
         protected parent?: TypeTreeItem
     ) {
-        const { label, description, contextValue, icon } = getMeta(typeInfo)
-
         const depth = (parent?.depth ?? 0) + 1
-        const collapsibleState =
-            (typeInfo.children?.length ?? 0) === 0
-                ? NoChildren
-                : depth === 1
-                ? Expanded
-                : Collapsed
+
+        const { label, description, contextValue, icon, collapsibleState } =
+            getMeta(typeInfo, depth)
 
         super(label, collapsibleState)
 
@@ -201,19 +196,35 @@ type TypeTreeItemMeta = {
     description?: string
     contextValue?: TypeTreeItemContextValue
     icon?: vscode.ThemeIcon
+    collapsibleState: vscode.TreeItemCollapsibleState
 }
 
-function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
+function getMeta(info: LocalizedTypeInfo, depth: number): TypeTreeItemMeta {
     let nameOverridden = false
 
     const label = getLabel()
     const description = getDescription()
+
+    const collapsibleState = getCollapsibleState()
 
     return {
         label,
         description,
         contextValue: getContextValue(),
         icon: getIcon(),
+        collapsibleState,
+    }
+
+    function getCollapsibleState() {
+        if ((info.children?.length ?? 0) === 0) {
+            return NoChildren
+        }
+
+        if (info.purpose === "jsx_properties") {
+            return Expanded
+        }
+
+        return depth === 1 ? Expanded : Collapsed
     }
 
     function getLabel() {
@@ -255,7 +266,10 @@ function getMeta(info: LocalizedTypeInfo): TypeTreeItemMeta {
         const baseDescription = decorate(info.kindText)
 
         const aliasDescriptionBase =
-            info.alias ?? (nameOverridden && info.symbol?.name)
+            info.alias ??
+            (nameOverridden &&
+                info.purpose !== "jsx_properties" &&
+                info.symbol?.name)
         const aliasDescription =
             aliasDescriptionBase && decorate(aliasDescriptionBase)
 

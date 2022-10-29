@@ -53,7 +53,7 @@ function init(modules: {
                 ts: modules.typescript,
             }
 
-            const node = getDescendantAtPosition(ctx, position)
+            const node = getDescendantAtPosition(ctx, ctx.sourceFile, position)
 
             if (!node || node === sourceFile) {
                 // Avoid giving quickInfo for the sourceFile as a whole.

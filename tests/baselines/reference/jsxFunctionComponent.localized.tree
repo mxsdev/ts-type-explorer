@@ -1,0 +1,2531 @@
+=== jsxFunctionComponent.tsx ===
+
+function Comp(props: { abc: string, ad?: number }) {
+    return <></>
+}
+> function --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "Comp",
+        "locations": [
+            {
+                "fileName": "cases/jsxFunctionComponent.tsx",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 9
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 13
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/jsxFunctionComponent.tsx",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 9
+                },
+                "end": {
+                    "line": 0,
+                    "character": 13
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "symbol": {
+                "name": "props",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/jsxFunctionComponent.tsx",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 14
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 19
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "symbol": {
+                        "name": "abc",
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/jsxFunctionComponent.tsx",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 23
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 26
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 23
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "symbol": {
+                        "name": "ad",
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/jsxFunctionComponent.tsx",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 36
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 38
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "optional": true,
+                    "locations": [
+                        {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 36
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 38
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "3"
+                }
+            ],
+            "_id": "1"
+        },
+        {
+            "kindText": "interface",
+            "kind": "interface",
+            "symbol": {
+                "name": "Element",
+                "locations": [
+                    {
+                        "fileName": "../node_modules/@types/react/index.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 3121,
+                                "character": 18
+                            },
+                            "end": {
+                                "line": 3121,
+                                "character": 25
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "return",
+            "locations": [
+                {
+                    "fileName": "../node_modules/@types/react/index.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 3121,
+                            "character": 18
+                        },
+                        "end": {
+                            "line": 3121,
+                            "character": 25
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "object",
+                    "kind": "object",
+                    "symbol": {
+                        "name": "ReactElement",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 139,
+                                        "character": 14
+                                    },
+                                    "end": {
+                                        "line": 139,
+                                        "character": 26
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "purpose": "class_base_type",
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 139,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 139,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "purpose": "type_parameter_list",
+                            "children": [
+                                {
+                                    "kindText": "type parameter",
+                                    "kind": "type_parameter",
+                                    "symbol": {
+                                        "name": "P",
+                                        "insideClassOrInterface": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 139,
+                                                        "character": 27
+                                                    },
+                                                    "end": {
+                                                        "line": 139,
+                                                        "character": 28
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 27
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 28
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "any",
+                                            "kind": "primitive",
+                                            "primitiveKind": "any",
+                                            "purpose": "parameter_value",
+                                            "children": [],
+                                            "_id": "7"
+                                        },
+                                        {
+                                            "reference": "7"
+                                        }
+                                    ],
+                                    "_id": "6"
+                                },
+                                {
+                                    "kindText": "type parameter",
+                                    "kind": "type_parameter",
+                                    "symbol": {
+                                        "name": "T",
+                                        "insideClassOrInterface": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 139,
+                                                        "character": 36
+                                                    },
+                                                    "end": {
+                                                        "line": 139,
+                                                        "character": 37
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 37
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "reference": "7"
+                                        },
+                                        {
+                                            "kindText": "union",
+                                            "kind": "union",
+                                            "purpose": "parameter_default",
+                                            "children": [
+                                                {
+                                                    "kindText": "string",
+                                                    "kind": "primitive",
+                                                    "primitiveKind": "string",
+                                                    "children": [],
+                                                    "_id": "10"
+                                                },
+                                                {
+                                                    "kindText": "function",
+                                                    "kind": "function",
+                                                    "symbol": {
+                                                        "name": "__type",
+                                                        "anonymous": true,
+                                                        "locations": [
+                                                            {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 77,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 77,
+                                                                        "character": 54
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    "locations": [
+                                                        {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 77,
+                                                                    "character": 11
+                                                                },
+                                                                "end": {
+                                                                    "line": 77,
+                                                                    "character": 54
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "kindText": "...",
+                                                            "kind": "max_depth",
+                                                            "children": [],
+                                                            "_id": "12"
+                                                        },
+                                                        {
+                                                            "reference": "12"
+                                                        }
+                                                    ],
+                                                    "_id": "11"
+                                                },
+                                                {
+                                                    "kindText": "function",
+                                                    "kind": "function",
+                                                    "symbol": {
+                                                        "name": "__type",
+                                                        "anonymous": true,
+                                                        "locations": [
+                                                            {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 78,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 78,
+                                                                        "character": 48
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    "locations": [
+                                                        {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 78,
+                                                                    "character": 11
+                                                                },
+                                                                "end": {
+                                                                    "line": 78,
+                                                                    "character": 48
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "reference": "12"
+                                                        },
+                                                        {
+                                                            "reference": "12"
+                                                        }
+                                                    ],
+                                                    "_id": "13"
+                                                }
+                                            ],
+                                            "_id": "9"
+                                        },
+                                        {
+                                            "reference": "9"
+                                        }
+                                    ],
+                                    "_id": "8"
+                                }
+                            ]
+                        },
+                        {
+                            "reference": "7"
+                        },
+                        {
+                            "reference": "7"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "alias": "Key",
+                            "symbol": {
+                                "name": "key",
+                                "insideClassOrInterface": true,
+                                "property": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 142,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 142,
+                                                "character": 11
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 123,
+                                            "character": 9
+                                        },
+                                        "end": {
+                                            "line": 123,
+                                            "character": 12
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "reference": "10"
+                                },
+                                {
+                                    "kindText": "number",
+                                    "kind": "primitive",
+                                    "primitiveKind": "number",
+                                    "children": [],
+                                    "_id": "15"
+                                }
+                            ],
+                            "_id": "14"
+                        }
+                    ],
+                    "_id": "5"
+                },
+                {
+                    "reference": "7"
+                },
+                {
+                    "reference": "7"
+                },
+                {
+                    "kindText": "union",
+                    "kind": "union",
+                    "alias": "Key",
+                    "symbol": {
+                        "name": "key",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 142,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 142,
+                                        "character": 11
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 123,
+                                    "character": 9
+                                },
+                                "end": {
+                                    "line": 123,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "10"
+                        },
+                        {
+                            "reference": "15"
+                        }
+                    ],
+                    "_id": "16"
+                }
+            ],
+            "_id": "4"
+        }
+    ],
+    "_id": "0"
+}
+> Comp --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "Comp",
+        "locations": [
+            {
+                "fileName": "cases/jsxFunctionComponent.tsx",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 9
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 13
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/jsxFunctionComponent.tsx",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 9
+                },
+                "end": {
+                    "line": 0,
+                    "character": 13
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "symbol": {
+                "name": "props",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/jsxFunctionComponent.tsx",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 14
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 19
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "symbol": {
+                        "name": "abc",
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/jsxFunctionComponent.tsx",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 23
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 26
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 23
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "symbol": {
+                        "name": "ad",
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/jsxFunctionComponent.tsx",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 36
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 38
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "optional": true,
+                    "locations": [
+                        {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 36
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 38
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "3"
+                }
+            ],
+            "_id": "1"
+        },
+        {
+            "kindText": "interface",
+            "kind": "interface",
+            "symbol": {
+                "name": "Element",
+                "locations": [
+                    {
+                        "fileName": "../node_modules/@types/react/index.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 3121,
+                                "character": 18
+                            },
+                            "end": {
+                                "line": 3121,
+                                "character": 25
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "return",
+            "locations": [
+                {
+                    "fileName": "../node_modules/@types/react/index.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 3121,
+                            "character": 18
+                        },
+                        "end": {
+                            "line": 3121,
+                            "character": 25
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "object",
+                    "kind": "object",
+                    "symbol": {
+                        "name": "ReactElement",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 139,
+                                        "character": 14
+                                    },
+                                    "end": {
+                                        "line": 139,
+                                        "character": 26
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "purpose": "class_base_type",
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 139,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 139,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "purpose": "type_parameter_list",
+                            "children": [
+                                {
+                                    "kindText": "type parameter",
+                                    "kind": "type_parameter",
+                                    "symbol": {
+                                        "name": "P",
+                                        "insideClassOrInterface": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 139,
+                                                        "character": 27
+                                                    },
+                                                    "end": {
+                                                        "line": 139,
+                                                        "character": 28
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 27
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 28
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "any",
+                                            "kind": "primitive",
+                                            "primitiveKind": "any",
+                                            "purpose": "parameter_value",
+                                            "children": [],
+                                            "_id": "7"
+                                        },
+                                        {
+                                            "reference": "7"
+                                        }
+                                    ],
+                                    "_id": "6"
+                                },
+                                {
+                                    "kindText": "type parameter",
+                                    "kind": "type_parameter",
+                                    "symbol": {
+                                        "name": "T",
+                                        "insideClassOrInterface": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 139,
+                                                        "character": 36
+                                                    },
+                                                    "end": {
+                                                        "line": 139,
+                                                        "character": 37
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 37
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "reference": "7"
+                                        },
+                                        {
+                                            "kindText": "union",
+                                            "kind": "union",
+                                            "purpose": "parameter_default",
+                                            "children": [
+                                                {
+                                                    "kindText": "string",
+                                                    "kind": "primitive",
+                                                    "primitiveKind": "string",
+                                                    "children": [],
+                                                    "_id": "10"
+                                                },
+                                                {
+                                                    "kindText": "function",
+                                                    "kind": "function",
+                                                    "symbol": {
+                                                        "name": "__type",
+                                                        "anonymous": true,
+                                                        "locations": [
+                                                            {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 77,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 77,
+                                                                        "character": 54
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    "locations": [
+                                                        {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 77,
+                                                                    "character": 11
+                                                                },
+                                                                "end": {
+                                                                    "line": 77,
+                                                                    "character": 54
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "kindText": "...",
+                                                            "kind": "max_depth",
+                                                            "children": [],
+                                                            "_id": "12"
+                                                        },
+                                                        {
+                                                            "reference": "12"
+                                                        }
+                                                    ],
+                                                    "_id": "11"
+                                                },
+                                                {
+                                                    "kindText": "function",
+                                                    "kind": "function",
+                                                    "symbol": {
+                                                        "name": "__type",
+                                                        "anonymous": true,
+                                                        "locations": [
+                                                            {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 78,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 78,
+                                                                        "character": 48
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    "locations": [
+                                                        {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 78,
+                                                                    "character": 11
+                                                                },
+                                                                "end": {
+                                                                    "line": 78,
+                                                                    "character": 48
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "reference": "12"
+                                                        },
+                                                        {
+                                                            "reference": "12"
+                                                        }
+                                                    ],
+                                                    "_id": "13"
+                                                }
+                                            ],
+                                            "_id": "9"
+                                        },
+                                        {
+                                            "reference": "9"
+                                        }
+                                    ],
+                                    "_id": "8"
+                                }
+                            ]
+                        },
+                        {
+                            "reference": "7"
+                        },
+                        {
+                            "reference": "7"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "alias": "Key",
+                            "symbol": {
+                                "name": "key",
+                                "insideClassOrInterface": true,
+                                "property": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 142,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 142,
+                                                "character": 11
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 123,
+                                            "character": 9
+                                        },
+                                        "end": {
+                                            "line": 123,
+                                            "character": 12
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "reference": "10"
+                                },
+                                {
+                                    "kindText": "number",
+                                    "kind": "primitive",
+                                    "primitiveKind": "number",
+                                    "children": [],
+                                    "_id": "15"
+                                }
+                            ],
+                            "_id": "14"
+                        }
+                    ],
+                    "_id": "5"
+                },
+                {
+                    "reference": "7"
+                },
+                {
+                    "reference": "7"
+                },
+                {
+                    "kindText": "union",
+                    "kind": "union",
+                    "alias": "Key",
+                    "symbol": {
+                        "name": "key",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 142,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 142,
+                                        "character": 11
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 123,
+                                    "character": 9
+                                },
+                                "end": {
+                                    "line": 123,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "10"
+                        },
+                        {
+                            "reference": "15"
+                        }
+                    ],
+                    "_id": "16"
+                }
+            ],
+            "_id": "4"
+        }
+    ],
+    "_id": "0"
+}
+> props: { abc: string, ad?: number }
+> props: { abc: string, ad?: number }
+> props --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "props",
+        "isArgument": true,
+        "locations": [
+            {
+                "fileName": "cases/jsxFunctionComponent.tsx",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 14
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 19
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/jsxFunctionComponent.tsx",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 14
+                },
+                "end": {
+                    "line": 0,
+                    "character": 19
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "abc",
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/jsxFunctionComponent.tsx",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 23
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 26
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 26
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "primitiveKind": "number",
+            "symbol": {
+                "name": "ad",
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/jsxFunctionComponent.tsx",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 36
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 38
+                            }
+                        }
+                    }
+                ]
+            },
+            "optional": true,
+            "locations": [
+                {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 36
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 38
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
+> { abc: string, ad?: number }
+> abc: string, ad?: number
+> abc: string,
+> abc --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "abc",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/jsxFunctionComponent.tsx",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 23
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 26
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/jsxFunctionComponent.tsx",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 23
+                },
+                "end": {
+                    "line": 0,
+                    "character": 26
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> ad?: number
+> ad --- {
+    "kindText": "number",
+    "kind": "primitive",
+    "primitiveKind": "number",
+    "symbol": {
+        "name": "ad",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/jsxFunctionComponent.tsx",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 36
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 38
+                    }
+                }
+            }
+        ]
+    },
+    "optional": true,
+    "locations": [
+        {
+            "fileName": "cases/jsxFunctionComponent.tsx",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 36
+                },
+                "end": {
+                    "line": 0,
+                    "character": 38
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+
+const a = <Comp abc="asc" ad={4} />
+> const a = <Comp abc="asc" ad={4} />
+> a = <Comp abc="asc" ad={4} />
+> a = <Comp abc="asc" ad={4} />
+> a --- {
+    "kindText": "interface",
+    "kind": "interface",
+    "alias": "Element",
+    "symbol": {
+        "name": "a",
+        "locations": [
+            {
+                "fileName": "cases/jsxFunctionComponent.tsx",
+                "range": {
+                    "start": {
+                        "line": 4,
+                        "character": 6
+                    },
+                    "end": {
+                        "line": 4,
+                        "character": 7
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../node_modules/@types/react/index.d.ts",
+            "range": {
+                "start": {
+                    "line": 3121,
+                    "character": 18
+                },
+                "end": {
+                    "line": 3121,
+                    "character": 25
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "symbol": {
+                "name": "ReactElement",
+                "locations": [
+                    {
+                        "fileName": "../node_modules/@types/react/index.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 139,
+                                "character": 14
+                            },
+                            "end": {
+                                "line": 139,
+                                "character": 26
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "class_base_type",
+            "locations": [
+                {
+                    "fileName": "../node_modules/@types/react/index.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 139,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 139,
+                            "character": 26
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "purpose": "type_parameter_list",
+                    "children": [
+                        {
+                            "kindText": "type parameter",
+                            "kind": "type_parameter",
+                            "symbol": {
+                                "name": "P",
+                                "insideClassOrInterface": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 139,
+                                                "character": 27
+                                            },
+                                            "end": {
+                                                "line": 139,
+                                                "character": 28
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 139,
+                                            "character": 27
+                                        },
+                                        "end": {
+                                            "line": 139,
+                                            "character": 28
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "any",
+                                    "kind": "primitive",
+                                    "primitiveKind": "any",
+                                    "purpose": "parameter_value",
+                                    "children": [],
+                                    "_id": "3"
+                                },
+                                {
+                                    "reference": "3"
+                                }
+                            ],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "type parameter",
+                            "kind": "type_parameter",
+                            "symbol": {
+                                "name": "T",
+                                "insideClassOrInterface": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 139,
+                                                "character": 36
+                                            },
+                                            "end": {
+                                                "line": 139,
+                                                "character": 37
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 139,
+                                            "character": 36
+                                        },
+                                        "end": {
+                                            "line": 139,
+                                            "character": 37
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "reference": "3"
+                                },
+                                {
+                                    "kindText": "union",
+                                    "kind": "union",
+                                    "purpose": "parameter_default",
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "primitiveKind": "string",
+                                            "children": [],
+                                            "_id": "6"
+                                        },
+                                        {
+                                            "kindText": "function",
+                                            "kind": "function",
+                                            "symbol": {
+                                                "name": "__type",
+                                                "anonymous": true,
+                                                "locations": [
+                                                    {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 77,
+                                                                "character": 11
+                                                            },
+                                                            "end": {
+                                                                "line": 77,
+                                                                "character": 54
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "locations": [
+                                                {
+                                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 77,
+                                                            "character": 11
+                                                        },
+                                                        "end": {
+                                                            "line": 77,
+                                                            "character": 54
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "reference": "3"
+                                                },
+                                                {
+                                                    "reference": "1"
+                                                }
+                                            ],
+                                            "_id": "7"
+                                        },
+                                        {
+                                            "kindText": "function",
+                                            "kind": "function",
+                                            "symbol": {
+                                                "name": "__type",
+                                                "anonymous": true,
+                                                "locations": [
+                                                    {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 78,
+                                                                "character": 11
+                                                            },
+                                                            "end": {
+                                                                "line": 78,
+                                                                "character": 48
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "locations": [
+                                                {
+                                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 78,
+                                                            "character": 11
+                                                        },
+                                                        "end": {
+                                                            "line": 78,
+                                                            "character": 48
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "reference": "3"
+                                                },
+                                                {
+                                                    "kindText": "object",
+                                                    "kind": "object",
+                                                    "symbol": {
+                                                        "name": "Component",
+                                                        "locations": [
+                                                            {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 429,
+                                                                        "character": 14
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 429,
+                                                                        "character": 23
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 430,
+                                                                        "character": 10
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 430,
+                                                                        "character": 19
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    "purpose": "return",
+                                                    "locations": [
+                                                        {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 429,
+                                                                    "character": 14
+                                                                },
+                                                                "end": {
+                                                                    "line": 429,
+                                                                    "character": 23
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 430,
+                                                                    "character": 10
+                                                                },
+                                                                "end": {
+                                                                    "line": 430,
+                                                                    "character": 19
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "kindText": "...",
+                                                            "kind": "max_depth",
+                                                            "purpose": "object_class",
+                                                            "children": [
+                                                                {
+                                                                    "purpose": "type_argument_list",
+                                                                    "children": [
+                                                                        {
+                                                                            "reference": "10"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "_id": "10"
+                                                        },
+                                                        {
+                                                            "reference": "10"
+                                                        }
+                                                    ],
+                                                    "_id": "9"
+                                                }
+                                            ],
+                                            "_id": "8"
+                                        }
+                                    ],
+                                    "_id": "5"
+                                },
+                                {
+                                    "reference": "5"
+                                }
+                            ],
+                            "_id": "4"
+                        }
+                    ]
+                },
+                {
+                    "reference": "3"
+                },
+                {
+                    "reference": "3"
+                },
+                {
+                    "kindText": "union",
+                    "kind": "union",
+                    "alias": "Key",
+                    "symbol": {
+                        "name": "key",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 142,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 142,
+                                        "character": 11
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 123,
+                                    "character": 9
+                                },
+                                "end": {
+                                    "line": 123,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "6"
+                        },
+                        {
+                            "kindText": "number",
+                            "kind": "primitive",
+                            "primitiveKind": "number",
+                            "children": [],
+                            "_id": "12"
+                        }
+                    ],
+                    "_id": "11"
+                }
+            ],
+            "_id": "1"
+        },
+        {
+            "reference": "3"
+        },
+        {
+            "reference": "3"
+        },
+        {
+            "kindText": "union",
+            "kind": "union",
+            "alias": "Key",
+            "symbol": {
+                "name": "key",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/@types/react/index.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 142,
+                                "character": 8
+                            },
+                            "end": {
+                                "line": 142,
+                                "character": 11
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../node_modules/@types/react/index.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 123,
+                            "character": 9
+                        },
+                        "end": {
+                            "line": 123,
+                            "character": 12
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "6"
+                },
+                {
+                    "reference": "12"
+                }
+            ],
+            "_id": "13"
+        }
+    ],
+    "_id": "0"
+}
+> <Comp abc="asc" ad={4} />
+> Comp --- {
+    "kindText": "component",
+    "kind": "function",
+    "symbol": {
+        "name": "Comp",
+        "locations": [
+            {
+                "fileName": "cases/jsxFunctionComponent.tsx",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 9
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 13
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/jsxFunctionComponent.tsx",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 9
+                },
+                "end": {
+                    "line": 0,
+                    "character": 13
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "symbol": {
+                "name": "props",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/jsxFunctionComponent.tsx",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 14
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 19
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "jsx_properties",
+            "locations": [
+                {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "symbol": {
+                        "name": "abc",
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/jsxFunctionComponent.tsx",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 23
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 26
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 23
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "symbol": {
+                        "name": "ad",
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/jsxFunctionComponent.tsx",
+                                "range": {
+                                    "start": {
+                                        "line": 0,
+                                        "character": 36
+                                    },
+                                    "end": {
+                                        "line": 0,
+                                        "character": 38
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "optional": true,
+                    "locations": [
+                        {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 36
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 38
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "3"
+                }
+            ],
+            "_id": "1"
+        },
+        {
+            "kindText": "interface",
+            "kind": "interface",
+            "symbol": {
+                "name": "Element",
+                "locations": [
+                    {
+                        "fileName": "../node_modules/@types/react/index.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 3121,
+                                "character": 18
+                            },
+                            "end": {
+                                "line": 3121,
+                                "character": 25
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "return",
+            "locations": [
+                {
+                    "fileName": "../node_modules/@types/react/index.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 3121,
+                            "character": 18
+                        },
+                        "end": {
+                            "line": 3121,
+                            "character": 25
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "object",
+                    "kind": "object",
+                    "symbol": {
+                        "name": "ReactElement",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 139,
+                                        "character": 14
+                                    },
+                                    "end": {
+                                        "line": 139,
+                                        "character": 26
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "purpose": "class_base_type",
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 139,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 139,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "purpose": "type_parameter_list",
+                            "children": [
+                                {
+                                    "kindText": "type parameter",
+                                    "kind": "type_parameter",
+                                    "symbol": {
+                                        "name": "P",
+                                        "insideClassOrInterface": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 139,
+                                                        "character": 27
+                                                    },
+                                                    "end": {
+                                                        "line": 139,
+                                                        "character": 28
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 27
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 28
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "any",
+                                            "kind": "primitive",
+                                            "primitiveKind": "any",
+                                            "purpose": "parameter_value",
+                                            "children": [],
+                                            "_id": "7"
+                                        },
+                                        {
+                                            "reference": "7"
+                                        }
+                                    ],
+                                    "_id": "6"
+                                },
+                                {
+                                    "kindText": "type parameter",
+                                    "kind": "type_parameter",
+                                    "symbol": {
+                                        "name": "T",
+                                        "insideClassOrInterface": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 139,
+                                                        "character": 36
+                                                    },
+                                                    "end": {
+                                                        "line": 139,
+                                                        "character": 37
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 37
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "reference": "7"
+                                        },
+                                        {
+                                            "kindText": "union",
+                                            "kind": "union",
+                                            "purpose": "parameter_default",
+                                            "children": [
+                                                {
+                                                    "kindText": "string",
+                                                    "kind": "primitive",
+                                                    "primitiveKind": "string",
+                                                    "children": [],
+                                                    "_id": "10"
+                                                },
+                                                {
+                                                    "kindText": "function",
+                                                    "kind": "function",
+                                                    "symbol": {
+                                                        "name": "__type",
+                                                        "anonymous": true,
+                                                        "locations": [
+                                                            {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 77,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 77,
+                                                                        "character": 54
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    "locations": [
+                                                        {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 77,
+                                                                    "character": 11
+                                                                },
+                                                                "end": {
+                                                                    "line": 77,
+                                                                    "character": 54
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "kindText": "...",
+                                                            "kind": "max_depth",
+                                                            "children": [],
+                                                            "_id": "12"
+                                                        },
+                                                        {
+                                                            "reference": "12"
+                                                        }
+                                                    ],
+                                                    "_id": "11"
+                                                },
+                                                {
+                                                    "kindText": "function",
+                                                    "kind": "function",
+                                                    "symbol": {
+                                                        "name": "__type",
+                                                        "anonymous": true,
+                                                        "locations": [
+                                                            {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 78,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 78,
+                                                                        "character": 48
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    "locations": [
+                                                        {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 78,
+                                                                    "character": 11
+                                                                },
+                                                                "end": {
+                                                                    "line": 78,
+                                                                    "character": 48
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "reference": "12"
+                                                        },
+                                                        {
+                                                            "reference": "12"
+                                                        }
+                                                    ],
+                                                    "_id": "13"
+                                                }
+                                            ],
+                                            "_id": "9"
+                                        },
+                                        {
+                                            "reference": "9"
+                                        }
+                                    ],
+                                    "_id": "8"
+                                }
+                            ]
+                        },
+                        {
+                            "reference": "7"
+                        },
+                        {
+                            "reference": "7"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "alias": "Key",
+                            "symbol": {
+                                "name": "key",
+                                "insideClassOrInterface": true,
+                                "property": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 142,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 142,
+                                                "character": 11
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 123,
+                                            "character": 9
+                                        },
+                                        "end": {
+                                            "line": 123,
+                                            "character": 12
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "reference": "10"
+                                },
+                                {
+                                    "kindText": "number",
+                                    "kind": "primitive",
+                                    "primitiveKind": "number",
+                                    "children": [],
+                                    "_id": "15"
+                                }
+                            ],
+                            "_id": "14"
+                        }
+                    ],
+                    "_id": "5"
+                },
+                {
+                    "reference": "7"
+                },
+                {
+                    "reference": "7"
+                },
+                {
+                    "kindText": "union",
+                    "kind": "union",
+                    "alias": "Key",
+                    "symbol": {
+                        "name": "key",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 142,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 142,
+                                        "character": 11
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 123,
+                                    "character": 9
+                                },
+                                "end": {
+                                    "line": 123,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "10"
+                        },
+                        {
+                            "reference": "15"
+                        }
+                    ],
+                    "_id": "16"
+                }
+            ],
+            "_id": "4"
+        }
+    ],
+    "_id": "0"
+}
+> abc="asc" ad={4}
+> abc="asc" ad={4}
+> abc="asc"
+> abc --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "abc",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/jsxFunctionComponent.tsx",
+                "range": {
+                    "start": {
+                        "line": 4,
+                        "character": 16
+                    },
+                    "end": {
+                        "line": 4,
+                        "character": 19
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/jsxFunctionComponent.tsx",
+            "range": {
+                "start": {
+                    "line": 4,
+                    "character": 16
+                },
+                "end": {
+                    "line": 4,
+                    "character": 19
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> ad={4}
+> ad --- {
+    "kindText": "number",
+    "kind": "primitive",
+    "primitiveKind": "number",
+    "symbol": {
+        "name": "ad",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/jsxFunctionComponent.tsx",
+                "range": {
+                    "start": {
+                        "line": 4,
+                        "character": 26
+                    },
+                    "end": {
+                        "line": 4,
+                        "character": 28
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/jsxFunctionComponent.tsx",
+            "range": {
+                "start": {
+                    "line": 4,
+                    "character": 26
+                },
+                "end": {
+                    "line": 4,
+                    "character": 28
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

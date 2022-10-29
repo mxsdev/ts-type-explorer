@@ -176,16 +176,17 @@ function getChildren(
             }
 
             case "function": {
-                const { signatures } = info
+                const { signatures, isJSXElement } = info
 
                 if (signatures.length === 1) {
                     return getLocalizedSignatureChildren(
                         signatures[0],
+                        isJSXElement,
                         typeArguments
                     )
                 } else {
                     return signatures.map((sig) =>
-                        getLocalizedSignature(sig, typeParameters)
+                        getLocalizedSignature(sig, isJSXElement, typeParameters)
                     )
                 }
             }
@@ -401,21 +402,27 @@ function getChildren(
 
     function getLocalizedSignature(
         signature: SignatureInfo,
+        isInsideJSXElement: boolean | undefined,
         typeArguments?: TypeInfo[]
     ) {
         const symbol = wrapSafe(localizeSymbol)(signature.symbolMeta)
 
         return createChild({
-            kindText: "signature",
+            kindText: !isInsideJSXElement ? "signature" : "definition",
             kind: "signature",
             symbol,
             locations: symbol?.locations,
-            children: getLocalizedSignatureChildren(signature, typeArguments),
+            children: getLocalizedSignatureChildren(
+                signature,
+                isInsideJSXElement,
+                typeArguments
+            ),
         })
     }
 
     function getLocalizedSignatureChildren(
         signature: SignatureInfo,
+        isInsideJSXElement: boolean | undefined,
         typeArguments?: TypeInfo[]
     ) {
         return [
@@ -423,7 +430,14 @@ function getChildren(
                 signature.typeParameters,
                 typeArguments
             ),
-            ...signature.parameters.map(localize),
+            ...signature.parameters.map((p, i) =>
+                localizeOpts(
+                    p,
+                    i === 0 && isInsideJSXElement
+                        ? { purpose: "jsx_properties" }
+                        : undefined
+                )
+            ),
             ...(signature.returnType
                 ? [localizeOpts(signature.returnType, { purpose: "return" })]
                 : []),
@@ -486,7 +500,10 @@ function getKind(info: ResolvedTypeInfo): string {
     const kindText = (kind: LocalizableKind, ...args: string[]) =>
         getKindText(
             kind,
-            { insideClassOrInterface: info.symbolMeta?.insideClassOrInterface },
+            {
+                insideClassOrInterface: info.symbolMeta?.insideClassOrInterface,
+                isJSXElement: info.kind === "function" && info.isJSXElement,
+            },
             ...args
         )
 

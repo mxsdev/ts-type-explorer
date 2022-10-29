@@ -56,3 +56,14 @@ export function removeDuplicates<T extends object>(arr: T[]) {
         return val
     })
 }
+
+/**
+ * @internal
+ */
+export function cartesianEqual<T>(
+    arr1: T[],
+    arr2: T[],
+    eq?: (t: T, k: T) => boolean
+) {
+    return arr1.some((x) => arr2.some((y) => eq?.(x, y) ?? x === y))
+}

@@ -55,8 +55,10 @@ function getTypeInfoRetriever(ctx: SourceFileTypescriptContext) {
         assert(sourceFile)
 
         const { line, character } = location.range.start
+
         const node = getDescendantAtPosition(
             ctx,
+            sourceFile,
             sourceFile.getPositionOfLineAndCharacter(line, character)
         )
 

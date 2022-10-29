@@ -15,7 +15,10 @@ export const PrimitiveKindText: Record<PrimitiveKind, string> = {
     unknown: "unknown",
 }
 
-export const KindText: Record<LocalizableKind | "method", string> = {
+export const KindText: Record<
+    LocalizableKind | "method" | "jsx_component",
+    string
+> = {
     bigint_literal: "$1n",
     boolean_literal: "$1",
     enum_literal: "enum",
@@ -42,16 +45,20 @@ export const KindText: Record<LocalizableKind | "method", string> = {
     class: "class",
     interface: "interface",
     method: "method",
+    jsx_component: "component",
 }
 
 export function getKindText(
     kind: LocalizableKind,
-    { insideClassOrInterface }: { insideClassOrInterface?: boolean } = {},
+    {
+        insideClassOrInterface,
+        isJSXElement,
+    }: { insideClassOrInterface?: boolean; isJSXElement?: boolean } = {},
     ...args: string[]
 ) {
     return args.reduce<string>((prev, curr, i) => {
         return prev.replace(new RegExp(`\\$${i + 1}`, "g"), curr)
-    }, KindText[kind === "function" && insideClassOrInterface ? "method" : kind])
+    }, KindText[kind === "function" && insideClassOrInterface ? "method" : isJSXElement ? (kind === "function" ? "jsx_component" : kind) : kind])
 }
 
 export function getPrimitiveKindText(kind: PrimitiveKind) {
@@ -80,6 +87,7 @@ export function localizePurpose(purpose: TypePurpose): string {
         type_parameter_list: "type parameters",
         type_argument_list: "type arguments",
         index_parameter_type: "parameter",
+        jsx_properties: "props",
     }
 
     return nameByPurpose[purpose]

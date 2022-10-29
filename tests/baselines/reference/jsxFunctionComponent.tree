@@ -1,0 +1,2667 @@
+=== jsxFunctionComponent.tsx ===
+
+function Comp(props: { abc: string, ad?: number }) {
+    return <></>
+}
+> function --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "Comp",
+                "flags": 16,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 9
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "symbolMeta": {
+                                "name": "abc",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/jsxFunctionComponent.tsx",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 23
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 26
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "2"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "symbolMeta": {
+                                "name": "ad",
+                                "flags": 16777220,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/jsxFunctionComponent.tsx",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 38
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "props",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/jsxFunctionComponent.tsx",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 19
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ],
+            "returnType": {
+                "kind": "interface",
+                "properties": [
+                    {
+                        "kind": "primitive",
+                        "primitive": "any",
+                        "symbolMeta": {
+                            "name": "type",
+                            "flags": 33554436,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 140,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 140,
+                                                "character": 12
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "5"
+                    },
+                    {
+                        "kind": "reference",
+                        "symbolMeta": {
+                            "name": "props",
+                            "flags": 33554436,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 141,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 141,
+                                                "character": 13
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "5"
+                    },
+                    {
+                        "kind": "union",
+                        "types": [
+                            {
+                                "kind": "primitive",
+                                "primitive": "string",
+                                "id": "7"
+                            },
+                            {
+                                "kind": "primitive",
+                                "primitive": "number",
+                                "id": "8"
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "key",
+                            "flags": 33554436,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 142,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 142,
+                                                "character": 11
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "aliasSymbolMeta": {
+                            "name": "Key",
+                            "flags": 524288,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 123,
+                                                "character": 9
+                                            },
+                                            "end": {
+                                                "line": 123,
+                                                "character": 12
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "6"
+                    }
+                ],
+                "baseType": {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "reference",
+                            "symbolMeta": {
+                                "name": "type",
+                                "flags": 33554436,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 140,
+                                                    "character": 8
+                                                },
+                                                "end": {
+                                                    "line": 140,
+                                                    "character": 12
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "5"
+                        },
+                        {
+                            "kind": "reference",
+                            "symbolMeta": {
+                                "name": "props",
+                                "flags": 33554436,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 141,
+                                                    "character": 8
+                                                },
+                                                "end": {
+                                                    "line": 141,
+                                                    "character": 13
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "5"
+                        },
+                        {
+                            "kind": "union",
+                            "types": [
+                                {
+                                    "kind": "reference",
+                                    "id": "7"
+                                },
+                                {
+                                    "kind": "reference",
+                                    "id": "8"
+                                }
+                            ],
+                            "symbolMeta": {
+                                "name": "key",
+                                "flags": 4,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 142,
+                                                    "character": 8
+                                                },
+                                                "end": {
+                                                    "line": 142,
+                                                    "character": 11
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "aliasSymbolMeta": {
+                                "name": "Key",
+                                "flags": 524288,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 123,
+                                                    "character": 9
+                                                },
+                                                "end": {
+                                                    "line": 123,
+                                                    "character": 12
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "19"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "ReactElement",
+                        "flags": 64,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 139,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 139,
+                                            "character": 26
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "typeParameters": [
+                        {
+                            "kind": "type_parameter",
+                            "defaultType": {
+                                "kind": "reference",
+                                "id": "5"
+                            },
+                            "symbolMeta": {
+                                "name": "P",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 27
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 28
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "10"
+                        },
+                        {
+                            "kind": "type_parameter",
+                            "baseConstraint": {
+                                "kind": "union",
+                                "types": [
+                                    {
+                                        "kind": "reference",
+                                        "id": "7"
+                                    },
+                                    {
+                                        "kind": "function",
+                                        "signatures": [
+                                            {
+                                                "symbolMeta": {
+                                                    "name": "__type",
+                                                    "flags": 2048,
+                                                    "declarations": [
+                                                        {
+                                                            "location": {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 77,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 77,
+                                                                        "character": 54
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "kind": "max_depth",
+                                                        "id": "18"
+                                                    }
+                                                ],
+                                                "returnType": {
+                                                    "kind": "max_depth",
+                                                    "id": "18"
+                                                }
+                                            }
+                                        ],
+                                        "symbolMeta": {
+                                            "name": "__type",
+                                            "flags": 2048,
+                                            "anonymous": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 77,
+                                                                "character": 11
+                                                            },
+                                                            "end": {
+                                                                "line": 77,
+                                                                "character": 54
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "13"
+                                    },
+                                    {
+                                        "kind": "function",
+                                        "signatures": [
+                                            {
+                                                "symbolMeta": {
+                                                    "name": "__type",
+                                                    "flags": 2048,
+                                                    "declarations": [
+                                                        {
+                                                            "location": {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 78,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 78,
+                                                                        "character": 48
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "kind": "max_depth",
+                                                        "id": "18"
+                                                    }
+                                                ],
+                                                "returnType": {
+                                                    "kind": "max_depth",
+                                                    "id": "18"
+                                                }
+                                            }
+                                        ],
+                                        "symbolMeta": {
+                                            "name": "__type",
+                                            "flags": 2048,
+                                            "anonymous": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 78,
+                                                                "character": 11
+                                                            },
+                                                            "end": {
+                                                                "line": 78,
+                                                                "character": 48
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "16"
+                                    }
+                                ],
+                                "id": "12"
+                            },
+                            "defaultType": {
+                                "kind": "reference",
+                                "id": "12"
+                            },
+                            "symbolMeta": {
+                                "name": "T",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 37
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "11"
+                        }
+                    ],
+                    "typeArguments": [
+                        {
+                            "kind": "reference",
+                            "id": "5"
+                        },
+                        {
+                            "kind": "reference",
+                            "id": "5"
+                        }
+                    ],
+                    "id": "9"
+                },
+                "implementsTypes": [],
+                "constructSignatures": [],
+                "symbolMeta": {
+                    "name": "Element",
+                    "flags": 64,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 3121,
+                                        "character": 18
+                                    },
+                                    "end": {
+                                        "line": 3121,
+                                        "character": 25
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "4"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "Comp",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 9
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> Comp --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "Comp",
+                "flags": 16,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 9
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "symbolMeta": {
+                                "name": "abc",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/jsxFunctionComponent.tsx",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 23
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 26
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "2"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "symbolMeta": {
+                                "name": "ad",
+                                "flags": 16777220,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/jsxFunctionComponent.tsx",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 38
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "props",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/jsxFunctionComponent.tsx",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 19
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ],
+            "returnType": {
+                "kind": "interface",
+                "properties": [
+                    {
+                        "kind": "primitive",
+                        "primitive": "any",
+                        "symbolMeta": {
+                            "name": "type",
+                            "flags": 33554436,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 140,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 140,
+                                                "character": 12
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "5"
+                    },
+                    {
+                        "kind": "reference",
+                        "symbolMeta": {
+                            "name": "props",
+                            "flags": 33554436,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 141,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 141,
+                                                "character": 13
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "5"
+                    },
+                    {
+                        "kind": "union",
+                        "types": [
+                            {
+                                "kind": "primitive",
+                                "primitive": "string",
+                                "id": "7"
+                            },
+                            {
+                                "kind": "primitive",
+                                "primitive": "number",
+                                "id": "8"
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "key",
+                            "flags": 33554436,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 142,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 142,
+                                                "character": 11
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "aliasSymbolMeta": {
+                            "name": "Key",
+                            "flags": 524288,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 123,
+                                                "character": 9
+                                            },
+                                            "end": {
+                                                "line": 123,
+                                                "character": 12
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "6"
+                    }
+                ],
+                "baseType": {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "reference",
+                            "symbolMeta": {
+                                "name": "type",
+                                "flags": 33554436,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 140,
+                                                    "character": 8
+                                                },
+                                                "end": {
+                                                    "line": 140,
+                                                    "character": 12
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "5"
+                        },
+                        {
+                            "kind": "reference",
+                            "symbolMeta": {
+                                "name": "props",
+                                "flags": 33554436,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 141,
+                                                    "character": 8
+                                                },
+                                                "end": {
+                                                    "line": 141,
+                                                    "character": 13
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "5"
+                        },
+                        {
+                            "kind": "union",
+                            "types": [
+                                {
+                                    "kind": "reference",
+                                    "id": "7"
+                                },
+                                {
+                                    "kind": "reference",
+                                    "id": "8"
+                                }
+                            ],
+                            "symbolMeta": {
+                                "name": "key",
+                                "flags": 4,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 142,
+                                                    "character": 8
+                                                },
+                                                "end": {
+                                                    "line": 142,
+                                                    "character": 11
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "aliasSymbolMeta": {
+                                "name": "Key",
+                                "flags": 524288,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 123,
+                                                    "character": 9
+                                                },
+                                                "end": {
+                                                    "line": 123,
+                                                    "character": 12
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "19"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "ReactElement",
+                        "flags": 64,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 139,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 139,
+                                            "character": 26
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "typeParameters": [
+                        {
+                            "kind": "type_parameter",
+                            "defaultType": {
+                                "kind": "reference",
+                                "id": "5"
+                            },
+                            "symbolMeta": {
+                                "name": "P",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 27
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 28
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "10"
+                        },
+                        {
+                            "kind": "type_parameter",
+                            "baseConstraint": {
+                                "kind": "union",
+                                "types": [
+                                    {
+                                        "kind": "reference",
+                                        "id": "7"
+                                    },
+                                    {
+                                        "kind": "function",
+                                        "signatures": [
+                                            {
+                                                "symbolMeta": {
+                                                    "name": "__type",
+                                                    "flags": 2048,
+                                                    "declarations": [
+                                                        {
+                                                            "location": {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 77,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 77,
+                                                                        "character": 54
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "kind": "max_depth",
+                                                        "id": "18"
+                                                    }
+                                                ],
+                                                "returnType": {
+                                                    "kind": "max_depth",
+                                                    "id": "18"
+                                                }
+                                            }
+                                        ],
+                                        "symbolMeta": {
+                                            "name": "__type",
+                                            "flags": 2048,
+                                            "anonymous": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 77,
+                                                                "character": 11
+                                                            },
+                                                            "end": {
+                                                                "line": 77,
+                                                                "character": 54
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "13"
+                                    },
+                                    {
+                                        "kind": "function",
+                                        "signatures": [
+                                            {
+                                                "symbolMeta": {
+                                                    "name": "__type",
+                                                    "flags": 2048,
+                                                    "declarations": [
+                                                        {
+                                                            "location": {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 78,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 78,
+                                                                        "character": 48
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "kind": "max_depth",
+                                                        "id": "18"
+                                                    }
+                                                ],
+                                                "returnType": {
+                                                    "kind": "max_depth",
+                                                    "id": "18"
+                                                }
+                                            }
+                                        ],
+                                        "symbolMeta": {
+                                            "name": "__type",
+                                            "flags": 2048,
+                                            "anonymous": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 78,
+                                                                "character": 11
+                                                            },
+                                                            "end": {
+                                                                "line": 78,
+                                                                "character": 48
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "16"
+                                    }
+                                ],
+                                "id": "12"
+                            },
+                            "defaultType": {
+                                "kind": "reference",
+                                "id": "12"
+                            },
+                            "symbolMeta": {
+                                "name": "T",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 37
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "11"
+                        }
+                    ],
+                    "typeArguments": [
+                        {
+                            "kind": "reference",
+                            "id": "5"
+                        },
+                        {
+                            "kind": "reference",
+                            "id": "5"
+                        }
+                    ],
+                    "id": "9"
+                },
+                "implementsTypes": [],
+                "constructSignatures": [],
+                "symbolMeta": {
+                    "name": "Element",
+                    "flags": 64,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 3121,
+                                        "character": 18
+                                    },
+                                    "end": {
+                                        "line": 3121,
+                                        "character": 25
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "4"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "Comp",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 9
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> props: { abc: string, ad?: number }
+> props: { abc: string, ad?: number }
+> props --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "abc",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 23
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 26
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "number",
+            "symbolMeta": {
+                "name": "ad",
+                "flags": 16777220,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 36
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 38
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "props",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> { abc: string, ad?: number }
+> abc: string, ad?: number
+> abc: string,
+> abc --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "abc",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 26
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> ad?: number
+> ad --- {
+    "kind": "primitive",
+    "primitive": "number",
+    "symbolMeta": {
+        "name": "ad",
+        "flags": 16777220,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 36
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 38
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+
+const a = <Comp abc="asc" ad={4} />
+> const a = <Comp abc="asc" ad={4} />
+> a = <Comp abc="asc" ad={4} />
+> a = <Comp abc="asc" ad={4} />
+> a --- {
+    "kind": "interface",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "any",
+            "symbolMeta": {
+                "name": "type",
+                "flags": 33554436,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 140,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 140,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "props",
+                "flags": 33554436,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 141,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 141,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "union",
+            "types": [
+                {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "id": "3"
+                },
+                {
+                    "kind": "primitive",
+                    "primitive": "number",
+                    "id": "4"
+                }
+            ],
+            "symbolMeta": {
+                "name": "key",
+                "flags": 33554436,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 142,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 142,
+                                    "character": 11
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "aliasSymbolMeta": {
+                "name": "Key",
+                "flags": 524288,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 123,
+                                    "character": 9
+                                },
+                                "end": {
+                                    "line": 123,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        }
+    ],
+    "baseType": {
+        "kind": "object",
+        "properties": [
+            {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "type",
+                    "flags": 33554436,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 140,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 140,
+                                        "character": 12
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "1"
+            },
+            {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "props",
+                    "flags": 33554436,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 141,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 141,
+                                        "character": 13
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "1"
+            },
+            {
+                "kind": "union",
+                "types": [
+                    {
+                        "kind": "reference",
+                        "id": "3"
+                    },
+                    {
+                        "kind": "reference",
+                        "id": "4"
+                    }
+                ],
+                "symbolMeta": {
+                    "name": "key",
+                    "flags": 4,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 142,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 142,
+                                        "character": 11
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "aliasSymbolMeta": {
+                    "name": "Key",
+                    "flags": 524288,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 123,
+                                        "character": 9
+                                    },
+                                    "end": {
+                                        "line": 123,
+                                        "character": 12
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "15"
+            }
+        ],
+        "indexInfos": [],
+        "symbolMeta": {
+            "name": "ReactElement",
+            "flags": 64,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "../node_modules/@types/react/index.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 139,
+                                "character": 14
+                            },
+                            "end": {
+                                "line": 139,
+                                "character": 26
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "typeParameters": [
+            {
+                "kind": "type_parameter",
+                "defaultType": {
+                    "kind": "reference",
+                    "id": "1"
+                },
+                "symbolMeta": {
+                    "name": "P",
+                    "flags": 262144,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 139,
+                                        "character": 27
+                                    },
+                                    "end": {
+                                        "line": 139,
+                                        "character": 28
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "6"
+            },
+            {
+                "kind": "type_parameter",
+                "baseConstraint": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "reference",
+                            "id": "3"
+                        },
+                        {
+                            "kind": "function",
+                            "signatures": [
+                                {
+                                    "symbolMeta": {
+                                        "name": "__type",
+                                        "flags": 2048,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 77,
+                                                            "character": 11
+                                                        },
+                                                        "end": {
+                                                            "line": 77,
+                                                            "character": 54
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "parameters": [
+                                        {
+                                            "kind": "reference",
+                                            "symbolMeta": {
+                                                "name": "props",
+                                                "flags": 33554433,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 77,
+                                                                    "character": 12
+                                                                },
+                                                                "end": {
+                                                                    "line": 77,
+                                                                    "character": 17
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "1"
+                                        }
+                                    ],
+                                    "returnType": {
+                                        "kind": "reference",
+                                        "symbolMeta": {
+                                            "name": "ReactElement",
+                                            "flags": 64,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 139,
+                                                                "character": 14
+                                                            },
+                                                            "end": {
+                                                                "line": 139,
+                                                                "character": 26
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "5"
+                                    }
+                                }
+                            ],
+                            "symbolMeta": {
+                                "name": "__type",
+                                "flags": 2048,
+                                "anonymous": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 77,
+                                                    "character": 11
+                                                },
+                                                "end": {
+                                                    "line": 77,
+                                                    "character": 54
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "9"
+                        },
+                        {
+                            "kind": "function",
+                            "signatures": [
+                                {
+                                    "symbolMeta": {
+                                        "name": "__type",
+                                        "flags": 2048,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 78,
+                                                            "character": 11
+                                                        },
+                                                        "end": {
+                                                            "line": 78,
+                                                            "character": 48
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "parameters": [
+                                        {
+                                            "kind": "reference",
+                                            "symbolMeta": {
+                                                "name": "props",
+                                                "flags": 33554433,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 78,
+                                                                    "character": 16
+                                                                },
+                                                                "end": {
+                                                                    "line": 78,
+                                                                    "character": 21
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "1"
+                                        }
+                                    ],
+                                    "returnType": {
+                                        "kind": "object",
+                                        "properties": [
+                                            {
+                                                "kind": "max_depth",
+                                                "id": "14"
+                                            }
+                                        ],
+                                        "indexInfos": [],
+                                        "objectClass": {
+                                            "kind": "max_depth",
+                                            "id": "14"
+                                        },
+                                        "symbolMeta": {
+                                            "name": "Component",
+                                            "flags": 96,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 429,
+                                                                "character": 14
+                                                            },
+                                                            "end": {
+                                                                "line": 429,
+                                                                "character": 23
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "location": {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 430,
+                                                                "character": 10
+                                                            },
+                                                            "end": {
+                                                                "line": 430,
+                                                                "character": 19
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "typeArguments": [
+                                            {
+                                                "kind": "max_depth",
+                                                "id": "14"
+                                            }
+                                        ],
+                                        "id": "11"
+                                    }
+                                }
+                            ],
+                            "symbolMeta": {
+                                "name": "__type",
+                                "flags": 2048,
+                                "anonymous": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 78,
+                                                    "character": 11
+                                                },
+                                                "end": {
+                                                    "line": 78,
+                                                    "character": 48
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "10"
+                        }
+                    ],
+                    "id": "8"
+                },
+                "defaultType": {
+                    "kind": "reference",
+                    "id": "8"
+                },
+                "symbolMeta": {
+                    "name": "T",
+                    "flags": 262144,
+                    "insideClassOrInterface": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 139,
+                                        "character": 36
+                                    },
+                                    "end": {
+                                        "line": 139,
+                                        "character": 37
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "7"
+            }
+        ],
+        "typeArguments": [
+            {
+                "kind": "reference",
+                "id": "1"
+            },
+            {
+                "kind": "reference",
+                "id": "1"
+            }
+        ],
+        "id": "5"
+    },
+    "implementsTypes": [],
+    "constructSignatures": [],
+    "symbolMeta": {
+        "name": "a",
+        "flags": 2,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 6
+                        },
+                        "end": {
+                            "line": 4,
+                            "character": 7
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "aliasSymbolMeta": {
+        "name": "Element",
+        "flags": 64,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../node_modules/@types/react/index.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 3121,
+                            "character": 18
+                        },
+                        "end": {
+                            "line": 3121,
+                            "character": 25
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> <Comp abc="asc" ad={4} />
+> Comp --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "Comp",
+                "flags": 16,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/jsxFunctionComponent.tsx",
+                            "range": {
+                                "start": {
+                                    "line": 0,
+                                    "character": 9
+                                },
+                                "end": {
+                                    "line": 0,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "symbolMeta": {
+                                "name": "abc",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/jsxFunctionComponent.tsx",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 23
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 26
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "2"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "symbolMeta": {
+                                "name": "ad",
+                                "flags": 16777220,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/jsxFunctionComponent.tsx",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 38
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "props",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/jsxFunctionComponent.tsx",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 19
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ],
+            "returnType": {
+                "kind": "interface",
+                "properties": [
+                    {
+                        "kind": "primitive",
+                        "primitive": "any",
+                        "symbolMeta": {
+                            "name": "type",
+                            "flags": 33554436,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 140,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 140,
+                                                "character": 12
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "5"
+                    },
+                    {
+                        "kind": "reference",
+                        "symbolMeta": {
+                            "name": "props",
+                            "flags": 33554436,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 141,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 141,
+                                                "character": 13
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "5"
+                    },
+                    {
+                        "kind": "union",
+                        "types": [
+                            {
+                                "kind": "primitive",
+                                "primitive": "string",
+                                "id": "7"
+                            },
+                            {
+                                "kind": "primitive",
+                                "primitive": "number",
+                                "id": "8"
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "key",
+                            "flags": 33554436,
+                            "insideClassOrInterface": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 142,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 142,
+                                                "character": 11
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "aliasSymbolMeta": {
+                            "name": "Key",
+                            "flags": 524288,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 123,
+                                                "character": 9
+                                            },
+                                            "end": {
+                                                "line": 123,
+                                                "character": 12
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "6"
+                    }
+                ],
+                "baseType": {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "reference",
+                            "symbolMeta": {
+                                "name": "type",
+                                "flags": 33554436,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 140,
+                                                    "character": 8
+                                                },
+                                                "end": {
+                                                    "line": 140,
+                                                    "character": 12
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "5"
+                        },
+                        {
+                            "kind": "reference",
+                            "symbolMeta": {
+                                "name": "props",
+                                "flags": 33554436,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 141,
+                                                    "character": 8
+                                                },
+                                                "end": {
+                                                    "line": 141,
+                                                    "character": 13
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "5"
+                        },
+                        {
+                            "kind": "union",
+                            "types": [
+                                {
+                                    "kind": "reference",
+                                    "id": "7"
+                                },
+                                {
+                                    "kind": "reference",
+                                    "id": "8"
+                                }
+                            ],
+                            "symbolMeta": {
+                                "name": "key",
+                                "flags": 4,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 142,
+                                                    "character": 8
+                                                },
+                                                "end": {
+                                                    "line": 142,
+                                                    "character": 11
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "aliasSymbolMeta": {
+                                "name": "Key",
+                                "flags": 524288,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 123,
+                                                    "character": 9
+                                                },
+                                                "end": {
+                                                    "line": 123,
+                                                    "character": 12
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "16"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "ReactElement",
+                        "flags": 64,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 139,
+                                            "character": 14
+                                        },
+                                        "end": {
+                                            "line": 139,
+                                            "character": 26
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "typeParameters": [
+                        {
+                            "kind": "type_parameter",
+                            "defaultType": {
+                                "kind": "reference",
+                                "id": "5"
+                            },
+                            "symbolMeta": {
+                                "name": "P",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 27
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 28
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "10"
+                        },
+                        {
+                            "kind": "type_parameter",
+                            "baseConstraint": {
+                                "kind": "union",
+                                "types": [
+                                    {
+                                        "kind": "reference",
+                                        "id": "7"
+                                    },
+                                    {
+                                        "kind": "function",
+                                        "signatures": [
+                                            {
+                                                "symbolMeta": {
+                                                    "name": "__type",
+                                                    "flags": 2048,
+                                                    "declarations": [
+                                                        {
+                                                            "location": {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 77,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 77,
+                                                                        "character": 54
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "kind": "max_depth",
+                                                        "id": "14"
+                                                    }
+                                                ],
+                                                "returnType": {
+                                                    "kind": "max_depth",
+                                                    "id": "14"
+                                                }
+                                            }
+                                        ],
+                                        "symbolMeta": {
+                                            "name": "__type",
+                                            "flags": 2048,
+                                            "anonymous": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 77,
+                                                                "character": 11
+                                                            },
+                                                            "end": {
+                                                                "line": 77,
+                                                                "character": 54
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "13"
+                                    },
+                                    {
+                                        "kind": "function",
+                                        "signatures": [
+                                            {
+                                                "symbolMeta": {
+                                                    "name": "__type",
+                                                    "flags": 2048,
+                                                    "declarations": [
+                                                        {
+                                                            "location": {
+                                                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                                                "range": {
+                                                                    "start": {
+                                                                        "line": 78,
+                                                                        "character": 11
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 78,
+                                                                        "character": 48
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "parameters": [
+                                                    {
+                                                        "kind": "max_depth",
+                                                        "id": "14"
+                                                    }
+                                                ],
+                                                "returnType": {
+                                                    "kind": "max_depth",
+                                                    "id": "14"
+                                                }
+                                            }
+                                        ],
+                                        "symbolMeta": {
+                                            "name": "__type",
+                                            "flags": 2048,
+                                            "anonymous": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 78,
+                                                                "character": 11
+                                                            },
+                                                            "end": {
+                                                                "line": 78,
+                                                                "character": 48
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "15"
+                                    }
+                                ],
+                                "id": "12"
+                            },
+                            "defaultType": {
+                                "kind": "reference",
+                                "id": "12"
+                            },
+                            "symbolMeta": {
+                                "name": "T",
+                                "flags": 262144,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/@types/react/index.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 139,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 139,
+                                                    "character": 37
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "11"
+                        }
+                    ],
+                    "typeArguments": [
+                        {
+                            "kind": "reference",
+                            "id": "5"
+                        },
+                        {
+                            "kind": "reference",
+                            "id": "5"
+                        }
+                    ],
+                    "id": "9"
+                },
+                "implementsTypes": [],
+                "constructSignatures": [],
+                "symbolMeta": {
+                    "name": "Element",
+                    "flags": 64,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 3121,
+                                        "character": 18
+                                    },
+                                    "end": {
+                                        "line": 3121,
+                                        "character": 25
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "4"
+            }
+        }
+    ],
+    "isJSXElement": true,
+    "symbolMeta": {
+        "name": "Comp",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 9
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> abc="asc" ad={4}
+> abc="asc" ad={4}
+> abc="asc"
+> abc --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "abc",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 4,
+                            "character": 19
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> ad={4}
+> ad --- {
+    "kind": "primitive",
+    "primitive": "number",
+    "symbolMeta": {
+        "name": "ad",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/jsxFunctionComponent.tsx",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 26
+                        },
+                        "end": {
+                            "line": 4,
+                            "character": 28
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

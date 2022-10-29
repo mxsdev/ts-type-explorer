@@ -17,6 +17,8 @@ function getTestGlob(): string | undefined {
     return process.env["TESTS"]
 }
 
+const allowedExtensions = [".ts", ".tsx"]
+
 export async function getTestCases(): Promise<string[]> {
     const globbed = await new Promise<string[]>((resolve, reject) => {
         glob(getTestGlob() ?? "*", { cwd: testCasePath }, (err, files) => {
@@ -27,8 +29,10 @@ export async function getTestCases(): Promise<string[]> {
         })
     })
 
-    return globbed.filter(
-        (name) => path.parse(name).ext.toLowerCase() === ".ts"
+    return globbed.filter((name) =>
+        allowedExtensions.some(
+            (ext) => path.parse(name).ext.toLowerCase() === ext
+        )
     )
 }
 

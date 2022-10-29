@@ -7,6 +7,7 @@ import {
     isNonEmpty,
     arrayContentsEqual,
     removeDuplicates,
+    cartesianEqual,
 } from "./objectUtil"
 import {
     DeclarationInfo,
@@ -373,6 +374,17 @@ function _generateTypeTree(
                         }),
                 }
             } else if (signatures.length > 0) {
+                const isJSXElement = !!(
+                    node &&
+                    cartesianEqual(
+                        [node.kind, node.parent?.kind],
+                        [
+                            ts.SyntaxKind.JsxElement,
+                            ts.SyntaxKind.JsxSelfClosingElement,
+                        ]
+                    )
+                )
+
                 return {
                     kind: "function",
                     signatures: signatures.map((s) =>
@@ -382,6 +394,7 @@ function _generateTypeTree(
                             typeParameters: s.typeParameters,
                         })
                     ),
+                    ...(isJSXElement && { isJSXElement }),
                 }
             } else {
                 return {

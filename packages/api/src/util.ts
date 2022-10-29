@@ -92,7 +92,7 @@ export function getNodeType(ctx: TypescriptContext, node: ts.Node) {
     )(getNodeSymbol(ctx, node))
     if (symbolType && isValidType(symbolType)) return symbolType
 
-    if (ts.isTypeNode(node) || ts.isTypeNode(node.parent)) {
+    if (ts.isTypeNode(node) || (node.parent && ts.isTypeNode(node.parent))) {
         const typeNode = ts.isTypeNode(node)
             ? node
             : ts.isTypeNode(node.parent)
@@ -701,16 +701,18 @@ export function getSignatureTypeArguments(
 
 export function getDescendantAtPosition(
     ctx: SourceFileTypescriptContext,
+    sourceFile: ts.SourceFile,
     position: number
 ) {
-    return getDescendantAtRange(ctx, [position, position])
+    return getDescendantAtRange(ctx, sourceFile, [position, position])
 }
 
 /**
  * https://github.com/dsherret/ts-ast-viewer/blob/b4be8f2234a1c3c099296bf5d0ad6cc14107367c/site/src/compiler/getDescendantAtRange.ts
  */
 export function getDescendantAtRange(
-    { sourceFile, ts }: SourceFileTypescriptContext,
+    { ts }: TypescriptContext,
+    sourceFile: ts.SourceFile,
     range: [number, number]
 ) {
     let bestMatch: { node: ts.Node; start: number } = {
