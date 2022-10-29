@@ -164,7 +164,7 @@ function convertLinkTags(
         switch (part.kind) {
             case "link":
                 if (currentLink) {
-                    if (currentLink.target) {
+                    if (currentLink.target && currentLink.target.file) {
                         const link = filePathConverter
                             .toResource(currentLink.target.file)
                             .with({
@@ -257,7 +257,9 @@ export function markdownDocumentation(
     baseUri: vscode.Uri | undefined
 ): vscode.MarkdownString {
     const filePathConverter = {
-        toResource: (filePath: string) => vscode.Uri.file(filePath),
+        toResource: (filePath: string) => {
+            return vscode.Uri.file(filePath)
+        },
     }
 
     const out = new vscode.MarkdownString()

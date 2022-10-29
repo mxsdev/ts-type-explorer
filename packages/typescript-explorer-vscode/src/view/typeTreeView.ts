@@ -60,7 +60,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
                 const { documentation, tags } =
                     (await getQuickInfoAtLocation(location)) ?? {}
 
-                if (documentation) {
+                if (documentation && documentation.length > 0) {
                     element.tooltip = markdownDocumentation(
                         documentation,
                         tags ?? [],
