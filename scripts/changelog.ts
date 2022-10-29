@@ -1,5 +1,4 @@
 import { readFileSync } from "fs"
-import path from "path"
 import { program } from "commander"
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
