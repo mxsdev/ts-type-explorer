@@ -49,6 +49,8 @@ import {
     getNodeSymbol,
     narrowDeclarationForLocation,
     isPureObjectOrMappedTypeShallow,
+    getDescendantAtRange,
+    getSymbolOrTypeOfNode,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -876,4 +878,36 @@ export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
             return [signature.symbolMeta]
         }
     }
+}
+
+export function getTypeInfoAtRange(
+    ctx: TypescriptContext,
+    location: SourceFileLocation,
+    apiConfig?: APIConfig
+) {
+    const sourceFile = ctx.program.getSourceFile(location.fileName)
+    if (!sourceFile) return undefined
+
+    const startPos = sourceFile.getPositionOfLineAndCharacter(
+        location.range.start.line,
+        location.range.start.character
+    )
+
+    // TODO: integrate this
+    //       getDescendantAtRange will probably need to be improved...
+    // const endPos = sourceFile.getPositionOfLineAndCharacter(
+    //     location.range.end.line,
+    //     location.range.end.character
+    // )
+
+    const node = getDescendantAtRange(ctx, sourceFile, [startPos, startPos])
+
+    if (node === sourceFile || !node.parent) {
+        return undefined
+    }
+
+    const symbolOrType = getSymbolOrTypeOfNode(ctx, node)
+    if (!symbolOrType) return undefined
+
+    return generateTypeTree(symbolOrType, ctx, apiConfig)
 }

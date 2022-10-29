@@ -1,7 +1,7 @@
 import { TypeInfo } from "@ts-type-explorer/api"
 import * as vscode from "vscode"
 import { selectionEnabled } from "../config"
-import { getQuickInfoAtPosition, isDocumentSupported, showError } from "../util"
+import { getTypeTreeAtRange, isDocumentSupported, showError } from "../util"
 import { TypeTreeItem, TypeTreeProvider } from "../view/typeTreeView"
 import { ViewProviders } from "../view/views"
 
@@ -165,14 +165,13 @@ export class StateManager {
             return
         }
 
-        return getQuickInfoAtPosition(fileName, selections[0].start)
-            .then((body) => {
-                const { __displayTree } = body ?? {}
-                this.setTypeTree(__displayTree)
+        return getTypeTreeAtRange(fileName, selections[0])
+            .then((tree) => {
+                this.setTypeTree(tree)
             })
             .catch((e) => {
-                showError("Error getting quick info")
-                console.error("Quick info error", e)
+                showError("Error getting type information!")
+                console.error("TypeTreeRequest error", e)
             })
     }
 }

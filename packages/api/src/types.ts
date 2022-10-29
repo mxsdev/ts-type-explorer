@@ -1,9 +1,33 @@
 import type * as ts from "typescript"
 import { APIConfig } from "./config"
 
-export type ExpandedQuickInfo = ts.QuickInfo & {
-    __displayTree?: TypeInfo
+type FileLocationRequest = {
+    range: TextRange
 }
+
+export type CustomTypeScriptRequest = {
+    id: "type-tree"
+} & FileLocationRequest
+
+export type CustomTypeScriptRequestId = CustomTypeScriptRequest["id"]
+
+export type CustomTypeScriptRequestOfId<Id extends CustomTypeScriptRequestId> =
+    Extract<CustomTypeScriptRequest, { id: Id }>
+
+type TypeTreeResponseBody = {
+    typeInfo: TypeInfo | undefined
+}
+
+type CustomTypeScriptResponseById = {
+    "type-tree": TypeTreeResponseBody
+}
+
+export type CustomTypeScriptResponse<Id extends CustomTypeScriptRequestId> = {
+    body: CustomTypeScriptResponseById[Id]
+}
+
+export type CustomTypeScriptResponseBody<Id extends CustomTypeScriptRequestId> =
+    CustomTypeScriptResponse<Id>["body"]
 
 export type TypescriptContext = {
     program: ts.Program

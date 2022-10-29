@@ -1,15 +1,9 @@
 import {
-    getSymbolType,
-    generateTypeTree,
-    getNodeType,
-    getNodeSymbol,
-    getDescendantAtPosition,
-    TypescriptContext,
-    APIConfig,
-    SymbolOrType,
-    ExpandedQuickInfo,
+    CustomTypeScriptRequest,
+    CustomTypeScriptResponseBody,
+    getTypeInfoAtRange,
 } from "@ts-type-explorer/api"
-import { isValidType, SourceFileTypescriptContext } from "@ts-type-explorer/api"
+import { SourceFileTypescriptContext } from "@ts-type-explorer/api"
 
 // TODO: add config for e.g. max depth
 
@@ -31,89 +25,61 @@ function init(modules: {
                 x.apply(info.languageService, args)
         }
 
-        proxy.getQuickInfoAtPosition = function (fileName, position) {
-            let prior = info.languageService.getQuickInfoAtPosition(
-                fileName,
-                position
-            ) as ExpandedQuickInfo
-
+        function getContext(
+            fileName: string
+        ): SourceFileTypescriptContext | undefined {
             const program = info.project["program"] as ts.Program | undefined
 
-            if (!program) return prior
+            if (!program) return undefined
 
             const typeChecker = program.getTypeChecker()
             const sourceFile = program.getSourceFile(fileName)
 
-            if (!sourceFile) return prior
+            if (!sourceFile) return undefined
 
-            const ctx: SourceFileTypescriptContext = {
+            return {
                 program,
                 typeChecker,
                 sourceFile,
                 ts: modules.typescript,
             }
+        }
 
-            const node = getDescendantAtPosition(ctx, ctx.sourceFile, position)
+        // @ts-expect-error - returning custom response types
+        proxy.getCompletionsAtPosition = function (...args) {
+            // triggerCharacter is "hijacked" with custom request information
+            const { triggerCharacter: possiblePayload } = args[2] ?? {}
 
-            if (!node || node === sourceFile) {
-                // Avoid giving quickInfo for the sourceFile as a whole.
-                return prior
+            if (!possiblePayload || typeof possiblePayload === "string") {
+                return info.languageService.getCompletionsAtPosition(...args)
             }
 
-            const symbolOrType = getSymbolOrType(ctx, node)
+            const payload =
+                possiblePayload as unknown as CustomTypeScriptRequest
 
-            if (!symbolOrType) {
-                return prior
+            const [fileName] = args
+            const ctx = getContext(fileName)
+
+            if (!ctx) {
+                return undefined
             }
 
-            if (!prior) {
-                prior = {} as ExpandedQuickInfo
+            if (payload.id === "type-tree") {
+                const typeInfo = getTypeInfoAtRange(ctx, {
+                    fileName,
+                    range: payload.range,
+                })
+
+                return { typeInfo } as CustomTypeScriptResponseBody<"type-tree">
             }
 
-            const apiConfig = new APIConfig()
-            apiConfig.referenceDefinedTypes = true
-
-            if (prior) {
-                prior.__displayTree = generateTypeTree(
-                    symbolOrType,
-                    ctx,
-                    apiConfig
-                )
-            }
-
-            return prior
+            return undefined
         }
 
         return proxy
     }
 
     return { create }
-}
-
-function getSymbolOrType(
-    ctx: TypescriptContext,
-    node: ts.Node
-): SymbolOrType | undefined {
-    const { typeChecker } = ctx
-
-    const symbol =
-        typeChecker.getSymbolAtLocation(node) ?? getNodeSymbol(ctx, node)
-
-    if (symbol) {
-        const symbolType = getSymbolType(ctx, symbol, node)
-
-        if (isValidType(symbolType)) {
-            return { symbol, node }
-        }
-    }
-
-    const type = getNodeType(ctx, node)
-
-    if (type) {
-        return { type, node }
-    }
-
-    return undefined
 }
 
 export = init

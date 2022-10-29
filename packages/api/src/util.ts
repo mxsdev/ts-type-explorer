@@ -7,6 +7,7 @@ import {
     SourceFileTypescriptContext,
     DiscriminatedIndexInfo,
     ParameterInfo,
+    SymbolOrType,
 } from "./types"
 import {
     CheckFlags,
@@ -700,7 +701,7 @@ export function getSignatureTypeArguments(
 }
 
 export function getDescendantAtPosition(
-    ctx: SourceFileTypescriptContext,
+    ctx: TypescriptContext,
     sourceFile: ts.SourceFile,
     position: number
 ) {
@@ -793,6 +794,32 @@ export function getSourceFileLocation(
             end,
         },
     }
+}
+
+export function getSymbolOrTypeOfNode(
+    ctx: TypescriptContext,
+    node: ts.Node
+): SymbolOrType | undefined {
+    const { typeChecker } = ctx
+
+    const symbol =
+        typeChecker.getSymbolAtLocation(node) ?? getNodeSymbol(ctx, node)
+
+    if (symbol) {
+        const symbolType = getSymbolType(ctx, symbol, node)
+
+        if (isValidType(symbolType)) {
+            return { symbol, node }
+        }
+    }
+
+    const type = getNodeType(ctx, node)
+
+    if (type) {
+        return { type, node }
+    }
+
+    return undefined
 }
 
 /**

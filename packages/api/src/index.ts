@@ -8,12 +8,14 @@ export {
     getDescendantAtPosition,
     getDescendantAtRange,
     isValidType,
+    getSymbolOrTypeOfNode,
 } from "./util"
 export { recursivelyExpandType } from "./merge"
 export {
     generateTypeTree,
     getTypeInfoChildren,
     getTypeInfoSymbols,
+    getTypeInfoAtRange,
 } from "./tree"
 export {
     TypeInfo,
@@ -25,7 +27,12 @@ export {
     TypeParameterInfo,
     SourceFileLocation,
     SymbolOrType,
-    ExpandedQuickInfo,
+    CustomTypeScriptRequest,
+    CustomTypeScriptRequestId,
+    CustomTypeScriptResponse,
+    CustomTypeScriptResponseBody,
+    CustomTypeScriptRequestOfId,
+    TextRange,
 } from "./types"
 export {
     LocalizedTypeInfo,

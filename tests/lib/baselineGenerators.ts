@@ -2,12 +2,10 @@
 import {
     APIConfig,
     generateTypeTree,
-    getDescendantAtPosition,
-    getNodeSymbol,
-    getNodeType,
     SourceFileLocation,
-    SourceFileTypescriptContext,
     TypeInfoResolver,
+    TypescriptContext,
+    getTypeInfoAtRange,
 } from "@ts-type-explorer/api"
 import assert from "assert"
 import {
@@ -49,34 +47,13 @@ const localizedTreeBaselineGenerator = symbolBaselineGenerator(
     }
 )
 
-function getTypeInfoRetriever(ctx: SourceFileTypescriptContext) {
+function getTypeInfoRetriever(ctx: TypescriptContext) {
     return async (location: SourceFileLocation) => {
-        const sourceFile = ctx.program.getSourceFile(location.fileName)
-        assert(sourceFile)
+        const typeTree = getTypeInfoAtRange(ctx, location, apiConfig)
 
-        const { line, character } = location.range.start
+        assert(typeTree, "Symbol/type not found!")
 
-        const node = getDescendantAtPosition(
-            ctx,
-            sourceFile,
-            sourceFile.getPositionOfLineAndCharacter(line, character)
-        )
-
-        const symbol = getNodeSymbol(ctx, node)
-
-        if (symbol) {
-            return normalizeTypeTree(
-                generateTypeTree({ symbol, node }, ctx, apiConfig),
-                false
-            )
-        } else {
-            const type = getNodeType(ctx, node)
-            assert(type, "Symbol/type not found")
-            return normalizeTypeTree(
-                generateTypeTree({ type, node }, ctx, apiConfig),
-                false
-            )
-        }
+        return normalizeTypeTree(typeTree, false)
     }
 }
 
