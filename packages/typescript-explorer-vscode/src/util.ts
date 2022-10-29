@@ -102,5 +102,10 @@ export function showError(message: string) {
 }
 
 export function isDocumentSupported({ languageId }: vscode.TextDocument) {
-    return languageId === "typescript" || languageId === "javascript"
+    return (
+        languageId === "typescript" ||
+        languageId === "javascript" ||
+        languageId === "typescriptreact" ||
+        languageId === "javascriptreact"
+    )
 }

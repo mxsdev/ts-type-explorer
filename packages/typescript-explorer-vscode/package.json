@@ -14,6 +14,9 @@
     ],
     "activationEvents": [
         "onLanguage:typescript",
+        "onLanguage:javascript",
+        "onLanguage:typescriptreact",
+        "onLanguage:javascriptreact",
         "onView:type-tree",
         "onCommand:typescriptExplorer.typeTree.view.refresh",
         "onCommand:typescriptExplorer.typeTree.view.icons.enabled.toggle",
@@ -193,7 +196,7 @@
                 {
                     "command": "typescriptExplorer.selection.select",
                     "group": "type-explorer",
-                    "when": "editorLangId == 'typescript' || editorLangId == 'javascript'"
+                    "when": "editorLangId == 'typescript' || editorLangId == 'javascript' || editorLangId == 'typescriptreact' || editorLangId == 'javascriptreact'"
                 }
             ]
         },
