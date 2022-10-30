@@ -1,4 +1,5 @@
 import {
+    APIConfig,
     CustomTypeScriptRequest,
     CustomTypeScriptResponse,
     CustomTypeScriptResponseBody,
@@ -97,6 +98,8 @@ function init(modules: {
     return { create }
 }
 
+const apiConfig = new APIConfig().setReferenceDefinedTypes()
+
 function getCustomResponse(
     ctx: TypescriptContext,
     fileName: string,
@@ -104,10 +107,14 @@ function getCustomResponse(
 ): CustomTypeScriptResponseBody {
     switch (payload.id) {
         case "type-tree": {
-            const typeInfo = getTypeInfoAtRange(ctx, {
-                fileName,
-                range: payload.range,
-            })
+            const typeInfo = getTypeInfoAtRange(
+                ctx,
+                {
+                    fileName,
+                    range: payload.range,
+                },
+                apiConfig
+            )
 
             return { typeInfo }
         }
