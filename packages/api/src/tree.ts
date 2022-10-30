@@ -671,7 +671,7 @@ function resolveSignature(
     const signature = getResolvedSignature(ctx, node)
 
     const signatureTypeArguments = signature
-        ? getSignatureTypeArguments(ctx, signature)
+        ? getSignatureTypeArguments(ctx, signature, node)
         : undefined
     const signatureTypeParameters = signature?.target?.typeParameters
 

@@ -21,6 +21,7 @@ import {
     TypeReferenceInternal,
 } from "./typescript"
 import { RecursiveExpandContext, TypescriptContext } from "./types"
+import { cloneClassInstance } from "./objectUtil"
 
 export function recursivelyExpandType(
     ctx: TypescriptContext,
@@ -243,9 +244,4 @@ function _recursivelyExpandType(
 
         return type
     }
-}
-
-function cloneClassInstance<T>(orig: T): T {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    return Object.assign(Object.create(Object.getPrototypeOf(orig)), orig) as T
 }

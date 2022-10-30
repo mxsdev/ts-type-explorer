@@ -1,5 +1,10 @@
 import type * as ts from "typescript"
-import { wrapSafe, isEmpty, filterUndefined } from "./objectUtil"
+import {
+    wrapSafe,
+    isEmpty,
+    filterUndefined,
+    cloneClassInstance,
+} from "./objectUtil"
 import {
     SourceFileLocation,
     TypeId,
@@ -414,20 +419,33 @@ export function isObjectReference(
     return !!(getObjectFlags(ctx, type) & ts.ObjectFlags.Reference)
 }
 
+type Mutable<T> = { -readonly [k in keyof T]: T[k] }
+
 export function getTypeFromTypeNode(
     { ts, typeChecker }: TypescriptContext,
-    node: ts.TypeNode
+    node: ts.TypeNode,
+    enclosingDeclaration?: ts.Node
 ) {
     if (!(node.flags & ts.NodeFlags.Synthesized)) {
         return typeChecker.getTypeFromTypeNode(node)
     } else {
-        return typeChecker.getTypeFromTypeNode({
-            ...node,
-            flags: node.flags & ~ts.NodeFlags.Synthesized,
-            parent:
-                node.parent ??
-                ({ kind: ts.SyntaxKind.VariableStatement } as ts.Node),
-        })
+        node = cloneClassInstance(node)
+
+        if (ts.isTypeReferenceNode(node)) {
+            if (node.typeName && enclosingDeclaration) {
+                ;(node as Mutable<ts.TypeReferenceNode>).typeName =
+                    cloneClassInstance(node.typeName)
+                ;(node.typeName as Mutable<ts.EntityName>).parent ??=
+                    enclosingDeclaration
+            }
+        }
+
+        ;(node as Mutable<ts.TypeNode>).flags &= ~ts.NodeFlags.Synthesized
+        ;(node as Mutable<ts.TypeNode>).parent ??= {
+            kind: ts.SyntaxKind.VariableStatement,
+        } as ts.Node
+
+        return typeChecker.getTypeFromTypeNode(node)
     }
 }
 
@@ -697,7 +715,9 @@ export function getSignatureTypeArguments(
             enclosingDeclaration,
             ts.NodeBuilderFlags.WriteTypeArgumentsOfSignature
         )
-        ?.typeArguments?.map((t) => getTypeFromTypeNode(ctx, t))
+        ?.typeArguments?.map((t) =>
+            getTypeFromTypeNode(ctx, t, enclosingDeclaration)
+        )
 }
 
 export function getDescendantAtPosition(

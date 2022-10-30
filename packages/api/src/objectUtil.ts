@@ -67,3 +67,11 @@ export function cartesianEqual<T>(
 ) {
     return arr1.some((x) => arr2.some((y) => eq?.(x, y) ?? x === y))
 }
+
+/**
+ * @internal
+ */
+export function cloneClassInstance<T>(orig: T): T {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    return Object.assign(Object.create(Object.getPrototypeOf(orig)), orig) as T
+}

@@ -4,7 +4,6 @@ import { APIConfig, getTypeInfoAtRange } from "@ts-type-explorer/api"
 import assert from "assert"
 
 const fileName = path.join(__dirname, "vscodePosition.ts")
-
 const apiConfig = new APIConfig().setReferenceDefinedTypes()
 
 describe("vscodePosition.ts", () => {
