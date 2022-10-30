@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mxsdev/ts-expand-type/compare/v0.1.0...v0.2.0) (2022-10-30)
+
+### Bug Fixes
+
+-   **api:** type node resolution sometimes failing ([c9873f8](https://github.com/mxsdev/ts-expand-type/commit/c9873f8368dea2fc715fd78ee7cda9bda892b214))
+-   return dummy completion info ([544bdc1](https://github.com/mxsdev/ts-expand-type/commit/544bdc149b7d4e7d5f44048749ebf3ce834c829b))
+-   **tsserver:** reference types ([b0ee19a](https://github.com/mxsdev/ts-expand-type/commit/b0ee19a4de53449c559aadd9717f41ee7392f7a5))
+-   **vscode:** markdown links throws error ([68544be](https://github.com/mxsdev/ts-expand-type/commit/68544be6401ea6d06fca53a785672543276c9068))
+
+### Features
+
+-   support jsx components ([65e3c87](https://github.com/mxsdev/ts-expand-type/commit/65e3c87d2f6b8017265bd455265056b06bb0e1db))
+-   **vscode:** enable type tree in jsx contexts ([3538e64](https://github.com/mxsdev/ts-expand-type/commit/3538e64b3676abff27c388ff89e4b80bb703cb3d))
+
+### Performance Improvements
+
+-   switch from quickinfo to completions ([0d18d5c](https://github.com/mxsdev/ts-expand-type/commit/0d18d5cd4538d04c94a94da7452754f695cfacf9))
+-   **vscode:** strip unneeded test files ([37d10a7](https://github.com/mxsdev/ts-expand-type/commit/37d10a76e615ef4743acbecc62341958e78fc7be))
+
 # 0.1.0 (2022-10-28)
 
 ### Bug Fixes

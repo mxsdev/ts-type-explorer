@@ -1,6 +1,5 @@
 {
     "name": "ts-type-explorer",
-    "version": "0.1.0",
     "type": "commonjs",
     "private": true,
     "license": "MIT",

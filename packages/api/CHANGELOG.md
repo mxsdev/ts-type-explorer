@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mxsdev/ts-expand-type/compare/v0.1.0...v0.2.0) (2022-10-30)
+
+### Bug Fixes
+
+-   **api:** type node resolution sometimes failing ([c9873f8](https://github.com/mxsdev/ts-expand-type/commit/c9873f8368dea2fc715fd78ee7cda9bda892b214))
+-   return dummy completion info ([544bdc1](https://github.com/mxsdev/ts-expand-type/commit/544bdc149b7d4e7d5f44048749ebf3ce834c829b))
+
+### Features
+
+-   support jsx components ([65e3c87](https://github.com/mxsdev/ts-expand-type/commit/65e3c87d2f6b8017265bd455265056b06bb0e1db))
+
+### Performance Improvements
+
+-   switch from quickinfo to completions ([0d18d5c](https://github.com/mxsdev/ts-expand-type/commit/0d18d5cd4538d04c94a94da7452754f695cfacf9))
+
 # 0.1.0 (2022-10-28)
 
 ### Bug Fixes

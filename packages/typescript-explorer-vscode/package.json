@@ -4,7 +4,7 @@
     "description": "Explore typescript types",
     "publisher": "mxsdev",
     "repository": "https://github.com/mxsdev/ts-type-explorer",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "private": true,
     "engines": {
         "vscode": "^1.71.0"
@@ -218,8 +218,8 @@
         "test": "node ./out/test/runTest.js"
     },
     "dependencies": {
-        "@ts-type-explorer/api": "^0.1.0",
-        "@ts-type-explorer/typescript-plugin": "^0.1.0"
+        "@ts-type-explorer/api": "^0.2.0",
+        "@ts-type-explorer/typescript-plugin": "^0.2.0"
     },
     "devDependencies": {
         "@types/fs-extra": "^9.0.13",

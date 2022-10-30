@@ -1,12 +1,12 @@
 {
     "name": "@ts-type-explorer/typescript-plugin",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "main": "./dist",
     "type": "commonjs",
     "license": "MIT",
     "private": "true",
     "dependencies": {
-        "@ts-type-explorer/api": "^0.1.0"
+        "@ts-type-explorer/api": "^0.2.0"
     },
     "devDependencies": {
         "typescript": "^4.8.4"

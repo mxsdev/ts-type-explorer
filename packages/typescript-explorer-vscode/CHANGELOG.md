@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mxsdev/ts-type-explorer/compare/v0.1.0...v0.2.0) (2022-10-30)
+
+### Bug Fixes
+
+-   return dummy completion info ([544bdc1](https://github.com/mxsdev/ts-type-explorer/commit/544bdc149b7d4e7d5f44048749ebf3ce834c829b))
+-   **vscode:** markdown links throws error ([68544be](https://github.com/mxsdev/ts-type-explorer/commit/68544be6401ea6d06fca53a785672543276c9068))
+
+### Features
+
+-   support jsx components ([65e3c87](https://github.com/mxsdev/ts-type-explorer/commit/65e3c87d2f6b8017265bd455265056b06bb0e1db))
+-   **vscode:** enable type tree in jsx contexts ([3538e64](https://github.com/mxsdev/ts-type-explorer/commit/3538e64b3676abff27c388ff89e4b80bb703cb3d))
+
+### Performance Improvements
+
+-   switch from quickinfo to completions ([0d18d5c](https://github.com/mxsdev/ts-type-explorer/commit/0d18d5cd4538d04c94a94da7452754f695cfacf9))
+-   **vscode:** strip unneeded test files ([37d10a7](https://github.com/mxsdev/ts-type-explorer/commit/37d10a76e615ef4743acbecc62341958e78fc7be))
+
 # 0.1.0 (2022-10-28)
 
 ### Bug Fixes
