@@ -191,6 +191,14 @@ export type TypeInfoNoId = {
     | {
           kind: "max_depth"
       }
+    | {
+          kind: "namespace"
+          exports: TypeInfo[]
+      }
+    | {
+          kind: "module"
+          exports: TypeInfo[]
+      }
 )
 
 export type TypeId = string

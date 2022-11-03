@@ -311,6 +311,11 @@ function getChildren(
                 return getLocalizedTypeParameter(info, typeArgument)
             }
 
+            case "module":
+            case "namespace": {
+                return info.exports.map(localize)
+            }
+
             default: {
                 return undefined
             }

@@ -1,0 +1,89 @@
+=== namespace.ts ===
+
+namespace Namespace {
+  export type b = number
+}
+> Namespace --- {
+    "kind": "namespace",
+    "exports": [
+        {
+            "kind": "primitive",
+            "primitive": "number",
+            "symbolMeta": {
+                "name": "b",
+                "flags": 524288,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/namespace.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 15
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "symbolMeta": {
+        "name": "Namespace",
+        "flags": 1024,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/namespace.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 10
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+  export type b = number
+}
+> export type b = number
+> export type b = number
+> b --- {
+    "kind": "primitive",
+    "primitive": "number",
+    "symbolMeta": {
+        "name": "b",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/namespace.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 15
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

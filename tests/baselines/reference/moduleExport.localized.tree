@@ -1,0 +1,219 @@
+=== moduleExport.ts ===
+
+export const a = 5
+> const a = 5
+> a = 5
+> a = 5
+> a --- {
+    "kindText": "5",
+    "kind": "number_literal",
+    "symbol": {
+        "name": "a",
+        "locations": [
+            {
+                "fileName": "cases/moduleExport.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 13
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 14
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/moduleExport.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 13
+                },
+                "end": {
+                    "line": 0,
+                    "character": 14
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+
+export const b = "string"
+> const b = "string"
+> b = "string"
+> b = "string"
+> b --- {
+    "kindText": "\"string\"",
+    "kind": "string_literal",
+    "symbol": {
+        "name": "b",
+        "locations": [
+            {
+                "fileName": "cases/moduleExport.ts",
+                "range": {
+                    "start": {
+                        "line": 1,
+                        "character": 13
+                    },
+                    "end": {
+                        "line": 1,
+                        "character": 14
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/moduleExport.ts",
+            "range": {
+                "start": {
+                    "line": 1,
+                    "character": 13
+                },
+                "end": {
+                    "line": 1,
+                    "character": 14
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+
+export namespace c {
+    export const val = 4
+}
+> c --- {
+    "kindText": "namespace",
+    "kind": "namespace",
+    "symbol": {
+        "name": "c",
+        "locations": [
+            {
+                "fileName": "cases/moduleExport.ts",
+                "range": {
+                    "start": {
+                        "line": 3,
+                        "character": 17
+                    },
+                    "end": {
+                        "line": 3,
+                        "character": 18
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/moduleExport.ts",
+            "range": {
+                "start": {
+                    "line": 3,
+                    "character": 17
+                },
+                "end": {
+                    "line": 3,
+                    "character": 18
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "4",
+            "kind": "number_literal",
+            "symbol": {
+                "name": "val",
+                "locations": [
+                    {
+                        "fileName": "cases/moduleExport.ts",
+                        "range": {
+                            "start": {
+                                "line": 4,
+                                "character": 17
+                            },
+                            "end": {
+                                "line": 4,
+                                "character": 20
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/moduleExport.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 17
+                        },
+                        "end": {
+                            "line": 4,
+                            "character": 20
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> {
+    export const val = 4
+}
+> export const val = 4
+> export const val = 4
+> const val = 4
+> val = 4
+> val = 4
+> val --- {
+    "kindText": "4",
+    "kind": "number_literal",
+    "symbol": {
+        "name": "val",
+        "locations": [
+            {
+                "fileName": "cases/moduleExport.ts",
+                "range": {
+                    "start": {
+                        "line": 4,
+                        "character": 17
+                    },
+                    "end": {
+                        "line": 4,
+                        "character": 20
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/moduleExport.ts",
+            "range": {
+                "start": {
+                    "line": 4,
+                    "character": 17
+                },
+                "end": {
+                    "line": 4,
+                    "character": 20
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

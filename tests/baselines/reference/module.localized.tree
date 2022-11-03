@@ -1,0 +1,283 @@
+=== module.ts ===
+
+import { c } from "./moduleExport"
+> { c }
+> { c }
+> c
+> c
+> c --- {
+    "kindText": "namespace",
+    "kind": "namespace",
+    "symbol": {
+        "name": "c",
+        "locations": [
+            {
+                "fileName": "cases/module.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 9
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 10
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/module.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 9
+                },
+                "end": {
+                    "line": 0,
+                    "character": 10
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "4",
+            "kind": "number_literal",
+            "symbol": {
+                "name": "val",
+                "locations": [
+                    {
+                        "fileName": "cases/moduleExport.ts",
+                        "range": {
+                            "start": {
+                                "line": 4,
+                                "character": 17
+                            },
+                            "end": {
+                                "line": 4,
+                                "character": 20
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/moduleExport.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 17
+                        },
+                        "end": {
+                            "line": 4,
+                            "character": 20
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> "./moduleExport" --- {
+    "kindText": "module",
+    "kind": "module",
+    "symbol": {
+        "name": "\"/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/moduleExport\"",
+        "locations": [
+            {
+                "fileName": "cases/moduleExport.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 0
+                    },
+                    "end": {
+                        "line": 5,
+                        "character": 1
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/moduleExport.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 0
+                },
+                "end": {
+                    "line": 5,
+                    "character": 1
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "5",
+            "kind": "number_literal",
+            "symbol": {
+                "name": "a",
+                "locations": [
+                    {
+                        "fileName": "cases/moduleExport.ts",
+                        "range": {
+                            "start": {
+                                "line": 0,
+                                "character": 13
+                            },
+                            "end": {
+                                "line": 0,
+                                "character": 14
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/moduleExport.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 13
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 14
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "\"string\"",
+            "kind": "string_literal",
+            "symbol": {
+                "name": "b",
+                "locations": [
+                    {
+                        "fileName": "cases/moduleExport.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 13
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 14
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/moduleExport.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 13
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 14
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        },
+        {
+            "kindText": "namespace",
+            "kind": "namespace",
+            "symbol": {
+                "name": "c",
+                "locations": [
+                    {
+                        "fileName": "cases/moduleExport.ts",
+                        "range": {
+                            "start": {
+                                "line": 3,
+                                "character": 17
+                            },
+                            "end": {
+                                "line": 3,
+                                "character": 18
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/moduleExport.ts",
+                    "range": {
+                        "start": {
+                            "line": 3,
+                            "character": 17
+                        },
+                        "end": {
+                            "line": 3,
+                            "character": 18
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "4",
+                    "kind": "number_literal",
+                    "symbol": {
+                        "name": "val",
+                        "locations": [
+                            {
+                                "fileName": "cases/moduleExport.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 4,
+                                        "character": 17
+                                    },
+                                    "end": {
+                                        "line": 4,
+                                        "character": 20
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/moduleExport.ts",
+                            "range": {
+                                "start": {
+                                    "line": 4,
+                                    "character": 17
+                                },
+                                "end": {
+                                    "line": 4,
+                                    "character": 20
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "4"
+                }
+            ],
+            "_id": "3"
+        }
+    ],
+    "_id": "0"
+}

@@ -436,6 +436,14 @@ function getMeta(info: LocalizedTypeInfo, depth: number): TypeTreeItemMeta {
                     return ["symbol-interface"]
                 }
 
+                case "namespace": {
+                    return ["symbol-namespace"]
+                }
+
+                case "module": {
+                    return ["symbol-module"]
+                }
+
                 case "class": {
                     return ["symbol-class"]
                 }

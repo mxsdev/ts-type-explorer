@@ -54,6 +54,8 @@ import {
     isReadonlySymbol,
     isReadonlyArrayType,
     isReadonlyTupleType,
+    getSymbolExports,
+    isNamespace,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -95,6 +97,8 @@ function _generateTypeTree(
     if (!type) {
         type = getSymbolType(tsCtx, symbol!)
     }
+
+    const typeSymbol = type.symbol as ts.Symbol | undefined
 
     let isAnonymousSymbol = !symbol
 
@@ -226,6 +230,15 @@ function _generateTypeTree(
     return typeInfoId
 
     function createNode(type: ts.Type): TypeInfoNoId {
+        for (const s of [symbol, typeSymbol]) {
+            if (s && s.flags & ts.SymbolFlags.Module) {
+                return {
+                    kind: isNamespace(tsCtx, s) ? "namespace" : "module",
+                    exports: parseSymbols(getSymbolExports(s)),
+                }
+            }
+        }
+
         const flags = type.getFlags()
 
         if (flags & ts.TypeFlags.TypeParameter) {
@@ -316,7 +329,6 @@ function _generateTypeTree(
                 value: (type as ts.BigIntLiteralType).value,
             }
         } else if (flags & ts.TypeFlags.Object) {
-            const { symbol: typeSymbol } = type
             if (typeSymbol && typeSymbol.flags & SymbolFlags.Enum) {
                 return {
                     kind: "enum",
@@ -826,6 +838,11 @@ export function getTypeInfoChildren(info: TypeInfo): TypeInfo[] {
 
             case "string_mapping": {
                 return [info.type]
+            }
+
+            case "module":
+            case "namespace": {
+                return [...info.exports]
             }
         }
 

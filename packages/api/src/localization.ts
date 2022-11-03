@@ -46,6 +46,8 @@ export const KindText: Record<
     interface: "interface",
     method: "method",
     jsx_component: "component",
+    namespace: "namespace",
+    module: "module",
 }
 
 export function getKindText(

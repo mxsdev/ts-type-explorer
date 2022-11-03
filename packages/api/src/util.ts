@@ -735,7 +735,7 @@ export function getSignatureTypeArguments(
         )
         ?.typeArguments?.map((t) =>
             getTypeFromTypeNode(ctx, t, enclosingDeclaration)
-        )
+        ) // TODO: error here...
 }
 
 export function getDescendantAtPosition(
@@ -846,7 +846,7 @@ export function getSymbolOrTypeOfNode(
     if (symbol) {
         const symbolType = getSymbolType(ctx, symbol, node)
 
-        if (isValidType(symbolType)) {
+        if (isValidType(symbolType) || symbol.flags & ts.SymbolFlags.Module) {
             return { symbol, node }
         }
     }
@@ -921,4 +921,45 @@ export function isReadonlySymbol(
         // TODO: implement this eventually
         // some(symbol.declarations, isReadonlyAssignmentDeclaration)
     )
+}
+
+export function getSymbolExports(symbol: ts.Symbol): ts.Symbol[] {
+    const result: ts.Symbol[] = []
+
+    symbol.exports?.forEach((value) => result.push(value))
+    symbol.globalExports?.forEach((value) => result.push(value))
+
+    return result
+}
+
+export function isNamespace(
+    { ts }: TypescriptContext,
+    symbol: ts.Symbol
+): boolean {
+    const declaration = getDeclarationOfKind<ts.ModuleDeclaration>(
+        symbol,
+        ts.SyntaxKind.ModuleDeclaration
+    )
+    const isNamespace =
+        declaration &&
+        declaration.name &&
+        declaration.name.kind === ts.SyntaxKind.Identifier
+
+    return !!isNamespace
+}
+
+function getDeclarationOfKind<T extends ts.Declaration>(
+    symbol: ts.Symbol,
+    kind: T["kind"]
+): T | undefined {
+    const declarations = symbol.declarations
+    if (declarations) {
+        for (const declaration of declarations) {
+            if (declaration.kind === kind) {
+                return declaration as T
+            }
+        }
+    }
+
+    return undefined
 }
