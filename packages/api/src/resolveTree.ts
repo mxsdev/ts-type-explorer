@@ -35,7 +35,8 @@ export class TypeInfoResolver {
 
     async localize(info: TypeInfo) {
         return this.localizeTypeInfo(
-            await this.resolveTypeReferenceOrArray(info)
+            await this.resolveTypeReferenceOrArray(info),
+            info
         )
     }
 

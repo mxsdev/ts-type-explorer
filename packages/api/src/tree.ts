@@ -51,6 +51,9 @@ import {
     isPureObjectOrMappedTypeShallow,
     getDescendantAtRange,
     getSymbolOrTypeOfNode,
+    isReadonlySymbol,
+    isReadonlyArrayType,
+    isReadonlyTupleType,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -324,17 +327,23 @@ function _generateTypeTree(
             const indexInfos = getIndexInfos(tsCtx, type) //.map((indexInfo) => getIndexInfo(indexInfo))
 
             if (isArrayType(tsCtx, type)) {
+                const isReadonly = isReadonlyArrayType(tsCtx, type)
+
                 return {
                     kind: "array",
                     type: parseType(getTypeArguments(tsCtx, type)![0]),
+                    ...(isReadonly && { readonly: true }),
                 }
             } else if (isTupleType(tsCtx, type)) {
+                const isReadonly = isReadonlyTupleType(tsCtx, type)
+
                 return {
                     kind: "tuple",
                     types: parseTypes(getTypeArguments(tsCtx, type)!),
                     names: (
                         type.target as ts.TupleType
                     ).labeledElementDeclarations?.map((s) => s.name.getText()),
+                    ...(isReadonly && { readonly: true }),
                 }
             } else if (
                 isInterfaceType(tsCtx, type) ||
@@ -629,9 +638,12 @@ function _generateTypeTree(
             symbol.getDeclarations()?.map(getDeclarationInfo)
         )
 
+        const isReadonly = isReadonlySymbol(tsCtx, symbol)
+
         return {
             name: symbol.getName(),
             flags: symbol.getFlags(),
+            ...(isReadonly && { readonly: true }),
             ...(isAnonymous && { anonymous: true }),
             ...(optional && { optional: true }),
             ...(rest && { rest: true }),

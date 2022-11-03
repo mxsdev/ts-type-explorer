@@ -1,3 +1,4 @@
+import ts = require("typescript")
 import { TypescriptContext } from "./types"
 
 /**
@@ -60,6 +61,13 @@ export type MappedTypeInternal = ts.Type & {
     constraintType?: ts.Type
     templateType?: ts.Type
     modifiersType?: ts.Type
+}
+
+/**
+ * @internal
+ */
+export type GenericTypeInternal = ts.GenericType & {
+    readonly?: boolean
 }
 
 /**

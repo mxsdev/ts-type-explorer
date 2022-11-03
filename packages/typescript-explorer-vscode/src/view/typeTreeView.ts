@@ -12,6 +12,7 @@ import {
     showBaseClassInfo,
     iconsEnabled,
     iconColorsEnabled,
+    readonlyEnabled,
 } from "../config"
 import { markdownDocumentation } from "../markdown"
 import { StateManager } from "../state/stateManager"
@@ -273,9 +274,15 @@ function getMeta(info: LocalizedTypeInfo, depth: number): TypeTreeItemMeta {
         const aliasDescription =
             aliasDescriptionBase && decorate(aliasDescriptionBase)
 
-        return aliasDescription
+        let result = aliasDescription
             ? `${aliasDescription} (${baseDescription})`
             : baseDescription
+
+        if (info.readonly && readonlyEnabled.get()) {
+            result = "readonly " + result
+        }
+
+        return result
     }
 
     function getContextValue(): TypeTreeItemContextValue | undefined {

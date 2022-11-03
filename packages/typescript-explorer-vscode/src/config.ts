@@ -11,6 +11,7 @@ const typeTreeConfigBoolean = {
     ],
     showBaseClassInfo: ["typescriptExplorer.typeTree.view.show.baseClass"],
     selectionEnabled: ["typescriptExplorer.typeTree.selection.enable", false],
+    readonlyEnabled: ["typescriptExplorer.typeTree.readonly.enable"],
 } as const
 
 const getBoolean = (id: string, defaultValue?: boolean) => () =>
@@ -52,6 +53,7 @@ export const {
     selectionEnabled,
     showBaseClassInfo,
     showTypeParameterInfo,
+    readonlyEnabled,
 } = {
     ...mapObject(typeTreeConfigBoolean, ({ value: [id] }) =>
         exportBooleanConfig(id)

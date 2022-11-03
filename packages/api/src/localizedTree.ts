@@ -32,7 +32,9 @@ export function _localizeTypeInfo(
 
     const symbol = wrapSafe(localizeSymbol)(info.symbolMeta)
 
+    const originalInfo = info
     info = resolved.info
+
     const dimension = resolved.dimension
 
     const isOptional =
@@ -42,6 +44,11 @@ export function _localizeTypeInfo(
     const isRest = info.symbolMeta?.rest
 
     const locations = getTypeLocations(info)
+
+    const readonly =
+        info.symbolMeta?.readonly ||
+        (originalInfo.kind === "array" && originalInfo.readonly) ||
+        (info.kind === "tuple" && info.readonly)
 
     const res: LocalizedTypeInfo = {
         kindText: getKind(info),
@@ -54,6 +61,7 @@ export function _localizeTypeInfo(
         ...(isRest && { rest: true }),
         ...(dimension && { dimension }),
         ...(name !== undefined && { name }),
+        ...(readonly && { readonly: true }),
         locations,
     }
 

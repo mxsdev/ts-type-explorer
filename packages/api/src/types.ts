@@ -62,6 +62,7 @@ export type SymbolInfo = {
     optional?: boolean
     anonymous?: boolean
     rest?: boolean
+    readonly?: boolean
     insideClassOrInterface?: boolean
     declarations?: DeclarationInfo[]
 }
@@ -142,8 +143,8 @@ export type TypeInfoNoId = {
           indexInfos?: IndexInfo[]
       }
     | { kind: "function"; signatures: SignatureInfo[]; isJSXElement?: boolean }
-    | { kind: "array"; type: TypeInfo }
-    | { kind: "tuple"; types: TypeInfo[]; names?: string[] }
+    | { kind: "array"; type: TypeInfo; readonly?: boolean }
+    | { kind: "tuple"; types: TypeInfo[]; names?: string[]; readonly?: boolean }
     | {
           kind: "union"
           types: TypeInfo[]
@@ -287,6 +288,10 @@ export type LocalizedTypeInfo = {
      * Whether this type is something like, for example, an optional parameter
      */
     optional?: boolean
+    /**
+     * Whether this type is a readonly property/array/tuple
+     */
+    readonly?: boolean
     /**
      * If this type represents an array, it will have a dimension > 0
      * corresponding to the array type's dimension

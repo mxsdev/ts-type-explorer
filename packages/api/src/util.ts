@@ -1,4 +1,4 @@
-import type * as ts from "typescript"
+import * as ts from "typescript"
 import {
     wrapSafe,
     isEmpty,
@@ -17,6 +17,7 @@ import {
 import {
     CheckFlags,
     DeclarationInternal,
+    GenericTypeInternal,
     getSymbolConstructor,
     getTypeConstructor,
     IntersectionTypeInternal,
@@ -391,13 +392,24 @@ export function isClassOrInterfaceType(
     return !!(getObjectFlags(ctx, type) & ts.ObjectFlags.ClassOrInterface)
 }
 
+export function isReadonlyArrayType(
+    ctx: TypescriptContext,
+    type: ts.Type
+): type is ts.TypeReference {
+    return (
+        !!isObjectReference(ctx, type) &&
+        type.target.getSymbol()?.getName() === "ReadonlyArray"
+    )
+}
+
 export function isArrayType(
     ctx: TypescriptContext,
     type: ts.Type
 ): type is ts.TypeReference {
     return (
         !!isObjectReference(ctx, type) &&
-        type.target.getSymbol()?.getName() === "Array"
+        (type.target.getSymbol()?.getName() === "Array" ||
+            isReadonlyArrayType(ctx, type))
     )
 }
 
@@ -408,6 +420,12 @@ export function isTupleType(
     return !!(
         isObjectReference(ctx, type) &&
         type.target.objectFlags & ctx.ts.ObjectFlags.Tuple
+    )
+}
+
+export function isReadonlyTupleType(ctx: TypescriptContext, type: ts.Type) {
+    return !!(
+        isTupleType(ctx, type) && (type.target as GenericTypeInternal).readonly
     )
 }
 
@@ -859,4 +877,48 @@ export function getSymbolOrTypeOfNode(
  */
 export function narrowDeclarationForLocation(node: ts.Declaration) {
     return (node as DeclarationInternal).name ?? node
+}
+
+function getDeclarationModifierFlagsFromSymbol(
+    ctx: TypescriptContext,
+    symbol: ts.Symbol
+): ts.ModifierFlags {
+    // @ts-expect-error - ts internal
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    return ctx.ts.getDeclarationModifierFlagsFromSymbol(
+        symbol
+    ) as ts.ModifierFlags
+}
+
+function getDeclarationNodeFlagsFromSymbol(
+    ctx: TypescriptContext,
+    symbol: ts.Symbol
+): ts.NodeFlags {
+    return symbol.valueDeclaration
+        ? ts.getCombinedNodeFlags(symbol.valueDeclaration)
+        : 0
+}
+
+export function isReadonlySymbol(
+    ctx: TypescriptContext,
+    symbol: ts.Symbol
+): boolean {
+    const { ts } = ctx
+
+    return !!(
+        (
+            getCheckFlags(ctx, symbol) & CheckFlags.Readonly ||
+            (symbol.flags & ts.SymbolFlags.Property &&
+                getDeclarationModifierFlagsFromSymbol(ctx, symbol) &
+                    ts.ModifierFlags.Readonly) ||
+            // (symbol.flags & ts.SymbolFlags.Variable &&
+            //     getDeclarationNodeFlagsFromSymbol(ctx, symbol) &
+            //         ts.NodeFlags.Const) ||
+            (symbol.flags & ts.SymbolFlags.Accessor &&
+                !(symbol.flags & ts.SymbolFlags.SetAccessor))
+        )
+        // symbol.flags & ts.SymbolFlags.EnumMember
+        // TODO: implement this eventually
+        // some(symbol.declarations, isReadonlyAssignmentDeclaration)
+    )
 }

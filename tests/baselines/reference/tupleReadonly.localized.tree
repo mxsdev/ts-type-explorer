@@ -1,0 +1,64 @@
+=== tupleReadonly.ts ===
+
+type readonlyTupleOfStuff = readonly ["a", string, number]
+> readonlyTupleOfStuff --- {
+    "kindText": "tuple",
+    "kind": "tuple",
+    "symbol": {
+        "name": "readonlyTupleOfStuff",
+        "locations": [
+            {
+                "fileName": "cases/tupleReadonly.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 25
+                    }
+                }
+            }
+        ]
+    },
+    "readonly": true,
+    "locations": [
+        {
+            "fileName": "cases/tupleReadonly.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 5
+                },
+                "end": {
+                    "line": 0,
+                    "character": 25
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "\"a\"",
+            "kind": "string_literal",
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "children": [],
+            "_id": "2"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "primitiveKind": "number",
+            "children": [],
+            "_id": "3"
+        }
+    ],
+    "_id": "0"
+}

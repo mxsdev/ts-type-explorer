@@ -58,6 +58,11 @@
                     "description": "Enable selecting a symbol type on click in the editor",
                     "type": "boolean",
                     "default": true
+                },
+                "typescriptExplorer.typeTree.readonly.enable": {
+                    "title": "Denote Readonly Properties",
+                    "type": "boolean",
+                    "default": false
                 }
             }
         },

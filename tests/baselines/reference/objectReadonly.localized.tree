@@ -1,0 +1,220 @@
+=== objectReadonly.ts ===
+
+type objectWithReadonlyProperties = {
+    a: string,
+    readonly b: number
+}
+> objectWithReadonlyProperties --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "objectWithReadonlyProperties",
+        "locations": [
+            {
+                "fileName": "cases/objectReadonly.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 33
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/objectReadonly.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 5
+                },
+                "end": {
+                    "line": 0,
+                    "character": 33
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "a",
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/objectReadonly.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 5
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/objectReadonly.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 5
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "primitiveKind": "number",
+            "symbol": {
+                "name": "b",
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/objectReadonly.ts",
+                        "range": {
+                            "start": {
+                                "line": 2,
+                                "character": 13
+                            },
+                            "end": {
+                                "line": 2,
+                                "character": 14
+                            }
+                        }
+                    }
+                ]
+            },
+            "readonly": true,
+            "locations": [
+                {
+                    "fileName": "cases/objectReadonly.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 13
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 14
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
+> {
+    a: string,
+    readonly b: number
+}
+> a: string,
+    readonly b: number
+> a: string,
+> a --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "a",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/objectReadonly.ts",
+                "range": {
+                    "start": {
+                        "line": 1,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 1,
+                        "character": 5
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/objectReadonly.ts",
+            "range": {
+                "start": {
+                    "line": 1,
+                    "character": 4
+                },
+                "end": {
+                    "line": 1,
+                    "character": 5
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> readonly b: number
+> b --- {
+    "kindText": "number",
+    "kind": "primitive",
+    "primitiveKind": "number",
+    "symbol": {
+        "name": "b",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/objectReadonly.ts",
+                "range": {
+                    "start": {
+                        "line": 2,
+                        "character": 13
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 14
+                    }
+                }
+            }
+        ]
+    },
+    "readonly": true,
+    "locations": [
+        {
+            "fileName": "cases/objectReadonly.ts",
+            "range": {
+                "start": {
+                    "line": 2,
+                    "character": 13
+                },
+                "end": {
+                    "line": 2,
+                    "character": 14
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

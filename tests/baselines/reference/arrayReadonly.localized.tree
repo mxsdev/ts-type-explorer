@@ -1,0 +1,45 @@
+=== arrayReadonly.ts ===
+
+type readonlyArrayOfStrings = readonly string[]
+> readonlyArrayOfStrings --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "readonlyArrayOfStrings",
+        "locations": [
+            {
+                "fileName": "cases/arrayReadonly.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 27
+                    }
+                }
+            }
+        ]
+    },
+    "dimension": 1,
+    "readonly": true,
+    "locations": [
+        {
+            "fileName": "cases/arrayReadonly.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 5
+                },
+                "end": {
+                    "line": 0,
+                    "character": 27
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
