@@ -83,10 +83,23 @@ function init(modules: {
                 entries: [],
             }
 
-            const responseData = getCustomResponse(ctx, fileName, payload)
+            try {
+                const responseData = getCustomResponse(ctx, fileName, payload)
 
-            if (responseData) {
-                prior.__tsExplorerResponse = responseData
+                if (responseData) {
+                    prior.__tsExplorerResponse = responseData
+                }
+            } catch (e: unknown) {
+                const error = e as Error
+
+                prior.__tsExplorerResponse = {
+                    id: "error",
+                    error: {
+                        message: error.message,
+                        stack: error.stack,
+                        name: error.name,
+                    },
+                }
             }
 
             return prior
@@ -116,7 +129,7 @@ function getCustomResponse(
                 apiConfig
             )
 
-            return { typeInfo }
+            return { id: "type-tree", typeInfo }
         }
     }
 }

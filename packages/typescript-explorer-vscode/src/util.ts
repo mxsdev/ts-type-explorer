@@ -1,14 +1,8 @@
 import * as vscode from "vscode"
 import type * as ts from "typescript"
-import {
-    CustomTypeScriptRequestId,
-    CustomTypeScriptRequestOfId,
-    CustomTypeScriptResponse,
-    SourceFileLocation,
-    TextRange,
-    TypeInfo,
-} from "@ts-type-explorer/api"
+import { TextRange } from "@ts-type-explorer/api"
 import type * as Proto from "typescript/lib/protocol"
+import { dialogueErrors, logErrors } from "./config"
 
 export const positionToLineAndCharacter = (
     position: vscode.Position
@@ -22,7 +16,7 @@ export const rangeToTextRange = (range: vscode.Range): TextRange => ({
     end: positionFromLineAndCharacter(range.end),
 })
 
-const toFileLocationRequestArgs = (
+export const toFileLocationRequestArgs = (
     file: string,
     position: vscode.Position
 ): Proto.FileLocationRequestArgs => ({
@@ -31,7 +25,7 @@ const toFileLocationRequestArgs = (
     offset: position.character + 1,
 })
 
-const positionFromLineAndCharacter = ({
+export const positionFromLineAndCharacter = ({
     line,
     character,
 }: ts.LineAndCharacter) => new vscode.Position(line, character)
@@ -49,68 +43,6 @@ export function getTypescriptMd(code: string) {
     const mds = new vscode.MarkdownString()
     mds.appendCodeblock(code, "typescript")
     return mds
-}
-
-async function getQuickInfoAtPosition(
-    fileName: string,
-    position: vscode.Position
-) {
-    return await vscode.commands
-        .executeCommand(
-            "typescript.tsserverRequest",
-            "quickinfo-full",
-            toFileLocationRequestArgs(fileName, position)
-        )
-        .then((r) => (r as Proto.QuickInfoResponse).body)
-}
-
-async function customTypescriptRequest<Id extends CustomTypeScriptRequestId>(
-    fileName: string,
-    position: vscode.Position,
-    request: CustomTypeScriptRequestOfId<Id>
-): Promise<CustomTypeScriptResponse<Id> | undefined> {
-    return await vscode.commands.executeCommand(
-        "typescript.tsserverRequest",
-        "completionInfo",
-        {
-            ...toFileLocationRequestArgs(fileName, position),
-            /**
-             * We override the "triggerCharacter" property here as a hack so
-             * that we can send custom commands to TSServer
-             */
-            triggerCharacter: request,
-        }
-    )
-}
-
-export function getQuickInfoAtLocation(location: SourceFileLocation) {
-    return getQuickInfoAtPosition(
-        location.fileName,
-        positionFromLineAndCharacter(location.range.start)
-    )
-}
-
-export function getTypeTreeAtLocation(
-    location: SourceFileLocation
-): Promise<TypeInfo | undefined> {
-    return getTypeTreeAtRange(
-        location.fileName,
-        rangeFromLineAndCharacters(location.range.start, location.range.end)
-    )
-}
-
-export function getTypeTreeAtRange(
-    fileName: string,
-    range: vscode.Range
-): Promise<TypeInfo | undefined> {
-    return customTypescriptRequest(
-        fileName,
-        positionFromLineAndCharacter(range.start),
-        {
-            id: "type-tree",
-            range: rangeToTextRange(range),
-        }
-    ).then((res) => res?.body.__tsExplorerResponse?.typeInfo)
 }
 
 /**
@@ -142,7 +74,15 @@ export function smartlySetConfigValue<T>(
 }
 
 export function showError(message: string) {
-    vscode.window.showErrorMessage(message)
+    if (dialogueErrors.get()) {
+        vscode.window.showErrorMessage(message)
+    }
+}
+
+export function logError(...messages: unknown[]) {
+    if (logErrors.get()) {
+        console.error(...messages)
+    }
 }
 
 export function isDocumentSupported({ languageId }: vscode.TextDocument) {

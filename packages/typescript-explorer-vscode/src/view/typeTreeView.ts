@@ -16,11 +16,8 @@ import {
 } from "../config"
 import { markdownDocumentation } from "../markdown"
 import { StateManager } from "../state/stateManager"
-import {
-    getQuickInfoAtLocation,
-    getTypeTreeAtLocation,
-    rangeFromLineAndCharacters,
-} from "../util"
+import { rangeFromLineAndCharacters } from "../util"
+import { getQuickInfoAtLocation, getTypeTreeAtLocation } from "../server"
 
 const {
     None: NoChildren,

@@ -1,7 +1,8 @@
 import { TypeInfo } from "@ts-type-explorer/api"
 import * as vscode from "vscode"
 import { selectionEnabled } from "../config"
-import { getTypeTreeAtRange, isDocumentSupported, showError } from "../util"
+import { getTypeTreeAtRange } from "../server"
+import { isDocumentSupported, logError, showError } from "../util"
 import { TypeTreeItem, TypeTreeProvider } from "../view/typeTreeView"
 import { ViewProviders } from "../view/views"
 
@@ -171,7 +172,7 @@ export class StateManager {
             })
             .catch((e) => {
                 showError("Error getting type information!")
-                console.error("TypeTreeRequest error", e)
+                logError("TypeTreeRequest error", e)
             })
     }
 }

@@ -14,6 +14,11 @@ const typeTreeConfigBoolean = {
     readonlyEnabled: ["typescriptExplorer.typeTree.readonly.enable"],
 } as const
 
+const basicConfig = {
+    dialogueErrors: "typescriptExplorer.errorMessages.showDialogue",
+    logErrors: "typescriptExplorer.errorMessages.log",
+} as const
+
 const getBoolean = (id: string, defaultValue?: boolean) => () =>
     !!config().get(id, defaultValue)
 const toggleBoolean = (id: string, defaultValue?: boolean) => () =>
@@ -54,10 +59,13 @@ export const {
     showBaseClassInfo,
     showTypeParameterInfo,
     readonlyEnabled,
+    logErrors,
+    dialogueErrors,
 } = {
     ...mapObject(typeTreeConfigBoolean, ({ value: [id] }) =>
         exportBooleanConfig(id)
     ),
+    ...mapObject(basicConfig, ({ value: id }) => exportBooleanConfig(id)),
 }
 
 function config() {

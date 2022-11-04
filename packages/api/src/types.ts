@@ -14,23 +14,24 @@ export type CustomTypeScriptRequestId = CustomTypeScriptRequest["id"]
 export type CustomTypeScriptRequestOfId<Id extends CustomTypeScriptRequestId> =
     Extract<CustomTypeScriptRequest, { id: Id }>
 
-type TypeTreeResponseBody = {
+type CustomTypescriptResponseBodyData = {
+    id: "type-tree"
     typeInfo: TypeInfo | undefined
-}
-
-type CustomTypeScriptResponseById = {
-    "type-tree": TypeTreeResponseBody
 }
 
 export type CustomTypeScriptResponse<
     Id extends CustomTypeScriptRequestId = CustomTypeScriptRequestId
 > = {
-    body: { __tsExplorerResponse?: CustomTypeScriptResponseBody<Id> }
+    body: {
+        __tsExplorerResponse?:
+            | CustomTypeScriptResponseBody<Id>
+            | { id: "error"; error: unknown }
+    }
 }
 
 export type CustomTypeScriptResponseBody<
     Id extends CustomTypeScriptRequestId = CustomTypeScriptRequestId
-> = CustomTypeScriptResponseById[Id]
+> = Extract<CustomTypescriptResponseBodyData, { id: Id }>
 
 export type TypescriptContext = {
     program: ts.Program

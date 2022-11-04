@@ -63,6 +63,16 @@
                     "title": "Denote Readonly Properties",
                     "type": "boolean",
                     "default": false
+                },
+                "typescriptExplorer.errorMessages.showDialogue": {
+                    "title": "Show Non-Critical Errors",
+                    "type": "boolean",
+                    "default": false
+                },
+                "typescriptExplorer.errorMessages.log": {
+                    "title": "Log Errors",
+                    "type": "boolean",
+                    "default": true
                 }
             }
         },
