@@ -9,6 +9,11 @@ export type SymbolName = ts.__String
 /**
  * @internal
  */
+type TypeMapper = unknown
+
+/**
+ * @internal
+ */
 export type TypeConstructor = new (
     checker: ts.TypeChecker,
     flags: ts.TypeFlags
@@ -112,6 +117,7 @@ export type SignatureInternal = ts.Signature & {
     minArgumentCount: number
     resolvedMinArgumentCount?: number
     target?: SignatureInternal
+    mapper: TypeMapper
 }
 /**
  * @internal

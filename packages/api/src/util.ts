@@ -1,3 +1,4 @@
+import assert = require("assert")
 import * as ts from "typescript"
 import {
     wrapSafe,
@@ -437,34 +438,12 @@ export function isObjectReference(
     return !!(getObjectFlags(ctx, type) & ts.ObjectFlags.Reference)
 }
 
-type Mutable<T> = { -readonly [k in keyof T]: T[k] }
-
 export function getTypeFromTypeNode(
-    { ts, typeChecker }: TypescriptContext,
+    { typeChecker }: TypescriptContext,
     node: ts.TypeNode,
     enclosingDeclaration?: ts.Node
 ) {
-    if (!(node.flags & ts.NodeFlags.Synthesized)) {
-        return typeChecker.getTypeFromTypeNode(node)
-    } else {
-        node = cloneClassInstance(node)
-
-        if (ts.isTypeReferenceNode(node)) {
-            if (node.typeName && enclosingDeclaration) {
-                ;(node as Mutable<ts.TypeReferenceNode>).typeName =
-                    cloneClassInstance(node.typeName)
-                ;(node.typeName as Mutable<ts.EntityName>).parent ??=
-                    enclosingDeclaration
-            }
-        }
-
-        ;(node as Mutable<ts.TypeNode>).flags &= ~ts.NodeFlags.Synthesized
-        ;(node as Mutable<ts.TypeNode>).parent ??= {
-            kind: ts.SyntaxKind.VariableStatement,
-        } as ts.Node
-
-        return typeChecker.getTypeFromTypeNode(node)
-    }
+    return typeChecker.getTypeFromTypeNode(node)
 }
 
 export function getTypeArguments<T extends ts.Type>(
@@ -723,19 +702,27 @@ export function getSignatureTypeArguments(
     ctx: TypescriptContext,
     signature: ts.Signature,
     enclosingDeclaration?: ts.Node
-) {
+): readonly ts.Type[] {
     const { typeChecker, ts } = ctx
 
-    return typeChecker
-        .signatureToSignatureDeclaration(
-            signature,
-            ts.SyntaxKind.CallSignature,
-            enclosingDeclaration,
-            ts.NodeBuilderFlags.WriteTypeArgumentsOfSignature
-        )
-        ?.typeArguments?.map((t) =>
-            getTypeFromTypeNode(ctx, t, enclosingDeclaration)
-        ) // TODO: error here...
+    const target = (signature as SignatureInternal).target
+
+    if (!target) {
+        return []
+    }
+
+    // workaround to force instantiation of signature type arguments
+    return typeChecker.getTypeArguments({
+        node: {
+            kind: ts.SyntaxKind.TypeReference,
+        },
+        target: {
+            outerTypeParameters: target.typeParameters ?? [],
+            localTypeParameters: [],
+        },
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        mapper: (signature as SignatureInternal).mapper,
+    } as unknown as ts.TypeReference)
 }
 
 export function getDescendantAtPosition(
