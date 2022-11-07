@@ -8,7 +8,9 @@ VSCode Extension & utilities to explore type information in TypeScript projects.
 
 ## Installation
 
-Check out the [releases page][releases] to download the VSIX file.
+Check out the [releases page][releases] to download the `.vsix` file. See [Install from a VSIX][install-from-vsix] for instructions!
+
+A release is planned for the [VSCode Marketplace][vscode-marketplace] when the extension is in a more stable state.
 
 ## Packages
 
@@ -25,3 +27,5 @@ Build the entire project by running `yarn build` in the root directory, and buil
 See [CONTRIBUTING.md](CONTRIBUTING.md)!
 
 [releases]: https://github.com/mxsdev/ts-type-explorer/releases
+[install-from-vsix]: https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix
+[vscode-marketplace]: https://marketplace.visualstudio.com/vscode
