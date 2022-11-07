@@ -25,7 +25,10 @@ export type CustomTypeScriptResponse<
     body: {
         __tsExplorerResponse?:
             | CustomTypeScriptResponseBody<Id>
-            | { id: "error"; error: unknown }
+            | {
+                  id: "error"
+                  error: { name?: string; stack?: string; message?: string }
+              }
     }
 }
 
