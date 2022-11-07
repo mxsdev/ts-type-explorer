@@ -195,24 +195,7 @@ class TestClass implements TestInterface {
                 {
                     "kindText": "interface",
                     "kind": "interface",
-                    "symbol": {
-                        "name": "TestInterface",
-                        "locations": [
-                            {
-                                "fileName": "cases/class.ts",
-                                "range": {
-                                    "start": {
-                                        "line": 0,
-                                        "character": 10
-                                    },
-                                    "end": {
-                                        "line": 0,
-                                        "character": 23
-                                    }
-                                }
-                            }
-                        ]
-                    },
+                    "alias": "TestInterface",
                     "locations": [
                         {
                             "fileName": "cases/class.ts",
@@ -438,24 +421,7 @@ class TestClass implements TestInterface {
                 {
                     "kindText": "interface",
                     "kind": "interface",
-                    "symbol": {
-                        "name": "TestInterface",
-                        "locations": [
-                            {
-                                "fileName": "cases/class.ts",
-                                "range": {
-                                    "start": {
-                                        "line": 0,
-                                        "character": 10
-                                    },
-                                    "end": {
-                                        "line": 0,
-                                        "character": 23
-                                    }
-                                }
-                            }
-                        ]
-                    },
+                    "alias": "TestInterface",
                     "locations": [
                         {
                             "fileName": "cases/class.ts",
@@ -780,24 +746,7 @@ class TestClass implements TestInterface {
                 {
                     "kindText": "interface",
                     "kind": "interface",
-                    "symbol": {
-                        "name": "TestInterface",
-                        "locations": [
-                            {
-                                "fileName": "cases/class.ts",
-                                "range": {
-                                    "start": {
-                                        "line": 0,
-                                        "character": 10
-                                    },
-                                    "end": {
-                                        "line": 0,
-                                        "character": 23
-                                    }
-                                }
-                            }
-                        ]
-                    },
+                    "alias": "TestInterface",
                     "locations": [
                         {
                             "fileName": "cases/class.ts",
@@ -1161,24 +1110,7 @@ const _a = new TestClass("param")
                         {
                             "kindText": "interface",
                             "kind": "interface",
-                            "symbol": {
-                                "name": "TestInterface",
-                                "locations": [
-                                    {
-                                        "fileName": "cases/class.ts",
-                                        "range": {
-                                            "start": {
-                                                "line": 0,
-                                                "character": 10
-                                            },
-                                            "end": {
-                                                "line": 0,
-                                                "character": 23
-                                            }
-                                        }
-                                    }
-                                ]
-                            },
+                            "alias": "TestInterface",
                             "locations": [
                                 {
                                     "fileName": "cases/class.ts",
@@ -1490,24 +1422,7 @@ const _a = new TestClass("param")
                         {
                             "kindText": "interface",
                             "kind": "interface",
-                            "symbol": {
-                                "name": "TestInterface",
-                                "locations": [
-                                    {
-                                        "fileName": "cases/class.ts",
-                                        "range": {
-                                            "start": {
-                                                "line": 0,
-                                                "character": 10
-                                            },
-                                            "end": {
-                                                "line": 0,
-                                                "character": 23
-                                            }
-                                        }
-                                    }
-                                ]
-                            },
+                            "alias": "TestInterface",
                             "locations": [
                                 {
                                     "fileName": "cases/class.ts",

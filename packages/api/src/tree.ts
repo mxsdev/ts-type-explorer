@@ -108,7 +108,8 @@ function _generateTypeTree(
         if (
             associatedSymbol &&
             !isArrayType(tsCtx, type) &&
-            !isTupleType(tsCtx, type)
+            !isTupleType(tsCtx, type) &&
+            !isInterfaceType(tsCtx, type)
         ) {
             isAnonymousSymbol = associatedSymbol.name === "__type"
             symbol = associatedSymbol

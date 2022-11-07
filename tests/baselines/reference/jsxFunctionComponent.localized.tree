@@ -167,24 +167,7 @@ function Comp(props: { abc: string, ad?: number }) {
         {
             "kindText": "interface",
             "kind": "interface",
-            "symbol": {
-                "name": "Element",
-                "locations": [
-                    {
-                        "fileName": "../node_modules/@types/react/index.d.ts",
-                        "range": {
-                            "start": {
-                                "line": 3121,
-                                "character": 18
-                            },
-                            "end": {
-                                "line": 3121,
-                                "character": 25
-                            }
-                        }
-                    }
-                ]
-            },
+            "alias": "Element",
             "purpose": "return",
             "locations": [
                 {
@@ -743,24 +726,7 @@ function Comp(props: { abc: string, ad?: number }) {
         {
             "kindText": "interface",
             "kind": "interface",
-            "symbol": {
-                "name": "Element",
-                "locations": [
-                    {
-                        "fileName": "../node_modules/@types/react/index.d.ts",
-                        "range": {
-                            "start": {
-                                "line": 3121,
-                                "character": 18
-                            },
-                            "end": {
-                                "line": 3121,
-                                "character": 25
-                            }
-                        }
-                    }
-                ]
-            },
+            "alias": "Element",
             "purpose": "return",
             "locations": [
                 {
@@ -2031,24 +1997,7 @@ const a = <Comp abc="asc" ad={4} />
         {
             "kindText": "interface",
             "kind": "interface",
-            "symbol": {
-                "name": "Element",
-                "locations": [
-                    {
-                        "fileName": "../node_modules/@types/react/index.d.ts",
-                        "range": {
-                            "start": {
-                                "line": 3121,
-                                "character": 18
-                            },
-                            "end": {
-                                "line": 3121,
-                                "character": 25
-                            }
-                        }
-                    }
-                ]
-            },
+            "alias": "Element",
             "purpose": "return",
             "locations": [
                 {

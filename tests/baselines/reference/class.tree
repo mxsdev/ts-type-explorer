@@ -284,7 +284,7 @@ class TestClass implements TestInterface {
             ],
             "implementsTypes": [],
             "constructSignatures": [],
-            "symbolMeta": {
+            "aliasSymbolMeta": {
                 "name": "TestInterface",
                 "flags": 64,
                 "declarations": [
@@ -532,7 +532,7 @@ class TestClass implements TestInterface {
             ],
             "implementsTypes": [],
             "constructSignatures": [],
-            "symbolMeta": {
+            "aliasSymbolMeta": {
                 "name": "TestInterface",
                 "flags": 64,
                 "declarations": [
@@ -877,7 +877,7 @@ class TestClass implements TestInterface {
             ],
             "implementsTypes": [],
             "constructSignatures": [],
-            "symbolMeta": {
+            "aliasSymbolMeta": {
                 "name": "TestInterface",
                 "flags": 64,
                 "declarations": [
@@ -1250,7 +1250,7 @@ const _a = new TestClass("param")
                 ],
                 "implementsTypes": [],
                 "constructSignatures": [],
-                "symbolMeta": {
+                "aliasSymbolMeta": {
                     "name": "TestInterface",
                     "flags": 64,
                     "declarations": [
@@ -1576,7 +1576,7 @@ const _a = new TestClass("param")
                         ],
                         "implementsTypes": [],
                         "constructSignatures": [],
-                        "symbolMeta": {
+                        "aliasSymbolMeta": {
                             "name": "TestInterface",
                             "flags": 64,
                             "declarations": [

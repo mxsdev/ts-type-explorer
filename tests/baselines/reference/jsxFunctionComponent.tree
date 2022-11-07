@@ -569,7 +569,7 @@ function Comp(props: { abc: string, ad?: number }) {
                 },
                 "implementsTypes": [],
                 "constructSignatures": [],
-                "symbolMeta": {
+                "aliasSymbolMeta": {
                     "name": "Element",
                     "flags": 64,
                     "declarations": [
@@ -1183,7 +1183,7 @@ function Comp(props: { abc: string, ad?: number }) {
                 },
                 "implementsTypes": [],
                 "constructSignatures": [],
-                "symbolMeta": {
+                "aliasSymbolMeta": {
                     "name": "Element",
                     "flags": 64,
                     "declarations": [
@@ -2560,7 +2560,7 @@ const a = <Comp abc="asc" ad={4} />
                 },
                 "implementsTypes": [],
                 "constructSignatures": [],
-                "symbolMeta": {
+                "aliasSymbolMeta": {
                     "name": "Element",
                     "flags": 64,
                     "declarations": [
