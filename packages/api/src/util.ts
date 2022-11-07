@@ -537,7 +537,7 @@ export function getParameterInfo(
     )
     const baseParameterDeclaration = parameter
         .getDeclarations()
-        ?.find((x) => x.kind && ts.SyntaxKind.Parameter) as
+        ?.find((x) => x.kind && ts.SyntaxKind.Parameter && x.parent) as
         | ts.ParameterDeclaration
         | undefined
 
