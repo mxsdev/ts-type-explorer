@@ -1,0 +1,1096 @@
+=== mapArray.ts ===
+
+const mapped = [1].map(x => x.toString())
+> const mapped = [1].map(x => x.toString())
+> mapped = [1].map(x => x.toString())
+> mapped = [1].map(x => x.toString())
+> mapped --- {
+    "kind": "array",
+    "type": {
+        "kind": "primitive",
+        "primitive": "string",
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "mapped",
+        "flags": 2,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapArray.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 6
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 12
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> [1].map(x => x.toString())
+> [1].map --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "map",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 7
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "function",
+                    "signatures": [
+                        {
+                            "symbolMeta": {
+                                "name": "__type",
+                                "flags": 2048,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1427,
+                                                    "character": 23
+                                                },
+                                                "end": {
+                                                    "line": 1427,
+                                                    "character": 65
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "parameters": [
+                                {
+                                    "kind": "primitive",
+                                    "primitive": "number",
+                                    "symbolMeta": {
+                                        "name": "value",
+                                        "flags": 33554433,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1427,
+                                                            "character": 24
+                                                        },
+                                                        "end": {
+                                                            "line": 1427,
+                                                            "character": 29
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                },
+                                {
+                                    "kind": "reference",
+                                    "symbolMeta": {
+                                        "name": "index",
+                                        "flags": 33554433,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1427,
+                                                            "character": 34
+                                                        },
+                                                        "end": {
+                                                            "line": 1427,
+                                                            "character": 39
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                },
+                                {
+                                    "kind": "array",
+                                    "type": {
+                                        "kind": "reference",
+                                        "id": "4"
+                                    },
+                                    "symbolMeta": {
+                                        "name": "array",
+                                        "flags": 33554433,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1427,
+                                                            "character": 49
+                                                        },
+                                                        "end": {
+                                                            "line": 1427,
+                                                            "character": 54
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "5"
+                                }
+                            ],
+                            "returnType": {
+                                "kind": "primitive",
+                                "primitive": "string",
+                                "id": "2"
+                            }
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "callbackfn",
+                        "flags": 33554433,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1427,
+                                            "character": 11
+                                        },
+                                        "end": {
+                                            "line": 1427,
+                                            "character": 21
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "3"
+                },
+                {
+                    "kind": "primitive",
+                    "primitive": "any",
+                    "symbolMeta": {
+                        "name": "thisArg",
+                        "flags": 33554433,
+                        "optional": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1427,
+                                            "character": 67
+                                        },
+                                        "end": {
+                                            "line": 1427,
+                                            "character": 74
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "6"
+                }
+            ],
+            "returnType": {
+                "kind": "array",
+                "type": {
+                    "kind": "reference",
+                    "id": "2"
+                },
+                "id": "7"
+            },
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "symbolMeta": {
+                        "name": "U",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1427,
+                                            "character": 8
+                                        },
+                                        "end": {
+                                            "line": 1427,
+                                            "character": 9
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "8"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "map",
+        "flags": 33562624,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1427,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1427,
+                            "character": 7
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "type_parameter",
+            "symbolMeta": {
+                "name": "U",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 9
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "typeArguments": [
+        {
+            "kind": "reference",
+            "id": "2"
+        }
+    ],
+    "id": "0"
+}
+> map --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "map",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 7
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "function",
+                    "signatures": [
+                        {
+                            "symbolMeta": {
+                                "name": "__type",
+                                "flags": 2048,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1427,
+                                                    "character": 23
+                                                },
+                                                "end": {
+                                                    "line": 1427,
+                                                    "character": 65
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "parameters": [
+                                {
+                                    "kind": "primitive",
+                                    "primitive": "number",
+                                    "symbolMeta": {
+                                        "name": "value",
+                                        "flags": 33554433,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1427,
+                                                            "character": 24
+                                                        },
+                                                        "end": {
+                                                            "line": 1427,
+                                                            "character": 29
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                },
+                                {
+                                    "kind": "reference",
+                                    "symbolMeta": {
+                                        "name": "index",
+                                        "flags": 33554433,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1427,
+                                                            "character": 34
+                                                        },
+                                                        "end": {
+                                                            "line": 1427,
+                                                            "character": 39
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                },
+                                {
+                                    "kind": "array",
+                                    "type": {
+                                        "kind": "reference",
+                                        "id": "4"
+                                    },
+                                    "symbolMeta": {
+                                        "name": "array",
+                                        "flags": 33554433,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1427,
+                                                            "character": 49
+                                                        },
+                                                        "end": {
+                                                            "line": 1427,
+                                                            "character": 54
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "5"
+                                }
+                            ],
+                            "returnType": {
+                                "kind": "primitive",
+                                "primitive": "string",
+                                "id": "2"
+                            }
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "callbackfn",
+                        "flags": 33554433,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1427,
+                                            "character": 11
+                                        },
+                                        "end": {
+                                            "line": 1427,
+                                            "character": 21
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "3"
+                },
+                {
+                    "kind": "primitive",
+                    "primitive": "any",
+                    "symbolMeta": {
+                        "name": "thisArg",
+                        "flags": 33554433,
+                        "optional": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1427,
+                                            "character": 67
+                                        },
+                                        "end": {
+                                            "line": 1427,
+                                            "character": 74
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "6"
+                }
+            ],
+            "returnType": {
+                "kind": "array",
+                "type": {
+                    "kind": "reference",
+                    "id": "2"
+                },
+                "id": "7"
+            },
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "symbolMeta": {
+                        "name": "U",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1427,
+                                            "character": 8
+                                        },
+                                        "end": {
+                                            "line": 1427,
+                                            "character": 9
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "8"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "map",
+        "flags": 33562624,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1427,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1427,
+                            "character": 7
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "type_parameter",
+            "symbolMeta": {
+                "name": "U",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 9
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "typeArguments": [
+        {
+            "kind": "reference",
+            "id": "2"
+        }
+    ],
+    "id": "0"
+}
+> x => x.toString()
+> x => x.toString()
+> x
+> x
+> x --- {
+    "kind": "primitive",
+    "primitive": "number",
+    "symbolMeta": {
+        "name": "x",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapArray.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 24
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> => --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "map",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 7
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "function",
+                    "signatures": [
+                        {
+                            "symbolMeta": {
+                                "name": "__type",
+                                "flags": 2048,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1427,
+                                                    "character": 23
+                                                },
+                                                "end": {
+                                                    "line": 1427,
+                                                    "character": 65
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "parameters": [
+                                {
+                                    "kind": "primitive",
+                                    "primitive": "number",
+                                    "symbolMeta": {
+                                        "name": "value",
+                                        "flags": 33554433,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1427,
+                                                            "character": 24
+                                                        },
+                                                        "end": {
+                                                            "line": 1427,
+                                                            "character": 29
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "3"
+                                },
+                                {
+                                    "kind": "reference",
+                                    "symbolMeta": {
+                                        "name": "index",
+                                        "flags": 33554433,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1427,
+                                                            "character": 34
+                                                        },
+                                                        "end": {
+                                                            "line": 1427,
+                                                            "character": 39
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "3"
+                                },
+                                {
+                                    "kind": "array",
+                                    "type": {
+                                        "kind": "reference",
+                                        "id": "3"
+                                    },
+                                    "symbolMeta": {
+                                        "name": "array",
+                                        "flags": 33554433,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1427,
+                                                            "character": 49
+                                                        },
+                                                        "end": {
+                                                            "line": 1427,
+                                                            "character": 54
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "returnType": {
+                                "kind": "primitive",
+                                "primitive": "string",
+                                "id": "1"
+                            }
+                        }
+                    ],
+                    "symbolMeta": {
+                        "name": "callbackfn",
+                        "flags": 33554433,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1427,
+                                            "character": 11
+                                        },
+                                        "end": {
+                                            "line": 1427,
+                                            "character": 21
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                },
+                {
+                    "kind": "primitive",
+                    "primitive": "any",
+                    "symbolMeta": {
+                        "name": "thisArg",
+                        "flags": 33554433,
+                        "optional": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1427,
+                                            "character": 67
+                                        },
+                                        "end": {
+                                            "line": 1427,
+                                            "character": 74
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "5"
+                }
+            ],
+            "returnType": {
+                "kind": "array",
+                "type": {
+                    "kind": "reference",
+                    "id": "1"
+                },
+                "id": "6"
+            },
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "symbolMeta": {
+                        "name": "U",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 1427,
+                                            "character": 8
+                                        },
+                                        "end": {
+                                            "line": 1427,
+                                            "character": 9
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "7"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "__function",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapArray.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 40
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeArguments": [
+        {
+            "kind": "reference",
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
+> x.toString()
+> x.toString --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "toString",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 555,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 555,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "number",
+                    "symbolMeta": {
+                        "name": "radix",
+                        "flags": 1,
+                        "optional": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 555,
+                                            "character": 13
+                                        },
+                                        "end": {
+                                            "line": 555,
+                                            "character": 18
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ],
+            "returnType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "toString",
+        "flags": 8192,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 555,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 555,
+                            "character": 12
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> x --- {
+    "kind": "primitive",
+    "primitive": "number",
+    "symbolMeta": {
+        "name": "x",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapArray.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 24
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> toString --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "toString",
+                "flags": 8192,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 555,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 555,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "primitive",
+                    "primitive": "number",
+                    "symbolMeta": {
+                        "name": "radix",
+                        "flags": 1,
+                        "optional": true,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 555,
+                                            "character": 13
+                                        },
+                                        "end": {
+                                            "line": 555,
+                                            "character": 18
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ],
+            "returnType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "toString",
+        "flags": 8192,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 555,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 555,
+                            "character": 12
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

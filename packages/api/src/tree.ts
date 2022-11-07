@@ -56,6 +56,7 @@ import {
     isReadonlyTupleType,
     getSymbolExports,
     isNamespace,
+    getSignaturesOfType,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -693,7 +694,10 @@ function resolveSignature(
     const isConstructCallExpression =
         node?.parent.kind === ts.SyntaxKind.NewExpression
 
-    const signature = getResolvedSignature(ctx, node)
+    const signature =
+        getSignaturesOfType(ctx, type).length > 0
+            ? getResolvedSignature(ctx, node)
+            : undefined
 
     const signatureTypeArguments = signature
         ? getSignatureTypeArguments(ctx, signature, node)

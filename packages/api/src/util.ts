@@ -673,11 +673,15 @@ export function getCallLikeExpression(
     { ts }: TypescriptContext,
     node: ts.Node
 ) {
-    return ts.isCallLikeExpression(node)
-        ? node
-        : ts.isCallLikeExpression(node.parent)
-        ? node.parent
-        : undefined
+    while (node && !ts.isSourceFile(node)) {
+        if (ts.isCallLikeExpression(node)) {
+            return node
+        }
+
+        node = node.parent
+    }
+
+    return undefined
 }
 
 /**

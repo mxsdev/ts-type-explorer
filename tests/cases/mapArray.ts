@@ -1,0 +1,1 @@
+const mapped = [1].map(x => x.toString())

@@ -1,0 +1,1144 @@
+=== mapArray.ts ===
+
+const mapped = [1].map(x => x.toString())
+> const mapped = [1].map(x => x.toString())
+> mapped = [1].map(x => x.toString())
+> mapped = [1].map(x => x.toString())
+> mapped --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "mapped",
+        "locations": [
+            {
+                "fileName": "cases/mapArray.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 6
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 12
+                    }
+                }
+            }
+        ]
+    },
+    "dimension": 1,
+    "locations": [
+        {
+            "fileName": "cases/mapArray.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 6
+                },
+                "end": {
+                    "line": 0,
+                    "character": 12
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> [1].map(x => x.toString())
+> [1].map --- {
+    "kindText": "method",
+    "kind": "function",
+    "symbol": {
+        "name": "map",
+        "insideClassOrInterface": true,
+        "locations": [
+            {
+                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                "range": {
+                    "start": {
+                        "line": 1427,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 1427,
+                        "character": 7
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+            "range": {
+                "start": {
+                    "line": 1427,
+                    "character": 4
+                },
+                "end": {
+                    "line": 1427,
+                    "character": 7
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type_parameter_list",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "U",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 9
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 9
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "parameter_value",
+                            "children": [],
+                            "_id": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "function",
+            "kind": "function",
+            "symbol": {
+                "name": "callbackfn",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1427,
+                                "character": 11
+                            },
+                            "end": {
+                                "line": 1427,
+                                "character": 21
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1427,
+                            "character": 11
+                        },
+                        "end": {
+                            "line": 1427,
+                            "character": 21
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "symbol": {
+                        "name": "value",
+                        "isArgument": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 24
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 29
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 24
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "4"
+                },
+                {
+                    "reference": "4"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "alias": "value",
+                    "symbol": {
+                        "name": "array",
+                        "isArgument": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 49
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 54
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "dimension": 1,
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 24
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "5"
+                },
+                {
+                    "reference": "2"
+                }
+            ],
+            "_id": "3"
+        },
+        {
+            "kindText": "any",
+            "kind": "primitive",
+            "primitiveKind": "any",
+            "symbol": {
+                "name": "thisArg",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1427,
+                                "character": 67
+                            },
+                            "end": {
+                                "line": 1427,
+                                "character": 74
+                            }
+                        }
+                    }
+                ]
+            },
+            "optional": true,
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1427,
+                            "character": 67
+                        },
+                        "end": {
+                            "line": 1427,
+                            "character": 74
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "6"
+        },
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "purpose": "return",
+            "dimension": 1,
+            "children": [],
+            "_id": "7"
+        }
+    ],
+    "_id": "0"
+}
+> map --- {
+    "kindText": "method",
+    "kind": "function",
+    "symbol": {
+        "name": "map",
+        "insideClassOrInterface": true,
+        "locations": [
+            {
+                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                "range": {
+                    "start": {
+                        "line": 1427,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 1427,
+                        "character": 7
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+            "range": {
+                "start": {
+                    "line": 1427,
+                    "character": 4
+                },
+                "end": {
+                    "line": 1427,
+                    "character": 7
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type_parameter_list",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "U",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 9
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 9
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "parameter_value",
+                            "children": [],
+                            "_id": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "function",
+            "kind": "function",
+            "symbol": {
+                "name": "callbackfn",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1427,
+                                "character": 11
+                            },
+                            "end": {
+                                "line": 1427,
+                                "character": 21
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1427,
+                            "character": 11
+                        },
+                        "end": {
+                            "line": 1427,
+                            "character": 21
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "symbol": {
+                        "name": "value",
+                        "isArgument": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 24
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 29
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 24
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "4"
+                },
+                {
+                    "reference": "4"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "alias": "value",
+                    "symbol": {
+                        "name": "array",
+                        "isArgument": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 49
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 54
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "dimension": 1,
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 24
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "5"
+                },
+                {
+                    "reference": "2"
+                }
+            ],
+            "_id": "3"
+        },
+        {
+            "kindText": "any",
+            "kind": "primitive",
+            "primitiveKind": "any",
+            "symbol": {
+                "name": "thisArg",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1427,
+                                "character": 67
+                            },
+                            "end": {
+                                "line": 1427,
+                                "character": 74
+                            }
+                        }
+                    }
+                ]
+            },
+            "optional": true,
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1427,
+                            "character": 67
+                        },
+                        "end": {
+                            "line": 1427,
+                            "character": 74
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "6"
+        },
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "purpose": "return",
+            "dimension": 1,
+            "children": [],
+            "_id": "7"
+        }
+    ],
+    "_id": "0"
+}
+> x => x.toString()
+> x => x.toString()
+> x
+> x
+> x --- {
+    "kindText": "number",
+    "kind": "primitive",
+    "primitiveKind": "number",
+    "symbol": {
+        "name": "x",
+        "isArgument": true,
+        "locations": [
+            {
+                "fileName": "cases/mapArray.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 23
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 24
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapArray.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 23
+                },
+                "end": {
+                    "line": 0,
+                    "character": 24
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> => --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "__function",
+        "locations": [
+            {
+                "fileName": "cases/mapArray.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 23
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 40
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapArray.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 23
+                },
+                "end": {
+                    "line": 0,
+                    "character": 40
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type_parameter_list",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "U",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 9
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 9
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "parameter_value",
+                            "children": [],
+                            "_id": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "function",
+            "kind": "function",
+            "symbol": {
+                "name": "callbackfn",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1427,
+                                "character": 11
+                            },
+                            "end": {
+                                "line": 1427,
+                                "character": 21
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1427,
+                            "character": 11
+                        },
+                        "end": {
+                            "line": 1427,
+                            "character": 21
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "symbol": {
+                        "name": "value",
+                        "isArgument": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 24
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 29
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 24
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "4"
+                },
+                {
+                    "reference": "4"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "alias": "value",
+                    "symbol": {
+                        "name": "array",
+                        "isArgument": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 49
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 54
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "dimension": 1,
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 24
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "5"
+                },
+                {
+                    "reference": "2"
+                }
+            ],
+            "_id": "3"
+        },
+        {
+            "kindText": "any",
+            "kind": "primitive",
+            "primitiveKind": "any",
+            "symbol": {
+                "name": "thisArg",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1427,
+                                "character": 67
+                            },
+                            "end": {
+                                "line": 1427,
+                                "character": 74
+                            }
+                        }
+                    }
+                ]
+            },
+            "optional": true,
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1427,
+                            "character": 67
+                        },
+                        "end": {
+                            "line": 1427,
+                            "character": 74
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "6"
+        },
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "purpose": "return",
+            "dimension": 1,
+            "children": [],
+            "_id": "7"
+        }
+    ],
+    "_id": "0"
+}
+> x.toString()
+> x.toString --- {
+    "kindText": "method",
+    "kind": "function",
+    "symbol": {
+        "name": "toString",
+        "insideClassOrInterface": true,
+        "locations": [
+            {
+                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                "range": {
+                    "start": {
+                        "line": 555,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 555,
+                        "character": 12
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+            "range": {
+                "start": {
+                    "line": 555,
+                    "character": 4
+                },
+                "end": {
+                    "line": 555,
+                    "character": 12
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "primitiveKind": "number",
+            "symbol": {
+                "name": "radix",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 555,
+                                "character": 13
+                            },
+                            "end": {
+                                "line": 555,
+                                "character": 18
+                            }
+                        }
+                    }
+                ]
+            },
+            "optional": true,
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 555,
+                            "character": 13
+                        },
+                        "end": {
+                            "line": 555,
+                            "character": 18
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "purpose": "return",
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
+> x --- {
+    "kindText": "number",
+    "kind": "primitive",
+    "primitiveKind": "number",
+    "symbol": {
+        "name": "x",
+        "isArgument": true,
+        "locations": [
+            {
+                "fileName": "cases/mapArray.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 23
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 24
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapArray.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 23
+                },
+                "end": {
+                    "line": 0,
+                    "character": 24
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> toString --- {
+    "kindText": "method",
+    "kind": "function",
+    "symbol": {
+        "name": "toString",
+        "insideClassOrInterface": true,
+        "locations": [
+            {
+                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                "range": {
+                    "start": {
+                        "line": 555,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 555,
+                        "character": 12
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+            "range": {
+                "start": {
+                    "line": 555,
+                    "character": 4
+                },
+                "end": {
+                    "line": 555,
+                    "character": 12
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "primitiveKind": "number",
+            "symbol": {
+                "name": "radix",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 555,
+                                "character": 13
+                            },
+                            "end": {
+                                "line": 555,
+                                "character": 18
+                            }
+                        }
+                    }
+                ]
+            },
+            "optional": true,
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 555,
+                            "character": 13
+                        },
+                        "end": {
+                            "line": 555,
+                            "character": 18
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "purpose": "return",
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
