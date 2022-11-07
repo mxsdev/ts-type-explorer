@@ -6,8 +6,8 @@
 
 VSCode Extension providing full type information in TypeScript projects. Supports:
 
- - Functions
- - Primitive Types
- - Literal Types
- - Generics (Type Parameters)
- - Classes, Interfaces, Enums
+-   Functions
+-   Primitive Types
+-   Literal Types
+-   Generics (Type Parameters)
+-   Classes, Interfaces, Enums
