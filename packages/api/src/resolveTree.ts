@@ -145,6 +145,8 @@ export class TypeInfoResolver {
         resolvedInfo = {
             ...resolvedInfo,
             symbolMeta: info.symbolMeta,
+            aliasSymbolMeta:
+                resolvedInfo.aliasSymbolMeta ?? resolvedInfo.symbolMeta,
             id: info.id,
         }
 
