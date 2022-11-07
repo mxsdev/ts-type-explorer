@@ -1,5 +1,5 @@
 import assert = require("assert")
-import * as ts from "typescript"
+import type * as ts from "typescript"
 import {
     wrapSafe,
     isEmpty,
@@ -837,7 +837,10 @@ export function getSymbolOrTypeOfNode(
     if (symbol) {
         const symbolType = getSymbolType(ctx, symbol, node)
 
-        if (isValidType(symbolType) || symbol.flags & ts.SymbolFlags.Module) {
+        if (
+            isValidType(symbolType) ||
+            symbol.flags & ctx.ts.SymbolFlags.Module
+        ) {
             return { symbol, node }
         }
     }
@@ -886,7 +889,7 @@ function getDeclarationNodeFlagsFromSymbol(
     symbol: ts.Symbol
 ): ts.NodeFlags {
     return symbol.valueDeclaration
-        ? ts.getCombinedNodeFlags(symbol.valueDeclaration)
+        ? ctx.ts.getCombinedNodeFlags(symbol.valueDeclaration)
         : 0
 }
 
