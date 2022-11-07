@@ -16,6 +16,7 @@ export {
     getTypeInfoChildren,
     getTypeInfoSymbols,
     getTypeInfoAtRange,
+    getTypeInfoOfNode,
 } from "./tree"
 export {
     TypeInfo,

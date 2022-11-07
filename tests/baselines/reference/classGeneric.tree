@@ -1892,8 +1892,7 @@ const _a = new TestClass<string>(false, 4)
                     },
                     "parameters": [
                         {
-                            "kind": "primitive",
-                            "primitive": "string",
+                            "kind": "reference",
                             "symbolMeta": {
                                 "name": "param",
                                 "flags": 33554433,
@@ -2378,7 +2377,8 @@ const _a = new TestClass<string>(false, 4)
     },
     "typeArguments": [
         {
-            "kind": "reference",
+            "kind": "primitive",
+            "primitive": "string",
             "id": "1"
         }
     ],
@@ -2442,8 +2442,7 @@ const _a = new TestClass<string>(false, 4)
                     "kind": "union",
                     "types": [
                         {
-                            "kind": "primitive",
-                            "primitive": "string",
+                            "kind": "reference",
                             "id": "2"
                         },
                         {
@@ -2911,7 +2910,7 @@ const _a = new TestClass<string>(false, 4)
                             ],
                             "typeParameters": [
                                 {
-                                    "kind": "type_parameter",
+                                    "kind": "reference",
                                     "symbolMeta": {
                                         "name": "T",
                                         "flags": 262144,
@@ -3070,7 +3069,7 @@ const _a = new TestClass<string>(false, 4)
             },
             "typeParameters": [
                 {
-                    "kind": "reference",
+                    "kind": "type_parameter",
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,
@@ -3149,7 +3148,8 @@ const _a = new TestClass<string>(false, 4)
     ],
     "typeArguments": [
         {
-            "kind": "reference",
+            "kind": "primitive",
+            "primitive": "string",
             "id": "2"
         }
     ],

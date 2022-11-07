@@ -507,11 +507,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             "type": {
                 "kind": "indexed_access",
                 "indexType": {
-                    "kind": "type_parameter",
-                    "baseConstraint": {
-                        "kind": "reference",
-                        "id": "13"
-                    },
+                    "kind": "reference",
                     "symbolMeta": {
                         "name": "P",
                         "flags": 262144,
@@ -536,7 +532,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                     "id": "12"
                 },
                 "objectType": {
-                    "kind": "type_parameter",
+                    "kind": "reference",
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,
@@ -584,7 +580,11 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
                 ]
             },
             "parameterType": {
-                "kind": "reference",
+                "kind": "type_parameter",
+                "baseConstraint": {
+                    "kind": "reference",
+                    "id": "13"
+                },
                 "symbolMeta": {
                     "name": "P",
                     "flags": 262144,
@@ -633,7 +633,7 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
     },
     "typeParameters": [
         {
-            "kind": "reference",
+            "kind": "type_parameter",
             "symbolMeta": {
                 "name": "T",
                 "flags": 262144,

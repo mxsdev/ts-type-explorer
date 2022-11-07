@@ -1,0 +1,3303 @@
+=== deepNestedObject.ts ===
+
+type deepNestedObj = {
+    a: {
+        b: {
+            c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+> deepNestedObj --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "e",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 5,
+                                                                    "character": 20
+                                                                },
+                                                                "end": {
+                                                                    "line": 5,
+                                                                    "character": 21
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "d",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 4,
+                                                            "character": 16
+                                                        },
+                                                        "end": {
+                                                            "line": 4,
+                                                            "character": 17
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "c",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 3,
+                                                    "character": 12
+                                                },
+                                                "end": {
+                                                    "line": 3,
+                                                    "character": 13
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "b",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 2,
+                                            "character": 8
+                                        },
+                                        "end": {
+                                            "line": 2,
+                                            "character": 9
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "a",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 5
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "deepNestedObj",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 18
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+    a: {
+        b: {
+            c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+> a: {
+        b: {
+            c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+> a: {
+        b: {
+            c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+> a --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "f",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 6,
+                                                                    "character": 24
+                                                                },
+                                                                "end": {
+                                                                    "line": 6,
+                                                                    "character": 25
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "e",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 5,
+                                                            "character": 20
+                                                        },
+                                                        "end": {
+                                                            "line": 5,
+                                                            "character": 21
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "d",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 4,
+                                                    "character": 16
+                                                },
+                                                "end": {
+                                                    "line": 4,
+                                                    "character": 17
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "c",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 3,
+                                            "character": 12
+                                        },
+                                        "end": {
+                                            "line": 3,
+                                            "character": 13
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "b",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 9
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "a",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 5
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+        b: {
+            c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+> b: {
+            c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+> b: {
+            c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+> b --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "g",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 7,
+                                                                    "character": 28
+                                                                },
+                                                                "end": {
+                                                                    "line": 7,
+                                                                    "character": 29
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "f",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 6,
+                                                            "character": 24
+                                                        },
+                                                        "end": {
+                                                            "line": 6,
+                                                            "character": 25
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "e",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 5,
+                                                    "character": 20
+                                                },
+                                                "end": {
+                                                    "line": 5,
+                                                    "character": 21
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "d",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 4,
+                                            "character": 16
+                                        },
+                                        "end": {
+                                            "line": 4,
+                                            "character": 17
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "c",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 3,
+                                    "character": 12
+                                },
+                                "end": {
+                                    "line": 3,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "b",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 8
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 9
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+            c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+> c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+> c: {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+> c --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "h",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 8,
+                                                                    "character": 32
+                                                                },
+                                                                "end": {
+                                                                    "line": 8,
+                                                                    "character": 33
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "g",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 7,
+                                                            "character": 28
+                                                        },
+                                                        "end": {
+                                                            "line": 7,
+                                                            "character": 29
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "f",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 6,
+                                                    "character": 24
+                                                },
+                                                "end": {
+                                                    "line": 6,
+                                                    "character": 25
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "e",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 20
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 21
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "d",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 4,
+                                    "character": 16
+                                },
+                                "end": {
+                                    "line": 4,
+                                    "character": 17
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "c",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 3,
+                            "character": 12
+                        },
+                        "end": {
+                            "line": 3,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+> d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+> d: {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+> d --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "i",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 9,
+                                                                    "character": 36
+                                                                },
+                                                                "end": {
+                                                                    "line": 9,
+                                                                    "character": 37
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "h",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 8,
+                                                            "character": 32
+                                                        },
+                                                        "end": {
+                                                            "line": 8,
+                                                            "character": 33
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "g",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 7,
+                                                    "character": 28
+                                                },
+                                                "end": {
+                                                    "line": 7,
+                                                    "character": 29
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "f",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 6,
+                                            "character": 24
+                                        },
+                                        "end": {
+                                            "line": 6,
+                                            "character": 25
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "e",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 5,
+                                    "character": 20
+                                },
+                                "end": {
+                                    "line": 5,
+                                    "character": 21
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "d",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 16
+                        },
+                        "end": {
+                            "line": 4,
+                            "character": 17
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                    e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+> e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+> e: {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+> e --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "j",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 10,
+                                                                    "character": 40
+                                                                },
+                                                                "end": {
+                                                                    "line": 10,
+                                                                    "character": 41
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "i",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 9,
+                                                            "character": 36
+                                                        },
+                                                        "end": {
+                                                            "line": 9,
+                                                            "character": 37
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "h",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 8,
+                                                    "character": 32
+                                                },
+                                                "end": {
+                                                    "line": 8,
+                                                    "character": 33
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "g",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 7,
+                                            "character": 28
+                                        },
+                                        "end": {
+                                            "line": 7,
+                                            "character": 29
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "f",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 6,
+                                    "character": 24
+                                },
+                                "end": {
+                                    "line": 6,
+                                    "character": 25
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "e",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 20
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 21
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                        f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+> f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+> f: {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+> f --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "k",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 11,
+                                                                    "character": 44
+                                                                },
+                                                                "end": {
+                                                                    "line": 11,
+                                                                    "character": 45
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "j",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 10,
+                                                            "character": 40
+                                                        },
+                                                        "end": {
+                                                            "line": 10,
+                                                            "character": 41
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "i",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 9,
+                                                    "character": 36
+                                                },
+                                                "end": {
+                                                    "line": 9,
+                                                    "character": 37
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "h",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 8,
+                                            "character": 32
+                                        },
+                                        "end": {
+                                            "line": 8,
+                                            "character": 33
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "g",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 28
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 29
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "f",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 6,
+                            "character": 24
+                        },
+                        "end": {
+                            "line": 6,
+                            "character": 25
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                            g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+> g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+> g: {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+> g --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "l",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 12,
+                                                                    "character": 48
+                                                                },
+                                                                "end": {
+                                                                    "line": 12,
+                                                                    "character": 49
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "k",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 11,
+                                                            "character": 44
+                                                        },
+                                                        "end": {
+                                                            "line": 11,
+                                                            "character": 45
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "j",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 10,
+                                                    "character": 40
+                                                },
+                                                "end": {
+                                                    "line": 10,
+                                                    "character": 41
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "i",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 9,
+                                            "character": 36
+                                        },
+                                        "end": {
+                                            "line": 9,
+                                            "character": 37
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "h",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 8,
+                                    "character": 32
+                                },
+                                "end": {
+                                    "line": 8,
+                                    "character": 33
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "g",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 28
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 29
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                                h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+> h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+> h: {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+> h --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "m",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 13,
+                                                                    "character": 52
+                                                                },
+                                                                "end": {
+                                                                    "line": 13,
+                                                                    "character": 53
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "l",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 12,
+                                                            "character": 48
+                                                        },
+                                                        "end": {
+                                                            "line": 12,
+                                                            "character": 49
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "k",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 11,
+                                                    "character": 44
+                                                },
+                                                "end": {
+                                                    "line": 11,
+                                                    "character": 45
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "j",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 10,
+                                            "character": 40
+                                        },
+                                        "end": {
+                                            "line": 10,
+                                            "character": 41
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "i",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 9,
+                                    "character": 36
+                                },
+                                "end": {
+                                    "line": 9,
+                                    "character": 37
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "h",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 8,
+                            "character": 32
+                        },
+                        "end": {
+                            "line": 8,
+                            "character": 33
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                                    i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+> i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+> i: {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+> i --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "n",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 14,
+                                                                    "character": 56
+                                                                },
+                                                                "end": {
+                                                                    "line": 14,
+                                                                    "character": 57
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "m",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 13,
+                                                            "character": 52
+                                                        },
+                                                        "end": {
+                                                            "line": 13,
+                                                            "character": 53
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "l",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 12,
+                                                    "character": 48
+                                                },
+                                                "end": {
+                                                    "line": 12,
+                                                    "character": 49
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "k",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 44
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 45
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "j",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 10,
+                                    "character": 40
+                                },
+                                "end": {
+                                    "line": 10,
+                                    "character": 41
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "i",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 9,
+                            "character": 36
+                        },
+                        "end": {
+                            "line": 9,
+                            "character": 37
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                                        j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+> j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+> j: {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+> j --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "object",
+                                            "properties": [
+                                                {
+                                                    "kind": "max_depth",
+                                                    "id": "6"
+                                                }
+                                            ],
+                                            "indexInfos": [],
+                                            "symbolMeta": {
+                                                "name": "o",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 15,
+                                                                    "character": 60
+                                                                },
+                                                                "end": {
+                                                                    "line": 15,
+                                                                    "character": 61
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "n",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 14,
+                                                            "character": 56
+                                                        },
+                                                        "end": {
+                                                            "line": 14,
+                                                            "character": 57
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "m",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 13,
+                                                    "character": 52
+                                                },
+                                                "end": {
+                                                    "line": 13,
+                                                    "character": 53
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "l",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 12,
+                                            "character": 48
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "character": 49
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "k",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 44
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 45
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "j",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 10,
+                            "character": 40
+                        },
+                        "end": {
+                            "line": 10,
+                            "character": 41
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                                            k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+> k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+> k: {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+> k --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "object",
+                                    "properties": [
+                                        {
+                                            "kind": "primitive",
+                                            "primitive": "string",
+                                            "symbolMeta": {
+                                                "name": "p",
+                                                "flags": 4,
+                                                "declarations": [
+                                                    {
+                                                        "location": {
+                                                            "fileName": "cases/deepNestedObject.ts",
+                                                            "range": {
+                                                                "start": {
+                                                                    "line": 16,
+                                                                    "character": 64
+                                                                },
+                                                                "end": {
+                                                                    "line": 16,
+                                                                    "character": 65
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "id": "5"
+                                        }
+                                    ],
+                                    "indexInfos": [],
+                                    "symbolMeta": {
+                                        "name": "o",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 15,
+                                                            "character": 60
+                                                        },
+                                                        "end": {
+                                                            "line": 15,
+                                                            "character": 61
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "n",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 14,
+                                                    "character": 56
+                                                },
+                                                "end": {
+                                                    "line": 14,
+                                                    "character": 57
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "m",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 13,
+                                            "character": 52
+                                        },
+                                        "end": {
+                                            "line": 13,
+                                            "character": 53
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "l",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 12,
+                                    "character": 48
+                                },
+                                "end": {
+                                    "line": 12,
+                                    "character": 49
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "k",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 44
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 45
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                                                l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+> l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+> l: {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+> l --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "object",
+                            "properties": [
+                                {
+                                    "kind": "primitive",
+                                    "primitive": "string",
+                                    "symbolMeta": {
+                                        "name": "p",
+                                        "flags": 4,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/deepNestedObject.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 16,
+                                                            "character": 64
+                                                        },
+                                                        "end": {
+                                                            "line": 16,
+                                                            "character": 65
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "4"
+                                }
+                            ],
+                            "indexInfos": [],
+                            "symbolMeta": {
+                                "name": "o",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 15,
+                                                    "character": 60
+                                                },
+                                                "end": {
+                                                    "line": 15,
+                                                    "character": 61
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "n",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 14,
+                                            "character": 56
+                                        },
+                                        "end": {
+                                            "line": 14,
+                                            "character": 57
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "m",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 13,
+                                    "character": 52
+                                },
+                                "end": {
+                                    "line": 13,
+                                    "character": 53
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "l",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 12,
+                            "character": 48
+                        },
+                        "end": {
+                            "line": 12,
+                            "character": 49
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                                                    m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+                                                }
+> m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+> m: {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+> m --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "symbolMeta": {
+                                "name": "p",
+                                "flags": 4,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/deepNestedObject.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 16,
+                                                    "character": 64
+                                                },
+                                                "end": {
+                                                    "line": 16,
+                                                    "character": 65
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "3"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "o",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 15,
+                                            "character": 60
+                                        },
+                                        "end": {
+                                            "line": 15,
+                                            "character": 61
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "n",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 14,
+                                    "character": 56
+                                },
+                                "end": {
+                                    "line": 14,
+                                    "character": 57
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "m",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 13,
+                            "character": 52
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 53
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                                                        n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+                                                    }
+> n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+> n: {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+> n --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "symbolMeta": {
+                        "name": "p",
+                        "flags": 4,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/deepNestedObject.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 16,
+                                            "character": 64
+                                        },
+                                        "end": {
+                                            "line": 16,
+                                            "character": 65
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "o",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 15,
+                                    "character": 60
+                                },
+                                "end": {
+                                    "line": 15,
+                                    "character": 61
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "n",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 14,
+                            "character": 56
+                        },
+                        "end": {
+                            "line": 14,
+                            "character": 57
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                                                            o: {
+                                                                p: string
+                                                            }
+                                                        }
+> o: {
+                                                                p: string
+                                                            }
+> o: {
+                                                                p: string
+                                                            }
+> o --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "p",
+                "flags": 4,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/deepNestedObject.ts",
+                            "range": {
+                                "start": {
+                                    "line": 16,
+                                    "character": 64
+                                },
+                                "end": {
+                                    "line": 16,
+                                    "character": 65
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "o",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 15,
+                            "character": 60
+                        },
+                        "end": {
+                            "line": 15,
+                            "character": 61
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+                                                                p: string
+                                                            }
+> p: string
+> p: string
+> p --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "p",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/deepNestedObject.ts",
+                    "range": {
+                        "start": {
+                            "line": 16,
+                            "character": 64
+                        },
+                        "end": {
+                            "line": 16,
+                            "character": 65
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

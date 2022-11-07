@@ -336,7 +336,7 @@ function Comp(props: { abc: string, ad?: number }) {
                                     }
                                 ]
                             },
-                            "id": "19"
+                            "id": "16"
                         }
                     ],
                     "indexInfos": [],
@@ -429,12 +429,12 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 "parameters": [
                                                     {
                                                         "kind": "max_depth",
-                                                        "id": "18"
+                                                        "id": "14"
                                                     }
                                                 ],
                                                 "returnType": {
                                                     "kind": "max_depth",
-                                                    "id": "18"
+                                                    "id": "14"
                                                 }
                                             }
                                         ],
@@ -490,12 +490,12 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 "parameters": [
                                                     {
                                                         "kind": "max_depth",
-                                                        "id": "18"
+                                                        "id": "14"
                                                     }
                                                 ],
                                                 "returnType": {
                                                     "kind": "max_depth",
-                                                    "id": "18"
+                                                    "id": "14"
                                                 }
                                             }
                                         ],
@@ -521,7 +521,7 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 }
                                             ]
                                         },
-                                        "id": "16"
+                                        "id": "15"
                                     }
                                 ],
                                 "id": "12"
@@ -950,7 +950,7 @@ function Comp(props: { abc: string, ad?: number }) {
                                     }
                                 ]
                             },
-                            "id": "19"
+                            "id": "16"
                         }
                     ],
                     "indexInfos": [],
@@ -1043,12 +1043,12 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 "parameters": [
                                                     {
                                                         "kind": "max_depth",
-                                                        "id": "18"
+                                                        "id": "14"
                                                     }
                                                 ],
                                                 "returnType": {
                                                     "kind": "max_depth",
-                                                    "id": "18"
+                                                    "id": "14"
                                                 }
                                             }
                                         ],
@@ -1104,12 +1104,12 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 "parameters": [
                                                     {
                                                         "kind": "max_depth",
-                                                        "id": "18"
+                                                        "id": "14"
                                                     }
                                                 ],
                                                 "returnType": {
                                                     "kind": "max_depth",
-                                                    "id": "18"
+                                                    "id": "14"
                                                 }
                                             }
                                         ],
@@ -1135,7 +1135,7 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 }
                                             ]
                                         },
-                                        "id": "16"
+                                        "id": "15"
                                     }
                                 ],
                                 "id": "12"
@@ -1600,7 +1600,7 @@ const a = <Comp abc="asc" ad={4} />
                         }
                     ]
                 },
-                "id": "15"
+                "id": "14"
             }
         ],
         "indexInfos": [],
@@ -1825,13 +1825,13 @@ const a = <Comp abc="asc" ad={4} />
                                         "properties": [
                                             {
                                                 "kind": "max_depth",
-                                                "id": "14"
+                                                "id": "13"
                                             }
                                         ],
                                         "indexInfos": [],
                                         "objectClass": {
                                             "kind": "max_depth",
-                                            "id": "14"
+                                            "id": "12"
                                         },
                                         "symbolMeta": {
                                             "name": "Component",
@@ -1872,7 +1872,7 @@ const a = <Comp abc="asc" ad={4} />
                                         "typeArguments": [
                                             {
                                                 "kind": "max_depth",
-                                                "id": "14"
+                                                "id": "13"
                                             }
                                         ],
                                         "id": "11"

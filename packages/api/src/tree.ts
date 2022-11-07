@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import * as assert from "assert"
 import type * as ts from "typescript"
 import { APIConfig } from "./config"
@@ -9,6 +10,7 @@ import {
     removeDuplicates,
     cartesianEqual,
 } from "./objectUtil"
+import { Queue } from "./queue"
 import {
     DeclarationInfo,
     IndexInfo,
@@ -70,616 +72,671 @@ export function generateTypeTree(
         typescriptContext,
         config: config ?? new APIConfig(),
         seen: new Set(),
-        depth: 0,
     })
 }
 
-function _generateTypeTree(
-    { symbol, type, node }: SymbolOrType,
-    ctx: TypeTreeContext,
+type GenerateTypeTreeArgs = {
+    symbolOrType: SymbolOrType
     options?: TypeTreeOptions
+    typeInfo: TypeInfo
+}
+
+function _generateTypeTree(
+    symbolOrType: SymbolOrType,
+    ctx: TypeTreeContext,
+    optionsInitial?: TypeTreeOptions
 ): TypeInfo {
-    assert(symbol || type, "Must provide either symbol or type")
-    ctx.depth++
+    const queue = new Queue<GenerateTypeTreeArgs>()
+    const typeInfoFactory = new TypeInfoFactory()
 
-    const originalSymbol = symbol
-
-    const { typescriptContext: tsCtx } = ctx
-    const maxDepth = ctx.config.maxDepth
-
-    const { typeChecker, ts } = tsCtx
-
-    if (ctx.depth > maxDepth) {
-        // TODO: allow custom maximum depth
-        ctx.depth--
-        return maxDepthExceeded
+    const createTypeInfo = (args: Omit<GenerateTypeTreeArgs, "typeInfo">) => {
+        const typeInfo = typeInfoFactory.createTypeInfo()
+        queue.enqueue({ ...args, typeInfo })
+        return typeInfo
     }
 
-    if (!type) {
-        type = getSymbolType(tsCtx, symbol!)
-    }
+    const res = createTypeInfo({ symbolOrType, options: optionsInitial })
 
-    const typeSymbol = type.symbol as ts.Symbol | undefined
+    let depth = 0
 
-    let isAnonymousSymbol = !symbol
+    while (!queue.isEmpty()) {
+        depth++
+        const size = queue.length
 
-    if (!symbol) {
-        const associatedSymbol = type.getSymbol()
+        for (let i = 0; i < size; i++) {
+            const { symbolOrType, options, typeInfo } = queue.dequeue()!
 
-        if (
-            associatedSymbol &&
-            !isArrayType(tsCtx, type) &&
-            !isTupleType(tsCtx, type) &&
-            !isInterfaceType(tsCtx, type)
-        ) {
-            isAnonymousSymbol = associatedSymbol.name === "__type"
-            symbol = associatedSymbol
+            typeInfoFactory.assignTypeInfo(
+                typeInfo,
+                _typeTree(symbolOrType, depth, options)
+            )
         }
     }
 
-    let classSymbol: ts.Symbol | undefined
+    typeInfoFactory.assertNoUnassigned()
+    return res
 
-    const {
-        isConstructCallExpression,
-        signatureTypeArguments,
-        signatures,
-        constructSignatures,
-        signature,
-    } = resolveSignature(tsCtx, type, node)
+    function _typeTree(
+        { symbol, type, node }: SymbolOrType,
+        depth: number,
+        options?: TypeTreeOptions
+    ) {
+        assert(symbol || type, "Must provide either symbol or type")
 
-    if (type.symbol) {
-        if (type.symbol.flags & SymbolFlags.Class) {
-            const classDefinition = type.symbol.declarations?.[0] as
-                | ts.NamedDeclaration
-                | undefined
-            if (classDefinition && classDefinition.name) {
-                classSymbol = type.symbol
-            }
+        const originalSymbol = symbol
+
+        const { typescriptContext: tsCtx } = ctx
+        const maxDepth = ctx.config.maxDepth
+
+        const { typeChecker, ts } = tsCtx
+
+        if (depth > maxDepth) {
+            return maxDepthExceeded
+        }
+
+        if (!type) {
+            type = getSymbolType(tsCtx, symbol!)
+        }
+
+        const typeSymbol = type.symbol as ts.Symbol | undefined
+
+        let isAnonymousSymbol = !symbol
+
+        if (!symbol) {
+            const associatedSymbol = type.getSymbol()
 
             if (
-                !isConstructCallExpression &&
-                symbol &&
-                symbol.flags & SymbolFlags.Class
+                associatedSymbol &&
+                !isArrayType(tsCtx, type) &&
+                !isTupleType(tsCtx, type) &&
+                !isInterfaceType(tsCtx, type)
             ) {
-                const returnType = wrapSafe((sig: ts.Signature) =>
-                    typeChecker.getReturnTypeOfSignature(sig)
-                )(constructSignatures[0])
-
-                type = returnType ?? type
+                isAnonymousSymbol = associatedSymbol.name === "__type"
+                symbol = associatedSymbol
             }
         }
-    }
 
-    let typeInfo: TypeInfoNoId
-    const id = getTypeId(type, symbol, node)
+        let classSymbol: ts.Symbol | undefined
 
-    if (!ctx.seen?.has(id)) {
-        // TODO: should probably support alias symbols as well
-        const locations: SourceFileLocation[] = filterUndefined([
-            ...(getSymbolLocations(originalSymbol) ?? []),
-        ])
+        const {
+            isConstructCallExpression,
+            signatureTypeArguments,
+            signatures,
+            constructSignatures,
+            signature,
+        } = resolveSignature(tsCtx, type, node)
 
-        if (
-            ctx.config.referenceDefinedTypes &&
-            ctx.depth > 1 &&
-            isNonEmpty(locations) &&
-            originalSymbol &&
-            !(
-                originalSymbol.flags & ts.SymbolFlags.Property &&
-                locations.length > 1
-            ) &&
-            // ensures inferred types on e.g. function
-            // parameter symbols are referenced properly
-            type ===
-                getSymbolType(
-                    tsCtx,
-                    (originalSymbol as SymbolInternal).target ?? originalSymbol,
-                    node
-                )
-        ) {
-            typeInfo = { kind: "reference", location: locations[0] }
-        } else {
-            ctx.seen?.add(id)
-            typeInfo = createNode(type)
-        }
-    } else {
-        typeInfo = { kind: "reference" }
-    }
-
-    const typeInfoId = typeInfo as TypeInfo
-
-    typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(
-        symbol,
-        isAnonymousSymbol,
-        options
-    )
-
-    let aliasSymbol = type.aliasSymbol
-
-    if (isInterfaceType(tsCtx, type)) {
-        aliasSymbol ??= type.symbol
-    }
-
-    if (aliasSymbol && aliasSymbol !== symbol) {
-        typeInfoId.aliasSymbolMeta = getSymbolInfo(aliasSymbol)
-    }
-
-    if (typeInfoId.kind !== "reference") {
-        const typeParameters = getTypeParameters(tsCtx, type, symbol)
-        if (isNonEmpty(typeParameters)) {
-            typeInfoId.typeParameters = parseTypes(typeParameters)
-        }
-
-        const typeArguments = !signature
-            ? getTypeArguments(tsCtx, type, node)
-            : signatureTypeArguments
-        if (
-            !isArrayType(tsCtx, type) &&
-            !isTupleType(tsCtx, type) &&
-            isNonEmpty(typeArguments) &&
-            !(
-                typeParameters &&
-                arrayContentsEqual(typeArguments, typeParameters)
-            )
-        ) {
-            typeInfoId.typeArguments = parseTypes(typeArguments)
-        }
-    }
-
-    typeInfoId.id = id
-
-    ctx.depth--
-    return typeInfoId
-
-    function createNode(type: ts.Type): TypeInfoNoId {
-        for (const s of [symbol, typeSymbol]) {
-            if (s && s.flags & ts.SymbolFlags.Module) {
-                return {
-                    kind: isNamespace(tsCtx, s) ? "namespace" : "module",
-                    exports: parseSymbols(getSymbolExports(s)),
+        if (type.symbol) {
+            if (type.symbol.flags & SymbolFlags.Class) {
+                const classDefinition = type.symbol.declarations?.[0] as
+                    | ts.NamedDeclaration
+                    | undefined
+                if (classDefinition && classDefinition.name) {
+                    classSymbol = type.symbol
                 }
-            }
-        }
 
-        const flags = type.getFlags()
-
-        if (flags & ts.TypeFlags.TypeParameter) {
-            return {
-                kind: "type_parameter",
-                baseConstraint: wrapSafe(parseType)(
-                    typeChecker.getBaseConstraintOfType(type)
-                ),
-                defaultType: wrapSafe(parseType)(
-                    typeChecker.getDefaultFromTypeParameter(type)
-                ),
-                ...(type.symbol &&
-                    type.symbol !== symbol &&
-                    type.symbol !== type.aliasSymbol && {
-                        typeSymbolMeta: getSymbolInfo(type.symbol),
-                    }),
-            }
-        } else if (flags & ts.TypeFlags.Any) {
-            if ((type as IntrinsicTypeInternal).intrinsicName === "intrinsic") {
-                return { kind: "intrinsic" }
-            }
-
-            return { kind: "primitive", primitive: "any" }
-        } else if (flags & ts.TypeFlags.Unknown) {
-            return { kind: "primitive", primitive: "unknown" }
-        } else if (flags & ts.TypeFlags.Undefined) {
-            return { kind: "primitive", primitive: "undefined" }
-        } else if (flags & ts.TypeFlags.Null) {
-            return { kind: "primitive", primitive: "null" }
-        } else if (flags & ts.TypeFlags.Boolean) {
-            return { kind: "primitive", primitive: "boolean" }
-        } else if (flags & ts.TypeFlags.String) {
-            return { kind: "primitive", primitive: "string" }
-        } else if (flags & ts.TypeFlags.Number) {
-            return { kind: "primitive", primitive: "number" }
-        } else if (flags & ts.TypeFlags.Void) {
-            return { kind: "primitive", primitive: "void" }
-        } else if (
-            flags & ts.TypeFlags.EnumLiteral ||
-            (flags & ts.TypeFlags.EnumLike &&
-                symbol &&
-                symbol.flags & ts.SymbolFlags.EnumMember)
-        ) {
-            const enumSymbol =
-                symbol && symbol.flags & ts.SymbolFlags.EnumMember
-                    ? symbol
-                    : type.symbol
-
-            return {
-                kind: "enum_literal",
-                value: (type as ts.StringLiteralType).value,
-                literalSymbol: getSymbolInfo(enumSymbol),
-                parentSymbol: wrapSafe(getSymbolInfo)(
-                    (enumSymbol as SymbolInternal).parent
-                ),
-            }
-        } else if (flags & ts.TypeFlags.Enum) {
-            return { kind: "enum" }
-        } else if (flags & ts.TypeFlags.BigInt) {
-            return { kind: "primitive", primitive: "bigint" }
-        } else if (
-            flags & ts.TypeFlags.ESSymbol ||
-            flags & ts.TypeFlags.ESSymbolLike
-        ) {
-            return { kind: "primitive", primitive: "essymbol" }
-        } else if (flags & ts.TypeFlags.UniqueESSymbol) {
-            return { kind: "primitive", primitive: "unique_symbol" }
-        } else if (flags & ts.TypeFlags.Never) {
-            return { kind: "primitive", primitive: "never" }
-        } else if (flags & ts.TypeFlags.StringLiteral) {
-            return {
-                kind: "string_literal",
-                value: (type as ts.StringLiteralType).value,
-            }
-        } else if (flags & ts.TypeFlags.NumberLiteral) {
-            return {
-                kind: "number_literal",
-                value: (type as ts.NumberLiteralType).value,
-            }
-        } else if (flags & ts.TypeFlags.BooleanLiteral) {
-            return {
-                kind: "boolean_literal",
-                value: (type as IntrinsicTypeInternal).intrinsicName === "true",
-            }
-        } else if (flags & ts.TypeFlags.BigIntLiteral) {
-            return {
-                kind: "bigint_literal",
-                value: (type as ts.BigIntLiteralType).value,
-            }
-        } else if (flags & ts.TypeFlags.Object) {
-            if (typeSymbol && typeSymbol.flags & SymbolFlags.Enum) {
-                return {
-                    kind: "enum",
-                    properties: parseSymbols(type.getProperties()),
-                }
-            }
-
-            const indexInfos = getIndexInfos(tsCtx, type) //.map((indexInfo) => getIndexInfo(indexInfo))
-
-            if (isArrayType(tsCtx, type)) {
-                const isReadonly = isReadonlyArrayType(tsCtx, type)
-
-                return {
-                    kind: "array",
-                    type: parseType(getTypeArguments(tsCtx, type)![0]),
-                    ...(isReadonly && { readonly: true }),
-                }
-            } else if (isTupleType(tsCtx, type)) {
-                const isReadonly = isReadonlyTupleType(tsCtx, type)
-
-                return {
-                    kind: "tuple",
-                    types: parseTypes(getTypeArguments(tsCtx, type)!),
-                    names: (
-                        type.target as ts.TupleType
-                    ).labeledElementDeclarations?.map((s) => s.name.getText()),
-                    ...(isReadonly && { readonly: true }),
-                }
-            } else if (
-                isInterfaceType(tsCtx, type) ||
-                (isClassType(tsCtx, type) &&
+                if (
+                    !isConstructCallExpression &&
                     symbol &&
-                    symbol.flags & SymbolFlags.Class)
-            ) {
-                const interfaceKind = isClassType(tsCtx, type)
-                    ? "class"
-                    : isInterfaceType(tsCtx, type)
-                    ? "interface"
-                    : (assert(
-                          false,
-                          "Should be class or interface type"
-                      ) as never)
+                    symbol.flags & SymbolFlags.Class
+                ) {
+                    const returnType = wrapSafe((sig: ts.Signature) =>
+                        typeChecker.getReturnTypeOfSignature(sig)
+                    )(constructSignatures[0])
 
-                return {
-                    kind: interfaceKind,
-                    properties: parseSymbols(type.getProperties(), {
-                        insideClassOrInterface: true,
-                    }),
-                    baseType: wrapSafe(parseType)(type.getBaseTypes()?.[0]),
-                    implementsTypes: wrapSafe(parseTypes)(
-                        getImplementsTypes(tsCtx, type)
-                    ),
-                    constructSignatures: getConstructSignatures(
+                    type = returnType ?? type
+                }
+            }
+        }
+
+        let typeInfo: TypeInfoNoId
+        const id = getTypeId(type, symbol, node)
+
+        if (!ctx.seen?.has(id)) {
+            // TODO: should probably support alias symbols as well
+            const locations: SourceFileLocation[] = filterUndefined([
+                ...(getSymbolLocations(originalSymbol) ?? []),
+            ])
+
+            if (
+                ctx.config.referenceDefinedTypes &&
+                depth > 1 &&
+                isNonEmpty(locations) &&
+                originalSymbol &&
+                !(
+                    originalSymbol.flags & ts.SymbolFlags.Property &&
+                    locations.length > 1
+                ) &&
+                // ensures inferred types on e.g. function
+                // parameter symbols are referenced properly
+                type ===
+                    getSymbolType(
                         tsCtx,
-                        type
-                    ).map((s) =>
-                        getSignatureInfo(s, {
-                            kind: ts.SignatureKind.Construct,
-                            includeReturnType: false,
-                        })
+                        (originalSymbol as SymbolInternal).target ??
+                            originalSymbol,
+                        node
+                    )
+            ) {
+                typeInfo = { kind: "reference", location: locations[0] }
+            } else {
+                ctx.seen?.add(id)
+                typeInfo = createNode(type)
+            }
+        } else {
+            typeInfo = { kind: "reference" }
+        }
+
+        const typeInfoId = typeInfo as TypeInfo
+
+        typeInfoId.symbolMeta = wrapSafe(getSymbolInfo)(
+            symbol,
+            isAnonymousSymbol,
+            options
+        )
+
+        let aliasSymbol = type.aliasSymbol
+
+        if (isInterfaceType(tsCtx, type)) {
+            aliasSymbol ??= type.symbol
+        }
+
+        if (aliasSymbol && aliasSymbol !== symbol) {
+            typeInfoId.aliasSymbolMeta = getSymbolInfo(aliasSymbol)
+        }
+
+        if (typeInfoId.kind !== "reference") {
+            const typeParameters = getTypeParameters(tsCtx, type, symbol)
+            if (isNonEmpty(typeParameters)) {
+                typeInfoId.typeParameters = parseTypes(typeParameters)
+            }
+
+            const typeArguments = !signature
+                ? getTypeArguments(tsCtx, type, node)
+                : signatureTypeArguments
+            if (
+                !isArrayType(tsCtx, type) &&
+                !isTupleType(tsCtx, type) &&
+                isNonEmpty(typeArguments) &&
+                !(
+                    typeParameters &&
+                    arrayContentsEqual(typeArguments, typeParameters)
+                )
+            ) {
+                typeInfoId.typeArguments = parseTypes(typeArguments)
+            }
+        }
+
+        typeInfoId.id = id
+
+        return typeInfoId
+
+        function createNode(type: ts.Type): TypeInfoNoId {
+            for (const s of [symbol, typeSymbol]) {
+                if (s && s.flags & ts.SymbolFlags.Module) {
+                    return {
+                        kind: isNamespace(tsCtx, s) ? "namespace" : "module",
+                        exports: parseSymbols(getSymbolExports(s)),
+                    }
+                }
+            }
+
+            const flags = type.getFlags()
+
+            if (flags & ts.TypeFlags.TypeParameter) {
+                return {
+                    kind: "type_parameter",
+                    baseConstraint: wrapSafe(parseType)(
+                        typeChecker.getBaseConstraintOfType(type)
                     ),
-                    classSymbol: wrapSafe(getSymbolInfo)(classSymbol),
-                    ...(interfaceKind === "interface" &&
-                        isNonEmpty(indexInfos) && {
-                            indexInfos: indexInfos.map(getIndexInfo),
+                    defaultType: wrapSafe(parseType)(
+                        typeChecker.getDefaultFromTypeParameter(type)
+                    ),
+                    ...(type.symbol &&
+                        type.symbol !== symbol &&
+                        type.symbol !== type.aliasSymbol && {
+                            typeSymbolMeta: getSymbolInfo(type.symbol),
                         }),
                 }
-            } else if (signatures.length > 0) {
-                const isJSXElement = !!(
-                    node &&
-                    cartesianEqual(
-                        [node.kind, node.parent?.kind],
-                        [
-                            ts.SyntaxKind.JsxElement,
-                            ts.SyntaxKind.JsxSelfClosingElement,
-                        ]
+            } else if (flags & ts.TypeFlags.Any) {
+                if (
+                    (type as IntrinsicTypeInternal).intrinsicName ===
+                    "intrinsic"
+                ) {
+                    return { kind: "intrinsic" }
+                }
+
+                return { kind: "primitive", primitive: "any" }
+            } else if (flags & ts.TypeFlags.Unknown) {
+                return { kind: "primitive", primitive: "unknown" }
+            } else if (flags & ts.TypeFlags.Undefined) {
+                return { kind: "primitive", primitive: "undefined" }
+            } else if (flags & ts.TypeFlags.Null) {
+                return { kind: "primitive", primitive: "null" }
+            } else if (flags & ts.TypeFlags.Boolean) {
+                return { kind: "primitive", primitive: "boolean" }
+            } else if (flags & ts.TypeFlags.String) {
+                return { kind: "primitive", primitive: "string" }
+            } else if (flags & ts.TypeFlags.Number) {
+                return { kind: "primitive", primitive: "number" }
+            } else if (flags & ts.TypeFlags.Void) {
+                return { kind: "primitive", primitive: "void" }
+            } else if (
+                flags & ts.TypeFlags.EnumLiteral ||
+                (flags & ts.TypeFlags.EnumLike &&
+                    symbol &&
+                    symbol.flags & ts.SymbolFlags.EnumMember)
+            ) {
+                const enumSymbol =
+                    symbol && symbol.flags & ts.SymbolFlags.EnumMember
+                        ? symbol
+                        : type.symbol
+
+                return {
+                    kind: "enum_literal",
+                    value: (type as ts.StringLiteralType).value,
+                    literalSymbol: getSymbolInfo(enumSymbol),
+                    parentSymbol: wrapSafe(getSymbolInfo)(
+                        (enumSymbol as SymbolInternal).parent
+                    ),
+                }
+            } else if (flags & ts.TypeFlags.Enum) {
+                return { kind: "enum" }
+            } else if (flags & ts.TypeFlags.BigInt) {
+                return { kind: "primitive", primitive: "bigint" }
+            } else if (
+                flags & ts.TypeFlags.ESSymbol ||
+                flags & ts.TypeFlags.ESSymbolLike
+            ) {
+                return { kind: "primitive", primitive: "essymbol" }
+            } else if (flags & ts.TypeFlags.UniqueESSymbol) {
+                return { kind: "primitive", primitive: "unique_symbol" }
+            } else if (flags & ts.TypeFlags.Never) {
+                return { kind: "primitive", primitive: "never" }
+            } else if (flags & ts.TypeFlags.StringLiteral) {
+                return {
+                    kind: "string_literal",
+                    value: (type as ts.StringLiteralType).value,
+                }
+            } else if (flags & ts.TypeFlags.NumberLiteral) {
+                return {
+                    kind: "number_literal",
+                    value: (type as ts.NumberLiteralType).value,
+                }
+            } else if (flags & ts.TypeFlags.BooleanLiteral) {
+                return {
+                    kind: "boolean_literal",
+                    value:
+                        (type as IntrinsicTypeInternal).intrinsicName ===
+                        "true",
+                }
+            } else if (flags & ts.TypeFlags.BigIntLiteral) {
+                return {
+                    kind: "bigint_literal",
+                    value: (type as ts.BigIntLiteralType).value,
+                }
+            } else if (flags & ts.TypeFlags.Object) {
+                if (typeSymbol && typeSymbol.flags & SymbolFlags.Enum) {
+                    return {
+                        kind: "enum",
+                        properties: parseSymbols(type.getProperties()),
+                    }
+                }
+
+                const indexInfos = getIndexInfos(tsCtx, type) //.map((indexInfo) => getIndexInfo(indexInfo))
+
+                if (isArrayType(tsCtx, type)) {
+                    const isReadonly = isReadonlyArrayType(tsCtx, type)
+
+                    return {
+                        kind: "array",
+                        type: parseType(getTypeArguments(tsCtx, type)![0]),
+                        ...(isReadonly && { readonly: true }),
+                    }
+                } else if (isTupleType(tsCtx, type)) {
+                    const isReadonly = isReadonlyTupleType(tsCtx, type)
+
+                    return {
+                        kind: "tuple",
+                        types: parseTypes(getTypeArguments(tsCtx, type)!),
+                        names: (
+                            type.target as ts.TupleType
+                        ).labeledElementDeclarations?.map((s) =>
+                            s.name.getText()
+                        ),
+                        ...(isReadonly && { readonly: true }),
+                    }
+                } else if (
+                    isInterfaceType(tsCtx, type) ||
+                    (isClassType(tsCtx, type) &&
+                        symbol &&
+                        symbol.flags & SymbolFlags.Class)
+                ) {
+                    const interfaceKind = isClassType(tsCtx, type)
+                        ? "class"
+                        : isInterfaceType(tsCtx, type)
+                        ? "interface"
+                        : (assert(
+                              false,
+                              "Should be class or interface type"
+                          ) as never)
+
+                    return {
+                        kind: interfaceKind,
+                        properties: parseSymbols(type.getProperties(), {
+                            insideClassOrInterface: true,
+                        }),
+                        baseType: wrapSafe(parseType)(type.getBaseTypes()?.[0]),
+                        implementsTypes: wrapSafe(parseTypes)(
+                            getImplementsTypes(tsCtx, type)
+                        ),
+                        constructSignatures: getConstructSignatures(
+                            tsCtx,
+                            type
+                        ).map((s) =>
+                            getSignatureInfo(s, {
+                                kind: ts.SignatureKind.Construct,
+                                includeReturnType: false,
+                            })
+                        ),
+                        classSymbol: wrapSafe(getSymbolInfo)(classSymbol),
+                        ...(interfaceKind === "interface" &&
+                            isNonEmpty(indexInfos) && {
+                                indexInfos: indexInfos.map(getIndexInfo),
+                            }),
+                    }
+                } else if (signatures.length > 0) {
+                    const isJSXElement = !!(
+                        node &&
+                        cartesianEqual(
+                            [node.kind, node.parent?.kind],
+                            [
+                                ts.SyntaxKind.JsxElement,
+                                ts.SyntaxKind.JsxSelfClosingElement,
+                            ]
+                        )
+                    )
+
+                    return {
+                        kind: "function",
+                        signatures: signatures.map((s) =>
+                            getSignatureInfo(s.signature, {
+                                includeReturnType: true,
+                                kind: s.kind,
+                                typeParameters: s.typeParameters,
+                            })
+                        ),
+                        ...(isJSXElement && { isJSXElement }),
+                    }
+                } else {
+                    return {
+                        kind: "object",
+                        properties: parseSymbols(type.getProperties()),
+                        indexInfos: indexInfos.map(getIndexInfo),
+                        objectClass: wrapSafe(parseSymbol)(classSymbol),
+                    }
+                }
+            } else if (flags & ts.TypeFlags.Union) {
+                return {
+                    kind: "union",
+                    types: parseTypes((type as ts.UnionType).types),
+                }
+            } else if (flags & ts.TypeFlags.Intersection) {
+                const allTypes = getIntersectionTypesFlat(tsCtx, type)
+                const types = parseTypes(
+                    allTypes.filter(
+                        (t) => !isPureObjectOrMappedTypeShallow(tsCtx, t)
                     )
                 )
 
+                const properties = parseSymbols(type.getProperties())
+                const indexInfos = getIndexInfos(tsCtx, type).map(getIndexInfo)
+
+                if (types.length === 0) {
+                    return {
+                        kind: "object",
+                        properties,
+                        ...(isNonEmpty(indexInfos) && { indexInfos }),
+                    }
+                } else {
+                    return {
+                        kind: "intersection",
+                        types,
+                        ...(isNonEmpty(indexInfos) && { indexInfos }),
+                        properties,
+                    }
+                }
+            } else if (flags & ts.TypeFlags.Index) {
                 return {
-                    kind: "function",
-                    signatures: signatures.map((s) =>
-                        getSignatureInfo(s.signature, {
-                            includeReturnType: true,
-                            kind: s.kind,
-                            typeParameters: s.typeParameters,
-                        })
+                    kind: "index",
+                    keyOf: parseType((type as ts.IndexType).type),
+                }
+            } else if (flags & ts.TypeFlags.IndexedAccess) {
+                return {
+                    kind: "indexed_access",
+                    indexType: parseType(
+                        (type as ts.IndexedAccessType).indexType
                     ),
-                    ...(isJSXElement && { isJSXElement }),
+                    objectType: parseType(
+                        (type as ts.IndexedAccessType).objectType
+                    ),
                 }
-            } else {
-                return {
-                    kind: "object",
-                    properties: parseSymbols(type.getProperties()),
-                    indexInfos: indexInfos.map(getIndexInfo),
-                    objectClass: wrapSafe(parseSymbol)(classSymbol),
-                }
-            }
-        } else if (flags & ts.TypeFlags.Union) {
-            return {
-                kind: "union",
-                types: parseTypes((type as ts.UnionType).types),
-            }
-        } else if (flags & ts.TypeFlags.Intersection) {
-            const allTypes = getIntersectionTypesFlat(tsCtx, type)
-            const types = parseTypes(
-                allTypes.filter(
-                    (t) => !isPureObjectOrMappedTypeShallow(tsCtx, t)
+            } else if (flags & ts.TypeFlags.Conditional) {
+                // force resolution of true/false types
+                typeChecker.typeToString(
+                    type,
+                    undefined,
+                    ts.TypeFormatFlags.InTypeAlias
                 )
+
+                return {
+                    kind: "conditional",
+                    checkType: parseType(
+                        (type as ts.ConditionalType).checkType
+                    ),
+                    extendsType: parseType(
+                        (type as ts.ConditionalType).extendsType
+                    ),
+                    trueType: wrapSafe(parseType)(
+                        (type as ts.ConditionalType).resolvedTrueType
+                    ),
+                    falseType: wrapSafe(parseType)(
+                        (type as ts.ConditionalType).resolvedFalseType
+                    ),
+                }
+            } else if (flags & ts.TypeFlags.Substitution) {
+                return {
+                    kind: "substitution",
+                    baseType: parseType((type as ts.SubstitutionType).baseType),
+                    substitute: parseType(
+                        (type as ts.SubstitutionType).substitute
+                    ),
+                }
+            } else if (flags & ts.TypeFlags.NonPrimitive) {
+                return {
+                    kind: "non_primitive",
+                }
+            } else if (flags & ts.TypeFlags.TemplateLiteral) {
+                return {
+                    kind: "template_literal",
+                    texts: (type as ts.TemplateLiteralType).texts,
+                    types: parseTypes((type as ts.TemplateLiteralType).types),
+                }
+            } else if (flags & ts.TypeFlags.StringMapping) {
+                return {
+                    kind: "string_mapping",
+                    typeSymbol: getSymbolInfo(
+                        (type as ts.StringMappingType).symbol
+                    ),
+                    type: parseType((type as ts.StringMappingType).type),
+                }
+            }
+
+            return {
+                kind: "primitive",
+                primitive: "unknown",
+            }
+        }
+
+        function parseTypes(types: readonly ts.Type[]): TypeInfo[] {
+            return depth + 1 > maxDepth
+                ? [maxDepthExceeded]
+                : types.map((t) => parseType(t))
+        }
+        function parseType(type: ts.Type, options?: TypeTreeOptions): TypeInfo {
+            return createTypeInfo({ symbolOrType: { type }, options })
+        }
+
+        function parseSymbols(
+            symbols: readonly ts.Symbol[],
+            options?: TypeTreeOptions
+        ): TypeInfo[] {
+            return depth + 1 > maxDepth
+                ? [maxDepthExceeded]
+                : symbols.map((t) => parseSymbol(t, options))
+        }
+        function parseSymbol(
+            symbol: ts.Symbol,
+            options?: TypeTreeOptions
+        ): TypeInfo {
+            return createTypeInfo({ symbolOrType: { symbol }, options })
+        }
+
+        function getSignatureInfo(
+            signature: ts.Signature,
+            {
+                typeParameters,
+                includeReturnType = true,
+            }: {
+                kind: ts.SignatureKind
+                typeParameters?: readonly ts.Type[]
+                includeReturnType?: boolean
+            }
+        ): SignatureInfo {
+            typeParameters = signature.typeParameters ?? typeParameters
+
+            return {
+                symbolMeta: wrapSafe(getSymbolInfo)(
+                    getNodeSymbol(tsCtx, signature.getDeclaration())
+                ),
+                parameters: signature
+                    .getParameters()
+                    .map((parameter) =>
+                        getFunctionParameterInfo(parameter, signature)
+                    ),
+                ...(includeReturnType && {
+                    returnType: parseType(
+                        typeChecker.getReturnTypeOfSignature(signature)
+                    ),
+                }),
+                ...(typeParameters && {
+                    typeParameters: parseTypes(typeParameters),
+                }),
+            }
+        }
+
+        function getFunctionParameterInfo(
+            parameter: ts.Symbol,
+            signature: ts.Signature
+        ): TypeInfo {
+            const { optional, isRest } = getParameterInfo(
+                tsCtx,
+                parameter,
+                signature
             )
 
-            const properties = parseSymbols(type.getProperties())
-            const indexInfos = getIndexInfos(tsCtx, type).map(getIndexInfo)
+            return parseSymbol(parameter, {
+                optional,
+                isRest,
+            })
+        }
 
-            if (types.length === 0) {
-                return {
-                    kind: "object",
-                    properties,
-                    ...(isNonEmpty(indexInfos) && { indexInfos }),
-                }
-            } else {
-                return {
-                    kind: "intersection",
-                    types,
-                    ...(isNonEmpty(indexInfos) && { indexInfos }),
-                    properties,
-                }
-            }
-        } else if (flags & ts.TypeFlags.Index) {
+        function getIndexInfo({
+            info: indexInfo,
+            type,
+        }: DiscriminatedIndexInfo): IndexInfo {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            const parameterSymbol: ts.Symbol =
+                // @ts-expect-error This info exists on the object but is not publicly exposed by type info
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                indexInfo?.declaration?.parameters?.[0]?.symbol ??
+                indexInfo?.parameterType?.getSymbol()
+
+            const parameterType =
+                type === "parameter" &&
+                (indexInfo?.parameterType ??
+                    (parameterSymbol && getSymbolType(tsCtx, parameterSymbol)))
+
             return {
-                kind: "index",
-                keyOf: parseType((type as ts.IndexType).type),
+                ...(indexInfo.keyType && {
+                    keyType: parseType(indexInfo.keyType),
+                }),
+                ...(indexInfo.type && { type: parseType(indexInfo.type) }),
+                parameterSymbol: wrapSafe(getSymbolInfo)(parameterSymbol),
+                ...(parameterType && {
+                    parameterType: parseType(parameterType),
+                }),
             }
-        } else if (flags & ts.TypeFlags.IndexedAccess) {
-            return {
-                kind: "indexed_access",
-                indexType: parseType((type as ts.IndexedAccessType).indexType),
-                objectType: parseType(
-                    (type as ts.IndexedAccessType).objectType
-                ),
-            }
-        } else if (flags & ts.TypeFlags.Conditional) {
-            // force resolution of true/false types
-            typeChecker.typeToString(
-                type,
-                undefined,
-                ts.TypeFormatFlags.InTypeAlias
+        }
+
+        function getSymbolLocations(symbol?: ts.Symbol) {
+            return wrapSafe(filterUndefined)(
+                symbol?.getDeclarations()?.map(getDeclarationLocation)
+            )
+        }
+
+        function getDeclarationLocation(declaration: ts.Declaration) {
+            return getDeclarationInfo(declaration)?.location
+        }
+
+        function getSymbolInfo(
+            symbol: ts.Symbol,
+            isAnonymous = false,
+            options: TypeTreeOptions = {}
+        ): SymbolInfo {
+            const parameterInfo = getParameterInfo(tsCtx, symbol)
+
+            const optional = options.optional ?? parameterInfo.optional
+            const rest = options.isRest ?? parameterInfo.isRest
+
+            const parent = (symbol as SymbolInternal).parent
+            const insideClassOrInterface =
+                options.insideClassOrInterface ??
+                (parent &&
+                    parent.flags & (SymbolFlags.Class | SymbolFlags.Interface))
+
+            const declarations = wrapSafe(filterUndefined)(
+                symbol.getDeclarations()?.map(getDeclarationInfo)
             )
 
+            const isReadonly = isReadonlySymbol(tsCtx, symbol)
+
             return {
-                kind: "conditional",
-                checkType: parseType((type as ts.ConditionalType).checkType),
-                extendsType: parseType(
-                    (type as ts.ConditionalType).extendsType
-                ),
-                trueType: wrapSafe(parseType)(
-                    (type as ts.ConditionalType).resolvedTrueType
-                ),
-                falseType: wrapSafe(parseType)(
-                    (type as ts.ConditionalType).resolvedFalseType
-                ),
-            }
-        } else if (flags & ts.TypeFlags.Substitution) {
-            return {
-                kind: "substitution",
-                baseType: parseType((type as ts.SubstitutionType).baseType),
-                substitute: parseType((type as ts.SubstitutionType).substitute),
-            }
-        } else if (flags & ts.TypeFlags.NonPrimitive) {
-            return {
-                kind: "non_primitive",
-            }
-        } else if (flags & ts.TypeFlags.TemplateLiteral) {
-            return {
-                kind: "template_literal",
-                texts: (type as ts.TemplateLiteralType).texts,
-                types: parseTypes((type as ts.TemplateLiteralType).types),
-            }
-        } else if (flags & ts.TypeFlags.StringMapping) {
-            return {
-                kind: "string_mapping",
-                typeSymbol: getSymbolInfo(
-                    (type as ts.StringMappingType).symbol
-                ),
-                type: parseType((type as ts.StringMappingType).type),
+                name: symbol.getName(),
+                flags: symbol.getFlags(),
+                ...(isReadonly && { readonly: true }),
+                ...(isAnonymous && { anonymous: true }),
+                ...(optional && { optional: true }),
+                ...(rest && { rest: true }),
+                ...(insideClassOrInterface && { insideClassOrInterface: true }),
+                ...(declarations && { declarations }),
             }
         }
 
-        return {
-            kind: "primitive",
-            primitive: "unknown",
-        }
-    }
+        function getDeclarationInfo(
+            declaration: ts.Declaration
+        ): DeclarationInfo | undefined {
+            declaration = narrowDeclarationForLocation(declaration)
 
-    function parseTypes(types: readonly ts.Type[]): TypeInfo[] {
-        return ctx.depth + 1 > maxDepth
-            ? [maxDepthExceeded]
-            : types.map((t) => parseType(t))
-    }
-    function parseType(type: ts.Type, options?: TypeTreeOptions): TypeInfo {
-        return _generateTypeTree({ type }, ctx, options)
-    }
+            const sourceFile = declaration.getSourceFile()
+            const location = getSourceFileLocation(sourceFile, declaration)
 
-    function parseSymbols(
-        symbols: readonly ts.Symbol[],
-        options?: TypeTreeOptions
-    ): TypeInfo[] {
-        return ctx.depth + 1 > maxDepth
-            ? [maxDepthExceeded]
-            : symbols.map((t) => parseSymbol(t, options))
-    }
-    function parseSymbol(
-        symbol: ts.Symbol,
-        options?: TypeTreeOptions
-    ): TypeInfo {
-        return _generateTypeTree({ symbol }, ctx, options)
-    }
+            if (!location) {
+                return undefined
+            }
 
-    function getSignatureInfo(
-        signature: ts.Signature,
-        {
-            typeParameters,
-            includeReturnType = true,
-        }: {
-            kind: ts.SignatureKind
-            typeParameters?: readonly ts.Type[]
-            includeReturnType?: boolean
-        }
-    ): SignatureInfo {
-        typeParameters = signature.typeParameters ?? typeParameters
-
-        return {
-            symbolMeta: wrapSafe(getSymbolInfo)(
-                getNodeSymbol(tsCtx, signature.getDeclaration())
-            ),
-            parameters: signature
-                .getParameters()
-                .map((parameter) =>
-                    getFunctionParameterInfo(parameter, signature)
-                ),
-            ...(includeReturnType && {
-                returnType: parseType(
-                    typeChecker.getReturnTypeOfSignature(signature)
-                ),
-            }),
-            ...(typeParameters && {
-                typeParameters: parseTypes(typeParameters),
-            }),
-        }
-    }
-
-    function getFunctionParameterInfo(
-        parameter: ts.Symbol,
-        signature: ts.Signature
-    ): TypeInfo {
-        const { optional, isRest } = getParameterInfo(
-            tsCtx,
-            parameter,
-            signature
-        )
-
-        return parseSymbol(parameter, {
-            optional,
-            isRest,
-        })
-    }
-
-    function getIndexInfo({
-        info: indexInfo,
-        type,
-    }: DiscriminatedIndexInfo): IndexInfo {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const parameterSymbol: ts.Symbol =
-            // @ts-expect-error This info exists on the object but is not publicly exposed by type info
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-            indexInfo?.declaration?.parameters?.[0]?.symbol ??
-            indexInfo?.parameterType?.getSymbol()
-
-        const parameterType =
-            type === "parameter" &&
-            (indexInfo?.parameterType ??
-                (parameterSymbol && getSymbolType(tsCtx, parameterSymbol)))
-
-        return {
-            ...(indexInfo.keyType && { keyType: parseType(indexInfo.keyType) }),
-            ...(indexInfo.type && { type: parseType(indexInfo.type) }),
-            parameterSymbol: wrapSafe(getSymbolInfo)(parameterSymbol),
-            ...(parameterType && { parameterType: parseType(parameterType) }),
-        }
-    }
-
-    function getSymbolLocations(symbol?: ts.Symbol) {
-        return wrapSafe(filterUndefined)(
-            symbol?.getDeclarations()?.map(getDeclarationLocation)
-        )
-    }
-
-    function getDeclarationLocation(declaration: ts.Declaration) {
-        return getDeclarationInfo(declaration)?.location
-    }
-
-    function getSymbolInfo(
-        symbol: ts.Symbol,
-        isAnonymous = false,
-        options: TypeTreeOptions = {}
-    ): SymbolInfo {
-        const parameterInfo = getParameterInfo(tsCtx, symbol)
-
-        const optional = options.optional ?? parameterInfo.optional
-        const rest = options.isRest ?? parameterInfo.isRest
-
-        const parent = (symbol as SymbolInternal).parent
-        const insideClassOrInterface =
-            options.insideClassOrInterface ??
-            (parent &&
-                parent.flags & (SymbolFlags.Class | SymbolFlags.Interface))
-
-        const declarations = wrapSafe(filterUndefined)(
-            symbol.getDeclarations()?.map(getDeclarationInfo)
-        )
-
-        const isReadonly = isReadonlySymbol(tsCtx, symbol)
-
-        return {
-            name: symbol.getName(),
-            flags: symbol.getFlags(),
-            ...(isReadonly && { readonly: true }),
-            ...(isAnonymous && { anonymous: true }),
-            ...(optional && { optional: true }),
-            ...(rest && { rest: true }),
-            ...(insideClassOrInterface && { insideClassOrInterface: true }),
-            ...(declarations && { declarations }),
-        }
-    }
-
-    function getDeclarationInfo(
-        declaration: ts.Declaration
-    ): DeclarationInfo | undefined {
-        declaration = narrowDeclarationForLocation(declaration)
-
-        const sourceFile = declaration.getSourceFile()
-        const location = getSourceFileLocation(sourceFile, declaration)
-
-        if (!location) {
-            return undefined
-        }
-
-        return {
-            location,
+            return {
+                location,
+            }
         }
     }
 }
@@ -936,7 +993,19 @@ export function getTypeInfoAtRange(
 
     const node = getDescendantAtRange(ctx, sourceFile, [startPos, startPos])
 
-    if (node === sourceFile || !node.parent) {
+    if (node === sourceFile) {
+        return undefined
+    }
+
+    return getTypeInfoOfNode(ctx, node, apiConfig)
+}
+
+export function getTypeInfoOfNode(
+    ctx: TypescriptContext,
+    node: ts.Node,
+    apiConfig?: APIConfig
+) {
+    if (!node.parent) {
         return undefined
     }
 
@@ -944,4 +1013,25 @@ export function getTypeInfoAtRange(
     if (!symbolOrType) return undefined
 
     return generateTypeTree(symbolOrType, ctx, apiConfig)
+}
+
+/**
+ * @internal
+ */
+class TypeInfoFactory {
+    private unassigned = 0
+
+    createTypeInfo(): TypeInfo {
+        this.unassigned++
+        return {} as TypeInfo
+    }
+
+    assignTypeInfo(target: TypeInfo, source: TypeInfo) {
+        Object.assign(target, source)
+        this.unassigned--
+    }
+
+    assertNoUnassigned() {
+        assert.strictEqual(this.unassigned, 0, "Some type info is unassigned")
+    }
 }

@@ -32,8 +32,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 {
                     "kind": "type_parameter",
                     "baseConstraint": {
-                        "kind": "primitive",
-                        "primitive": "string",
+                        "kind": "reference",
                         "id": "3"
                     },
                     "typeSymbolMeta": {
@@ -113,7 +112,8 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 }
             ],
             "returnType": {
-                "kind": "reference",
+                "kind": "primitive",
+                "primitive": "string",
                 "id": "3"
             },
             "typeParameters": [
@@ -228,8 +228,7 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 {
                     "kind": "type_parameter",
                     "baseConstraint": {
-                        "kind": "primitive",
-                        "primitive": "string",
+                        "kind": "reference",
                         "id": "3"
                     },
                     "typeSymbolMeta": {
@@ -309,7 +308,8 @@ function sig1<T extends string>(arg: T, ...arg2: any[]): string {
                 }
             ],
             "returnType": {
-                "kind": "reference",
+                "kind": "primitive",
+                "primitive": "string",
                 "id": "3"
             },
             "typeParameters": [

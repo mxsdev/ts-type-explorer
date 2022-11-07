@@ -188,7 +188,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
             "keyType": {
                 "kind": "index",
                 "keyOf": {
-                    "kind": "type_parameter",
+                    "kind": "reference",
                     "symbolMeta": {
                         "name": "T",
                         "flags": 262144,
@@ -212,33 +212,12 @@ type partialUnion = Partial<{a: string}|{b: string}>
                     },
                     "id": "1"
                 },
-                "id": "13"
+                "id": "9"
             },
             "type": {
                 "kind": "indexed_access",
                 "indexType": {
-                    "kind": "type_parameter",
-                    "baseConstraint": {
-                        "kind": "union",
-                        "types": [
-                            {
-                                "kind": "primitive",
-                                "primitive": "string",
-                                "id": "10"
-                            },
-                            {
-                                "kind": "primitive",
-                                "primitive": "number",
-                                "id": "11"
-                            },
-                            {
-                                "kind": "primitive",
-                                "primitive": "essymbol",
-                                "id": "12"
-                            }
-                        ],
-                        "id": "9"
-                    },
+                    "kind": "reference",
                     "symbolMeta": {
                         "name": "P",
                         "flags": 262144,
@@ -311,7 +290,28 @@ type partialUnion = Partial<{a: string}|{b: string}>
                 ]
             },
             "parameterType": {
-                "kind": "reference",
+                "kind": "type_parameter",
+                "baseConstraint": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "id": "11"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "id": "12"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "essymbol",
+                            "id": "13"
+                        }
+                    ],
+                    "id": "10"
+                },
                 "symbolMeta": {
                     "name": "P",
                     "flags": 262144,
@@ -360,7 +360,7 @@ type partialUnion = Partial<{a: string}|{b: string}>
     },
     "typeParameters": [
         {
-            "kind": "reference",
+            "kind": "type_parameter",
             "symbolMeta": {
                 "name": "T",
                 "flags": 262144,

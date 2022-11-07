@@ -364,7 +364,7 @@ export type TypeTreeContext = {
     typescriptContext: TypescriptContext
     config: APIConfig
     seen: Set<TypeId>
-    depth: number
+    // depth: number
 }
 
 export type SymbolOrType = (

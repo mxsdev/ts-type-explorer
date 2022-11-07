@@ -170,8 +170,7 @@ const mapped = [1].map(x => x.toString())
                                 }
                             ],
                             "returnType": {
-                                "kind": "primitive",
-                                "primitive": "string",
+                                "kind": "reference",
                                 "id": "2"
                             }
                         }
@@ -315,7 +314,8 @@ const mapped = [1].map(x => x.toString())
     ],
     "typeArguments": [
         {
-            "kind": "reference",
+            "kind": "primitive",
+            "primitive": "string",
             "id": "2"
         }
     ],
@@ -456,8 +456,7 @@ const mapped = [1].map(x => x.toString())
                                 }
                             ],
                             "returnType": {
-                                "kind": "primitive",
-                                "primitive": "string",
+                                "kind": "reference",
                                 "id": "2"
                             }
                         }
@@ -601,7 +600,8 @@ const mapped = [1].map(x => x.toString())
     ],
     "typeArguments": [
         {
-            "kind": "reference",
+            "kind": "primitive",
+            "primitive": "string",
             "id": "2"
         }
     ],
@@ -772,8 +772,7 @@ const mapped = [1].map(x => x.toString())
                                 }
                             ],
                             "returnType": {
-                                "kind": "primitive",
-                                "primitive": "string",
+                                "kind": "reference",
                                 "id": "1"
                             }
                         }
@@ -889,7 +888,8 @@ const mapped = [1].map(x => x.toString())
     },
     "typeArguments": [
         {
-            "kind": "reference",
+            "kind": "primitive",
+            "primitive": "string",
             "id": "1"
         }
     ],
