@@ -12,6 +12,10 @@ Check out the [releases page][releases] to download the `.vsix` file. See [Insta
 
 A release is planned for the [VSCode Marketplace][vscode-marketplace] when the extension is in a more stable state.
 
+## Usage
+
+See [**typescript-explorer-vscode**](packages/typescript-explorer-vscode) for usage information.
+
 ## Packages
 
 -   [**typescript-explorer-vscode**](packages/typescript-explorer-vscode) - VSCode Extension
