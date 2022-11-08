@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mxsdev/ts-expand-type/compare/v0.2.0...v0.3.0) (2022-11-08)
+
+### Bug Fixes
+
+-   **api:** error getting signature type arguments ([732fe0d](https://github.com/mxsdev/ts-expand-type/commit/732fe0dc034c834aaf495aee04ec286786a54275)), closes [#14](https://github.com/mxsdev/ts-expand-type/issues/14)
+-   **api:** find nearest signature recursively ([ec3b53b](https://github.com/mxsdev/ts-expand-type/commit/ec3b53bf83abe3d175ac1c44a1b14e2396eb37d7)), closes [#9](https://github.com/mxsdev/ts-expand-type/issues/9)
+-   **api:** getParameterInfo throws error ([3d0dd77](https://github.com/mxsdev/ts-expand-type/commit/3d0dd77bd587a596c741908bbc4f1dc8ccec8ffa))
+-   **api:** import ts as pure type ([404a009](https://github.com/mxsdev/ts-expand-type/commit/404a0096d582b90ae8ec6de18e9c918e2a394482))
+-   **api:** max recursion depth hit unexpectedly ([b97d4de](https://github.com/mxsdev/ts-expand-type/commit/b97d4deea9a68fbc97fc80f4af47965ecbf0ce44)), closes [#10](https://github.com/mxsdev/ts-expand-type/issues/10)
+-   **api:** use interface symbol as alias ([4a38b19](https://github.com/mxsdev/ts-expand-type/commit/4a38b19ab86f6f47216c3381b7b25ec7286fb10a))
+
+### Features
+
+-   **api:** use resolved symbol as alias ([db02e7b](https://github.com/mxsdev/ts-expand-type/commit/db02e7ba7e1ad72eb79b6d41a5a5c5ca014b21b9))
+-   support modules and namespaces ([670e069](https://github.com/mxsdev/ts-expand-type/commit/670e06970baf7040471aa5967a974a0d521f415a)), closes [#6](https://github.com/mxsdev/ts-expand-type/issues/6) [#7](https://github.com/mxsdev/ts-expand-type/issues/7)
+-   support readonly ([5848029](https://github.com/mxsdev/ts-expand-type/commit/5848029cfbe116727efa9ed28cc728ebb6dac544))
+-   **vscode:** hide error messages ([1103cc0](https://github.com/mxsdev/ts-expand-type/commit/1103cc0604dd05588cd17b3b46a8744aa6554477)), closes [#13](https://github.com/mxsdev/ts-expand-type/issues/13)
+
 # [0.2.0](https://github.com/mxsdev/ts-expand-type/compare/v0.1.0...v0.2.0) (2022-10-30)
 
 ### Bug Fixes

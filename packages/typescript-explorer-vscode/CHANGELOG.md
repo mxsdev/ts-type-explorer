@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mxsdev/ts-type-explorer/compare/v0.2.0...v0.3.0) (2022-11-08)
+
+### Features
+
+-   support modules and namespaces ([670e069](https://github.com/mxsdev/ts-type-explorer/commit/670e06970baf7040471aa5967a974a0d521f415a)), closes [#6](https://github.com/mxsdev/ts-type-explorer/issues/6) [#7](https://github.com/mxsdev/ts-type-explorer/issues/7)
+-   support readonly ([5848029](https://github.com/mxsdev/ts-type-explorer/commit/5848029cfbe116727efa9ed28cc728ebb6dac544))
+-   **vscode:** hide error messages ([1103cc0](https://github.com/mxsdev/ts-type-explorer/commit/1103cc0604dd05588cd17b3b46a8744aa6554477)), closes [#13](https://github.com/mxsdev/ts-type-explorer/issues/13)
+
 # [0.2.0](https://github.com/mxsdev/ts-type-explorer/compare/v0.1.0...v0.2.0) (2022-10-30)
 
 ### Bug Fixes
