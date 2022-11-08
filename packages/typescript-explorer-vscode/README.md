@@ -4,6 +4,8 @@
 <img src="https://user-images.githubusercontent.com/16108792/198750577-f9430cc3-ff13-43dc-a027-da8041a38337.gif" />
 </p>
 
+**_Disclaimer_: This project is currently IN BETA, and is therefore _subject to bugs and feature incompleteness!!_ Please [open an issue][issues] if you encounter a bug or have any other suggestions!**
+
 VSCode Extension providing full type information in TypeScript projects. Supports:
 
 -   Functions
@@ -88,3 +90,4 @@ Adds "readonly" to readonly properties and arrays:
 
 [vscode-view-container]: https://code.visualstudio.com/api/ux-guidelines/views#view-containers
 [ts-declaration-merging]: https://www.typescriptlang.org/docs/handbook/declaration-merging.html
+[issues]: https://github.com/mxsdev/ts-type-explorer/issues
