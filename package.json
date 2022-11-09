@@ -7,7 +7,7 @@
         "build": "tsc -b",
         "watch": "tsc -b --watch",
         "test": "mocha",
-        "test:vscode": "yarn workspace typescript-explorer-vscode test",
+        "test:vscode": "yarn workspace typescript-explorer test",
         "baseline-accept": "ts-node ./scripts/acceptBaselines.ts",
         "lint": "eslint .",
         "format:check": "prettier --check .",
