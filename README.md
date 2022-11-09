@@ -12,9 +12,9 @@
 
 ## Installation
 
-Check out the [releases page][releases] to download the `.vsix` file. See [Install from a VSIX][install-from-vsix] for instructions!
+You can install from the [VSCode Marketplace][vscode-market-link].
 
-A release is planned for the [VSCode Marketplace][vscode-marketplace] when the extension is in a more stable state.
+Alternatively, check out the [releases page][releases] to download the `.vsix` file. See [Install from a VSIX][install-from-vsix] for instructions!
 
 ## Usage
 
@@ -37,3 +37,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md)!
 [releases]: https://github.com/mxsdev/ts-type-explorer/releases
 [install-from-vsix]: https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix
 [vscode-marketplace]: https://marketplace.visualstudio.com/vscode
+[vscode-market-link]: https://marketplace.visualstudio.com/items?itemName=mxsdev.typescript-explorer&ssr=false
