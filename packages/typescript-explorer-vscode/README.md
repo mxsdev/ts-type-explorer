@@ -42,6 +42,14 @@ Finds the definition of the selected menu item. This will first go to the associ
 
 If there are multiple definitions (such as in [declaration merging][ts-declaration-merging]), they will cycle through.
 
+### Hover for JSDoc
+
+<p align="center">
+<img width="500" alt="hover for jsdoc" src="https://user-images.githubusercontent.com/16108792/200917669-96a38d30-3ce4-4763-a7a1-386434870037.png">
+</p>
+
+Hover over an item in the menu to retrieve JSDoc.
+
 ### Lock Selection
 
 <p align="center">
