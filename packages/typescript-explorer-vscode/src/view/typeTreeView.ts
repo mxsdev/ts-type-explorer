@@ -16,7 +16,7 @@ import {
 } from "../config"
 import { markdownDocumentation } from "../markdown"
 import { StateManager } from "../state/stateManager"
-import { rangeFromLineAndCharacters } from "../util"
+import { logError, rangeFromLineAndCharacters, showError } from "../util"
 import { getQuickInfoAtLocation, getTypeTreeAtLocation } from "../server"
 
 const {
@@ -73,7 +73,13 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     }
 
     async getChildren(element?: TypeTreeItem): Promise<TypeTreeItem[]> {
-        const children = await this.getChildrenWorker(element)
+        const children = await this.getChildrenWorker(element).catch((e) => {
+            logError(e, "Error getting children")
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+            showError(e.message ?? "Error getting children")
+            return []
+        })
+
         this._onDidGetChildren.fire({ parent: element, children })
 
         return children
