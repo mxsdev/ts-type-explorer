@@ -1,7 +1,7 @@
 {
     "name": "typescript-explorer",
     "displayName": "%typescriptExplorer.title%",
-    "description": "Full type information for variables, functions, and type definitions in TypeScript projects",
+    "description": "Full type information for variables, components, functions, and more in TypeScript projects!",
     "publisher": "mxsdev",
     "version": "0.3.0",
     "preview": true,
