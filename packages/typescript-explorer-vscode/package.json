@@ -1,16 +1,33 @@
 {
-    "name": "typescript-explorer-vscode",
+    "name": "typescript-explorer",
     "displayName": "%typescriptExplorer.title%",
-    "description": "Explore typescript types",
+    "description": "Full type information for variables, functions, and type definitions in TypeScript projects",
     "publisher": "mxsdev",
-    "repository": "https://github.com/mxsdev/ts-type-explorer",
     "version": "0.3.0",
+    "preview": true,
     "private": true,
+    "icon": "resources/logo.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mxsdev/ts-type-explorer.git"
+    },
+    "homepage": "https://github.com/mxsdev/ts-type-explorer/tree/main/packages/typescript-explorer-vscode",
     "engines": {
         "vscode": "^1.71.0"
     },
+    "license": "MIT",
     "categories": [
+        "Programming Languages",
+        "Visualization",
+        "Education",
         "Other"
+    ],
+    "keywords": [
+        "typescript",
+        "types",
+        "explore",
+        "expand",
+        "productivity"
     ],
     "activationEvents": [
         "onLanguage:typescript",
