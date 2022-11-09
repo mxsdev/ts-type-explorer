@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/mxsdev/ts-expand-type/compare/v0.3.1...v0.3.2) (2022-11-09)
+
+### Bug Fixes
+
+-   **api:** remove typescript import ([acfe537](https://github.com/mxsdev/ts-expand-type/commit/acfe5371483dc3a8ead50875c14aab65b353abba))
+
 ## [0.3.1](https://github.com/mxsdev/ts-expand-type/compare/v0.3.0...v0.3.1) (2022-11-09)
 
 ### Bug Fixes
