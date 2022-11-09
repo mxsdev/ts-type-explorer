@@ -3,7 +3,7 @@
     "displayName": "%typescriptExplorer.title%",
     "description": "Full type information for variables, components, functions, and more in TypeScript projects!",
     "publisher": "mxsdev",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "preview": true,
     "private": true,
     "icon": "resources/logo.png",
