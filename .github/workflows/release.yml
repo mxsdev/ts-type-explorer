@@ -1,4 +1,4 @@
-name: prerelease
+name: release
 on: workflow_dispatch
 
 permissions:
@@ -7,8 +7,8 @@ permissions:
   packages: write # for publish
 
 jobs:
-  prerelease:
-    name: Pre-release
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -46,7 +46,7 @@ jobs:
         run: |
           VSIX_FILENAME=typescript-explorer-v${{ env.CURRENT_VERSION }}.vsix
           echo "VSIX_FILENAME=${VSIX_FILENAME}" >> $GITHUB_ENV
-          yarn workspace typescript-explorer package --pre-release -o ./${VSIX_FILENAME}
+          yarn workspace typescript-explorer package -o ./${VSIX_FILENAME}
 
       - name: Get Changelog
         run: |
@@ -78,8 +78,8 @@ jobs:
           git_commit_sha: ${{ github.sha }}
           git_tag_prefix: "v"
 
-      - name: Create Pre-release
-        id: create_prerelease
+      - name: Create Release
+        id: create_release
         if: steps.tag_check.outputs.exists_tag == 'false'
         uses: ncipollo/release-action@v1
         env:
@@ -90,4 +90,3 @@ jobs:
             ${{ env.CHANGELOG_MD }}
           artifacts: ./packages/typescript-explorer-vscode/${{ env.VSIX_FILENAME }}
           draft: false
-          prerelease: true
