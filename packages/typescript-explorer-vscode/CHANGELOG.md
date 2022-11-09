@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/mxsdev/ts-type-explorer/compare/v0.3.0...v0.3.1) (2022-11-09)
+
+### Features
+
+-   **vscode:** add logo, improve docs ([ef11564](https://github.com/mxsdev/ts-type-explorer/commit/ef1156484bb669b4781a3520ebfb7a30b6c1cc19))
+
 # [0.3.0](https://github.com/mxsdev/ts-type-explorer/compare/v0.2.0...v0.3.0) (2022-11-08)
 
 ### Features

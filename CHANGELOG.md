@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/mxsdev/ts-expand-type/compare/v0.3.0...v0.3.1) (2022-11-09)
+
+### Bug Fixes
+
+-   **api:** resolve signature only on identifier ([155fbff](https://github.com/mxsdev/ts-expand-type/commit/155fbfffada7e30495b3f01d8bbf4cf33af17209))
+-   **api:** resolve symbol declarations ([4d6640f](https://github.com/mxsdev/ts-expand-type/commit/4d6640f76d2c38bd3f92687297032ce7632e220f)), closes [#16](https://github.com/mxsdev/ts-expand-type/issues/16)
+-   vscode test command not running ([701714b](https://github.com/mxsdev/ts-expand-type/commit/701714bc3f6fc6b9b7417f278e0ea00afa147b27))
+
+### Features
+
+-   **vscode:** add logo, improve docs ([ef11564](https://github.com/mxsdev/ts-expand-type/commit/ef1156484bb669b4781a3520ebfb7a30b6c1cc19))
+
 # [0.3.0](https://github.com/mxsdev/ts-expand-type/compare/v0.2.0...v0.3.0) (2022-11-08)
 
 ### Bug Fixes

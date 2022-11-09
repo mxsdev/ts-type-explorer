@@ -1,7 +1,7 @@
 {
     "name": "@ts-type-explorer/api",
     "main": "dist",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "type": "commonjs",
     "license": "MIT",
     "devDependencies": {
