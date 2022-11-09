@@ -1,4 +1,5 @@
 import assert = require("assert")
+import nodeTest from "node:test"
 import type * as ts from "typescript"
 import {
     wrapSafe,
@@ -669,13 +670,39 @@ export function getConstructSignatures(
     return []
 }
 
-export function getCallLikeExpression(
+function getLeftHandSideExpression(node: ts.CallLikeExpression) {
+    if ("tag" in node) {
+        return node.tag
+    } else if ("tagName" in node) {
+        return node.tagName
+    } else {
+        return node.expression
+    }
+}
+
+function getCallLikeExpressionName(
     { ts }: TypescriptContext,
-    node: ts.Node
+    node: ts.CallLikeExpression
 ) {
+    const lhsExpression = getLeftHandSideExpression(node)
+
+    return (lhsExpression as unknown as DeclarationInternal).name
+}
+
+export function getCallLikeExpression(ctx: TypescriptContext, node: ts.Node) {
+    const { ts } = ctx
+    const originalNode = node
+
     while (node && !ts.isSourceFile(node)) {
         if (ts.isCallLikeExpression(node)) {
-            return node
+            if (
+                getLeftHandSideExpression(node) === originalNode ||
+                originalNode === getCallLikeExpressionName(ctx, node)
+            ) {
+                return node
+            }
+
+            return undefined
         }
 
         node = node.parent

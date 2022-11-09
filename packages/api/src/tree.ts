@@ -59,6 +59,7 @@ import {
     getSymbolExports,
     isNamespace,
     getSignaturesOfType,
+    isClassOrInterfaceType,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -374,6 +375,34 @@ function _generateTypeTree(
                     kind: "bigint_literal",
                     value: (type as ts.BigIntLiteralType).value,
                 }
+            } else if (
+                signatures.length > 0 &&
+                !isClassOrInterfaceType(tsCtx, type)
+            ) {
+                const isJSXElement = !!(
+                    node &&
+                    cartesianEqual(
+                        [node.kind, node.parent?.kind],
+                        [
+                            ts.SyntaxKind.JsxElement,
+                            ts.SyntaxKind.JsxOpeningElement,
+                            ts.SyntaxKind.JsxClosingElement,
+                            ts.SyntaxKind.JsxSelfClosingElement,
+                        ]
+                    )
+                )
+
+                return {
+                    kind: "function",
+                    signatures: signatures.map((s) =>
+                        getSignatureInfo(s.signature, {
+                            includeReturnType: true,
+                            kind: s.kind,
+                            typeParameters: s.typeParameters,
+                        })
+                    ),
+                    ...(isJSXElement && { isJSXElement }),
+                }
             } else if (flags & ts.TypeFlags.Object) {
                 if (typeSymbol && typeSymbol.flags & SymbolFlags.Enum) {
                     return {
@@ -443,29 +472,6 @@ function _generateTypeTree(
                             isNonEmpty(indexInfos) && {
                                 indexInfos: indexInfos.map(getIndexInfo),
                             }),
-                    }
-                } else if (signatures.length > 0) {
-                    const isJSXElement = !!(
-                        node &&
-                        cartesianEqual(
-                            [node.kind, node.parent?.kind],
-                            [
-                                ts.SyntaxKind.JsxElement,
-                                ts.SyntaxKind.JsxSelfClosingElement,
-                            ]
-                        )
-                    )
-
-                    return {
-                        kind: "function",
-                        signatures: signatures.map((s) =>
-                            getSignatureInfo(s.signature, {
-                                includeReturnType: true,
-                                kind: s.kind,
-                                typeParameters: s.typeParameters,
-                            })
-                        ),
-                        ...(isJSXElement && { isJSXElement }),
                     }
                 } else {
                     return {

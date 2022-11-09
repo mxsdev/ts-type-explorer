@@ -1,9 +1,9 @@
 === mapArray.ts ===
 
-const mapped = [1].map(x => x.toString())
-> const mapped = [1].map(x => x.toString())
-> mapped = [1].map(x => x.toString())
-> mapped = [1].map(x => x.toString())
+const mapped = [1].map((x) => x.toString())
+> const mapped = [1].map((x) => x.toString())
+> mapped = [1].map((x) => x.toString())
+> mapped = [1].map((x) => x.toString())
 > mapped --- {
     "kindText": "string",
     "kind": "primitive",
@@ -45,7 +45,7 @@ const mapped = [1].map(x => x.toString())
     "children": [],
     "_id": "0"
 }
-> [1].map(x => x.toString())
+> [1].map((x) => x.toString())
 > [1].map --- {
     "kindText": "method",
     "kind": "function",
@@ -598,8 +598,8 @@ const mapped = [1].map(x => x.toString())
     ],
     "_id": "0"
 }
-> x => x.toString()
-> x => x.toString()
+> (x) => x.toString()
+> (x) => x.toString()
 > x
 > x
 > x --- {
@@ -615,11 +615,11 @@ const mapped = [1].map(x => x.toString())
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 23
+                        "character": 24
                     },
                     "end": {
                         "line": 0,
-                        "character": 24
+                        "character": 25
                     }
                 }
             }
@@ -631,11 +631,11 @@ const mapped = [1].map(x => x.toString())
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 23
+                    "character": 24
                 },
                 "end": {
                     "line": 0,
-                    "character": 24
+                    "character": 25
                 }
             }
         }
@@ -658,7 +658,7 @@ const mapped = [1].map(x => x.toString())
                     },
                     "end": {
                         "line": 0,
-                        "character": 40
+                        "character": 42
                     }
                 }
             }
@@ -674,246 +674,60 @@ const mapped = [1].map(x => x.toString())
                 },
                 "end": {
                     "line": 0,
-                    "character": 40
+                    "character": 42
                 }
             }
         }
     ],
     "children": [
         {
-            "purpose": "type_parameter_list",
-            "children": [
-                {
-                    "kindText": "type parameter",
-                    "kind": "type_parameter",
-                    "symbol": {
-                        "name": "U",
-                        "locations": [
-                            {
-                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                "range": {
-                                    "start": {
-                                        "line": 1427,
-                                        "character": 8
-                                    },
-                                    "end": {
-                                        "line": 1427,
-                                        "character": 9
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    "locations": [
-                        {
-                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                            "range": {
-                                "start": {
-                                    "line": 1427,
-                                    "character": 8
-                                },
-                                "end": {
-                                    "line": 1427,
-                                    "character": 9
-                                }
-                            }
-                        }
-                    ],
-                    "children": [
-                        {
-                            "kindText": "string",
-                            "kind": "primitive",
-                            "primitiveKind": "string",
-                            "purpose": "parameter_value",
-                            "children": [],
-                            "_id": "2"
-                        }
-                    ],
-                    "_id": "1"
-                }
-            ]
-        },
-        {
-            "kindText": "function",
-            "kind": "function",
-            "symbol": {
-                "name": "callbackfn",
-                "isArgument": true,
-                "locations": [
-                    {
-                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                        "range": {
-                            "start": {
-                                "line": 1427,
-                                "character": 11
-                            },
-                            "end": {
-                                "line": 1427,
-                                "character": 21
-                            }
-                        }
-                    }
-                ]
-            },
-            "locations": [
-                {
-                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                    "range": {
-                        "start": {
-                            "line": 1427,
-                            "character": 11
-                        },
-                        "end": {
-                            "line": 1427,
-                            "character": 21
-                        }
-                    }
-                }
-            ],
-            "children": [
-                {
-                    "kindText": "number",
-                    "kind": "primitive",
-                    "primitiveKind": "number",
-                    "symbol": {
-                        "name": "value",
-                        "isArgument": true,
-                        "locations": [
-                            {
-                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                "range": {
-                                    "start": {
-                                        "line": 1427,
-                                        "character": 24
-                                    },
-                                    "end": {
-                                        "line": 1427,
-                                        "character": 29
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    "locations": [
-                        {
-                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                            "range": {
-                                "start": {
-                                    "line": 1427,
-                                    "character": 24
-                                },
-                                "end": {
-                                    "line": 1427,
-                                    "character": 29
-                                }
-                            }
-                        }
-                    ],
-                    "children": [],
-                    "_id": "4"
-                },
-                {
-                    "reference": "4"
-                },
-                {
-                    "kindText": "number",
-                    "kind": "primitive",
-                    "primitiveKind": "number",
-                    "alias": "value",
-                    "symbol": {
-                        "name": "array",
-                        "isArgument": true,
-                        "locations": [
-                            {
-                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                                "range": {
-                                    "start": {
-                                        "line": 1427,
-                                        "character": 49
-                                    },
-                                    "end": {
-                                        "line": 1427,
-                                        "character": 54
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    "dimension": 1,
-                    "locations": [
-                        {
-                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
-                            "range": {
-                                "start": {
-                                    "line": 1427,
-                                    "character": 24
-                                },
-                                "end": {
-                                    "line": 1427,
-                                    "character": 29
-                                }
-                            }
-                        }
-                    ],
-                    "children": [],
-                    "_id": "5"
-                },
-                {
-                    "reference": "2"
-                }
-            ],
-            "_id": "3"
-        },
-        {
-            "kindText": "any",
+            "kindText": "number",
             "kind": "primitive",
-            "primitiveKind": "any",
+            "primitiveKind": "number",
             "symbol": {
-                "name": "thisArg",
+                "name": "x",
                 "isArgument": true,
                 "locations": [
                     {
-                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "fileName": "cases/mapArray.ts",
                         "range": {
                             "start": {
-                                "line": 1427,
-                                "character": 67
+                                "line": 0,
+                                "character": 24
                             },
                             "end": {
-                                "line": 1427,
-                                "character": 74
+                                "line": 0,
+                                "character": 25
                             }
                         }
                     }
                 ]
             },
-            "optional": true,
             "locations": [
                 {
-                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "fileName": "cases/mapArray.ts",
                     "range": {
                         "start": {
-                            "line": 1427,
-                            "character": 67
+                            "line": 0,
+                            "character": 24
                         },
                         "end": {
-                            "line": 1427,
-                            "character": 74
+                            "line": 0,
+                            "character": 25
                         }
                     }
                 }
             ],
             "children": [],
-            "_id": "6"
+            "_id": "1"
         },
         {
             "kindText": "string",
             "kind": "primitive",
             "primitiveKind": "string",
             "purpose": "return",
-            "dimension": 1,
             "children": [],
-            "_id": "7"
+            "_id": "2"
         }
     ],
     "_id": "0"
@@ -1023,11 +837,11 @@ const mapped = [1].map(x => x.toString())
                 "range": {
                     "start": {
                         "line": 0,
-                        "character": 23
+                        "character": 24
                     },
                     "end": {
                         "line": 0,
-                        "character": 24
+                        "character": 25
                     }
                 }
             }
@@ -1039,11 +853,11 @@ const mapped = [1].map(x => x.toString())
             "range": {
                 "start": {
                     "line": 0,
-                    "character": 23
+                    "character": 24
                 },
                 "end": {
                     "line": 0,
-                    "character": 24
+                    "character": 25
                 }
             }
         }

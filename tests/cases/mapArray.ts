@@ -1,1 +1,1 @@
-const mapped = [1].map(x => x.toString())
+const mapped = [1].map((x) => x.toString())
