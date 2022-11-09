@@ -12,15 +12,15 @@ import { c } from "./moduleExport"
         "name": "c",
         "locations": [
             {
-                "fileName": "cases/module.ts",
+                "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/moduleExport.ts",
                 "range": {
                     "start": {
-                        "line": 0,
-                        "character": 9
+                        "line": 3,
+                        "character": 17
                     },
                     "end": {
-                        "line": 0,
-                        "character": 10
+                        "line": 3,
+                        "character": 18
                     }
                 }
             }
@@ -28,15 +28,15 @@ import { c } from "./moduleExport"
     },
     "locations": [
         {
-            "fileName": "cases/module.ts",
+            "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/moduleExport.ts",
             "range": {
                 "start": {
-                    "line": 0,
-                    "character": 9
+                    "line": 3,
+                    "character": 17
                 },
                 "end": {
-                    "line": 0,
-                    "character": 10
+                    "line": 3,
+                    "character": 18
                 }
             }
         }

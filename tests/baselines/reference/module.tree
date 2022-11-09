@@ -54,6 +54,23 @@ import { c } from "./moduleExport"
                     }
                 }
             }
+        ],
+        "resolvedDeclarations": [
+            {
+                "location": {
+                    "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/moduleExport.ts",
+                    "range": {
+                        "start": {
+                            "line": 3,
+                            "character": 17
+                        },
+                        "end": {
+                            "line": 3,
+                            "character": 18
+                        }
+                    }
+                }
+            }
         ]
     },
     "id": "0"

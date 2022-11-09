@@ -1,6 +1,6 @@
 import assert = require("assert")
 import nodeTest from "node:test"
-import type * as ts from "typescript"
+import * as ts from "typescript"
 import {
     wrapSafe,
     isEmpty,
@@ -942,6 +942,15 @@ export function isReadonlySymbol(
         // TODO: implement this eventually
         // some(symbol.declarations, isReadonlyAssignmentDeclaration)
     )
+}
+
+export function getAliasedSymbol(
+    { typeChecker }: TypescriptContext,
+    symbol: ts.Symbol
+) {
+    if (!(symbol.flags & ts.SymbolFlags.Alias)) return undefined
+
+    return typeChecker.getAliasedSymbol(symbol)
 }
 
 export function getSymbolExports(symbol: ts.Symbol): ts.Symbol[] {

@@ -60,6 +60,7 @@ import {
     isNamespace,
     getSignaturesOfType,
     isClassOrInterfaceType,
+    getAliasedSymbol,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -699,6 +700,8 @@ function _generateTypeTree(
             isAnonymous = false,
             options: TypeTreeOptions = {}
         ): SymbolInfo {
+            const aliasedSymbol = getAliasedSymbol(tsCtx, symbol)
+
             const parameterInfo = getParameterInfo(tsCtx, symbol)
 
             const optional = options.optional ?? parameterInfo.optional
@@ -714,6 +717,17 @@ function _generateTypeTree(
                 symbol.getDeclarations()?.map(getDeclarationInfo)
             )
 
+            const resolvedDeclarations =
+                aliasedSymbol &&
+                aliasedSymbol !== symbol &&
+                isNonEmpty(aliasedSymbol.declarations)
+                    ? wrapSafe(filterUndefined)(
+                          aliasedSymbol
+                              .getDeclarations()
+                              ?.map(getDeclarationInfo)
+                      )
+                    : undefined
+
             const isReadonly = isReadonlySymbol(tsCtx, symbol)
 
             return {
@@ -725,6 +739,7 @@ function _generateTypeTree(
                 ...(rest && { rest: true }),
                 ...(insideClassOrInterface && { insideClassOrInterface: true }),
                 ...(declarations && { declarations }),
+                ...(resolvedDeclarations && { resolvedDeclarations }),
             }
         }
 

@@ -34,4 +34,14 @@ describe("intersectionComponent.tsx", () => {
         assert(param.kind === "object")
         assert(param.symbolMeta?.name === "event")
     })
+
+    it("has declaration locations", () => {
+        const ctx = createTsContext(fileName)
+        const pos = { line: 4, character: 8 }
+
+        const info = getTypeInfoAtRange(ctx, {
+            fileName,
+            range: { start: pos, end: pos },
+        })
+    })
 })

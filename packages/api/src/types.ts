@@ -69,6 +69,7 @@ export type SymbolInfo = {
     readonly?: boolean
     insideClassOrInterface?: boolean
     declarations?: DeclarationInfo[]
+    resolvedDeclarations?: DeclarationInfo[]
 }
 
 export type IndexInfo = {

@@ -1,5 +1,6 @@
 import { getKindText, getPrimitiveKindText } from "./localization"
 import {
+    DeclarationInfo,
     IndexInfo,
     LocalizableKind,
     LocalizeData,
@@ -62,7 +63,7 @@ export function _localizeTypeInfo(
         ...(dimension && { dimension }),
         ...(name !== undefined && { name }),
         ...(readonly && { readonly: true }),
-        locations,
+        ...(isNonEmpty(locations) && { locations }),
     }
 
     res.children = getChildren(info, opts)
@@ -553,11 +554,27 @@ function getKind(info: ResolvedTypeInfo): string {
 }
 
 function getTypeLocations(info: TypeInfo): SourceFileLocation[] | undefined {
-    const baseLocations = wrapSafe(getLocations)(
-        info.aliasSymbolMeta ?? info.symbolMeta
-    )
+    const baseDeclarations: DeclarationInfo[] = []
 
-    if (!baseLocations) {
+    if (info.symbolMeta?.resolvedDeclarations) {
+        baseDeclarations.push(...info.symbolMeta.resolvedDeclarations)
+    }
+
+    const aliasSymbolDeclarations =
+        info.aliasSymbolMeta?.resolvedDeclarations ??
+        info.aliasSymbolMeta?.declarations
+
+    if (aliasSymbolDeclarations) {
+        baseDeclarations.push(...aliasSymbolDeclarations)
+    }
+
+    if (info.symbolMeta?.declarations && baseDeclarations.length === 0) {
+        baseDeclarations.push(...info.symbolMeta.declarations)
+    }
+
+    const baseLocations = baseDeclarations.map(({ location }) => location)
+
+    if (isEmpty(baseLocations)) {
         if (info.kind === "function" && info.signatures.length === 1) {
             return wrapSafe(getLocations)(info.signatures[0].symbolMeta)
         }
@@ -567,5 +584,7 @@ function getTypeLocations(info: TypeInfo): SourceFileLocation[] | undefined {
 }
 
 function getLocations(info: SymbolInfo): SourceFileLocation[] | undefined {
-    return info.declarations?.map(({ location }) => location)
+    return (info.resolvedDeclarations ?? info.declarations)?.map(
+        ({ location }) => location
+    )
 }
