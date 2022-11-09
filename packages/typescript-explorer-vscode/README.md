@@ -1,7 +1,7 @@
 # TypeScript Explorer
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/16108792/198750577-f9430cc3-ff13-43dc-a027-da8041a38337.gif" />
+<img alt="demo" src="https://user-images.githubusercontent.com/16108792/200933940-b735a2a3-cc9d-40de-a4a9-c10c080eead8.gif" />
 </p>
 
 **_Disclaimer_: This project is currently IN BETA, and is therefore _subject to bugs and feature incompleteness!!_ Please [open an issue][issues] if you encounter a bug or have any other suggestions!**
