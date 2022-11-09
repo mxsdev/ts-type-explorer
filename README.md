@@ -1,9 +1,13 @@
 # ts-type-explorer
 
-VSCode Extension & utilities to explore type information in TypeScript projects.
-
 <p align="center">
 <img alt="demo" src="https://user-images.githubusercontent.com/16108792/200933940-b735a2a3-cc9d-40de-a4a9-c10c080eead8.gif" />
+</p>
+
+<p align="center" style="padding: 20px 0">
+  <a href="https://marketplace.visualstudio.com/items?itemName=mxsdev.typescript-explorer&ssr=false">
+    <img src="https://img.shields.io/badge/Install-VSCode%20Marketplace-blue" />
+  </a>
 </p>
 
 ## Installation
