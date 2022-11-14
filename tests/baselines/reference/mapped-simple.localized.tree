@@ -1,0 +1,401 @@
+=== mapped-simple.ts ===
+
+type OnlyBools = {
+    [key: string]: boolean
+}
+> OnlyBools --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "OnlyBools",
+        "locations": [
+            {
+                "fileName": "cases/mapped-simple.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 14
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapped-simple.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 5
+                },
+                "end": {
+                    "line": 0,
+                    "character": 14
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "symbol": {
+                "name": "key",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mapped-simple.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 8
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mapped-simple.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 8
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "purpose": "index_type",
+                    "children": [],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "boolean",
+                    "kind": "primitive",
+                    "primitiveKind": "boolean",
+                    "purpose": "index_value_type",
+                    "children": [],
+                    "_id": "2"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
+> {
+    [key: string]: boolean
+}
+> [key: string]: boolean
+> [key: string]: boolean
+> key: string
+> key: string
+> key --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "key",
+        "isArgument": true,
+        "locations": [
+            {
+                "fileName": "cases/mapped-simple.ts",
+                "range": {
+                    "start": {
+                        "line": 1,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 1,
+                        "character": 8
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapped-simple.ts",
+            "range": {
+                "start": {
+                    "line": 1,
+                    "character": 5
+                },
+                "end": {
+                    "line": 1,
+                    "character": 8
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+
+const options: OnlyBools = {
+    isBool: true
+}
+> const options: OnlyBools = {
+    isBool: true
+}
+> options: OnlyBools = {
+    isBool: true
+}
+> options: OnlyBools = {
+    isBool: true
+}
+> options --- {
+    "kindText": "object",
+    "kind": "object",
+    "alias": "OnlyBools",
+    "symbol": {
+        "name": "options",
+        "locations": [
+            {
+                "fileName": "cases/mapped-simple.ts",
+                "range": {
+                    "start": {
+                        "line": 4,
+                        "character": 6
+                    },
+                    "end": {
+                        "line": 4,
+                        "character": 13
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapped-simple.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 5
+                },
+                "end": {
+                    "line": 0,
+                    "character": 14
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "symbol": {
+                "name": "key",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mapped-simple.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 8
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mapped-simple.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 8
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "purpose": "index_type",
+                    "children": [],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "boolean",
+                    "kind": "primitive",
+                    "primitiveKind": "boolean",
+                    "purpose": "index_value_type",
+                    "children": [],
+                    "_id": "2"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
+> OnlyBools
+> OnlyBools --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "OnlyBools",
+        "locations": [
+            {
+                "fileName": "cases/mapped-simple.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 14
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapped-simple.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 5
+                },
+                "end": {
+                    "line": 0,
+                    "character": 14
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "symbol": {
+                "name": "key",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mapped-simple.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 8
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mapped-simple.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 8
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "purpose": "index_type",
+                    "children": [],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "boolean",
+                    "kind": "primitive",
+                    "primitiveKind": "boolean",
+                    "purpose": "index_value_type",
+                    "children": [],
+                    "_id": "2"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
+> {
+    isBool: true
+}
+> isBool: true
+> isBool: true
+> isBool --- {
+    "kindText": "true",
+    "kind": "boolean_literal",
+    "symbol": {
+        "name": "isBool",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/mapped-simple.ts",
+                "range": {
+                    "start": {
+                        "line": 5,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 5,
+                        "character": 10
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mapped-simple.ts",
+            "range": {
+                "start": {
+                    "line": 5,
+                    "character": 4
+                },
+                "end": {
+                    "line": 5,
+                    "character": 10
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}

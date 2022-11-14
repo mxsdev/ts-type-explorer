@@ -1,1 +1,0 @@
-type mapped = { [index: string]: number }

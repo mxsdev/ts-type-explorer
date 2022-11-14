@@ -1,0 +1,287 @@
+=== mapped-simple.ts ===
+
+type OnlyBools = {
+    [key: string]: boolean
+}
+> OnlyBools --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            "type": {
+                "kind": "primitive",
+                "primitive": "boolean",
+                "id": "1"
+            },
+            "parameterSymbol": {
+                "name": "key",
+                "flags": 1,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mapped-simple.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 8
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "OnlyBools",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapped-simple.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 14
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+    [key: string]: boolean
+}
+> [key: string]: boolean
+> [key: string]: boolean
+> key: string
+> key: string
+> key --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "key",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapped-simple.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 8
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+
+const options: OnlyBools = {
+    isBool: true
+}
+> const options: OnlyBools = {
+    isBool: true
+}
+> options: OnlyBools = {
+    isBool: true
+}
+> options: OnlyBools = {
+    isBool: true
+}
+> options --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            "type": {
+                "kind": "primitive",
+                "primitive": "boolean",
+                "id": "1"
+            },
+            "parameterSymbol": {
+                "name": "key",
+                "flags": 1,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mapped-simple.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 8
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "options",
+        "flags": 2,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapped-simple.ts",
+                    "range": {
+                        "start": {
+                            "line": 4,
+                            "character": 6
+                        },
+                        "end": {
+                            "line": 4,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "aliasSymbolMeta": {
+        "name": "OnlyBools",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapped-simple.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 14
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> OnlyBools
+> OnlyBools --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            "type": {
+                "kind": "primitive",
+                "primitive": "boolean",
+                "id": "1"
+            },
+            "parameterSymbol": {
+                "name": "key",
+                "flags": 1,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mapped-simple.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 8
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "OnlyBools",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapped-simple.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 14
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+    isBool: true
+}
+> isBool: true
+> isBool: true
+> isBool --- {
+    "kind": "boolean_literal",
+    "value": true,
+    "symbolMeta": {
+        "name": "isBool",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mapped-simple.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 10
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
