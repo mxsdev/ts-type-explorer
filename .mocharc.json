@@ -3,5 +3,5 @@
     "extensions": "ts",
     "spec": ["tests/**/*.spec.ts"],
     "watch-files": ["src"],
-    "timeout": 4000
+    "timeout": 10000
 }
