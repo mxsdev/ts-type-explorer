@@ -251,14 +251,14 @@
     },
     "dependencies": {
         "@ts-type-explorer/api": "^0.3.2",
-        "@ts-type-explorer/typescript-plugin": "^0.3.2"
+        "@ts-type-explorer/typescript-plugin": "^0.3.2",
+        "@types/vscode": "^1.71.0"
     },
     "devDependencies": {
         "@types/fs-extra": "^9.0.13",
         "@types/glob": "^8.0.0",
         "@types/mocha": "^10.0.0",
         "@types/node": "16.x",
-        "@types/vscode": "^1.71.0",
         "@vscode/test-electron": "^2.1.5",
         "args-mapper": "^1.0.4",
         "commander": "^9.4.1",

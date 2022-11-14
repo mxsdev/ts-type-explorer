@@ -12,29 +12,24 @@ module.exports = {
     },
     plugins: ["@typescript-eslint", "eslint-plugin-import"],
     ignorePatterns: [
-        "tests/cases/**",
+        "tests/**",
         "**/out/**",
         "**/dist/**",
         ".eslintrc.cjs",
         "**/scripts/**/*.js",
         "**/.vscode-test/**",
+        "packages/typescript-explorer-vscode/src/test/**",
+        "scripts/**",
     ],
     root: true,
     rules: {
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-floating-promises": "off",
-    },
-    overrides: [
-        {
-            files: ["packages/api/**"],
-            rules: {
-                "import/no-extraneous-dependencies": [
-                    "error",
-                    {
-                        devDependencies: false,
-                    },
-                ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                devDependencies: false,
             },
-        },
-    ],
+        ],
+    },
 }
