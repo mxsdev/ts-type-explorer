@@ -32,6 +32,8 @@
         "@typescript-eslint/parser": "^5.40.1",
         "eslint": "^8.26.0",
         "eslint-config-prettier": "^8.5.0",
+        "eslint-import-resolver-typescript": "^3.5.2",
+        "eslint-plugin-import": "^2.26.0",
         "fs-extra": "^10.1.0",
         "glob": "^8.0.3",
         "husky": "^8.0.1",

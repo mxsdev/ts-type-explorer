@@ -10,7 +10,7 @@ module.exports = {
         tsconfigRootDir: __dirname,
         project: ["./tsconfig.eslint.json", "./packages/*/tsconfig.json"],
     },
-    plugins: ["@typescript-eslint"],
+    plugins: ["@typescript-eslint", "eslint-plugin-import"],
     ignorePatterns: [
         "tests/cases/**",
         "**/out/**",
@@ -24,4 +24,17 @@ module.exports = {
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-floating-promises": "off",
     },
+    overrides: [
+        {
+            files: ["packages/api/**"],
+            rules: {
+                "import/no-extraneous-dependencies": [
+                    "error",
+                    {
+                        devDependencies: false,
+                    },
+                ],
+            },
+        },
+    ],
 }

@@ -1,12 +1,5 @@
-import assert = require("assert")
-import nodeTest from "node:test"
 import type * as ts from "typescript"
-import {
-    wrapSafe,
-    isEmpty,
-    filterUndefined,
-    cloneClassInstance,
-} from "./objectUtil"
+import { wrapSafe, isEmpty, filterUndefined } from "./objectUtil"
 import {
     SourceFileLocation,
     TypeId,
