@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 import * as assert from "assert"
 import type * as ts from "typescript"
-import { APIConfig } from "./config"
+import { configDefaults } from "./config"
 import {
     wrapSafe,
     filterUndefined,
@@ -24,6 +24,7 @@ import {
     TypeTreeContext,
     TypeTreeOptions,
     DiscriminatedIndexInfo,
+    APIConfig,
 } from "./types"
 import {
     IntrinsicTypeInternal,
@@ -68,11 +69,13 @@ const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
 export function generateTypeTree(
     symbolOrType: SymbolOrType,
     typescriptContext: TypescriptContext,
-    config?: APIConfig
+    _config?: Partial<APIConfig>
 ) {
+    const config = configDefaults(_config)
+
     return _generateTypeTree(symbolOrType, {
         typescriptContext,
-        config: config ?? new APIConfig(),
+        config,
         seen: new Set(),
     })
 }
@@ -995,7 +998,7 @@ export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
 export function getTypeInfoAtRange(
     ctx: TypescriptContext,
     location: SourceFileLocation,
-    apiConfig?: APIConfig
+    apiConfig?: Partial<APIConfig>
 ) {
     const sourceFile = ctx.program.getSourceFile(location.fileName)
     if (!sourceFile) return undefined
@@ -1024,7 +1027,7 @@ export function getTypeInfoAtRange(
 export function getTypeInfoOfNode(
     ctx: TypescriptContext,
     node: ts.Node,
-    apiConfig?: APIConfig
+    apiConfig?: Partial<APIConfig>
 ) {
     if (!node.parent) {
         return undefined

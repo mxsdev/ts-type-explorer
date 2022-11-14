@@ -1,4 +1,3 @@
-export { APIConfig } from "./config"
 export {
     getSymbolType,
     multilineTypeToString,
@@ -34,6 +33,7 @@ export {
     CustomTypeScriptResponseBody,
     CustomTypeScriptRequestOfId,
     TextRange,
+    APIConfig,
 } from "./types"
 export {
     LocalizedTypeInfo,

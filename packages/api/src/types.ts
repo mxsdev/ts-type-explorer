@@ -1,5 +1,9 @@
 import type * as ts from "typescript"
-import { APIConfig } from "./config"
+
+export interface APIConfig {
+    maxDepth: number
+    referenceDefinedTypes: boolean
+}
 
 type FileLocationRequest = {
     range: TextRange

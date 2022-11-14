@@ -1,9 +1,7 @@
-import { APIConfig, getTypeInfoOfNode } from "@ts-type-explorer/api"
+import { getTypeInfoOfNode } from "@ts-type-explorer/api"
 import assert from "assert"
 import path from "path"
 import { createTsContext } from "../lib/tsUtil"
-
-const apiConfig = new APIConfig().setReferenceDefinedTypes()
 
 describe("max recursion check", () => {
     it("shouldn't occur on TypeInfoMap", () => {
@@ -22,6 +20,8 @@ describe("max recursion check", () => {
 
         assert(rootNode)
 
-        const rootInfo = getTypeInfoOfNode(ctx, rootNode, apiConfig)
+        const rootInfo = getTypeInfoOfNode(ctx, rootNode, {
+            referenceDefinedTypes: true,
+        })
     })
 })

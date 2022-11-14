@@ -1,9 +1,9 @@
-export class APIConfig {
-    public maxDepth = 6
-    public referenceDefinedTypes = false
+import { APIConfig } from "./types"
 
-    public setReferenceDefinedTypes(): this {
-        this.referenceDefinedTypes = true
-        return this
+export function configDefaults(config: Partial<APIConfig> = {}): APIConfig {
+    return {
+        maxDepth: 6,
+        referenceDefinedTypes: false,
+        ...config,
     }
 }

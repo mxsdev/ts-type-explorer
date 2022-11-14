@@ -111,12 +111,11 @@ function init(modules: {
     return { create }
 }
 
-const apiConfig = new APIConfig().setReferenceDefinedTypes()
-
 function getCustomResponse(
     ctx: TypescriptContext,
     fileName: string,
-    payload: CustomTypeScriptRequest
+    payload: CustomTypeScriptRequest,
+    apiConfig?: Partial<APIConfig>
 ): CustomTypeScriptResponseBody {
     switch (payload.id) {
         case "type-tree": {
@@ -126,7 +125,10 @@ function getCustomResponse(
                     fileName,
                     range: payload.range,
                 },
-                apiConfig
+                {
+                    ...apiConfig,
+                    referenceDefinedTypes: true,
+                }
             )
 
             return { id: "type-tree", typeInfo }

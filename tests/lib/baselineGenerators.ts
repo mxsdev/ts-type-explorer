@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/require-await */
 import {
-    APIConfig,
     generateTypeTree,
     SourceFileLocation,
     TypeInfoResolver,
@@ -26,13 +25,12 @@ const treeBaselineGenerator = symbolBaselineGenerator(
         stringify(normalizeTypeTree(generateTypeTree({ symbol, node }, ctx)))
 )
 
-const apiConfig = new APIConfig()
-apiConfig.referenceDefinedTypes = true
-
 const localizedTreeBaselineGenerator = symbolBaselineGenerator(
     async (ctx, symbol, node) => {
         const typeTree = normalizeTypeTree(
-            generateTypeTree({ symbol, node }, ctx, apiConfig),
+            generateTypeTree({ symbol, node }, ctx, {
+                referenceDefinedTypes: true,
+            }),
             false
         )
 
@@ -49,7 +47,9 @@ const localizedTreeBaselineGenerator = symbolBaselineGenerator(
 
 function getTypeInfoRetriever(ctx: TypescriptContext) {
     return async (location: SourceFileLocation) => {
-        const typeTree = getTypeInfoAtRange(ctx, location, apiConfig)
+        const typeTree = getTypeInfoAtRange(ctx, location, {
+            referenceDefinedTypes: true,
+        })
 
         assert(typeTree, "Symbol/type not found!")
 

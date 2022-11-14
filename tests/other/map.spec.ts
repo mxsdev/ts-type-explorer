@@ -1,10 +1,10 @@
-import { APIConfig, getTypeInfoAtRange } from "@ts-type-explorer/api"
+import { getTypeInfoAtRange } from "@ts-type-explorer/api"
 import assert from "assert"
 import path from "path"
 import { createTsContext } from "../lib/tsUtil"
 
 const fileName = path.join(__dirname, "map.ts")
-const apiConfig = new APIConfig().setReferenceDefinedTypes()
+const apiConfig = { referenceDefinedTypes: true }
 
 describe("map.ts", () => {
     it("doesn't error when retrieving outside", () => {

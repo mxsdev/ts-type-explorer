@@ -1,5 +1,4 @@
 import type * as ts from "typescript"
-import { APIConfig } from "./config"
 import {
     createUnionType,
     createIntersectionType,
@@ -20,15 +19,16 @@ import {
     SymbolName,
     TypeReferenceInternal,
 } from "./typescript"
-import { RecursiveExpandContext, TypescriptContext } from "./types"
+import { APIConfig, RecursiveExpandContext, TypescriptContext } from "./types"
 import { cloneClassInstance } from "./objectUtil"
+import { configDefaults } from "./config"
 
 export function recursivelyExpandType(
     ctx: TypescriptContext,
     type: ts.Type,
-    config?: APIConfig
+    _config?: Partial<APIConfig>
 ) {
-    config ??= new APIConfig()
+    const config = configDefaults(_config)
 
     return _recursivelyExpandType(ctx, [type], {
         seen: new WeakMap(),
