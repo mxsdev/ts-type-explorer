@@ -37,11 +37,23 @@ export function normalizeTypeTree(
     )
 
     getTypeInfoSymbols(typeTree).forEach((s) => {
-        s.declarations?.forEach((d) => {
-            // eslint-disable-next-line no-debugger
-            // debugger
-            d.location.fileName = normalizeFilePath(d.location.fileName)
-        })
+        for (const declarations of [s.declarations, s.resolvedDeclarations]) {
+            declarations?.forEach((d) => {
+                // eslint-disable-next-line no-debugger
+                // debugger
+                d.location.fileName = normalizeFilePath(d.location.fileName)
+            })
+        }
+
+        const literal = s.name.match(/^"(.*?)"$/)
+
+        if (literal && literal[1]) {
+            const value = literal[1]
+
+            if (value.startsWith(rootPath)) {
+                s.name = `"${normalizeFilePath(value)}"`
+            }
+        }
     })
 
     return typeTree

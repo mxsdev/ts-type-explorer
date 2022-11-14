@@ -12,7 +12,7 @@ import { c } from "./moduleExport"
         "name": "c",
         "locations": [
             {
-                "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/moduleExport.ts",
+                "fileName": "cases/moduleExport.ts",
                 "range": {
                     "start": {
                         "line": 3,
@@ -28,7 +28,7 @@ import { c } from "./moduleExport"
     },
     "locations": [
         {
-            "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/moduleExport.ts",
+            "fileName": "cases/moduleExport.ts",
             "range": {
                 "start": {
                     "line": 3,
@@ -88,7 +88,7 @@ import { c } from "./moduleExport"
     "kindText": "module",
     "kind": "module",
     "symbol": {
-        "name": "\"/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/moduleExport\"",
+        "name": "\"cases/moduleExport\"",
         "locations": [
             {
                 "fileName": "cases/moduleExport.ts",

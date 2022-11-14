@@ -58,7 +58,7 @@ import { c } from "./moduleExport"
         "resolvedDeclarations": [
             {
                 "location": {
-                    "fileName": "/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/moduleExport.ts",
+                    "fileName": "cases/moduleExport.ts",
                     "range": {
                         "start": {
                             "line": 3,
@@ -185,7 +185,7 @@ import { c } from "./moduleExport"
         }
     ],
     "symbolMeta": {
-        "name": "\"/Users/maxstoumen/Projects/ts-type-explorer/tests/cases/moduleExport\"",
+        "name": "\"cases/moduleExport\"",
         "flags": 512,
         "declarations": [
             {

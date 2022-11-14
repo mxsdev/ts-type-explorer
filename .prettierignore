@@ -1,4 +1,5 @@
 out
 dist
 tests/cases
+tests/other
 .vscode-test
