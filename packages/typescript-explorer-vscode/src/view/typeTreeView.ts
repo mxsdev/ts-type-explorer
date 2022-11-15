@@ -53,7 +53,9 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     }
 
     async getTreeItem(element: TypeTreeItem) {
-        if (element.typeInfo.locations) {
+        if (element.typeInfo.kind === "max_depth") {
+            element.tooltip = "max depth exceeded"
+        } else if (element.typeInfo.locations) {
             for (const location of element.typeInfo.locations) {
                 const { documentation, tags } =
                     (await getQuickInfoAtLocation(location)) ?? {}
