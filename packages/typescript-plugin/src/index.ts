@@ -119,6 +119,8 @@ function getCustomResponse(
 ): CustomTypeScriptResponseBody {
     switch (payload.id) {
         case "type-tree": {
+            const { maxDepth } = payload
+
             const typeInfo = getTypeInfoAtRange(
                 ctx,
                 {
@@ -128,6 +130,7 @@ function getCustomResponse(
                 {
                     ...apiConfig,
                     referenceDefinedTypes: true,
+                    ...(maxDepth && { maxDepth }),
                 }
             )
 

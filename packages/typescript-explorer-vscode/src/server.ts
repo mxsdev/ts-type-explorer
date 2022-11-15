@@ -14,6 +14,7 @@ import {
     rangeToTextRange,
     toFileLocationRequestArgs,
 } from "./util"
+import { maxRecursionDepth } from "./config"
 
 async function getQuickInfoAtPosition(
     fileName: string,
@@ -89,6 +90,7 @@ export function getTypeTreeAtRange(
         {
             id: "type-tree",
             range: rangeToTextRange(range),
+            maxDepth: maxRecursionDepth.get(),
         }
     ).then((res) => res?.typeInfo)
 }

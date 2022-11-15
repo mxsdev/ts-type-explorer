@@ -90,6 +90,11 @@
                     "title": "Log Errors",
                     "type": "boolean",
                     "default": true
+                },
+                "typescriptExplorer.typeTree.maxRecursionDepth": {
+                    "title": "Max Recursion Depth",
+                    "type": "integer",
+                    "default": 6
                 }
             }
         },

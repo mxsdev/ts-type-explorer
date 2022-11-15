@@ -11,6 +11,7 @@ type FileLocationRequest = {
 
 export type CustomTypeScriptRequest = {
     id: "type-tree"
+    maxDepth?: number
 } & FileLocationRequest
 
 export type CustomTypeScriptRequestId = CustomTypeScriptRequest["id"]

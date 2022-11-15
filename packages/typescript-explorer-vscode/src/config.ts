@@ -14,20 +14,31 @@ const typeTreeConfigBoolean = {
     readonlyEnabled: ["typescriptExplorer.typeTree.readonly.enable"],
 } as const
 
-const basicConfig = {
+const basicConfigBoolean = {
     dialogueErrors: "typescriptExplorer.errorMessages.showDialogue",
     logErrors: "typescriptExplorer.errorMessages.log",
 } as const
 
-const getBoolean = (id: string, defaultValue?: boolean) => () =>
-    !!config().get(id, defaultValue)
-const toggleBoolean = (id: string, defaultValue?: boolean) => () =>
-    smartlySetConfigValue(id, !getBoolean(id, defaultValue)(), config())
+const basicConfigNumeric = {
+    maxRecursionDepth: "typescriptExplorer.typeTree.maxRecursionDepth",
+}
+
 const exportBooleanConfig = (id: string, defaultValue?: boolean) =>
     ({
-        get: getBoolean(id, defaultValue),
-        toggle: toggleBoolean(id),
+        get: () => !!config().get(id, defaultValue),
+        toggle: () =>
+            smartlySetConfigValue(
+                id,
+                !config().get(id, defaultValue),
+                config()
+            ),
     } as const)
+
+const exportNumericConfig = (id: string) => ({
+    get: () => config().get<number>(id),
+    set: (value: number | undefined) =>
+        smartlySetConfigValue(id, value, config()),
+})
 
 const typeTreeConfig = [...Object.values(typeTreeConfigBoolean)]
 
@@ -61,11 +72,17 @@ export const {
     readonlyEnabled,
     logErrors,
     dialogueErrors,
+    maxRecursionDepth,
 } = {
     ...mapObject(typeTreeConfigBoolean, ({ value: [id] }) =>
         exportBooleanConfig(id)
     ),
-    ...mapObject(basicConfig, ({ value: id }) => exportBooleanConfig(id)),
+    ...mapObject(basicConfigBoolean, ({ value: id }) =>
+        exportBooleanConfig(id)
+    ),
+    ...mapObject(basicConfigNumeric, ({ value: id }) =>
+        exportNumericConfig(id)
+    ),
 }
 
 function config() {
