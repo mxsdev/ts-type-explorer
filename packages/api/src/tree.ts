@@ -734,7 +734,7 @@ function _generateTypeTree(
             const isReadonly = isReadonlySymbol(tsCtx, symbol)
 
             return {
-                name: symbol.getName(),
+                name: typeChecker.symbolToString(symbol),
                 flags: symbol.getFlags(),
                 ...(isReadonly && { readonly: true }),
                 ...(isAnonymous && { anonymous: true }),

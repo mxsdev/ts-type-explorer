@@ -401,7 +401,8 @@ const mapped = [1].map((x) => x.toString())
                                     "id": "4"
                                 },
                                 {
-                                    "kind": "reference",
+                                    "kind": "primitive",
+                                    "primitive": "number",
                                     "symbolMeta": {
                                         "name": "index",
                                         "flags": 33554433,
@@ -423,13 +424,14 @@ const mapped = [1].map((x) => x.toString())
                                             }
                                         ]
                                     },
-                                    "id": "4"
+                                    "id": "5"
                                 },
                                 {
                                     "kind": "array",
                                     "type": {
-                                        "kind": "reference",
-                                        "id": "4"
+                                        "kind": "primitive",
+                                        "primitive": "number",
+                                        "id": "7"
                                     },
                                     "symbolMeta": {
                                         "name": "array",
@@ -452,7 +454,7 @@ const mapped = [1].map((x) => x.toString())
                                             }
                                         ]
                                     },
-                                    "id": "5"
+                                    "id": "6"
                                 }
                             ],
                             "returnType": {
@@ -509,7 +511,7 @@ const mapped = [1].map((x) => x.toString())
                             }
                         ]
                     },
-                    "id": "6"
+                    "id": "8"
                 }
             ],
             "returnType": {
@@ -518,7 +520,7 @@ const mapped = [1].map((x) => x.toString())
                     "kind": "reference",
                     "id": "2"
                 },
-                "id": "7"
+                "id": "9"
             },
             "typeParameters": [
                 {
@@ -544,7 +546,7 @@ const mapped = [1].map((x) => x.toString())
                             }
                         ]
                     },
-                    "id": "8"
+                    "id": "10"
                 }
             ]
         }
@@ -642,7 +644,7 @@ const mapped = [1].map((x) => x.toString())
     "signatures": [
         {
             "symbolMeta": {
-                "name": "__function",
+                "name": "(Anonymous function)",
                 "flags": 16,
                 "declarations": [
                     {
@@ -698,7 +700,7 @@ const mapped = [1].map((x) => x.toString())
         }
     ],
     "symbolMeta": {
-        "name": "__function",
+        "name": "(Anonymous function)",
         "flags": 16,
         "declarations": [
             {

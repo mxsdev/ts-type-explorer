@@ -493,13 +493,50 @@ const mapped = [1].map((x) => x.toString())
                     "_id": "4"
                 },
                 {
-                    "reference": "4"
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "symbol": {
+                        "name": "index",
+                        "isArgument": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1427,
+                                        "character": 34
+                                    },
+                                    "end": {
+                                        "line": 1427,
+                                        "character": 39
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1427,
+                                    "character": 34
+                                },
+                                "end": {
+                                    "line": 1427,
+                                    "character": 39
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "5"
                 },
                 {
                     "kindText": "number",
                     "kind": "primitive",
                     "primitiveKind": "number",
-                    "alias": "value",
                     "symbol": {
                         "name": "array",
                         "isArgument": true,
@@ -526,17 +563,17 @@ const mapped = [1].map((x) => x.toString())
                             "range": {
                                 "start": {
                                     "line": 1427,
-                                    "character": 24
+                                    "character": 49
                                 },
                                 "end": {
                                     "line": 1427,
-                                    "character": 29
+                                    "character": 54
                                 }
                             }
                         }
                     ],
                     "children": [],
-                    "_id": "5"
+                    "_id": "6"
                 },
                 {
                     "reference": "2"
@@ -584,7 +621,7 @@ const mapped = [1].map((x) => x.toString())
                 }
             ],
             "children": [],
-            "_id": "6"
+            "_id": "7"
         },
         {
             "kindText": "string",
@@ -593,7 +630,7 @@ const mapped = [1].map((x) => x.toString())
             "purpose": "return",
             "dimension": 1,
             "children": [],
-            "_id": "7"
+            "_id": "8"
         }
     ],
     "_id": "0"
@@ -647,7 +684,7 @@ const mapped = [1].map((x) => x.toString())
     "kindText": "function",
     "kind": "function",
     "symbol": {
-        "name": "__function",
+        "name": "(Anonymous function)",
         "locations": [
             {
                 "fileName": "cases/mapArray.ts",

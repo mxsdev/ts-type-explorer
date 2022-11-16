@@ -755,7 +755,8 @@ function Comp(props: { abc: string, ad?: number }) {
                         "id": "5"
                     },
                     {
-                        "kind": "reference",
+                        "kind": "primitive",
+                        "primitive": "any",
                         "symbolMeta": {
                             "name": "props",
                             "flags": 33554436,
@@ -778,7 +779,7 @@ function Comp(props: { abc: string, ad?: number }) {
                                 }
                             ]
                         },
-                        "id": "5"
+                        "id": "6"
                     },
                     {
                         "kind": "union",
@@ -786,12 +787,12 @@ function Comp(props: { abc: string, ad?: number }) {
                             {
                                 "kind": "primitive",
                                 "primitive": "string",
-                                "id": "7"
+                                "id": "8"
                             },
                             {
                                 "kind": "primitive",
                                 "primitive": "number",
-                                "id": "8"
+                                "id": "9"
                             }
                         ],
                         "symbolMeta": {
@@ -837,14 +838,15 @@ function Comp(props: { abc: string, ad?: number }) {
                                 }
                             ]
                         },
-                        "id": "6"
+                        "id": "7"
                     }
                 ],
                 "baseType": {
                     "kind": "object",
                     "properties": [
                         {
-                            "kind": "reference",
+                            "kind": "primitive",
+                            "primitive": "any",
                             "symbolMeta": {
                                 "name": "type",
                                 "flags": 33554436,
@@ -867,10 +869,11 @@ function Comp(props: { abc: string, ad?: number }) {
                                     }
                                 ]
                             },
-                            "id": "5"
+                            "id": "18"
                         },
                         {
-                            "kind": "reference",
+                            "kind": "primitive",
+                            "primitive": "any",
                             "symbolMeta": {
                                 "name": "props",
                                 "flags": 33554436,
@@ -893,18 +896,18 @@ function Comp(props: { abc: string, ad?: number }) {
                                     }
                                 ]
                             },
-                            "id": "5"
+                            "id": "19"
                         },
                         {
                             "kind": "union",
                             "types": [
                                 {
                                     "kind": "reference",
-                                    "id": "7"
+                                    "id": "8"
                                 },
                                 {
                                     "kind": "reference",
-                                    "id": "8"
+                                    "id": "9"
                                 }
                             ],
                             "symbolMeta": {
@@ -950,7 +953,7 @@ function Comp(props: { abc: string, ad?: number }) {
                                     }
                                 ]
                             },
-                            "id": "16"
+                            "id": "20"
                         }
                     ],
                     "indexInfos": [],
@@ -980,7 +983,7 @@ function Comp(props: { abc: string, ad?: number }) {
                             "kind": "type_parameter",
                             "defaultType": {
                                 "kind": "reference",
-                                "id": "5"
+                                "id": "12"
                             },
                             "symbolMeta": {
                                 "name": "P",
@@ -1004,7 +1007,7 @@ function Comp(props: { abc: string, ad?: number }) {
                                     }
                                 ]
                             },
-                            "id": "10"
+                            "id": "11"
                         },
                         {
                             "kind": "type_parameter",
@@ -1013,7 +1016,7 @@ function Comp(props: { abc: string, ad?: number }) {
                                 "types": [
                                     {
                                         "kind": "reference",
-                                        "id": "7"
+                                        "id": "8"
                                     },
                                     {
                                         "kind": "function",
@@ -1043,12 +1046,12 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 "parameters": [
                                                     {
                                                         "kind": "max_depth",
-                                                        "id": "14"
+                                                        "id": "16"
                                                     }
                                                 ],
                                                 "returnType": {
                                                     "kind": "max_depth",
-                                                    "id": "14"
+                                                    "id": "16"
                                                 }
                                             }
                                         ],
@@ -1074,7 +1077,7 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 }
                                             ]
                                         },
-                                        "id": "13"
+                                        "id": "15"
                                     },
                                     {
                                         "kind": "function",
@@ -1104,12 +1107,12 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 "parameters": [
                                                     {
                                                         "kind": "max_depth",
-                                                        "id": "14"
+                                                        "id": "16"
                                                     }
                                                 ],
                                                 "returnType": {
                                                     "kind": "max_depth",
-                                                    "id": "14"
+                                                    "id": "16"
                                                 }
                                             }
                                         ],
@@ -1135,14 +1138,14 @@ function Comp(props: { abc: string, ad?: number }) {
                                                 }
                                             ]
                                         },
-                                        "id": "15"
+                                        "id": "17"
                                     }
                                 ],
-                                "id": "12"
+                                "id": "14"
                             },
                             "defaultType": {
                                 "kind": "reference",
-                                "id": "12"
+                                "id": "14"
                             },
                             "symbolMeta": {
                                 "name": "T",
@@ -1166,20 +1169,21 @@ function Comp(props: { abc: string, ad?: number }) {
                                     }
                                 ]
                             },
-                            "id": "11"
+                            "id": "13"
                         }
                     ],
                     "typeArguments": [
                         {
-                            "kind": "reference",
-                            "id": "5"
+                            "kind": "primitive",
+                            "primitive": "any",
+                            "id": "12"
                         },
                         {
                             "kind": "reference",
-                            "id": "5"
+                            "id": "12"
                         }
                     ],
-                    "id": "9"
+                    "id": "10"
                 },
                 "implementsTypes": [],
                 "constructSignatures": [],
@@ -1405,7 +1409,8 @@ const a = <Comp abc="asc" ad={4} />
             "id": "1"
         },
         {
-            "kind": "reference",
+            "kind": "primitive",
+            "primitive": "any",
             "symbolMeta": {
                 "name": "props",
                 "flags": 33554436,
@@ -1428,7 +1433,7 @@ const a = <Comp abc="asc" ad={4} />
                     }
                 ]
             },
-            "id": "1"
+            "id": "2"
         },
         {
             "kind": "union",
@@ -1436,12 +1441,12 @@ const a = <Comp abc="asc" ad={4} />
                 {
                     "kind": "primitive",
                     "primitive": "string",
-                    "id": "3"
+                    "id": "4"
                 },
                 {
                     "kind": "primitive",
                     "primitive": "number",
-                    "id": "4"
+                    "id": "5"
                 }
             ],
             "symbolMeta": {
@@ -1487,14 +1492,15 @@ const a = <Comp abc="asc" ad={4} />
                     }
                 ]
             },
-            "id": "2"
+            "id": "3"
         }
     ],
     "baseType": {
         "kind": "object",
         "properties": [
             {
-                "kind": "reference",
+                "kind": "primitive",
+                "primitive": "any",
                 "symbolMeta": {
                     "name": "type",
                     "flags": 33554436,
@@ -1517,10 +1523,11 @@ const a = <Comp abc="asc" ad={4} />
                         }
                     ]
                 },
-                "id": "1"
+                "id": "16"
             },
             {
-                "kind": "reference",
+                "kind": "primitive",
+                "primitive": "any",
                 "symbolMeta": {
                     "name": "props",
                     "flags": 33554436,
@@ -1543,18 +1550,18 @@ const a = <Comp abc="asc" ad={4} />
                         }
                     ]
                 },
-                "id": "1"
+                "id": "17"
             },
             {
                 "kind": "union",
                 "types": [
                     {
                         "kind": "reference",
-                        "id": "3"
+                        "id": "4"
                     },
                     {
                         "kind": "reference",
-                        "id": "4"
+                        "id": "5"
                     }
                 ],
                 "symbolMeta": {
@@ -1600,7 +1607,7 @@ const a = <Comp abc="asc" ad={4} />
                         }
                     ]
                 },
-                "id": "14"
+                "id": "18"
             }
         ],
         "indexInfos": [],
@@ -1630,7 +1637,7 @@ const a = <Comp abc="asc" ad={4} />
                 "kind": "type_parameter",
                 "defaultType": {
                     "kind": "reference",
-                    "id": "1"
+                    "id": "8"
                 },
                 "symbolMeta": {
                     "name": "P",
@@ -1654,7 +1661,7 @@ const a = <Comp abc="asc" ad={4} />
                         }
                     ]
                 },
-                "id": "6"
+                "id": "7"
             },
             {
                 "kind": "type_parameter",
@@ -1663,7 +1670,7 @@ const a = <Comp abc="asc" ad={4} />
                     "types": [
                         {
                             "kind": "reference",
-                            "id": "3"
+                            "id": "4"
                         },
                         {
                             "kind": "function",
@@ -1714,7 +1721,7 @@ const a = <Comp abc="asc" ad={4} />
                                                     }
                                                 ]
                                             },
-                                            "id": "1"
+                                            "id": "8"
                                         }
                                     ],
                                     "returnType": {
@@ -1740,7 +1747,7 @@ const a = <Comp abc="asc" ad={4} />
                                                 }
                                             ]
                                         },
-                                        "id": "5"
+                                        "id": "6"
                                     }
                                 }
                             ],
@@ -1766,7 +1773,7 @@ const a = <Comp abc="asc" ad={4} />
                                     }
                                 ]
                             },
-                            "id": "9"
+                            "id": "11"
                         },
                         {
                             "kind": "function",
@@ -1817,7 +1824,7 @@ const a = <Comp abc="asc" ad={4} />
                                                     }
                                                 ]
                                             },
-                                            "id": "1"
+                                            "id": "8"
                                         }
                                     ],
                                     "returnType": {
@@ -1825,13 +1832,13 @@ const a = <Comp abc="asc" ad={4} />
                                         "properties": [
                                             {
                                                 "kind": "max_depth",
-                                                "id": "13"
+                                                "id": "15"
                                             }
                                         ],
                                         "indexInfos": [],
                                         "objectClass": {
                                             "kind": "max_depth",
-                                            "id": "12"
+                                            "id": "14"
                                         },
                                         "symbolMeta": {
                                             "name": "Component",
@@ -1872,10 +1879,10 @@ const a = <Comp abc="asc" ad={4} />
                                         "typeArguments": [
                                             {
                                                 "kind": "max_depth",
-                                                "id": "13"
+                                                "id": "15"
                                             }
                                         ],
-                                        "id": "11"
+                                        "id": "13"
                                     }
                                 }
                             ],
@@ -1901,14 +1908,14 @@ const a = <Comp abc="asc" ad={4} />
                                     }
                                 ]
                             },
-                            "id": "10"
+                            "id": "12"
                         }
                     ],
-                    "id": "8"
+                    "id": "10"
                 },
                 "defaultType": {
                     "kind": "reference",
-                    "id": "8"
+                    "id": "10"
                 },
                 "symbolMeta": {
                     "name": "T",
@@ -1932,20 +1939,21 @@ const a = <Comp abc="asc" ad={4} />
                         }
                     ]
                 },
-                "id": "7"
+                "id": "9"
             }
         ],
         "typeArguments": [
             {
-                "kind": "reference",
-                "id": "1"
+                "kind": "primitive",
+                "primitive": "any",
+                "id": "8"
             },
             {
                 "kind": "reference",
-                "id": "1"
+                "id": "8"
             }
         ],
-        "id": "5"
+        "id": "6"
     },
     "implementsTypes": [],
     "constructSignatures": [],
@@ -2132,7 +2140,8 @@ const a = <Comp abc="asc" ad={4} />
                         "id": "5"
                     },
                     {
-                        "kind": "reference",
+                        "kind": "primitive",
+                        "primitive": "any",
                         "symbolMeta": {
                             "name": "props",
                             "flags": 33554436,
@@ -2155,7 +2164,7 @@ const a = <Comp abc="asc" ad={4} />
                                 }
                             ]
                         },
-                        "id": "5"
+                        "id": "6"
                     },
                     {
                         "kind": "union",
@@ -2163,12 +2172,12 @@ const a = <Comp abc="asc" ad={4} />
                             {
                                 "kind": "primitive",
                                 "primitive": "string",
-                                "id": "7"
+                                "id": "8"
                             },
                             {
                                 "kind": "primitive",
                                 "primitive": "number",
-                                "id": "8"
+                                "id": "9"
                             }
                         ],
                         "symbolMeta": {
@@ -2214,14 +2223,15 @@ const a = <Comp abc="asc" ad={4} />
                                 }
                             ]
                         },
-                        "id": "6"
+                        "id": "7"
                     }
                 ],
                 "baseType": {
                     "kind": "object",
                     "properties": [
                         {
-                            "kind": "reference",
+                            "kind": "primitive",
+                            "primitive": "any",
                             "symbolMeta": {
                                 "name": "type",
                                 "flags": 33554436,
@@ -2244,10 +2254,11 @@ const a = <Comp abc="asc" ad={4} />
                                     }
                                 ]
                             },
-                            "id": "5"
+                            "id": "18"
                         },
                         {
-                            "kind": "reference",
+                            "kind": "primitive",
+                            "primitive": "any",
                             "symbolMeta": {
                                 "name": "props",
                                 "flags": 33554436,
@@ -2270,18 +2281,18 @@ const a = <Comp abc="asc" ad={4} />
                                     }
                                 ]
                             },
-                            "id": "5"
+                            "id": "19"
                         },
                         {
                             "kind": "union",
                             "types": [
                                 {
                                     "kind": "reference",
-                                    "id": "7"
+                                    "id": "8"
                                 },
                                 {
                                     "kind": "reference",
-                                    "id": "8"
+                                    "id": "9"
                                 }
                             ],
                             "symbolMeta": {
@@ -2327,7 +2338,7 @@ const a = <Comp abc="asc" ad={4} />
                                     }
                                 ]
                             },
-                            "id": "16"
+                            "id": "20"
                         }
                     ],
                     "indexInfos": [],
@@ -2357,7 +2368,7 @@ const a = <Comp abc="asc" ad={4} />
                             "kind": "type_parameter",
                             "defaultType": {
                                 "kind": "reference",
-                                "id": "5"
+                                "id": "12"
                             },
                             "symbolMeta": {
                                 "name": "P",
@@ -2381,7 +2392,7 @@ const a = <Comp abc="asc" ad={4} />
                                     }
                                 ]
                             },
-                            "id": "10"
+                            "id": "11"
                         },
                         {
                             "kind": "type_parameter",
@@ -2390,7 +2401,7 @@ const a = <Comp abc="asc" ad={4} />
                                 "types": [
                                     {
                                         "kind": "reference",
-                                        "id": "7"
+                                        "id": "8"
                                     },
                                     {
                                         "kind": "function",
@@ -2420,12 +2431,12 @@ const a = <Comp abc="asc" ad={4} />
                                                 "parameters": [
                                                     {
                                                         "kind": "max_depth",
-                                                        "id": "14"
+                                                        "id": "16"
                                                     }
                                                 ],
                                                 "returnType": {
                                                     "kind": "max_depth",
-                                                    "id": "14"
+                                                    "id": "16"
                                                 }
                                             }
                                         ],
@@ -2451,7 +2462,7 @@ const a = <Comp abc="asc" ad={4} />
                                                 }
                                             ]
                                         },
-                                        "id": "13"
+                                        "id": "15"
                                     },
                                     {
                                         "kind": "function",
@@ -2481,12 +2492,12 @@ const a = <Comp abc="asc" ad={4} />
                                                 "parameters": [
                                                     {
                                                         "kind": "max_depth",
-                                                        "id": "14"
+                                                        "id": "16"
                                                     }
                                                 ],
                                                 "returnType": {
                                                     "kind": "max_depth",
-                                                    "id": "14"
+                                                    "id": "16"
                                                 }
                                             }
                                         ],
@@ -2512,14 +2523,14 @@ const a = <Comp abc="asc" ad={4} />
                                                 }
                                             ]
                                         },
-                                        "id": "15"
+                                        "id": "17"
                                     }
                                 ],
-                                "id": "12"
+                                "id": "14"
                             },
                             "defaultType": {
                                 "kind": "reference",
-                                "id": "12"
+                                "id": "14"
                             },
                             "symbolMeta": {
                                 "name": "T",
@@ -2543,20 +2554,21 @@ const a = <Comp abc="asc" ad={4} />
                                     }
                                 ]
                             },
-                            "id": "11"
+                            "id": "13"
                         }
                     ],
                     "typeArguments": [
                         {
-                            "kind": "reference",
-                            "id": "5"
+                            "kind": "primitive",
+                            "primitive": "any",
+                            "id": "12"
                         },
                         {
                             "kind": "reference",
-                            "id": "5"
+                            "id": "12"
                         }
                     ],
-                    "id": "9"
+                    "id": "10"
                 },
                 "implementsTypes": [],
                 "constructSignatures": [],

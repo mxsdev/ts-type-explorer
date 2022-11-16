@@ -999,10 +999,88 @@ function Comp(props: { abc: string, ad?: number }) {
                             ]
                         },
                         {
-                            "reference": "7"
+                            "kindText": "any",
+                            "kind": "primitive",
+                            "primitiveKind": "any",
+                            "symbol": {
+                                "name": "type",
+                                "insideClassOrInterface": true,
+                                "property": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 140,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 140,
+                                                "character": 12
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 140,
+                                            "character": 8
+                                        },
+                                        "end": {
+                                            "line": 140,
+                                            "character": 12
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [],
+                            "_id": "14"
                         },
                         {
-                            "reference": "7"
+                            "kindText": "any",
+                            "kind": "primitive",
+                            "primitiveKind": "any",
+                            "symbol": {
+                                "name": "props",
+                                "insideClassOrInterface": true,
+                                "property": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 141,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 141,
+                                                "character": 13
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 141,
+                                            "character": 8
+                                        },
+                                        "end": {
+                                            "line": 141,
+                                            "character": 13
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [],
+                            "_id": "15"
                         },
                         {
                             "kindText": "union",
@@ -1052,19 +1130,97 @@ function Comp(props: { abc: string, ad?: number }) {
                                     "kind": "primitive",
                                     "primitiveKind": "number",
                                     "children": [],
-                                    "_id": "15"
+                                    "_id": "17"
                                 }
                             ],
-                            "_id": "14"
+                            "_id": "16"
                         }
                     ],
                     "_id": "5"
                 },
                 {
-                    "reference": "7"
+                    "kindText": "any",
+                    "kind": "primitive",
+                    "primitiveKind": "any",
+                    "symbol": {
+                        "name": "type",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 140,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 140,
+                                        "character": 12
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 140,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 140,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "18"
                 },
                 {
-                    "reference": "7"
+                    "kindText": "any",
+                    "kind": "primitive",
+                    "primitiveKind": "any",
+                    "symbol": {
+                        "name": "props",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 141,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 141,
+                                        "character": 13
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 141,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 141,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "19"
                 },
                 {
                     "kindText": "union",
@@ -1110,10 +1266,10 @@ function Comp(props: { abc: string, ad?: number }) {
                             "reference": "10"
                         },
                         {
-                            "reference": "15"
+                            "reference": "17"
                         }
                     ],
-                    "_id": "16"
+                    "_id": "20"
                 }
             ],
             "_id": "4"
@@ -1712,10 +1868,88 @@ const a = <Comp abc="asc" ad={4} />
                     ]
                 },
                 {
-                    "reference": "3"
+                    "kindText": "any",
+                    "kind": "primitive",
+                    "primitiveKind": "any",
+                    "symbol": {
+                        "name": "type",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 140,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 140,
+                                        "character": 12
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 140,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 140,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "11"
                 },
                 {
-                    "reference": "3"
+                    "kindText": "any",
+                    "kind": "primitive",
+                    "primitiveKind": "any",
+                    "symbol": {
+                        "name": "props",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 141,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 141,
+                                        "character": 13
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 141,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 141,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "12"
                 },
                 {
                     "kindText": "union",
@@ -1765,19 +1999,97 @@ const a = <Comp abc="asc" ad={4} />
                             "kind": "primitive",
                             "primitiveKind": "number",
                             "children": [],
-                            "_id": "12"
+                            "_id": "14"
                         }
                     ],
-                    "_id": "11"
+                    "_id": "13"
                 }
             ],
             "_id": "1"
         },
         {
-            "reference": "3"
+            "kindText": "any",
+            "kind": "primitive",
+            "primitiveKind": "any",
+            "symbol": {
+                "name": "type",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/@types/react/index.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 140,
+                                "character": 8
+                            },
+                            "end": {
+                                "line": 140,
+                                "character": 12
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../node_modules/@types/react/index.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 140,
+                            "character": 8
+                        },
+                        "end": {
+                            "line": 140,
+                            "character": 12
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "15"
         },
         {
-            "reference": "3"
+            "kindText": "any",
+            "kind": "primitive",
+            "primitiveKind": "any",
+            "symbol": {
+                "name": "props",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/@types/react/index.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 141,
+                                "character": 8
+                            },
+                            "end": {
+                                "line": 141,
+                                "character": 13
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../node_modules/@types/react/index.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 141,
+                            "character": 8
+                        },
+                        "end": {
+                            "line": 141,
+                            "character": 13
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "16"
         },
         {
             "kindText": "union",
@@ -1823,10 +2135,10 @@ const a = <Comp abc="asc" ad={4} />
                     "reference": "6"
                 },
                 {
-                    "reference": "12"
+                    "reference": "14"
                 }
             ],
-            "_id": "13"
+            "_id": "17"
         }
     ],
     "_id": "0"
@@ -2270,10 +2582,88 @@ const a = <Comp abc="asc" ad={4} />
                             ]
                         },
                         {
-                            "reference": "7"
+                            "kindText": "any",
+                            "kind": "primitive",
+                            "primitiveKind": "any",
+                            "symbol": {
+                                "name": "type",
+                                "insideClassOrInterface": true,
+                                "property": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 140,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 140,
+                                                "character": 12
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 140,
+                                            "character": 8
+                                        },
+                                        "end": {
+                                            "line": 140,
+                                            "character": 12
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [],
+                            "_id": "14"
                         },
                         {
-                            "reference": "7"
+                            "kindText": "any",
+                            "kind": "primitive",
+                            "primitiveKind": "any",
+                            "symbol": {
+                                "name": "props",
+                                "insideClassOrInterface": true,
+                                "property": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/@types/react/index.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 141,
+                                                "character": 8
+                                            },
+                                            "end": {
+                                                "line": 141,
+                                                "character": 13
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "../node_modules/@types/react/index.d.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 141,
+                                            "character": 8
+                                        },
+                                        "end": {
+                                            "line": 141,
+                                            "character": 13
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [],
+                            "_id": "15"
                         },
                         {
                             "kindText": "union",
@@ -2323,19 +2713,97 @@ const a = <Comp abc="asc" ad={4} />
                                     "kind": "primitive",
                                     "primitiveKind": "number",
                                     "children": [],
-                                    "_id": "15"
+                                    "_id": "17"
                                 }
                             ],
-                            "_id": "14"
+                            "_id": "16"
                         }
                     ],
                     "_id": "5"
                 },
                 {
-                    "reference": "7"
+                    "kindText": "any",
+                    "kind": "primitive",
+                    "primitiveKind": "any",
+                    "symbol": {
+                        "name": "type",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 140,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 140,
+                                        "character": 12
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 140,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 140,
+                                    "character": 12
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "18"
                 },
                 {
-                    "reference": "7"
+                    "kindText": "any",
+                    "kind": "primitive",
+                    "primitiveKind": "any",
+                    "symbol": {
+                        "name": "props",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/@types/react/index.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 141,
+                                        "character": 8
+                                    },
+                                    "end": {
+                                        "line": 141,
+                                        "character": 13
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/@types/react/index.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 141,
+                                    "character": 8
+                                },
+                                "end": {
+                                    "line": 141,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "19"
                 },
                 {
                     "kindText": "union",
@@ -2381,10 +2849,10 @@ const a = <Comp abc="asc" ad={4} />
                             "reference": "10"
                         },
                         {
-                            "reference": "15"
+                            "reference": "17"
                         }
                     ],
-                    "_id": "16"
+                    "_id": "20"
                 }
             ],
             "_id": "4"

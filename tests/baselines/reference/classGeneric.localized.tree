@@ -723,10 +723,88 @@ class TestClass<T> extends TestBaseClass {
             "_id": ""
         },
         {
-            "reference": "5"
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "param",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 7,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 7,
+                                "character": 9
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 9
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "7"
         },
         {
-            "reference": "5"
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "param2",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 8,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 8,
+                                "character": 10
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 8,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 8,
+                            "character": 10
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "8"
         },
         {
             "kindText": "method",
@@ -805,13 +883,13 @@ class TestClass<T> extends TestBaseClass {
                         }
                     ],
                     "children": [],
-                    "_id": "8"
+                    "_id": "10"
                 },
                 {
                     "reference": "5"
                 }
             ],
-            "_id": "7"
+            "_id": "9"
         }
     ],
     "_id": "0"
@@ -1183,10 +1261,88 @@ class TestClass<T> extends TestBaseClass {
             "_id": ""
         },
         {
-            "reference": "5"
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "param",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 7,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 7,
+                                "character": 9
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 9
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "7"
         },
         {
-            "reference": "5"
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "param2",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/classGeneric.ts",
+                        "range": {
+                            "start": {
+                                "line": 8,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 8,
+                                "character": 10
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/classGeneric.ts",
+                    "range": {
+                        "start": {
+                            "line": 8,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 8,
+                            "character": 10
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "8"
         },
         {
             "kindText": "method",
@@ -1265,13 +1421,13 @@ class TestClass<T> extends TestBaseClass {
                         }
                     ],
                     "children": [],
-                    "_id": "8"
+                    "_id": "10"
                 },
                 {
                     "reference": "5"
                 }
             ],
-            "_id": "7"
+            "_id": "9"
         }
     ],
     "_id": "0"
@@ -2000,10 +2156,88 @@ const _a = new TestClass<string>(false, 4)
                     "_id": ""
                 },
                 {
-                    "reference": "3"
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "symbol": {
+                        "name": "param",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/classGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 7,
+                                        "character": 9
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 9
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "8"
                 },
                 {
-                    "reference": "3"
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "symbol": {
+                        "name": "param2",
+                        "insideClassOrInterface": true,
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/classGeneric.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 8,
+                                        "character": 4
+                                    },
+                                    "end": {
+                                        "line": 8,
+                                        "character": 10
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/classGeneric.ts",
+                            "range": {
+                                "start": {
+                                    "line": 8,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 8,
+                                    "character": 10
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "9"
                 },
                 {
                     "kindText": "method",
@@ -2082,13 +2316,13 @@ const _a = new TestClass<string>(false, 4)
                                 }
                             ],
                             "children": [],
-                            "_id": "9"
+                            "_id": "11"
                         },
                         {
                             "reference": "3"
                         }
                     ],
-                    "_id": "8"
+                    "_id": "10"
                 }
             ],
             "_id": "1"
@@ -2133,7 +2367,7 @@ const _a = new TestClass<string>(false, 4)
                 }
             ],
             "children": [],
-            "_id": "10"
+            "_id": "12"
         },
         {
             "kindText": "string",
@@ -2175,7 +2409,7 @@ const _a = new TestClass<string>(false, 4)
                 }
             ],
             "children": [],
-            "_id": "11"
+            "_id": "13"
         },
         {
             "kindText": "method",
@@ -2222,7 +2456,7 @@ const _a = new TestClass<string>(false, 4)
                     "reference": "3"
                 }
             ],
-            "_id": "12"
+            "_id": "14"
         }
     ],
     "_id": "0"
@@ -2591,10 +2825,88 @@ const _a = new TestClass<string>(false, 4)
                             "_id": ""
                         },
                         {
-                            "reference": "2"
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "symbol": {
+                                "name": "param",
+                                "insideClassOrInterface": true,
+                                "property": true,
+                                "locations": [
+                                    {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 7,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 7,
+                                                "character": 9
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 7,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 7,
+                                            "character": 9
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [],
+                            "_id": "9"
                         },
                         {
-                            "reference": "2"
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "symbol": {
+                                "name": "param2",
+                                "insideClassOrInterface": true,
+                                "property": true,
+                                "locations": [
+                                    {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 8,
+                                                "character": 4
+                                            },
+                                            "end": {
+                                                "line": 8,
+                                                "character": 10
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 8,
+                                            "character": 4
+                                        },
+                                        "end": {
+                                            "line": 8,
+                                            "character": 10
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [],
+                            "_id": "10"
                         },
                         {
                             "kindText": "method",
@@ -2673,13 +2985,13 @@ const _a = new TestClass<string>(false, 4)
                                         }
                                     ],
                                     "children": [],
-                                    "_id": "10"
+                                    "_id": "12"
                                 },
                                 {
                                     "reference": "2"
                                 }
                             ],
-                            "_id": "9"
+                            "_id": "11"
                         }
                     ],
                     "_id": "7"
@@ -2724,7 +3036,7 @@ const _a = new TestClass<string>(false, 4)
                         }
                     ],
                     "children": [],
-                    "_id": "11"
+                    "_id": "13"
                 },
                 {
                     "kindText": "string",
@@ -2766,7 +3078,7 @@ const _a = new TestClass<string>(false, 4)
                         }
                     ],
                     "children": [],
-                    "_id": "12"
+                    "_id": "14"
                 },
                 {
                     "kindText": "method",
@@ -2807,13 +3119,51 @@ const _a = new TestClass<string>(false, 4)
                     ],
                     "children": [
                         {
-                            "reference": "2"
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "symbol": {
+                                "name": "param",
+                                "isArgument": true,
+                                "locations": [
+                                    {
+                                        "fileName": "cases/classGeneric.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 10,
+                                                "character": 13
+                                            },
+                                            "end": {
+                                                "line": 10,
+                                                "character": 18
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "locations": [
+                                {
+                                    "fileName": "cases/classGeneric.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 10,
+                                            "character": 13
+                                        },
+                                        "end": {
+                                            "line": 10,
+                                            "character": 18
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [],
+                            "_id": "16"
                         },
                         {
                             "reference": "2"
                         }
                     ],
-                    "_id": "13"
+                    "_id": "15"
                 }
             ],
             "_id": "6"
