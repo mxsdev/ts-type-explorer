@@ -1,1 +1,3 @@
-const mapped = [1].map((x) => x.toString())
+async function test(a: string): Promise<string> {
+    return a
+}
