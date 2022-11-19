@@ -4,6 +4,7 @@ import {
     LocalizedTypeInfo,
     TypeInfoResolver,
     localizePurpose,
+    TypeInfo,
 } from "@ts-type-explorer/api"
 import assert = require("assert")
 import * as vscode from "vscode"
@@ -55,19 +56,35 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     async getTreeItem(element: TypeTreeItem) {
         if (element.typeInfo.kind === "max_depth") {
             element.tooltip = "max depth exceeded"
-        } else if (element.typeInfo.locations) {
-            for (const location of element.typeInfo.locations) {
-                const { documentation, tags } =
-                    (await getQuickInfoAtLocation(location)) ?? {}
+        } else {
+            if (element.typeInfo.locations) {
+                for (const location of element.typeInfo.locations) {
+                    const { documentation, tags } =
+                        (await getQuickInfoAtLocation(location)) ?? {}
 
-                if (documentation && documentation.length > 0) {
-                    element.tooltip = markdownDocumentation(
-                        documentation,
-                        tags ?? [],
-                        vscode.Uri.file(location.fileName)
-                    )
-                    break
+                    if (documentation && documentation.length > 0) {
+                        element.tooltip = markdownDocumentation(
+                            documentation,
+                            tags ?? [],
+                            vscode.Uri.file(location.fileName)
+                        )
+                        break
+                    }
                 }
+            }
+
+            if (
+                element.typeInfo.typeArguments &&
+                element.typeInfo.typeArguments.length > 0
+            ) {
+                const typeArguments = await this.localizeTypeInfoTypeArguments(
+                    element.typeInfo
+                )
+
+                element.description = getDescriptionWithTypeArguments(
+                    element.typeInfo,
+                    typeArguments
+                )
             }
         }
 
@@ -85,6 +102,21 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
         this._onDidGetChildren.fire({ parent: element, children })
 
         return children
+    }
+
+    private async localizeTypeInfoChildren(
+        typeInfo: LocalizedTypeInfo,
+        typeArguments?: boolean
+    ) {
+        if (!this.typeInfoResolver?.hasLocalizedTypeInfo(typeInfo)) {
+            return []
+        }
+
+        return this.typeInfoResolver.localizeChildren(typeInfo, typeArguments)
+    }
+
+    private async localizeTypeInfoTypeArguments(typeInfo: LocalizedTypeInfo) {
+        return this.localizeTypeInfoChildren(typeInfo, true)
     }
 
     private async getChildrenWorker(
@@ -106,14 +138,9 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
                 this.createTypeNode(localizedTypeInfo, /* root */ undefined),
             ]
         } else {
-            if (
-                !this.typeInfoResolver?.hasLocalizedTypeInfo(element.typeInfo)
-            ) {
-                return []
-            }
-
-            const localizedChildren =
-                await this.typeInfoResolver.localizeChildren(element.typeInfo)
+            const localizedChildren = await this.localizeTypeInfoChildren(
+                element.typeInfo
+            )
 
             return localizedChildren
                 .map((info) => this.createTypeNode(info, element))
@@ -157,7 +184,7 @@ export class TypeTreeItem extends vscode.TreeItem {
         const depth = (parent?.depth ?? 0) + 1
 
         const { label, description, contextValue, icon, collapsibleState } =
-            getMeta(typeInfo, depth)
+            getMeta(typeInfo, depth, provider)
 
         super(label, collapsibleState)
 
@@ -205,11 +232,13 @@ type TypeTreeItemMeta = {
     collapsibleState: vscode.TreeItemCollapsibleState
 }
 
-function getMeta(info: LocalizedTypeInfo, depth: number): TypeTreeItemMeta {
-    let nameOverridden = false
-
-    const label = getLabel()
-    const description = getDescription()
+function getMeta(
+    info: LocalizedTypeInfo,
+    depth: number,
+    provider: TypeTreeProvider
+): TypeTreeItemMeta {
+    const label = getLabel(info)
+    const description = getDescription(info)
 
     const collapsibleState = getCollapsibleState()
 
@@ -231,63 +260,6 @@ function getMeta(info: LocalizedTypeInfo, depth: number): TypeTreeItemMeta {
         }
 
         return depth === 1 ? Expanded : Collapsed
-    }
-
-    function getLabel() {
-        const base = getLabelBase()
-
-        if (!base) {
-            return base
-        }
-
-        return addDecorations(base, {
-            optional: info.optional,
-            rest: info.rest,
-        })
-
-        function getLabelBase() {
-            nameOverridden = true
-
-            if (info.name !== undefined) {
-                return info.name
-            }
-
-            if (info.purpose) {
-                return `<${localizePurpose(info.purpose)}>`
-            }
-
-            nameOverridden = false
-            return !info.symbol?.anonymous ? info.symbol?.name ?? "" : ""
-        }
-    }
-
-    function getDescription() {
-        if (!info.kindText) {
-            return undefined
-        }
-
-        const decorate = (text: string) =>
-            addDecorations(text, { dimension: info.dimension })
-
-        const baseDescription = decorate(info.kindText)
-
-        const aliasDescriptionBase =
-            info.alias ??
-            (nameOverridden &&
-                info.purpose !== "jsx_properties" &&
-                info.symbol?.name)
-        const aliasDescription =
-            aliasDescriptionBase && decorate(aliasDescriptionBase)
-
-        let result = aliasDescription
-            ? `${aliasDescription} (${baseDescription})`
-            : baseDescription
-
-        if (info.readonly && readonlyEnabled.get()) {
-            result = "readonly " + result
-        }
-
-        return result
     }
 
     function getContextValue(): TypeTreeItemContextValue | undefined {
@@ -463,6 +435,135 @@ function getMeta(info: LocalizedTypeInfo, depth: number): TypeTreeItemMeta {
             return ["symbol-misc"]
         }
     }
+}
+
+type DescriptionParts = {
+    alias?: string
+    base?: string
+    readonly?: boolean
+}
+
+function getDescription(info: LocalizedTypeInfo) {
+    return descriptionPartsToString(getDescriptionParts(info))
+}
+
+function getDescriptionWithTypeArguments(
+    info: LocalizedTypeInfo,
+    resolvedTypeArguments: LocalizedTypeInfo[]
+) {
+    const parts = getDescriptionParts(info)
+
+    if (parts.alias) {
+        const args: string[] = []
+
+        // TODO: configurable toggle here
+        for (const arg of resolvedTypeArguments) {
+            const { base, alias } = getDescriptionParts(arg)
+
+            let baseText = alias ?? base ?? "???"
+
+            if (arg.typeArguments && arg.typeArguments.length > 0) {
+                baseText += "<...>"
+            }
+
+            args.push(baseText)
+        }
+
+        const argsText = args.join(", ")
+
+        // TODO: make this configurable
+        if (argsText.length <= 10) {
+            parts.alias += `<${argsText}>`
+        }
+    }
+
+    return descriptionPartsToString(parts)
+}
+
+function getDescriptionParts(info: LocalizedTypeInfo): DescriptionParts {
+    if (!info.kindText) {
+        return {}
+    }
+
+    const decorate = (text: string) =>
+        addDecorations(text, { dimension: info.dimension })
+
+    const baseDescription = decorate(info.kindText)
+
+    const nameOverridden = !!getLabelOverride(info)
+
+    const aliasDescriptionBase =
+        info.alias ??
+        (nameOverridden && info.purpose !== "jsx_properties"
+            ? info.symbol?.name
+            : undefined)
+
+    const aliasDescription =
+        aliasDescriptionBase && decorate(aliasDescriptionBase)
+
+    return {
+        alias: aliasDescription,
+        base: baseDescription,
+        readonly: info.readonly && readonlyEnabled.get(),
+    }
+}
+
+function descriptionPartsToString({
+    alias,
+    base,
+    readonly,
+}: DescriptionParts): string | undefined {
+    if (!base) {
+        return undefined
+    }
+
+    let result = alias ? `${alias} (${base})` : base
+
+    if (readonly) {
+        result = "readonly " + result
+    }
+
+    return result
+}
+
+function getLabel(info: LocalizedTypeInfo) {
+    const base = getLabelBase(info)
+
+    if (!base) {
+        return base
+    }
+
+    return addDecorations(base, {
+        optional: info.optional,
+        rest: info.rest,
+    })
+}
+
+function getLabelBase(info: LocalizedTypeInfo) {
+    return (
+        getLabelOverride(info) ??
+        (!info.symbol?.anonymous ? info.symbol?.name ?? "" : "")
+    )
+}
+
+function getLabelOverride(info: LocalizedTypeInfo) {
+    return getLabelByName(info) ?? getLabelByPurpose(info)
+}
+
+function getLabelByName(info: LocalizedTypeInfo) {
+    if (info.name !== undefined) {
+        return info.name
+    }
+
+    return undefined
+}
+
+function getLabelByPurpose(info: LocalizedTypeInfo) {
+    if (info.purpose) {
+        return `<${localizePurpose(info.purpose)}>`
+    }
+
+    return undefined
 }
 
 function addDecorations(
