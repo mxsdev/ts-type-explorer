@@ -5,8 +5,8 @@ import {
     openTestCase,
     rangeFromPosition,
     typeTreeProvider,
-    updateConfig,
     waitForTypeTreeChildChange,
+    withConfig,
 } from "../testLibrary"
 
 const arrayPos = rangeFromPosition(0, 15)
@@ -36,10 +36,16 @@ suite("Basic Tests", () => {
         const { children } = await waitForTypeTreeChildChange()
         assert(children[0].iconPath)
 
-        updateConfig("typescriptExplorer.typeTree.view.icons.enable", false)
-
-        const { children: updatedChildren } = await waitForTypeTreeChildChange()
-        assert(!updatedChildren[0].iconPath)
+        await withConfig(
+            {
+                "typescriptExplorer.typeTree.view.icons.enable": false,
+            },
+            async () => {
+                const { children: updatedChildren } =
+                    await waitForTypeTreeChildChange()
+                assert(!updatedChildren[0].iconPath)
+            }
+        )
     })
 
     test("lock works", async () => {

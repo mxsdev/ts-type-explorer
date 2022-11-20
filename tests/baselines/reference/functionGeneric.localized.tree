@@ -689,6 +689,11 @@ sig1("asd", 3, 4)
             }
         ]
     },
+    "typeArguments": [
+        {
+            "reference": "2"
+        }
+    ],
     "locations": [
         {
             "fileName": "cases/functionGeneric.ts",

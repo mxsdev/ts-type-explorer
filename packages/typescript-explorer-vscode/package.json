@@ -95,6 +95,18 @@
                     "title": "Max Recursion Depth",
                     "type": "integer",
                     "default": 6
+                },
+                "typescriptExplorer.typeTree.meta.typeArguments.enable": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "typescriptExplorer.typeTree.meta.typeArguments.maxLength": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "typescriptExplorer.typeTree.meta.typeArguments.includeInFunctions": {
+                    "type": "boolean",
+                    "default": false
                 }
             }
         },

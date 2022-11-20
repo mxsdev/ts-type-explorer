@@ -17,10 +17,16 @@ const typeTreeConfigBoolean = {
 const basicConfigBoolean = {
     dialogueErrors: "typescriptExplorer.errorMessages.showDialogue",
     logErrors: "typescriptExplorer.errorMessages.log",
+    descriptionTypeArgumentsEnabled:
+        "typescriptExplorer.typeTree.meta.typeArguments.enable",
+    metaTypeArgumentsInFunction:
+        "typescriptExplorer.typeTree.meta.typeArguments.includeInFunctions",
 } as const
 
 const basicConfigNumeric = {
     maxRecursionDepth: "typescriptExplorer.typeTree.maxRecursionDepth",
+    descriptionTypeArgumentsMaxLength:
+        "typescriptExplorer.typeTree.meta.typeArguments.maxLength",
 }
 
 const exportBooleanConfig = (id: string, defaultValue?: boolean) =>
@@ -73,6 +79,9 @@ export const {
     logErrors,
     dialogueErrors,
     maxRecursionDepth,
+    descriptionTypeArgumentsMaxLength,
+    descriptionTypeArgumentsEnabled,
+    metaTypeArgumentsInFunction,
 } = {
     ...mapObject(typeTreeConfigBoolean, ({ value: [id] }) =>
         exportBooleanConfig(id)

@@ -397,6 +397,14 @@ type InstantiatedGeneric<J> = TypeWithGenerics<J, "asd">
             }
         ]
     },
+    "typeArguments": [
+        {
+            "reference": "2"
+        },
+        {
+            "reference": "4"
+        }
+    ],
     "locations": [
         {
             "fileName": "cases/genericTypeDef.ts",

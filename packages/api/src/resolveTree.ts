@@ -41,13 +41,16 @@ export class TypeInfoResolver {
     }
 
     async localizeChildren(
-        parent: LocalizedTypeInfo
+        parent: LocalizedTypeInfo,
+        typeArguments = false
     ): Promise<LocalizedTypeInfo[]> {
         const parentOrigin = this.localizedInfoOrigin.get(parent)
         assert(parentOrigin)
 
+        const targets = !typeArguments ? parent.children : parent.typeArguments
+
         return await Promise.all(
-            parent.children?.map(async ({ info, localizedInfo, opts }) => {
+            targets?.map(async ({ info, localizedInfo, opts }) => {
                 assert(
                     info || localizedInfo,
                     "Either info or localized info must be provided"

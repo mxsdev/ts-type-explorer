@@ -169,6 +169,11 @@ type U<T extends string> = Uppercase<T>
             }
         ]
     },
+    "typeArguments": [
+        {
+            "reference": "2"
+        }
+    ],
     "locations": [
         {
             "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
