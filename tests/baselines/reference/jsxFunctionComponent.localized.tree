@@ -1864,6 +1864,11 @@ const a = <Comp abc="asc" ad={4} />
                                                             "kindText": "...",
                                                             "kind": "max_depth",
                                                             "purpose": "object_class",
+                                                            "typeArguments": [
+                                                                {
+                                                                    "reference": "10"
+                                                                }
+                                                            ],
                                                             "children": [
                                                                 {
                                                                     "purpose": "type_argument_list",

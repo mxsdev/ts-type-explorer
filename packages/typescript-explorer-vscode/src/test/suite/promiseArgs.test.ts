@@ -5,16 +5,16 @@ import {
     openTestCase,
     rangeFromPosition,
     typeTreeProvider,
-    updateConfig,
     waitForTypeTreeChildChange,
+    withConfig,
 } from "../testLibrary"
-
-const funcPos = rangeFromPosition(0, 24)
 
 suite("Promise args", () => {
     test("has simple type args", async () => {
         const { fileName } = await openTestCase("promiseFunction.ts")
-        extension.stateManager.selectTypeAtPosition(fileName, [funcPos])
+        extension.stateManager.selectTypeAtPosition(fileName, [
+            rangeFromPosition(0, 24),
+        ])
 
         await waitForTypeTreeChildChange()
         const { children } = await waitForTypeTreeChildChange()
@@ -25,4 +25,30 @@ suite("Promise args", () => {
 
         assert(item?.description === "Promise<string> (object)")
     })
+
+    test(
+        "works for functions",
+        withConfig(
+            {
+                "typescriptExplorer.typeTree.meta.typeArguments.includeInFunctions":
+                    true,
+            },
+            async () => {
+                const { fileName } = await openTestCase("mapArray.ts")
+                extension.stateManager.selectTypeAtPosition(fileName, [
+                    rangeFromPosition(0, 20),
+                ])
+
+                const { children } = await waitForTypeTreeChildChange()
+                await waitForTypeTreeChildChange()
+
+                const item =
+                    await extension.stateManager.typeTreeProvider?.getTreeItem(
+                        children[0]
+                    )
+
+                assert(item?.label === "map<string>")
+            }
+        )
+    )
 })

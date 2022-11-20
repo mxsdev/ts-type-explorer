@@ -96,13 +96,17 @@
                     "type": "integer",
                     "default": 6
                 },
-                "typescriptExplorer.typeTree.description.typeArguments.enable": {
+                "typescriptExplorer.typeTree.meta.typeArguments.enable": {
                     "type": "boolean",
                     "default": true
                 },
-                "typescriptExplorer.typeTree.description.typeArguments.maxLength": {
+                "typescriptExplorer.typeTree.meta.typeArguments.maxLength": {
                     "type": "integer",
                     "default": 10
+                },
+                "typescriptExplorer.typeTree.meta.typeArguments.includeInFunctions": {
+                    "type": "boolean",
+                    "default": false
                 }
             }
         },

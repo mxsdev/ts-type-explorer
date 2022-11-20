@@ -4,6 +4,7 @@ import * as vscode from "vscode"
 import * as extension from "../extension"
 import { TypeTreeItem } from "../view/typeTreeView"
 import * as assert from "assert"
+import { pairs } from "../functionalUtil"
 
 function testCasePath(fileName: string) {
     return path.join(__dirname, "../../../../tests/cases", fileName)
@@ -120,25 +121,8 @@ function clearArray<T>(arr: T[]) {
     arr.splice(0, arr.length)
 }
 
-const configUpdateStack: [section: string, global: boolean][] = []
-
-export function updateConfig<T>(section: string, value: T, global = true) {
-    configUpdateStack.push([section, global])
+function updateConfig<T>(section: string, value: T, global = true) {
     return vscode.workspace.getConfiguration().update(section, value, global)
-}
-
-export async function clearConfigUpdates() {
-    await Promise.all(
-        configUpdateStack
-            .reverse()
-            .map(([section, global]) =>
-                vscode.workspace
-                    .getConfiguration()
-                    .update(section, undefined, global)
-            )
-    )
-
-    clearArray(configUpdateStack)
 }
 
 export function rangeFromPosition(line: number, character: number) {
@@ -146,4 +130,17 @@ export function rangeFromPosition(line: number, character: number) {
         new vscode.Position(line, character),
         new vscode.Position(line, character)
     )
+}
+
+export function withConfig(
+    config: Record<string, any>,
+    callback: () => Promise<void>
+) {
+    return async function () {
+        for (const { key, value } of pairs(config)) {
+            updateConfig(key, value)
+            await callback()
+            updateConfig(key, undefined)
+        }
+    }
 }

@@ -5,6 +5,7 @@ import {
     readonlyEnabled,
     descriptionTypeArgumentsEnabled,
     descriptionTypeArgumentsMaxLength,
+    metaTypeArgumentsInFunction,
 } from "../config"
 import * as vscode from "vscode"
 
@@ -238,46 +239,56 @@ function getDescription(info: LocalizedTypeInfo) {
     return descriptionPartsToString(getDescriptionParts(info))
 }
 
-export function getDescriptionWithTypeArguments(
+export function getMetaWithTypeArguments(
     info: LocalizedTypeInfo,
     resolvedTypeArguments: LocalizedTypeInfo[]
-) {
+):
+    | {
+          label?: string
+          description?: string
+      }
+    | undefined {
     const parts = getDescriptionParts(info)
 
     if (descriptionTypeArgumentsEnabled.get()) {
-        if (parts.alias) {
-            const args: string[] = []
+        const args: string[] = []
 
-            for (const arg of resolvedTypeArguments) {
-                const { base, alias } = getDescriptionParts(arg)
+        for (const arg of resolvedTypeArguments) {
+            const { base, alias } = getDescriptionParts(arg)
 
-                let baseText = alias ?? base ?? "???"
+            let baseText = alias ?? base ?? "???"
 
-                if (
-                    alias &&
-                    arg.typeArguments &&
-                    arg.typeArguments.length > 0
-                ) {
-                    baseText += "<...>"
+            if (alias && arg.typeArguments && arg.typeArguments.length > 0) {
+                baseText += "<...>"
+            }
+
+            args.push(baseText)
+        }
+
+        let argsText = args.join(", ")
+
+        if (argsText.length > (descriptionTypeArgumentsMaxLength.get() ?? 10)) {
+            argsText = `...`
+        }
+
+        const typeArgumentText = `<${argsText}>`
+
+        if (info.kind === "function" && metaTypeArgumentsInFunction.get()) {
+            return {
+                label: getLabel(info) + typeArgumentText,
+            }
+        } else {
+            if (parts.alias) {
+                parts.alias += typeArgumentText
+
+                return {
+                    description: descriptionPartsToString(parts),
                 }
-
-                args.push(baseText)
             }
-
-            let argsText = args.join(", ")
-
-            if (
-                argsText.length >
-                (descriptionTypeArgumentsMaxLength.get() ?? 10)
-            ) {
-                argsText = `...`
-            }
-
-            parts.alias += `<${argsText}>`
         }
     }
 
-    return descriptionPartsToString(parts)
+    return undefined
 }
 
 function getDescriptionParts(info: LocalizedTypeInfo): DescriptionParts {

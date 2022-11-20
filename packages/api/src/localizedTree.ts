@@ -49,7 +49,7 @@ export function _localizeTypeInfo(
         (originalInfo.kind === "array" && originalInfo.readonly) ||
         (info.kind === "tuple" && info.readonly)
 
-    const typeArguments = info.typeArguments
+    const typeArguments = info.typeArguments ?? opts.typeArguments
 
     const res: LocalizedTypeInfo = {
         kindText: getKind(info),

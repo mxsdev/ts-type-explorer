@@ -8,10 +8,7 @@ import { markdownDocumentation } from "../markdown"
 import { StateManager } from "../state/stateManager"
 import { logError, rangeFromLineAndCharacters, showError } from "../util"
 import { getQuickInfoAtLocation, getTypeTreeAtLocation } from "../server"
-import {
-    getDescriptionWithTypeArguments,
-    getMeta,
-} from "./typeTreeViewLocalizer"
+import { getMetaWithTypeArguments, getMeta } from "./typeTreeViewLocalizer"
 
 export type TypeTreeChildrenUpdateInfo = {
     parent: TypeTreeItem | undefined
@@ -68,10 +65,20 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
                     element.typeInfo
                 )
 
-                element.description = getDescriptionWithTypeArguments(
+                const newMeta = getMetaWithTypeArguments(
                     element.typeInfo,
                     typeArguments
                 )
+
+                if (newMeta) {
+                    if (newMeta.description) {
+                        element.description = newMeta.description
+                    }
+
+                    if (newMeta.label) {
+                        element.label = newMeta.label
+                    }
+                }
             }
         }
 
