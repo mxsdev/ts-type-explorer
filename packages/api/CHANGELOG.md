@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mxsdev/ts-expand-type/compare/v0.3.3...v0.4.0) (2022-11-20)
+
+### Bug Fixes
+
+-   hide internal symbol names ([b9b49ff](https://github.com/mxsdev/ts-expand-type/commit/b9b49ff12cd4c3caf3529843bf7c43a4482b2e9a)), closes [#20](https://github.com/mxsdev/ts-expand-type/issues/20)
+
+### Features
+
+-   **api:** secure lazy symbol resolution ([a21086c](https://github.com/mxsdev/ts-expand-type/commit/a21086c66062d7b4e2a94d3162c9cbe71193323f)), closes [#23](https://github.com/mxsdev/ts-expand-type/issues/23)
+-   configurable recursion depth ([99f6878](https://github.com/mxsdev/ts-expand-type/commit/99f68782b7e6b5c295338e4bbc3b0092cbe9c7ae))
+-   error entries in type tree ([071665c](https://github.com/mxsdev/ts-expand-type/commit/071665c82bbeeb0fb08c4cc87c140a0d8c6ac046)), closes [#15](https://github.com/mxsdev/ts-expand-type/issues/15)
+-   show type arguments in labels ([1c062c7](https://github.com/mxsdev/ts-expand-type/commit/1c062c78b4ac93d2faa2c7d35b56b340296c666f)), closes [#19](https://github.com/mxsdev/ts-expand-type/issues/19)
+
 ## [0.3.2](https://github.com/mxsdev/ts-expand-type/compare/v0.3.1...v0.3.2) (2022-11-09)
 
 ### Bug Fixes

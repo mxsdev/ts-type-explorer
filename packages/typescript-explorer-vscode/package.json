@@ -3,7 +3,7 @@
     "displayName": "%typescriptExplorer.title%",
     "description": "Full type information for variables, components, functions, and more in TypeScript projects!",
     "publisher": "mxsdev",
-    "version": "0.3.3",
+    "version": "0.4.0",
     "preview": true,
     "private": true,
     "icon": "resources/logo.png",
@@ -269,8 +269,8 @@
         "test": "node ./out/test/runTest.js"
     },
     "dependencies": {
-        "@ts-type-explorer/api": "^0.3.2",
-        "@ts-type-explorer/typescript-plugin": "^0.3.2",
+        "@ts-type-explorer/api": "^0.4.0",
+        "@ts-type-explorer/typescript-plugin": "^0.4.0",
         "@types/vscode": "^1.71.0"
     },
     "devDependencies": {

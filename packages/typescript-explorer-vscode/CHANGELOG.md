@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mxsdev/ts-type-explorer/compare/v0.3.3...v0.4.0) (2022-11-20)
+
+### Features
+
+-   configurable recursion depth ([99f6878](https://github.com/mxsdev/ts-type-explorer/commit/99f68782b7e6b5c295338e4bbc3b0092cbe9c7ae))
+-   error entries in type tree ([071665c](https://github.com/mxsdev/ts-type-explorer/commit/071665c82bbeeb0fb08c4cc87c140a0d8c6ac046)), closes [#15](https://github.com/mxsdev/ts-type-explorer/issues/15)
+-   show type arguments in labels ([1c062c7](https://github.com/mxsdev/ts-type-explorer/commit/1c062c78b4ac93d2faa2c7d35b56b340296c666f)), closes [#19](https://github.com/mxsdev/ts-type-explorer/issues/19)
+-   **vscode:** max depth tooltip ([0c34a24](https://github.com/mxsdev/ts-type-explorer/commit/0c34a245fd4db8c1a5f92b55ca6bca2170fe34c4)), closes [#26](https://github.com/mxsdev/ts-type-explorer/issues/26)
+
 ## [0.3.3](https://github.com/mxsdev/ts-type-explorer/compare/v0.3.2...v0.3.3) (2022-11-09)
 
 ### Bug Fixes

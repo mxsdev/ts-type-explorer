@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mxsdev/ts-expand-type/compare/v0.3.3...v0.4.0) (2022-11-20)
+
+### Features
+
+-   configurable recursion depth ([99f6878](https://github.com/mxsdev/ts-expand-type/commit/99f68782b7e6b5c295338e4bbc3b0092cbe9c7ae))
+
 ## [0.3.2](https://github.com/mxsdev/ts-expand-type/compare/v0.3.1...v0.3.2) (2022-11-09)
 
 **Note:** Version bump only for package @ts-type-explorer/typescript-plugin
