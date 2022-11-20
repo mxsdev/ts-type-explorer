@@ -51,60 +51,62 @@
             "title": "%typescriptExplorer.title%",
             "properties": {
                 "typescriptExplorer.typeTree.view.icons.enable": {
-                    "title": "Show Icons",
+                    "description": "Enable icons in type tree view",
                     "type": "boolean",
                     "default": true
                 },
                 "typescriptExplorer.typeTree.view.icons.colors.enable": {
-                    "title": "Enable Colors",
+                    "description": "Enable icon colors in type tree view",
                     "type": "boolean",
                     "default": true
                 },
                 "typescriptExplorer.typeTree.view.show.typeParameters": {
-                    "title": "Show Type Parameter List",
+                    "description": "Show type parameter info in type tree view under <type parameters>",
                     "type": "boolean",
                     "default": true
                 },
                 "typescriptExplorer.typeTree.view.show.baseClass": {
-                    "title": "Show Base Class",
+                    "description": "Show information about base classes in type tree view under <extends>\nThis applies only to interfaces and classes",
                     "type": "boolean",
                     "default": true
                 },
                 "typescriptExplorer.typeTree.selection.enable": {
-                    "title": "Enable Type Tree Selection",
-                    "description": "Enable selecting a symbol type on click in the editor",
+                    "description": "If enabled, the active type in type tree view will update on every click in the text editor\nIf disabled, you can set the selection through the right-click menu, or by triggering the \"Select Symbol in Type Tree\" command",
                     "type": "boolean",
                     "default": true
                 },
                 "typescriptExplorer.typeTree.readonly.enable": {
-                    "title": "Denote Readonly Properties",
+                    "description": "Prepend \"readonly\" to readonly arrays, tuples, and properties",
                     "type": "boolean",
                     "default": false
                 },
                 "typescriptExplorer.errorMessages.showDialogue": {
-                    "title": "Show Non-Critical Errors",
+                    "description": "Show dialogue messages on internal errors",
                     "type": "boolean",
                     "default": false
                 },
                 "typescriptExplorer.errorMessages.log": {
-                    "title": "Log Errors",
+                    "description": "Log internal errors to console",
                     "type": "boolean",
                     "default": true
                 },
                 "typescriptExplorer.typeTree.maxRecursionDepth": {
-                    "title": "Max Recursion Depth",
+                    "markdownDescription": "Controls the maximum tree depth when retrieving type information.\n\n**Increasing this far past 6 can have tremendous performance costs, so please adjust with caution.**",
                     "type": "integer",
                     "default": 6
                 },
                 "typescriptExplorer.typeTree.meta.typeArguments.enable": {
+                    "markdownDescription": "Include type arguments in labels\n\nFor example, if enabled, a string Promise will look like `Promise<string>` rather than `Promise`",
                     "type": "boolean",
                     "default": true
                 },
                 "typescriptExplorer.typeTree.meta.typeArguments.maxLength": {
+                    "markdownDescription": "Maximum length before which label type arguments collapse to ellipses (e.g. `Promise<...>`)",
                     "type": "integer",
                     "default": 10
                 },
                 "typescriptExplorer.typeTree.meta.typeArguments.includeInFunctions": {
+                    "markdownDescription": "Whether to provide type argument listing in label for call signatures\n\nFor example, if enabled, a map function call on a string array might look like `map<string>` rather than just `map`",
                     "type": "boolean",
                     "default": false
                 }

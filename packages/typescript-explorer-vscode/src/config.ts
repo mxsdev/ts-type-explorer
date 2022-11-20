@@ -12,21 +12,27 @@ const typeTreeConfigBoolean = {
     showBaseClassInfo: ["typescriptExplorer.typeTree.view.show.baseClass"],
     selectionEnabled: ["typescriptExplorer.typeTree.selection.enable", false],
     readonlyEnabled: ["typescriptExplorer.typeTree.readonly.enable"],
+    descriptionTypeArgumentsEnabled: [
+        "typescriptExplorer.typeTree.meta.typeArguments.enable",
+    ],
+    metaTypeArgumentsInFunction: [
+        "typescriptExplorer.typeTree.meta.typeArguments.includeInFunctions",
+    ],
+} as const
+
+const typeTreeConfigNumeric = {
+    descriptionTypeArgumentsMaxLength: [
+        "typescriptExplorer.typeTree.meta.typeArguments.maxLength",
+    ],
 } as const
 
 const basicConfigBoolean = {
     dialogueErrors: "typescriptExplorer.errorMessages.showDialogue",
     logErrors: "typescriptExplorer.errorMessages.log",
-    descriptionTypeArgumentsEnabled:
-        "typescriptExplorer.typeTree.meta.typeArguments.enable",
-    metaTypeArgumentsInFunction:
-        "typescriptExplorer.typeTree.meta.typeArguments.includeInFunctions",
 } as const
 
 const basicConfigNumeric = {
     maxRecursionDepth: "typescriptExplorer.typeTree.maxRecursionDepth",
-    descriptionTypeArgumentsMaxLength:
-        "typescriptExplorer.typeTree.meta.typeArguments.maxLength",
 }
 
 const exportBooleanConfig = (id: string, defaultValue?: boolean) =>
@@ -46,7 +52,10 @@ const exportNumericConfig = (id: string) => ({
         smartlySetConfigValue(id, value, config()),
 })
 
-const typeTreeConfig = [...Object.values(typeTreeConfigBoolean)]
+const typeTreeConfig = [
+    ...Object.values(typeTreeConfigBoolean),
+    ...Object.values(typeTreeConfigNumeric),
+]
 
 export function registerConfig(
     context: vscode.ExtensionContext,
@@ -90,6 +99,9 @@ export const {
         exportBooleanConfig(id)
     ),
     ...mapObject(basicConfigNumeric, ({ value: id }) =>
+        exportNumericConfig(id)
+    ),
+    ...mapObject(typeTreeConfigNumeric, ({ value: [id] }) =>
         exportNumericConfig(id)
     ),
 }
