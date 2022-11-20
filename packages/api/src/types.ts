@@ -246,11 +246,22 @@ export type LocalizableKind = Exclude<TypeInfo["kind"], "reference">
 
 export type ResolvedTypeInfo = Exclude<TypeInfo, { kind: "reference" }>
 
-export type TypeInfoChildren = {
+export type LocalizedTypeInfoError = {
+    error: Error
+    typeInfo?: TypeInfo
+}
+
+export type LocalizedTypeInfoOrError = LocalizedTypeInfo & {
+    error?: LocalizedTypeInfoError
+}
+
+export type TypeInfoChild = {
     info?: TypeInfo
     localizedInfo?: LocalizedTypeInfo
     opts?: LocalizeOpts
-}[]
+}
+
+export type TypeInfoChildren = TypeInfoChild[]
 
 /**
  * @internal

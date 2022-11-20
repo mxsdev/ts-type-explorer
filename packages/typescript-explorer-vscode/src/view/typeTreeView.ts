@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/require-await */
 
-import { LocalizedTypeInfo, TypeInfoResolver } from "@ts-type-explorer/api"
+import {
+    LocalizedTypeInfo,
+    LocalizedTypeInfoOrError,
+    TypeInfoResolver,
+} from "@ts-type-explorer/api"
 import assert = require("assert")
 import * as vscode from "vscode"
 import { showTypeParameterInfo, showBaseClassInfo } from "../config"
@@ -38,6 +42,10 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     }
 
     async getTreeItem(element: TypeTreeItem) {
+        if (element.typeInfo.error) {
+            return element
+        }
+
         if (element.typeInfo.kind === "max_depth") {
             element.tooltip = "max depth exceeded"
         } else {
@@ -159,7 +167,7 @@ export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
     }
 
     createTypeNode(
-        typeInfo: LocalizedTypeInfo,
+        typeInfo: LocalizedTypeInfoOrError,
         parent: TypeTreeItem | undefined
     ) {
         return new TypeTreeItem(typeInfo, this, parent)
@@ -170,14 +178,20 @@ export class TypeTreeItem extends vscode.TreeItem {
     protected depth: number
 
     constructor(
-        public typeInfo: LocalizedTypeInfo,
+        public typeInfo: LocalizedTypeInfoOrError,
         private provider: TypeTreeProvider,
         protected parent?: TypeTreeItem
     ) {
         const depth = (parent?.depth ?? 0) + 1
 
-        const { label, description, contextValue, icon, collapsibleState } =
-            getMeta(typeInfo, depth)
+        const {
+            label,
+            description,
+            contextValue,
+            icon,
+            collapsibleState,
+            tooltip,
+        } = getMeta(typeInfo, depth)
 
         super(label, collapsibleState)
 
@@ -185,6 +199,7 @@ export class TypeTreeItem extends vscode.TreeItem {
         this.description = description
         this.contextValue = contextValue
         this.iconPath = icon
+        this.tooltip = tooltip
     }
 
     protected createTypeNode(typeInfo: LocalizedTypeInfo) {
@@ -194,14 +209,16 @@ export class TypeTreeItem extends vscode.TreeItem {
     private definitionIndex = 0
 
     goToDefinition() {
-        assert(
-            this.typeInfo.locations && this.typeInfo.locations.length > 0,
-            "Type has no locations!"
-        )
+        const locations = !this.typeInfo.error
+            ? this.typeInfo.locations
+            : this.typeInfo.error.typeInfo?.symbolMeta?.declarations?.map(
+                  ({ location }) => location
+              )
 
-        const location = this.typeInfo.locations[this.definitionIndex]
-        this.definitionIndex =
-            (this.definitionIndex + 1) % this.typeInfo.locations.length
+        assert(locations && locations.length > 0, "Type has no locations!")
+
+        const location = locations[this.definitionIndex]
+        this.definitionIndex = (this.definitionIndex + 1) % locations.length
 
         const args: [vscode.Uri, vscode.TextDocumentShowOptions] = [
             vscode.Uri.file(location.fileName),

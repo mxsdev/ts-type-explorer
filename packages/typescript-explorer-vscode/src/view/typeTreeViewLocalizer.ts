@@ -1,4 +1,9 @@
-import { LocalizedTypeInfo, localizePurpose } from "@ts-type-explorer/api"
+import {
+    LocalizedTypeInfo,
+    LocalizedTypeInfoOrError,
+    localizePurpose,
+    LocalizedTypeInfoError,
+} from "@ts-type-explorer/api"
 import {
     iconsEnabled,
     iconColorsEnabled,
@@ -8,6 +13,7 @@ import {
     metaTypeArgumentsInFunction,
 } from "../config"
 import * as vscode from "vscode"
+import { logError } from "../util"
 
 const {
     None: NoChildren,
@@ -23,12 +29,17 @@ type TypeTreeItemMeta = {
     contextValue?: TypeTreeItemContextValue
     icon?: vscode.ThemeIcon
     collapsibleState: vscode.TreeItemCollapsibleState
+    tooltip?: string | vscode.MarkdownString
 }
 
 export function getMeta(
-    info: LocalizedTypeInfo,
+    info: LocalizedTypeInfoOrError,
     depth: number
 ): TypeTreeItemMeta {
+    if (info.error) {
+        return getErrorMeta(info.error)
+    }
+
     const label = getLabel(info)
     const description = getDescription(info)
 
@@ -84,6 +95,10 @@ export function getMeta(
             : new vscode.ThemeIcon(id, new vscode.ThemeColor(colorId))
 
         function _getIcon(): IconId | undefined {
+            if (info.error) {
+                return ["error", "errorForeground"]
+            }
+
             if (info.symbol?.property) {
                 return ["symbol-field"]
             }
@@ -225,6 +240,54 @@ export function getMeta(
             }
 
             return ["symbol-misc"]
+        }
+    }
+
+    function getErrorMeta({
+        error,
+        typeInfo,
+    }: LocalizedTypeInfoError): TypeTreeItemMeta {
+        return {
+            description: "<error>",
+            label: typeInfo?.symbolMeta?.name ?? "",
+            collapsibleState: NoChildren,
+            icon: getIcon(),
+            tooltip: getTooltip(),
+            contextValue: getContextValue(),
+        }
+
+        function getTooltip(): vscode.MarkdownString {
+            const tooltip = new vscode.MarkdownString()
+
+            tooltip.appendText(`Error getting type info`)
+            tooltip.appendCodeblock(`${error.name}: ${error.message}`)
+
+            if (error.stack) {
+                tooltip.appendMarkdown(`# Stack`)
+                tooltip.appendCodeblock(error.stack)
+            }
+
+            if (typeInfo) {
+                tooltip.appendMarkdown(`Type Tree`)
+                tooltip.appendCodeblock(
+                    JSON.stringify(typeInfo, undefined, 4),
+                    "json"
+                )
+            }
+
+            logError("Error getting type info", error, typeInfo)
+
+            return tooltip
+        }
+
+        function getContextValue() {
+            if (!typeInfo?.symbolMeta?.declarations) return undefined
+
+            if (typeInfo.symbolMeta.declarations.length > 0) {
+                return "declared"
+            }
+
+            return undefined
         }
     }
 }
