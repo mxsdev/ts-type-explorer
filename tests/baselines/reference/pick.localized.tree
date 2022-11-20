@@ -704,6 +704,14 @@ type p = Pick<t, "a"|"d"> & {b: "asd", d: { b: "c" }}
             }
         ]
     },
+    "typeArguments": [
+        {
+            "reference": "2"
+        },
+        {
+            "reference": "8"
+        }
+    ],
     "locations": [
         {
             "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",

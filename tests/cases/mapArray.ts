@@ -1,3 +1,1 @@
-async function test(a: string): Promise<string> {
-    return a
-}
+const mapped = [1].map((x) => x.toString())

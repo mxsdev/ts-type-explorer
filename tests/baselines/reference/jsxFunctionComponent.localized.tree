@@ -207,6 +207,14 @@ function Comp(props: { abc: string, ad?: number }) {
                         ]
                     },
                     "purpose": "class_base_type",
+                    "typeArguments": [
+                        {
+                            "reference": "7"
+                        },
+                        {
+                            "reference": "7"
+                        }
+                    ],
                     "locations": [
                         {
                             "fileName": "../node_modules/@types/react/index.d.ts",
@@ -766,6 +774,14 @@ function Comp(props: { abc: string, ad?: number }) {
                         ]
                     },
                     "purpose": "class_base_type",
+                    "typeArguments": [
+                        {
+                            "reference": "7"
+                        },
+                        {
+                            "reference": "7"
+                        }
+                    ],
                     "locations": [
                         {
                             "fileName": "../node_modules/@types/react/index.d.ts",
@@ -1555,6 +1571,14 @@ const a = <Comp abc="asc" ad={4} />
                 ]
             },
             "purpose": "class_base_type",
+            "typeArguments": [
+                {
+                    "reference": "3"
+                },
+                {
+                    "reference": "3"
+                }
+            ],
             "locations": [
                 {
                     "fileName": "../node_modules/@types/react/index.d.ts",
@@ -1802,6 +1826,11 @@ const a = <Comp abc="asc" ad={4} />
                                                         ]
                                                     },
                                                     "purpose": "return",
+                                                    "typeArguments": [
+                                                        {
+                                                            "reference": "10"
+                                                        }
+                                                    ],
                                                     "locations": [
                                                         {
                                                             "fileName": "../node_modules/@types/react/index.d.ts",
@@ -2349,6 +2378,14 @@ const a = <Comp abc="asc" ad={4} />
                         ]
                     },
                     "purpose": "class_base_type",
+                    "typeArguments": [
+                        {
+                            "reference": "7"
+                        },
+                        {
+                            "reference": "7"
+                        }
+                    ],
                     "locations": [
                         {
                             "fileName": "../node_modules/@types/react/index.d.ts",

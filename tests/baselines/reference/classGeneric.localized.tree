@@ -1874,6 +1874,11 @@ const _a = new TestClass<string>(false, 4)
             }
         ]
     },
+    "typeArguments": [
+        {
+            "reference": "3"
+        }
+    ],
     "locations": [
         {
             "fileName": "cases/classGeneric.ts",
@@ -2483,6 +2488,11 @@ const _a = new TestClass<string>(false, 4)
             }
         ]
     },
+    "typeArguments": [
+        {
+            "reference": "2"
+        }
+    ],
     "locations": [
         {
             "fileName": "cases/classGeneric.ts",
@@ -2667,6 +2677,11 @@ const _a = new TestClass<string>(false, 4)
                 ]
             },
             "purpose": "return",
+            "typeArguments": [
+                {
+                    "reference": "2"
+                }
+            ],
             "locations": [
                 {
                     "fileName": "cases/classGeneric.ts",
