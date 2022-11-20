@@ -1,10 +1,12 @@
 import * as assert from "assert"
 import {
     LocalizedTypeInfo,
+    LocalizedTypeInfoOrError,
     LocalizeOpts,
     ResolvedArrayTypeInfo,
     ResolvedTypeInfo,
     TypeInfo,
+    TypeInfoChild,
     TypeInfoMap,
     TypeInfoRetriever,
 } from "./types"
@@ -33,42 +35,75 @@ export class TypeInfoResolver {
 
     constructor(private retrieveTypeInfo?: TypeInfoRetriever) {}
 
-    async localize(info: TypeInfo) {
+    async localize(info: TypeInfo): Promise<LocalizedTypeInfoOrError> {
+        return this.localizeWorker(info).catch((e) => ({
+            error: {
+                error: e as Error,
+                context: {
+                    info,
+                },
+            },
+        }))
+    }
+
+    private async localizeWorker(info: TypeInfo) {
         return this.localizeTypeInfo(
             await this.resolveTypeReferenceOrArray(info),
             info
         )
     }
 
+    private async localizeChild(
+        child: TypeInfoChild,
+        parentOrigin: TypeInfo
+    ): Promise<LocalizedTypeInfoOrError> {
+        return this.localizeChildWorker(child, parentOrigin).catch((e) => ({
+            error: {
+                error: e as Error,
+                context: {
+                    child,
+                    parentOrigin,
+                },
+            },
+        }))
+    }
+
+    private async localizeChildWorker(
+        { info, localizedInfo, opts }: TypeInfoChild,
+        parentOrigin: TypeInfo
+    ): Promise<LocalizedTypeInfo> {
+        assert(
+            info || localizedInfo,
+            "Either info or localized info must be provided"
+        )
+
+        if (localizedInfo) {
+            this.localizedInfoOrigin.set(localizedInfo, parentOrigin)
+            return localizedInfo
+        }
+
+        assert(info)
+
+        const typeInfoMap = this.getTypeInfoMap(parentOrigin)
+
+        const resolvedInfo = await this.resolveTypeReferenceOrArray(
+            info,
+            typeInfoMap
+        )
+
+        return this.localizeTypeInfo(resolvedInfo, info, opts)
+    }
+
     async localizeChildren(
         parent: LocalizedTypeInfo
-    ): Promise<LocalizedTypeInfo[]> {
+    ): Promise<LocalizedTypeInfoOrError[]> {
         const parentOrigin = this.localizedInfoOrigin.get(parent)
         assert(parentOrigin)
 
         return await Promise.all(
-            parent.children?.map(async ({ info, localizedInfo, opts }) => {
-                assert(
-                    info || localizedInfo,
-                    "Either info or localized info must be provided"
-                )
-
-                if (localizedInfo) {
-                    this.localizedInfoOrigin.set(localizedInfo, parentOrigin)
-                    return localizedInfo
-                }
-
-                assert(info)
-
-                const typeInfoMap = this.getTypeInfoMap(parentOrigin)
-
-                const resolvedInfo = await this.resolveTypeReferenceOrArray(
-                    info,
-                    typeInfoMap
-                )
-
-                return this.localizeTypeInfo(resolvedInfo, info, opts)
-            }) ?? []
+            parent.children?.map((child) =>
+                this.localizeChild(child, parentOrigin)
+            ) ?? []
         ).then(filterUndefined)
     }
 

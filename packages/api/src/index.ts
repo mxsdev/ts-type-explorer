@@ -34,6 +34,7 @@ export {
     CustomTypeScriptRequestOfId,
     TextRange,
     APIConfig,
+    LocalizedTypeInfoOrError,
 } from "./types"
 export {
     LocalizedTypeInfo,
