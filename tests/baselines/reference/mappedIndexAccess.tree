@@ -1,0 +1,3608 @@
+=== mappedIndexAccess.ts ===
+
+interface FieldVals {
+    string: string;
+    number: number
+}
+> FieldVals --- {
+    "kind": "interface",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "string",
+                "flags": 4,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 10
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "number",
+            "symbolMeta": {
+                "name": "number",
+                "flags": 4,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 10
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        }
+    ],
+    "implementsTypes": [],
+    "constructSignatures": [],
+    "symbolMeta": {
+        "name": "FieldVals",
+        "flags": 64,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 10
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> string: string;
+    number: number
+> string: string;
+> string --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "string",
+        "flags": 4,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 10
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> number: number
+> number --- {
+    "kind": "primitive",
+    "primitive": "number",
+    "symbolMeta": {
+        "name": "number",
+        "flags": 4,
+        "insideClassOrInterface": true,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 10
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+
+type FieldFormat = Record<string, keyof FieldVals>
+> FieldFormat --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "4"
+            },
+            "type": {
+                "kind": "union",
+                "types": [
+                    {
+                        "kind": "string_literal",
+                        "value": "string",
+                        "id": "2"
+                    },
+                    {
+                        "kind": "string_literal",
+                        "value": "number",
+                        "id": "3"
+                    }
+                ],
+                "id": "1"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "FieldFormat",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> Record<string, keyof FieldVals>
+> Record --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "type_parameter",
+                "baseConstraint": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "reference",
+                            "id": "3"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "id": "8"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "essymbol",
+                            "id": "9"
+                        }
+                    ],
+                    "id": "7"
+                },
+                "symbolMeta": {
+                    "name": "K",
+                    "flags": 262144,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1576,
+                                        "character": 12
+                                    },
+                                    "end": {
+                                        "line": 1576,
+                                        "character": 13
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "1"
+            },
+            "type": {
+                "kind": "type_parameter",
+                "symbolMeta": {
+                    "name": "T",
+                    "flags": 262144,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1576,
+                                        "character": 33
+                                    },
+                                    "end": {
+                                        "line": 1576,
+                                        "character": 34
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "2"
+            },
+            "parameterSymbol": {
+                "name": "P",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1577,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 1577,
+                                    "character": 6
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameterType": {
+                "kind": "type_parameter",
+                "baseConstraint": {
+                    "kind": "reference",
+                    "id": "7"
+                },
+                "symbolMeta": {
+                    "name": "P",
+                    "flags": 262144,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1577,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 1577,
+                                        "character": 6
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "10"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "Record",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1576,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 1576,
+                            "character": 11
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "K",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1576,
+                                    "character": 12
+                                },
+                                "end": {
+                                    "line": 1576,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1576,
+                                    "character": 33
+                                },
+                                "end": {
+                                    "line": 1576,
+                                    "character": 34
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        }
+    ],
+    "typeArguments": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "id": "3"
+        },
+        {
+            "kind": "union",
+            "types": [
+                {
+                    "kind": "string_literal",
+                    "value": "string",
+                    "id": "5"
+                },
+                {
+                    "kind": "string_literal",
+                    "value": "number",
+                    "id": "6"
+                }
+            ],
+            "id": "4"
+        }
+    ],
+    "id": "0"
+}
+> string, keyof FieldVals
+> keyof FieldVals
+> FieldVals
+> FieldVals --- {
+    "kind": "interface",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "string",
+                "flags": 4,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 10
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "number",
+            "symbolMeta": {
+                "name": "number",
+                "flags": 4,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 10
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        }
+    ],
+    "implementsTypes": [],
+    "constructSignatures": [],
+    "symbolMeta": {
+        "name": "FieldVals",
+        "flags": 64,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 10
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+
+type MapField<T extends FieldFormat> = {
+    [K in keyof T]: FieldVals[T[K]]
+}
+> MapField --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "6"
+            },
+            "type": {
+                "kind": "indexed_access",
+                "indexType": {
+                    "kind": "indexed_access",
+                    "indexType": {
+                        "kind": "reference",
+                        "id": "6"
+                    },
+                    "objectType": {
+                        "kind": "reference",
+                        "symbolMeta": {
+                            "name": "T",
+                            "flags": 262144,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 7,
+                                                "character": 14
+                                            },
+                                            "end": {
+                                                "line": 7,
+                                                "character": 15
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "1"
+                    },
+                    "id": "8"
+                },
+                "objectType": {
+                    "kind": "interface",
+                    "properties": [
+                        {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "symbolMeta": {
+                                "name": "string",
+                                "flags": 4,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "character": 10
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "10"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "symbolMeta": {
+                                "name": "number",
+                                "flags": 4,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 2,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 2,
+                                                    "character": 10
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "11"
+                        }
+                    ],
+                    "implementsTypes": [],
+                    "constructSignatures": [],
+                    "aliasSymbolMeta": {
+                        "name": "FieldVals",
+                        "flags": 64,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 19
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "9"
+                },
+                "id": "7"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "MapField",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "type_parameter",
+            "baseConstraint": {
+                "kind": "object",
+                "properties": [],
+                "indexInfos": [
+                    {
+                        "keyType": {
+                            "kind": "reference",
+                            "id": "6"
+                        },
+                        "type": {
+                            "kind": "union",
+                            "types": [
+                                {
+                                    "kind": "string_literal",
+                                    "value": "string",
+                                    "id": "4"
+                                },
+                                {
+                                    "kind": "string_literal",
+                                    "value": "number",
+                                    "id": "5"
+                                }
+                            ],
+                            "id": "3"
+                        }
+                    }
+                ],
+                "symbolMeta": {
+                    "name": "__type",
+                    "flags": 2048,
+                    "anonymous": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1576,
+                                        "character": 38
+                                    },
+                                    "end": {
+                                        "line": 1578,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "aliasSymbolMeta": {
+                    "name": "FieldFormat",
+                    "flags": 524288,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 5,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 5,
+                                        "character": 16
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "2"
+            },
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 15
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
+> T extends FieldFormat
+> T extends FieldFormat
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "object",
+        "properties": [],
+        "indexInfos": [
+            {
+                "keyType": {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "id": "5"
+                },
+                "type": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "string_literal",
+                            "value": "string",
+                            "id": "3"
+                        },
+                        {
+                            "kind": "string_literal",
+                            "value": "number",
+                            "id": "4"
+                        }
+                    ],
+                    "id": "2"
+                }
+            }
+        ],
+        "symbolMeta": {
+            "name": "__type",
+            "flags": 2048,
+            "anonymous": true,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "aliasSymbolMeta": {
+            "name": "FieldFormat",
+            "flags": 524288,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 5,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 5,
+                                "character": 16
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 15
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> FieldFormat
+> FieldFormat --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "4"
+            },
+            "type": {
+                "kind": "union",
+                "types": [
+                    {
+                        "kind": "string_literal",
+                        "value": "string",
+                        "id": "2"
+                    },
+                    {
+                        "kind": "string_literal",
+                        "value": "number",
+                        "id": "3"
+                    }
+                ],
+                "id": "1"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "FieldFormat",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> {
+    [K in keyof T]: FieldVals[T[K]]
+}
+> K in keyof T
+> K --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "union",
+        "types": [
+            {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            {
+                "kind": "primitive",
+                "primitive": "number",
+                "id": "3"
+            },
+            {
+                "kind": "primitive",
+                "primitive": "essymbol",
+                "id": "4"
+            }
+        ],
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "K",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 8,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 8,
+                            "character": 6
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> keyof T
+> T
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "object",
+        "properties": [],
+        "indexInfos": [
+            {
+                "keyType": {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "id": "5"
+                },
+                "type": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "string_literal",
+                            "value": "string",
+                            "id": "3"
+                        },
+                        {
+                            "kind": "string_literal",
+                            "value": "number",
+                            "id": "4"
+                        }
+                    ],
+                    "id": "2"
+                }
+            }
+        ],
+        "symbolMeta": {
+            "name": "__type",
+            "flags": 2048,
+            "anonymous": true,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "aliasSymbolMeta": {
+            "name": "FieldFormat",
+            "flags": 524288,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 5,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 5,
+                                "character": 16
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 15
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> FieldVals[T[K]]
+> FieldVals
+> FieldVals --- {
+    "kind": "interface",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "string",
+                "flags": 4,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 1,
+                                    "character": 10
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        },
+        {
+            "kind": "primitive",
+            "primitive": "number",
+            "symbolMeta": {
+                "name": "number",
+                "flags": 4,
+                "insideClassOrInterface": true,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 2,
+                                    "character": 4
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "character": 10
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        }
+    ],
+    "implementsTypes": [],
+    "constructSignatures": [],
+    "symbolMeta": {
+        "name": "FieldVals",
+        "flags": 64,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 0,
+                            "character": 10
+                        },
+                        "end": {
+                            "line": 0,
+                            "character": 19
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> T[K]
+> T
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "object",
+        "properties": [],
+        "indexInfos": [
+            {
+                "keyType": {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "id": "5"
+                },
+                "type": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "string_literal",
+                            "value": "string",
+                            "id": "3"
+                        },
+                        {
+                            "kind": "string_literal",
+                            "value": "number",
+                            "id": "4"
+                        }
+                    ],
+                    "id": "2"
+                }
+            }
+        ],
+        "symbolMeta": {
+            "name": "__type",
+            "flags": 2048,
+            "anonymous": true,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "aliasSymbolMeta": {
+            "name": "FieldFormat",
+            "flags": 524288,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 5,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 5,
+                                "character": 16
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 14
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 15
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> K
+> K --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "union",
+        "types": [
+            {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "2"
+            },
+            {
+                "kind": "primitive",
+                "primitive": "number",
+                "id": "3"
+            },
+            {
+                "kind": "primitive",
+                "primitive": "essymbol",
+                "id": "4"
+            }
+        ],
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "K",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 8,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 8,
+                            "character": 6
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+
+declare function createField<T extends FieldFormat>(data: T): MapField<T>
+> function --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "createField",
+                "flags": 16,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 17
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 28
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "object",
+                        "properties": [],
+                        "indexInfos": [
+                            {
+                                "keyType": {
+                                    "kind": "reference",
+                                    "id": "7"
+                                },
+                                "type": {
+                                    "kind": "union",
+                                    "types": [
+                                        {
+                                            "kind": "string_literal",
+                                            "value": "string",
+                                            "id": "5"
+                                        },
+                                        {
+                                            "kind": "string_literal",
+                                            "value": "number",
+                                            "id": "6"
+                                        }
+                                    ],
+                                    "id": "4"
+                                }
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "__type",
+                            "flags": 2048,
+                            "anonymous": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1576,
+                                                "character": 38
+                                            },
+                                            "end": {
+                                                "line": 1578,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "aliasSymbolMeta": {
+                            "name": "FieldFormat",
+                            "flags": 524288,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 5,
+                                                "character": 5
+                                            },
+                                            "end": {
+                                                "line": 5,
+                                                "character": 16
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "3"
+                    },
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 29
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "data",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 52
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 56
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "returnType": {
+                "kind": "object",
+                "properties": [],
+                "indexInfos": [
+                    {
+                        "keyType": {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "id": "7"
+                        },
+                        "type": {
+                            "kind": "indexed_access",
+                            "indexType": {
+                                "kind": "indexed_access",
+                                "indexType": {
+                                    "kind": "reference",
+                                    "id": "7"
+                                },
+                                "objectType": {
+                                    "kind": "reference",
+                                    "symbolMeta": {
+                                        "name": "T",
+                                        "flags": 262144,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/mappedIndexAccess.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 11,
+                                                            "character": 29
+                                                        },
+                                                        "end": {
+                                                            "line": 11,
+                                                            "character": 30
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "1"
+                                },
+                                "id": "10"
+                            },
+                            "objectType": {
+                                "kind": "interface",
+                                "properties": [
+                                    {
+                                        "kind": "primitive",
+                                        "primitive": "string",
+                                        "symbolMeta": {
+                                            "name": "string",
+                                            "flags": 4,
+                                            "insideClassOrInterface": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "cases/mappedIndexAccess.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 1,
+                                                                "character": 4
+                                                            },
+                                                            "end": {
+                                                                "line": 1,
+                                                                "character": 10
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "12"
+                                    },
+                                    {
+                                        "kind": "primitive",
+                                        "primitive": "number",
+                                        "symbolMeta": {
+                                            "name": "number",
+                                            "flags": 4,
+                                            "insideClassOrInterface": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "cases/mappedIndexAccess.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 2,
+                                                                "character": 4
+                                                            },
+                                                            "end": {
+                                                                "line": 2,
+                                                                "character": 10
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "13"
+                                    }
+                                ],
+                                "implementsTypes": [],
+                                "constructSignatures": [],
+                                "aliasSymbolMeta": {
+                                    "name": "FieldVals",
+                                    "flags": 64,
+                                    "declarations": [
+                                        {
+                                            "location": {
+                                                "fileName": "cases/mappedIndexAccess.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 0,
+                                                        "character": 10
+                                                    },
+                                                    "end": {
+                                                        "line": 0,
+                                                        "character": 19
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "id": "11"
+                            },
+                            "id": "9"
+                        }
+                    }
+                ],
+                "symbolMeta": {
+                    "name": "__type",
+                    "flags": 2048,
+                    "anonymous": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 39
+                                    },
+                                    "end": {
+                                        "line": 9,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "aliasSymbolMeta": {
+                    "name": "MapField",
+                    "flags": 524288,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 7,
+                                        "character": 13
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "8"
+            },
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "reference",
+                        "symbolMeta": {
+                            "name": "__type",
+                            "flags": 2048,
+                            "anonymous": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1576,
+                                                "character": 38
+                                            },
+                                            "end": {
+                                                "line": 1578,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "aliasSymbolMeta": {
+                            "name": "FieldFormat",
+                            "flags": 524288,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 5,
+                                                "character": 5
+                                            },
+                                            "end": {
+                                                "line": 5,
+                                                "character": 16
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "3"
+                    },
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 29
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "createField",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 17
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 28
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 29
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
+> createField --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "createField",
+                "flags": 16,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 17
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 28
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "object",
+                        "properties": [],
+                        "indexInfos": [
+                            {
+                                "keyType": {
+                                    "kind": "reference",
+                                    "id": "7"
+                                },
+                                "type": {
+                                    "kind": "union",
+                                    "types": [
+                                        {
+                                            "kind": "string_literal",
+                                            "value": "string",
+                                            "id": "5"
+                                        },
+                                        {
+                                            "kind": "string_literal",
+                                            "value": "number",
+                                            "id": "6"
+                                        }
+                                    ],
+                                    "id": "4"
+                                }
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "__type",
+                            "flags": 2048,
+                            "anonymous": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1576,
+                                                "character": 38
+                                            },
+                                            "end": {
+                                                "line": 1578,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "aliasSymbolMeta": {
+                            "name": "FieldFormat",
+                            "flags": 524288,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 5,
+                                                "character": 5
+                                            },
+                                            "end": {
+                                                "line": 5,
+                                                "character": 16
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "3"
+                    },
+                    "typeSymbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 29
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "symbolMeta": {
+                        "name": "data",
+                        "flags": 1,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 52
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 56
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "2"
+                }
+            ],
+            "returnType": {
+                "kind": "object",
+                "properties": [],
+                "indexInfos": [
+                    {
+                        "keyType": {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "id": "7"
+                        },
+                        "type": {
+                            "kind": "indexed_access",
+                            "indexType": {
+                                "kind": "indexed_access",
+                                "indexType": {
+                                    "kind": "reference",
+                                    "id": "7"
+                                },
+                                "objectType": {
+                                    "kind": "reference",
+                                    "symbolMeta": {
+                                        "name": "T",
+                                        "flags": 262144,
+                                        "declarations": [
+                                            {
+                                                "location": {
+                                                    "fileName": "cases/mappedIndexAccess.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 11,
+                                                            "character": 29
+                                                        },
+                                                        "end": {
+                                                            "line": 11,
+                                                            "character": 30
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "id": "1"
+                                },
+                                "id": "10"
+                            },
+                            "objectType": {
+                                "kind": "interface",
+                                "properties": [
+                                    {
+                                        "kind": "primitive",
+                                        "primitive": "string",
+                                        "symbolMeta": {
+                                            "name": "string",
+                                            "flags": 4,
+                                            "insideClassOrInterface": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "cases/mappedIndexAccess.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 1,
+                                                                "character": 4
+                                                            },
+                                                            "end": {
+                                                                "line": 1,
+                                                                "character": 10
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "12"
+                                    },
+                                    {
+                                        "kind": "primitive",
+                                        "primitive": "number",
+                                        "symbolMeta": {
+                                            "name": "number",
+                                            "flags": 4,
+                                            "insideClassOrInterface": true,
+                                            "declarations": [
+                                                {
+                                                    "location": {
+                                                        "fileName": "cases/mappedIndexAccess.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 2,
+                                                                "character": 4
+                                                            },
+                                                            "end": {
+                                                                "line": 2,
+                                                                "character": 10
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "id": "13"
+                                    }
+                                ],
+                                "implementsTypes": [],
+                                "constructSignatures": [],
+                                "aliasSymbolMeta": {
+                                    "name": "FieldVals",
+                                    "flags": 64,
+                                    "declarations": [
+                                        {
+                                            "location": {
+                                                "fileName": "cases/mappedIndexAccess.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 0,
+                                                        "character": 10
+                                                    },
+                                                    "end": {
+                                                        "line": 0,
+                                                        "character": 19
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "id": "11"
+                            },
+                            "id": "9"
+                        }
+                    }
+                ],
+                "symbolMeta": {
+                    "name": "__type",
+                    "flags": 2048,
+                    "anonymous": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 39
+                                    },
+                                    "end": {
+                                        "line": 9,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "aliasSymbolMeta": {
+                    "name": "MapField",
+                    "flags": 524288,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 7,
+                                        "character": 13
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "8"
+            },
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "reference",
+                        "symbolMeta": {
+                            "name": "__type",
+                            "flags": 2048,
+                            "anonymous": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1576,
+                                                "character": 38
+                                            },
+                                            "end": {
+                                                "line": 1578,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "aliasSymbolMeta": {
+                            "name": "FieldFormat",
+                            "flags": 524288,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 5,
+                                                "character": 5
+                                            },
+                                            "end": {
+                                                "line": 5,
+                                                "character": 16
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "3"
+                    },
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 29
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "createField",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 17
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 28
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 29
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "id": "0"
+}
+> T extends FieldFormat
+> T extends FieldFormat
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "object",
+        "properties": [],
+        "indexInfos": [
+            {
+                "keyType": {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "id": "5"
+                },
+                "type": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "string_literal",
+                            "value": "string",
+                            "id": "3"
+                        },
+                        {
+                            "kind": "string_literal",
+                            "value": "number",
+                            "id": "4"
+                        }
+                    ],
+                    "id": "2"
+                }
+            }
+        ],
+        "symbolMeta": {
+            "name": "__type",
+            "flags": 2048,
+            "anonymous": true,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "aliasSymbolMeta": {
+            "name": "FieldFormat",
+            "flags": 524288,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 5,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 5,
+                                "character": 16
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 29
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> FieldFormat
+> FieldFormat --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "4"
+            },
+            "type": {
+                "kind": "union",
+                "types": [
+                    {
+                        "kind": "string_literal",
+                        "value": "string",
+                        "id": "2"
+                    },
+                    {
+                        "kind": "string_literal",
+                        "value": "number",
+                        "id": "3"
+                    }
+                ],
+                "id": "1"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "FieldFormat",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> data: T
+> data: T
+> data --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "object",
+        "properties": [],
+        "indexInfos": [
+            {
+                "keyType": {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "id": "5"
+                },
+                "type": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "string_literal",
+                            "value": "string",
+                            "id": "3"
+                        },
+                        {
+                            "kind": "string_literal",
+                            "value": "number",
+                            "id": "4"
+                        }
+                    ],
+                    "id": "2"
+                }
+            }
+        ],
+        "symbolMeta": {
+            "name": "__type",
+            "flags": 2048,
+            "anonymous": true,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "aliasSymbolMeta": {
+            "name": "FieldFormat",
+            "flags": 524288,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 5,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 5,
+                                "character": 16
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "1"
+    },
+    "typeSymbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 29
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "symbolMeta": {
+        "name": "data",
+        "flags": 1,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 52
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 56
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> T
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "object",
+        "properties": [],
+        "indexInfos": [
+            {
+                "keyType": {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "id": "5"
+                },
+                "type": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "string_literal",
+                            "value": "string",
+                            "id": "3"
+                        },
+                        {
+                            "kind": "string_literal",
+                            "value": "number",
+                            "id": "4"
+                        }
+                    ],
+                    "id": "2"
+                }
+            }
+        ],
+        "symbolMeta": {
+            "name": "__type",
+            "flags": 2048,
+            "anonymous": true,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "aliasSymbolMeta": {
+            "name": "FieldFormat",
+            "flags": 524288,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 5,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 5,
+                                "character": 16
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 29
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> MapField<T>
+> MapField --- {
+    "kind": "object",
+    "properties": [],
+    "indexInfos": [
+        {
+            "keyType": {
+                "kind": "primitive",
+                "primitive": "string",
+                "id": "6"
+            },
+            "type": {
+                "kind": "indexed_access",
+                "indexType": {
+                    "kind": "indexed_access",
+                    "indexType": {
+                        "kind": "reference",
+                        "id": "6"
+                    },
+                    "objectType": {
+                        "kind": "reference",
+                        "symbolMeta": {
+                            "name": "T",
+                            "flags": 262144,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 7,
+                                                "character": 14
+                                            },
+                                            "end": {
+                                                "line": 7,
+                                                "character": 15
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "1"
+                    },
+                    "id": "9"
+                },
+                "objectType": {
+                    "kind": "interface",
+                    "properties": [
+                        {
+                            "kind": "primitive",
+                            "primitive": "string",
+                            "symbolMeta": {
+                                "name": "string",
+                                "flags": 4,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "character": 10
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "11"
+                        },
+                        {
+                            "kind": "primitive",
+                            "primitive": "number",
+                            "symbolMeta": {
+                                "name": "number",
+                                "flags": 4,
+                                "insideClassOrInterface": true,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 2,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 2,
+                                                    "character": 10
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "12"
+                        }
+                    ],
+                    "implementsTypes": [],
+                    "constructSignatures": [],
+                    "aliasSymbolMeta": {
+                        "name": "FieldVals",
+                        "flags": 64,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 19
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "10"
+                },
+                "id": "8"
+            }
+        }
+    ],
+    "symbolMeta": {
+        "name": "MapField",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "type_parameter",
+            "baseConstraint": {
+                "kind": "object",
+                "properties": [],
+                "indexInfos": [
+                    {
+                        "keyType": {
+                            "kind": "reference",
+                            "id": "6"
+                        },
+                        "type": {
+                            "kind": "union",
+                            "types": [
+                                {
+                                    "kind": "string_literal",
+                                    "value": "string",
+                                    "id": "4"
+                                },
+                                {
+                                    "kind": "string_literal",
+                                    "value": "number",
+                                    "id": "5"
+                                }
+                            ],
+                            "id": "3"
+                        }
+                    }
+                ],
+                "symbolMeta": {
+                    "name": "__type",
+                    "flags": 2048,
+                    "anonymous": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1576,
+                                        "character": 38
+                                    },
+                                    "end": {
+                                        "line": 1578,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "aliasSymbolMeta": {
+                    "name": "FieldFormat",
+                    "flags": 524288,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 5,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 5,
+                                        "character": 16
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "2"
+            },
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 15
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "typeArguments": [
+        {
+            "kind": "type_parameter",
+            "baseConstraint": {
+                "kind": "reference",
+                "symbolMeta": {
+                    "name": "__type",
+                    "flags": 2048,
+                    "anonymous": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1576,
+                                        "character": 38
+                                    },
+                                    "end": {
+                                        "line": 1578,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "aliasSymbolMeta": {
+                    "name": "FieldFormat",
+                    "flags": 524288,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 5,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 5,
+                                        "character": 16
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "2"
+            },
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 29
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "7"
+        }
+    ],
+    "id": "0"
+}
+> T
+> T
+> T --- {
+    "kind": "type_parameter",
+    "baseConstraint": {
+        "kind": "object",
+        "properties": [],
+        "indexInfos": [
+            {
+                "keyType": {
+                    "kind": "primitive",
+                    "primitive": "string",
+                    "id": "5"
+                },
+                "type": {
+                    "kind": "union",
+                    "types": [
+                        {
+                            "kind": "string_literal",
+                            "value": "string",
+                            "id": "3"
+                        },
+                        {
+                            "kind": "string_literal",
+                            "value": "number",
+                            "id": "4"
+                        }
+                    ],
+                    "id": "2"
+                }
+            }
+        ],
+        "symbolMeta": {
+            "name": "__type",
+            "flags": 2048,
+            "anonymous": true,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "aliasSymbolMeta": {
+            "name": "FieldFormat",
+            "flags": 524288,
+            "declarations": [
+                {
+                    "location": {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 5,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 5,
+                                "character": 16
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "id": "1"
+    },
+    "symbolMeta": {
+        "name": "T",
+        "flags": 262144,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 29
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 30
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+
+const f = createField({a: "string"})
+> const f = createField({a: "string"})
+> f = createField({a: "string"})
+> f = createField({a: "string"})
+> f --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "a",
+                "flags": 33554436,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 13,
+                                    "character": 23
+                                },
+                                "end": {
+                                    "line": 13,
+                                    "character": 24
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "f",
+        "flags": 2,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 13,
+                            "character": 6
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 7
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "aliasSymbolMeta": {
+        "name": "MapField",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> createField({a: "string"})
+> createField --- {
+    "kind": "function",
+    "signatures": [
+        {
+            "symbolMeta": {
+                "name": "createField",
+                "flags": 16,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 17
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 28
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "kind": "object",
+                    "properties": [
+                        {
+                            "kind": "string_literal",
+                            "value": "string",
+                            "symbolMeta": {
+                                "name": "a",
+                                "flags": 33554436,
+                                "declarations": [
+                                    {
+                                        "location": {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 13,
+                                                    "character": 23
+                                                },
+                                                "end": {
+                                                    "line": 13,
+                                                    "character": 24
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "5"
+                        }
+                    ],
+                    "indexInfos": [],
+                    "symbolMeta": {
+                        "name": "data",
+                        "flags": 33554433,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 52
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 56
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "4"
+                }
+            ],
+            "returnType": {
+                "kind": "object",
+                "properties": [
+                    {
+                        "kind": "primitive",
+                        "primitive": "string",
+                        "symbolMeta": {
+                            "name": "a",
+                            "flags": 33554436,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 13,
+                                                "character": 23
+                                            },
+                                            "end": {
+                                                "line": 13,
+                                                "character": 24
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "7"
+                    }
+                ],
+                "indexInfos": [],
+                "symbolMeta": {
+                    "name": "__type",
+                    "flags": 2048,
+                    "anonymous": true,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 39
+                                    },
+                                    "end": {
+                                        "line": 9,
+                                        "character": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "aliasSymbolMeta": {
+                    "name": "MapField",
+                    "flags": 524288,
+                    "declarations": [
+                        {
+                            "location": {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 7,
+                                        "character": 13
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "id": "6"
+            },
+            "typeParameters": [
+                {
+                    "kind": "type_parameter",
+                    "baseConstraint": {
+                        "kind": "object",
+                        "properties": [],
+                        "indexInfos": [
+                            {
+                                "keyType": {
+                                    "kind": "primitive",
+                                    "primitive": "string",
+                                    "id": "12"
+                                },
+                                "type": {
+                                    "kind": "union",
+                                    "types": [
+                                        {
+                                            "kind": "string_literal",
+                                            "value": "string",
+                                            "id": "10"
+                                        },
+                                        {
+                                            "kind": "string_literal",
+                                            "value": "number",
+                                            "id": "11"
+                                        }
+                                    ],
+                                    "id": "9"
+                                }
+                            }
+                        ],
+                        "symbolMeta": {
+                            "name": "__type",
+                            "flags": 2048,
+                            "anonymous": true,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1576,
+                                                "character": 38
+                                            },
+                                            "end": {
+                                                "line": 1578,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "aliasSymbolMeta": {
+                            "name": "FieldFormat",
+                            "flags": 524288,
+                            "declarations": [
+                                {
+                                    "location": {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 5,
+                                                "character": 5
+                                            },
+                                            "end": {
+                                                "line": 5,
+                                                "character": 16
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "8"
+                    },
+                    "symbolMeta": {
+                        "name": "T",
+                        "flags": 262144,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 29
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "symbolMeta": {
+        "name": "createField",
+        "flags": 16,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 17
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 28
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "typeParameters": [
+        {
+            "kind": "reference",
+            "symbolMeta": {
+                "name": "T",
+                "flags": 262144,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 29
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "typeArguments": [
+        {
+            "kind": "object",
+            "properties": [
+                {
+                    "kind": "string_literal",
+                    "value": "string",
+                    "symbolMeta": {
+                        "name": "a",
+                        "flags": 33554436,
+                        "declarations": [
+                            {
+                                "location": {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 13,
+                                            "character": 23
+                                        },
+                                        "end": {
+                                            "line": 13,
+                                            "character": 24
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "id": "3"
+                }
+            ],
+            "indexInfos": [],
+            "symbolMeta": {
+                "name": "__object",
+                "flags": 4096,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 13,
+                                    "character": 22
+                                },
+                                "end": {
+                                    "line": 13,
+                                    "character": 35
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "2"
+        }
+    ],
+    "id": "0"
+}
+> {a: "string"}
+> {a: "string"}
+> a: "string"
+> a: "string"
+> a --- {
+    "kind": "string_literal",
+    "value": "string",
+    "symbolMeta": {
+        "name": "a",
+        "flags": 4,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 13,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 24
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+
+f.a
+> f.a --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "a",
+        "flags": 33554436,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 13,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 24
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> f --- {
+    "kind": "object",
+    "properties": [
+        {
+            "kind": "primitive",
+            "primitive": "string",
+            "symbolMeta": {
+                "name": "a",
+                "flags": 33554436,
+                "declarations": [
+                    {
+                        "location": {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 13,
+                                    "character": 23
+                                },
+                                "end": {
+                                    "line": 13,
+                                    "character": 24
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "id": "1"
+        }
+    ],
+    "indexInfos": [],
+    "symbolMeta": {
+        "name": "f",
+        "flags": 2,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 13,
+                            "character": 6
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 7
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "aliasSymbolMeta": {
+        "name": "MapField",
+        "flags": 524288,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 13
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}
+> a --- {
+    "kind": "primitive",
+    "primitive": "string",
+    "symbolMeta": {
+        "name": "a",
+        "flags": 33554436,
+        "declarations": [
+            {
+                "location": {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 13,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 24
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "id": "0"
+}

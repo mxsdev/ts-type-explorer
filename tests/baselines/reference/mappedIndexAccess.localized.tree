@@ -1,0 +1,4097 @@
+=== mappedIndexAccess.ts ===
+
+interface FieldVals {
+    string: string;
+    number: number
+}
+> FieldVals --- {
+    "kindText": "interface",
+    "kind": "interface",
+    "symbol": {
+        "name": "FieldVals",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 10
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 19
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 10
+                },
+                "end": {
+                    "line": 0,
+                    "character": 19
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "string",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 10
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 10
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "primitiveKind": "number",
+            "symbol": {
+                "name": "number",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 2,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 2,
+                                "character": 10
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 10
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
+> string: string;
+    number: number
+> string: string;
+> string --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "string",
+        "insideClassOrInterface": true,
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 1,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 1,
+                        "character": 10
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 1,
+                    "character": 4
+                },
+                "end": {
+                    "line": 1,
+                    "character": 10
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> number: number
+> number --- {
+    "kindText": "number",
+    "kind": "primitive",
+    "primitiveKind": "number",
+    "symbol": {
+        "name": "number",
+        "insideClassOrInterface": true,
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 2,
+                        "character": 4
+                    },
+                    "end": {
+                        "line": 2,
+                        "character": 10
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 2,
+                    "character": 4
+                },
+                "end": {
+                    "line": 2,
+                    "character": 10
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+
+type FieldFormat = Record<string, keyof FieldVals>
+> FieldFormat --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "FieldFormat",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 5,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 5,
+                        "character": 16
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 5,
+                    "character": 5
+                },
+                "end": {
+                    "line": 5,
+                    "character": 16
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "purpose": "index_type",
+                    "children": [],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "union",
+                    "kind": "union",
+                    "purpose": "index_value_type",
+                    "children": [
+                        {
+                            "kindText": "\"string\"",
+                            "kind": "string_literal",
+                            "children": [],
+                            "_id": "3"
+                        },
+                        {
+                            "kindText": "\"number\"",
+                            "kind": "string_literal",
+                            "children": [],
+                            "_id": "4"
+                        }
+                    ],
+                    "_id": "2"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
+> Record<string, keyof FieldVals>
+> Record --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "Record",
+        "locations": [
+            {
+                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                "range": {
+                    "start": {
+                        "line": 1576,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 1576,
+                        "character": 11
+                    }
+                }
+            }
+        ]
+    },
+    "typeArguments": [
+        {
+            "reference": "2"
+        },
+        {
+            "reference": "7"
+        }
+    ],
+    "locations": [
+        {
+            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+            "range": {
+                "start": {
+                    "line": 1576,
+                    "character": 5
+                },
+                "end": {
+                    "line": 1576,
+                    "character": 11
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type_parameter_list",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "K",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1576,
+                                        "character": 12
+                                    },
+                                    "end": {
+                                        "line": 1576,
+                                        "character": 13
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1576,
+                                    "character": 12
+                                },
+                                "end": {
+                                    "line": 1576,
+                                    "character": 13
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "parameter_value",
+                            "children": [],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "parameter_base_constraint",
+                            "children": [
+                                {
+                                    "reference": "2"
+                                },
+                                {
+                                    "kindText": "number",
+                                    "kind": "primitive",
+                                    "primitiveKind": "number",
+                                    "children": [],
+                                    "_id": "4"
+                                },
+                                {
+                                    "kindText": "symbol",
+                                    "kind": "primitive",
+                                    "primitiveKind": "essymbol",
+                                    "children": [],
+                                    "_id": "5"
+                                }
+                            ],
+                            "_id": "3"
+                        }
+                    ],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1576,
+                                        "character": 33
+                                    },
+                                    "end": {
+                                        "line": 1576,
+                                        "character": 34
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1576,
+                                    "character": 33
+                                },
+                                "end": {
+                                    "line": 1576,
+                                    "character": 34
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "parameter_value",
+                            "children": [
+                                {
+                                    "kindText": "\"string\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "8"
+                                },
+                                {
+                                    "kindText": "\"number\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "9"
+                                }
+                            ],
+                            "_id": "7"
+                        }
+                    ],
+                    "_id": "6"
+                }
+            ]
+        },
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "symbol": {
+                "name": "P",
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1577,
+                                "character": 5
+                            },
+                            "end": {
+                                "line": 1577,
+                                "character": 6
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                    "range": {
+                        "start": {
+                            "line": 1577,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 1577,
+                            "character": 6
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "P",
+                        "locations": [
+                            {
+                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 1577,
+                                        "character": 5
+                                    },
+                                    "end": {
+                                        "line": 1577,
+                                        "character": 6
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "purpose": "index_parameter_type",
+                    "locations": [
+                        {
+                            "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                            "range": {
+                                "start": {
+                                    "line": 1577,
+                                    "character": 5
+                                },
+                                "end": {
+                                    "line": 1577,
+                                    "character": 6
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "reference": "3"
+                        }
+                    ],
+                    "_id": "10"
+                },
+                {
+                    "reference": "1"
+                },
+                {
+                    "reference": "6"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
+> string, keyof FieldVals
+> keyof FieldVals
+> FieldVals
+> FieldVals --- {
+    "kindText": "interface",
+    "kind": "interface",
+    "symbol": {
+        "name": "FieldVals",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 10
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 19
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 10
+                },
+                "end": {
+                    "line": 0,
+                    "character": 19
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "string",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 10
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 10
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "primitiveKind": "number",
+            "symbol": {
+                "name": "number",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 2,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 2,
+                                "character": 10
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 10
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
+
+type MapField<T extends FieldFormat> = {
+    [K in keyof T]: FieldVals[T[K]]
+}
+> MapField --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "MapField",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 7,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 7,
+                        "character": 13
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 7,
+                    "character": 5
+                },
+                "end": {
+                    "line": 7,
+                    "character": 13
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type_parameter_list",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 14
+                                    },
+                                    "end": {
+                                        "line": 7,
+                                        "character": 15
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 15
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "object",
+                            "kind": "object",
+                            "alias": "FieldFormat",
+                            "symbol": {
+                                "name": "__type",
+                                "anonymous": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1576,
+                                                "character": 38
+                                            },
+                                            "end": {
+                                                "line": 1578,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "purpose": "parameter_base_constraint",
+                            "locations": [
+                                {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 5
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 16
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "index",
+                                    "kind": "index_info",
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "primitiveKind": "string",
+                                            "purpose": "index_type",
+                                            "children": [],
+                                            "_id": "3"
+                                        },
+                                        {
+                                            "kindText": "union",
+                                            "kind": "union",
+                                            "purpose": "index_value_type",
+                                            "children": [
+                                                {
+                                                    "kindText": "\"string\"",
+                                                    "kind": "string_literal",
+                                                    "children": [],
+                                                    "_id": "5"
+                                                },
+                                                {
+                                                    "kindText": "\"number\"",
+                                                    "kind": "string_literal",
+                                                    "children": [],
+                                                    "_id": "6"
+                                                }
+                                            ],
+                                            "_id": "4"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "_id": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "children": [
+                {
+                    "reference": "3"
+                },
+                {
+                    "kindText": "access",
+                    "kind": "indexed_access",
+                    "purpose": "index_value_type",
+                    "children": [
+                        {
+                            "kindText": "interface",
+                            "kind": "interface",
+                            "alias": "FieldVals",
+                            "purpose": "indexed_access_base",
+                            "locations": [
+                                {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 19
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "string",
+                                    "kind": "primitive",
+                                    "primitiveKind": "string",
+                                    "symbol": {
+                                        "name": "string",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "cases/mappedIndexAccess.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 1,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 1,
+                                                        "character": 10
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "character": 10
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [],
+                                    "_id": "9"
+                                },
+                                {
+                                    "kindText": "number",
+                                    "kind": "primitive",
+                                    "primitiveKind": "number",
+                                    "symbol": {
+                                        "name": "number",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "cases/mappedIndexAccess.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 2,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 2,
+                                                        "character": 10
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 2,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 2,
+                                                    "character": 10
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [],
+                                    "_id": "10"
+                                }
+                            ],
+                            "_id": "8"
+                        },
+                        {
+                            "kindText": "access",
+                            "kind": "indexed_access",
+                            "purpose": "indexed_access_index",
+                            "children": [
+                                {
+                                    "reference": "1"
+                                },
+                                {
+                                    "reference": "3"
+                                }
+                            ],
+                            "_id": "11"
+                        }
+                    ],
+                    "_id": "7"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
+> T extends FieldFormat
+> T extends FieldFormat
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 7,
+                        "character": 14
+                    },
+                    "end": {
+                        "line": 7,
+                        "character": 15
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 7,
+                    "character": 14
+                },
+                "end": {
+                    "line": 7,
+                    "character": 15
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "FieldFormat",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "parameter_base_constraint",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "index",
+                    "kind": "index_info",
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "index_type",
+                            "children": [],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "index_value_type",
+                            "children": [
+                                {
+                                    "kindText": "\"string\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "4"
+                                },
+                                {
+                                    "kindText": "\"number\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "5"
+                                }
+                            ],
+                            "_id": "3"
+                        }
+                    ]
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> FieldFormat
+> FieldFormat --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "FieldFormat",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 5,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 5,
+                        "character": 16
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 5,
+                    "character": 5
+                },
+                "end": {
+                    "line": 5,
+                    "character": 16
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "purpose": "index_type",
+                    "children": [],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "union",
+                    "kind": "union",
+                    "purpose": "index_value_type",
+                    "children": [
+                        {
+                            "kindText": "\"string\"",
+                            "kind": "string_literal",
+                            "children": [],
+                            "_id": "3"
+                        },
+                        {
+                            "kindText": "\"number\"",
+                            "kind": "string_literal",
+                            "children": [],
+                            "_id": "4"
+                        }
+                    ],
+                    "_id": "2"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
+> {
+    [K in keyof T]: FieldVals[T[K]]
+}
+> K in keyof T
+> K --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "symbol": {
+        "name": "K",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 8,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 8,
+                        "character": 6
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 8,
+                    "character": 5
+                },
+                "end": {
+                    "line": 8,
+                    "character": 6
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "union",
+            "kind": "union",
+            "purpose": "parameter_base_constraint",
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "children": [],
+                    "_id": "3"
+                },
+                {
+                    "kindText": "symbol",
+                    "kind": "primitive",
+                    "primitiveKind": "essymbol",
+                    "children": [],
+                    "_id": "4"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> keyof T
+> T
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 7,
+                        "character": 14
+                    },
+                    "end": {
+                        "line": 7,
+                        "character": 15
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 7,
+                    "character": 14
+                },
+                "end": {
+                    "line": 7,
+                    "character": 15
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "FieldFormat",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "parameter_base_constraint",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "index",
+                    "kind": "index_info",
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "index_type",
+                            "children": [],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "index_value_type",
+                            "children": [
+                                {
+                                    "kindText": "\"string\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "4"
+                                },
+                                {
+                                    "kindText": "\"number\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "5"
+                                }
+                            ],
+                            "_id": "3"
+                        }
+                    ]
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> FieldVals[T[K]]
+> FieldVals
+> FieldVals --- {
+    "kindText": "interface",
+    "kind": "interface",
+    "symbol": {
+        "name": "FieldVals",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 0,
+                        "character": 10
+                    },
+                    "end": {
+                        "line": 0,
+                        "character": 19
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 0,
+                    "character": 10
+                },
+                "end": {
+                    "line": 0,
+                    "character": 19
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "string",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 1,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 1,
+                                "character": 10
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 1,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 1,
+                            "character": 10
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        },
+        {
+            "kindText": "number",
+            "kind": "primitive",
+            "primitiveKind": "number",
+            "symbol": {
+                "name": "number",
+                "insideClassOrInterface": true,
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 2,
+                                "character": 4
+                            },
+                            "end": {
+                                "line": 2,
+                                "character": 10
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 2,
+                            "character": 4
+                        },
+                        "end": {
+                            "line": 2,
+                            "character": 10
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "2"
+        }
+    ],
+    "_id": "0"
+}
+> T[K]
+> T
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 7,
+                        "character": 14
+                    },
+                    "end": {
+                        "line": 7,
+                        "character": 15
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 7,
+                    "character": 14
+                },
+                "end": {
+                    "line": 7,
+                    "character": 15
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "FieldFormat",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "parameter_base_constraint",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "index",
+                    "kind": "index_info",
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "index_type",
+                            "children": [],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "index_value_type",
+                            "children": [
+                                {
+                                    "kindText": "\"string\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "4"
+                                },
+                                {
+                                    "kindText": "\"number\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "5"
+                                }
+                            ],
+                            "_id": "3"
+                        }
+                    ]
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> K
+> K --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "symbol": {
+        "name": "K",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 8,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 8,
+                        "character": 6
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 8,
+                    "character": 5
+                },
+                "end": {
+                    "line": 8,
+                    "character": 6
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "union",
+            "kind": "union",
+            "purpose": "parameter_base_constraint",
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "children": [],
+                    "_id": "2"
+                },
+                {
+                    "kindText": "number",
+                    "kind": "primitive",
+                    "primitiveKind": "number",
+                    "children": [],
+                    "_id": "3"
+                },
+                {
+                    "kindText": "symbol",
+                    "kind": "primitive",
+                    "primitiveKind": "essymbol",
+                    "children": [],
+                    "_id": "4"
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+
+declare function createField<T extends FieldFormat>(data: T): MapField<T>
+> function --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "createField",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 11,
+                        "character": 17
+                    },
+                    "end": {
+                        "line": 11,
+                        "character": 28
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 11,
+                    "character": 17
+                },
+                "end": {
+                    "line": 11,
+                    "character": 28
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type_parameter_list",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 11,
+                                        "character": 29
+                                    },
+                                    "end": {
+                                        "line": 11,
+                                        "character": 30
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 29
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "object",
+                            "kind": "object",
+                            "alias": "FieldFormat",
+                            "symbol": {
+                                "name": "__type",
+                                "anonymous": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1576,
+                                                "character": 38
+                                            },
+                                            "end": {
+                                                "line": 1578,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "purpose": "parameter_base_constraint",
+                            "locations": [
+                                {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 5
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 16
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "index",
+                                    "kind": "index_info",
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "primitiveKind": "string",
+                                            "purpose": "index_type",
+                                            "children": [],
+                                            "_id": "3"
+                                        },
+                                        {
+                                            "kindText": "union",
+                                            "kind": "union",
+                                            "purpose": "index_value_type",
+                                            "children": [
+                                                {
+                                                    "kindText": "\"string\"",
+                                                    "kind": "string_literal",
+                                                    "children": [],
+                                                    "_id": "5"
+                                                },
+                                                {
+                                                    "kindText": "\"number\"",
+                                                    "kind": "string_literal",
+                                                    "children": [],
+                                                    "_id": "6"
+                                                }
+                                            ],
+                                            "_id": "4"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "_id": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "type parameter",
+            "kind": "type_parameter",
+            "alias": "T",
+            "symbol": {
+                "name": "data",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 11,
+                                "character": 52
+                            },
+                            "end": {
+                                "line": 11,
+                                "character": 56
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 52
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 56
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "2"
+                }
+            ],
+            "_id": "7"
+        },
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "MapField",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 7,
+                                "character": 39
+                            },
+                            "end": {
+                                "line": 9,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "return",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 13
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "index",
+                    "kind": "index_info",
+                    "children": [
+                        {
+                            "reference": "3"
+                        },
+                        {
+                            "kindText": "access",
+                            "kind": "indexed_access",
+                            "purpose": "index_value_type",
+                            "children": [
+                                {
+                                    "kindText": "interface",
+                                    "kind": "interface",
+                                    "alias": "FieldVals",
+                                    "purpose": "indexed_access_base",
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 10
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 19
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "primitiveKind": "string",
+                                            "symbol": {
+                                                "name": "string",
+                                                "insideClassOrInterface": true,
+                                                "property": true,
+                                                "locations": [
+                                                    {
+                                                        "fileName": "cases/mappedIndexAccess.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 1,
+                                                                "character": 4
+                                                            },
+                                                            "end": {
+                                                                "line": 1,
+                                                                "character": 10
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "locations": [
+                                                {
+                                                    "fileName": "cases/mappedIndexAccess.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1,
+                                                            "character": 4
+                                                        },
+                                                        "end": {
+                                                            "line": 1,
+                                                            "character": 10
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "children": [],
+                                            "_id": "11"
+                                        },
+                                        {
+                                            "kindText": "number",
+                                            "kind": "primitive",
+                                            "primitiveKind": "number",
+                                            "symbol": {
+                                                "name": "number",
+                                                "insideClassOrInterface": true,
+                                                "property": true,
+                                                "locations": [
+                                                    {
+                                                        "fileName": "cases/mappedIndexAccess.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 2,
+                                                                "character": 4
+                                                            },
+                                                            "end": {
+                                                                "line": 2,
+                                                                "character": 10
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "locations": [
+                                                {
+                                                    "fileName": "cases/mappedIndexAccess.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 2,
+                                                            "character": 4
+                                                        },
+                                                        "end": {
+                                                            "line": 2,
+                                                            "character": 10
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "children": [],
+                                            "_id": "12"
+                                        }
+                                    ],
+                                    "_id": "10"
+                                },
+                                {
+                                    "kindText": "access",
+                                    "kind": "indexed_access",
+                                    "purpose": "indexed_access_index",
+                                    "children": [
+                                        {
+                                            "reference": "1"
+                                        },
+                                        {
+                                            "reference": "3"
+                                        }
+                                    ],
+                                    "_id": "13"
+                                }
+                            ],
+                            "_id": "9"
+                        }
+                    ]
+                }
+            ],
+            "_id": "8"
+        }
+    ],
+    "_id": "0"
+}
+> createField --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "createField",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 11,
+                        "character": 17
+                    },
+                    "end": {
+                        "line": 11,
+                        "character": 28
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 11,
+                    "character": 17
+                },
+                "end": {
+                    "line": 11,
+                    "character": 28
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type_parameter_list",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 11,
+                                        "character": 29
+                                    },
+                                    "end": {
+                                        "line": 11,
+                                        "character": 30
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 29
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "object",
+                            "kind": "object",
+                            "alias": "FieldFormat",
+                            "symbol": {
+                                "name": "__type",
+                                "anonymous": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1576,
+                                                "character": 38
+                                            },
+                                            "end": {
+                                                "line": 1578,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "purpose": "parameter_base_constraint",
+                            "locations": [
+                                {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 5
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 16
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "index",
+                                    "kind": "index_info",
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "primitiveKind": "string",
+                                            "purpose": "index_type",
+                                            "children": [],
+                                            "_id": "3"
+                                        },
+                                        {
+                                            "kindText": "union",
+                                            "kind": "union",
+                                            "purpose": "index_value_type",
+                                            "children": [
+                                                {
+                                                    "kindText": "\"string\"",
+                                                    "kind": "string_literal",
+                                                    "children": [],
+                                                    "_id": "5"
+                                                },
+                                                {
+                                                    "kindText": "\"number\"",
+                                                    "kind": "string_literal",
+                                                    "children": [],
+                                                    "_id": "6"
+                                                }
+                                            ],
+                                            "_id": "4"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "_id": "2"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "type parameter",
+            "kind": "type_parameter",
+            "alias": "T",
+            "symbol": {
+                "name": "data",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 11,
+                                "character": 52
+                            },
+                            "end": {
+                                "line": 11,
+                                "character": 56
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 52
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 56
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "reference": "2"
+                }
+            ],
+            "_id": "7"
+        },
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "MapField",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 7,
+                                "character": 39
+                            },
+                            "end": {
+                                "line": 9,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "return",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 13
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "index",
+                    "kind": "index_info",
+                    "children": [
+                        {
+                            "reference": "3"
+                        },
+                        {
+                            "kindText": "access",
+                            "kind": "indexed_access",
+                            "purpose": "index_value_type",
+                            "children": [
+                                {
+                                    "kindText": "interface",
+                                    "kind": "interface",
+                                    "alias": "FieldVals",
+                                    "purpose": "indexed_access_base",
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 0,
+                                                    "character": 10
+                                                },
+                                                "end": {
+                                                    "line": 0,
+                                                    "character": 19
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "primitiveKind": "string",
+                                            "symbol": {
+                                                "name": "string",
+                                                "insideClassOrInterface": true,
+                                                "property": true,
+                                                "locations": [
+                                                    {
+                                                        "fileName": "cases/mappedIndexAccess.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 1,
+                                                                "character": 4
+                                                            },
+                                                            "end": {
+                                                                "line": 1,
+                                                                "character": 10
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "locations": [
+                                                {
+                                                    "fileName": "cases/mappedIndexAccess.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 1,
+                                                            "character": 4
+                                                        },
+                                                        "end": {
+                                                            "line": 1,
+                                                            "character": 10
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "children": [],
+                                            "_id": "11"
+                                        },
+                                        {
+                                            "kindText": "number",
+                                            "kind": "primitive",
+                                            "primitiveKind": "number",
+                                            "symbol": {
+                                                "name": "number",
+                                                "insideClassOrInterface": true,
+                                                "property": true,
+                                                "locations": [
+                                                    {
+                                                        "fileName": "cases/mappedIndexAccess.ts",
+                                                        "range": {
+                                                            "start": {
+                                                                "line": 2,
+                                                                "character": 4
+                                                            },
+                                                            "end": {
+                                                                "line": 2,
+                                                                "character": 10
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "locations": [
+                                                {
+                                                    "fileName": "cases/mappedIndexAccess.ts",
+                                                    "range": {
+                                                        "start": {
+                                                            "line": 2,
+                                                            "character": 4
+                                                        },
+                                                        "end": {
+                                                            "line": 2,
+                                                            "character": 10
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "children": [],
+                                            "_id": "12"
+                                        }
+                                    ],
+                                    "_id": "10"
+                                },
+                                {
+                                    "kindText": "access",
+                                    "kind": "indexed_access",
+                                    "purpose": "indexed_access_index",
+                                    "children": [
+                                        {
+                                            "reference": "1"
+                                        },
+                                        {
+                                            "reference": "3"
+                                        }
+                                    ],
+                                    "_id": "13"
+                                }
+                            ],
+                            "_id": "9"
+                        }
+                    ]
+                }
+            ],
+            "_id": "8"
+        }
+    ],
+    "_id": "0"
+}
+> T extends FieldFormat
+> T extends FieldFormat
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 11,
+                        "character": 29
+                    },
+                    "end": {
+                        "line": 11,
+                        "character": 30
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 11,
+                    "character": 29
+                },
+                "end": {
+                    "line": 11,
+                    "character": 30
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "FieldFormat",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "parameter_base_constraint",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "index",
+                    "kind": "index_info",
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "index_type",
+                            "children": [],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "index_value_type",
+                            "children": [
+                                {
+                                    "kindText": "\"string\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "4"
+                                },
+                                {
+                                    "kindText": "\"number\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "5"
+                                }
+                            ],
+                            "_id": "3"
+                        }
+                    ]
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> FieldFormat
+> FieldFormat --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "FieldFormat",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 5,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 5,
+                        "character": 16
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 5,
+                    "character": 5
+                },
+                "end": {
+                    "line": 5,
+                    "character": 16
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "purpose": "index_type",
+                    "children": [],
+                    "_id": "1"
+                },
+                {
+                    "kindText": "union",
+                    "kind": "union",
+                    "purpose": "index_value_type",
+                    "children": [
+                        {
+                            "kindText": "\"string\"",
+                            "kind": "string_literal",
+                            "children": [],
+                            "_id": "3"
+                        },
+                        {
+                            "kindText": "\"number\"",
+                            "kind": "string_literal",
+                            "children": [],
+                            "_id": "4"
+                        }
+                    ],
+                    "_id": "2"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
+> data: T
+> data: T
+> data --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "alias": "T",
+    "symbol": {
+        "name": "data",
+        "isArgument": true,
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 11,
+                        "character": 52
+                    },
+                    "end": {
+                        "line": 11,
+                        "character": 56
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 11,
+                    "character": 52
+                },
+                "end": {
+                    "line": 11,
+                    "character": 56
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "FieldFormat",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "parameter_base_constraint",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "index",
+                    "kind": "index_info",
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "index_type",
+                            "children": [],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "index_value_type",
+                            "children": [
+                                {
+                                    "kindText": "\"string\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "4"
+                                },
+                                {
+                                    "kindText": "\"number\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "5"
+                                }
+                            ],
+                            "_id": "3"
+                        }
+                    ]
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> T
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 11,
+                        "character": 29
+                    },
+                    "end": {
+                        "line": 11,
+                        "character": 30
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 11,
+                    "character": 29
+                },
+                "end": {
+                    "line": 11,
+                    "character": 30
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "FieldFormat",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "parameter_base_constraint",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "index",
+                    "kind": "index_info",
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "index_type",
+                            "children": [],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "index_value_type",
+                            "children": [
+                                {
+                                    "kindText": "\"string\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "4"
+                                },
+                                {
+                                    "kindText": "\"number\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "5"
+                                }
+                            ],
+                            "_id": "3"
+                        }
+                    ]
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> MapField<T>
+> MapField --- {
+    "kindText": "object",
+    "kind": "object",
+    "symbol": {
+        "name": "MapField",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 7,
+                        "character": 5
+                    },
+                    "end": {
+                        "line": 7,
+                        "character": 13
+                    }
+                }
+            }
+        ]
+    },
+    "typeArguments": [
+        {
+            "reference": "2"
+        }
+    ],
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 7,
+                    "character": 5
+                },
+                "end": {
+                    "line": 7,
+                    "character": 13
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type_parameter_list",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 7,
+                                        "character": 14
+                                    },
+                                    "end": {
+                                        "line": 7,
+                                        "character": 15
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 7,
+                                    "character": 14
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "character": 15
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "type parameter",
+                            "kind": "type_parameter",
+                            "symbol": {
+                                "name": "T",
+                                "locations": [
+                                    {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 11,
+                                                "character": 29
+                                            },
+                                            "end": {
+                                                "line": 11,
+                                                "character": 30
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "purpose": "parameter_value",
+                            "locations": [
+                                {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 29
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 30
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "object",
+                                    "kind": "object",
+                                    "alias": "FieldFormat",
+                                    "symbol": {
+                                        "name": "__type",
+                                        "anonymous": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 1576,
+                                                        "character": 38
+                                                    },
+                                                    "end": {
+                                                        "line": 1578,
+                                                        "character": 1
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "purpose": "parameter_base_constraint",
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 5,
+                                                    "character": 5
+                                                },
+                                                "end": {
+                                                    "line": 5,
+                                                    "character": 16
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "kindText": "index",
+                                            "kind": "index_info",
+                                            "children": [
+                                                {
+                                                    "kindText": "string",
+                                                    "kind": "primitive",
+                                                    "primitiveKind": "string",
+                                                    "purpose": "index_type",
+                                                    "children": [],
+                                                    "_id": "4"
+                                                },
+                                                {
+                                                    "kindText": "union",
+                                                    "kind": "union",
+                                                    "purpose": "index_value_type",
+                                                    "children": [
+                                                        {
+                                                            "kindText": "\"string\"",
+                                                            "kind": "string_literal",
+                                                            "children": [],
+                                                            "_id": "6"
+                                                        },
+                                                        {
+                                                            "kindText": "\"number\"",
+                                                            "kind": "string_literal",
+                                                            "children": [],
+                                                            "_id": "7"
+                                                        }
+                                                    ],
+                                                    "_id": "5"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "_id": "3"
+                                }
+                            ],
+                            "_id": "2"
+                        },
+                        {
+                            "reference": "3"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "index",
+            "kind": "index_info",
+            "children": [
+                {
+                    "reference": "4"
+                },
+                {
+                    "kindText": "access",
+                    "kind": "indexed_access",
+                    "purpose": "index_value_type",
+                    "children": [
+                        {
+                            "kindText": "interface",
+                            "kind": "interface",
+                            "alias": "FieldVals",
+                            "purpose": "indexed_access_base",
+                            "locations": [
+                                {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 0,
+                                            "character": 10
+                                        },
+                                        "end": {
+                                            "line": 0,
+                                            "character": 19
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "string",
+                                    "kind": "primitive",
+                                    "primitiveKind": "string",
+                                    "symbol": {
+                                        "name": "string",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "cases/mappedIndexAccess.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 1,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 1,
+                                                        "character": 10
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 1,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 1,
+                                                    "character": 10
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [],
+                                    "_id": "10"
+                                },
+                                {
+                                    "kindText": "number",
+                                    "kind": "primitive",
+                                    "primitiveKind": "number",
+                                    "symbol": {
+                                        "name": "number",
+                                        "insideClassOrInterface": true,
+                                        "property": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "cases/mappedIndexAccess.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 2,
+                                                        "character": 4
+                                                    },
+                                                    "end": {
+                                                        "line": 2,
+                                                        "character": 10
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 2,
+                                                    "character": 4
+                                                },
+                                                "end": {
+                                                    "line": 2,
+                                                    "character": 10
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [],
+                                    "_id": "11"
+                                }
+                            ],
+                            "_id": "9"
+                        },
+                        {
+                            "kindText": "access",
+                            "kind": "indexed_access",
+                            "purpose": "indexed_access_index",
+                            "children": [
+                                {
+                                    "reference": "1"
+                                },
+                                {
+                                    "reference": "4"
+                                }
+                            ],
+                            "_id": "12"
+                        }
+                    ],
+                    "_id": "8"
+                }
+            ]
+        }
+    ],
+    "_id": "0"
+}
+> T
+> T
+> T --- {
+    "kindText": "type parameter",
+    "kind": "type_parameter",
+    "symbol": {
+        "name": "T",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 11,
+                        "character": 29
+                    },
+                    "end": {
+                        "line": 11,
+                        "character": 30
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 11,
+                    "character": 29
+                },
+                "end": {
+                    "line": 11,
+                    "character": 30
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "FieldFormat",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                        "range": {
+                            "start": {
+                                "line": 1576,
+                                "character": 38
+                            },
+                            "end": {
+                                "line": 1578,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "parameter_base_constraint",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 5,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 5,
+                            "character": 16
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "index",
+                    "kind": "index_info",
+                    "children": [
+                        {
+                            "kindText": "string",
+                            "kind": "primitive",
+                            "primitiveKind": "string",
+                            "purpose": "index_type",
+                            "children": [],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "union",
+                            "kind": "union",
+                            "purpose": "index_value_type",
+                            "children": [
+                                {
+                                    "kindText": "\"string\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "4"
+                                },
+                                {
+                                    "kindText": "\"number\"",
+                                    "kind": "string_literal",
+                                    "children": [],
+                                    "_id": "5"
+                                }
+                            ],
+                            "_id": "3"
+                        }
+                    ]
+                }
+            ],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+
+const f = createField({a: "string"})
+> const f = createField({a: "string"})
+> f = createField({a: "string"})
+> f = createField({a: "string"})
+> f --- {
+    "kindText": "object",
+    "kind": "object",
+    "alias": "MapField",
+    "symbol": {
+        "name": "f",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 13,
+                        "character": 6
+                    },
+                    "end": {
+                        "line": 13,
+                        "character": 7
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 7,
+                    "character": 5
+                },
+                "end": {
+                    "line": 7,
+                    "character": 13
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "a",
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 13,
+                                "character": 23
+                            },
+                            "end": {
+                                "line": 13,
+                                "character": 24
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 13,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 24
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> createField({a: "string"})
+> createField --- {
+    "kindText": "function",
+    "kind": "function",
+    "symbol": {
+        "name": "createField",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 11,
+                        "character": 17
+                    },
+                    "end": {
+                        "line": 11,
+                        "character": 28
+                    }
+                }
+            }
+        ]
+    },
+    "typeArguments": [
+        {
+            "reference": "2"
+        }
+    ],
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 11,
+                    "character": 17
+                },
+                "end": {
+                    "line": 11,
+                    "character": 28
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "purpose": "type_parameter_list",
+            "children": [
+                {
+                    "kindText": "type parameter",
+                    "kind": "type_parameter",
+                    "symbol": {
+                        "name": "T",
+                        "locations": [
+                            {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 11,
+                                        "character": 29
+                                    },
+                                    "end": {
+                                        "line": 11,
+                                        "character": 30
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 11,
+                                    "character": 29
+                                },
+                                "end": {
+                                    "line": 11,
+                                    "character": 30
+                                }
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "kindText": "object",
+                            "kind": "object",
+                            "symbol": {
+                                "name": "__object",
+                                "locations": [
+                                    {
+                                        "fileName": "cases/mappedIndexAccess.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 13,
+                                                "character": 22
+                                            },
+                                            "end": {
+                                                "line": 13,
+                                                "character": 35
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "purpose": "parameter_value",
+                            "locations": [
+                                {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 13,
+                                            "character": 22
+                                        },
+                                        "end": {
+                                            "line": 13,
+                                            "character": 35
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "\"string\"",
+                                    "kind": "string_literal",
+                                    "symbol": {
+                                        "name": "a",
+                                        "property": true,
+                                        "locations": [
+                                            {
+                                                "fileName": "cases/mappedIndexAccess.ts",
+                                                "range": {
+                                                    "start": {
+                                                        "line": 13,
+                                                        "character": 23
+                                                    },
+                                                    "end": {
+                                                        "line": 13,
+                                                        "character": 24
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "locations": [
+                                        {
+                                            "fileName": "cases/mappedIndexAccess.ts",
+                                            "range": {
+                                                "start": {
+                                                    "line": 13,
+                                                    "character": 23
+                                                },
+                                                "end": {
+                                                    "line": 13,
+                                                    "character": 24
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "children": [],
+                                    "_id": "3"
+                                }
+                            ],
+                            "_id": "2"
+                        },
+                        {
+                            "kindText": "object",
+                            "kind": "object",
+                            "alias": "FieldFormat",
+                            "symbol": {
+                                "name": "__type",
+                                "anonymous": true,
+                                "locations": [
+                                    {
+                                        "fileName": "../node_modules/typescript/lib/lib.es5.d.ts",
+                                        "range": {
+                                            "start": {
+                                                "line": 1576,
+                                                "character": 38
+                                            },
+                                            "end": {
+                                                "line": 1578,
+                                                "character": 1
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "purpose": "parameter_base_constraint",
+                            "locations": [
+                                {
+                                    "fileName": "cases/mappedIndexAccess.ts",
+                                    "range": {
+                                        "start": {
+                                            "line": 5,
+                                            "character": 5
+                                        },
+                                        "end": {
+                                            "line": 5,
+                                            "character": 16
+                                        }
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "kindText": "index",
+                                    "kind": "index_info",
+                                    "children": [
+                                        {
+                                            "kindText": "string",
+                                            "kind": "primitive",
+                                            "primitiveKind": "string",
+                                            "purpose": "index_type",
+                                            "children": [],
+                                            "_id": "5"
+                                        },
+                                        {
+                                            "kindText": "union",
+                                            "kind": "union",
+                                            "purpose": "index_value_type",
+                                            "children": [
+                                                {
+                                                    "kindText": "\"string\"",
+                                                    "kind": "string_literal",
+                                                    "children": [],
+                                                    "_id": "7"
+                                                },
+                                                {
+                                                    "kindText": "\"number\"",
+                                                    "kind": "string_literal",
+                                                    "children": [],
+                                                    "_id": "8"
+                                                }
+                                            ],
+                                            "_id": "6"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "_id": "4"
+                        }
+                    ],
+                    "_id": "1"
+                }
+            ]
+        },
+        {
+            "kindText": "object",
+            "kind": "object",
+            "symbol": {
+                "name": "data",
+                "isArgument": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 11,
+                                "character": 52
+                            },
+                            "end": {
+                                "line": 11,
+                                "character": 56
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 52
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 56
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "\"string\"",
+                    "kind": "string_literal",
+                    "symbol": {
+                        "name": "a",
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 13,
+                                        "character": 23
+                                    },
+                                    "end": {
+                                        "line": 13,
+                                        "character": 24
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 13,
+                                    "character": 23
+                                },
+                                "end": {
+                                    "line": 13,
+                                    "character": 24
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "10"
+                }
+            ],
+            "_id": "9"
+        },
+        {
+            "kindText": "object",
+            "kind": "object",
+            "alias": "MapField",
+            "symbol": {
+                "name": "__type",
+                "anonymous": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 7,
+                                "character": 39
+                            },
+                            "end": {
+                                "line": 9,
+                                "character": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "purpose": "return",
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 7,
+                            "character": 5
+                        },
+                        "end": {
+                            "line": 7,
+                            "character": 13
+                        }
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "kindText": "string",
+                    "kind": "primitive",
+                    "primitiveKind": "string",
+                    "symbol": {
+                        "name": "a",
+                        "property": true,
+                        "locations": [
+                            {
+                                "fileName": "cases/mappedIndexAccess.ts",
+                                "range": {
+                                    "start": {
+                                        "line": 13,
+                                        "character": 23
+                                    },
+                                    "end": {
+                                        "line": 13,
+                                        "character": 24
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "fileName": "cases/mappedIndexAccess.ts",
+                            "range": {
+                                "start": {
+                                    "line": 13,
+                                    "character": 23
+                                },
+                                "end": {
+                                    "line": 13,
+                                    "character": 24
+                                }
+                            }
+                        }
+                    ],
+                    "children": [],
+                    "_id": "12"
+                }
+            ],
+            "_id": "11"
+        }
+    ],
+    "_id": "0"
+}
+> {a: "string"}
+> {a: "string"}
+> a: "string"
+> a: "string"
+> a --- {
+    "kindText": "\"string\"",
+    "kind": "string_literal",
+    "symbol": {
+        "name": "a",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 13,
+                        "character": 23
+                    },
+                    "end": {
+                        "line": 13,
+                        "character": 24
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 13,
+                    "character": 23
+                },
+                "end": {
+                    "line": 13,
+                    "character": 24
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+
+f.a
+> f.a --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "a",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 13,
+                        "character": 23
+                    },
+                    "end": {
+                        "line": 13,
+                        "character": 24
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 13,
+                    "character": 23
+                },
+                "end": {
+                    "line": 13,
+                    "character": 24
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
+> f --- {
+    "kindText": "object",
+    "kind": "object",
+    "alias": "MapField",
+    "symbol": {
+        "name": "f",
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 13,
+                        "character": 6
+                    },
+                    "end": {
+                        "line": 13,
+                        "character": 7
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 7,
+                    "character": 5
+                },
+                "end": {
+                    "line": 7,
+                    "character": 13
+                }
+            }
+        }
+    ],
+    "children": [
+        {
+            "kindText": "string",
+            "kind": "primitive",
+            "primitiveKind": "string",
+            "symbol": {
+                "name": "a",
+                "property": true,
+                "locations": [
+                    {
+                        "fileName": "cases/mappedIndexAccess.ts",
+                        "range": {
+                            "start": {
+                                "line": 13,
+                                "character": 23
+                            },
+                            "end": {
+                                "line": 13,
+                                "character": 24
+                            }
+                        }
+                    }
+                ]
+            },
+            "locations": [
+                {
+                    "fileName": "cases/mappedIndexAccess.ts",
+                    "range": {
+                        "start": {
+                            "line": 13,
+                            "character": 23
+                        },
+                        "end": {
+                            "line": 13,
+                            "character": 24
+                        }
+                    }
+                }
+            ],
+            "children": [],
+            "_id": "1"
+        }
+    ],
+    "_id": "0"
+}
+> a --- {
+    "kindText": "string",
+    "kind": "primitive",
+    "primitiveKind": "string",
+    "symbol": {
+        "name": "a",
+        "property": true,
+        "locations": [
+            {
+                "fileName": "cases/mappedIndexAccess.ts",
+                "range": {
+                    "start": {
+                        "line": 13,
+                        "character": 23
+                    },
+                    "end": {
+                        "line": 13,
+                        "character": 24
+                    }
+                }
+            }
+        ]
+    },
+    "locations": [
+        {
+            "fileName": "cases/mappedIndexAccess.ts",
+            "range": {
+                "start": {
+                    "line": 13,
+                    "character": 23
+                },
+                "end": {
+                    "line": 13,
+                    "character": 24
+                }
+            }
+        }
+    ],
+    "children": [],
+    "_id": "0"
+}
