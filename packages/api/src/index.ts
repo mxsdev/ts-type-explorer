@@ -35,6 +35,7 @@ export {
     TextRange,
     APIConfig,
     LocalizedTypeInfoOrError,
+    LocalizedTypeInfoError,
 } from "./types"
 export {
     LocalizedTypeInfo,

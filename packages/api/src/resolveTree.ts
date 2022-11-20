@@ -39,9 +39,10 @@ export class TypeInfoResolver {
         return this.localizeWorker(info).catch((e) => ({
             error: {
                 error: e as Error,
-                context: {
-                    info,
-                },
+                typeInfo: info,
+                // context: {
+                //     info,
+                // },
             },
         }))
     }
@@ -60,10 +61,7 @@ export class TypeInfoResolver {
         return this.localizeChildWorker(child, parentOrigin).catch((e) => ({
             error: {
                 error: e as Error,
-                context: {
-                    child,
-                    parentOrigin,
-                },
+                typeInfo: child.info,
             },
         }))
     }
