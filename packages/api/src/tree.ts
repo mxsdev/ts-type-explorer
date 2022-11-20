@@ -62,6 +62,7 @@ import {
     getSignaturesOfType,
     isClassOrInterfaceType,
     getAliasedSymbol,
+    getDescendantAtPosition,
 } from "./util"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
@@ -200,7 +201,7 @@ function _generateTypeTree(
         if (!ctx.seen?.has(id)) {
             // TODO: should probably support alias symbols as well
             const locations: SourceFileLocation[] = filterUndefined([
-                ...(getSymbolLocations(originalSymbol) ?? []),
+                ...(getRecoverableSymbolLocations(originalSymbol) ?? []),
             ])
 
             if (
@@ -692,6 +693,30 @@ function _generateTypeTree(
             return wrapSafe(filterUndefined)(
                 symbol?.getDeclarations()?.map(getDeclarationLocation)
             )
+        }
+
+        function getRecoverableSymbolLocations(symbol?: ts.Symbol) {
+            return getSymbolLocations(symbol)?.filter((location) => {
+                const sourceFile = tsCtx.program.getSourceFile(
+                    location.fileName
+                )
+
+                if (!sourceFile) return false
+
+                return (
+                    getNodeSymbol(
+                        tsCtx,
+                        getDescendantAtPosition(
+                            tsCtx,
+                            sourceFile,
+                            sourceFile.getPositionOfLineAndCharacter(
+                                location.range.start.line,
+                                location.range.start.character
+                            )
+                        )
+                    ) === originalSymbol
+                )
+            })
         }
 
         function getDeclarationLocation(declaration: ts.Declaration) {
