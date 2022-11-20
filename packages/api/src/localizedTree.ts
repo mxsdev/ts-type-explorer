@@ -20,8 +20,6 @@ import { getEmptyTypeId, pseudoBigIntToString } from "./util"
 import { SymbolFlags } from "./typescript"
 import { wrapSafe, isEmpty, isNonEmpty } from "./objectUtil"
 
-// TODO: optional param booleans can sometimes become undefined|true|false (should just be boolean)
-
 export function _localizeTypeInfo(
     info: TypeInfo,
     resolved: ResolvedArrayTypeInfo,
@@ -51,6 +49,8 @@ export function _localizeTypeInfo(
         (originalInfo.kind === "array" && originalInfo.readonly) ||
         (info.kind === "tuple" && info.readonly)
 
+    const typeArguments = info.typeArguments ?? opts.typeArguments
+
     const res: LocalizedTypeInfo = {
         kindText: getKind(info),
         kind: info.kind,
@@ -58,6 +58,9 @@ export function _localizeTypeInfo(
         alias: getAlias(info),
         symbol,
         purpose,
+        ...(isNonEmpty(typeArguments) && {
+            typeArguments: typeArguments.map((info) => ({ info })),
+        }),
         ...(isOptional && { optional: true }),
         ...(isRest && { rest: true }),
         ...(dimension && { dimension }),

@@ -1,9 +1,4 @@
-import {
-    clearConfigUpdates,
-    clearListeners,
-    focusTreeView,
-    initListeners,
-} from "../testLibrary"
+import { clearListeners, focusTreeView, initListeners } from "../testLibrary"
 
 import * as extension from "../../extension"
 
@@ -32,5 +27,4 @@ beforeEach(async () => {
 
 afterEach(async () => {
     clearListeners()
-    await clearConfigUpdates()
 })

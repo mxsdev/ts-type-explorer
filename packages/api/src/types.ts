@@ -294,6 +294,7 @@ export type LocalizedTypeInfo = {
      * Symbol info associated with this type, if any
      */
     symbol?: LocalizedSymbolInfo
+    typeArguments?: TypeInfoChildren
     /**
      * Resolved type name
      */

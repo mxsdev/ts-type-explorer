@@ -60,8 +60,9 @@ export function normalizeTypeTree(
 }
 
 type LocalizedTypeInfoWithId =
-    | (Omit<LocalizedTypeInfo, "children"> & {
+    | (Omit<LocalizedTypeInfo, "children" | "typeArguments"> & {
           children: LocalizedTypeInfoWithId[]
+          typeArguments?: LocalizedTypeInfoWithId[]
       })
     | { reference: TypeId }
 
@@ -86,16 +87,22 @@ export async function normalizeLocalizedTypeTree(
         }
     }
 
-    const children = await resolver
-        .localizeChildren(typeTree)
-        .then((localizedChildren) =>
+    const localizedTrees: LocalizedTypeInfo[][] = []
+
+    localizedTrees.push(await resolver.localizeChildren(typeTree))
+    localizedTrees.push(await resolver.localizeChildren(typeTree, true))
+
+    const [children, typeArguments] = await asyncMap(
+        localizedTrees,
+        (localizedChildren) =>
             asyncMap(localizedChildren, (c) =>
                 normalizeLocalizedTypeTree(c, resolver, context)
             )
-        )
+    )
 
     return {
         ...typeTree,
         children,
+        typeArguments: typeArguments.length > 0 ? typeArguments : undefined,
     }
 }

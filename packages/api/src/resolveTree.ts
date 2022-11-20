@@ -95,15 +95,17 @@ export class TypeInfoResolver {
     }
 
     async localizeChildren(
-        parent: LocalizedTypeInfo
+        parent: LocalizedTypeInfo,
+        typeArguments = false
     ): Promise<LocalizedTypeInfoOrError[]> {
         const parentOrigin = this.localizedInfoOrigin.get(parent)
         assert(parentOrigin)
 
+        const targets = !typeArguments ? parent.children : parent.typeArguments
+
         return await Promise.all(
-            parent.children?.map((child) =>
-                this.localizeChild(child, parentOrigin)
-            ) ?? []
+            targets?.map((child) => this.localizeChild(child, parentOrigin)) ??
+                []
         ).then(filterUndefined)
     }
 
