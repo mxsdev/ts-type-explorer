@@ -1,5 +1,11 @@
 import { LocalizedTypeInfo, localizePurpose } from "@ts-type-explorer/api"
-import { iconsEnabled, iconColorsEnabled, readonlyEnabled } from "../config"
+import {
+    iconsEnabled,
+    iconColorsEnabled,
+    readonlyEnabled,
+    descriptionTypeArgumentsEnabled,
+    descriptionTypeArgumentsMaxLength,
+} from "../config"
 import * as vscode from "vscode"
 
 const {
@@ -238,26 +244,35 @@ export function getDescriptionWithTypeArguments(
 ) {
     const parts = getDescriptionParts(info)
 
-    if (parts.alias) {
-        const args: string[] = []
+    if (descriptionTypeArgumentsEnabled.get()) {
+        if (parts.alias) {
+            const args: string[] = []
 
-        // TODO: configurable toggle here
-        for (const arg of resolvedTypeArguments) {
-            const { base, alias } = getDescriptionParts(arg)
+            for (const arg of resolvedTypeArguments) {
+                const { base, alias } = getDescriptionParts(arg)
 
-            let baseText = alias ?? base ?? "???"
+                let baseText = alias ?? base ?? "???"
 
-            if (arg.typeArguments && arg.typeArguments.length > 0) {
-                baseText += "<...>"
+                if (
+                    alias &&
+                    arg.typeArguments &&
+                    arg.typeArguments.length > 0
+                ) {
+                    baseText += "<...>"
+                }
+
+                args.push(baseText)
             }
 
-            args.push(baseText)
-        }
+            let argsText = args.join(", ")
 
-        const argsText = args.join(", ")
+            if (
+                argsText.length >
+                (descriptionTypeArgumentsMaxLength.get() ?? 10)
+            ) {
+                argsText = `...`
+            }
 
-        // TODO: make this configurable
-        if (argsText.length <= 10) {
             parts.alias += `<${argsText}>`
         }
     }
