@@ -1,7 +1,7 @@
 import path from "path"
 import { VscodeE2E } from "../util/vscodeE2e"
 
-describe("basic tests", () => {
+describe("array.ts", () => {
     it(
         "should identify variable",
         VscodeE2E.testFile(
