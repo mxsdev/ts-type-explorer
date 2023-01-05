@@ -18,12 +18,12 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build
         run: yarn build
-      - name: Run Tests
-        run: yarn test
       - name: Run E2E Tests
         uses: GabrielBB/xvfb-action@v1
         with:
-          run: yarn test
+          run: yarn test:vscode
+      - name: Run Tests
+        run: yarn test
 
   lint:
     runs-on: ubuntu-latest
