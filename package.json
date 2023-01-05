@@ -7,14 +7,15 @@
         "build": "tsc -b",
         "watch": "tsc -b --watch",
         "test": "mocha",
-        "test:vscode": "yarn workspace typescript-explorer test",
+        "test:vscode": "wdio run ./wdio.conf.ts",
         "baseline-accept": "ts-node ./scripts/acceptBaselines.ts",
         "lint": "eslint .",
         "format:check": "prettier --check .",
         "format": "prettier --write .",
         "prepare": "husky install",
         "version:bump": "lerna version --conventional-commits --skip-git",
-        "changelog:get": "ts-node ./scripts/changelog.ts"
+        "changelog:get": "ts-node ./scripts/changelog.ts",
+        "wdio": "wdio run ./wdio.conf.ts"
     },
     "workspaces": [
         "packages/*"
@@ -30,6 +31,10 @@
         "@types/react": "^18.0.24",
         "@typescript-eslint/eslint-plugin": "^5.40.1",
         "@typescript-eslint/parser": "^5.40.1",
+        "@wdio/cli": "^8.0.15",
+        "@wdio/local-runner": "^8.0.15",
+        "@wdio/mocha-framework": "^8.0.14",
+        "@wdio/spec-reporter": "^8.0.14",
         "eslint": "^8.26.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-import-resolver-typescript": "^3.5.2",
@@ -42,7 +47,8 @@
         "mocha": "^10.0.0",
         "prettier": "2.7.1",
         "ts-node": "^10.9.1",
-        "typescript": "^4.8.4"
+        "typescript": "^4.8.4",
+        "wdio-vscode-service": "^5.0.0"
     },
     "resolutions": {
         "@types/react": "^18.0.24"
