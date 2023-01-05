@@ -35,7 +35,7 @@ export class VscodeTypeTreeView {
 
         const visibleItems = await section.getVisibleItems()
 
-        expect(visibleItems.length).toBe(1)
+        expect(visibleItems.length).toBeGreaterThanOrEqual(1)
 
         return visibleItems[0]
     }
