@@ -1,5 +1,5 @@
 import path from "path"
-import { VscodeE2E } from "../util/vscodeE2e"
+import { VscodeE2E } from "../util/vscodeE2E"
 
 describe("array.ts", () => {
     it(
