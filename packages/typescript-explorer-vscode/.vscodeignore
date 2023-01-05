@@ -10,4 +10,3 @@ vsc-extension-quickstart.md
 **/*.ts
 test-resources/**
 scripts/**
-out/test/**
