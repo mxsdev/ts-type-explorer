@@ -24,8 +24,16 @@ export namespace VscodeE2E {
             })
     }
 
+    function testCasePath(fileName: string) {
+        return path.join(__dirname, "../../cases", fileName)
+    }
+
+    export function testCaseFile(fileName: string) {
+        return testFile(testCasePath(fileName))
+    }
+
     export function testCase(fileName: string) {
-        return testRoot(path.join(__dirname, "../../cases", fileName))
+        return testRoot(testCasePath(fileName))
     }
 
     function testRoot(file: string) {

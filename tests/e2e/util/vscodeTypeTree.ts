@@ -15,6 +15,31 @@ export class VscodeTypeTreeView {
         private view: SBView
     ) {}
 
+    async withLock(cb: () => Promise<void>) {
+        await (await this.lockButton()).click()
+        await cb()
+        await (await this.lockButton()).click()
+    }
+
+    private async lockButton() {
+        const titlePart = this.view.getTitlePart()
+
+        return await titlePart.action$$
+            .then((a) =>
+                Promise.all(
+                    a.map(async (el) => {
+                        const classes = await el.getAttribute("class")
+
+                        return classes.includes("codicon-lock") ||
+                            classes.includes("codicon-unlock")
+                            ? el
+                            : undefined
+                    })
+                )
+            )
+            .then((list) => list.find((x) => x)!)
+    }
+
     async waitRoot(label?: string) {
         this.browser.waitUntil(async () => {
             if (label === undefined) return true

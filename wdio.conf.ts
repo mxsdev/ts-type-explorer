@@ -12,7 +12,7 @@ export const config: Options.Testrunner = {
 
     specs: ["./tests/e2e/vscode/**/*.ts"],
     exclude: [],
-    maxInstances: 10,
+    maxInstances: 1,
     capabilities: [
         {
             browserName: "vscode",
