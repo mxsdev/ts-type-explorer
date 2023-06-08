@@ -196,7 +196,7 @@
         "viewsWelcome": [
             {
                 "view": "type-tree",
-                "contents": "To display type information here, open a TypeScript project and click on any variable or type.\n\nTo learn more, [read the docs](https://github.com/mxsdev/ts-type-explorer/blob/main/packages/typescript-explorer-vscode/README.md)!"
+                "contents": "To display type information here, open a TypeScript project and click on any variable or type.\n\nTo learn more, [read the docs](https://github.com/mxsdev/ts-type-explorer/blob/main/packages/typescript-explorer-vscode/README.md)!\n\nIf you have just installed TypeScript Explorer and it is not working, try reloading the window/restarting VSCode. If the issue persists, please [file an issue](https://github.com/mxsdev/ts-type-explorer/issues)."
             }
         ],
         "menus": {
