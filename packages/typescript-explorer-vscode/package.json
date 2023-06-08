@@ -193,6 +193,12 @@
                 }
             ]
         },
+        "viewsWelcome": [
+            {
+                "view": "type-tree",
+                "contents": "To display type information here, open a TypeScript project and click on any variable or type.\n\nTo learn more, [read the docs](https://github.com/mxsdev/ts-type-explorer/blob/main/packages/typescript-explorer-vscode/README.md)!"
+            }
+        ],
         "menus": {
             "view/title": [
                 {
