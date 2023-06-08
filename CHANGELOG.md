@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/mxsdev/ts-type-explorer/compare/v0.4.0...v0.4.2) (2023-06-08)
+
+### Bug Fixes
+
+-   add debug advice to welcome view ([a945b3e](https://github.com/mxsdev/ts-type-explorer/commit/a945b3e445a055a05035cd7b71ef5257b6c64db7))
+-   include welcome info in type tree view ([5b5021f](https://github.com/mxsdev/ts-type-explorer/commit/5b5021f2b0643a595cbfec3dd92f43b80a336105))
+
 ## [0.4.1](https://github.com/mxsdev/ts-type-explorer/compare/v0.4.0...v0.4.1) (2023-06-08)
 
 ### Bug Fixes
