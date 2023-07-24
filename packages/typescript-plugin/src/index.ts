@@ -49,10 +49,9 @@ function init(modules: {
         }
 
         proxy.getCompletionsAtPosition = function (...args) {
-            // triggerCharacter is "hijacked" with custom request information
-            const { triggerCharacter: possiblePayload } = args[2] ?? {}
+            const { triggerKind: possiblePayload } = args[2] ?? {}
 
-            if (!possiblePayload || typeof possiblePayload === "string") {
+            if (possiblePayload === undefined || typeof possiblePayload !== 'object') {
                 return info.languageService.getCompletionsAtPosition(...args)
             }
 

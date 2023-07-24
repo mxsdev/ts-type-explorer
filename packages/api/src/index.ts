@@ -42,6 +42,15 @@ export {
     TypePurpose,
     TypescriptContext,
     SourceFileTypescriptContext,
+    ExtensionTreeCollapsibleState, 
+    ExtensionTreeItemMeta, 
+    ExtensionTreeNode, 
+    ExtensionTreeSymbol,
+    ExtensionTreeChildrenUpdateInfo,
 } from "./types"
 export { TypeInfoResolver } from "./resolveTree"
 export { localizePurpose } from "./localization"
+export {
+    ExtensionTreeProviderImpl,
+    ExtensionTreeNodeImpl,
+} from "./extensionTree"

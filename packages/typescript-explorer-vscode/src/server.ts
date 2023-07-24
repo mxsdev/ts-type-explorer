@@ -38,10 +38,10 @@ async function customTypescriptRequest<Id extends CustomTypeScriptRequestId>(
         .executeCommand("typescript.tsserverRequest", "completionInfo", {
             ...toFileLocationRequestArgs(fileName, position),
             /**
-             * We override the "triggerCharacter" property here as a hack so
+             * We override the "triggerKind" property here as a hack so
              * that we can send custom commands to TSServer
              */
-            triggerCharacter: request,
+            triggerKind: request,
         })
         .then((val) => {
             if (!val) return undefined

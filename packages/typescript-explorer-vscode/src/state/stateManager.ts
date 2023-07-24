@@ -1,10 +1,11 @@
 import { TypeInfo } from "@ts-type-explorer/api"
 import * as vscode from "vscode"
-import { selectionEnabled } from "../config"
+import { descriptionTypeArgumentsEnabled, descriptionTypeArgumentsMaxLength, iconColorsEnabled, iconsEnabled, maxRecursionDepth, readonlyEnabled, selectionEnabled, showBaseClassInfo, showTypeParameterInfo } from "../config"
 import { getTypeTreeAtRange } from "../server"
 import { isDocumentSupported, logError, showError } from "../util"
 import { TypeTreeItem, TypeTreeProvider } from "../view/typeTreeView"
 import { ViewProviders } from "../view/views"
+import { ExtensionConfig } from "@ts-type-explorer/api/dist/types"
 
 export class StateManager {
     public typeTree: TypeInfo | undefined
@@ -174,5 +175,21 @@ export class StateManager {
                 showError("Error getting type information!")
                 logError("TypeTreeRequest error", e)
             })
+    }
+
+    getConfiguration(): ExtensionConfig {
+        return {
+            iconColorsEnabled: iconColorsEnabled.get(),
+            descriptionTypeArgumentsEnabled: descriptionTypeArgumentsEnabled.get(),
+            descriptionTypeArgumentsMaxLength: descriptionTypeArgumentsMaxLength.get() ?? 10,
+            iconsEnabled: iconsEnabled.get(),
+            metaTypeArgumentsInFunction: iconsEnabled.get(),
+            readonlyEnabled: readonlyEnabled.get(),
+            showBaseClassInfo: showBaseClassInfo.get(),
+            showTypeParameterInfo: showTypeParameterInfo.get(),
+            apiConfig: {
+                maxDepth: maxRecursionDepth.get() ?? 6
+            },
+        }
     }
 }

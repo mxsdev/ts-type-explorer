@@ -44,6 +44,21 @@ export class TypeInfoResolver {
         }))
     }
 
+    async localizeChildren(
+        parent: LocalizedTypeInfo,
+        typeArguments = false
+    ): Promise<LocalizedTypeInfoOrError[]> {
+        const parentOrigin = this.localizedInfoOrigin.get(parent)
+        assert(parentOrigin)
+
+        const targets = !typeArguments ? parent.children : parent.typeArguments
+
+        return await Promise.all(
+            targets?.map((child) => this.localizeChild(child, parentOrigin)) ??
+                []
+        ).then(filterUndefined)
+    }
+
     private async localizeWorker(info: TypeInfo) {
         return this.localizeTypeInfo(
             await this.resolveTypeReferenceOrArray(info),
@@ -87,21 +102,6 @@ export class TypeInfoResolver {
         )
 
         return this.localizeTypeInfo(resolvedInfo, info, opts)
-    }
-
-    async localizeChildren(
-        parent: LocalizedTypeInfo,
-        typeArguments = false
-    ): Promise<LocalizedTypeInfoOrError[]> {
-        const parentOrigin = this.localizedInfoOrigin.get(parent)
-        assert(parentOrigin)
-
-        const targets = !typeArguments ? parent.children : parent.typeArguments
-
-        return await Promise.all(
-            targets?.map((child) => this.localizeChild(child, parentOrigin)) ??
-                []
-        ).then(filterUndefined)
     }
 
     hasTypeInfo(info: TypeInfo): boolean {
@@ -245,6 +245,11 @@ export class TypeInfoResolver {
      * This is used by the test runner to identify circular paths.
      */
     debug(): this {
+        this.withIds()
+        return this
+    }
+
+    withIds(): this {
         this.includeIds = true
         return this
     }

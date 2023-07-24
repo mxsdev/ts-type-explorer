@@ -24,6 +24,7 @@
         "@emotion/react": "^11.10.5",
         "@emotion/styled": "^11.10.5",
         "@mui/material": "^5.10.13",
+        "@types/chai": "^4.3.5",
         "@types/fs-extra": "^9.0.13",
         "@types/glob": "^8.0.0",
         "@types/mocha": "^10.0.0",
@@ -35,6 +36,7 @@
         "@wdio/local-runner": "^8.0.15",
         "@wdio/mocha-framework": "^8.0.14",
         "@wdio/spec-reporter": "^8.0.14",
+        "chai": "^4.3.7",
         "eslint": "^8.26.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-import-resolver-typescript": "^3.5.2",
@@ -71,5 +73,9 @@
             "prettier --write --ignore-unknown"
         ],
         "**/!(*.ts)": "prettier --write --ignore-unknown"
+    },
+    "dependencies": {
+        "api": "^5.0.8",
+        "vscode-uri": "^3.0.7"
     }
 }

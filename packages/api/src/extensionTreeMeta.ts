@@ -3,45 +3,32 @@ import {
     LocalizedTypeInfoOrError,
     localizePurpose,
     LocalizedTypeInfoError,
-} from "@ts-type-explorer/api"
-import {
-    iconsEnabled,
-    iconColorsEnabled,
-    readonlyEnabled,
-    descriptionTypeArgumentsEnabled,
-    descriptionTypeArgumentsMaxLength,
-    metaTypeArgumentsInFunction,
-} from "../config"
+} from "./"
 import * as vscode from "vscode"
-import { logError } from "../util"
+import { ExtensionConfig, ExtensionMarkdown, ExtensionTreeCollapsibleState, ExtensionTreeItemContextValue, ExtensionTreeItemMeta, ExtensionTreeSymbol, TypeInfo } from "./types"
 
-const {
-    None: NoChildren,
-    Expanded,
-    Collapsed,
-} = vscode.TreeItemCollapsibleState
-
-type TypeTreeItemContextValue = "declared"
-
-type TypeTreeItemMeta = {
-    label: string
-    description?: string
-    contextValue?: TypeTreeItemContextValue
-    icon?: vscode.ThemeIcon
-    collapsibleState: vscode.TreeItemCollapsibleState
-    tooltip?: string | vscode.MarkdownString
-}
+const NoChildren: ExtensionTreeCollapsibleState = 'none'
+const Expanded: ExtensionTreeCollapsibleState = 'expanded'
+const Collapsed: ExtensionTreeCollapsibleState = 'collapsed'
 
 export function getMeta(
     info: LocalizedTypeInfoOrError,
-    depth: number
-): TypeTreeItemMeta {
+    depth: number,
+    extensionConfig: Partial<ExtensionConfig> = { },
+    logError?: (msg: string, error: Error, typeInfo: TypeInfo | undefined) => void,
+): ExtensionTreeItemMeta {
     if (info.error) {
         return getErrorMeta(info.error)
     }
 
+    const {
+      iconColorsEnabled = true,
+      iconsEnabled = true,
+      readonlyEnabled = false,
+    } = extensionConfig
+
     const label = getLabel(info)
-    const description = getDescription(info)
+    const description = getDescription(info, readonlyEnabled)
 
     const collapsibleState = getCollapsibleState()
 
@@ -49,7 +36,7 @@ export function getMeta(
         label,
         description,
         contextValue: getContextValue(),
-        icon: getIcon(),
+        symbol: getIcon(),
         collapsibleState,
     }
 
@@ -65,51 +52,52 @@ export function getMeta(
         return depth === 1 ? Expanded : Collapsed
     }
 
-    function getContextValue(): TypeTreeItemContextValue | undefined {
+    function getContextValue(): ExtensionTreeItemContextValue | undefined {
         return info.locations && info.locations.length > 0
             ? "declared"
             : undefined
     }
 
-    type IconId = [id: string, colorId?: string]
+    // type IconId = [id: string, colorId?: string]
 
-    function getIcon(): vscode.ThemeIcon | undefined {
-        if (!iconsEnabled.get()) {
+    function getIcon(): ExtensionTreeSymbol | undefined {
+        if (!iconsEnabled) {
             return undefined
         }
 
-        const iconIds = _getIcon()
-        if (!iconIds) {
-            return undefined
-        }
+        return _getIcon()
 
-        const [id] = iconIds
-        let [colorId] = iconIds
+        // const [id] = iconIds
+        // let [colorId] = iconIds
 
-        if (!iconColorsEnabled.get()) {
-            colorId = "icon.foreground"
-        }
+        // if (!iconColorsEnabled) {
+        //     colorId = "icon.foreground"
+        // }
 
-        return !colorId
-            ? new vscode.ThemeIcon(id)
-            : new vscode.ThemeIcon(id, new vscode.ThemeColor(colorId))
+        // return !colorId
+        //     ? new vscode.ThemeIcon(id)
+        //     : new vscode.ThemeIcon(id, new vscode.ThemeColor(colorId))
 
-        function _getIcon(): IconId | undefined {
+        function _getIcon(): ExtensionTreeSymbol | undefined {
             if (info.error) {
-                return ["error", "errorForeground"]
+                // return ["error", "errorForeground"]
+                return 'error'
             }
 
             if (info.symbol?.property) {
-                return ["symbol-field"]
+                // return ["symbol-field"]
+                return 'field'
             }
 
             if (info.symbol?.isArgument) {
-                return ["symbol-property"]
+                // return ["symbol-property"]
+                return 'property'
             }
 
             switch (info.purpose) {
                 case "class_constructor": {
-                    return ["symbol-constructor"]
+                    // return ["symbol-constructor"]
+                    return 'constructor'
                 }
             }
 
@@ -119,16 +107,19 @@ export function getMeta(
                         case "essymbol":
                         case "unique_symbol":
                         case "string": {
-                            return ["symbol-string"]
+                            // return ["symbol-string"]
+                            return 'string'
                         }
 
                         case "bigint":
                         case "number": {
-                            return ["symbol-numeric"]
+                            // return ["symbol-numeric"]
+                            return 'numeric'
                         }
 
                         case "boolean": {
-                            return ["symbol-boolean"]
+                            // return ["symbol-boolean"]
+                            return 'boolean'
                         }
 
                         case "unknown":
@@ -136,11 +127,13 @@ export function getMeta(
                         case "void":
                         case "undefined":
                         case "null": {
-                            return ["symbol-null"]
+                            // return ["symbol-null"]
+                            return 'null'
                         }
 
                         case "never": {
-                            return ["error", "symbolIcon.nullForeground"]
+                            // return ["error", "symbolIcon.nullForeground"]
+                            return 'never'
                         }
 
                         default: {
@@ -150,47 +143,57 @@ export function getMeta(
                 }
 
                 case "object": {
-                    return ["symbol-object"]
+                    // return ["symbol-object"]
+                    return 'object'
                 }
 
                 case "type_parameter": {
-                    return ["symbol-type-parameter"]
+                    // return ["symbol-type-parameter"]
+                    return 'type-parameter'
                 }
 
                 case "string_mapping":
                 case "template_literal":
                 case "string_literal": {
-                    return ["symbol-text"]
+                    // return ["symbol-text"]
+                    return 'text'
                 }
 
                 case "bigint_literal":
                 case "number_literal": {
-                    return ["symbol-number"]
+                    // return ["symbol-number"]
+                    return 'number'
                 }
 
                 case "boolean_literal": {
-                    return ["symbol-boolean"]
+                    // return ["symbol-boolean"]
+                    return 'boolean'
                 }
 
                 case "enum": {
-                    return ["symbol-enum"]
+                    // return ["symbol-enum"]
+                    return 'enum'
                 }
 
                 case "enum_literal": {
-                    return ["symbol-enum-member"]
+                    // return ["symbol-enum-member"]
+                    return 'enum-member'
                 }
 
                 case "tuple":
                 case "array": {
-                    return ["symbol-array"]
+                    // return ["symbol-array"]
+                    return 'array'
                 }
 
                 case "intrinsic": {
-                    return ["symbol-keyword"]
+                    // return ["symbol-keyword"]
+                    return 'keyword'
                 }
 
                 case "conditional": {
-                    return ["question", "symbolIcon.keywordForeground"]
+                    // return ["question", "symbolIcon.keywordForeground"]
+                    return 'condition'
                 }
 
                 /* case "max_depth": {
@@ -199,83 +202,106 @@ export function getMeta(
 
                 case "substitution":
                 case "non_primitive": {
-                    return ["symbol-misc"]
+                    // return ["symbol-misc"]
+                    return 'misc'
                 }
 
-                case "union":
+                case "union": {
+                    return 'union'
+                }
+
                 case "intersection": {
-                    return ["symbol-struct"]
+                    // return ["symbol-struct"]
+                    return 'intersection'
                 }
 
                 case "signature":
                 case "function": {
                     if (info.symbol?.insideClassOrInterface) {
-                        return ["symbol-method"]
+                        // return ["symbol-method"]
+                        return 'method'
                     }
 
-                    return ["symbol-function"]
+                    // return ["symbol-function"]
+                    return 'function'
                 }
 
                 case "interface": {
-                    return ["symbol-interface"]
+                    // return ["symbol-interface"]
+                    return 'interface'
                 }
 
                 case "namespace": {
-                    return ["symbol-namespace"]
+                    // return ["symbol-namespace"]
+                    return 'namespace'
                 }
 
                 case "module": {
-                    return ["symbol-module"]
+                    // return ["symbol-module"]
+                    return 'module'
                 }
 
                 case "class": {
-                    return ["symbol-class"]
+                    // return ["symbol-class"]
+                    return 'class'
                 }
 
                 case "index_info":
                 case "indexed_access":
                 case "index": {
-                    return ["key", "symbolIcon.keyForeground"]
+                    // return ["key", "symbolIcon.keyForeground"]
+                    return 'index'
                 }
             }
 
-            return ["symbol-misc"]
+            // return ["symbol-misc"]
+            return 'misc'
         }
     }
 
     function getErrorMeta({
         error,
         typeInfo,
-    }: LocalizedTypeInfoError): TypeTreeItemMeta {
+    }: LocalizedTypeInfoError): ExtensionTreeItemMeta {
         return {
             description: "<error>",
             label: typeInfo?.symbolMeta?.name ?? "",
             collapsibleState: NoChildren,
-            icon: getIcon(),
+            symbol: getIcon(),
             tooltip: getTooltip(),
             contextValue: getContextValue(),
         }
 
-        function getTooltip(): vscode.MarkdownString {
-            const tooltip = new vscode.MarkdownString()
+        function getTooltip(): ExtensionMarkdown {
+            // const tooltip = new vscode.MarkdownString()
+            const tooltip: ExtensionMarkdown = []
 
-            tooltip.appendText(`Error getting type info`)
-            tooltip.appendCodeblock(`${error.name}: ${error.message}`)
+            // tooltip.appendText(`Error getting type info`)
+            // tooltip.appendCodeblock(`${error.name}: ${error.message}`)
+
+            tooltip.push({ type: 'text', content: "Error getting type info" })
+            tooltip.push({ type: 'codeblock', content: `${error.name}: ${error.message}` })
 
             if (error.stack) {
-                tooltip.appendMarkdown(`# Stack`)
-                tooltip.appendCodeblock(error.stack)
+                // tooltip.appendMarkdown(`# Stack`)
+                // tooltip.appendCodeblock(error.stack)
+
+                tooltip.push({ type: 'markdown', content: "# Stack" })
+                tooltip.push({ type: 'codeblock', content: error.stack })
             }
 
             if (typeInfo) {
-                tooltip.appendMarkdown(`Type Tree`)
-                tooltip.appendCodeblock(
-                    JSON.stringify(typeInfo, undefined, 4),
-                    "json"
-                )
+                // tooltip.appendMarkdown(`Type Tree`)
+                // tooltip.appendCodeblock(
+                //     JSON.stringify(typeInfo, undefined, 4),
+                //     "json"
+                // )
+
+                tooltip.push({ type: 'markdown', content: "Type Tree"})
+                tooltip.push({ type: 'codeblock', content: JSON.stringify(typeInfo, undefined, 4), lang: "json" })
             }
 
-            logError("Error getting type info", error, typeInfo)
+            logError?.("Error getting type info", error, typeInfo)
 
             return tooltip
         }
@@ -298,26 +324,34 @@ type DescriptionParts = {
     readonly?: boolean
 }
 
-function getDescription(info: LocalizedTypeInfo) {
-    return descriptionPartsToString(getDescriptionParts(info))
+function getDescription(info: LocalizedTypeInfo, readonlyEnabled: boolean) {
+    return descriptionPartsToString(getDescriptionParts(info, readonlyEnabled))
 }
 
 export function getMetaWithTypeArguments(
     info: LocalizedTypeInfo,
-    resolvedTypeArguments: LocalizedTypeInfo[]
+    resolvedTypeArguments: LocalizedTypeInfo[],
+    extensionConfig?: Partial<ExtensionConfig>
 ):
     | {
-          label?: string
-          description?: string
+        label?: string
+        description?: string
       }
     | undefined {
-    const parts = getDescriptionParts(info)
+    const {
+      descriptionTypeArgumentsEnabled = true,
+      descriptionTypeArgumentsMaxLength = 10,
+      metaTypeArgumentsInFunction = false,
+      readonlyEnabled = false,
+    } = extensionConfig ?? { }
+      
+    const parts = getDescriptionParts(info, readonlyEnabled)
 
-    if (descriptionTypeArgumentsEnabled.get()) {
+    if (descriptionTypeArgumentsEnabled) {
         const args: string[] = []
 
         for (const arg of resolvedTypeArguments) {
-            const { base, alias } = getDescriptionParts(arg)
+            const { base, alias } = getDescriptionParts(arg, readonlyEnabled)
 
             let baseText = alias ?? base ?? "???"
 
@@ -330,13 +364,13 @@ export function getMetaWithTypeArguments(
 
         let argsText = args.join(", ")
 
-        if (argsText.length > (descriptionTypeArgumentsMaxLength.get() ?? 10)) {
+        if (argsText.length > (descriptionTypeArgumentsMaxLength ?? 10)) {
             argsText = `...`
         }
 
         const typeArgumentText = `<${argsText}>`
 
-        if (info.kind === "function" && metaTypeArgumentsInFunction.get()) {
+        if (info.kind === "function" && metaTypeArgumentsInFunction) {
             return {
                 label: getLabel(info) + typeArgumentText,
             }
@@ -354,7 +388,7 @@ export function getMetaWithTypeArguments(
     return undefined
 }
 
-function getDescriptionParts(info: LocalizedTypeInfo): DescriptionParts {
+function getDescriptionParts(info: LocalizedTypeInfo, readonlyEnabled: boolean): DescriptionParts {
     if (!info.kindText) {
         return {}
     }
@@ -378,7 +412,7 @@ function getDescriptionParts(info: LocalizedTypeInfo): DescriptionParts {
     return {
         alias: aliasDescription,
         base: baseDescription,
-        readonly: info.readonly && readonlyEnabled.get(),
+        readonly: info.readonly && readonlyEnabled,
     }
 }
 
@@ -458,3 +492,4 @@ function addDecorations(
 
     return text
 }
+

@@ -1,225 +1,92 @@
 /* eslint-disable @typescript-eslint/require-await */
 
 import {
-    LocalizedTypeInfo,
     LocalizedTypeInfoOrError,
-    TypeInfoResolver,
+    ExtensionTreeProviderImpl,
+    ExtensionTreeNodeImpl,
+    ExtensionTreeCollapsibleState, 
+    ExtensionTreeItemMeta, 
+    ExtensionTreeNode, 
+    SourceFileLocation,
+    ExtensionTreeSymbol,
 } from "@ts-type-explorer/api"
-import assert = require("assert")
 import * as vscode from "vscode"
-import { showTypeParameterInfo, showBaseClassInfo } from "../config"
-import { markdownDocumentation } from "../markdown"
 import { StateManager } from "../state/stateManager"
 import { logError, rangeFromLineAndCharacters, showError } from "../util"
 import { getQuickInfoAtLocation, getTypeTreeAtLocation } from "../server"
-import { getMetaWithTypeArguments, getMeta } from "./typeTreeViewLocalizer"
+import { ExtensionMarkdown, ExtensionTreeChildrenUpdateInfo } from "@ts-type-explorer/api/dist/types"
 
-export type TypeTreeChildrenUpdateInfo = {
-    parent: TypeTreeItem | undefined
-    children: TypeTreeItem[]
-}
+export class TypeTreeProvider extends ExtensionTreeProviderImpl<TypeTreeItem> implements vscode.TreeDataProvider<TypeTreeItem> {
+    private _onDidChangeTreeData = new vscode.EventEmitter<void | TypeTreeItem | TypeTreeItem[] | null | undefined>()
+    onDidChangeTreeData = this._onDidChangeTreeData.event
 
-export class TypeTreeProvider implements vscode.TreeDataProvider<TypeTreeItem> {
-    constructor(private stateManager: StateManager) {}
+    private _onDidGetChildren = new vscode.EventEmitter<ExtensionTreeChildrenUpdateInfo<TypeTreeItem>>()
+    onDidGetChildren = this._onDidGetChildren.event
 
-    private typeInfoResolver: TypeInfoResolver | undefined
-
-    private _onDidChangeTreeData: vscode.EventEmitter<
-        TypeTreeItem | undefined | null | void
-    > = new vscode.EventEmitter()
-    readonly onDidChangeTreeData: vscode.Event<
-        TypeTreeItem | undefined | null | void
-    > = this._onDidChangeTreeData.event
-
-    private _onDidGetChildren: vscode.EventEmitter<TypeTreeChildrenUpdateInfo> =
-        new vscode.EventEmitter()
-    readonly onDidGetChildren: vscode.Event<TypeTreeChildrenUpdateInfo> =
-        this._onDidGetChildren.event
-
-    refresh(): void {
-        this.typeInfoResolver = undefined
-        this._onDidChangeTreeData.fire()
+    protected _fireOnDidChangeTreeData(data: void | TypeTreeItem | TypeTreeItem[] | null | undefined): void {
+        this._onDidChangeTreeData.fire(data)
     }
 
-    async getTreeItem(element: TypeTreeItem) {
-        if (element.typeInfo.error) {
-            return element
-        }
+    protected _fireOnDidGetChildren(data: ExtensionTreeChildrenUpdateInfo<TypeTreeItem>): void {
+        this._onDidGetChildren.fire(data)
+    }
 
-        if (element.typeInfo.kind === "max_depth") {
-            element.tooltip = "max depth exceeded"
-        } else {
-            if (element.typeInfo.locations) {
-                for (const location of element.typeInfo.locations) {
-                    const { documentation, tags } =
-                        (await getQuickInfoAtLocation(location)) ?? {}
-
-                    if (documentation && documentation.length > 0) {
-                        element.tooltip = markdownDocumentation(
-                            documentation,
-                            tags ?? [],
-                            vscode.Uri.file(location.fileName)
-                        )
-                        break
-                    }
-                }
+    constructor(
+        private stateManager: StateManager
+    ) { 
+        super(
+            (typeInfo, parent) => new TypeTreeItem(typeInfo, this.stateManager, parent),
+            stateManager.getTypeTree.bind(stateManager),
+            getTypeTreeAtLocation,
+            getQuickInfoAtLocation,
+            (e, msg) => {
+                logError(e, msg)
+                showError(msg)
             }
+        )
+    }
 
-            if (
-                element.typeInfo.typeArguments &&
-                element.typeInfo.typeArguments.length > 0
-            ) {
-                const typeArguments = await this.localizeTypeInfoTypeArguments(
-                    element.typeInfo
-                )
-
-                const newMeta = getMetaWithTypeArguments(
-                    element.typeInfo,
-                    typeArguments
-                )
-
-                if (newMeta) {
-                    if (newMeta.description) {
-                        element.description = newMeta.description
-                    }
-
-                    if (newMeta.label) {
-                        element.label = newMeta.label
-                    }
-                }
-            }
-        }
-
+    getTreeItem(element: TypeTreeItem): vscode.TreeItem {
         return element
     }
 
-    async getChildren(element?: TypeTreeItem): Promise<TypeTreeItem[]> {
-        const children = await this.getChildrenWorker(element).catch((e) => {
-            logError(e, "Error getting children")
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
-            showError(e.message ?? "Error getting children")
-            return []
-        })
-
-        this._onDidGetChildren.fire({ parent: element, children })
-
-        return children
+    async getChildren(element?: TypeTreeItem | undefined): Promise<TypeTreeItem[]> {
+        const extensionConfig = this.stateManager.getConfiguration()
+        return await this.generateTree(element, extensionConfig)
     }
 
-    private async localizeTypeInfoChildren(
-        typeInfo: LocalizedTypeInfo,
-        typeArguments?: boolean
-    ) {
-        if (!this.typeInfoResolver?.hasLocalizedTypeInfo(typeInfo)) {
-            return []
-        }
-
-        return this.typeInfoResolver.localizeChildren(typeInfo, typeArguments)
+    async resolveTreeItem?(item: vscode.TreeItem, element: TypeTreeItem): Promise<vscode.TreeItem> {
+        const result = await this.resolveNode(element)
+        return result
     }
 
-    private async localizeTypeInfoTypeArguments(typeInfo: LocalizedTypeInfo) {
-        return this.localizeTypeInfoChildren(typeInfo, true)
-    }
-
-    private async getChildrenWorker(
-        element?: TypeTreeItem
-    ): Promise<TypeTreeItem[]> {
-        if (!element) {
-            const typeInfo = this.stateManager.getTypeTree()
-            if (!typeInfo) {
-                return []
-            }
-
-            this.typeInfoResolver = new TypeInfoResolver(getTypeTreeAtLocation)
-
-            const localizedTypeInfo = await this.typeInfoResolver.localize(
-                typeInfo
-            )
-
-            return [
-                this.createTypeNode(localizedTypeInfo, /* root */ undefined),
-            ]
-        } else {
-            const localizedChildren = await this.localizeTypeInfoChildren(
-                element.typeInfo
-            )
-
-            return localizedChildren
-                .map((info) => this.createTypeNode(info, element))
-                .filter(
-                    ({ typeInfo: { purpose } }) =>
-                        showTypeParameterInfo.get() ||
-                        !(
-                            purpose === "type_argument_list" ||
-                            purpose === "type_parameter_list"
-                        )
-                )
-                .filter(
-                    ({ typeInfo: { purpose } }) =>
-                        showBaseClassInfo.get() ||
-                        !(
-                            purpose === "class_base_type" ||
-                            purpose === "class_implementations" ||
-                            purpose === "object_class"
-                        )
-                )
-        }
-    }
-
-    createTypeNode(
-        typeInfo: LocalizedTypeInfoOrError,
-        parent: TypeTreeItem | undefined
-    ) {
-        return new TypeTreeItem(typeInfo, this, parent)
-    }
 }
 
-export class TypeTreeItem extends vscode.TreeItem {
-    protected depth: number
+export class TypeTreeItem extends vscode.TreeItem implements ExtensionTreeNode {
+    wrapped: ExtensionTreeNodeImpl<TypeTreeItem>
 
     constructor(
-        public typeInfo: LocalizedTypeInfoOrError,
-        private provider: TypeTreeProvider,
-        protected parent?: TypeTreeItem
+        typeInfo: LocalizedTypeInfoOrError, 
+        private stateManager: StateManager,
+        parent?: TypeTreeItem | undefined,
     ) {
-        const depth = (parent?.depth ?? 0) + 1
+        const wrapped = new ExtensionTreeNodeImpl(typeInfo, parent)
 
         const {
             label,
-            description,
-            contextValue,
-            icon,
             collapsibleState,
-            tooltip,
-        } = getMeta(typeInfo, depth)
+        } = wrapped.meta
 
-        super(label, collapsibleState)
+        super(label, convertCollapsibleState(collapsibleState))
 
-        this.depth = depth
-        this.description = description
-        this.contextValue = contextValue
-        this.iconPath = icon
-        this.tooltip = tooltip
+        this.wrapped = wrapped
+        
+        this.updateMeta()
     }
-
-    protected createTypeNode(typeInfo: LocalizedTypeInfo) {
-        return this.provider.createTypeNode(typeInfo, this)
-    }
-
-    private definitionIndex = 0
 
     goToDefinition() {
-        const locations = !this.typeInfo.error
-            ? this.typeInfo.locations
-            : this.typeInfo.error.typeInfo?.symbolMeta?.declarations?.map(
-                  ({ location }) => location
-              )
-
-        assert(locations && locations.length > 0, "Type has no locations!")
-
-        const location = locations[this.definitionIndex]
-        this.definitionIndex = (this.definitionIndex + 1) % locations.length
-
+        const location = this.getNextDefinition()
+        
         const args: [vscode.Uri, vscode.TextDocumentShowOptions] = [
             vscode.Uri.file(location.fileName),
             {
@@ -232,4 +99,128 @@ export class TypeTreeItem extends vscode.TreeItem {
 
         vscode.commands.executeCommand("vscode.open", ...args)
     }
+
+    get meta(): ExtensionTreeItemMeta {
+        return this.wrapped.meta
+    }
+
+    get typeInfo(): LocalizedTypeInfoOrError {
+        return this.wrapped.typeInfo
+    }
+
+    get depth(): number {
+        return this.wrapped.depth
+    }
+
+    getNextDefinition(): SourceFileLocation {
+        return this.wrapped.getNextDefinition()
+    }
+
+    updateMeta(meta?: Partial<ExtensionTreeItemMeta>): void {
+        if (meta) {
+            return this.wrapped.updateMeta(meta)
+        }
+        
+        const {
+            label,
+            description,
+            contextValue,
+            symbol,
+            collapsibleState,
+            tooltip,
+        } = this.wrapped.meta
+
+        const { iconColorsEnabled, iconsEnabled } = this.stateManager.getConfiguration()
+        
+        this.iconPath = iconsEnabled ? getSymbolIcon(symbol, iconColorsEnabled) : undefined
+        this.tooltip = convertMarkdownText(tooltip)
+
+        this.description = description
+        this.contextValue = contextValue
+        this.label = label
+        this.collapsibleState = convertCollapsibleState(collapsibleState)
+    }
+}
+
+const COLLAPSIBLE_STATE = {
+    none: vscode.TreeItemCollapsibleState.None,
+    expanded: vscode.TreeItemCollapsibleState.Expanded,
+    collapsed: vscode.TreeItemCollapsibleState.Collapsed,
+} as const
+
+function convertCollapsibleState(state: ExtensionTreeCollapsibleState): vscode.TreeItemCollapsibleState {
+    return COLLAPSIBLE_STATE[state]
+}
+
+function convertMarkdownText(markdownText: ExtensionMarkdown | string | undefined): vscode.MarkdownString | string | undefined {
+    if (typeof markdownText === 'string' || typeof markdownText === 'undefined') {
+        return markdownText
+    }
+
+    const result = new vscode.MarkdownString()
+    result.baseUri = markdownText.baseUri
+
+    for (const mdNode of markdownText) {
+        switch (mdNode.type) {
+            case 'codeblock': {
+                result.appendCodeblock(mdNode.content, mdNode.lang)
+            } break
+
+            case 'markdown': {
+                result.appendMarkdown(mdNode.content)
+            } break
+
+            case 'text': {
+                result.appendText(mdNode.content)
+            } break
+        }
+    }
+
+    return result
+}
+
+const VSCodeIconTable: Record<ExtensionTreeSymbol, [id: string, colorId?: string]> = {
+    error: ["error", "errorForeground"],
+    field: ["symbol-field"],
+    property: ["symbol-property"],
+    constructor: ["symbol-constructor"],
+    string: ["symbol-string"],
+    number: ["symbol-number"],
+    numeric: ["symbol-numeric"],
+    boolean: ["symbol-boolean"],
+    null: ["symbol-null"],
+    never: ["symbol-never"],
+    object: ["symbol-object"],
+    "type-parameter": ["symbol-type-parameter"],
+    text: ["symbol-text"],
+    enum: ["symbol-enum"],
+    "enum-member": ["symbol-enum-member"],
+    array: ["symbol-array"],
+    keyword: ["symbol-keyword"],
+    condition: ["question", "symbolIcon.keywordForeground"],
+    misc: ["symbol-misc"],
+    union: ["symbol-struct"],
+    intersection: ["symbol-struct"],
+    method: ["symbol-method"],
+    function: ["symbol-function"],
+    interface: ["symbol-interface"],
+    namespace: ["symbol-namespace"],
+    module: ["symbol-module"],
+    class: ["symbol-class"],
+    index: ["key", "symbolIcon.keyForeground"],
+}
+
+function getSymbolIcon(s: ExtensionTreeSymbol | undefined, iconColorsEnabled: boolean): vscode.ThemeIcon {
+    const iconIds = s ? VSCodeIconTable[s] : ["symbol-misc"]
+    
+    const [id] = iconIds
+    let [colorId] = iconIds
+
+    if (!iconColorsEnabled) {
+        colorId = "icon.foreground"
+    }
+
+    return !colorId
+        ? new vscode.ThemeIcon(id)
+        : new vscode.ThemeIcon(id, new vscode.ThemeColor(colorId))
 }

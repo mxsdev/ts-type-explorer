@@ -1,4 +1,5 @@
 import type * as ts from "typescript"
+import type * as vscode from "vscode"
 
 export interface APIConfig {
     maxDepth: number
@@ -442,3 +443,118 @@ export type ParameterInfo = {
     optional?: boolean
     isRest?: boolean
 }
+
+export type ExtensionConfig = {
+    iconsEnabled: boolean,
+    iconColorsEnabled: boolean,
+    readonlyEnabled: boolean,
+    descriptionTypeArgumentsEnabled: boolean,
+    descriptionTypeArgumentsMaxLength: number,
+    metaTypeArgumentsInFunction: boolean,
+    apiConfig: Partial<APIConfig>,
+
+    showTypeParameterInfo: boolean,
+    showBaseClassInfo: boolean,
+}
+
+export type ExtensionTreeSymbol =
+    | 'error'
+    | 'field'
+    | 'property'
+    | 'constructor'
+    | 'string'
+    | 'numeric'
+    | 'boolean'
+    | 'null'
+    | 'never'
+    | 'object'
+    | 'type-parameter'
+    | 'text'
+    | 'number'
+    | 'boolean'
+    | 'enum'
+    | 'enum-member'
+    | 'array'
+    | 'keyword'
+    | 'condition'
+    // | 'struct'
+    | 'union'
+    | 'intersection'
+    | 'method'
+    | 'function'
+    | 'interface'
+    | 'namespace'
+    | 'module'
+    | 'class'
+    | 'index'
+    | 'misc'
+
+type ExtensionMarkdownBlock = 
+    | {
+        type: 'text'
+        content: string
+    }
+    | {
+        type: 'codeblock'
+        content: string
+        lang?: string
+        metadata?: Record<string, string>
+    }
+    | {
+        type: 'markdown'
+        content: string,
+    }
+
+export type ExtensionMarkdown = ExtensionMarkdownBlock[] & { baseUri?: vscode.Uri }
+    
+export type ExtensionTreeItemContextValue = "declared"
+
+export type ExtensionTreeCollapsibleState = 'none' | 'collapsed' | 'expanded'
+
+export type ExtensionTreeItemMeta = {
+    label: string
+    description?: string
+    contextValue?: ExtensionTreeItemContextValue
+    symbol?: ExtensionTreeSymbol
+    collapsibleState: ExtensionTreeCollapsibleState
+    tooltip?: string | ExtensionMarkdown
+}
+
+type ProviderResult<T> = T | undefined | null | Promise<T | undefined | null>
+
+export type ExtensionTreeChildrenUpdateInfo<T extends ExtensionTreeNode> = {
+    parent: T | undefined
+    children: T[]
+}
+
+export interface ExtensionTreeProvider<T extends ExtensionTreeNode> {
+    onDidChangeTreeData?: vscode.Event<T | T[] | undefined | null | void>
+    onDidGetChildren?: vscode.Event<ExtensionTreeChildrenUpdateInfo<T>>
+
+    generateTree(element?: T): ProviderResult<T[]>
+    resolveNode(element: T): ProviderResult<T>;
+
+    // getTreeItem(element: T): TreeItem | Thenable<TreeItem>;
+}
+
+export interface ExtensionTreeNode {
+    readonly meta: ExtensionTreeItemMeta
+    typeInfo: LocalizedTypeInfoOrError
+
+    readonly depth: number
+
+    getNextDefinition(): SourceFileLocation
+
+    updateMeta(meta: Partial<ExtensionTreeItemMeta>): void
+
+    // updateTooltip(tooltip: string | ExtensionMarkdown): void
+    // updateDescription(description: string): void
+    // updateLabel(label: string): void
+}
+
+export type ExtensionTreeNodeConstructor<T extends ExtensionTreeNode> =
+    (
+        typeInfo: LocalizedTypeInfoOrError,
+        // provider: P,
+        parent?: T,
+    ) => T

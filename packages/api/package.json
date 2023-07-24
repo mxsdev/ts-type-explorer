@@ -6,5 +6,8 @@
     "license": "MIT",
     "devDependencies": {
         "typescript": "^4.8.4"
+    },
+    "dependencies": {
+        "vscode-uri": "^3.0.7"
     }
 }
