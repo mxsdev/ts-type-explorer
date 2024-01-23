@@ -1,5 +1,6 @@
 import * as vscode from "vscode"
-import type * as Proto from "typescript/lib/protocol"
+import * as ts from "typescript/lib/tsserverlibrary"
+
 import {
     CustomTypeScriptRequestId,
     CustomTypeScriptRequestOfId,
@@ -26,7 +27,7 @@ async function getQuickInfoAtPosition(
             "quickinfo-full",
             toFileLocationRequestArgs(fileName, position)
         )
-        .then((r) => (r as Proto.QuickInfoResponse).body)
+        .then((r) => (r as ts.server.protocol.QuickInfoResponse).body)
 }
 
 async function customTypescriptRequest<Id extends CustomTypeScriptRequestId>(
