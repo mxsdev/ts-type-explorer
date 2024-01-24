@@ -8,7 +8,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as vscode from "vscode"
-import * as ts from "typescript/lib/tsserverlibrary"
+import type * as ts from "typescript/lib/tsserverlibrary"
 
 export interface IFilePathToResourceConverter {
     /**
