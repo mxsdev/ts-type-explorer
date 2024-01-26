@@ -20,6 +20,7 @@ module.exports = {
         "**/.vscode-test/**",
         "packages/typescript-explorer-vscode/src/test/**",
         "scripts/**",
+        "packages/api/tsup.config.ts",
     ],
     root: true,
     rules: {

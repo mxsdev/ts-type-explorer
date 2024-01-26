@@ -1,5 +1,5 @@
 /* eslint-disable prefer-const */
-import * as assert from "assert"
+import assert from "assert"
 import type * as ts from "typescript"
 import { configDefaults } from "./config"
 import {
@@ -64,6 +64,7 @@ import {
     getAliasedSymbol,
     getDescendantAtPosition,
 } from "./util"
+import { getVueSourceFile } from "./vue"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
 
@@ -1021,17 +1022,44 @@ export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
 }
 
 export function getTypeInfoAtRange(
-    ctx: TypescriptContext,
+    ctx: TypescriptContext & { sourceFile?: ts.SourceFile },
     location: SourceFileLocation,
     apiConfig?: Partial<APIConfig>
 ) {
-    const sourceFile = ctx.program.getSourceFile(location.fileName)
-    if (!sourceFile) return undefined
+    let sourceFile: ts.SourceFile | undefined
 
-    const startPos = sourceFile.getPositionOfLineAndCharacter(
-        location.range.start.line,
-        location.range.start.character
-    )
+    let startPos = -1
+
+    const _sourceFile =
+        ctx.sourceFile || ctx.program.getSourceFile(location.fileName)
+
+    if (_sourceFile) {
+        startPos = _sourceFile.getPositionOfLineAndCharacter(
+            location.range.start.line,
+            location.range.start.character
+        )
+    }
+
+    if (location.fileName.endsWith(".vue")) {
+        const res = getVueSourceFile(
+            ctx.program,
+            ctx.ts,
+            location.fileName,
+            startPos
+        )
+
+        sourceFile = res.sourceFile
+
+        ctx.program = res.program
+
+        ctx.typeChecker = res.typeChecker
+
+        startPos = res.startPos
+    } else {
+        sourceFile = _sourceFile
+    }
+
+    if (!sourceFile) return undefined
 
     // TODO: integrate this
     //       getDescendantAtRange will probably need to be improved...
