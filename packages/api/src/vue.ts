@@ -1,9 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import * as path from "node:path"
 import type * as ts from "typescript/lib/tsserverlibrary"
-import { FileKind, forEachEmbeddedFile } from "@volar/language-core"
+import { type FileRegistry } from "@volar/language-core"
+import { proxyCreateProgram } from "@volar/typescript"
+import { createParsedCommandLine, createVueLanguage } from "@vue/language-core"
 import * as SourceMaps from "@volar/source-map"
-import { createProgram } from "vue-tsc"
+import { createFakeGlobalTypesHolder } from "vue-tsc"
+import { SourceFileLocation, TypescriptContext } from "./types"
+
+const windowsPathReg = /\\/g
 
 export function getVueComiler(currentDir: string) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires, import/no-extraneous-dependencies
@@ -14,66 +19,88 @@ export function getVueComiler(currentDir: string) {
     )) as typeof import("@vue/compiler-sfc")
 }
 
-const ensureTs = (filename: string) =>
-    filename.endsWith(".ts") || filename.endsWith(".tsx")
-        ? filename
-        : filename + ".ts"
-
-const ensureJs = (filename: string) =>
-    filename.endsWith(".js") || filename.endsWith(".jsx")
-        ? filename
-        : filename + ".js"
-
-let oldProgram: ReturnType<typeof createProgram>
+let oldProgram: ts.Program | undefined
 
 export function getVueSourceFile(
-    _program: ts.Program,
-    ts: typeof import("typescript/lib/tsserverlibrary"),
-    fileName: string,
-    _startPos: number
+    ctx: TypescriptContext,
+    location: SourceFileLocation,
+    startPos = -1
 ) {
+    const fileName = location.fileName
+
     const compilerOptions = {
-        ..._program.getCompilerOptions(),
+        rootDir: ctx.program.getCurrentDirectory(),
         sourceMap: true,
         declaration: true,
         emitDeclarationOnly: true,
+        allowNonTsExtensions: true,
     }
 
-    const host = ts.createCompilerHost(compilerOptions)
-    const program = createProgram({
+    const host = ctx.ts.createCompilerHost(compilerOptions)
+    const options: ts.CreateProgramOptions = {
         host,
-        rootNames: [
-            ..._program.getRootFileNames(),
-            fileName,
-            path.join(_program.getCurrentDirectory(), "__VLS_types.d.ts"),
-        ],
+        rootNames: [...ctx.program.getRootFileNames(), fileName],
         options: compilerOptions,
         oldProgram: oldProgram,
-    })
+    }
+
+    const fakeGlobalTypesHolder = createFakeGlobalTypesHolder(options)
+
+    const createProgram = proxyCreateProgram(
+        ctx.ts,
+        ctx.ts.createProgram,
+        [".vue"],
+        (ts, options) => {
+            const { configFilePath } = options.options
+            const vueOptions =
+                typeof configFilePath === "string"
+                    ? createParsedCommandLine(
+                          ts,
+                          ts.sys,
+                          configFilePath.replace(windowsPathReg, "/")
+                      ).vueOptions
+                    : {}
+            return [
+                createVueLanguage(
+                    ts,
+                    (id) => id,
+                    options.options,
+                    vueOptions,
+                    true,
+                    fakeGlobalTypesHolder?.replace(windowsPathReg, "/")
+                ),
+            ]
+        }
+    )
+    const program = createProgram(options)
 
     oldProgram = program
 
-    const vueCore = program.__vue.langaugeContext
-    const vFile =
-        vueCore.virtualFiles.getVirtualFile(fileName)[0]?.embeddedFiles[0]
+    const sourceFile = program.getSourceFile(fileName)
 
-    let startPos = -1
+    if (sourceFile) {
+        // @ts-expect-error TODO: need inject virtual files  https://github.com/volarjs/volar.js/blob/v2.0.0/packages/typescript/lib/node/proxyCreateProgram.ts#L131
+        if (program.files) {
+            // @ts-expect-error TODO
+            const vFile = (program.files as FileRegistry).get(fileName)
 
-    if (vFile) {
-        forEachEmbeddedFile(vFile, (embedded) => {
-            if (embedded.kind === FileKind.TypeScriptHostFile) {
-                const sourceMap = new SourceMaps.SourceMap(embedded.mappings)
-                startPos = sourceMap.toGeneratedOffset(_startPos)?.[0] || -1
+            if (
+                vFile?.generated?.code &&
+                vFile?.generated?.code.languageId === "vue"
+            ) {
+                const code = vFile?.generated?.code?.embeddedCodes[0]
+
+                const sourceMap = new SourceMaps.SourceMap(code.mappings)
+                startPos =
+                    (sourceMap.getGeneratedOffset(startPos)?.[0] || -1) +
+                    // https://github.com/volarjs/volar.js/blob/v2.0.0/packages/typescript/lib/node/proxyCreateProgram.ts#L84
+                    (vFile?.generated?.code?.snapshot?.getLength() || 0)
             }
-        })
+        }
     }
 
     return {
-        sourceFile:
-            program.getSourceFile(ensureTs(fileName)) ||
-            program.getSourceFile(ensureJs(fileName)),
-        program,
-        typeChecker: program.getTypeChecker(),
+        sourceFile,
         startPos,
     }
 }

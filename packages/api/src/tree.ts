@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
 import assert from "assert"
-import type * as ts from "typescript"
+import * as ts from "typescript"
 import { configDefaults } from "./config"
 import {
     wrapSafe,
@@ -1022,7 +1022,7 @@ export function getTypeInfoSymbols(info: TypeInfo): SymbolInfo[] {
 }
 
 export function getTypeInfoAtRange(
-    ctx: TypescriptContext & { sourceFile?: ts.SourceFile },
+    ctx: TypescriptContext,
     location: SourceFileLocation,
     apiConfig?: Partial<APIConfig>
 ) {
@@ -1030,8 +1030,7 @@ export function getTypeInfoAtRange(
 
     let startPos = -1
 
-    const _sourceFile =
-        ctx.sourceFile || ctx.program.getSourceFile(location.fileName)
+    const _sourceFile = ctx.program.getSourceFile(location.fileName)
 
     if (_sourceFile) {
         startPos = _sourceFile.getPositionOfLineAndCharacter(
@@ -1041,18 +1040,9 @@ export function getTypeInfoAtRange(
     }
 
     if (location.fileName.endsWith(".vue")) {
-        const res = getVueSourceFile(
-            ctx.program,
-            ctx.ts,
-            location.fileName,
-            startPos
-        )
+        const res = getVueSourceFile(ctx, location, startPos)
 
         sourceFile = res.sourceFile
-
-        ctx.program = res.program
-
-        ctx.typeChecker = res.typeChecker
 
         startPos = res.startPos
     } else {
@@ -1087,6 +1077,7 @@ export function getTypeInfoOfNode(
     }
 
     const symbolOrType = getSymbolOrTypeOfNode(ctx, node)
+
     if (!symbolOrType) return undefined
 
     return generateTypeTree(symbolOrType, ctx, apiConfig)

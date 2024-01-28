@@ -770,6 +770,7 @@ export function getDescendantAtRange(
         node: sourceFile,
         start: sourceFile.getStart(sourceFile),
     }
+
     searchDescendants(sourceFile)
     return bestMatch.node
 
