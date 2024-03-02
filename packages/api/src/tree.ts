@@ -64,7 +64,7 @@ import {
     getAliasedSymbol,
     getDescendantAtPosition,
 } from "./util"
-import { getVueSourceFile } from "./vue"
+import { getPositionOfLineAndCharacterForVue } from "./vue"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
 
@@ -1026,30 +1026,19 @@ export function getTypeInfoAtRange(
     location: SourceFileLocation,
     apiConfig?: Partial<APIConfig>
 ) {
-    let sourceFile: ts.SourceFile | undefined
-
-    let startPos = -1
-
-    const _sourceFile = ctx.program.getSourceFile(location.fileName)
-
-    if (_sourceFile) {
-        startPos = _sourceFile.getPositionOfLineAndCharacter(
-            location.range.start.line,
-            location.range.start.character
-        )
-    }
-
-    if (location.fileName.endsWith(".vue")) {
-        const res = getVueSourceFile(ctx, location, startPos)
-
-        sourceFile = res.sourceFile
-
-        startPos = res.startPos
-    } else {
-        sourceFile = _sourceFile
-    }
+    const sourceFile = ctx.program.getSourceFile(location.fileName)
 
     if (!sourceFile) return undefined
+
+    let startPos =
+        sourceFile.getPositionOfLineAndCharacter(
+            location.range.start.line,
+            location.range.start.character
+        ) || -1
+
+    if (location.fileName.endsWith(".vue")) {
+        startPos = getPositionOfLineAndCharacterForVue(ctx, location, startPos)
+    }
 
     // TODO: integrate this
     //       getDescendantAtRange will probably need to be improved...
