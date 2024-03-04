@@ -69,7 +69,10 @@ export function getPositionOfLineAndCharacterForVue(
         }
     )
 
-    if (!oldPrograme?.__volar__) {
+    // @ts-expect-error use `ctx.pargram` first
+    if (ctx.program?.__volar__) {
+        oldPrograme = ctx.program
+    } else if (!oldPrograme?.__volar__) {
         oldPrograme = createProgram(options) as VuePrograme
     }
 
@@ -94,8 +97,6 @@ export function getPositionOfLineAndCharacterForVue(
             }
         }
     }
-
-    ctx.typeChecker = oldPrograme.getTypeChecker()
 
     return startPos
 }
