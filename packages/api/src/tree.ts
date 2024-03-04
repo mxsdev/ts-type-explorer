@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
-import * as assert from "assert"
-import type * as ts from "typescript"
+import assert from "assert"
+import * as ts from "typescript"
 import { configDefaults } from "./config"
 import {
     wrapSafe,
@@ -64,6 +64,7 @@ import {
     getAliasedSymbol,
     getDescendantAtPosition,
 } from "./util"
+import { getPositionOfLineAndCharacterForVue } from "./vue"
 
 const maxDepthExceeded: TypeInfo = { kind: "max_depth", id: getEmptyTypeId() }
 
@@ -1026,12 +1027,18 @@ export function getTypeInfoAtRange(
     apiConfig?: Partial<APIConfig>
 ) {
     const sourceFile = ctx.program.getSourceFile(location.fileName)
+
     if (!sourceFile) return undefined
 
-    const startPos = sourceFile.getPositionOfLineAndCharacter(
-        location.range.start.line,
-        location.range.start.character
-    )
+    let startPos =
+        sourceFile.getPositionOfLineAndCharacter(
+            location.range.start.line,
+            location.range.start.character
+        ) || -1
+
+    if (location.fileName.endsWith(".vue")) {
+        startPos = getPositionOfLineAndCharacterForVue(ctx, location, startPos)
+    }
 
     // TODO: integrate this
     //       getDescendantAtRange will probably need to be improved...
@@ -1059,6 +1066,7 @@ export function getTypeInfoOfNode(
     }
 
     const symbolOrType = getSymbolOrTypeOfNode(ctx, node)
+
     if (!symbolOrType) return undefined
 
     return generateTypeTree(symbolOrType, ctx, apiConfig)
